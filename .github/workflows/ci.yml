@@ -1,0 +1,50 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  episodes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Episode packages
+        run: make episodes
+      - name: Artifact self-tests
+        run: make selftest
+      - name: Site builds (all posts, including scheduled)
+        working-directory: site
+        run: |
+          npm ci
+          SHOW_ALL=1 npm run build
+
+  decks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Archived v1 decks: structure, runtime walk, and shared design language in sync.
+      - run: python3 scripts/check-decks.py
+      - run: npm install jsdom@24.1.3 --no-save
+      - run: node scripts/drive-decks.js
+      - name: Design language is in sync
+        run: |
+          ./scripts/sync-design-language.sh
+          git diff --exit-code -- parts/02-benchmarking/ || {
+            echo "::error::Run ./scripts/sync-design-language.sh and commit the result."
+            exit 1
+          }

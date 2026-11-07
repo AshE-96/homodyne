@@ -1,0 +1,48 @@
+---
+import { render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { ui, formatDate, type Lang } from '../../../i18n';
+import { episodes, episodeUrl, posts, postSlug, postUrl, translationOf, type Post } from '../../../lib';
+
+export async function getStaticPaths() {
+  return (await posts()).map((post) => ({ params: { lang: post.data.lang, slug: postSlug(post) }, props: { post } }));
+}
+const { post } = Astro.props as { post: Post };
+const lang = post.data.lang as Lang;
+const t = ui[lang];
+const { Content } = await render(post);
+const twin = await translationOf(post);
+const ep = episodes.find((e) => e.hmd === post.data.hmd);
+const url = new URL(postUrl(post), Astro.site).href;
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.data.title, description: post.data.description,
+    datePublished: post.data.date.toISOString(), dateModified: (post.data.updated ?? post.data.date).toISOString(),
+    inLanguage: lang === 'fa' ? 'fa-IR' : 'en', mainEntityOfPage: url, keywords: post.data.tags.join(', '),
+    author: { '@type': 'Person', name: lang === 'fa' ? 'محمد' : 'Mohammad', url: new URL(`/${lang}/`, Astro.site).href },
+    publisher: { '@type': 'Organization', name: 'Homodyne', logo: { '@type': 'ImageObject', url: new URL('/favicon.png', Astro.site).href } },
+    image: new URL('/og-default.png', Astro.site).href,
+    citation: post.data.sources.map((s) => s.url) },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t.site, item: new URL(`/${lang}/`, Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: t.blog, item: new URL(`/${lang}/blog/`, Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: post.data.title, item: url } ] },
+];
+---
+<Base lang={lang} title={post.data.title} description={post.data.description} type="article"
+  alternate={twin ? postUrl(twin) : null} nav="blog" jsonld={jsonld}>
+  <article class="post">
+    <div class="eyebrow">{post.data.hmd} · {post.data.kind === 'companion' ? t.companion : t.deepDive}</div>
+    <h1>{post.data.title}</h1>
+    <p class="muted">{t.published}: {formatDate(post.data.date, lang)}
+      {ep && <> · <a href={episodeUrl(ep, lang)}>{ep[lang].title}</a></>}</p>
+    <Content />
+    {post.data.datasets.length > 0 && <>
+      <h2>{t.datasets}</h2>
+      <ul class="reflist">{post.data.datasets.map((d) => <li><a href={d.url}>{d.title}</a>{d.license && <span class="muted"> · {d.license}</span>}</li>)}</ul>
+    </>}
+    {post.data.sources.length > 0 && <>
+      <h2>{t.sources}</h2>
+      <ol class="reflist">{post.data.sources.map((s) => <li><a href={s.url}>{s.title}</a></li>)}</ol>
+    </>}
+  </article>
+</Base>

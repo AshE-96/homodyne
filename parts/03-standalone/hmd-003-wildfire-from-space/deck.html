@@ -1,0 +1,161 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homodyne HMD-003 · Wildfire from space — Recording Deck v5</title>
+<!-- Homodyne Recording Deck v5 · built from channel/season-01/deck-template.html (engine unchanged). One section per script beat. -->
+<style>
+:root{--paper:#F3F1EC;--ink:#16181B;--night:#111214;--amber:#E8A33D;--amber-ink:#975C08;--amber-night:#F0B45A;--line:#B9B4AA;--muted:#6B6A66}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:Arial,Tahoma,sans-serif}body{overflow:hidden}
+.frame{display:none;position:absolute;inset:0;padding:3.7vh 5vw 58px;background:var(--paper)}.frame.active{display:flex;flex-direction:column}
+.night{background:var(--night);color:var(--paper)}.night .muted{color:#9a988f}
+header,footer{font:12px monospace;letter-spacing:.1em;display:flex;justify-content:space-between;gap:20px}header{border-bottom:1px solid var(--line);padding-bottom:15px}
+footer{border-top:1px solid var(--line);padding-top:15px;letter-spacing:0;font-size:11px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.eyebrow{font:14px monospace;color:var(--amber-ink);margin-bottom:2vh}.night .eyebrow{color:var(--amber-night)}
+h1{font:clamp(28px,4.7vw,76px)/1.12 Georgia,serif;max-width:1250px;font-weight:400;letter-spacing:-.035em;margin:0 0 4vh}
+h1 em{font-style:normal;color:var(--amber-ink)}.night h1 em{color:var(--amber-night)}
+.sub{font-size:clamp(18px,2vw,31px);max-width:1000px;line-height:1.5;border-top:1px solid var(--line);padding-top:2vh;margin:0}
+.fa{direction:rtl;text-align:right;font:clamp(18px,1.9vw,30px)/1.7 Tahoma,Arial,sans-serif;max-width:1100px;margin:2vh 0 0 auto;color:var(--muted)}.night .fa{color:#bdbab1}
+.tag{font:14px/1.5 monospace;color:var(--amber-ink);margin:2vh 0 0}.night .tag{color:var(--amber-night)}
+.muted{color:var(--muted)}
+/* big single number */
+.stat b{display:block;font:clamp(80px,13vw,220px)/1 Georgia,serif;letter-spacing:-.04em}.stat span{font:clamp(16px,1.6vw,24px) monospace}
+/* two or three columns side by side */
+.cols{display:flex;gap:5vw}.cols>div{flex:1;border-top:1px solid var(--line);padding-top:2vh}.cols span{display:block;font:14px monospace}
+.cols b{display:block;font:clamp(35px,5vw,72px) Georgia,serif;margin-top:1vh}.cols small{font:20px Arial}.cols p{font-size:clamp(16px,1.6vw,22px);line-height:1.5}
+.cols .hi{border-top:3px solid var(--amber)}
+/* horizontal bars: style="--v:62" for 62% */
+.bars{display:flex;flex-direction:column;gap:2.2vh;max-width:1300px}.bars div{display:grid;grid-template-columns:14vw 1fr 7vw;align-items:center;gap:1.5vw;font:clamp(14px,1.4vw,20px) monospace}
+.bars i{display:block;height:3.4vh;background:var(--ink);width:calc(var(--v)*1%)}.night .bars i{background:var(--paper)}.bars .hi i{background:var(--amber)}
+/* terminal / code */
+.code{background:#1b1d20;color:#e9e6de;font:clamp(15px,1.5vw,22px)/1.65 monospace;padding:2.6vh 2vw;border-left:3px solid var(--amber);white-space:pre;overflow:hidden;max-width:1400px}
+.code .c{color:#8f8c84}.code .o{color:var(--amber-night)}
+/* row of cards; add class "hi" to the single highlighted card */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6vw}.cards>div{border:1px solid var(--line);padding:2.2vh 1.2vw;font-size:clamp(15px,1.5vw,22px);line-height:1.45}
+.cards>div b{display:block;font:13px monospace;letter-spacing:.08em;margin-bottom:1vh}.cards .hi{border:2px solid var(--amber)}.cards .off{opacity:.35}
+/* tokens / chips */
+.tokens{display:flex;flex-wrap:wrap;gap:.6vw}.tokens i{font:clamp(18px,2.2vw,32px) monospace;font-style:normal;border:1px solid #999;padding:.8vh .8vw}.tokens .hi{background:var(--amber);color:var(--ink)}.tokens .off{opacity:.4}
+/* source card */
+.source{border-left:3px solid var(--amber);padding:1vh 0 1vh 2vw;max-width:1200px}.source q{display:block;font:clamp(22px,2.6vw,40px)/1.35 Georgia,serif;quotes:none}.source cite{display:block;font:14px monospace;margin-top:2vh;font-style:normal}
+/* claim boundary card */
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:3vw;max-width:1400px}.boundary>div{border-top:1px solid var(--line);padding-top:2vh;font-size:clamp(17px,1.8vw,26px);line-height:1.5}
+.boundary b{display:block;font:13px monospace;letter-spacing:.1em;margin-bottom:1.5vh}.boundary .no b{color:var(--amber-ink)}.night .boundary .no b{color:var(--amber-night)}
+/* timeline / steps */
+.steps{display:flex;gap:0;max-width:1500px}.steps>div{flex:1;border-top:2px solid var(--line);padding:2vh 1vw 0 0;font-size:clamp(14px,1.4vw,20px);line-height:1.45}.steps>div b{display:block;font:13px monospace;margin-bottom:1vh}.steps .hi{border-top-color:var(--amber)}
+.notes{display:none;position:fixed;left:5vw;right:5vw;bottom:8vh;background:#fff7e5;color:#16181b;padding:20px;font:18px/1.8 Tahoma;max-height:40vh;overflow:auto;border:1px solid var(--amber-ink)}.show-notes .active .notes{display:block}
+nav{position:fixed;bottom:0;left:0;right:0;height:32px;background:#16181b;color:#eee;display:flex;align-items:center;justify-content:center;gap:12px;font:11px monospace;z-index:9}
+button{background:transparent;color:inherit;border:1px solid #555;border-radius:2px;padding:3px 10px;cursor:pointer}.hide-chrome nav,.hide-chrome .progress{display:none}
+.progress{height:2px;position:fixed;bottom:32px;left:0;background:var(--amber);z-index:10}
+@media(max-width:700px){header,footer{font-size:9px}h1{font-size:30px}.cols{flex-direction:column;gap:2vh}.bars div{grid-template-columns:24vw 1fr 12vw}.boundary{grid-template-columns:1fr}.code{font-size:12px}}
+.code.sm{font-size:clamp(11px,1.02vw,16px);white-space:pre}</style><body>
+<section class="frame night" id="beat-1" data-start="0" aria-label="Beat 1"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">01 / 15 · 00:00</div><h1>Elit forest, Mazandaran. <em>November 2025.</em></h1>
+<div class="cols"><div><span>WHERE</span><b>Elit</b><p>near Marzanabad, Chalus county · Hyrcanian forest (UNESCO-listed)</p></div><div class="hi"><span>HOW LONG</span><b>2+ <small>weeks</small></b><p>controlled once, flared again on 17 Nov 2025</p></div></div>
+<p class="tag">Iran International, 17 Nov 2025 · IQAir: fully contained by 25 Nov 2025</p>
+</main><footer>Archive footage must carry its own date and source<span>v5 · 2026-11-02</span></footer>
+<aside class="notes" dir="rtl"><strong>هوک · Story-Open</strong><p>فیلم آرشیوی تاریخ‌دار؛ بعد نقشهٔ تیره. پایان: «من محمدم، اینجا هومودینه.»</p><p>یک آتش واقعی در شمال ایران، و سؤالی که فقط داده جوابش را می‌دهد.</p></aside></section>
+
+<section class="frame night" id="beat-2" data-start="43" aria-label="Beat 2"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">02 / 15 · 00:43 · GUESS FIRST</div><h1>One hot dot. <em>Fire?</em> Factory? Sensor glitch?</h1>
+<div class="cards"><div><b>FALSE ALARM</b>We say "fire". It wasn't. A crew drives into a remote valley for nothing.</div><div class="hi"><b>MISS</b>We say "no fire". It was. A fire a few people could stop gets time to grow.</div></div>
+<p class="fa">هر نقطهٔ داغ سه توضیح ممکن دارد و هر اشتباه یک هزینه.</p>
+</main><footer>Same trade-off as HMD-002: wrong answer vs "I don't know"<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>یک نقطهٔ داغ</strong><p>دو ثانیه مکث برای حدس. پل به قسمت قبل.</p><p>هر نقطهٔ داغ سه توضیح ممکن دارد و هر اشتباه یک هزینه.</p></aside></section>
+
+<section class="frame paper" id="beat-3" data-start="106" aria-label="Beat 3"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">03 / 15 · 01:46 · SATELLITES SEE HEAT, NOT FLAMES</div><div class="stat"><b>≈ 14 ha</b><span>one VIIRS pixel ≈ 375 m × 375 m ≈ 20 football pitches · pixel size ≠ smallest detectable fire</span></div>
+<p class="fa">هر نقطه یعنی «جایی در این مربع، در لحظهٔ عبور ماهواره، داغ بود».</p>
+</main><footer>R13 · NASA FIRMS (VIIRS 375 m) · arithmetic: 375² m² = 14.06 ha<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>ماهواره گرما می‌بیند</strong><p>پیش از گفتن عدد بپرس «حدس بزن هر خانه چقدر است؟». زمین فوتبال حدود ۰٫۷ هکتار.</p><p>آتش کوچک و داغ هم کل خانه را روشن می‌کند؛ مکان دقیقش معلوم نیست.</p></aside></section>
+
+<section class="frame paper" id="beat-4" data-start="169" aria-label="Beat 4"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">04 / 15 · 02:49 · ONE ROW OF NASA FIRMS</div><div class="code sm"><span class="c">latitude,longitude,bright_ti4,scan,track,acq_date,acq_time,satellite,instrument,confidence,version,bright_ti5,frp,daynight</span>
+<span class="o">36.4210,51.3360</span>,349.1,0.43,0.38,<span class="o">2024-09-03,2200</span>,<span class="o">N</span>,VIIRS,<span class="o">h</span>,2,295.2,<span class="o">6.8</span>,N</div>
+<div class="steps"><div><b>LAT, LON</b>pixel centre, not the fire itself</div><div><b>DATE, TIME</b>UTC · Tehran = +03:30</div><div><b>SATELLITE</b>N = Suomi NPP · N20 = NOAA-20</div><div><b>CONFIDENCE</b>l · n · h</div><div class="hi"><b>FRP</b>fire radiative power, MW</div></div>
+<p class="tag">ILLUSTRATIVE row from artifact/sample_firms_ILLUSTRATIVE.csv · same layout as a FIRMS VIIRS CSV</p>
+</main><footer>R13 · firms.modaps.eosdis.nasa.gov<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>یک سطر از دادهٔ ناسا</strong><p>ستون‌ها را یکی‌یکی روشن کن. پایان قاب: CTA نرم.</p><p>هر نقطه یک سطر است: کجا، کِی، کدام ماهواره، با چه اطمینانی، با چه گرمایی.</p></aside></section>
+
+<section class="frame paper" id="beat-5" data-start="236" aria-label="Beat 5"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">05 / 15 · 03:56 · THE FIRST DOT IS NOT THE FIRE</div><div class="code sm"><span class="c">$ python3 artifact/firms_timeline.py --demo        # excerpt</span>
+!! ILLUSTRATIVE SAMPLE: synthetic rows for teaching, not FIRMS data !!
+rows in box/dates: 18 · kept: 15 · dropped below 'nominal': 3
+date          n  flagged  max FRP  bar
+2024-09-01    1        1      3.6  x
+2024-09-02    1        1      4.1  x
+2024-09-03    4        1      6.8  x###
+2024-09-04    7        1     18.9  x######
+2024-09-05    2        1      5.6  x#
+<span class="o">2024-09-01 22:04 01:34  N     nominal     3.6   36.531   51.468  near SITE-A (0.2 km); recurring (5 days)</span></div>
+<p class="tag">Real output of the script on ILLUSTRATIVE data (2 Nov 2026) · # unflagged · x flagged</p>
+</main><footer>artifact/firms_timeline.py · stdlib only<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>اولین نقطه، آتش نیست</strong><p>پیش از نشان دادن سطر آخر بپرس: «اولین نقطه شروع آتش است؟»</p><p>خط زمانی می‌گوید چه چیزی کِی دیده شد؛ اینکه چه بود، کار بعدی است.</p></aside></section>
+
+<section class="frame paper" id="beat-6" data-start="290" aria-label="Beat 6"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">06 / 15 · 04:50 · A CHIMNEY STAYS PUT</div><h1>Same spot, 5 nights in a row → <em>probably not</em> a spreading fire.</h1>
+<div class="cards"><div class="hi"><b>NEAR A LISTED SITE</b>Within 2 km of a site in your own list. Wrong when a real fire starts next to a factory.</div><div><b>RECURRING</b>Hot on 3+ different days within 0.5 km. Wrong when a fire smoulders in one place.</div><div><b>FIRMS "TYPE"</b>Some archive files: 2 = other static land source. Absent in near-real-time data.</div></div>
+<p class="fa">علامت یعنی «با احتیاط نگاه کن»، نه «پاکش کن».</p>
+</main><footer>Flags are heuristics in our script · SITE-A is ILLUSTRATIVE<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>دودکش سر جایش می‌ماند</strong><p>بی‌رول دودکش بی‌نام؛ هیچ تأسیسات واقعی را «منبع کاذب» نخوان.</p><p>هر داغی آتش نیست؛ ولی هر علامت «غیرآتش» هم درست نیست.</p></aside></section>
+
+<section class="frame paper" id="beat-7" data-start="353" aria-label="Beat 7"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">07 / 15 · 05:53 · STRICT OR SENSITIVE?</div><h1>Minimum confidence decides what counts as fire.</h1>
+<div class="bars"><div><span>low</span><i style="--v:100"></i><span>18</span></div><div><span>nominal</span><i style="--v:83"></i><span>15</span></div><div class="hi"><span>high</span><i style="--v:39"></i><span>7</span></div></div>
+<p class="tag">ILLUSTRATIVE · script output: "kept if threshold were:  low -> 18  nominal -> 15  high -> 7" · at "low", a weak dot at the later fire spot appears ~12 h earlier — and so does a weak daytime dot unrelated to fire</p>
+</main><footer>FIRMS: low-confidence daytime pixels are typically linked to sun glint<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>سخت‌گیر یا حساس؟</strong><p>اول بپرس «با فقط high چندتا می‌ماند؟» بعد ۷. پل به k قسمت قبل.</p><p>آستانهٔ اطمینان بین هشدار زودتر و هشدار بی‌دلیل یکی را انتخاب می‌کند.</p></aside></section>
+
+<section class="frame paper" id="beat-8" data-start="414" aria-label="Beat 8"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">08 / 15 · 06:54 · ELIT · ABAN 1404</div><h1 style="margin-bottom:3vh">How much burned? Official estimates differ <em>~20×</em>.</h1>
+<div class="bars"><div><span>Agriculture deputy</span><i style="--v:5"></i><span>~8 ha</span></div><div><span>Natural Resources</span><i style="--v:6"></i><span>~10 ha</span></div><div class="hi"><span>Environment deputy</span><i style="--v:100"></i><span>150–180 ha</span></div></div>
+<p class="tag">fires reported 10 Aban (1 Nov 2025) and again 24 Aban (15 Nov) · satellite timeline: next video · read FIRMS as "what the satellite saw at overpass"</p>
+</main><footer>Persian press, Nov 2025 (see sources.md) · NASA FIRMS for the follow-up<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>الیت: عددهایی که با هم نمی‌خوانند</strong><p>پیش از نمایش بپرس «چقدر سوخت؟». اگر کلید FIRMS پیش از ضبط رسید، این قاب را با خروجی واقعی عوض کن (دستور در یادداشت متن؛ کلید را نشان نده).</p><p>حتی برآوردهای رسمی از یک آتش با هم نمی‌خوانند؛ دادهٔ ماهواره‌ای یک روش ثابت و باز برای اندازه‌گیری است.</p></aside></section>
+
+<section class="frame night" id="beat-9" data-start="479" aria-label="Beat 9"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">09 / 15 · 07:59 · BUT ONE PART OF THIS MAP LIMPS</div><h1>No ground truth → no precision, <em>no recall</em>.</h1>
+<div class="tokens"><i>between overpasses</i><i>cloud</i><i>heavy smoke</i><i class="hi">tree canopy</i></div>
+<p class="tag">Why FIRMS may miss a fire: it started and ended between overpasses, or cloud, heavy smoke or tree canopy hid it</p>
+</main><footer>R13 · FIRMS alerts notes<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>[RE-HOOK]</strong><p>یک ثانیه سکوت. هیچ درصد دقتی نگو.</p><p>بدون حقیقت زمینی، فقط می‌گوییم ماهواره چه دید؛ نه اینکه چقدر درست دید.</p></aside></section>
+
+<section class="frame paper" id="beat-10" data-start="538" aria-label="Beat 10"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">10 / 15 · 08:58 · THE SILENT BREAKTHROUGH</div><div class="source"><q>FireSat can detect fires as small as 5 × 5 m — about two parking spaces.</q><cite>Earth Fire Alliance &amp; Muon Space · first operational FireSat imagery · 16 Sep 2026 (paraphrase)</cite></div>
+<div class="steps"><div><b>JUL 2026</b>3 satellites reach orbit (7 Jul)</div><div><b>~3 WEEKS LATER</b>first light over Dubbo, NSW</div><div><b>NEXT DAY</b>a single hotspot, Porto District, Portugal</div><div class="hi"><b>3 NIGHTS · 2 DAYS</b>5 views of one front, Big Grass Fire, Oregon–Idaho</div></div>
+<p class="tag">Official FireSat images only, shown separately · our map is FIRMS/VIIRS, not FireSat</p>
+</main><footer>R12 · earthfirealliance.org<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>پیشرفت بی‌سروصدا</strong><p>تصاویر رسمی در قاب سفید جدا. «این‌ها تصاویر رسمی خودشونه؛ نقشهٔ ما نیست.»</p><p>ماهواره‌هایی که مخصوص آتش ساخته شده‌اند، دیدن آتش‌های چندمتری را از مدار شروع کرده‌اند.</p></aside></section>
+
+<section class="frame paper" id="beat-11" data-start="600" aria-label="Beat 11"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">11 / 15 · 10:00 · WHERE THE AI IS</div><h1>The AI asks <em>our</em> question, every 5 m.</h1>
+<div class="cols"><div class="hi"><span>WAS IT HOT BEFORE?</span><b>past imagery</b><p>our script: "recurring"</p></div><div><span>WHAT IS NEARBY?</span><b>infrastructure</b><p>our script: "near SITE"</p></div><div><span>WHAT IS THE WEATHER?</span><b>local weather</b><p>not in our script</p></div></div>
+<p class="tag">Google, "A breakthrough in wildfire detection", 16 Sep 2024: the model compares each 5 × 5 m spot with previous imagery, plus nearby infrastructure and local weather</p>
+</main><footer>Google blog 2024 · our script is not FireSat<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>هوش مصنوعی همان سؤال ما را می‌پرسد</strong><p>R12 خودش دربارهٔ AI حرفی نمی‌زند؛ نقش AI را فقط به نقل از وبلاگ گوگل ۲۰۲۴ بگو.</p><p>کار هوش مصنوعی اینجا همان سؤال ماست، در مقیاس هر پنج متر از زمین.</p></aside></section>
+
+<section class="frame paper" id="beat-12" data-start="660" aria-label="Beat 12"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">12 / 15 · 11:00 · 20 MINUTES IS A TARGET, NOT TODAY</div>
+<div class="steps"><div class="hi"><b>END 2026</b>operational data ≥ 2× a day to early adopters</div><div><b>2028</b>global access expected</div><div><b>2029</b>hourly global revisit</div><div><b>EARLY 2030s</b>every 20 minutes</div></div>
+<p class="fa">آتش کوچک دیدنی شده است؛ «همه‌جا و هر بیست دقیقه» هنوز هدف است. دیدن آتش، خاموش‌کردنش نیست.</p>
+</main><footer>R12 · Earth Fire Alliance roadmap, 16 Sep 2026<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>بیست دقیقه، هدف است</strong><p>«امروز» قبل از مرحلهٔ اول.</p><p>آتش کوچک دیدنی شده است؛ «همه‌جا و هر بیست دقیقه» هنوز هدف است.</p></aside></section>
+
+<section class="frame paper" id="beat-13" data-start="713" aria-label="Beat 13"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">13 / 15 · 11:53 · CLAIM BOUNDARY</div>
+<div class="boundary"><div><b>THIS SHOWS</b>How to read a VIIRS hot-spot map · why a static heat source can look like fire · that FireSat, by its own report, imaged small fires from orbit.</div><div class="no"><b>THIS DOES NOT SHOW</b>That our map is FireSat · that every hot spot is a forest fire · how accurate VIIRS is in northern Iran · that satellites saw the Elit fire before people did · FireSat coverage over Iran today.</div></div>
+</main><footer>R12 · R13<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>مرز ادعا</strong><p>کمتر از ۴۵ ثانیه.</p><p>نقشه سرنخ می‌دهد؛ حکم، شاهد زمینی می‌خواهد.</p></aside></section>
+
+<section class="frame night" id="beat-14" data-start="758" aria-label="Beat 14"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">14 / 15 · 12:38 · THE ANSWER</div><h1>A hot spot is a <em>lead</em>, not a verdict.</h1>
+<div class="cols"><div><span>POSSIBLE NOW</span><b>5 × 5 m</b><p>purpose-built satellites have imaged fires this small</p></div><div class="hi"><span>IN OUR HANDS TODAY</span><b>375 m</b><p>VIIRS hot spots, a few passes a day</p></div></div>
+<p class="fa">تمرین: برنامه را برای منطقهٔ خودت اجرا کن. اولین نقطهٔ بدون علامت کِی بود؟ از کجا می‌دانی آتش بود؟</p>
+</main><footer>R12 · R13 · artifact/firms_timeline.py<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>جواب</strong><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>آتش کوچک دیدنی شده، اما هر نقطهٔ داغ را باید با شاهد خواند.</p></aside></section>
+
+<section class="frame paper" id="beat-15" data-start="805" aria-label="Beat 15"><header>HOMODYNE <span>SILENT BREAKTHROUGH / HMD-003</span></header><main>
+<div class="eyebrow">15 / 15 · 13:25 · NEXT · HMD-004</div><h1>Is the #1 model on the leaderboard <em>#1 for you</em>?</h1>
+<div class="bars"><div class="hi"><span>#1</span><i style="--v:92"></i><span>?</span></div><div><span>#2</span><i style="--v:90"></i><span>?</span></div><div><span>#3</span><i style="--v:88"></i><span>?</span></div></div>
+<p class="tag">Detection depends on the metric. So does a leaderboard.</p>
+</main><footer>Next episode · Benchmark Lab E02<span>v5</span></footer>
+<aside class="notes" dir="rtl"><strong>قسمت بعد</strong><p>End screen از ثانیهٔ ۱۰. بارها نمادین‌اند و عدد ندارند.</p><p>از سنجهٔ آتش به سنجهٔ جدول‌های رتبه‌بندی AI.</p></aside></section>
+
+<nav><button id="prev" aria-label="Previous">←</button><span id="counter"></span><button id="next" aria-label="Next">→</button><span>F fullscreen · H chrome · N presenter notes</span></nav><div class="progress"></div>
+<script>const frames=[...document.querySelectorAll('.frame')];let current=0;function show(n){current=Math.max(0,Math.min(frames.length-1,n));frames.forEach((f,i)=>f.classList.toggle('active',i===current));document.querySelector('#counter').textContent=(current+1)+' / '+frames.length;document.querySelector('.progress').style.width=((current+1)/frames.length*100)+'%';}document.querySelector('#next').onclick=()=>show(current+1);document.querySelector('#prev').onclick=()=>show(current-1);document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1);}if(e.key==='Home')show(0);if(e.key==='End')show(frames.length-1);if(e.key.toLowerCase()==='n')document.body.classList.toggle('show-notes');if(e.key.toLowerCase()==='h')document.body.classList.toggle('hide-chrome');if(e.key.toLowerCase()==='f'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen();}});show(0);</script></body></html>

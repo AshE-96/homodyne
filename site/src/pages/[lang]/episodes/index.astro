@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { ui, langs, type Lang } from '../../../i18n';
+import { episodes, episodeUrl } from '../../../lib';
+
+export const getStaticPaths = () => langs.map((lang) => ({ params: { lang } }));
+const lang = Astro.params.lang as Lang;
+const t = ui[lang];
+const other = lang === 'fa' ? 'en' : 'fa';
+---
+<Base lang={lang} title={t.episodes} description={t.tagline} alternate={`/${other}/episodes/`} nav="episodes">
+  <h1>{t.episodes}</h1>
+  <div class="grid">
+    {episodes.map((e) => (
+      <div class="card">
+        <span class="meta">{e.hmd} · {e.format}</span>
+        <h3><a href={episodeUrl(e, lang)}>{e[lang].title}</a></h3>
+        <p>{e[lang].summary}</p>
+      </div>
+    ))}
+  </div>
+</Base>

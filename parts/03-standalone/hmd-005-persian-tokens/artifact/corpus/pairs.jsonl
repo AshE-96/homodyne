@@ -1,0 +1,50 @@
+{"id": "chat-01", "domain": "chat", "fa": "سلام! امشب می‌آیی بریم شام بیرون؟", "en": "Hi! Are you coming out for dinner tonight?"}
+{"id": "chat-02", "domain": "chat", "fa": "ببخشید دیر جواب دادم، تمام روز جلسه داشتم.", "en": "Sorry for the late reply, I had meetings all day."}
+{"id": "chat-03", "domain": "chat", "fa": "می‌شود این متن را کوتاه‌تر و رسمی‌تر بنویسی؟", "en": "Can you rewrite this text shorter and more formal?"}
+{"id": "chat-04", "domain": "chat", "fa": "یک دستور پخت ساده برای قورمه‌سبزی می‌خواهم.", "en": "I want a simple recipe for ghormeh sabzi."}
+{"id": "chat-05", "domain": "chat", "fa": "فردا امتحان دارم و هنوز فصل سوم را نخوانده‌ام.", "en": "I have an exam tomorrow and I still haven't read chapter three."}
+{"id": "chat-06", "domain": "chat", "fa": "این ایمیل را برای استادم به انگلیسی ترجمه کن.", "en": "Translate this email into English for my professor."}
+{"id": "chat-07", "domain": "chat", "fa": "گوشی‌ام خیلی زود شارژ خالی می‌کند؛ چه کار کنم؟", "en": "My phone's battery drains very quickly; what should I do?"}
+{"id": "chat-08", "domain": "chat", "fa": "لطفاً سه پیشنهاد برای اسم یک کافه‌ی کوچک بده.", "en": "Please give me three name ideas for a small café."}
+{"id": "chat-09", "domain": "chat", "fa": "خسته نباشی! گزارش را خواندم و خیلی خوب بود.", "en": "Great work! I read the report and it was really good."}
+{"id": "chat-10", "domain": "chat", "fa": "بچه‌ها، جلسه‌ی فردا از ساعت ده به یازده منتقل شد.", "en": "Guys, tomorrow's meeting has moved from ten to eleven."}
+{"id": "news-01", "domain": "news", "fa": "بانک مرکزی اعلام کرد نرخ تورم ماهانه نسبت به ماه گذشته کاهش یافته است.", "en": "The central bank announced that the monthly inflation rate has decreased compared to last month."}
+{"id": "news-02", "domain": "news", "fa": "بارش‌های شدید در شمال کشور باعث بسته‌شدن چند جاده‌ی اصلی شد.", "en": "Heavy rainfall in the north of the country caused several main roads to close."}
+{"id": "news-03", "domain": "news", "fa": "پژوهشگران دانشگاه از روش تازه‌ای برای تشخیص زودهنگام بیماری پرده برداشتند.", "en": "University researchers unveiled a new method for the early detection of the disease."}
+{"id": "news-04", "domain": "news", "fa": "مسابقه‌ی دیشب با تساوی بدون گل به پایان رسید.", "en": "Last night's match ended in a goalless draw."}
+{"id": "news-05", "domain": "news", "fa": "وزارت آموزش و پرورش زمان آغاز سال تحصیلی جدید را اعلام کرد.", "en": "The Ministry of Education announced the start date of the new school year."}
+{"id": "news-06", "domain": "news", "fa": "قیمت بلیت هواپیما در تعطیلات نوروز افزایش چشمگیری داشته است.", "en": "Airline ticket prices have risen significantly during the Nowruz holidays."}
+{"id": "news-07", "domain": "news", "fa": "یک شرکت نوپا ابزاری برای ترجمه‌ی خودکار متن‌های حقوقی ساخته است.", "en": "A startup has built a tool for the automatic translation of legal texts."}
+{"id": "news-08", "domain": "news", "fa": "آلودگی هوا امروز به مرز هشدار رسید و مدرسه‌ها تعطیل شدند.", "en": "Air pollution reached the warning level today and schools were closed."}
+{"id": "howto-01", "domain": "howto", "fa": "برای ساختن یک رمز عبور قوی، از ترکیب حروف، عدد و نماد استفاده کن.", "en": "To create a strong password, use a mix of letters, numbers, and symbols."}
+{"id": "howto-02", "domain": "howto", "fa": "یادگیری ماشین شاخه‌ای از هوش مصنوعی است که از داده الگو یاد می‌گیرد.", "en": "Machine learning is a branch of artificial intelligence that learns patterns from data."}
+{"id": "howto-03", "domain": "howto", "fa": "قبل از امضای قرارداد، همه‌ی بندها را با دقت بخوان.", "en": "Before signing the contract, read every clause carefully."}
+{"id": "howto-04", "domain": "howto", "fa": "گلدان را جایی بگذار که نور غیرمستقیم بگیرد و هفته‌ای یک بار آبش بده.", "en": "Put the plant somewhere with indirect light and water it once a week."}
+{"id": "howto-05", "domain": "howto", "fa": "اگر برنامه بسته نمی‌شود، یک بار دستگاه را خاموش و روشن کن.", "en": "If the app won't close, turn the device off and on once."}
+{"id": "howto-06", "domain": "howto", "fa": "مدل‌های زبانی متن را به تکه‌های کوچکی به نام توکن تقسیم می‌کنند.", "en": "Language models split text into small pieces called tokens."}
+{"id": "support-01", "domain": "support", "fa": "سفارش من هنوز نرسیده؛ لطفاً وضعیت ارسال را بررسی کنید.", "en": "My order hasn't arrived yet; please check the shipping status."}
+{"id": "support-02", "domain": "support", "fa": "می‌خواهم اشتراکم را لغو کنم و هزینه‌ی ماه آخر را پس بگیرم.", "en": "I want to cancel my subscription and get a refund for the last month."}
+{"id": "support-03", "domain": "support", "fa": "رمز عبورم را فراموش کرده‌ام و ایمیل بازیابی به دستم نمی‌رسد.", "en": "I've forgotten my password and I'm not receiving the recovery email."}
+{"id": "support-04", "domain": "support", "fa": "این کفش‌ها یک سایز کوچک‌اند؛ امکان تعویض دارد؟", "en": "These shoes are one size too small; can I exchange them?"}
+{"id": "support-05", "domain": "support", "fa": "کیفیت صدای هدفون عالی است، اما باتری‌اش زود تمام می‌شود.", "en": "The headphones sound great, but the battery runs out quickly."}
+{"id": "support-06", "domain": "support", "fa": "لطفاً فاکتور رسمی را به نام شرکت صادر کنید.", "en": "Please issue the official invoice in the company's name."}
+{"id": "code-01", "domain": "code", "fa": "# اگر فایل وجود نداشت، یک فایل خالی بساز\nif not path.exists():\n    path.touch()", "en": "# If the file does not exist, create an empty file\nif not path.exists():\n    path.touch()"}
+{"id": "code-02", "domain": "code", "fa": "// تعداد تلاش‌های ناموفق را بشمار و بعد از سه بار قفل کن\nfailedAttempts += 1;", "en": "// Count failed attempts and lock after three tries\nfailedAttempts += 1;"}
+{"id": "code-03", "domain": "code", "fa": "def total(prices):\n    # جمع قیمت‌ها را بدون مالیات برمی‌گرداند\n    return sum(prices)", "en": "def total(prices):\n    # Returns the sum of prices without tax\n    return sum(prices)"}
+{"id": "code-04", "domain": "code", "fa": "# TODO: این بخش را بعداً سریع‌تر کن\nresult = slow_merge(a, b)", "en": "# TODO: make this part faster later\nresult = slow_merge(a, b)"}
+{"id": "code-05", "domain": "code", "fa": "-- همه‌ی کاربرانی که این ماه ثبت‌نام کرده‌اند\nSELECT id, name FROM users WHERE created_at >= '2026-10-01';", "en": "-- All users who signed up this month\nSELECT id, name FROM users WHERE created_at >= '2026-10-01';"}
+{"id": "code-06", "domain": "code", "fa": "/* این تابع تاریخ شمسی را به میلادی تبدیل می‌کند */\nfunction toGregorian(date) {", "en": "/* This function converts a Solar Hijri date to Gregorian */\nfunction toGregorian(date) {"}
+{"id": "num-01", "domain": "numbers", "fa": "جلسه ساعت ۱۴:۳۰ روز ۱۲ آبان برگزار می‌شود.", "en": "The meeting is at 14:30 on 12 Aban."}
+{"id": "num-02", "domain": "numbers", "fa": "قیمت این گوشی ۴۸٬۵۰۰٬۰۰۰ تومان است.", "en": "This phone costs 48,500,000 tomans."}
+{"id": "num-03", "domain": "numbers", "fa": "دمای هوا امروز بین ۱۸ تا ۲۶ درجه خواهد بود.", "en": "Today's temperature will be between 18 and 26 degrees."}
+{"id": "num-04", "domain": "numbers", "fa": "کد تأیید شما ۵۸۳۹۲۰ است و تا ۲ دقیقه اعتبار دارد.", "en": "Your verification code is 583920 and is valid for 2 minutes."}
+{"id": "num-05", "domain": "numbers", "fa": "نمره‌ی من در آزمون ۱۷٫۵ از ۲۰ شد.", "en": "My exam score was 17.5 out of 20."}
+{"id": "num-06", "domain": "numbers", "fa": "جمعیت شهر حدود ۱٫۲ میلیون نفر است و ۳۵ درصد آن زیر ۲۵ سال‌اند.", "en": "The city has about 1.2 million people, and 35 percent are under 25."}
+{"id": "num-07", "domain": "numbers", "fa": "شماره‌ی سفارش ۷۷۴۱۰۲۳ را برای پیگیری نگه دارید.", "en": "Keep order number 7741023 for tracking."}
+{"id": "num-08", "domain": "numbers", "fa": "از ۱۲۰ نفر شرکت‌کننده، ۹۴ نفر به سؤال اول جواب درست دادند.", "en": "Of the 120 participants, 94 answered the first question correctly."}
+{"id": "addr-01", "domain": "address", "fa": "تهران، خیابان ولیعصر، کوچه‌ی نسترن، پلاک ۱۴، واحد ۳", "en": "Tehran, Valiasr Street, Nastaran Alley, No. 14, Unit 3"}
+{"id": "addr-02", "domain": "address", "fa": "اصفهان، خیابان چهارباغ بالا، روبه‌روی پارک، ساختمان آفتاب، طبقه‌ی دوم", "en": "Isfahan, Upper Chaharbagh Street, opposite the park, Aftab Building, second floor"}
+{"id": "addr-03", "domain": "address", "fa": "شیراز، بلوار زند، نبش کوچه‌ی ۱۸، کد پستی ۷۱۳۴۸۵۶۹۲۱", "en": "Shiraz, Zand Boulevard, corner of Alley 18, postal code 7134856921"}
+{"id": "addr-04", "domain": "address", "fa": "مشهد، بلوار سجاد، خیابان بهار ۵، پلاک ۲۲", "en": "Mashhad, Sajjad Boulevard, Bahar 5 Street, No. 22"}
+{"id": "addr-05", "domain": "address", "fa": "تبریز، خیابان امام، بعد از چهارراه، جنب داروخانه", "en": "Tabriz, Imam Street, after the intersection, next to the pharmacy"}
+{"id": "addr-06", "domain": "address", "fa": "لطفاً بسته را به نگهبانی ساختمان تحویل دهید.", "en": "Please deliver the package to the building's security desk."}

@@ -1,0 +1,578 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   M2Lab — Benchmark Chapter · SHARED SCREEN LAYER
+   Implements M2Lab_Benchmark_Design_Language_v1.md (v1.1)
+
+   This file is the design language itself. All nine episode decks link to it,
+   so a change here changes the whole chapter — which is the point: episodes
+   are supposed to share one visual system, not each invent their own.
+
+   Each episode deck adds only two things of its own:
+     · a §6 block of per-slide choreography, in the deck's own <style>
+     · its content data, passed to M2Deck.init()
+
+   THE MOTHER RULE (Design Language §2)
+   Nothing here exists to be pretty. Every moving part earns its place by
+   making one argument visible that words alone would leave abstract. Where a
+   slide has a bespoke device, the comment says which claim it carries.
+
+   MAP
+   §1  Design tokens        §5  Components (one block per Design Language item)
+   §2  Canvas & scaler      §7  Chrome (record-day only)
+   §3  Slide shell          §8  Print (downloadable artifact)
+   §4  Build system         (§6 lives in each episode deck)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── §1 DESIGN TOKENS ─────────────────────────────────────────────────── */
+:root{
+  /* Colour — Design Language §1.1 (definitive) */
+  --ink:            #14171A;
+  --bg:             #F5F3EE;
+  --amber:          #E8A33D;
+  --amber-ink:      #8F6410;   /* amber legible as text on off-white */
+  --surface:        #EAE6DC;
+  --muted:          rgba(20,23,26,.60);
+  --faint:          rgba(20,23,26,.32);
+  --line:           rgba(20,23,26,.16);
+  --amber-wash:     rgba(232,163,61,.12);
+  --amber-wash-2:   rgba(232,163,61,.22);
+
+  --on-dark:        rgba(245,243,238,.70);
+  --on-dark-faint:  rgba(245,243,238,.36);
+  --line-on-dark:   rgba(245,243,238,.20);
+
+  /* Type — Design Language §1.2, sized for the 1920×1080 canvas */
+  --f-display: 'Inter Tight','Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --f-text:    'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --f-label:   'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;
+
+  --t-display:    108px;
+  --t-figure:     132px;
+  --t-body:        28px;
+  --t-th:          20px;
+  --t-td:          24px;
+  --t-caption:     18px;
+  --t-label:       15px;
+
+  --ls-display: -.024em;
+  --ls-label:    .14em;
+  --ls-th:       .08em;
+
+  /* Grid — Design Language §1.3 */
+  --safe:      80px;
+  --pad-top:  138px;
+  --pad-bot:  124px;
+  --gutter:    24px;
+  --measure: 1180px;
+
+  /* Motion — Design Language §1.4: fade + short rise, never bounce */
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --dur:  260ms;
+  --dur-move: 520ms;          /* only for devices that carry an argument */
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#0A0C0D;}
+body{
+  font-family:var(--f-text);color:var(--ink);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  font-variant-numeric:tabular-nums;
+}
+body.is-idle{cursor:none;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+
+/* ─── §2 CANVAS & SCALER ───────────────────────────────────────────────── */
+/* The deck is ALWAYS 1920×1080 and is scaled, never reflowed, so what you
+   design is byte-for-byte what the screen recorder captures. Centred by
+   translate rather than layout: an item larger than its container gets pinned
+   to the start edge by grid/flex centring, not actually centred. */
+.viewport{position:fixed;inset:0;overflow:hidden;background:#0A0C0D;}
+.deck{
+  position:absolute;top:50%;left:50%;
+  width:1920px;height:1080px;
+  background:var(--bg);overflow:hidden;
+  transform:translate(-50%,-50%) scale(var(--k,1));
+  transform-origin:center center;
+}
+
+/* ─── §3 SLIDE SHELL ───────────────────────────────────────────────────── */
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:var(--pad-top) var(--safe) var(--pad-bot);
+  background:var(--bg);color:var(--ink);
+  opacity:0;visibility:hidden;
+  transition:opacity var(--dur) var(--ease), visibility 0s linear var(--dur);
+}
+.slide.is-active{opacity:1;visibility:visible;transition-delay:0s;}
+
+/* Graphite mode — Design Language §1.1: Hook, Core-idea and End Card only */
+.slide[data-theme="graphite"]{
+  background:var(--ink);color:var(--bg);
+  --muted:var(--on-dark);
+  --faint:var(--on-dark-faint);
+  --line:var(--line-on-dark);
+  --surface:rgba(245,243,238,.06);
+  --amber-ink:var(--amber);
+}
+.slide__title{margin:0;font:inherit;}
+
+.eyebrow{
+  font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;
+  color:var(--amber-ink);margin:0 0 36px;text-align:center;
+}
+.caption{
+  margin:34px 0 0;max-width:var(--measure);
+  font-size:var(--t-caption);line-height:1.55;letter-spacing:.02em;
+  color:var(--muted);text-align:center;text-wrap:pretty;
+}
+.caption strong{color:var(--ink);font-weight:600;}
+.slide[data-theme="graphite"] .caption strong{color:var(--bg);}
+
+/* ─── §4 BUILD SYSTEM ──────────────────────────────────────────────────── */
+/* Three declarative hooks, all driven by one step counter:
+     data-build  hidden → revealed at n → focused at n → dimmed after n
+     data-track  always visible; .is-now at n, .is-done after n
+     data-since  always visible; .is-since from n onward   (state changes)
+   Design Language §2.2 / §2.5: elements arrive with the spoken line, the one
+   being explained turns amber, everything already said drops to muted. */
+[data-build]{
+  opacity:0;
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease),
+             color var(--dur) var(--ease), background-color var(--dur) var(--ease),
+             border-color var(--dur) var(--ease);
+}
+[data-build]:not(tr){transform:translateY(16px);}
+[data-build].is-in{opacity:1;}
+[data-build].is-in:not(tr){transform:none;}
+[data-track],[data-since]{
+  transition:opacity var(--dur) var(--ease), color var(--dur) var(--ease),
+             background-color var(--dur) var(--ease), border-color var(--dur) var(--ease),
+             transform var(--dur-move) var(--ease), font-size var(--dur-move) var(--ease),
+             margin var(--dur-move) var(--ease);
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:1ms !important;}
+  [data-build]:not(tr){transform:none;}
+}
+
+/* ─── §5 COMPONENTS ────────────────────────────────────────────────────── */
+
+/* §5.1 Statement Card — Design Language §2.1
+   Two Display lines, never three, and never a smaller font to make a long
+   sentence fit (§2.1 forbids exactly that). Long statements are split into a
+   quiet lead-in plus the payload, with the line break authored by hand rather
+   than left to the wrapping algorithm. */
+.statement{
+  max-width:1760px;margin:0;text-align:center;
+  font-family:var(--f-display);font-size:var(--t-display);font-weight:700;
+  line-height:1.14;letter-spacing:var(--ls-display);
+}
+.statement .accent{color:var(--amber);}
+.statement__lead{
+  margin:0 0 30px;text-align:center;
+  font-family:var(--f-display);font-size:44px;font-weight:500;
+  letter-spacing:-.01em;color:var(--muted);
+}
+
+/* §5.2 Formula Card — Design Language §2.2 */
+.formula-title{
+  font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;
+  color:var(--muted);margin:0 0 64px;text-align:center;
+}
+.formula{
+  display:flex;align-items:stretch;justify-content:center;
+  gap:14px;margin-bottom:96px;
+}
+.formula__box{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  min-width:184px;padding:30px 30px;
+  border:2px solid var(--line);border-radius:10px;background:var(--surface);
+  font-family:var(--f-display);font-size:30px;font-weight:600;text-align:center;
+}
+.formula__box.is-dim{background:transparent;color:var(--muted);}
+.formula__box.is-focus{background:var(--amber-wash-2);border-color:var(--amber);color:var(--ink);}
+.slide[data-theme="graphite"] .formula__box.is-focus{color:var(--bg);}
+.formula__box--result{border-color:var(--amber);background:var(--amber-wash);}
+.formula__op{
+  display:flex;align-items:center;
+  font-family:var(--f-display);font-size:32px;color:var(--faint);
+}
+/* The hint is why the box exists — it turns a diagram into a lesson.
+   Absolutely placed so revealing it never nudges the row. */
+.formula__hint{
+  position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%);
+  width:230px;
+  font-family:var(--f-label);font-size:13px;font-style:normal;line-height:1.45;
+  letter-spacing:.02em;color:var(--muted);text-transform:none;
+  opacity:0;transition:opacity var(--dur) var(--ease);
+}
+.formula__box.is-focus .formula__hint{opacity:1;}
+
+/* §5.3 Tables — Design Language §2.3 / §2.4 */
+.table-wrap{width:100%;max-width:1720px;}
+.mtable{width:100%;border-collapse:collapse;}
+.mtable th{
+  padding:0 24px 18px;text-align:left;vertical-align:bottom;
+  border-bottom:2px solid var(--ink);
+  font-family:var(--f-label);font-size:var(--t-th);font-weight:500;
+  letter-spacing:var(--ls-th);text-transform:uppercase;color:var(--muted);
+}
+.mtable td{
+  padding:22px 24px;vertical-align:top;border-bottom:1px solid var(--line);
+  font-size:var(--t-td);line-height:1.42;
+}
+.mtable td.term{font-family:var(--f-display);font-weight:700;color:var(--amber-ink);white-space:nowrap;}
+/* Struck column: the evidence people actually cite, and why it doesn't answer
+   the question in column two. Reading it crossed out is the argument. */
+.mtable td.strike{text-decoration:line-through;text-decoration-thickness:2px;color:var(--faint);}
+.mtable tbody tr.is-focus > td{background:var(--surface);}
+.mtable tbody tr.is-dim  > td{color:var(--muted);}
+.mtable tbody tr.is-dim  > td.term{color:rgba(143,100,16,.45);}
+
+/* §5.4 Entity Cards — Design Language §2.4 */
+.entity-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);
+  width:100%;max-width:1720px;align-items:stretch;
+}
+.entity{
+  display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  overflow:hidden;
+}
+/* One benchmark at a time: the others fall back to outline only. Outline, not
+   border-width, so nothing shifts by a pixel. Flat — no shadow (§14.1). */
+.entity.is-focus{outline:2px solid var(--ink);outline-offset:-2px;}
+.entity.is-dim{background:transparent;}
+.entity.is-dim .entity__name,.entity.is-dim .entity__v{color:var(--muted);}
+.entity.is-dim .entity__limit{background:transparent;border-top-color:var(--line);}
+.entity__head{display:flex;align-items:center;gap:14px;padding:30px 30px 20px;}
+.entity__dot{width:14px;height:14px;border-radius:50%;flex:none;}
+.entity__dot[data-tone="1"]{background:#14171A;}
+.entity__dot[data-tone="2"]{background:#5B6066;}
+.entity__dot[data-tone="3"]{background:#9AA0A6;}
+.entity__name{font-family:var(--f-display);font-size:30px;font-weight:700;letter-spacing:-.01em;}
+.entity__body{flex:1;padding:0 30px 22px;}
+.entity__row{margin-bottom:18px;}
+.entity__k{
+  font-family:var(--f-label);font-size:13px;font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+}
+.entity__v{font-size:19px;line-height:1.45;}
+.entity__limit{background:var(--amber-wash);border-top:2px solid var(--amber);padding:20px 30px 24px;}
+.entity__limit .entity__k{color:var(--amber-ink);}
+
+/* §5.6 Warning Card — Design Language §2.6 (amber attention, never red) */
+.warnings{display:flex;flex-direction:column;gap:26px;width:100%;max-width:1400px;}
+.warning{
+  background:var(--surface);border-right:10px solid var(--amber);
+  padding:38px 46px;margin:0;
+  font-family:var(--f-display);font-size:38px;font-weight:700;line-height:1.28;
+  letter-spacing:-.01em;
+}
+/* The line that turns the second warning on this chapter itself. */
+.self-indict{
+  align-self:flex-end;max-width:1400px;width:100%;
+  margin:6px 0 0;padding-right:56px;text-align:right;
+  font-family:var(--f-label);font-size:16px;letter-spacing:.04em;color:var(--muted);
+}
+
+/* §5.7 Proof / Source Strip — Design Language §2.7 */
+.source-strip{
+  position:absolute;left:var(--safe);right:var(--safe);bottom:56px;
+  margin:0;padding-top:12px;border-top:1px solid var(--line);
+  font-family:var(--f-label);font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);text-align:left;
+  transition:opacity var(--dur) var(--ease);
+}
+body.hide-source .source-strip{opacity:0;}
+
+/* §5.8 Question / Build Card — Design Language §2.8 */
+.qb{display:grid;grid-template-columns:1fr 380px;gap:56px;width:100%;max-width:1720px;align-items:start;}
+.qb__block{border-radius:14px;padding:34px 40px;}
+.qb__tag{
+  display:inline-block;margin-bottom:16px;
+  font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;
+}
+.qb__block p{margin:0;font-size:26px;line-height:1.62;}
+.qb__block--raw{background:var(--surface);border:1px solid var(--line);margin-bottom:26px;}
+.qb__block--raw .qb__tag{color:var(--muted);}
+.qb__block--raw p{color:var(--muted);font-style:italic;}
+.qb__block--refined{background:var(--amber-wash);border:2px solid var(--amber);}
+.qb__block--refined .qb__tag{color:var(--amber-ink);}
+.qb__block--refined p{font-weight:500;}
+/* Clause tagging: refinement is not "shorter", it is "answerable". Lighting
+   each added clause next to the thing it added makes that concrete. */
+.clause{background:none;color:inherit;border-bottom:2px solid transparent;transition:border-color var(--dur) var(--ease);}
+.clause.is-now{border-bottom-color:var(--amber);}
+.clause.is-done{border-bottom-color:var(--line);}
+.qb__legend{border-left:2px solid var(--line);padding-left:32px;}
+.qb__legend h3{
+  margin:0 0 22px;font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--muted);
+}
+.qb__legend ol{list-style:none;margin:0;padding:0;counter-reset:c;}
+.qb__legend li{
+  display:flex;gap:14px;align-items:baseline;padding:11px 0;
+  font-family:var(--f-label);font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--faint);counter-increment:c;
+}
+.qb__legend li::before{content:counter(c,decimal-leading-zero);font-size:12px;color:var(--faint);}
+.qb__legend li.is-now{color:var(--amber-ink);font-weight:700;}
+.qb__legend li.is-done{color:var(--muted);}
+
+/* §5.9 End Card — Design Language §2.9 */
+.checklist{list-style:none;margin:0;padding:0;width:100%;max-width:1060px;}
+.checklist li{
+  display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:28px;
+  padding:19px 0;border-bottom:1px solid var(--line-on-dark);
+}
+.checklist .k{font-family:var(--f-display);font-size:46px;font-weight:600;letter-spacing:-.01em;}
+.checklist .k .q{color:var(--amber);font-weight:800;}
+.checklist .sub{font-family:var(--f-label);font-size:15px;letter-spacing:.06em;color:var(--on-dark-faint);}
+.wordmark{
+  margin-top:56px;
+  font-family:var(--f-label);font-size:var(--t-label);letter-spacing:var(--ls-label);
+  font-weight:700;color:var(--on-dark);text-transform:uppercase;
+}
+.wordmark sup{color:var(--amber);}
+.wordmark strong{color:var(--bg);}
+
+/* §5.10 Downloadable Artifact — Design Language §2.10 (portrait, print-ready) */
+.artifact-row{display:flex;align-items:center;gap:76px;}
+.anatomy{
+  width:660px;height:912px;background:var(--surface);
+  border:3px solid var(--line);border-radius:6px;
+  padding:42px 46px;display:flex;flex-direction:column;
+}
+.anatomy__title{font-family:var(--f-display);font-size:30px;font-weight:700;margin:0 0 6px;letter-spacing:-.01em;}
+.anatomy__meta{
+  font-family:var(--f-label);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 26px;
+}
+.anatomy__field{border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px;font-size:15px;color:var(--muted);}
+.anatomy__steps{margin-top:14px;flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:14px;}
+.anatomy__num{font-family:var(--f-label);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--amber-ink);}
+.anatomy__q{margin:5px 0 0;font-size:17px;font-weight:600;line-height:1.3;}
+.anatomy__rule{border-bottom:1px dashed var(--line);height:32px;}
+.spec{width:340px;}
+.spec h3{
+  margin:0 0 20px;font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--amber-ink);
+}
+.spec dl{display:grid;grid-template-columns:auto 1fr;gap:14px 20px;margin:0;
+  font-family:var(--f-label);font-size:14px;letter-spacing:.05em;}
+.spec dt{color:var(--faint);text-transform:uppercase;}
+.spec dd{margin:0;color:var(--ink);}
+.spec p{margin:32px 0 0;font-size:17px;line-height:1.55;color:var(--muted);}
+
+/* §5.11 Thumbnail — Design Language §2.11 (one flat amber block, one promise) */
+.thumb{
+  position:relative;width:1280px;height:720px;background:var(--ink);overflow:hidden;
+  display:grid;grid-template-columns:1fr 400px;align-items:center;
+}
+.thumb__block{
+  grid-column:2;justify-self:stretch;align-self:stretch;background:var(--amber);
+  display:grid;place-items:center;
+}
+.thumb__mark-q{font-family:var(--f-display);font-size:340px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.04em;}
+.thumb__mark{
+  position:absolute;top:36px;left:44px;
+  font-family:var(--f-label);font-size:17px;letter-spacing:var(--ls-label);font-weight:700;color:var(--on-dark);
+}
+.thumb__line{
+  grid-column:1;margin:0 0 0 68px;
+  font-family:var(--f-display);font-size:132px;font-weight:800;line-height:.94;
+  letter-spacing:-.035em;color:var(--bg);
+}
+.thumb__line em{font-style:normal;color:var(--amber);}
+
+/* §5.12 Data Plot — Design Language §2.12 */
+.plot-flag{
+  display:inline-block;margin:0 0 26px;padding:7px 16px;
+  border:1px solid var(--amber);border-radius:3px;background:var(--amber-wash);
+  font-family:var(--f-label);font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--amber-ink);
+}
+.plot-row{display:flex;align-items:center;gap:48px;}
+.plot{width:1060px;height:auto;flex:none;}
+.plot .axis{stroke:var(--ink);stroke-width:1.5;opacity:.55;}
+.plot .grid{stroke:rgba(20,23,26,.16);stroke-width:1;stroke-dasharray:3 7;}
+.plot .axis-label{fill:rgba(20,23,26,.60);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;}
+.plot .dot{fill:#5B6066;}
+.plot .dot--win{fill:#E8A33D;}
+.plot .ring{fill:none;stroke:#14171A;stroke-width:3;}
+.plot .p-name{fill:#14171A;font-family:'Inter',sans-serif;font-size:20px;font-weight:600;}
+.plot .p-tag{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.1em;}
+
+/* The rank rail. This is the slide's whole argument: the same six models, the
+   same data, one criterion swapped — and the order physically rearranges. */
+.rail{--rh:62px;width:300px;flex:none;}
+.rail__head{
+  font-family:var(--f-label);font-size:12px;letter-spacing:var(--ls-label);
+  text-transform:uppercase;color:var(--faint);margin:0 0 6px;
+}
+.rail__crit{
+  font-family:var(--f-display);font-size:26px;font-weight:700;color:var(--ink);
+  margin:0 0 22px;padding-bottom:14px;border-bottom:2px solid var(--ink);
+  position:relative;height:56px;
+}
+.rail__crit span{position:absolute;left:0;top:0;transition:opacity var(--dur) var(--ease);}
+.rail__crit .c2{opacity:0;}
+.rail.is-since .rail__crit .c1{opacity:0;}
+.rail.is-since .rail__crit .c2{opacity:1;}
+/* The position numbers are a fixed ladder; only the models move through them.
+   Rank 01 stays amber throughout — the crown does not move, its occupant does. */
+.rail__body{position:relative;height:calc(var(--rh) * 6);}
+.rail__nums{position:absolute;inset:0;margin:0;padding:0;list-style:none;}
+.rail__nums li{
+  height:var(--rh);display:flex;align-items:center;
+  border-bottom:1px solid var(--line);
+  font-family:var(--f-label);font-size:13px;color:var(--faint);
+}
+.rail__nums li:first-child{color:var(--amber);font-weight:700;}
+.rail__list{position:absolute;inset:0 0 0 46px;margin:0;padding:0;list-style:none;}
+.rank{
+  position:absolute;left:0;right:0;height:var(--rh);
+  display:flex;align-items:center;
+  font-family:var(--f-display);font-size:22px;font-weight:600;color:var(--muted);
+  transform:translateY(calc(var(--r1) * var(--rh)));
+  transition:transform var(--dur-move) var(--ease), color var(--dur) var(--ease);
+}
+.rail:not(.is-since) .rank[data-win="quality"],
+.rail.is-since       .rank[data-win="value"]{color:var(--amber-ink);font-weight:700;}
+.rail.is-since .rank{transform:translateY(calc(var(--r2) * var(--rh)));}
+
+/* §5.13 Scale Comparison — Design Language §2.13
+   Bar length encodes KIND, not size. 57 subjects and 164 problems are counted
+   in different units, so scaling the bars against each other would assert a
+   size claim the sources do not support. The dashed open bar is the point. */
+.scale{width:100%;max-width:1720px;}
+.scale__row{
+  display:grid;grid-template-columns:240px 1fr 210px 320px;align-items:center;
+  gap:30px;padding:30px 0;border-bottom:1px solid var(--line);
+}
+.scale__name{font-family:var(--f-display);font-size:34px;font-weight:700;letter-spacing:-.01em;}
+.scale__bar{
+  height:38px;background:var(--ink);border-radius:3px;
+  display:flex;align-items:center;padding-left:18px;
+  font-family:var(--f-label);font-size:13px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--bg);
+}
+.scale__bar--open{
+  background:transparent;color:var(--amber-ink);border:2px dashed var(--amber);
+  justify-content:flex-end;padding:0 18px 0 0;
+}
+.scale__stamp{
+  font-family:var(--f-label);font-size:13px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+}
+.scale__stamp--no{color:var(--amber-ink);}
+.scale__val{font-size:var(--t-caption);line-height:1.4;color:var(--muted);}
+.scale__val b{display:block;margin-bottom:4px;font-family:var(--f-display);font-size:28px;font-weight:700;color:var(--ink);}
+
+/* §5.14 Completeness Meter — Design Language §2.14
+   Repeats in all nine episodes, one more segment each time: the chapter's
+   progress bar. The episode tag under each dark segment is the promise. */
+.meter{width:100%;max-width:1500px;}
+.meter__track{display:flex;gap:12px;}
+.meter__seg{flex:1;height:16px;border-radius:2px;border:2px solid var(--line);background:transparent;}
+.meter__seg.is-on{background:var(--amber);border-color:var(--amber);}
+.meter__labels{display:flex;gap:12px;margin-top:16px;}
+.meter__labels div{flex:1;text-align:center;}
+.meter__labels b{
+  display:block;font-family:var(--f-label);font-size:14px;font-weight:500;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+}
+.meter__labels em{
+  display:block;margin-top:6px;font-style:normal;
+  font-family:var(--f-label);font-size:11px;letter-spacing:.12em;color:var(--faint);
+}
+.meter__labels .is-on b{color:var(--amber-ink);font-weight:700;}
+.meter__labels .is-on em{color:var(--amber-ink);}
+.meter--mini{max-width:660px;}
+.meter--mini .meter__seg{height:10px;}
+
+/* §5.15 Two-column list */
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:76px;width:100%;max-width:1600px;}
+.twocol h3{
+  display:flex;align-items:baseline;gap:14px;margin:0 0 20px;
+  font-family:var(--f-label);font-size:var(--t-label);font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--muted);
+}
+.twocol h3 span{
+  font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:3px;color:var(--faint);
+}
+.twocol .col--resolved h3{color:var(--amber-ink);}
+.twocol .col--resolved h3 span{border-color:var(--amber);color:var(--amber-ink);}
+.twocol ul{list-style:none;margin:0;padding:0;}
+.twocol li{font-size:21px;padding:13px 0;border-bottom:1px solid var(--line);}
+.twocol .col--resolved li::before{content:"✓";color:var(--amber);font-weight:700;margin-right:12px;}
+.twocol .col--open li::before{content:"—";color:var(--faint);margin-right:12px;}
+
+/* ─── §7 CHROME (record-day only — Design Language §2.15) ─────────────── */
+/* Overlaid, never in flow: hiding it must not move a single pixel of the
+   frame, or the preview stops matching the recording. */
+.chrome{position:absolute;inset:0;z-index:50;pointer-events:none;transition:opacity 160ms linear;}
+body.chrome-hidden .chrome{opacity:0;}
+.scrub{position:absolute;top:0;left:0;height:3px;background:var(--amber);transition:width var(--dur) var(--ease);}
+.chrome__bar{
+  position:absolute;top:0;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 32px;
+  font-family:var(--f-label);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+}
+body.on-graphite .chrome__bar{color:var(--bg);}
+.chrome__bar b{color:var(--amber);font-weight:700;}
+.chrome__bar > *{opacity:.8;}
+.chrome__clock.is-late{color:var(--amber);opacity:1;}
+.chrome__dots{
+  position:absolute;left:0;right:0;bottom:0;
+  display:flex;justify-content:center;align-items:center;gap:8px;padding:22px;pointer-events:auto;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;border:0;padding:0;
+  background:currentColor;color:var(--muted);opacity:.3;cursor:pointer;transition:120ms var(--ease);
+}
+body.on-graphite .dot{color:var(--bg);}
+.dot.is-on{opacity:1;color:var(--amber);width:24px;border-radius:4px;}
+.chrome__hint{
+  position:absolute;right:32px;bottom:24px;
+  font-family:var(--f-label);font-size:12px;letter-spacing:.08em;color:var(--faint);
+}
+body.on-graphite .chrome__hint{color:var(--on-dark-faint);}
+
+.blackout{position:absolute;inset:0;z-index:90;background:var(--ink);opacity:0;visibility:hidden;transition:opacity 180ms linear;}
+body.is-blank .blackout{opacity:1;visibility:visible;}
+
+.help{
+  position:absolute;inset:0;z-index:100;display:grid;place-items:center;
+  background:rgba(20,23,26,.94);color:var(--bg);opacity:0;visibility:hidden;transition:opacity 160ms linear;
+}
+body.is-help .help{opacity:1;visibility:visible;}
+.help__panel{width:780px;}
+.help h2{
+  margin:0 0 28px;font-family:var(--f-label);font-size:14px;font-weight:500;
+  letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--amber);
+}
+.help dl{display:grid;grid-template-columns:160px 1fr;gap:15px 28px;margin:0;font-size:19px;}
+.help dt{font-family:var(--f-label);font-size:15px;color:var(--amber);letter-spacing:.06em;}
+.help dd{margin:0;color:var(--on-dark);}
+
+/* ─── §8 PRINT — the Anatomy Card as a real downloadable ─────────────── */
+@media print{
+  @page{size:A4 portrait;margin:14mm;}
+  html,body{overflow:visible;background:#fff;height:auto;}
+  .viewport{position:static;display:block;}
+  .deck{position:static;transform:none;width:auto;height:auto;background:#fff;}
+  .slide{display:none;}
+  .slide[data-print="artifact"]{display:block;position:static;opacity:1;visibility:visible;padding:0;}
+  .artifact-row{display:block;}
+  .spec{display:none;}
+  .anatomy{width:100%;height:auto;border:2px solid var(--line);background:#fff;}
+  .anatomy__rule{height:52px;}
+  .chrome,.help,.blackout{display:none;}
+}

@@ -1,0 +1,28 @@
+# private planning, keys and local experiment data (never published)
+private/
+.env
+*.key
+
+# build output
+site/dist/
+site/.astro/
+site/node_modules/
+site/public/decks/
+site/src/data/episodes.json
+node_modules/
+
+# python / OS noise
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+._*
+
+# recorded media and local run output
+*.mp4
+*.mov
+*.wav
+parts/*/*/artifact/data/
+
+# generated recording kits (make teleprompter)
+parts/*/*/recording/

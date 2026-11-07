@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne · Part 02 · E03 — What exactly are we measuring?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Vazirmatn:wght@400;500;800&display=swap">
+<style>
+/* Homodyne · Editorial v2 — paper frames carry the argument, night frames punctuate it.
+   Four rules: one idea per frame · hairlines, no boxes · serif for the idea, sans for the
+   explanation · amber once per frame. */
+:root{
+  --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --sans:Geist,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+  --fa:Vazirmatn,Tahoma,sans-serif;
+  --app:#0A0B0C;
+}
+.paper{--bg:#F3F1EC;--ink:#16181B;--muted:#6B665E;--faint:#A8A298;--rule:#DAD5CB;--fill:#E9E5DC;--amber:#E8A33D;--amber-ink:#975C08}
+.night{--bg:#111214;--ink:#F2F0EB;--muted:#9A968E;--faint:#5E5B56;--rule:#2B2D31;--fill:#1A1B1E;--amber:#E8A33D;--amber-ink:#F0B45A}
+html,body{height:100%;margin:0}
+body{background:var(--app);color:#EDEBE6;font-family:var(--sans);overflow:hidden;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+
+/* ── Shell ── */
+.app{position:fixed;inset:0;display:flex;flex-direction:column}
+.stagewrap{position:relative;flex:1;min-height:0}
+.deck{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 16px;background:#0E0F11;border-top:1px solid #1E2023;font:400 13px/1.2 var(--sans);color:#8E8A83;flex-wrap:wrap}
+.bar button{font:500 13px var(--sans);color:#EDEBE6;background:transparent;border:1px solid #2B2D31;padding:8px 14px;cursor:pointer;border-radius:999px}
+.bar button:hover{border-color:#5E5B56}
+.bar button:focus-visible{outline:2px solid #E8A33D;outline-offset:2px}
+.bar button[aria-pressed="true"]{background:#EDEBE6;color:#111214;border-color:#EDEBE6}
+.bar .count{font-family:var(--mono);color:#EDEBE6;min-width:56px}
+.bar .ttl{flex:1;min-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar .keys{color:#5E5B56}
+body.rec .bar{display:none}
+@media (max-width:700px){.bar .keys{display:none}}
+.notes{position:absolute;right:0;top:0;bottom:0;width:min(480px,92vw);background:#0E0F11F5;border-left:1px solid #2B2D31;padding:24px;overflow:auto;direction:rtl;font:400 16px/2 var(--fa);color:#D8D5CE;z-index:5}
+.notes h3{margin:0 0 2px;direction:ltr;text-align:left;font:400 26px/1.2 var(--serif);color:#F2F0EB}
+.notes .tc{direction:ltr;text-align:left;font:400 12px var(--mono);color:#8E8A83;margin:0 0 16px}
+.notes p{margin:0 0 12px}
+.notes .one{border-right:2px solid #E8A33D;padding-right:12px;color:#F2F0EB}
+.notes .cue{direction:ltr;text-align:left;font:400 12px/1.6 var(--mono);color:#E8A33D;border-top:1px solid #2B2D31;padding-top:10px;margin-top:16px}
+
+/* ── Frame ── */
+.frame{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--sans);font-variant-numeric:tabular-nums;visibility:hidden;--m:120px}
+.frame.is-on{visibility:visible}
+.eyebrow{position:absolute;left:var(--m);top:80px;display:flex;align-items:center;gap:16px;margin:0;font:500 22px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink);opacity:.55}
+.mark{position:absolute;right:var(--m);top:80px;margin:0;font:600 22px/1 var(--sans);letter-spacing:.01em;color:var(--ink)}
+.tag{position:absolute;right:var(--m);top:80px;margin:0;font:500 22px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.src{position:absolute;left:var(--m);right:var(--m);bottom:236px;margin:0;font:400 24px/1.4 var(--sans);color:var(--muted)}
+.src b{color:var(--ink);font-weight:500}
+.h1{position:absolute;left:var(--m);top:170px;margin:0;font:400 88px/1.02 var(--serif);letter-spacing:-.014em;max-width:1600px;text-wrap:balance}
+.h1 em{font-style:italic}
+.k{margin:0;font:500 22px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* Builds */
+[data-b]{opacity:0;transform:translateY(14px);transition:opacity .32s cubic-bezier(.2,0,0,1),transform .32s cubic-bezier(.2,0,0,1)}
+[data-b].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){[data-b]{transition:none;transform:none}}
+
+/* Safe areas (G) */
+.guide{position:absolute;inset:0;pointer-events:none;display:none;z-index:9}
+.show-guide .guide{display:block}
+.guide .t{position:absolute;inset:54px 96px;border:2px solid #E8A33D99}
+.guide .c{position:absolute;left:0;right:0;bottom:0;height:216px;background:#E8A33D1F;border-top:2px solid #E8A33D99}
+
+/* 01 · cold open */
+.open h1{position:absolute;left:var(--m);top:250px;margin:0;font:400 170px/.94 var(--serif);letter-spacing:-.02em;max-width:1500px}
+.open h1 em{font-style:italic}
+.open .duel{position:absolute;left:var(--m);bottom:236px;display:flex;align-items:flex-end;gap:120px}
+.duel .d{display:flex;flex-direction:column;gap:14px}
+.duel .v{font:400 150px/.9 var(--serif);letter-spacing:-.02em}
+.duel .n{font:400 26px/1.3 var(--sans);color:var(--muted)}
+.duel .q{font:italic 400 64px/1 var(--serif);color:var(--amber-ink);padding-bottom:40px}
+
+/* 02 · sting */
+.aroll{position:absolute;inset:0;background:#1A1B1E;display:flex;align-items:center;justify-content:center;font:400 22px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#4A4843}
+.lower{position:absolute;left:var(--m);bottom:236px;display:flex;flex-direction:column;gap:8px;padding-left:28px;border-left:2px solid var(--rule)}
+.lower .n{margin:0;font:400 64px/1 var(--serif);color:#F2F0EB}
+.lower .r{margin:0;font:400 26px/1.3 var(--sans);color:#B7B3AB}
+.logo{position:absolute;right:var(--m);top:70px;width:110px;height:110px}
+
+/* 03 · big figure */
+.fig{position:absolute;left:var(--m);top:450px;display:grid;grid-template-columns:auto 1fr;column-gap:80px;align-items:end;right:var(--m)}
+.fig .n{font:400 300px/.8 var(--serif);letter-spacing:-.03em;color:var(--amber-ink)}
+.fig .t{display:flex;flex-direction:column;gap:20px;padding-bottom:30px;border-left:1px solid var(--rule);padding-left:60px}
+.fig .t p{margin:0;font:400 44px/1.25 var(--sans)}
+.fig .t p.m{font-size:30px;color:var(--muted)}
+
+/* 04 · table */
+.tbl{position:absolute;left:var(--m);right:var(--m);top:340px;display:grid;grid-template-columns:1fr 440px 440px}
+.tbl > div{padding:20px 0;border-top:1px solid var(--rule);display:flex;align-items:baseline}
+.tbl .hd{border-top:0;padding:0 0 18px;font:500 22px/1.2 var(--mono);letter-spacing:.02em;color:var(--muted)}
+.tbl .rl{font:400 40px/1.1 var(--sans)}
+.tbl .rl small{font:400 24px/1 var(--sans);color:var(--muted);margin-left:18px}
+.tbl .v{font:400 76px/1 var(--serif);justify-content:flex-end;padding-right:60px}
+.tbl .v.m{color:var(--muted)}
+.tbl .v.a{color:var(--amber-ink)}
+.tbl .hd.r{justify-content:flex-end;padding-right:60px}
+
+/* 05, 07 · equation */
+.eq .formula{position:absolute;left:var(--m);right:var(--m);top:350px;margin:0;text-align:center;font:400 112px/1 var(--serif);letter-spacing:-.01em}
+.eq .formula i{font-style:italic}
+.eq .formula .c{color:var(--amber-ink)}
+.terms{position:absolute;left:var(--m);right:var(--m);top:560px;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.term{border-top:1px solid var(--rule);padding-top:26px;display:flex;flex-direction:column;gap:12px}
+.term .s{font:italic 400 60px/1 var(--serif)}
+.term .l{font:500 30px/1.2 var(--sans)}
+.term .d{font:400 26px/1.4 var(--sans);color:var(--muted)}
+
+/* 06 · nine of ten */
+.ten{position:absolute;left:var(--m);right:var(--m);top:420px;display:grid;grid-template-columns:repeat(5,1fr);column-gap:48px}
+.ten div{border-top:1px solid var(--rule);padding:26px 0 40px;display:flex;flex-direction:column;gap:10px}
+.ten .b{font:400 48px/1 var(--serif)}
+.ten .s{font:400 24px/1 var(--mono);color:var(--muted)}
+.ten .p .b{color:var(--muted)}
+.ten .p{border-top:3px solid var(--ink)}
+.ten .p .s{color:var(--ink)}
+
+/* 08 · chart */
+.chart svg{position:absolute;left:var(--m);top:340px;width:1180px;height:auto;overflow:visible}
+.chart .ln{fill:none;stroke-width:5;stroke-linecap:round}
+.chart .l1{stroke:var(--ink)}
+.chart .l2{stroke:var(--faint);stroke-dasharray:1 0}
+.chart .base{stroke:var(--rule);stroke-width:2}
+.chart .gl{stroke:var(--rule);stroke-width:1.5;stroke-dasharray:2 10;stroke-linecap:round}
+.chart .yl{font:400 24px var(--sans);fill:var(--muted)}
+.chart .lb{font:400 26px var(--sans);fill:var(--ink)}
+.chart .lb.m{fill:var(--muted)}
+.chart .pt{fill:var(--bg);stroke:var(--ink);stroke-width:4}
+.chart .pa{fill:var(--amber);stroke:var(--amber)}
+.chart .pl{font:400 64px var(--serif);fill:var(--amber-ink)}
+.chart .side{position:absolute;left:1400px;right:var(--m);top:350px;display:flex;flex-direction:column;gap:26px}
+.chart .side .f{margin:0;font:italic 400 40px/1 var(--serif);color:var(--muted)}
+.chart .side .big{margin:0;font:400 44px/1.15 var(--serif)}
+.chart .side p.m{margin:0;font:400 26px/1.45 var(--sans);color:var(--muted)}
+
+/* 09, 15 · statement / verdict (night) */
+.st .a{position:absolute;left:var(--m);top:320px;margin:0;font:400 48px/1.2 var(--sans);color:var(--muted)}
+.st .b{position:absolute;left:var(--m);top:420px;margin:0;font:400 150px/1 var(--serif);letter-spacing:-.018em;max-width:1600px}
+.st .b em{font-style:italic;color:var(--amber-ink)}
+.vd .old{position:absolute;left:var(--m);top:220px;display:flex;align-items:center;gap:28px;margin:0;font:italic 400 48px/1.2 var(--serif);color:var(--muted)}
+.vd .old span{font:500 20px/1 var(--sans);font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);border:1px solid var(--rule);padding:10px 14px}
+.vd .new{position:absolute;left:var(--m);top:360px;margin:0;font:400 104px/1.04 var(--serif);letter-spacing:-.016em;max-width:1640px}
+.vd .new em{font-style:italic;color:var(--amber-ink)}
+.vd .foot{position:absolute;left:var(--m);bottom:236px;margin:0;font:400 32px/1.4 var(--sans);color:var(--muted)}
+
+/* 10 · two rankings */
+.two{position:absolute;left:var(--m);right:var(--m);top:340px;display:grid;grid-template-columns:1fr 1fr;column-gap:120px}
+.two .col{display:flex;flex-direction:column}
+.two .col + .col{border-left:1px solid var(--rule);padding-left:120px}
+.two .k{margin-bottom:22px}
+.rk{display:grid;grid-template-columns:60px 1fr auto;align-items:baseline;padding:16px 0;border-top:1px solid var(--rule)}
+.rk .i{font:400 36px/1 var(--serif);color:var(--faint)}
+.rk .n{font:400 36px/1.2 var(--sans)}
+.rk .n small{display:block;font:400 22px/1.3 var(--sans);color:var(--muted);margin-top:6px}
+.rk .v{font:400 64px/1 var(--serif)}
+.rk.hl .i,.rk.hl .v{color:var(--amber-ink)}
+.two .note{margin:22px 0 0;font:400 24px/1.4 var(--sans);color:var(--muted)}
+
+/* 11 · contract */
+.chain{position:absolute;left:var(--m);right:var(--m);top:420px;display:grid;grid-template-columns:repeat(6,1fr);gap:36px}
+.chain::before{content:"";position:absolute;left:0;right:0;top:20px;height:1px;background:var(--rule)}
+.step{position:relative;display:flex;flex-direction:column;gap:14px;padding-top:70px}
+.step::before{content:"";position:absolute;left:0;top:12px;width:17px;height:17px;border-radius:50%;background:var(--bg);border:2px solid var(--ink)}
+.step.hl::before{background:var(--amber);border-color:var(--amber)}
+.step .no{font:400 28px/1 var(--serif);color:var(--muted)}
+.step .t{margin:0;font:400 52px/1 var(--serif)}
+.step.hl .t{font-style:italic;color:var(--amber-ink)}
+.step p{margin:0;font:400 26px/1.4 var(--sans);color:var(--muted)}
+.chain-foot{position:absolute;left:var(--m);bottom:236px;margin:0;font:400 30px/1.4 var(--sans);color:var(--muted)}
+.chain-foot b{color:var(--ink);font-weight:500}
+
+/* 12 · claim check */
+.cc{position:absolute;left:var(--m);right:var(--m);top:380px;display:grid;grid-template-columns:80px 300px 1fr;}
+.cc > div{padding:22px 0;border-top:1px solid var(--rule);display:flex;align-items:baseline}
+.cc .i{font:400 36px/1 var(--serif);color:var(--faint)}
+.cc .w{font:500 32px/1.2 var(--sans)}
+.cc .q{font:400 32px/1.3 var(--sans);color:var(--muted)}
+.cc .hl.w{color:var(--amber-ink)}
+.cc .hl.q{color:var(--ink)}
+
+/* 13 · question */
+.qf{position:absolute;left:var(--m);right:var(--m);top:380px;display:flex;flex-direction:column}
+.qf .row{display:grid;grid-template-columns:260px 1fr;column-gap:40px;padding:30px 0;border-top:1px solid var(--rule);align-items:baseline}
+.qf .row .l{font:500 22px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.qf .row .x{margin:0;font:400 48px/1.15 var(--serif)}
+.qf .row .x.s{font:italic 400 44px/1.15 var(--serif);color:var(--muted);text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--faint)}
+.qf .row .x.a{font-size:62px}
+.qf .row .x.a em{font-style:italic;color:var(--amber-ink)}
+.qf .row .x small{display:block;margin-top:10px;font:400 26px/1.4 var(--sans);color:var(--muted)}
+.qf .fa{font-family:var(--fa);direction:rtl;text-align:right;font-weight:500;font-size:40px}
+
+/* 14 · boundary */
+.nb{position:absolute;left:var(--m);right:var(--m);top:400px;display:grid;grid-template-columns:repeat(3,1fr);gap:64px}
+.nb div{border-top:1px solid var(--rule);padding-top:26px;display:flex;flex-direction:column;gap:16px}
+.nb .no{font:400 28px/1 var(--serif);color:var(--muted)}
+.nb .t{margin:0;font:400 48px/1.08 var(--serif)}
+.nb p{margin:0;font:400 27px/1.45 var(--sans);color:var(--muted)}
+
+/* 16 · end */
+.end .l{position:absolute;left:var(--m);top:260px;width:640px;display:flex;flex-direction:column;gap:24px}
+.end .l .t{margin:0;font:400 92px/1 var(--serif);letter-spacing:-.015em;color:var(--ink)}
+.end .l .t em{font-style:italic}
+.end .l p{margin:0;font:400 30px/1.45 var(--sans);color:var(--muted)}
+.end .l .hw{margin-top:30px;padding-top:24px;border-top:1px solid var(--rule)}
+.end .l .hw p b{color:var(--ink);font-weight:500}
+.end .r{position:absolute;left:864px;right:96px;top:160px;bottom:216px;border:1.5px dashed var(--rule);display:flex;align-items:center;justify-content:center;font:400 20px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* 17 · thumbnail */
+.thumbwrap{background:#0A0B0C}
+.thumbwrap .lbl{position:absolute;left:320px;top:120px;margin:0;font:400 20px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6B665E}
+.thumb{position:absolute;left:320px;top:180px;width:1280px;height:720px;overflow:hidden;background:var(--bg);color:var(--ink)}
+.thumb h2{position:absolute;right:72px;top:70px;margin:0;font:800 132px/1.15 var(--fa);direction:rtl;text-align:right;letter-spacing:0}
+.thumb .n{position:absolute;left:72px;bottom:60px;margin:0;display:flex;align-items:baseline;gap:28px;font:400 250px/.8 var(--serif);letter-spacing:-.03em}
+.thumb .n .ar{color:var(--amber-ink);font-size:.6em}
+.thumb .n .lo{color:var(--muted)}
+.thumb .who{position:absolute;right:72px;bottom:72px;display:flex;align-items:center;gap:14px;font:600 26px var(--sans);letter-spacing:.02em}
+/* ── Part 02 v2 · additional frame devices (E02–E03). Same tokens, same four rules. ── */
+.step.on::before{background:var(--ink);border-color:var(--ink)}
+.step.off .t,.step.off .no{color:var(--faint)} .step.off p{color:var(--faint)}
+.chain.c4{grid-template-columns:repeat(4,1fr);gap:64px}
+.chain.c4 .t{font-size:60px}
+.chain-foot .acc{color:var(--amber-ink);font-weight:500}
+
+/* two lenses / two columns of argument */
+.lens{position:absolute;left:var(--m);right:var(--m);top:400px;display:grid;grid-template-columns:1fr 1fr;column-gap:120px}
+.lens > div{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--rule);padding-top:28px}
+.lens .no{font:400 40px/1 var(--serif);color:var(--muted)}
+.lens .q{margin:0;font:400 72px/1.05 var(--serif);letter-spacing:-.012em}
+.lens .q em{font-style:italic}
+.lens .hl .q{color:var(--amber-ink)}
+.lens p{margin:0;font:400 28px/1.45 var(--sans);color:var(--muted)}
+.lens p b{color:var(--ink);font-weight:500}
+.lens .big{font:400 150px/.9 var(--serif);letter-spacing:-.02em}
+.lens .big.a{color:var(--amber-ink)}
+.lens .big small{font-size:.4em;color:var(--muted)}
+
+/* the two-axis map */
+.map{position:absolute;left:var(--m);top:330px;width:1680px;height:500px}
+.map svg{width:100%;height:100%;overflow:visible}
+.map .ax{stroke:var(--ink);stroke-width:2}
+.map .grid{stroke:var(--rule);stroke-width:1.5}
+.map .al{font:500 20px var(--sans);letter-spacing:.14em;fill:var(--muted)}
+.map .fam{font:400 32px var(--sans);fill:var(--ink)}
+.map .fam.m{fill:var(--muted)}
+.map .fam.a{fill:var(--amber-ink);font-weight:500}
+.map .note{font:italic 400 30px var(--serif);fill:var(--muted)}
+
+/* sixteen families */
+.fams{position:absolute;left:var(--m);right:var(--m);top:330px;display:grid;grid-template-columns:repeat(4,1fr);column-gap:56px}
+.fams .g{display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--rule);padding-top:22px}
+.fams .g .k{margin-bottom:8px}
+.fams .f{font:400 28px/1.25 var(--sans)}
+.fams .f small{font:500 17px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-left:10px;border-bottom:1px solid var(--muted)}
+.fams-foot{position:absolute;left:var(--m);right:var(--m);bottom:236px;margin:0;display:grid;grid-template-columns:repeat(3,1fr);column-gap:56px;font:400 24px/1.4 var(--sans);color:var(--muted)}
+.fams-foot b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+
+/* two-column evidence */
+.ev{position:absolute;left:var(--m);right:var(--m);top:330px;display:grid;grid-template-columns:1fr 1fr;column-gap:120px}
+.ev > div{display:flex;flex-direction:column;gap:14px}
+.ev > div + div{border-left:1px solid var(--rule);padding-left:120px}
+.ev .fig{position:static;display:block;font:400 120px/.9 var(--serif);letter-spacing:-.02em}
+.ev .fig.a{color:var(--amber-ink)}
+.ev .fig small{font-size:.36em;color:var(--muted);letter-spacing:0}
+.ev .t{margin:0;font:400 32px/1.25 var(--sans)}
+.ev ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.ev li{font:400 27px/1.4 var(--sans);color:var(--muted);padding-left:22px;position:relative}
+.ev li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:1px;background:var(--muted)}
+.ev .quote{margin:0;font:italic 400 60px/1.1 var(--serif)}
+.ev .quote.a{color:var(--amber-ink)}
+
+/* key–value rows (specs, chains, selection) */
+.kv{position:absolute;left:var(--m);right:var(--m);top:350px;display:grid;grid-template-columns:330px 1fr}
+.kv > div{padding:20px 0;border-top:1px solid var(--rule);display:flex;align-items:baseline}
+.kv .key{font:500 24px/1.2 var(--mono);color:var(--muted)}
+.kv .val{font:400 32px/1.35 var(--sans);display:block}
+.kv .val em{font-style:normal;color:var(--muted)}
+.kv .val.s{font:400 38px/1.25 var(--serif)}
+.kv .val .acc{color:var(--amber-ink)}
+.kv .val code{font:400 .85em var(--mono)}
+.kv.tight > div{padding:14px 0}
+.kv.tight .val{font-size:29px}
+
+/* definitions table (E03) */
+.dt{position:absolute;left:var(--m);right:var(--m);top:320px;display:grid;grid-template-columns:330px 330px 1fr 260px}
+.dt > div{padding:18px 24px 18px 0;border-top:1px solid var(--rule);font:400 26px/1.35 var(--sans);color:var(--muted)}
+.dt .hd{border-top:0;padding-bottom:14px;font:500 20px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.dt .hd.a{color:var(--amber-ink)}
+.dt .c{font:400 34px/1.2 var(--serif);color:var(--ink)}
+.dt .f{font:400 26px/1.35 var(--mono);color:var(--ink)}
+.dt .v{font:400 44px/1 var(--serif);color:var(--ink);text-align:right;padding-right:0}
+
+/* stats row */
+.stats{position:absolute;left:var(--m);right:var(--m);top:400px;display:grid;grid-template-columns:repeat(3,1fr);column-gap:80px}
+.stats > div{border-top:1px solid var(--rule);padding-top:26px;display:flex;flex-direction:column;gap:16px}
+.stats .n{font:400 150px/.9 var(--serif);letter-spacing:-.02em}
+.stats .n.a{color:var(--amber-ink)}
+.stats p{margin:0;font:400 28px/1.4 var(--sans);color:var(--muted)}
+.stats p b{color:var(--ink);font-weight:500}
+
+/* construct → proxy → gap */
+.cpg{position:absolute;left:var(--m);right:var(--m);top:420px;display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:start}
+.cpg .arrow{font:400 60px/1 var(--serif);color:var(--faint);text-align:center;padding-top:40px}
+.cpg .b{border-top:1px solid var(--rule);padding-top:26px;display:flex;flex-direction:column;gap:14px}
+.cpg .b.a{border-top:3px solid var(--amber)}
+.cpg .t{margin:0;font:400 64px/1 var(--serif)}
+.cpg .b.a .t{color:var(--amber-ink);font-style:italic}
+.cpg p{margin:0;font:400 27px/1.45 var(--sans);color:var(--muted)}
+.cpg p b{color:var(--ink);font-weight:500}
+
+/* definition block + neighbours */
+.def{position:absolute;left:var(--m);right:var(--m);top:170px;margin:0;font:400 64px/1.12 var(--serif);max-width:1600px;text-wrap:balance}
+.def em{font-style:italic;color:var(--amber-ink)}
+.nb.low{top:460px}
+
+/* line of silence (E03) */
+.zero{position:absolute;left:var(--m);top:360px;width:1000px;height:430px}
+.zero svg{width:100%;height:100%;overflow:visible}
+.zero .z{stroke:var(--amber);stroke-width:4}
+.zero .ax{stroke:var(--rule);stroke-width:2}
+.zero .lb{font:400 26px var(--sans);fill:var(--muted)}
+.zero .zl{font:italic 400 40px var(--serif);fill:var(--amber-ink)}
+.zero .up{font:400 30px var(--sans);fill:var(--ink)}
+.bl{position:absolute;left:1240px;right:var(--m);top:360px;display:flex;flex-direction:column;gap:30px}
+.bl > div{border-top:1px solid var(--rule);padding-top:20px;display:flex;flex-direction:column;gap:10px}
+.bl .t{margin:0;font:400 40px/1.1 var(--serif)}
+.bl p{margin:0;font:400 25px/1.45 var(--sans);color:var(--muted)}
+
+/* six empty slots (E03) */
+.slots{position:absolute;left:var(--m);right:var(--m);top:560px;display:grid;grid-template-columns:repeat(6,1fr);gap:36px}
+.slots div{display:flex;flex-direction:column;gap:10px;border-top:1.5px dashed var(--faint);padding-top:20px}
+.slots .id{font:500 26px/1 var(--mono)}
+.slots .n{font:400 24px/1.35 var(--sans);color:var(--muted)}
+.rule-text{position:absolute;left:var(--m);right:var(--m);top:360px;margin:0;font:400 44px/1.3 var(--serif);max-width:1550px}
+.rule-text em{font-style:italic;color:var(--amber-ink)}
+
+/* validity table (E03) */
+.vt{position:absolute;left:var(--m);right:var(--m);top:310px;display:grid;grid-template-columns:270px 1fr 1fr 170px}
+.vt > div{padding:19px 24px 19px 0;border-top:1px solid var(--rule);font:400 27px/1.35 var(--sans);color:var(--muted)}
+.vt .hd{border-top:0;padding-bottom:10px;font:500 19px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.vt .hd.a{color:var(--amber-ink)}
+.vt .k{font:500 23px/1.3 var(--mono);color:var(--ink)}
+.vt .x{color:var(--ink)}
+
+/* supports / does not support (E03) */
+.sd{position:absolute;left:var(--m);right:var(--m);top:340px;display:grid;grid-template-columns:1fr 1fr;column-gap:100px}
+.sd > div{display:flex;flex-direction:column;gap:0}
+.sd > div + div{border-left:1px solid var(--rule);padding-left:100px}
+.sd .k{margin-bottom:14px}
+.sd p{margin:0;padding:13px 0;border-top:1px solid var(--rule);font:400 25px/1.4 var(--sans)}
+.sd .no p{color:var(--muted)}
+.sd .no p b{color:var(--amber-ink);font-weight:500}
+
+/* code block (E03 freeze) */
+.code{position:absolute;left:var(--m);top:360px;width:1000px;margin:0;padding:28px 32px;background:var(--fill);font:400 26px/1.6 var(--mono);color:var(--ink);white-space:pre}
+.code .m{color:var(--muted)} .code .a{color:var(--amber-ink)}
+.side2{position:absolute;left:1260px;right:var(--m);top:370px;display:flex;flex-direction:column;gap:24px}
+.side2 .big{margin:0;font:400 44px/1.15 var(--serif)}
+.side2 p{margin:0;font:400 27px/1.45 var(--sans);color:var(--muted)}
+
+/* thumbnail with Persian headline and two figures */
+.thumb .n2{position:absolute;left:72px;bottom:60px;margin:0;display:flex;align-items:baseline;gap:34px;font:400 190px/.8 var(--serif);letter-spacing:-.03em}
+.thumb .n2 .lo{color:var(--muted)} .thumb .n2 .a{color:var(--amber-ink)} .thumb .n2 .ar{font-size:.5em;color:var(--muted)}
+
+.chain-foot{right:var(--m)}
+
+</style>
+</head>
+<body>
+<div class="app" id="app">
+ <div class="stagewrap" id="stagewrap">
+  <div class="deck" id="deck">
+
+<!-- 01 · COLD OPEN -->
+<section class="frame night open" data-t="00:00" data-name="Cold open">
+  <p class="eyebrow">Part 02 · Episode 03</p><p class="mark">Homodyne</p>
+  <h1 data-b="1">What exactly are we <em>measuring</em>?</h1>
+  <div class="duel" data-b="2">
+    <div class="d"><span class="v">1.8%</span><span class="n">“Hallucination rate” · a 2026 leaderboard</span></div>
+    <div class="d" data-b="3"><span class="v">81%</span><span class="n">“Hallucination rate” · a 2025 benchmark</span></div>
+    <span class="q" data-b="4">Both are right.</span>
+  </div>
+  <template class="vo"><p>قسمت قبل یک معما گذاشتم. این دو عدد، هر دو اسمشان «نرخ توهم» است. هر دو در سال‌های ۲۰۲۵ و ۲۰۲۶ منتشر شده‌اند، از منبع معتبر.</p><p>یکی می‌گوید بهترین مدل‌ها زیر دو درصد توهم می‌زنند. دیگری می‌گوید یک مدل پیشرو، وقتی جواب را نمی‌دانست، در هشتادویک درصد موارد جواب غلط ساخت.</p><p>هیچ‌کدام اشتباه نمی‌کند. این دو عدد اصلاً یک چیز را نمی‌سنجند.</p><p>امروز می‌خواهیم دقیقاً بگوییم ما چه چیزی را می‌سنجیم. و مهم‌تر: چه چیزی را نه.</p><p class="one">یک کلمه، دو عدد، دو سازه‌ی متفاوت.</p><p class="cue">Night · the riddle from the end of E02</p></template><!--cue:Night · the riddle from the end of E02-->
+</section>
+
+<!-- 02 · STING -->
+<section class="frame night" data-t="00:45" data-name="Sting">
+  <div class="aroll">A-roll · talking head</div>
+  <svg class="logo" viewBox="0 0 512 512" aria-label="Homodyne mark" data-b="1"><path d="M159.0,261.3 L159.3,258.2 L159.7,255.1 L160.0,252.1 L160.4,249.0 L160.7,245.9 L161.1,242.9 L161.4,239.8 L161.8,240.1 L162.1,240.6 L162.5,241.1 L162.8,241.6 L163.2,242.2 L163.6,242.7 L163.9,243.2 L164.3,244.0 L164.6,244.8 L165.0,245.6 L165.3,246.4 L165.7,247.2 L166.0,248.0 L166.4,248.8 L166.7,246.6 L167.1,243.8 L167.4,241.0 L167.8,238.2 L168.2,235.3 L168.5,232.5 L168.9,229.7 L169.2,230.7 L169.6,232.8 L169.9,234.9 L170.3,237.0 L170.6,239.1 L171.0,241.2 L171.3,243.3 L171.7,243.4 L172.0,242.8 L172.4,242.1 L172.8,241.4 L173.1,240.7 L173.5,240.1 L173.8,239.4 L174.2,239.2 L174.5,239.1 L174.9,239.1 L175.2,239.1 L175.6,239.1 L175.9,239.1 L176.3,239.1 L176.6,237.7 L177.0,235.5 L177.4,233.2 L177.7,230.9 L178.1,228.6 L178.4,226.3 L178.8,224.1 L179.1,223.8 L179.5,225.2 L179.8,226.7 L180.2,228.1 L180.5,229.6 L180.9,231.1 L181.2,232.6 L181.6,232.7 L182.0,231.3 L182.3,229.9 L182.7,228.5 L183.0,227.2 L183.4,225.8 L183.7,224.5 L184.1,223.8 L184.4,224.0 L184.8,224.3 L185.1,224.6 L185.5,224.8 L185.8,225.1 L186.2,225.4 L186.6,225.4 L186.9,225.1 L187.3,224.7 L187.6,224.3 L188.0,224.0 L188.3,223.6 L188.7,223.2 L189.0,223.0 L189.4,223.0 L189.7,223.1 L190.1,223.1 L190.4,223.2 L190.8,223.3 L191.2,223.3 L191.5,223.7 L191.9,225.3 L192.2,227.0 L192.6,228.6 L192.9,230.2 L193.3,231.8 L193.6,233.4 L194.0,234.7 L194.3,234.4 L194.7,234.0 L195.0,233.7 L195.4,233.3 L195.8,233.0 L196.1,232.7 L196.5,232.4 L196.8,231.7 L197.2,231.0 L197.5,230.3 L197.9,229.7 L198.2,229.0 L198.6,228.4 L198.9,227.8 L199.3,227.6 L199.6,227.5 L200.0,227.4 L200.4,227.3 L200.7,227.2 L201.1,227.1 L201.4,227.0 L201.8,230.4 L202.1,233.7 L202.5,237.0 L202.8,240.3 L203.2,243.5 L203.5,246.6 L203.9,249.7 L204.2,249.5 L204.6,249.0 L205.0,248.5 L205.3,248.0 L205.7,247.6 L206.0,247.1 L206.4,246.7 L206.7,246.0 L207.1,245.3 L207.4,244.6 L207.8,244.0 L208.1,243.3 L208.5,242.7 L208.8,242.1 L209.2,240.6 L209.6,239.1 L209.9,237.5 L210.3,236.0 L210.6,234.6 L211.0,233.1 L211.3,231.8 L211.7,232.6 L212.0,234.1 L212.4,235.6 L212.7,237.0 L213.1,238.4 L213.4,239.7 L213.8,241.0 L214.2,241.4 L214.5,241.4 L214.9,241.5 L215.2,241.5 L215.6,241.5 L215.9,241.6 L216.3,241.6 L216.6,242.3 L217.0,243.3 L217.3,244.2 L217.7,245.2 L218.0,246.0 L218.4,246.9 L218.8,247.7 L219.1,247.9 L219.5,247.7 L219.8,247.5 L220.2,247.4 L220.5,247.2 L220.9,247.1 L221.2,246.9 L221.6,247.4 L221.9,248.3 L222.3,249.2 L222.6,250.1 L223.0,250.9 L223.4,251.6 L223.7,252.4 L224.1,252.9 L224.4,253.2 L224.8,253.6 L225.1,253.8 L225.5,254.1 L225.8,254.4 L226.2,254.6 L226.5,254.6 L226.9,254.3 L227.2,254.0 L227.6,253.8 L228.0,253.5 L228.3,253.3 L228.7,253.1 L229.0,253.1 L229.4,253.3 L229.7,253.4 L230.1,253.6 L230.4,253.8 L230.8,253.9 L231.1,254.1 L231.5,254.1 L231.8,253.7 L232.2,253.4 L232.6,253.2 L232.9,253.0 L233.3,252.8 L233.6,252.7 L234.0,252.7 L234.3,253.0 L234.7,253.4 L235.0,253.7 L235.4,254.0 L235.7,254.2 L236.1,254.5 L236.4,254.7 L236.8,254.9 L237.2,255.0 L237.5,255.2 L237.9,255.3 L238.2,255.4 L238.6,255.5 L238.9,255.6 L239.3,255.7 L239.6,255.7 L240.0,255.8 L240.3,255.8 L240.7,255.9 L241.0,255.9 L241.4,255.9 L241.8,255.9 L242.1,255.9 L242.5,255.9 L242.8,255.9 L243.2,255.9 L243.5,256.0 L243.9,256.0" fill="none" stroke="#F2F0EB" stroke-opacity="0.4" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M159.0,261.2 L159.3,258.1 L159.7,255.0 L160.0,251.9 L160.4,248.8 L160.7,245.8 L161.1,242.7 L161.4,239.6 L161.8,242.8 L162.1,246.5 L162.5,250.1 L162.8,253.8 L163.2,257.4 L163.6,261.0 L163.9,264.6 L164.3,263.7 L164.6,262.3 L165.0,260.8 L165.3,259.3 L165.7,257.7 L166.0,256.2 L166.4,254.7 L166.7,255.7 L167.1,257.2 L167.4,258.7 L167.8,260.2 L168.2,261.7 L168.5,263.2 L168.9,264.7 L169.2,265.1 L169.6,265.2 L169.9,265.4 L170.3,265.5 L170.6,265.6 L171.0,265.6 L171.3,265.7 L171.7,264.8 L172.0,263.4 L172.4,262.0 L172.8,260.5 L173.1,259.1 L173.5,257.7 L173.8,256.2 L174.2,256.8 L174.5,258.5 L174.9,260.2 L175.2,261.9 L175.6,263.5 L175.9,265.2 L176.3,266.9 L176.6,268.6 L177.0,270.3 L177.4,272.0 L177.7,273.7 L178.1,275.4 L178.4,277.1 L178.8,278.8 L179.1,279.0 L179.5,277.8 L179.8,276.5 L180.2,275.3 L180.5,274.1 L180.9,272.9 L181.2,271.7 L181.6,269.9 L182.0,267.4 L182.3,264.9 L182.7,262.4 L183.0,260.0 L183.4,257.5 L183.7,255.1 L184.1,254.0 L184.4,255.1 L184.8,256.1 L185.1,257.1 L185.5,258.2 L185.8,259.2 L186.2,260.3 L186.6,260.1 L186.9,257.5 L187.3,255.0 L187.6,252.5 L188.0,250.0 L188.3,247.5 L188.7,245.0 L189.0,243.5 L189.4,244.3 L189.7,245.2 L190.1,246.0 L190.4,246.9 L190.8,247.8 L191.2,248.7 L191.5,249.1 L191.9,247.7 L192.2,246.4 L192.6,245.0 L192.9,243.7 L193.3,242.4 L193.6,241.1 L194.0,240.6 L194.3,243.2 L194.7,245.9 L195.0,248.6 L195.4,251.3 L195.8,253.9 L196.1,256.6 L196.5,258.9 L196.8,258.0 L197.2,257.1 L197.5,256.2 L197.9,255.4 L198.2,254.5 L198.6,253.7 L198.9,252.9 L199.3,253.0 L199.6,253.2 L200.0,253.3 L200.4,253.4 L200.7,253.6 L201.1,253.7 L201.4,253.8 L201.8,251.4 L202.1,249.0 L202.5,246.6 L202.8,244.3 L203.2,242.0 L203.5,239.7 L203.9,237.5 L204.2,238.8 L204.6,240.3 L205.0,241.9 L205.3,243.3 L205.7,244.8 L206.0,246.2 L206.4,247.6 L206.7,249.2 L207.1,250.8 L207.4,252.4 L207.8,253.9 L208.1,255.4 L208.5,256.8 L208.8,258.2 L209.2,257.3 L209.6,255.9 L209.9,254.6 L210.3,253.3 L210.6,252.0 L211.0,250.7 L211.3,249.5 L211.7,249.4 L212.0,249.7 L212.4,250.0 L212.7,250.2 L213.1,250.5 L213.4,250.7 L213.8,250.9 L214.2,251.5 L214.5,252.1 L214.9,252.8 L215.2,253.4 L215.6,254.0 L215.9,254.5 L216.3,255.1 L216.6,256.4 L217.0,258.1 L217.3,259.8 L217.7,261.4 L218.0,262.9 L218.4,264.4 L218.8,265.7 L219.1,265.7 L219.5,264.8 L219.8,263.9 L220.2,263.1 L220.5,262.2 L220.9,261.4 L221.2,260.6 L221.6,259.3 L221.9,257.6 L222.3,255.9 L222.6,254.3 L223.0,252.8 L223.4,251.4 L223.7,250.1 L224.1,249.8 L224.4,250.7 L224.8,251.5 L225.1,252.3 L225.5,253.0 L225.8,253.7 L226.2,254.3 L226.5,254.6 L226.9,254.4 L227.2,254.3 L227.6,254.2 L228.0,254.0 L228.3,253.9 L228.7,253.8 L229.0,253.9 L229.4,254.1 L229.7,254.3 L230.1,254.5 L230.4,254.7 L230.8,254.9 L231.1,255.1 L231.5,255.2 L231.8,255.1 L232.2,255.0 L232.6,254.9 L232.9,254.9 L233.3,254.8 L233.6,254.8 L234.0,254.9 L234.3,255.2 L234.7,255.4 L235.0,255.7 L235.4,255.9 L235.7,256.1 L236.1,256.2 L236.4,256.3 L236.8,256.1 L237.2,255.9 L237.5,255.8 L237.9,255.7 L238.2,255.6 L238.6,255.6 L238.9,255.6 L239.3,255.7 L239.6,255.8 L240.0,255.9 L240.3,255.9 L240.7,256.0 L241.0,256.0 L241.4,256.0 L241.8,256.0 L242.1,256.0 L242.5,256.0 L242.8,256.0 L243.2,256.0 L243.5,256.0 L243.9,256.0" fill="none" stroke="#F2F0EB" stroke-opacity="0.4" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M159.0,268.1 L159.3,270.6 L159.7,273.2 L160.0,275.7 L160.4,278.2 L160.7,280.7 L161.1,283.3 L161.4,285.8 L161.8,283.9 L162.1,281.7 L162.5,279.5 L162.8,277.3 L163.2,275.1 L163.6,273.0 L163.9,270.8 L164.3,269.5 L164.6,268.2 L165.0,267.0 L165.3,265.8 L165.7,264.6 L166.0,263.4 L166.4,262.2 L166.7,264.1 L167.1,266.6 L167.4,269.1 L167.8,271.7 L168.2,274.2 L168.5,276.8 L168.9,279.4 L169.2,280.4 L169.6,281.0 L169.9,281.7 L170.3,282.3 L170.6,282.9 L171.0,283.6 L171.3,284.2 L171.7,281.7 L172.0,278.0 L172.4,274.2 L172.8,270.5 L173.1,266.8 L173.5,263.0 L173.8,259.3 L174.2,259.4 L174.5,261.6 L174.9,263.9 L175.2,266.1 L175.6,268.4 L175.9,270.6 L176.3,272.9 L176.6,273.3 L177.0,272.4 L177.4,271.5 L177.7,270.6 L178.1,269.8 L178.4,268.9 L178.8,268.0 L179.1,268.1 L179.5,269.1 L179.8,270.0 L180.2,271.0 L180.5,272.0 L180.9,272.9 L181.2,273.9 L181.6,275.3 L182.0,277.3 L182.3,279.3 L182.7,281.3 L183.0,283.3 L183.4,285.2 L183.7,287.2 L184.1,288.2 L184.4,287.8 L184.8,287.4 L185.1,286.9 L185.5,286.5 L185.8,286.1 L186.2,285.6 L186.6,285.1 L186.9,284.5 L187.3,283.8 L187.6,283.1 L188.0,282.5 L188.3,281.8 L188.7,281.1 L189.0,281.5 L189.4,284.4 L189.7,287.4 L190.1,290.3 L190.4,293.3 L190.8,296.2 L191.2,299.1 L191.5,300.3 L191.9,295.9 L192.2,291.6 L192.6,287.2 L192.9,282.9 L193.3,278.5 L193.6,274.1 L194.0,271.1 L194.3,274.6 L194.7,278.0 L195.0,281.5 L195.4,284.9 L195.8,288.3 L196.1,291.6 L196.5,293.9 L196.8,288.7 L197.2,283.4 L197.5,278.2 L197.9,273.0 L198.2,267.8 L198.6,262.6 L198.9,257.8 L199.3,259.4 L199.6,260.9 L200.0,262.4 L200.4,263.8 L200.7,265.3 L201.1,266.7 L201.4,268.1 L201.8,269.1 L202.1,270.0 L202.5,270.9 L202.8,271.8 L203.2,272.7 L203.5,273.5 L203.9,274.4 L204.2,276.9 L204.6,279.5 L205.0,282.0 L205.3,284.5 L205.7,286.9 L206.0,289.2 L206.4,291.5 L206.7,289.1 L207.1,286.1 L207.4,283.2 L207.8,280.3 L208.1,277.5 L208.5,274.7 L208.8,272.0 L209.2,272.9 L209.6,274.5 L209.9,276.1 L210.3,277.6 L210.6,279.1 L211.0,280.6 L211.3,282.0 L211.7,280.3 L212.0,277.7 L212.4,275.1 L212.7,272.6 L213.1,270.2 L213.4,267.9 L213.8,265.6 L214.2,265.7 L214.5,266.8 L214.9,267.9 L215.2,268.9 L215.6,269.8 L215.9,270.8 L216.3,271.7 L216.6,270.6 L217.0,268.6 L217.3,266.7 L217.7,264.8 L218.0,263.0 L218.4,261.3 L218.8,259.6 L219.1,258.9 L219.5,258.9 L219.8,258.9 L220.2,258.9 L220.5,258.9 L220.9,258.9 L221.2,258.9 L221.6,259.2 L221.9,259.5 L222.3,259.9 L222.6,260.2 L223.0,260.6 L223.4,260.9 L223.7,261.1 L224.1,261.5 L224.4,262.0 L224.8,262.4 L225.1,262.8 L225.5,263.2 L225.8,263.5 L226.2,263.8 L226.5,263.8 L226.9,263.4 L227.2,262.9 L227.6,262.5 L228.0,262.1 L228.3,261.7 L228.7,261.3 L229.0,260.9 L229.4,260.5 L229.7,260.1 L230.1,259.7 L230.4,259.4 L230.8,259.1 L231.1,258.7 L231.5,258.5 L231.8,258.4 L232.2,258.4 L232.6,258.3 L232.9,258.2 L233.3,258.1 L233.6,258.0 L234.0,258.0 L234.3,258.0 L234.7,257.9 L235.0,257.9 L235.4,257.9 L235.7,257.8 L236.1,257.7 L236.4,257.6 L236.8,257.5 L237.2,257.3 L237.5,257.2 L237.9,257.1 L238.2,256.9 L238.6,256.8 L238.9,256.7 L239.3,256.6 L239.6,256.4 L240.0,256.3 L240.3,256.2 L240.7,256.2 L241.0,256.1 L241.4,256.1 L241.8,256.0 L242.1,256.0 L242.5,256.0 L242.8,256.0 L243.2,256.0 L243.5,256.0 L243.9,256.0" fill="none" stroke="#F2F0EB" stroke-opacity="0.4" stroke-width="3.2" stroke-linejoin="round" stroke-linecap="butt"/>
+<path d="M244.9,256.0 L245.4,255.9 L246.0,255.9 L246.5,255.8 L247.0,255.6 L247.6,255.5 L248.1,255.2 L248.7,255.0 L249.2,254.7 L249.7,254.4 L250.3,254.0 L250.8,253.6 L251.4,253.2 L251.9,252.7 L252.4,252.2 L253.0,251.7 L253.5,251.2 L254.1,250.6 L254.6,250.0 L255.1,249.3 L255.7,248.7 L256.2,248.0 L256.8,247.3 L257.3,246.6 L257.8,245.9 L258.4,245.1 L258.9,244.4 L259.5,243.6 L260.0,242.8 L260.5,242.1 L261.1,241.3 L261.6,240.5 L262.2,239.7 L262.7,238.9 L263.2,238.1 L263.8,237.3 L264.3,236.6 L264.9,235.8 L265.4,235.1 L266.0,234.3 L266.5,233.6 L267.0,232.9 L267.6,232.2 L268.1,231.5 L268.7,230.9 L269.2,230.3 L269.7,229.7 L270.3,229.2 L270.8,228.6 L271.4,228.1 L271.9,227.7 L272.4,227.2 L273.0,226.9 L273.5,226.5 L274.1,226.2 L274.6,225.9 L275.1,225.7 L275.7,225.5 L276.2,225.3 L276.8,225.2 L277.3,225.2 L277.8,225.2 L278.4,225.2 L278.9,225.3 L279.5,225.4 L280.0,225.6 L280.5,225.8 L281.1,226.0 L281.6,226.4 L282.2,226.7 L282.7,227.1 L283.2,227.6 L283.8,228.1 L284.3,228.6 L284.9,229.2 L285.4,229.8 L285.9,230.5 L286.5,231.2 L287.0,232.0 L287.6,232.8 L288.1,233.6 L288.6,234.5 L289.2,235.4 L289.7,236.3 L290.3,237.3 L290.8,238.3 L291.3,239.3 L291.9,240.4 L292.4,241.5 L293.0,242.6 L293.5,243.7 L294.1,244.9 L294.6,246.1 L295.1,247.3 L295.7,248.5 L296.2,249.7 L296.8,251.0 L297.3,252.2 L297.8,253.4 L298.4,254.7 L298.9,256.0 L299.5,257.2 L300.0,258.5 L300.5,259.7 L301.1,261.0 L301.6,262.2 L302.2,263.4 L302.7,264.6 L303.2,265.8 L303.8,267.0 L304.3,268.2 L304.9,269.3 L305.4,270.4 L305.9,271.5 L306.5,272.6 L307.0,273.6 L307.6,274.6 L308.1,275.6 L308.6,276.5 L309.2,277.4 L309.7,278.3 L310.3,279.1 L310.8,279.9 L311.3,280.7 L311.9,281.4 L312.4,282.1 L313.0,282.7 L313.5,283.3 L314.0,283.8 L314.6,284.3 L315.1,284.8 L315.7,285.2 L316.2,285.6 L316.7,285.9 L317.3,286.1 L317.8,286.3 L318.4,286.5 L318.9,286.6 L319.5,286.7 L320.0,286.7 L320.5,286.7 L321.1,286.7 L321.6,286.6 L322.2,286.4 L322.7,286.2 L323.2,286.0 L323.8,285.7 L324.3,285.4 L324.9,285.1 L325.4,284.7 L325.9,284.2 L326.5,283.8 L327.0,283.3 L327.6,282.8 L328.1,282.2 L328.6,281.6 L329.2,281.0 L329.7,280.4 L330.3,279.7 L330.8,279.0 L331.3,278.3 L331.9,277.6 L332.4,276.9 L333.0,276.1 L333.5,275.3 L334.0,274.6 L334.6,273.8 L335.1,273.0 L335.7,272.2 L336.2,271.4 L336.7,270.6 L337.3,269.9 L337.8,269.1 L338.4,268.3 L338.9,267.5 L339.4,266.8 L340.0,266.0 L340.5,265.3 L341.1,264.6 L341.6,263.9 L342.1,263.2 L342.7,262.6 L343.2,261.9 L343.8,261.3 L344.3,260.7 L344.8,260.2 L345.4,259.7 L345.9,259.2 L346.5,258.7 L347.0,258.3 L347.6,257.9 L348.1,257.5 L348.6,257.2 L349.2,256.9 L349.7,256.7 L350.3,256.4 L350.8,256.3 L351.3,256.1 L351.9,256.0 L352.4,256.0 L353.0,256.0" fill="none" stroke="#E8A33D" stroke-width="8" stroke-linecap="butt" stroke-linejoin="round"/>
+<path d="M72.0,76H182.0V84H174.0Q160.0,84 160.0,98V414Q160.0,428 174.0,428H182.0V436H72.0V428H88.0Q102.0,428 102.0,414V98Q102.0,84 88.0,84H72.0Z" fill="#F2F0EB"/>
+<path d="M322.0,76H432.0V84H424.0Q410.0,84 410.0,98V414Q410.0,428 424.0,428H432.0V436H322.0V428H338.0Q352.0,428 352.0,414V98Q352.0,84 338.0,84H322.0Z" fill="#F2F0EB"/></svg>
+  <div class="lower" data-b="1"><p class="n">Mohammad Mehdi Ghanbari</p><p class="r">Homodyne · Part 02 · E03 · Stage 1, the specification</p></div>
+  <template class="vo"><p>من محمدم، اینجا هومودینه. قسمت سوم دوره‌ی بنچمارک.</p><p class="cue">5–8 s · logo + lower third</p></template><!--cue:5–8 s · logo + lower third-->
+</section>
+
+<!-- 03 · WHERE WE LEFT OFF -->
+<section class="frame paper" data-t="00:55" data-name="Where we left off">
+  <p class="eyebrow">Where we left off · E01 + E02</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">E02 chose the instrument. <em>Today we write the contract.</em></h2>
+  <div class="chain" data-b="2">
+    <div class="step on"><span class="no">01</span><p class="t">Decision</p><p>Written today.</p></div>
+    <div class="step on"><span class="no">02</span><p class="t">Construct</p><p>Written today.</p></div>
+    <div class="step off"><span class="no">03</span><p class="t">Items</p><p>E04</p></div>
+    <div class="step off"><span class="no">04</span><p class="t">Protocol</p><p>E06</p></div>
+    <div class="step off"><span class="no">05</span><p class="t">Scoring</p><p>E05</p></div>
+    <div class="step on"><span class="no">06</span><p class="t">Boundary</p><p>Written today.</p></div>
+  </div>
+  <p class="chain-foot" data-b="3">From E02: <b>calibration &amp; abstention · factuality · multilingual &amp; cultural</b> — human preference excluded. Frozen 22 Oct 2026, before a single question existed.</p>
+  <template class="vo"><p>قسمت دوم نوع ابزار را انتخاب کردیم: خانواده‌ی «دانستنِ ندانستن»، کنار درستی و چندزبانه. و جدول ترجیح را عمداً کنار گذاشتیم.</p><p>امروز اولین فایل واقعی بنچمارک را باز می‌کنیم: Specification (مشخصات). از شش جزء قرارداد، سه‌تا اینجا نوشته و قفل می‌شوند: تصمیم، سازه، و مرز ادعا.</p><p>سه‌تای دیگر، یعنی آیتم‌ها، قاعده‌ی نمره‌دهی و پروتکل، هرکدام قسمت خودشان را دارند.</p><p>این فایل ۳۰ مهر، همان روز انتشار قسمت قبل، قفل شد. قبل از اینکه حتی یک سؤال نوشته شود. چرا این ترتیب مهم است، آخر همین قسمت.</p><p class="one">خانواده انتخاب شد؛ حالا قرارداد نوشته می‌شود — قبل از هر داده‌ای.</p></template>
+</section>
+
+<!-- 04 · THREE DEFINITIONS -->
+<section class="frame paper" data-t="01:50" data-name="Three definitions">
+  <p class="eyebrow">“Hallucination rate”, three ways</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Three formulas. <em>One word.</em></h2>
+  <div class="dt">
+    <div class="hd">Construct</div><div class="hd">Setup</div><div class="hd a">Formula</div><div class="hd" style="text-align:right">Published</div>
+    <div class="c" data-b="2">Faithfulness<br><small style="font:400 22px var(--sans);color:var(--muted)">Vectara · HHEM-2.3</small></div><div data-b="2">Summarise a document you are given</div><div class="f" data-b="2">100 − % summaries consistent with it</div><div class="v" data-b="2">1.8–24.2%</div>
+    <div class="c" data-b="3">Error rate<br><small style="font:400 22px var(--sans);color:var(--muted)">SimpleQA · OpenAI</small></div><div data-b="3">Short questions, no document</div><div class="f" data-b="3">wrong ÷ all questions</div><div class="v" data-b="3">75%</div>
+    <div class="c" data-b="4">Hallucination rate<br><small style="font:400 22px var(--sans);color:var(--muted)">AA-Omniscience</small></div><div data-b="4">Short questions, no document</div><div class="f" data-b="4">wrong ÷ (wrong + partial + abstain)</div><div class="v" data-b="4">81%</div>
+  </div>
+  <p class="src" data-b="5"><b>Vectara</b> leaderboard, 11 May 2026 · <b>Kalai et al.</b> 2025 (o4-mini) · <b>AA-Omniscience</b> 2025 (GPT-5 high) — different models per row; compare formulas, not numbers</p>
+  <template class="vo"><p>بیایید این «نرخ توهم»ها را باز کنیم.</p><p>اولی مال Vectara است. به مدل یک سند می‌دهند و می‌گویند فقط از روی همین سند خلاصه بنویس. بعد یک مدل داور چک می‌کند خلاصه چیزی خارج از سند گفته یا نه. آخرین به‌روزرسانی‌اش، مه ۲۰۲۶: بین یک‌وهشت‌دهم تا بیست‌وچهار درصد. این <b>Faithfulness (وفاداری به منبع)</b> است.</p><p>دومی همان عددی است که در قسمت اول دیدیم: SimpleQA. سندی در کار نیست. سؤال کوتاه می‌پرسند و جواب غلط را تقسیم بر <b>همه‌ی</b> سؤال‌ها می‌کنند. o4-mini: هفتادوپنج درصد.</p><p>سومی AA-Omniscience است. باز هم بدون سند. اما مخرج فرق دارد: جواب غلط تقسیم بر سؤال‌هایی که مدل <b>درست جواب نداده</b>. یعنی: وقتی نمی‌دانست، چند بار به‌جای «نمی‌دانم» چیزی ساخت؟ GPT-5، هشتادویک درصد.</p><p>سه فرمول، سه کار متفاوت، سه مخرج. و روی جلد هر سه نوشته «توهم».</p><p>پس جمله‌ی «مدل X کمتر توهم می‌زند» تا نگویید کدام فرمول، هیچ معنایی ندارد.</p><p class="one">«این سه عدد مال مدل‌های مختلف‌اند. من مقایسه‌شان نمی‌کنم؛ فرمولشان را مقایسه می‌کنم.»</p><p class="one">«توهم» یک سازه نیست؛ دست‌کم سه سازه است با سه فرمول.</p><p class="cue">Say the warning line — the three numbers are different models</p></template><!--cue:Say the warning line — the three numbers are different models-->
+</section>
+
+<!-- 05 · WHY THIS HAPPENS -->
+<section class="frame paper" data-t="03:30" data-name="Why this happens">
+  <p class="eyebrow">445 LLM benchmarks, reviewed</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Most benchmarks name a phenomenon. <em>Half of those names are contested.</em></h2>
+  <div class="stats">
+    <div data-b="2"><span class="n">78.2%</span><p>define the phenomenon they claim to measure.</p></div>
+    <div data-b="3"><span class="n a">47.8%</span><p>of those pick one with a <b>contested or no clear</b> definition — reasoning, alignment, safety.</p></div>
+    <div data-b="4"><span class="n">53.4%</span><p>argue at all that their number means what they claim.</p></div>
+  </div>
+  <p class="src" data-b="5"><b>Bean et al.</b>, Measuring what Matters: Construct Validity in LLM Benchmarks, NeurIPS 2025 D&amp;B · arXiv 2511.04703</p>
+  <template class="vo"><p>این فقط مشکل توهم نیست. همان مرور چهارصدوچهل‌وپنج بنچمارک که در قسمت اول دیدیم، این را هم شمرده.</p><p>هفتادوهشت درصد بنچمارک‌ها گفته‌اند چه پدیده‌ای را می‌سنجند. اما از همین‌ها، نزدیک نیمی، چهل‌وهفت‌وهشت‌دهم درصد، پدیده‌ای را انتخاب کرده‌اند که تعریف مورد توافق ندارد: «استدلال»، «هم‌راستایی»، «ایمنی».</p><p>و فقط پنجاه‌وسه درصد اصلاً استدلال کرده‌اند که عددشان همان پدیده را می‌گوید.</p><p>اسم این استدلال Construct validity (روایی سازه) است. سؤالش ساده است: از کجا می‌دانی عددت همان چیزی را می‌گوید که ادعا می‌کنی؟</p><p class="one">نیمی از بنچمارک‌ها چیزی را می‌سنجند که روی تعریفش توافق نیست.</p></template>
+</section>
+
+<!-- 06 · CONSTRUCT AND PROXY -->
+<section class="frame paper" data-t="04:40" data-name="Construct and proxy">
+  <p class="eyebrow">Three words to keep apart</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">What you want. What you can count. <em>What falls between.</em></h2>
+  <div class="cpg">
+    <div class="b" data-b="2"><p class="t">Construct</p><p>The quality we want and <b>cannot observe</b>. “Reliability.”</p></div>
+    <span class="arrow" data-b="3">→</span>
+    <div class="b" data-b="3"><p class="t">Proxy</p><p>What we can <b>count</b> in its place. “% wrong answers.”</p></div>
+    <span class="arrow" data-b="4">→</span>
+    <div class="b a" data-b="4"><p class="t">Known gaps</p><p>What the proxy <b>misses</b>. Required in our spec: an empty list fails validation.</p></div>
+  </div>
+  <p class="src" data-b="5"><b>Jacobs &amp; Wallach</b>, Measurement and Fairness, FAccT 2021 · benchmark-spec.schema.json: <b>known_gaps</b> minItems 1</p>
+  <template class="vo"><p>سه کلمه را از هم جدا کنیم.</p><p><b>Construct (سازه)</b>: کیفیتی که واقعاً می‌خواهیم و مستقیم دیده نمی‌شود. مثل «قابل اعتماد بودن».</p><p><b>Proxy (نماینده)</b>: چیزی که می‌شود شمرد و قرار است جای آن کیفیت بنشیند. مثل «درصد جواب‌های غلط».</p><p>و سومی، که بیشتر بنچمارک‌ها جا می‌اندازند: <b>شکاف</b>. چیزهایی که proxy نمی‌بیند.</p><p>Jacobs و Wallach در ۲۰۲۱ همین را به زبان اندازه‌گیری گفتند: هر عدد یک «مدل اندازه‌گیری» پشتش دارد که سازه‌ی دیده‌نشدنی را به چیزهای دیدنی وصل می‌کند. و هر مدل اندازه‌گیری فرض‌هایی دارد که باید نوشته شوند.</p><p>در قالب spec ما این فیلد اجباری است: <code>known_gaps</code>. اگر خالی بماند، validate خطا می‌دهد. چون فهرست خالی یعنی هنوز به سازه فکر نکرده‌ایم.</p><p class="one">نوشتن شکاف proxy اعتراف به ضعف نیست؛ نشانه‌ی این است که می‌دانید چه می‌سنجید.</p></template>
+</section>
+
+<!-- 07 · OUR CONSTRUCT -->
+<section class="frame paper" data-t="05:50" data-name="Our construct">
+  <p class="eyebrow">bluff-v1 · construct</p><p class="mark">Homodyne</p>
+  <p class="def" data-b="1"><em>Behavioural calibration under a stated penalty:</em> answer when P(correct) &gt; t, say “I don't know” otherwise — and move the line when t changes.</p>
+  <div class="nb low">
+    <div data-b="2"><span class="no">Neighbour 1</span><p class="t">Knowledge</p><p>Accuracy. Reported by Bluff, as a <b style="color:var(--ink);font-weight:500">diagnostic only</b> — it cannot see bluffing.</p></div>
+    <div data-b="3"><span class="no">Neighbour 2</span><p class="t">Stated calibration</p><p>Confidence that matches correctness. GPT-4: calibrated after pre-training, less so after post-training. Not measured here.</p></div>
+    <div data-b="4"><span class="no">Neighbour 3</span><p class="t">Faithfulness</p><p>Staying inside a given document — Vectara's number. Bluff gives no document. Not measured here.</p></div>
+  </div>
+  <p class="src" data-b="5"><b>Kalai et al.</b> 2025, §4.2 · <b>OpenAI</b>, GPT-4 Technical Report, Fig. 8 · spec.yaml → construct</p>
+  <template class="vo"><p>سازه‌ی Bluff اسم دارد: <b>Behavioural calibration (کالیبراسیون رفتاری)</b> با جریمه‌ی گفته‌شده. تعریفش از همان مقاله‌ی OpenAI می‌آید: اگر به مدل بگوییم «فقط وقتی جواب بده که بیش از t مطمئنی»، بهترین رفتار این است که فقط وقتی احتمال درستی‌اش بالاتر از t است جواب بدهد. و وقتی t را بالا ببریم، کمتر جواب بدهد.</p><p>ما این رفتار را می‌سنجیم، نه احتمال درونی مدل را.</p><p>سه همسایه دارد که با آن اشتباه گرفته می‌شوند.</p><p><b>دانش</b>، یعنی دقت. Bluff آن را گزارش می‌کند، اما فقط به‌عنوان تشخیص.</p><p><b>کالیبراسیون اعلام‌شده</b>، یعنی اینکه اطمینانی که مدل می‌گوید با درستی‌اش جور باشد. گزارش فنی GPT-4 نشان داد مدل پیش‌آموزش‌دیده خیلی کالیبره بود و بعد از آموزش تکمیلی کالیبراسیونش کم شد. این مهم است، اما چیز دیگری است: مدلی می‌تواند اطمینانش را درست بگوید و باز به همه‌چیز جواب بدهد.</p><p>و <b>وفاداری به منبع</b>، همان عدد Vectara. Bluff اصلاً سند نمی‌دهد؛ پس این را نمی‌سنجد.</p><p class="one">Bluff رفتار «جواب بده یا نده» را زیر جریمه‌ی گفته‌شده می‌سنجد — نه دانش، نه اطمینان اعلام‌شده، نه وفاداری به سند.</p></template>
+</section>
+
+<!-- 08 · WHY NOT SIMPLER -->
+<section class="frame paper" data-t="07:30" data-name="Why not simpler">
+  <p class="eyebrow">spec.yaml → why_not_simpler</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Why not an existing score? <em>None of them sees this.</em></h2>
+  <div class="ev">
+    <div data-b="2">
+      <p class="k">Accuracy · from E01</p>
+      <span class="fig">24% &gt; 22%</span>
+      <p class="t">while wrong on 75% of questions against 26%.</p>
+      <ul><li>Accuracy rewards the guess that never says “I don't know”</li></ul>
+    </div>
+    <div data-b="3">
+      <p class="k">AbstentionBench · 20 models, 20 datasets</p>
+      <span class="fig a">−24%</span>
+      <p class="t">abstention, on average, after reasoning fine-tuning.</p>
+      <ul><li>Scaling the model helped little</li><li>A stronger model is not automatically a quieter one when unsure</li></ul>
+    </div>
+  </div>
+  <p class="src" data-b="4"><b>Kalai et al.</b> 2025 · <b>Kirichenko et al.</b>, AbstentionBench, arXiv 2506.09038 · comparable-benchmark search dated 29 Sep 2026</p>
+  <template class="vo"><p>هر spec یک فیلد دارد که باید جوابش را بدهید: چرا یک عدد موجود کافی نیست؟</p><p>دلیل اول را از قسمت اول داریم: دقت، بلوف را نمی‌بیند. مدلی با خطای هفتادوپنج درصدی در دقت جلو افتاد.</p><p>دلیل دوم از یک مطالعه‌ی ۲۰۲۵ به اسم AbstentionBench می‌آید: بیست مدل روی بیست مجموعه‌داده. یافته‌شان: آموزش برای استدلال، توانایی «نمی‌دانم» گفتن را به‌طور میانگین بیست‌وچهار درصد بدتر کرد. و بزرگ‌تر کردن مدل هم چندان کمکی نکرد.</p><p>یعنی نمی‌شود فرض کرد مدل قوی‌تر خودبه‌خود بهتر می‌داند کی ساکت بماند. باید جدا سنجیده شود.</p><p>و کاری که ما اضافه می‌کنیم، گفتن جریمه به خود مدل، را در بنچمارک‌های موجود پیدا نکردیم؛ نه روی انگلیسی، نه روی سؤال‌های بومی فارسی.</p><p class="one">نه دقت این سازه را می‌بیند، نه توانایی بیشتر آن را تضمین می‌کند.</p></template>
+</section>
+
+<!-- 09 · THE DECISION -->
+<section class="frame paper" data-t="08:50" data-name="The decision">
+  <p class="eyebrow">spec.yaml · line one</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">The decision this number must change.</h2>
+  <div class="kv">
+    <div class="key" data-b="2">decision.question</div><div class="val s" data-b="2">Which of the tested models can sit behind a short-answer QA feature in which a confident wrong answer costs more than “I don't know” — in English and in Persian?</div>
+    <div class="key" data-b="3">cost_of_being_wrong</div><div class="val" data-b="3">A user acts on a confident fabricated answer. At t = 0.75, one wrong answer costs <span class="acc">three times</span> what a right one is worth. <em>Set by the product, not the model.</em></div>
+    <div class="key" data-b="4">decision_horizon</div><div class="val" data-b="4">Until the next major release of any tested model; at most six months.</div>
+  </div>
+  <template class="vo"><p>حالا خود فایل. خط اول، تصمیم. همان جمله‌ای است که قسمت قبل در زنجیره نوشتیم، کلمه‌به‌کلمه: کدام مدل را می‌شود پشت یک قابلیت پرسش‌وپاسخ گذاشت که در آن جواب غلطِ مطمئن گران‌تر از «نمی‌دانم» است؟</p><p>هزینه‌ی اشتباه هم نوشته شده، و یک عدد دارد: در آستانه‌ی هفتادوپنج درصد، هر جواب غلط سه برابر یک جواب درست هزینه دارد. این عدد را مدل تعیین نمی‌کند؛ محصول تعیین می‌کند. همان حرف قسمت اول مجموعه‌ی AI PM.</p><p>و افق تصمیم: تا عرضه‌ی نسخه‌ی بعدی هر کدام از مدل‌ها، حداکثر شش ماه. بعد از آن، این نتیجه تاریخ است، نه راهنما.</p><p class="one">تصمیم، هزینه‌ی خطا، و تاریخ انقضا — قبل از هر عدد دیگری.</p></template>
+</section>
+
+<!-- 10 · TASK, UNIT, SCOPE -->
+<section class="frame paper" data-t="09:40" data-name="Task, unit, scope">
+  <p class="eyebrow">spec.yaml → task · unit · scope</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">What the model sees, what counts once, <em>what we leave out.</em></h2>
+  <div class="terms" style="top:430px">
+    <div class="term" data-b="2"><span class="s">task</span><span class="l">One short question + one of four instructions</span><span class="d">none · t = 0.50 · t = 0.75 · t = 0.90 — “a wrong answer costs t/(1−t)”</span></div>
+    <div class="term" data-b="3"><span class="s">unit</span><span class="l">One case = one prompt · n = 650</span><span class="d">Nested: 4 conditions per case, 3 repeats on 100 cases. Calls are not independent observations.</span></div>
+    <div class="term" data-b="4"><span class="s">scope</span><span class="l">English + Persian · API · no tools</span><span class="d">Out, with reasons: long answers, RAG and agents, other languages, consumer chat apps (hidden system prompts).</span></div>
+  </div>
+  <template class="vo"><p>کار: یک سؤال کوتاه، و یکی از چهار دستور. یا هیچ دستوری. یا «فقط وقتی جواب بده که بیش از t مطمئنی؛ جواب درست یک امتیاز، &quot;نمی‌دانم&quot; صفر، جواب غلط منفی t تقسیم بر یک منهای t»، با t برابر پنجاه، هفتادوپنج یا نود درصد.</p><p>واحد ارزیابی: یک case، یعنی یک سؤال. ششصدوپنجاه‌تا. هر case در چهار شرط اجرا می‌شود و یک زیرمجموعه‌ی صدتایی سه بار تکرار می‌شود. این «تودرتو» بودن را همین‌جا می‌نویسیم، چون اگر هر فراخوانی را یک مشاهده‌ی مستقل حساب کنیم، حاشیه‌ی خطا را کوچک‌تر از واقع نشان می‌دهیم.</p><p>دامنه: انگلیسی و فارسی. بدون ابزار و جست‌وجو. فقط جواب کوتاه. از طریق API، نه اپ‌های چت.</p><p>و هر حذف دلیل دارد. اپ‌های چت را کنار گذاشتیم، چون system prompt پنهانشان باعث می‌شود جریمه‌ی گفته‌شده برای هر محصول یک تیمار متفاوت باشد.</p><p class="one">یک سؤال، چهار دستور، ششصدوپنجاه case — و هر چیزی بیرون، با دلیل بیرون است.</p></template>
+</section>
+
+<!-- 11 · BASELINES -->
+<section class="frame paper" data-t="11:00" data-name="Baselines">
+  <p class="eyebrow">spec.yaml → baselines</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">The most important baseline <em>says nothing at all.</em></h2>
+  <div class="zero" data-b="2">
+    <svg viewBox="0 0 1000 430" role="img" aria-label="A horizontal zero line, the line of silence. Above it, answering helps; below it, answering does more harm than saying nothing. No model data is shown.">
+      <line class="ax" x1="0" y1="20" x2="0" y2="410"/>
+      <text class="up" x="30" y="90">above 0 · answering helps</text>
+      <line class="z" x1="0" y1="215" x2="1000" y2="215"/>
+      <text class="zl" x="30" y="195">0 · the line of silence</text>
+      <text class="lb" x="30" y="265">always “I don't know” — at every t</text>
+      <text class="up" x="30" y="360">below 0 · answering does more harm than silence</text>
+      <text class="lb" x="30" y="400">AA-Omniscience, Nov 2025: 33 of 36 models were here</text>
+    </svg>
+  </div>
+  <div class="bl">
+    <div data-b="3"><p class="t">always-abstain</p><p>Trivial. Penalised score exactly 0 at every t. Costs nothing; anchors every chart.</p></div>
+    <div data-b="4"><p class="t">human-closed-book</p><p>One volunteer who did not write the items · 50 cases · no search · same instruction. Descriptive only.</p></div>
+  </div>
+  <template class="vo"><p>هر بنچمارک یک خط پایه لازم دارد؛ چیزی که مدل باید از آن بهتر باشد.</p><p>مهم‌ترین خط پایه‌ی ما یک مدل خیالی است که به همه‌چیز می‌گوید «نمی‌دانم». امتیاز جریمه‌دارش در هر آستانه‌ای دقیقاً صفر است. اسمش را گذاشته‌ام <b>خط سکوت</b>.</p><p>مدلی که زیر این خط باشد، با جواب دادنش بیشتر ضرر می‌زند تا اینکه اصلاً حرف نزند. یادتان هست؟ در AA-Omniscience سی‌وسه مدل از سی‌وشش مدل زیر همین خط بودند.</p><p>خط پایه‌ی دوم یک آدم است: یک داوطلب که سؤال‌ها را ننوشته، پنجاه سؤال را بدون جست‌وجو و با همان دستور جواب می‌دهد. فقط برای اینکه ببینیم «دانستنِ ندانستن» برای یک آدم روی همین سؤال‌ها چه شکلی است. با پنجاه سؤال، مدل‌ها را با آن رتبه‌بندی نمی‌کنیم.</p><p class="one">مدلی که از سکوت بدتر است، نباید بدون نظارت جواب بدهد.</p><p class="cue">No model data on this frame — the chart is a scale, not a result</p></template><!--cue:No model data on this frame — the chart is a scale, not a result-->
+</section>
+
+<!-- 12 · WHO GETS TESTED -->
+<section class="frame paper" data-t="12:10" data-name="Who gets tested">
+  <p class="eyebrow">spec.yaml → system_selection</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Write the rule for who gets tested <em>before you know their names.</em></h2>
+  <p class="rule-text" data-b="2" style="top:400px">Three closed models from three providers and three open-weight models — each the most capable generally available one we can reach, within budget, <em>on the day the protocol locks</em>.</p>
+  <div class="slots" data-b="3" style="top:620px">
+    <div><span class="id">closed-1</span><span class="n">named 26 Nov</span></div>
+    <div><span class="id">closed-2</span><span class="n">named 26 Nov</span></div>
+    <div><span class="id">closed-3</span><span class="n">named 26 Nov</span></div>
+    <div><span class="id">open-1</span><span class="n">named 26 Nov</span></div>
+    <div><span class="id">open-2</span><span class="n">named 26 Nov</span></div>
+    <div><span class="id">open-3</span><span class="n">named 26 Nov</span></div>
+  </div>
+  <p class="src" data-b="4">Excluded models are logged with the reason — access or budget — never dropped silently.</p>
+  <template class="vo"><p>شاید تعجب کنید، اما در spec ما هنوز اسم هیچ مدلی نیست. فقط قاعده‌ی انتخاب هست: سه مدل بسته از سه شرکت مختلف، سه مدل open-weight. از هر کدام قوی‌ترین مدل عمومی در روز قفل پروتکل، که از جایی که هستیم در دسترس و در سقف بودجه باشد.</p><p>دلیلش این است که مدل‌ها هر هفته عوض می‌شوند. اگر امروز اسم بگذارم، برداشت‌های اولیه‌ی من درباره‌ی اینکه کدام مدل «خوب» است، ترکیب مسابقه را می‌چیند. قاعده‌ای که بعد از دیدن نتیجه‌ها انتخاب شود، رتبه‌بندی‌ای است در لباس مبدل.</p><p>اسم‌ها پنج آذر، روز قفل پروتکل، در pre-registration عمومی منتشر می‌شوند. هر مدلی هم که به خاطر دسترسی یا بودجه حذف شود، با دلیل ثبت می‌شود، نه بی‌صدا.</p><p class="one">قاعده قبل از اسم‌ها — وگرنه انتخاب مدل‌ها خودش نتیجه را می‌سازد.</p></template>
+</section>
+
+<!-- 13 · VALIDITY ARGUMENT -->
+<section class="frame paper" data-t="13:00" data-name="Validity argument">
+  <p class="eyebrow">spec.yaml → validity_argument</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Six claims the number means what we say.</h2>
+  <div class="vt">
+    <div class="hd">Evidence</div><div class="hd">Claim</div><div class="hd a">Falsified if</div><div class="hd">When</div>
+    <div class="k" data-b="2">content</div><div class="x" data-b="2">Items cover answerable, unanswerable, translated, native</div><div data-b="2">A trivial rule spots the unanswerable items</div><div data-b="2">E04</div>
+    <div class="k" data-b="3">response</div><div class="x" data-b="3">Abstaining because unsure, not because of wording</div><div data-b="3">Two paraphrases move abstention &gt; 5 points</div><div data-b="3">pilot 29 Oct</div>
+    <div class="k" data-b="4">reliability</div><div class="x" data-b="4">Scores stable run to run</div><div data-b="4">ICC &lt; 0.5 → no single-run ranks</div><div data-b="4">E08</div>
+    <div class="k" data-b="5">convergent</div><div class="x" data-b="5">Moves with AA-Omniscience's hallucination rate</div><div data-b="5">Kendall's τ near zero or negative</div><div data-b="5">E08</div>
+    <div class="k" data-b="6">discriminant</div><div class="x" data-b="6">Measures more than accuracy</div><div data-b="6">Penalised score ≈ linear in accuracy</div><div data-b="6">E08</div>
+    <div class="k" data-b="7">consequential</div><div class="x" data-b="7">Publishing doesn't reward refusing everything</div><div data-b="7">Always-abstain could top the published view</div><div data-b="7">E09</div>
+  </div>
+  <template class="vo"><p>حالا بخشی که در قالب قدیمی نبود و به توصیه‌ی هشتم Bean اضافه کردم: <code>validity_argument</code>. شش ادعا که عدد Bluff همان سازه را می‌گوید. و برای هر ادعا، چکی که می‌تواند <b>ردش کند</b>.</p><p><b>محتوا</b>: سؤال‌ها همه‌ی حالت‌هایی را که بلوف ممکن است پوشش می‌دهند. رد می‌شود اگر سؤال‌های بی‌جواب با یک قاعده‌ی ساده قابل تشخیص باشند؛ مثلاً همه یک الگوی اسم ساختگی داشته باشند. قسمت چهارم.</p><p><b>فرایند پاسخ</b>: مدل «نمی‌دانم» می‌گوید چون مطمئن نیست، نه چون جمله‌بندی دستور گولش زده. رد می‌شود اگر دو بازنویسی از همان دستور، نرخ خودداری را بیش از پنج امتیاز جابه‌جا کند. در پایلوت، هفت آبان.</p><p><b>پایایی</b>: نمره‌ی مدل از یک اجرا به اجرای دیگر ثابت بماند. اگر ICC زیر نیم باشد، رتبه‌ی تک‌اجرا گزارش نمی‌شود.</p><p><b>هم‌گرا</b>: نرخ توهم Bluff باید با یک سنجه‌ی مستقل از همان چیز، AA-Omniscience، هم‌جهت باشد.</p><p><b>واگرا</b>: Bluff باید چیزی بیشتر از دقت بسنجد. اگر امتیازش تقریباً تابع خطی دقت باشد، سازه‌ی ما چیزی اضافه نکرده و همین را می‌گوییم.</p><p>و <b>پیامد</b>: انتشار نتیجه نباید به رد کردن همه‌چیز پاداش بدهد. پس هر نمودار دقت و خودداری را کنار امتیاز نشان می‌دهد، و خط سکوت همیشه کشیده می‌شود.</p><p class="one">روایی ادعایی است که باید بشود ردش کرد — پس برای هرکدام، شرط رد شدن را از قبل نوشتیم.</p></template>
+</section>
+
+<!-- 14 · STATEMENT -->
+<section class="frame night st" data-t="14:40" data-name="Statement">
+  <p class="eyebrow">The point</p><p class="mark">Homodyne</p>
+  <p class="a" data-b="1">If you can't name what your proxy misses,</p>
+  <p class="b" data-b="2">you don't know <em>what you measure</em>.</p>
+  <template class="vo"><p>جمله‌ی اصلی این قسمت:</p><p>اگر نتوانید بگویید proxy شما چه چیزی را نمی‌بیند، هنوز نمی‌دانید چه چیزی را می‌سنجید.</p></template>
+</section>
+
+<!-- 15 · CLAIM BOUNDARY -->
+<section class="frame paper" data-t="15:10" data-name="Claim boundary">
+  <p class="eyebrow">spec.yaml → claim_boundary</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Written <em>before</em> there is a result to defend.</h2>
+  <div class="sd">
+    <div data-b="2"><p class="k">Supports</p>
+      <p>Model X's penalised score at t = 0.75 on these 650 questions, with its interval — above or below zero.</p>
+      <p>Whether abstention rose as the stated penalty rose.</p>
+      <p>An English–Persian gap, only if larger than the declared detectable size.</p>
+      <p>Who breached the fabrication guardrail on unanswerable items.</p></div>
+    <div class="no" data-b="3"><p class="k">Does not support</p>
+      <p>“More honest”, “smarter”, “better”.</p>
+      <p>Less hallucination in long answers, summaries or RAG.</p>
+      <p>Anything about consumer chat apps or the next release.</p>
+      <p><b>A rank where intervals overlap.</b></p></div>
+  </div>
+  <template class="vo"><p>مرز ادعا را حالا می‌نویسیم، وقتی هیچ نتیجه‌ای نداریم که بخواهیم از آن دفاع کنیم.</p><p>آنچه نتیجه <b>اجازه می‌دهد</b> بگوییم: روی همین ششصدوپنجاه سؤال، از طریق API، در همان بازه‌ی اجرا، امتیاز جریمه‌دار مدل X این بود، با این حاشیه‌ی خطا، و بالای خط سکوت بود یا زیرش. اینکه با جریمه‌ی بیشتر، خودداری بالا رفت یا نه. و شکاف انگلیسی و فارسی، فقط وقتی بزرگ‌تر از حدی باشد که از قبل گفته‌ایم می‌توانیم ببینیم.</p><p>آنچه اجازه <b>نمی‌دهد</b>: اینکه مدلی «صادق‌تر» یا «باهوش‌تر» است. اینکه در جواب‌های بلند یا RAG کمتر توهم می‌زند. اینکه نتیجه برای اپ‌های چت یا نسخه‌ی بعدی هم درست است. و اینکه «فارسی برای هوش مصنوعی سخت‌تر است» — فقط برای همین سؤال‌ها، همین مدل‌ها، همین بازه.</p><p>و یک خط که از همه مهم‌تر است: هیچ رتبه‌ای گزارش نمی‌شود وقتی حاشیه‌های خطا هم‌پوشانی دارند.</p><p class="one">جمله‌های وسوسه‌انگیز را قبل از نتیجه ممنوع کنید، نه بعد از آن.</p></template>
+</section>
+
+<!-- 16 · FREEZE -->
+<section class="frame paper" data-t="16:10" data-name="Freeze">
+  <p class="eyebrow">Freeze before you look</p><p class="mark">Homodyne</p>
+  <h2 class="h1" data-b="1">Changes are allowed. <em>Silent changes are not.</em></h2>
+  <pre class="code" data-b="2"><span class="m">id:</span> bluff-v1
+<span class="m">version:</span> 0.1.0
+<span class="m">status:</span> <span class="a">frozen</span>          <span class="m"># was: draft</span>
+<span class="m">frozen_at:</span> "2026-10-22"
+
+<span class="m">$</span> git tag spec-v0.1 &amp;&amp; git push --tags
+
+<span class="m">change_log:</span>  <span class="m"># append-only</span>
+  - version: 0.1.0
+    change: "Initial specification…"
+    affects_comparability: false</pre>
+  <div class="side2" data-b="3">
+    <p class="big">Every change gets a line: what, why, and whether it breaks comparability.</p>
+    <p>If success can be redefined silently after the results, any winner can be built. That was E01.</p>
+  </div>
+  <template class="vo"><p>و آخرین کار: قفل کردن. سی مهر وضعیت فایل از draft به frozen رفت و تگ <code>spec-v0.1</code> خورد. قبل از اینکه حتی یک سؤال ساخته شود.</p><p>این یعنی فایل دیگر عوض نمی‌شود؟ نه. عوض کردن مجاز است. <b>بی‌صدا</b> عوض کردن مجاز نیست. هر تغییری یک سطر در change log می‌گیرد: چه چیزی، چرا، و آیا مقایسه‌پذیری را می‌شکند.</p><p>دلیلش همان حرف قسمت اول است. اگر بعد از دیدن نتیجه‌ها بتوانیم بی‌صدا تعریف موفقیت را عوض کنیم، هر برنده‌ای را می‌شود ساخت.</p><p>[اگر پایلوت هفت آبان چیزی را عوض کرده: «پایلوت یک چیز را عوض کرد: … — و این سطر change log آن است.»]</p><p class="one">قفل یعنی هر تغییری زخمش را نشان بدهد.</p><p class="cue">If the pilot changed the spec, read its change-log line here</p></template><!--cue:If the pilot changed the spec, read its change-log line here-->
+</section>
+
+<!-- 17 · VERDICT -->
+<section class="frame night vd" data-t="17:00" data-name="Verdict">
+  <p class="eyebrow">The answer</p><p class="mark">Homodyne</p>
+  <p class="old" data-b="1">We measure hallucination. <span>Too vague to test</span></p>
+  <p class="new" data-b="2">We measure whether a model answers only when it should — <em>when told what a wrong answer costs</em>.</p>
+  <p class="foot" data-b="3">And we wrote down what that misses.</p>
+  <template class="vo"><p>پس دقیقاً چه چیزی را اندازه می‌گیریم؟</p><p>«توهم» نه؛ آن کلمه دست‌کم سه معنی دارد. ما می‌سنجیم که مدل، وقتی جریمه‌ی جواب غلط را می‌داند، فقط وقتی جواب بدهد که باید. و از قبل نوشته‌ایم این سنجه چه چیزی را نمی‌بیند.</p><p class="one">یک سازه‌ی نام‌دار، با شکاف‌های نوشته‌شده — نه یک کلمه‌ی مد.</p></template>
+</section>
+
+<!-- 18 · END SCREEN -->
+<section class="frame paper end" data-t="17:30" data-name="End screen">
+  <p class="eyebrow">Homodyne · Part 02</p>
+  <div class="l">
+    <p class="k">Next · E04</p>
+    <p class="t">Who decides the <em>right answer</em>?</p>
+    <p>650 questions: where from, in what mix — and why the answer key is a hypothesis too.</p>
+    <div class="hw"><p class="k" style="margin-bottom:14px">This week, 15 minutes</p><p>Take the benchmark you trust most. Write one field for it: <b>known_gaps</b>. Three things its proxy misses.</p></div>
+  </div>
+  <div class="r">End-screen elements</div>
+  <template class="vo"><p>تمرین این هفته: بنچمارکی را که بیشتر از همه به آن اعتماد دارید بردارید و فقط یک فیلد برایش بنویسید: <code>known_gaps</code>. سه چیزی که proxyاش نمی‌بیند. اگر نتوانستید، این خودش یافته است.</p><p>قسمت بعد: ششصدوپنجاه سؤال از کجا می‌آیند، به چه نسبتی، و مهم‌تر: <b>چه کسی</b> تعیین می‌کند جواب درست چیست؟ چون کلید جواب هم یک فرضیه است، و بعضی از مشهورترین بنچمارک‌ها کلید غلط داشته‌اند.</p></template>
+</section>
+
+<!-- 19 · THUMBNAIL -->
+<section class="frame thumbwrap" data-t="—" data-name="Thumbnail">
+  <p class="lbl">Thumbnail · 1280 × 720</p>
+  <div class="thumb paper">
+    <h2>توهم<br>یعنی چه؟</h2>
+    <p class="n2"><span class="lo">1.8%</span><span class="a">81%</span></p>
+    <span class="who">Homodyne</span>
+  </div>
+  <template class="vo"><p>تامبنیل: «توهم یعنی چه؟» + دو عدد. در قاب ۱ و ۴ باز می‌شود. کهربایی فقط روی ۸۱٪.</p></template>
+</section>
+
+   <div class="guide" aria-hidden="true"><div class="t"></div><div class="c"></div></div>
+  </div>
+  <aside class="notes" id="notes" hidden aria-label="Voice-over script"></aside>
+ </div>
+ <div class="bar" role="toolbar" aria-label="Deck controls">
+  <button id="prev" aria-label="Previous">←</button>
+  <button id="next" aria-label="Next">→</button>
+  <span class="count" id="count">1/19</span>
+  <span class="ttl" id="ttl"></span>
+  <button id="bNotes" aria-pressed="false">Script</button>
+  <button id="bGuide" aria-pressed="false">Safe areas</button>
+  <button id="bAll" aria-pressed="false">Show whole frame</button>
+  <span class="keys">← → step · N script · G guide · A whole frame · R record · F fullscreen</span>
+ </div>
+</div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck'),wrap=document.getElementById('stagewrap'),app=document.getElementById('app');
+  var frames=[].slice.call(deck.querySelectorAll('.frame'));
+  var notes=document.getElementById('notes'),count=document.getElementById('count'),ttl=document.getElementById('ttl');
+  var i=0,b=0,showAll=false;
+  function steps(fr){var m=0;fr.querySelectorAll('[data-b]').forEach(function(el){m=Math.max(m,+el.dataset.b)});return m;}
+  function fit(){var r=wrap.getBoundingClientRect();var nw=notes.hidden?0:notes.offsetWidth;var s=Math.min((r.width-nw)/1920,r.height/1080);deck.style.transform='translate('+(-960*s-nw/2)+'px,'+(-540*s)+'px) scale('+s+')';}
+  function render(){
+    frames.forEach(function(fr,k){fr.classList.toggle('is-on',k===i)});
+    var fr=frames[i];
+    fr.querySelectorAll('[data-b]').forEach(function(el){el.classList.toggle('in',showAll||+el.dataset.b<=b)});
+    count.textContent=(i+1)+'/'+frames.length;
+    ttl.textContent=fr.dataset.t+'  ·  '+fr.dataset.name+(showAll?'':'  ·  beat '+b+'/'+steps(fr));
+    var tpl=fr.querySelector('template.vo');
+    notes.innerHTML='<h3>'+fr.dataset.name+'</h3><p class="tc">'+fr.dataset.t+'</p>'+(tpl?tpl.innerHTML:'');
+    try{localStorage.setItem('hd-p02e03-i',i)}catch(e){}
+  }
+  function next(){if(!showAll&&b<steps(frames[i])){b++;}else if(i<frames.length-1){i++;b=0;}render();}
+  function prev(){if(!showAll&&b>0){b--;}else if(i>0){i--;b=showAll?0:steps(frames[i]);}render();}
+  function press(btn,on){btn.setAttribute('aria-pressed',on?'true':'false');}
+  var bN=document.getElementById('bNotes'),bG=document.getElementById('bGuide'),bA=document.getElementById('bAll');
+  function tNotes(){notes.hidden=!notes.hidden;press(bN,!notes.hidden);fit();}
+  function tGuide(){app.classList.toggle('show-guide');press(bG,app.classList.contains('show-guide'));}
+  function tAll(){showAll=!showAll;press(bA,showAll);b=0;render();}
+  function tRec(){document.body.classList.toggle('rec');if(!notes.hidden)tNotes();setTimeout(fit,0);}
+  document.getElementById('next').onclick=next;document.getElementById('prev').onclick=prev;
+  bN.onclick=tNotes;bG.onclick=tGuide;bA.onclick=tAll;
+  deck.addEventListener('click',next);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key==='n'||e.key==='N')tNotes();
+    else if(e.key==='g'||e.key==='G')tGuide();
+    else if(e.key==='a'||e.key==='A')tAll();
+    else if(e.key==='r'||e.key==='R')tRec();
+    else if(e.key==='Home'){i=0;b=0;render();}
+    else if(e.key==='f'||e.key==='F'){if(document.fullscreenElement){document.exitFullscreen().catch(function(){})}else if(app.requestFullscreen){app.requestFullscreen().catch(function(){})}}
+  });
+  window.addEventListener('resize',fit);
+  try{var s=+localStorage.getItem('hd-p02e03-i');if(s>=0&&s<frames.length)i=s;}catch(e){}
+  if(location.hash==='#all'){showAll=true;press(bA,true);}
+  render();fit();
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+})();
+</script>
+</body>
+</html>

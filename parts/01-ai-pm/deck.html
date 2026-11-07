@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne 01 — AI Product Management, What It Actually Is</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --ink:#f2f1ed;
+  --muted:#9c9c96;
+  --dim:#5f5f5a;
+  --faint:#3a3a37;
+  --line:rgba(255,255,255,.08);
+  --line-soft:rgba(255,255,255,.045);
+  --card:rgba(255,255,255,.022);
+  --accent:#d9a441;
+  --accent-soft:rgba(217,164,65,.16);
+  --pos:#8fae86;
+  --neg:#c08a80;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Inter Tight',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--sans);font-weight:400;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+
+/* ---------- ambient ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.glow{position:absolute;width:80vw;height:60vh;left:50%;top:-22vh;transform:translateX(-50%);
+  background:radial-gradient(ellipse at center,rgba(217,164,65,.075),transparent 62%);
+  filter:blur(30px);animation:breathe 18s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.75;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
+.grid{position:absolute;inset:0;
+  background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+  background-size:80px 80px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 10%,transparent 78%);
+  mask-image:radial-gradient(ellipse 75% 65% at 50% 45%,#000 10%,transparent 78%)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 100% 90% at 50% 50%,transparent 45%,rgba(0,0,0,.55) 100%)}
+.noise{position:absolute;inset:0;opacity:.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- chrome (hideable with H) ---------- */
+.chrome{transition:opacity .35s ease}
+body.bare .chrome{opacity:0;pointer-events:none}
+.progress{position:fixed;top:0;left:0;height:1.5px;background:var(--accent);z-index:60;
+  transition:width .55s cubic-bezier(.16,1,.3,1);opacity:.85}
+.hud{position:fixed;bottom:28px;right:38px;z-index:60;display:flex;align-items:center;gap:16px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+.hud b{color:var(--muted);font-weight:500}
+.timer{padding:5px 11px;border:1px solid var(--line);border-radius:3px;color:var(--dim)}
+.timer.over{color:var(--accent);border-color:var(--accent-soft)}
+.brandmark{position:fixed;bottom:28px;left:38px;z-index:60;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.18em;color:var(--faint);text-transform:uppercase}
+.hint{position:fixed;top:28px;right:38px;z-index:60;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;color:var(--faint)}
+kbd{font-family:var(--mono);font-size:9.5px;border:1px solid var(--line);border-radius:3px;padding:2px 5px;color:var(--dim)}
+
+/* ---------- slides ---------- */
+.deck{position:relative;z-index:10;height:100vh;width:100vw}
+section.slide{position:absolute;inset:0;display:none;
+  padding:7vh clamp(52px,7.5vw,150px) 12vh;flex-direction:column;justify-content:center}
+section.slide.active{display:flex}
+
+/* sequential reveal */
+.r{opacity:0}
+.r.on{animation:rise .68s cubic-bezier(.16,1,.3,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ---------- typography ---------- */
+.eyebrow{font-family:var(--mono);font-size:clamp(9.5px,.72vw,11.5px);letter-spacing:.26em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:24px;font-weight:400}
+h1{font-family:var(--serif);font-size:clamp(52px,7.4vw,124px);line-height:.92;font-weight:400;letter-spacing:-.02em}
+h2{font-family:var(--serif);font-size:clamp(34px,4.6vw,74px);line-height:1;font-weight:400;letter-spacing:-.015em;margin-bottom:10px}
+h3{font-family:var(--sans);font-size:clamp(15px,1.32vw,22px);font-weight:600;letter-spacing:-.008em;line-height:1.3}
+em,.it{font-family:var(--serif);font-style:italic;font-weight:400}
+.grad{color:var(--accent)}
+.serif-it{font-family:var(--serif);font-style:italic;color:var(--accent)}
+.sub{font-size:clamp(15px,1.32vw,22px);color:var(--muted);font-weight:300;line-height:1.55;max-width:58ch;margin-top:20px}
+.kicker{font-size:clamp(12.5px,1vw,16px);color:var(--muted);font-weight:300;margin-top:32px;line-height:1.65;max-width:70ch}
+.kicker b{color:var(--ink);font-weight:600}
+.big-quote{font-family:var(--serif);font-size:clamp(30px,4.2vw,70px);line-height:1.1;font-weight:400;letter-spacing:-.015em;max-width:21ch}
+.mono{font-family:var(--mono)}
+
+/* ---------- layout ---------- */
+.head{margin-bottom:clamp(26px,3.6vh,50px)}
+.cols{display:grid;gap:clamp(1px,.12vw,2px);background:var(--line-soft)}
+.cols.gap{gap:clamp(14px,1.4vw,22px);background:none}
+.c2{grid-template-columns:1fr 1fr}
+.c3{grid-template-columns:repeat(3,1fr)}
+.c4{grid-template-columns:repeat(4,1fr)}
+.c5{grid-template-columns:repeat(5,1fr)}
+.row{display:flex;gap:clamp(10px,1.1vw,18px);flex-wrap:wrap}
+
+/* ---------- cards: flat, hairline, monochrome ---------- */
+.card{background:var(--bg);padding:clamp(18px,1.7vw,30px);position:relative;transition:background .4s ease}
+.card:hover{background:#0f0f10}
+.cols.gap .card{background:var(--card);border:1px solid var(--line);border-radius:2px}
+.cols.gap .card:hover{background:rgba(255,255,255,.04)}
+.card .n{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--faint);
+  margin-bottom:14px;display:block;text-transform:uppercase}
+.card p{color:var(--muted);font-size:clamp(12px,.98vw,15.5px);font-weight:300;line-height:1.6;margin-top:10px}
+.card p b{color:var(--ink);font-weight:600}
+.card.mark::before{content:'';position:absolute;left:0;top:clamp(18px,1.7vw,30px);bottom:clamp(18px,1.7vw,30px);
+  width:1.5px;background:var(--accent);opacity:.7}
+.card.mark{padding-left:calc(clamp(18px,1.7vw,30px) + 16px)}
+.card.pos h3,.card.pos .n{color:var(--pos)}
+.card.neg h3,.card.neg .n{color:var(--neg)}
+.card.neg h3{font-weight:500}
+
+/* compact signal line at the foot of a card */
+.tell{display:block;margin-top:clamp(11px,1.3vh,16px);padding-top:clamp(9px,1.1vh,13px);
+  border-top:1px solid var(--line-soft);font-family:var(--mono);
+  font-size:clamp(9.5px,.76vw,12px);line-height:1.6;color:var(--dim);font-weight:400}
+.tell i{display:block;font-style:normal;font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);opacity:.75;margin-bottom:6px}
+.card.neg .tell i{color:var(--neg)}
+.card.pos .tell i{color:var(--pos)}
+
+/* literal example block */
+.codeblk{border:1px solid var(--line);border-left:1.5px solid var(--accent);
+  padding:clamp(14px,1.6vw,24px) clamp(16px,1.8vw,28px);font-family:var(--mono);
+  font-size:clamp(10px,.85vw,13.5px);line-height:2.05;color:var(--dim);font-weight:400}
+.codeblk .bad{color:var(--neg)}
+.codeblk .key{color:var(--ink)}
+.codeblk .ok{color:var(--pos)}
+.codeblk .dim{color:var(--faint)}
+
+/* ---------- components ---------- */
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:2px;
+  padding:8px 15px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.dot.g{background:var(--pos)}.dot.r{background:var(--neg)}.dot.y{background:var(--accent)}
+
+table.cmp{width:100%;border-collapse:collapse;font-size:clamp(11.5px,1vw,16px)}
+table.cmp th{text-align:left;padding:0 20px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--faint);font-weight:400;border-bottom:1px solid var(--line)}
+table.cmp th:nth-child(3){color:var(--accent)}
+table.cmp td{padding:clamp(9px,1.2vh,16px) 20px;border-bottom:1px solid var(--line-soft);vertical-align:middle;font-weight:300}
+table.cmp td:first-child{color:var(--faint);font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;width:17%}
+table.cmp td:nth-child(2){color:var(--dim)}
+table.cmp td:nth-child(3){color:var(--ink);font-weight:400}
+table.cmp tr:last-child td{border-bottom:none}
+
+ul.ticks{list-style:none;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,15px)}
+ul.ticks li{display:flex;gap:14px;align-items:flex-start;font-size:clamp(12.5px,1.06vw,18px);
+  line-height:1.45;color:var(--ink);font-weight:300}
+ul.ticks li span.m{color:var(--dim)}
+ul.ticks li::before{content:'';flex:none;width:14px;height:1px;background:var(--accent);margin-top:.72em;opacity:.8}
+ul.ticks.x li::before{background:var(--neg)}
+ul.ticks.v li::before{background:var(--pos)}
+
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;border:1px solid var(--line)}
+.step{flex:1;min-width:130px;padding:clamp(15px,1.6vw,24px) clamp(12px,1.2vw,20px);
+  border-right:1px solid var(--line-soft)}
+.step:last-child{border-right:none}
+.step .t{font-family:var(--mono);font-size:clamp(10px,.82vw,12.5px);letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.step .d{font-size:clamp(11px,.92vw,14.5px);color:var(--muted);margin-top:10px;line-height:1.45;font-weight:300}
+
+.layer{display:flex;align-items:baseline;gap:clamp(14px,1.8vw,30px);
+  padding:clamp(11px,1.5vh,19px) 0;border-bottom:1px solid var(--line-soft)}
+.layer:first-child{border-top:1px solid var(--line-soft)}
+.layer .idx{font-family:var(--mono);font-size:10px;color:var(--faint);width:24px;flex:none}
+.layer .nm{font-weight:600;font-size:clamp(13px,1.15vw,20px);width:clamp(130px,15vw,225px);flex:none;letter-spacing:-.01em}
+.layer .ds{color:var(--muted);font-size:clamp(11.5px,.94vw,15px);line-height:1.5;font-weight:300}
+
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft)}
+.tri>div{background:var(--bg);padding:clamp(22px,2.6vw,42px) clamp(14px,1.4vw,24px);text-align:center}
+.tri .v{font-family:var(--serif);font-size:clamp(30px,3.8vw,62px);font-weight:400;letter-spacing:-.02em;color:var(--accent)}
+.tri .l{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-top:12px}
+
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line)}
+.day{background:var(--bg);padding:clamp(15px,1.6vw,24px)}
+.day .dn{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.day .dt{font-size:clamp(11.5px,.95vw,15px);line-height:1.55;color:var(--muted);font-weight:300}
+
+.res{display:flex;flex-direction:column}
+.res a{display:block;text-decoration:none;padding:11px 0;border-bottom:1px solid var(--line-soft);transition:.25s}
+.res a:hover{padding-left:10px;border-color:var(--accent)}
+.res a:last-child{border-bottom:none}
+.res .rt{display:block;font-weight:500;font-size:clamp(12px,.98vw,15.5px);color:var(--ink)}
+.res .rd{display:block;font-size:clamp(10.5px,.83vw,13px);color:var(--faint);margin-top:3px;font-weight:300}
+
+/* ---------- jump menu ---------- */
+.menu{position:fixed;inset:0;z-index:80;background:rgba(10,10,11,.97);backdrop-filter:blur(16px);
+  display:none;padding:9vh 7vw;overflow:auto}
+.menu.open{display:block}
+.menu h4{font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--faint);margin-bottom:30px}
+.menu ol{list-style:none;columns:3;column-gap:56px}
+.menu li{break-inside:avoid;padding:9px 0;cursor:pointer;color:var(--dim);font-size:14px;
+  font-weight:300;display:flex;gap:16px;align-items:baseline;border-bottom:1px solid var(--line-soft);transition:.18s}
+.menu li:hover{color:var(--ink);padding-left:8px}
+.menu li i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--faint);width:20px;flex:none}
+.menu li span{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--faint)}
+
+@media (max-width:900px){
+  .c3,.c4,.c5,.c2,.week,.tri{grid-template-columns:1fr 1fr}
+  .menu ol{columns:1}
+}
+</style>
+</head>
+<body>
+
+<div class="bg">
+  <div class="glow"></div><div class="grid"></div><div class="vig"></div><div class="noise"></div>
+</div>
+
+<div class="progress chrome" id="prog"></div>
+<div class="hint chrome">← → move · <kbd>H</kbd> hide · <kbd>O</kbd> menu · <kbd>T</kbd> timer · <kbd>B</kbd> build · <kbd>F</kbd> full</div>
+<div class="brandmark chrome" id="brand">Homodyne · 01 · AI PM</div>
+<div class="hud chrome">
+  <span class="timer" id="timer" style="display:none">00:00</span>
+  <span><b id="cur">1</b> / <span id="tot">23</span></span>
+</div>
+
+<div class="menu" id="menu"><h4>Jump to slide</h4><ol id="menulist"></ol></div>
+
+<div class="deck" id="deck">
+
+<!-- 1 -->
+<section class="slide" data-title="Title" data-time="0:00">
+  <div class="r"><div class="pill"><span class="dot"></span> 20-minute primer · 2026</div></div>
+  <h1 class="r" style="margin-top:34px">AI Product<br><span class="serif-it">Management</span></h1>
+  <p class="sub r" style="font-size:clamp(16px,1.5vw,26px);max-width:50ch">
+    What the job actually is, what it definitely isn't, and what it looks like on an ordinary Tuesday.
+  </p>
+  <div class="row r" style="margin-top:46px">
+    <div class="pill"><span class="dot g"></span> No hype</div>
+    <div class="pill"><span class="dot y"></span> Real examples</div>
+    <div class="pill"><span class="dot r"></span> Uncomfortable parts included</div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" data-title="The confusion" data-time="0:40">
+  <div class="head">
+    <div class="eyebrow r">Where we start</div>
+    <h2 class="r">Every job board says <span class="grad">"AI PM."</span><br>Almost none of them mean the same thing.</h2>
+  </div>
+  <div class="cols c3">
+    <div class="card r"><span class="n">Posting A</span><h3>"Own our LLM assistant"</h3>
+      <p>Model behaviour, retrieval quality, evals, hallucination rate. The model <em>is</em> the product.</p></div>
+    <div class="card r"><span class="n">Posting B</span><h3>"AI-first PM, ship 3× faster"</h3>
+      <p>Classic product. They want someone who uses AI as a power tool, not someone who builds AI.</p></div>
+    <div class="card r"><span class="n">Posting C</span><h3>"AI platform PM"</h3>
+      <p>Internal infra: gateways, prompt registries, eval tooling, GPU cost. Your users are engineers.</p></div>
+  </div>
+  <p class="kicker r">Three completely different jobs. Same two letters. If you don't disambiguate this first, everything after it is noise.</p>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-title="Agenda" data-time="1:30">
+  <div class="head">
+    <div class="eyebrow r">What you'll walk out with</div>
+    <h2 class="r">Six answers</h2>
+  </div>
+  <div class="cols c3">
+    <div class="card r"><span class="n">01</span><h3>What an AI PM is not</h3><p>Four myths that waste the first six months of your career.</p></div>
+    <div class="card r"><span class="n">02</span><h3>The one real shift</h3><p>Deterministic → probabilistic. Everything else follows from this.</p></div>
+    <div class="card r"><span class="n">03</span><h3>The six jobs</h3><p>What actually lands on your desk each week.</p></div>
+    <div class="card r"><span class="n">04</span><h3>Metrics that matter</h3><p>Why one number isn't enough anymore.</p></div>
+    <div class="card r"><span class="n">05</span><h3>What to learn</h3><p>And, more importantly, what to skip.</p></div>
+    <div class="card r"><span class="n">06</span><h3>A 90-day plan</h3><p>Concrete first steps, starting Monday.</p></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" data-title="What it is NOT" data-time="1:55">
+  <div class="head">
+    <div class="eyebrow r">Clearing the ground</div>
+    <h2 class="r">What an AI PM is <span class="serif-it">not</span></h2>
+  </div>
+  <div class="cols c2">
+    <div class="card neg r"><span class="n">Myth 01</span><h3>"A PM who uses ChatGPT"</h3>
+      <p>Writing your PRD faster is a productivity habit, not a role. Most PMs already do this by default.</p>
+      <span class="tell"><i>Reality</i>Table stakes, not a title.</span></div>
+    <div class="card neg r"><span class="n">Myth 02</span><h3>A data scientist or ML engineer</h3>
+      <p>You don't train models and you don't tune hyperparameters. You read the numbers and decide what they mean for the user.</p>
+      <span class="tell"><i>Reality</i>You don't produce the metric. You decide what it has to be.</span></div>
+    <div class="card neg r"><span class="n">Myth 03</span><h3>A prompt engineer</h3>
+      <p>A prompt is an implementation detail that changes with every model release. Owning the prompt is not owning the product.</p>
+      <span class="tell"><i>Reality</i>Prompts are a lever. Evals are the contract.</span></div>
+    <div class="card neg r"><span class="n">Myth 04</span><h3>A brand-new profession</h3>
+      <p>It's product management — with a failure surface that classic PM training never covered.</p>
+      <span class="tell"><i>Reality</i>The old skills are still required. They're just no longer sufficient.</span></div>
+  </div>
+  <p class="kicker r">Notice the pattern: every myth is a tool, a tactic or a title. None of them is an <b>outcome</b>. That's the tell — the job is the outcome.</p>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-title="Definition" data-time="3:10">
+  <div class="eyebrow r">The definition worth memorising</div>
+  <p class="big-quote r" style="margin-top:18px">
+    An AI PM owns the outcome of a system that is
+    <span class="serif-it">probabilistic, data-dependent,</span> and
+    <span class="serif-it">never finished.</span>
+  </p>
+  <div class="cols c3" style="margin-top:clamp(26px,4.4vh,54px)">
+    <div class="card mark r"><h3>Probabilistic</h3><p>The same input can return a different output. "It works" stops being a fact and becomes a statistic.</p>
+      <span class="tell"><i>So</i>You ship a pass rate, never a guarantee.</span></div>
+    <div class="card mark r"><h3>Data-dependent</h3><p>Quality comes from data and context, not from more code. No data, no product.</p>
+      <span class="tell"><i>So</i>Your first sprint is a data plan, not a prompt.</span></div>
+    <div class="card mark r"><h3>Never finished</h3><p>Shipping is the start. Models drift, users adapt, providers deprecate. The loop never closes.</p>
+      <span class="tell"><i>So</i>Budget for the loop, not for a launch.</span></div>
+  </div>
+  <p class="kicker r">Read it again with the emphasis on <b>owns</b>. Not "contributes to," not "coordinates." When the output is wrong on an ordinary Tuesday, it is your name on it.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide" data-title="The one shift" data-time="3:55">
+  <div class="head">
+    <div class="eyebrow r">The single idea this whole talk hangs on</div>
+    <h2 class="r">You stopped shipping <span style="color:var(--dim)">rules</span>.<br>You started shipping <span class="serif-it">behaviour.</span></h2>
+  </div>
+  <div class="cols c2" style="margin-top:clamp(14px,2.6vh,32px)">
+    <div class="card r">
+      <span class="n">Classic software</span>
+      <div class="mono" style="font-size:clamp(11.5px,1vw,15px);line-height:2.1;color:var(--dim);margin-top:10px;font-weight:300">
+        if (user.plan === 'pro')<br>&nbsp;&nbsp;→ unlock()<br><br>
+        <span style="color:var(--pos)">Same input → same output.<br>Always. Forever.</span>
+      </div>
+    </div>
+    <div class="card mark r">
+      <span class="n">AI software</span>
+      <div class="mono" style="font-size:clamp(11.5px,1vw,15px);line-height:2.1;color:var(--dim);margin-top:10px;font-weight:300">
+        model(prompt + context)<br>&nbsp;&nbsp;→ <span style="color:var(--accent)">a distribution of answers</span><br><br>
+        <span style="color:var(--neg)">Same input → e.g. 94% great,<br>5% mediocre, 1% embarrassing<br>— and you never know<br>which one this user got.</span>
+      </div>
+    </div>
+  </div>
+  <p class="kicker r">Your job is that last slice. Not the happy path — the tail. Classic PM skills get you to a convincing demo; the tail decides whether the demo ever becomes a product. And the tail is invisible unless somebody goes looking for it. <b>That somebody is you.</b></p>
+</section>
+
+<!-- 7 -->
+<section class="slide" data-title="Classic vs AI PM" data-time="5:00">
+  <div class="head">
+    <div class="eyebrow r">Side by side</div>
+    <h2 class="r">Same title. <span class="serif-it">Different physics.</span></h2>
+  </div>
+  <table class="cmp">
+    <tr class="r"><th></th><th>Classic PM</th><th>AI PM</th></tr>
+    <tr class="r"><td>Spec</td><td>A PRD describing behaviour</td><td>An eval suite <em>demonstrating</em> behaviour</td></tr>
+    <tr class="r"><td>A bug</td><td>Reproducible. Fix it once.</td><td>Statistical. Fix the rate, not the case.</td></tr>
+    <tr class="r"><td>Root cause</td><td>Read the stack trace</td><td>Any of five layers — and rarely the model</td></tr>
+    <tr class="r"><td>"Done"</td><td>Shipped &amp; closed</td><td>Shipped &amp; monitored — indefinitely</td></tr>
+    <tr class="r"><td>QA</td><td>Test cases written up front</td><td>Error analysis on real production traces</td></tr>
+    <tr class="r"><td>Unit cost</td><td>Roughly zero per user</td><td>Real money on every single request</td></tr>
+    <tr class="r"><td>Worst risk</td><td>It's down — and everyone knows</td><td>It's confidently wrong — and nobody notices</td></tr>
+    <tr class="r"><td>Dependency</td><td>Your own codebase</td><td>A vendor who deprecates models on their schedule</td></tr>
+  </table>
+</section>
+
+<!-- 8 -->
+<section class="slide" data-title="Three flavours" data-time="6:00">
+  <div class="head">
+    <div class="eyebrow r">Pick your lane before you apply</div>
+    <h2 class="r">Three jobs hiding under <span class="serif-it">one title</span></h2>
+  </div>
+  <div class="cols c3">
+    <div class="card r"><span class="n">Type 1 · the model is the product</span><h3>AI Product PM</h3>
+      <p><b>You own:</b> answer quality, retrieval, evals, hallucination rate, guardrails, cost per task.</p>
+      <p><b>Looks like:</b> a support copilot, a coding agent, a document assistant.</p>
+      <p><b style="color:var(--accent)">Hardest part:</b> deciding what "good" means.</p>
+      <span class="tell"><i>Tell in the ad</i>"evals", "retrieval", "hallucination", "model quality"</span></div>
+    <div class="card r"><span class="n">Type 2 · AI as leverage</span><h3>AI-Native PM</h3>
+      <p><b>You own:</b> a normal product — but you research, prototype, analyse and write with AI in the loop.</p>
+      <p><b>Looks like:</b> a PM shipping clickable prototypes on day one instead of week three.</p>
+      <p><b style="color:var(--accent)">Hardest part:</b> not confusing speed with judgement.</p>
+      <span class="tell"><i>Tell in the ad</i>"AI-first", "ship faster" — but no model inside the product</span></div>
+    <div class="card r"><span class="n">Type 3 · picks and shovels</span><h3>AI Platform PM</h3>
+      <p><b>You own:</b> model gateway, eval tooling, prompt versioning, observability, spend controls.</p>
+      <p><b>Looks like:</b> internal infra. Your users have engineering titles.</p>
+      <p><b style="color:var(--accent)">Hardest part:</b> proving value nobody sees.</p>
+      <span class="tell"><i>Tell in the ad</i>"platform", "developer experience", "internal tooling", "spend"</span></div>
+  </div>
+  <p class="kicker r">Ask which one you're interviewing for in the first call — the answer changes the whole conversation. This talk is mostly about <b>Type 1</b>, because that's where the genuinely new skills live.</p>
+</section>
+
+<!-- 9 -->
+<section class="slide" data-title="The stack" data-time="7:05">
+  <div class="head">
+    <div class="eyebrow r">Your technical floor</div>
+    <h2 class="r">Five layers you must be able to <span class="serif-it">argue about</span></h2>
+  </div>
+  <div>
+    <div class="layer r"><span class="idx">05</span><span class="nm">Feedback loop</span><span class="ds">Traces, thumbs, evals, error taxonomy, dashboards. The layer 90% of teams skip — and the only one that compounds.</span></div>
+    <div class="layer r"><span class="idx">04</span><span class="nm">Product surface</span><span class="ds">How uncertainty is shown, corrected and undone. Where a mediocre model becomes a good product — or the reverse.</span></div>
+    <div class="layer r"><span class="idx">03</span><span class="nm">Orchestration</span><span class="ds">Single call vs. chain vs. agent. Tool use, routing, retries, human handoff. Mostly a product decision, not an engineering one.</span></div>
+    <div class="layer r"><span class="idx">02</span><span class="nm">Context</span><span class="ds">RAG, search, memory, system prompt, structured tool outputs. Where the majority of real quality wins actually come from.</span></div>
+    <div class="layer r"><span class="idx">01</span><span class="nm">Model</span><span class="ds">Which one, at what cost, at what latency, with what context window. A product decision with a price tag.</span></div>
+  </div>
+  <p class="kicker r">You don't have to build any of it — you do have to hold an opinion on every layer. <b>Practical test:</b> when "the answer was wrong" lands in your inbox, name the layer before anyone touches the model. Most of the time it's layer 02 — the right document was never retrieved, so no model could have answered.</p>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-title="Job 1 — Problem selection" data-time="8:10">
+  <div class="head">
+    <div class="eyebrow r">Job 1 of 6</div>
+    <h2 class="r">Choosing where AI is <span class="serif-it">actually worth it</span></h2>
+  </div>
+  <div class="cols c2">
+    <div class="card pos r">
+      <span class="n">Green light</span>
+      <ul class="ticks v" style="margin-top:16px">
+        <li>High volume, repetitive work</li>
+        <li>Messy, unstructured input — text, audio, images, PDFs</li>
+        <li>An expensive human step in the middle</li>
+        <li>An error is annoying, not catastrophic</li>
+        <li>A human can verify the output in seconds</li>
+      </ul>
+    </div>
+    <div class="card neg r">
+      <span class="n">Red light</span>
+      <ul class="ticks x" style="margin-top:16px">
+        <li>The answer must be right 100% of the time</li>
+        <li>A regex or a lookup table already solves it</li>
+        <li>You have no data and no path to any</li>
+        <li>The volume is 40 requests a month</li>
+        <li>Nobody can tell whether the output is good</li>
+      </ul>
+    </div>
+  </div>
+  <p class="kicker r"><b>Two questions that settle it in any kickoff.</b> First: if a smart intern did this by hand, would we pay them? If no, AI won't rescue it — it will just make the wrong thing faster. Second: when it's wrong, who pays — the user, the company, or a regulator? That answer sets your quality bar before a single prompt gets written.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-title="Job 2 — Data" data-time="9:15">
+  <div class="head">
+    <div class="eyebrow r">Job 2 of 6</div>
+    <h2 class="r">Data strategy — and the <span class="serif-it">cold-start problem</span></h2>
+  </div>
+  <p class="sub r" style="margin-top:0;max-width:76ch">Everyone wants the data flywheel. Almost nobody plans the first turn. Rough calibration: <b style="color:var(--ink);font-weight:400">~200</b> labelled examples buy you an eval set you can argue with; <b style="color:var(--ink);font-weight:400">~1,000</b> buy you one you can trust.</p>
+  <div class="cols c4" style="margin-top:clamp(20px,3.2vh,40px)">
+    <div class="card r"><span class="n">Source 01</span><h3>Dogfood</h3><p>Your own team produces the first 200 real examples. Unglamorous. Fastest.</p>
+      <span class="tell"><i>Cost</i>A week of the team's time</span></div>
+    <div class="card r"><span class="n">Source 02</span><h3>Design partners</h3><p>3–5 customers who trade their data for early access and roadmap influence.</p>
+      <span class="tell"><i>Cost</i>Roadmap debt you'll repay</span></div>
+    <div class="card r"><span class="n">Source 03</span><h3>Synthetic</h3><p>Generate the edge cases you can't wait for. Great for evals, risky as training data.</p>
+      <span class="tell"><i>Cost</i>Confidence in a world you invented</span></div>
+    <div class="card mark r"><span class="n">Source 04</span><h3>Human-in-the-loop</h3><p>Ship with a reviewer. Every correction is a labelled example. This is the flywheel.</p>
+      <span class="tell"><i>Cost</i>Slower launch, compounding returns</span></div>
+  </div>
+  <p class="kicker r">And the question you should be able to answer before legal asks it: <b>whose data is this, what were those users told, and are we allowed to keep it?</b> A "no" discovered in month six deletes your training set.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-title="Job 3 — Evals" data-time="10:10">
+  <div class="eyebrow r">Job 3 of 6 · the one that matters most</div>
+  <p class="big-quote r" style="margin-top:14px;max-width:24ch;font-size:clamp(26px,3.5vw,58px)">
+    Evals are the <span class="serif-it">new PRD.</span>
+  </p>
+  <p class="sub r" style="margin-top:16px;max-width:74ch">You stop describing the behaviour you want and start building the test suite that proves you got it — written <em>before</em> the first prompt. In a probabilistic system, a description isn't a spec. Evidence is.</p>
+  <div class="cols c3" style="margin-top:clamp(20px,3.2vh,42px)">
+    <div class="card mark r"><span class="n">Rule 01</span><h3>Binary beats scores</h3><p>"Pass / fail" is reproducible. "Rate this 1–5" is a debate. Split fuzzy quality into many small yes/no questions.</p></div>
+    <div class="card mark r"><span class="n">Rule 02</span><h3>Look at the data</h3><p>Read 100 real outputs by hand. No substitute, no shortcut. This is the highest-leverage hour in the job.</p></div>
+    <div class="card mark r"><span class="n">Rule 03</span><h3>Validate your judge</h3><p>Using an LLM to grade? Check it against human labels first. An unvalidated judge is a confident random number generator.</p></div>
+  </div>
+  <div class="codeblk r" style="margin-top:clamp(18px,2.8vh,34px)">
+    <span class="bad">"Was the answer good?"</span> <span class="dim">→ unmeasurable, unarguable, useless</span><br>
+    <span class="dim">────────  break it into checks a stranger could run  ────────</span><br>
+    <span class="key">cites_a_real_source</span> <span class="dim">···</span> <span class="ok">pass</span> &nbsp;
+    <span class="key">answers_the_actual_question</span> <span class="dim">···</span> <span class="ok">pass</span><br>
+    <span class="key">invents_no_facts</span> <span class="dim">······</span> <span class="bad">fail</span> &nbsp;
+    <span class="key">refuses_when_unsupported</span> <span class="dim">····</span> <span class="ok">pass</span>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" data-title="The loop" data-time="11:25">
+  <div class="head">
+    <div class="eyebrow r">How quality actually improves</div>
+    <h2 class="r">The loop you'll run <span class="serif-it">every single week</span></h2>
+  </div>
+  <div class="flow r" style="margin:clamp(14px,2.6vh,32px) 0">
+    <div class="step"><div class="t">01 Ship</div><div class="d">Small, behind a flag, to real users</div></div>
+    <div class="step"><div class="t">02 Capture</div><div class="d">Log every trace: input, context, output</div></div>
+    <div class="step"><div class="t">03 Read</div><div class="d">Open 100 of them. Manually.</div></div>
+    <div class="step"><div class="t">04 Cluster</div><div class="d">Group failures into a named taxonomy</div></div>
+    <div class="step"><div class="t">05 Fix</div><div class="d">Context? Prompt? Model? UX?</div></div>
+    <div class="step"><div class="t">06 Lock</div><div class="d">Add an eval so it can't come back</div></div>
+  </div>
+  <div class="cols gap c2">
+    <div class="card neg r"><h3>What most teams do instead</h3><p>Try a new prompt → run the demo → "feels better" → ship → repeat. That's a vibe check. It doesn't compound, and six months in you have nothing that shows you moved forward.</p></div>
+    <div class="card pos r"><h3>Why the loop wins</h3><p>Every fix becomes permanent, so quality only goes up. Six months in, your eval suite <em>is</em> the moat — not the model, which your competitor rents from the same provider.</p></div>
+  </div>
+  <p class="kicker r"><b>Cadence: one full turn per week.</b> If a turn takes a month, you don't have a loop — you have a project.</p>
+</section>
+
+<!-- 14 -->
+<section class="slide" data-title="Job 4 — UX" data-time="12:35">
+  <div class="head">
+    <div class="eyebrow r">Job 4 of 6</div>
+    <h2 class="r">Designing for a product that is <span class="serif-it">sometimes wrong</span></h2>
+  </div>
+  <div class="cols c5">
+    <div class="card r"><h3>Set expectations</h3><p>Say it's AI. Say it can be wrong. Trust survives errors; it does not survive surprises.</p></div>
+    <div class="card r"><h3>Make it correctable</h3><p>Edit in place, not "try again." The user's fix is your best training signal.</p></div>
+    <div class="card r"><h3>Show your work</h3><p>Citations, sources, the steps taken. Verifiable beats confident.</p></div>
+    <div class="card r"><h3>Cheap undo</h3><p>Never let a wrong output do something irreversible without a human.</p></div>
+    <div class="card r"><h3>Fail gracefully</h3><p>"I'm not sure" is a feature. Design the low-confidence path first, not last.</p></div>
+  </div>
+  <p class="kicker r"><b>Same model, two products.</b> Autocomplete shows greyed-out text you accept with Tab — a wrong suggestion costs nothing, so a ~26% acceptance rate still felt like a productivity win in GitHub's Copilot study. Put the identical model behind a "Generate" button that overwrites your file and three misses in four is broken. The model didn't change; the cost of being wrong did. <b>So the design question isn't "is the model good enough" — it's "what does a wrong answer cost this user, right here?"</b></p>
+</section>
+
+<!-- 15 -->
+<section class="slide" data-title="Job 5 — The triangle" data-time="13:45">
+  <div class="head">
+    <div class="eyebrow r">Job 5 of 6</div>
+    <h2 class="r">The trade-off you now <span class="serif-it">own personally</span></h2>
+  </div>
+  <div class="tri r" style="margin:clamp(22px,3.6vh,48px) 0">
+    <div><div class="v">Quality</div><div class="l">Is the answer good?</div></div>
+    <div><div class="v">Cost</div><div class="l">Cents per request × millions</div></div>
+    <div><div class="v">Latency</div><div class="l">Seconds the user waits</div></div>
+  </div>
+  <div class="cols gap c2">
+    <div class="card r"><h3>Why this is yours, not engineering's</h3><p>"Bigger model, 3× the price, 4% better on our eval" is not a technical question. It's pricing, margin and positioning — and only the PM sits where those three meet.</p>
+      <span class="tell"><i>The question behind it</i>Which 4% of users notice, and do they pay us?</span></div>
+    <div class="card r"><h3>The move nobody teaches you</h3><p>Route by difficulty: the easy 80% goes to a small cheap model, the expensive one handles only the hard tail. Typical outcome — spend roughly halves, eval pass rate barely moves.</p>
+      <span class="tell"><i>When teams find it</i>The month after the first real invoice</span></div>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="slide" data-title="Job 6 — Trust" data-time="14:40">
+  <div class="head">
+    <div class="eyebrow r">Job 6 of 6</div>
+    <h2 class="r">Trust, safety and <span class="serif-it">the new P0</span></h2>
+  </div>
+  <div class="cols c3">
+    <div class="card r"><h3>Confidently wrong</h3><p>Hallucination isn't a bug you close. It's a rate you manage.</p>
+      <span class="tell"><i>First control</i>Ground it, cite it, and score "I don't know" above a confident guess</span></div>
+    <div class="card r"><h3>Prompt injection</h3><p>Any untrusted text your model reads is an instruction from someone. Web pages, emails, PDFs, tickets.</p>
+      <span class="tell"><i>First control</i>Retrieved text never carries authority</span></div>
+    <div class="card r"><h3>Data leakage</h3><p>What enters the context window, who can see it, where the vendor stores it.</p>
+      <span class="tell"><i>First control</i>Write the retention answer before legal asks</span></div>
+    <div class="card r"><h3>Bias &amp; fairness</h3><p>The model inherits the world's patterns, including the ones you'd never ship on purpose.</p>
+      <span class="tell"><i>First control</i>Slice every eval by the segments you serve</span></div>
+    <div class="card r"><h3>Regulation</h3><p>EU AI Act, sector rules, disclosure duties. Your risk tier sets the roadmap, not the reverse. Annex III high-risk duties now apply from Dec 2027 — deferred, not dropped.</p>
+      <span class="tell"><i>First control</i>Classify your tier in week one, not month nine</span></div>
+    <div class="card r"><h3>Brand risk</h3><p>One screenshot of your product saying something awful travels further than any launch you'll ever run.</p>
+      <span class="tell"><i>First control</i>A refusal is cheaper than a screenshot</span></div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="slide" data-title="Metrics" data-time="15:30">
+  <div class="head">
+    <div class="eyebrow r">Measurement</div>
+    <h2 class="r">One scorecard is <span class="serif-it">no longer enough</span></h2>
+  </div>
+  <div class="cols c2">
+    <div class="card r">
+      <span class="n">System metrics · does the model work?</span>
+      <ul class="ticks" style="margin-top:16px">
+        <li>Eval pass rate <span class="m">— per failure category</span></li>
+        <li>Hallucination / unsupported-claim rate</li>
+        <li>p50 and p95 latency <span class="m">— averages lie</span></li>
+        <li>Cost per completed task</li>
+        <li>Refusal &amp; fallback rate</li>
+      </ul>
+    </div>
+    <div class="card r">
+      <span class="n">Product metrics · does it matter?</span>
+      <ul class="ticks" style="margin-top:16px">
+        <li>Task completion rate</li>
+        <li>Time saved per task <span class="m">— vs. the old way</span></li>
+        <li>Repeat usage &amp; retention</li>
+        <li>Willingness to pay</li>
+        <li>Support load created <span class="m">— or removed</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card mark r" style="margin-top:clamp(16px,2.6vh,30px);border-top:1px solid var(--line)">
+    <h3>The metric that connects both sides: <span class="serif-it">acceptance rate</span></h3>
+    <p style="max-width:none">What share of outputs does the user keep without editing? It says "the model is useful" and "the user agrees" at the same time. If you can track exactly one thing, track this — next to a guardrail like critical-error rate, because acceptance measures usefulness, not correctness. <b>And watch the trap:</b> if eval pass rate climbs every week while acceptance rate stays flat, you are improving the test, not the product.</p>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="slide" data-title="A real week" data-time="16:25">
+  <div class="head">
+    <div class="eyebrow r">Reality check</div>
+    <h2 class="r">What the week <span class="serif-it">actually looks like</span></h2>
+  </div>
+  <div class="week r">
+    <div class="day"><div class="dn">Mon</div><div class="dt">Read 50 production traces from the weekend. Tag every failure. Update the taxonomy.</div></div>
+    <div class="day"><div class="dn">Tue</div><div class="dt">Eval review with engineering. Two categories regressed after the retrieval change. Decide what ships.</div></div>
+    <div class="day"><div class="dn">Wed</div><div class="dt">Experiment readout. New chunking strategy: +6% on citations, −0.4s latency. Ship it.</div></div>
+    <div class="day"><div class="dn">Thu</div><div class="dt">Cost review. 71% of spend is on requests a smaller model handles fine. Write the routing spec.</div></div>
+    <div class="day"><div class="dn">Fri</div><div class="dt">Design review — but only on the failure states. Low confidence, empty results, refusals.</div></div>
+  </div>
+  <p class="kicker r">Notice what's missing: the quarterly roadmap deck. It still exists — it's just no longer the centre of gravity. In this job, <b>quality is the roadmap.</b></p>
+</section>
+
+<!-- 19 -->
+<section class="slide" data-title="What to learn" data-time="17:10">
+  <div class="head">
+    <div class="eyebrow r">Skills</div>
+    <h2 class="r">Learn this. <span class="serif-it">Skip that.</span></h2>
+  </div>
+  <div class="cols c2">
+    <div class="card pos r">
+      <span class="n">Learn — high return</span>
+      <ul class="ticks v" style="margin-top:16px">
+        <li>Evals &amp; error analysis <span class="m">— the #1 skill, no contest</span></li>
+        <li>RAG fundamentals <span class="m">— chunking, embeddings, why retrieval fails</span></li>
+        <li>Tokens, context windows, cost and latency maths</li>
+        <li>Tool calling &amp; agent loops <span class="m">— and when not to use one</span></li>
+        <li>AI UX patterns <span class="m">— steal shamelessly from good products</span></li>
+        <li>Reading an eval report without needing a translator</li>
+      </ul>
+      <span class="tell"><i>Proof you've learned it</i>You can hand someone an eval report and the decision it drove</span>
+    </div>
+    <div class="card neg r">
+      <span class="n">Skip — low return for a PM</span>
+      <ul class="ticks x" style="margin-top:16px">
+        <li>Training or fine-tuning your own base model</li>
+        <li>Transformer maths and attention internals</li>
+        <li>GPU procurement and infrastructure</li>
+        <li>Chasing every new model release on launch day</li>
+        <li>Public leaderboard rank as a decision <span class="m">— build an eval on your own task instead</span></li>
+        <li>Prompt "tricks" that die with the next version</li>
+      </ul>
+      <span class="tell"><i>Why skip them</i>None of them changes a decision you'll actually have to make</span>
+    </div>
+  </div>
+</section>
+
+<!-- 20 -->
+<section class="slide" data-title="30/60/90" data-time="18:00">
+  <div class="head">
+    <div class="eyebrow r">Starting Monday</div>
+    <h2 class="r">A 90-day plan that <span class="serif-it">actually works</span></h2>
+  </div>
+  <div class="cols c3">
+    <div class="card r"><span class="n">Days 1–30 · See</span>
+      <ul class="ticks" style="margin-top:14px">
+        <li>Build one small AI feature end-to-end yourself</li>
+        <li>Read 100 real outputs of an AI product you use daily</li>
+        <li>Write down every failure you see, in your own words</li>
+        <li>Learn the vocabulary: token, context, RAG, eval, trace</li>
+      </ul>
+      <span class="tell"><i>Deliverable</i>A written failure list nobody had before you</span></div>
+    <div class="card r"><span class="n">Days 31–60 · Measure</span>
+      <ul class="ticks" style="margin-top:14px">
+        <li>Turn that failure list into a named taxonomy</li>
+        <li>Write 20 binary evals — a spreadsheet is genuinely fine</li>
+        <li>Run them against two different models</li>
+        <li>Compute cost and p95 latency for one real task</li>
+      </ul>
+      <span class="tell"><i>Deliverable</i>A two-model comparison with numbers, not opinions</span></div>
+    <div class="card mark r"><span class="n">Days 61–90 · Ship</span>
+      <ul class="ticks" style="margin-top:14px">
+        <li>Pick one workflow and improve it against your evals</li>
+        <li>Design the failure states before the happy path</li>
+        <li>Publish a short write-up: problem → loop → numbers</li>
+        <li>Show what got worse, not only what got better</li>
+      </ul>
+      <span class="tell"><i>Deliverable</i>A public write-up with a before and an after</span></div>
+  </div>
+  <p class="kicker r">That write-up is your portfolio. In a field where everyone claims AI experience, <b>the person who can show a measured before-and-after is holding the only credential that survives an interview.</b></p>
+</section>
+
+<!-- 21 -->
+<section class="slide" data-title="Failure modes" data-time="18:45">
+  <div class="head">
+    <div class="eyebrow r">Learn from other people's scars</div>
+    <h2 class="r">Six ways AI products <span class="serif-it">die</span></h2>
+  </div>
+  <div class="cols c3">
+    <div class="card neg r"><h3>Demo-driven development</h3><p>It worked in the demo because you picked the input. Production picks its own.</p>
+      <span class="tell"><i>Early warning</i>The demo inputs live in a doc nobody updates</span></div>
+    <div class="card neg r"><h3>Vibe checks as QA</h3><p>"Feels better" is not a measurement. You can't improve what three people disagree about.</p>
+      <span class="tell"><i>Early warning</i>Nobody can name last week's pass rate</span></div>
+    <div class="card neg r"><h3>Model obsession</h3><p>Six weeks comparing models when the real problem was the workflow around them.</p>
+      <span class="tell"><i>Early warning</i>The roadmap is a list of model names</span></div>
+    <div class="card neg r"><h3>Cost discovered late</h3><p>Unit economics that work right up until someone actually uses the feature.</p>
+      <span class="tell"><i>Early warning</i>No one owns a cost-per-task number</span></div>
+    <div class="card neg r"><h3>No human fallback</h3><p>Confidence 100% of the time, in a system that's right 85% of the time.</p>
+      <span class="tell"><i>Early warning</i>There's no "I'm not sure" state in the designs</span></div>
+    <div class="card neg r"><h3>AI looking for a problem</h3><p>The feature exists because a competitor shipped one. Users never asked, and it shows.</p>
+      <span class="tell"><i>Early warning</i>The rationale opens with a competitor's name</span></div>
+  </div>
+</section>
+
+<!-- 22 -->
+<section class="slide" data-title="Closing thought" data-time="19:20">
+  <div class="eyebrow r">If you remember one sentence</div>
+  <p class="big-quote r" style="margin-top:18px;max-width:23ch">
+    AI didn't make product management easier.
+  </p>
+  <p class="big-quote r" style="margin-top:30px;max-width:25ch">
+    It moved the hard part from <span style="color:var(--dim)">"what should we build"</span> to <span class="serif-it">"is this actually any good."</span>
+  </p>
+  <p class="kicker r" style="max-width:70ch">Anyone can ship an AI feature in a weekend now. Almost nobody can tell you whether theirs is any good — and prove it with numbers. <b>That gap is the entire job.</b></p>
+</section>
+
+<!-- 23 -->
+<section class="slide" data-title="Resources" data-time="19:45">
+  <div class="head">
+    <div class="eyebrow r">Go deeper</div>
+    <h2 class="r">Where to <span class="serif-it">actually learn this</span></h2>
+  </div>
+  <div class="cols gap c2">
+    <div class="res r">
+      <a href="https://hamel.dev/blog/posts/evals-faq/" target="_blank"><span class="rt" style="color:var(--accent)">AI Evals: everything you need to know &nbsp;· start here</span><span class="rd">Hamel Husain &amp; Shreya Shankar — the canonical eval FAQ. If you open exactly one link, open this one.</span></a>
+      <a href="https://www.lennysnewsletter.com/p/why-ai-evals-are-the-hottest-new-skill" target="_blank"><span class="rt">Why AI evals are the hottest new skill</span><span class="rd">Lenny's Podcast × Hamel Husain &amp; Shreya Shankar</span></a>
+      <a href="https://www.braintrust.dev/blog/evals-are-the-new-prd" target="_blank"><span class="rt">Evals are the new PRD</span><span class="rd">Braintrust — the mental model shift</span></a>
+      <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank"><span class="rt">Building effective agents</span><span class="rd">Anthropic — when to use an agent, and when not to</span></a>
+      <a href="https://a16z.com/stay-relevant-in-ai/" target="_blank"><span class="rt">5 principles for PMs in the AI era</span><span class="rd">Anish Acharya, a16z</span></a>
+    </div>
+    <div class="res r">
+      <a href="https://applied-llms.org/" target="_blank"><span class="rt">A year of building with LLMs</span><span class="rd">Applied LLMs — read the strategic section twice</span></a>
+      <a href="https://www.shapeof.ai/" target="_blank"><span class="rt">The Shape of AI</span><span class="rd">The AI UX pattern library</span></a>
+      <a href="https://www.deeplearning.ai/short-courses/evaluating-ai-agents/" target="_blank"><span class="rt">Evaluating AI agents</span><span class="rd">DeepLearning.AI × Arize — free, ~2.5 hours, hands-on</span></a>
+      <a href="https://eugeneyan.com/writing/llm-patterns/" target="_blank"><span class="rt">Patterns for building LLM systems</span><span class="rd">Eugene Yan — the architecture map</span></a>
+      <a href="https://artificialintelligenceact.eu/" target="_blank"><span class="rt">EU AI Act explorer</span><span class="rd">Know your risk tier before you plan a roadmap</span></a>
+    </div>
+  </div>
+  <p class="kicker r">Full annotated list — including podcasts, communities and tools — is in the resources document that accompanies this video.</p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const prog=document.getElementById('prog');
+  const cur=document.getElementById('cur');
+  const menu=document.getElementById('menu');
+  const menulist=document.getElementById('menulist');
+  const timerEl=document.getElementById('timer');
+  const brand=document.getElementById('brand');
+  document.getElementById('tot').textContent=slides.length;
+
+  let i=0, step=0, items=[], build=true, timerOn=false, t0=null, tick=null;
+
+  slides.forEach((s,k)=>{
+    const li=document.createElement('li');
+    li.innerHTML='<i>'+String(k+1).padStart(2,'0')+'</i>'+(s.dataset.title||'Slide')+
+                 '<span>'+(s.dataset.time||'')+'</span>';
+    li.onclick=()=>{menu.classList.remove('open');go(k)};
+    menulist.appendChild(li);
+  });
+
+  function paint(){
+    const frac=build&&items.length ? (step/items.length) : 1;
+    prog.style.width=(((i+frac)/slides.length)*100).toFixed(2)+'%';
+    cur.textContent=i+1;
+    brand.textContent='Homodyne 01 · '+(slides[i].dataset.title||'AI PM')+' · '+(slides[i].dataset.time||'');
+  }
+
+  function reveal(n,instant){
+    const el=items[n]; if(!el)return;
+    el.style.animationDelay=instant?(n*70)+'ms':'0ms';
+    el.classList.add('on');
+  }
+
+  function enter(k,fromEnd){
+    slides.forEach(s=>s.classList.remove('active'));
+    i=k;
+    const s=slides[i];
+    items=[...s.querySelectorAll('.r')];
+    items.forEach(el=>{el.classList.remove('on');el.style.animationDelay='0ms'});
+    void s.offsetWidth;
+    s.classList.add('active');
+    if(!build){ step=items.length; items.forEach((el,n)=>reveal(n,true)); }
+    else if(fromEnd){ step=items.length; items.forEach((el,n)=>reveal(n,true)); }
+    else { step=0; next(); }
+    paint();
+    try{location.hash=i+1}catch(e){}
+  }
+
+  function next(){
+    if(build&&step<items.length){ reveal(step,false); step++; paint(); return true; }
+    return false;
+  }
+  function prev(){
+    if(build&&step>1){ step--; items[step].classList.remove('on'); paint(); return true; }
+    return false;
+  }
+
+  function go(k){ k=Math.max(0,Math.min(slides.length-1,k)); enter(k,false); }
+
+  function fwd(){ if(!next()){ if(i<slides.length-1) enter(i+1,false); } }
+  function back(){ if(!prev()){ if(i>0) enter(i-1,true); } }
+
+  function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+  function toggleTimer(){
+    timerOn=!timerOn;
+    if(timerOn){
+      timerEl.style.display='inline-block'; t0=Date.now();
+      tick=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000);
+        timerEl.textContent=fmt(s); timerEl.classList.toggle('over',s>1200);},500);
+    }else{ timerEl.style.display='none'; clearInterval(tick); }
+  }
+
+  document.addEventListener('keydown',e=>{
+    const k=e.key;
+    if(menu.classList.contains('open')&&!['o','O','Escape'].includes(k))return;
+    if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(k)){e.preventDefault();fwd()}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(k)){e.preventDefault();back()}
+    else if(k==='Home'){go(0)}
+    else if(k==='End'){go(slides.length-1)}
+    else if(k==='h'||k==='H'){document.body.classList.toggle('bare')}
+    else if(k==='b'||k==='B'){build=!build;enter(i,false)}
+    else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+    else if(k==='t'||k==='T'){toggleTimer()}
+    else if(k==='o'||k==='O'){menu.classList.toggle('open')}
+    else if(k==='Escape'){menu.classList.remove('open')}
+  });
+
+  document.getElementById('deck').addEventListener('click',e=>{
+    if(e.target.closest('a'))return;
+    e.clientX < innerWidth*0.22 ? back() : fwd();
+  });
+
+  let sx=null;
+  addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  addEventListener('touchend',e=>{
+    if(sx===null)return;
+    const dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>60) dx<0?fwd():back();
+    sx=null;
+  },{passive:true});
+
+  const start=parseInt((location.hash||'#1').slice(1),10);
+  enter(isNaN(start)?0:Math.max(0,start-1),false);
+})();
+</script>
+</body>
+</html>

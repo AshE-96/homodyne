@@ -1,0 +1,19 @@
+{
+  "name": "homodyne-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "homodyne.m2gh.ir: Homodyne episodes and bilingual blog (Persian / English)",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "dev": "npm run data && astro dev",
+    "build": "npm run data && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/rss": "4.0.19",
+    "@astrojs/sitemap": "3.7.4",
+    "@fontsource/vazirmatn": "5.3.0",
+    "astro": "7.4.2"
+  }
+}

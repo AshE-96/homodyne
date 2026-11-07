@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://homodyne.m2gh.ir/sitemap-index.xml

@@ -1,0 +1,4 @@
+# ILLUSTRATIVE site list - a made-up location for the demo. Replace with real sites you have checked
+# (for example from OpenStreetMap or official maps) before using the result for anything.
+name,lat,lon,kind
+SITE-A,36.5300,51.4700,illustrative industrial site

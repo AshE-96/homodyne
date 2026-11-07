@@ -1,0 +1,113 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homodyne HMD-005 — Persian Tokens</title>
+<style>
+:root{--paper:#F3F1EC;--ink:#16181B;--night:#111214;--amber:#E8A33D;--amber-ink:#975C08;--amber-night:#F0B45A;--line:#B9B4AA;--muted:#6B6A66}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:Arial,Tahoma,sans-serif}body{overflow:hidden}
+.frame{display:none;position:absolute;inset:0;padding:3.7vh 5vw 58px;background:var(--paper)}.frame.active{display:flex;flex-direction:column}
+.night{background:var(--night);color:var(--paper)}.night .muted{color:#9a988f}
+header,footer{font:12px monospace;letter-spacing:.1em;display:flex;justify-content:space-between;gap:20px}header{border-bottom:1px solid var(--line);padding-bottom:15px}
+footer{border-top:1px solid var(--line);padding-top:15px;letter-spacing:0;font-size:11px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.eyebrow{font:14px monospace;color:var(--amber-ink);margin-bottom:2vh}.night .eyebrow{color:var(--amber-night)}
+h1{font:clamp(28px,4.7vw,76px)/1.12 Georgia,serif;max-width:1250px;font-weight:400;letter-spacing:-.035em;margin:0 0 4vh}
+h1 em{font-style:normal;color:var(--amber-ink)}.night h1 em{color:var(--amber-night)}
+.sub{font-size:clamp(18px,2vw,31px);max-width:1000px;line-height:1.5;border-top:1px solid var(--line);padding-top:2vh;margin:0}
+.fa{direction:rtl;text-align:right;font:clamp(18px,1.9vw,30px)/1.7 Tahoma,Arial,sans-serif;max-width:1100px;margin:2vh 0 0 auto;color:var(--muted)}.night .fa{color:#bdbab1}
+.tag{font:14px/1.5 monospace;color:var(--amber-ink);margin:2vh 0 0}.night .tag{color:var(--amber-night)}
+.muted{color:var(--muted)}
+/* big single number */
+.stat b{display:block;font:clamp(80px,13vw,220px)/1 Georgia,serif;letter-spacing:-.04em}.stat span{font:clamp(16px,1.6vw,24px) monospace}
+/* two or three columns side by side */
+.cols{display:flex;gap:5vw}.cols>div{flex:1;border-top:1px solid var(--line);padding-top:2vh}.cols span{display:block;font:14px monospace}
+.cols b{display:block;font:clamp(35px,5vw,72px) Georgia,serif;margin-top:1vh}.cols small{font:20px Arial}.cols p{font-size:clamp(16px,1.6vw,22px);line-height:1.5}
+.cols .hi{border-top:3px solid var(--amber)}
+/* horizontal bars: style="--v:62" for 62% */
+.bars{display:flex;flex-direction:column;gap:2.2vh;max-width:1300px}.bars div{display:grid;grid-template-columns:14vw 1fr 7vw;align-items:center;gap:1.5vw;font:clamp(14px,1.4vw,20px) monospace}
+.bars i{display:block;height:3.4vh;background:var(--ink);width:calc(var(--v)*1%)}.night .bars i{background:var(--paper)}.bars .hi i{background:var(--amber)}
+/* terminal / code */
+.code{background:#1b1d20;color:#e9e6de;font:clamp(15px,1.5vw,22px)/1.65 monospace;padding:2.6vh 2vw;border-left:3px solid var(--amber);white-space:pre;overflow:hidden;max-width:1400px}
+.code .c{color:#8f8c84}.code .o{color:var(--amber-night)}
+/* row of cards; add class "hi" to the single highlighted card */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6vw}.cards>div{border:1px solid var(--line);padding:2.2vh 1.2vw;font-size:clamp(15px,1.5vw,22px);line-height:1.45}
+.cards>div b{display:block;font:13px monospace;letter-spacing:.08em;margin-bottom:1vh}.cards .hi{border:2px solid var(--amber)}.cards .off{opacity:.35}
+/* tokens / chips */
+.tokens{display:flex;flex-wrap:wrap;gap:.6vw}.tokens i{font:clamp(18px,2.2vw,32px) monospace;font-style:normal;border:1px solid #999;padding:.8vh .8vw}.tokens .hi{background:var(--amber);color:var(--ink)}.tokens .off{opacity:.4}
+/* source card */
+.source{border-left:3px solid var(--amber);padding:1vh 0 1vh 2vw;max-width:1200px}.source q{display:block;font:clamp(22px,2.6vw,40px)/1.35 Georgia,serif;quotes:none}.source cite{display:block;font:14px monospace;margin-top:2vh;font-style:normal}
+/* claim boundary card */
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:3vw;max-width:1400px}.boundary>div{border-top:1px solid var(--line);padding-top:2vh;font-size:clamp(17px,1.8vw,26px);line-height:1.5}
+.boundary b{display:block;font:13px monospace;letter-spacing:.1em;margin-bottom:1.5vh}.boundary .no b{color:var(--amber-ink)}.night .boundary .no b{color:var(--amber-night)}
+/* timeline / steps */
+.steps{display:flex;gap:0;max-width:1500px}.steps>div{flex:1;border-top:2px solid var(--line);padding:2vh 1vw 0 0;font-size:clamp(14px,1.4vw,20px);line-height:1.45}.steps>div b{display:block;font:13px monospace;margin-bottom:1vh}.steps .hi{border-top-color:var(--amber)}
+.notes{display:none;position:fixed;left:5vw;right:5vw;bottom:8vh;background:#fff7e5;color:#16181b;padding:20px;font:18px/1.8 Tahoma;max-height:40vh;overflow:auto;border:1px solid var(--amber-ink)}.show-notes .active .notes{display:block}
+nav{position:fixed;bottom:0;left:0;right:0;height:32px;background:#16181b;color:#eee;display:flex;align-items:center;justify-content:center;gap:12px;font:11px monospace;z-index:9}
+button{background:transparent;color:inherit;border:1px solid #555;border-radius:2px;padding:3px 10px;cursor:pointer}.hide-chrome nav,.hide-chrome .progress{display:none}
+.progress{height:2px;position:fixed;bottom:32px;left:0;background:var(--amber);z-index:10}
+@media(max-width:700px){header,footer{font-size:9px}h1{font-size:30px}.cols{flex-direction:column;gap:2vh}.bars div{grid-template-columns:24vw 1fr 12vw}.boundary{grid-template-columns:1fr}.code{font-size:12px}}
+</style><body>
+<section class="frame night" id="beat-1" data-start="0" aria-label="Beat 1"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">01 / 14 · 00:00</div><h1>Fewer letters. More tokens.</h1><div class="cols"><div><span>CHARACTERS · fa ÷ en (median)</span><b>0.88<small>×</small></b><p>Persian is written shorter.</p></div><div class="hi"><span>TOKENS · fa ÷ en (median, 9 tokenizers)</span><b>1.21–4.61<small>×</small></b><p>…but counted longer.</p></div></div><p class="tag">50 self-written pairs · measured 2026-11-02 · tiktoken 0.9.0 · transformers 4.49.0</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>کوتاه‌تر می‌نویسیم، بلندتر حساب می‌شود</strong><p>[B-ROLL CUE] دو پیام کنار هم با شمارندهٔ حرف و توکن. Grab → Promise → Stakes → sting.</p><p>در یک جمله: فارسی کوتاه‌تر نوشته می‌شود، ولی بیشتر وقت‌ها بلندتر شمرده می‌شود.</p></aside></section>
+
+<section class="frame paper" id="beat-2" data-start="45" aria-label="Beat 2"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">02 / 14 · 00:45</div><h1>What you pay for is not letters. It is tokens.</h1><div class="steps"><div><b>01</b>What is a token — see it.</div><div><b>02</b>Persian vs English on 9 real tokenizers.</div><div class="hi"><b>03</b>Which typing habit moves the number.</div></div><p class="fa">حدس بزن: فارسی چند برابر انگلیسی؟ ۱٫۵؟ ۲؟ ۳؟</p>
+</main><footer>Homodyne<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>چرا به تو مربوط است</strong><p>[CAMERA CHANGE] مثال قرارداد اجارهٔ بیست صفحه‌ای و چت‌بات پشتیبانی.</p><p>در یک جمله: سقف متن و هزینهٔ AI با توکن حساب می‌شود، نه با حرف.</p></aside></section>
+
+<section class="frame paper" id="beat-3" data-start="105" aria-label="Beat 3"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">03 / 14 · 01:45</div><h1>One English sentence = 15 tokens</h1><div class="tokens"><i class="">I</i><i class=""> want</i><i class=""> to</i><i class=""> cancel</i><i class=""> my</i><i class="hi"> subscription</i><i class=""> and</i><i class=""> get</i><i class=""> a</i><i class=""> refund</i><i class=""> for</i><i class=""> the</i><i class=""> last</i><i class=""> month</i><i class="">.</i></div><p class="tag">o200k_base · each box = one token · frequent chunks get one box</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>توکن چیست؟ اول انگلیسی</strong><p>[GRAPHIC] پازل توکن. «subscription» یک تکه.</p><p>در یک جمله: توکن تکه‌ای از متن است و تکه‌های پرتکرار بزرگ‌ترند.</p></aside></section>
+
+<section class="frame paper" id="beat-4" data-start="160" aria-label="Beat 4"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">04 / 14 · 02:40 · GUESS FIRST</div><h1>Same sentence in Persian: 22 · 46 · 69</h1><div class="tokens" dir="rtl"><i class="">می</i><i class="">ZWNJ·</i><i class="">خوا</i><i class="">هم</i><i class=""> اشت</i><i class="">را</i><i class="">کم</i><i class=""> را</i><i class=""> لغ</i><i class="">و</i><i class=""> کنم</i><i class=""> و</i><i class=""> هزینه</i><i class="">ZWNJ·ی</i><i class=""> ماه</i><i class=""> آخر</i><i class=""> را</i><i class=""> پس</i><i class=""> ب</i><i class="">گیر</i><i class="">م</i><i class="">.</i></div><div class="bars" style="margin-top:3vh"><div><span>English</span><i style="--v:21.7"></i><span>15</span></div><div><span>o200k_base</span><i style="--v:31.9"></i><span>22</span></div><div><span>cl100k_base</span><i style="--v:66.7"></i><span>46</span></div><div class="hi"><span>gpt2 (r50k)</span><i style="--v:100"></i><span>69</span></div></div><p class="tag">gpt2 splits «آ» into two raw bytes: &lt;20d8&gt; &lt;a2&gt;</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>همان جمله به فارسی</strong><p>[UNEXPECTED STAT] اول مکث روی علامت سؤال، بعد ۲۲، ۴۶، ۶۹. نسبت‌دادن tokenizer به مدل فقط طبق نقشهٔ tiktoken 0.9.0.</p><p>در یک جمله: یک جملهٔ فارسی، بسته به tokenizer، از ۲۲ تا ۶۹ تکه می‌شود؛ انگلیسی‌اش ۱۵.</p></aside></section>
+
+<section class="frame paper" id="beat-5" data-start="215" aria-label="Beat 5"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">05 / 14 · 03:35</div><div class="source"><q>…differences up to <em style="font-style:normal;color:var(--amber-ink)">15 times</em> in some cases.</q><cite>Petrov, La Malfa, Torr, Bibi · Language Model Tokenizers Introduce Unfairness Between Languages · NeurIPS 2023 · arXiv 2305.15425</cite></div><p class="sub" style="margin-top:4vh">Tokenizers are trained on text. Not all languages get equal room.</p>
+</main><footer>R14 · Petrov et al. · NeurIPS 2023<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>چرا؟ منبع اصلی + CTA نرم</strong><p>[MID-CTA] اول CTA نرم رو به دوربین، بعد کارت منبع. [CAMERA CHANGE]</p><p>ضریب فارسی امروز از این مقاله نمی‌آید؛ از اجرای خودمان.</p><p>در یک جمله: tokenizer زبانی را که کمتر دیده با تکه‌های ریزتر می‌نویسد.</p></aside></section>
+
+<section class="frame paper" id="beat-6" data-start="275" aria-label="Beat 6"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">06 / 14 · 04:35</div><div class="code"><span class="c">$ python3 artifact/count_tokens.py</span>
+corpus   50 pairs · chat news howto support code numbers address
+tiktoken o200k_base · cl100k_base · gpt2
+hf       Llama-2 · Llama-3.2 · Gemma-3 · Qwen3 · DeepSeek-V3 · Mistral-Nemo
+ratio    fa_tokens ÷ en_tokens  (per pair, then median)
+<span class="o">chars    fa ÷ en median = 0.88</span></div><p class="tag">HF revisions pinned to exact commits · special tokens not counted</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>آزمایش: ۵۰ جفت، ۹ tokenizer</strong><p>[B-ROLL CUE] ضبط صفحهٔ اجرای اسکریپت.</p><p>در یک جمله: نسبت توکن فارسی به انگلیسی را برای ۵۰ جفت هم‌معنی و ۹ tokenizer اندازه گرفتیم.</p></aside></section>
+
+<section class="frame paper" id="beat-7" data-start="335" aria-label="Beat 7"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">07 / 14 · 05:35</div><h1 style="margin-bottom:2vh">Median Persian ÷ English tokens</h1><div class="bars"><div><span>Gemma-3</span><i style="--v:26.2"></i><span>1.21×</span></div><div><span>Mistral-Nemo</span><i style="--v:28.0"></i><span>1.29×</span></div><div><span>Llama-3.2</span><i style="--v:30.2"></i><span>1.39×</span></div><div class="hi"><span>o200k_base</span><i style="--v:30.2"></i><span>1.39×</span></div><div><span>DeepSeek-V3</span><i style="--v:35.4"></i><span>1.63×</span></div><div><span>Qwen3</span><i style="--v:49.9"></i><span>2.30×</span></div><div><span>cl100k_base</span><i style="--v:63.3"></i><span>2.92×</span></div><div><span>Llama-2</span><i style="--v:74.2"></i><span>3.42×</span></div><div><span>gpt2 (r50k)</span><i style="--v:100.0"></i><span>4.61×</span></div></div><p class="tag">measured 2026-11-02 · tiktoken 0.9.0 · transformers 4.49.0</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>جدول نتیجه</strong><p>[GRAPHIC] فقط میلهٔ در حال گفتن روشن شود. مقایسهٔ cl100k ۲٫۹۲ ← o200k ۱٫۳۹ با مکث.</p><p>در یک جمله: روی این ۵۰ جفت، فارسی بین ۱٫۲ تا ۴٫۶ برابر انگلیسی توکن گرفت.</p></aside></section>
+
+<section class="frame paper" id="beat-8" data-start="400" aria-label="Beat 8"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">08 / 14 · 06:40</div><h1>o200k_base: half the pairs fall in 1.23–1.50×</h1><div class="cards"><div><b>CODE</b>1.20×</div><div><b>ADDRESS</b>1.26×</div><div><b>NUMBERS</b>1.36×</div><div><b>CHAT</b>1.41×</div><div><b>SUPPORT</b>1.44×</div><div><b>NEWS</b>1.45×</div><div class="hi"><b>HOWTO</b>1.72×</div></div><p class="tag">min 1.05 · max 2.10 · Persian higher in 50/50 pairs (o200k) · Gemma-3: 7 pairs where Persian was cheaper</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>یک عدد کافی نیست</strong><p>[SOUND EFFECT] کلیک با ورود هر کارت.</p><p>در یک جمله: ضریب فارسی به نوع متن هم بستگی دارد، نه فقط به tokenizer.</p></aside></section>
+
+<section class="frame paper" id="beat-9" data-start="465" aria-label="Beat 9"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">09 / 14 · 07:45 · RE-HOOK</div><h1>ی vs ي · ک vs ك — same look, different tokens</h1><div class="cols"><div><span>o200k_base</span><b>+6.7<small>%</small></b><p>median change, Arabic yeh/kaf</p></div><div class="hi"><span>Llama-3.2 · Gemma-3</span><b>+11.5<small>%</small></b><p>worst sentence: +46.7% / +50%</p></div><div><span>Mistral-Nemo</span><b>+10.5<small>%</small></b><p>older tokenizers: ~0 or negative</p></div></div><p class="tag">49 Persian sentences rewritten with U+064A / U+0643 · Persian side only</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>هوک دوم: کیبورد خودت</strong><p>[RE-HOOK] [CAMERA CHANGE] نمای نزدیک کیبورد. اول حدس، بعد عدد.</p><p>در یک جمله: روی tokenizerهای جدید، «ی» و «ک» عربی حدود ۷ تا ۱۲ درصد توکن اضافه می‌کنند.</p></aside></section>
+
+<section class="frame paper" id="beat-10" data-start="530" aria-label="Beat 10"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">10 / 14 · 08:50</div><h1>ZWNJ: free on most · costly on one. Digits: depends.</h1><div class="cards"><div><b>ZWNJ → SPACE · MOST</b>median ±0%</div><div class="hi"><b>ZWNJ · DEEPSEEK-V3</b>half-space = 2 byte tokens; ZWNJ → space saves ~13.5%</div><div><b>LATIN DIGITS · o200k / cl100k</b>−8.3% / −21.2%</div><div><b>LATIN DIGITS · GEMMA-3</b>+14.3% (Persian digits cheaper)</div></div><p class="fa">فارسی را برای توکن خراب ننویس؛ نیم‌فاصله برای خوانایی و جست‌وجو مهم است.</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>نیم‌فاصله و رقم‌ها</strong><p>[UNEXPECTED STAT] نیم‌فاصله در DeepSeek: e2 80 8c به دو تکه. رقم‌ها: ۱۱ جملهٔ عددی.</p><p>در یک جمله: اثر نیم‌فاصله و رقم‌ها به tokenizer بستگی دارد؛ قاعدهٔ کلی ندارد.</p></aside></section>
+
+<section class="frame paper" id="beat-11" data-start="595" aria-label="Beat 11"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">11 / 14 · 09:55</div><div class="code"><span class="c"># same content, same price list</span>
+input_cost  = tokens_in  × price_in   <span class="c"># price: official page, on the day</span>
+output_cost = tokens_out × price_out  <span class="c"># priced separately</span>
+<span class="o">cost_fa ≈ ratio × cost_en</span>      <span class="c"># 1.39 → +39% · 2.92 → ~3×</span>
+window_fa  ≈ window_en ÷ ratio     <span class="c"># 1 ÷ 1.39 ≈ 72% of the content</span></div><p class="tag">latency not measured · no current price stated</p>
+</main><footer>Formula only · prices from the official page on the day<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>هزینه و حافظه، فقط با فرمول</strong><p>[GRAPHIC] جعبهٔ پنجرهٔ متن که با فارسی در ۷۲٪ محتوا پر می‌شود.</p><p>در یک جمله: با یک فهرست قیمت، هزینهٔ ورودی فارسی تقریباً به اندازهٔ همین نسبت بیشتر است.</p></aside></section>
+
+<section class="frame night" id="beat-12" data-start="655" aria-label="Beat 12"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">12 / 14 · 10:55 · CLAIM BOUNDARY</div><div class="boundary"><div><b>THIS SHOWS</b>On 50 self-written pairs, Persian took 1.21–4.61× the tokens of English, depending on the tokenizer; spelling choices shift it.</div><div class="no"><b>THIS DOES NOT SHOW</b>That AI understands Persian worse · that every Persian text has this ratio · which tokenizer your product uses today · latency.</div></div>
+</main><footer>HMD-005 claim boundary<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>مرز ادعا</strong><p>[CAMERA CHANGE] بدون موسیقی.</p><p>در یک جمله: شکاف توکنی واقعی است، ولی دربارهٔ کیفیت فهم چیزی نمی‌گوید.</p></aside></section>
+
+<section class="frame night" id="beat-13" data-start="705" aria-label="Beat 13"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">13 / 14 · 11:45</div><div class="stat"><b>1.2–4.6×</b><span>Persian tokens per English token · 9 tokenizers · 50 pairs</span></div><p class="tag">Your text. Your tokenizer. Count it → python3 artifact/count_tokens.py</p><p class="fa">پس: tokenizerها تکه‌های فارسی کمتری می‌شناسند و متن ما را ریزتر می‌شکنند.</p>
+</main><footer>HMD-005 run · artifact/results-2026-11-02.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>جواب</strong><p>[GRAPHIC] جواب صریح با «پس». حلقهٔ «عادت تایپی» را ببند: ی/ک فارسیِ درست. تمرین: یک ایمیل واقعی را فارسی و انگلیسی بشمار؛ حدس اول را در کامنت بگذار.</p><p>در یک جمله: فارسی ریزتر شکسته می‌شود؛ اندازه‌اش را با متن خودت بشمار.</p></aside></section>
+
+<section class="frame paper" id="beat-14" data-start="750" aria-label="Beat 14"><header>HOMODYNE <span>BENCHMARK LAB / HMD-005</span></header><main>
+<div class="eyebrow">14 / 14 · 12:30 · NEXT</div><h1>Next: “fewer errors” — out of what?</h1><div class="cols"><div><span>MODEL A</span><b>26<small>% errors</small></b></div><div><span>MODEL B</span><b>75<small>% errors</small></b></div><div class="hi"><span>THE OTHER COLUMN</span><b>?</b></div></div><p class="tag">SimpleQA table · OpenAI, Sept 2025 (R01) · HMD-006</p>
+</main><footer>Next: HMD-006 · R01<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>قسمت بعد</strong><p>[SOUND EFFECT] تیزر؛ End screen به HMD-006.</p><p>در یک جمله: بعد از توکن، نوبت عددی است که پشت «کمتر خطا می‌کند» پنهان می‌ماند.</p></aside></section>
+
+<nav><button id="prev" aria-label="Previous">←</button><span id="counter"></span><button id="next" aria-label="Next">→</button><span>F fullscreen · H chrome · N presenter notes</span></nav><div class="progress"></div>
+<script>const frames=[...document.querySelectorAll('.frame')];let current=0;function show(n){current=Math.max(0,Math.min(frames.length-1,n));frames.forEach((f,i)=>f.classList.toggle('active',i===current));document.querySelector('#counter').textContent=(current+1)+' / '+frames.length;document.querySelector('.progress').style.width=((current+1)/frames.length*100)+'%';}document.querySelector('#next').onclick=()=>show(current+1);document.querySelector('#prev').onclick=()=>show(current-1);document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1);}if(e.key==='Home')show(0);if(e.key==='End')show(frames.length-1);if(e.key.toLowerCase()==='n')document.body.classList.toggle('show-notes');if(e.key.toLowerCase()==='h')document.body.classList.toggle('hide-chrome');if(e.key.toLowerCase()==='f'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen();}});show(0);</script></body></html>

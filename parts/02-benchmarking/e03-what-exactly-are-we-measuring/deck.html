@@ -1,0 +1,112 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homodyne HMD-006 — Fewer Errors</title>
+<style>
+:root{--paper:#F3F1EC;--ink:#16181B;--night:#111214;--amber:#E8A33D;--amber-ink:#975C08;--amber-night:#F0B45A;--line:#B9B4AA;--muted:#6B6A66}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:Arial,Tahoma,sans-serif}body{overflow:hidden}
+.frame{display:none;position:absolute;inset:0;padding:3.7vh 5vw 58px;background:var(--paper)}.frame.active{display:flex;flex-direction:column}
+.night{background:var(--night);color:var(--paper)}.night .muted{color:#9a988f}
+header,footer{font:12px monospace;letter-spacing:.1em;display:flex;justify-content:space-between;gap:20px}header{border-bottom:1px solid var(--line);padding-bottom:15px}
+footer{border-top:1px solid var(--line);padding-top:15px;letter-spacing:0;font-size:11px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.eyebrow{font:14px monospace;color:var(--amber-ink);margin-bottom:2vh}.night .eyebrow{color:var(--amber-night)}
+h1{font:clamp(28px,4.7vw,76px)/1.12 Georgia,serif;max-width:1250px;font-weight:400;letter-spacing:-.035em;margin:0 0 4vh}
+h1 em{font-style:normal;color:var(--amber-ink)}.night h1 em{color:var(--amber-night)}
+.sub{font-size:clamp(18px,2vw,31px);max-width:1000px;line-height:1.5;border-top:1px solid var(--line);padding-top:2vh;margin:0}
+.fa{direction:rtl;text-align:right;font:clamp(18px,1.9vw,30px)/1.7 Tahoma,Arial,sans-serif;max-width:1100px;margin:2vh 0 0 auto;color:var(--muted)}.night .fa{color:#bdbab1}
+.tag{font:14px/1.5 monospace;color:var(--amber-ink);margin:2vh 0 0}.night .tag{color:var(--amber-night)}
+.muted{color:var(--muted)}
+/* big single number */
+.stat b{display:block;font:clamp(80px,13vw,220px)/1 Georgia,serif;letter-spacing:-.04em}.stat span{font:clamp(16px,1.6vw,24px) monospace}
+/* two or three columns side by side */
+.cols{display:flex;gap:5vw}.cols>div{flex:1;border-top:1px solid var(--line);padding-top:2vh}.cols span{display:block;font:14px monospace}
+.cols b{display:block;font:clamp(35px,5vw,72px) Georgia,serif;margin-top:1vh}.cols small{font:20px Arial}.cols p{font-size:clamp(16px,1.6vw,22px);line-height:1.5}
+.cols .hi{border-top:3px solid var(--amber)}
+/* horizontal bars: style="--v:62" for 62% */
+.bars{display:flex;flex-direction:column;gap:2.2vh;max-width:1300px}.bars div{display:grid;grid-template-columns:14vw 1fr 7vw;align-items:center;gap:1.5vw;font:clamp(14px,1.4vw,20px) monospace}
+.bars i{display:block;height:3.4vh;background:var(--ink);width:calc(var(--v)*1%)}.night .bars i{background:var(--paper)}.bars .hi i{background:var(--amber)}
+/* terminal / code */
+.code{background:#1b1d20;color:#e9e6de;font:clamp(15px,1.5vw,22px)/1.65 monospace;padding:2.6vh 2vw;border-left:3px solid var(--amber);white-space:pre;overflow:hidden;max-width:1400px}
+.code .c{color:#8f8c84}.code .o{color:var(--amber-night)}
+/* row of cards; add class "hi" to the single highlighted card */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6vw}.cards>div{border:1px solid var(--line);padding:2.2vh 1.2vw;font-size:clamp(15px,1.5vw,22px);line-height:1.45}
+.cards>div b{display:block;font:13px monospace;letter-spacing:.08em;margin-bottom:1vh}.cards .hi{border:2px solid var(--amber)}.cards .off{opacity:.35}
+/* tokens / chips */
+.tokens{display:flex;flex-wrap:wrap;gap:.6vw}.tokens i{font:clamp(18px,2.2vw,32px) monospace;font-style:normal;border:1px solid #999;padding:.8vh .8vw}.tokens .hi{background:var(--amber);color:var(--ink)}.tokens .off{opacity:.4}
+/* source card */
+.source{border-left:3px solid var(--amber);padding:1vh 0 1vh 2vw;max-width:1200px}.source q{display:block;font:clamp(22px,2.6vw,40px)/1.35 Georgia,serif;quotes:none}.source cite{display:block;font:14px monospace;margin-top:2vh;font-style:normal}
+/* claim boundary card */
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:3vw;max-width:1400px}.boundary>div{border-top:1px solid var(--line);padding-top:2vh;font-size:clamp(17px,1.8vw,26px);line-height:1.5}
+.boundary b{display:block;font:13px monospace;letter-spacing:.1em;margin-bottom:1.5vh}.boundary .no b{color:var(--amber-ink)}.night .boundary .no b{color:var(--amber-night)}
+/* timeline / steps */
+.steps{display:flex;gap:0;max-width:1500px}.steps>div{flex:1;border-top:2px solid var(--line);padding:2vh 1vw 0 0;font-size:clamp(14px,1.4vw,20px);line-height:1.45}.steps>div b{display:block;font:13px monospace;margin-bottom:1vh}.steps .hi{border-top-color:var(--amber)}
+.notes{display:none;position:fixed;left:5vw;right:5vw;bottom:8vh;background:#fff7e5;color:#16181b;padding:20px;font:18px/1.8 Tahoma;max-height:40vh;overflow:auto;border:1px solid var(--amber-ink)}.show-notes .active .notes{display:block}
+nav{position:fixed;bottom:0;left:0;right:0;height:32px;background:#16181b;color:#eee;display:flex;align-items:center;justify-content:center;gap:12px;font:11px monospace;z-index:9}
+button{background:transparent;color:inherit;border:1px solid #555;border-radius:2px;padding:3px 10px;cursor:pointer}.hide-chrome nav,.hide-chrome .progress{display:none}
+.progress{height:2px;position:fixed;bottom:32px;left:0;background:var(--amber);z-index:10}
+@media(max-width:700px){header,footer{font-size:9px}h1{font-size:30px}.cols{flex-direction:column;gap:2vh}.bars div{grid-template-columns:24vw 1fr 12vw}.boundary{grid-template-columns:1fr}.code{font-size:12px}}
+</style><body>
+<section class="frame night" id="beat-1" data-start="0" aria-label="Beat 1"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">01 / 14 · 00:00</div><h1>The world’s lowest-error assistant says only: <em>“I don’t know.”</em></h1><div class="cols"><div><span>ERRORS</span><b>0<small>%</small></b></div><div><span>USEFUL ANSWERS</span><b>0<small>%</small></b></div></div>
+</main><footer>Homodyne · thought experiment<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>کم‌خطاترین دستیار دنیا</strong><p>[CAMERA CHANGE] شروع روی چهره، بدون موسیقی. Grab → Promise → Stakes → sting.</p><p>در یک جمله: صفر خطا می‌تواند یعنی صفر کمک.</p></aside></section>
+
+<section class="frame paper" id="beat-2" data-start="45" aria-label="Beat 2"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">02 / 14 · 00:45</div><h1>Every answer is one of three</h1><div class="cards"><div><b>CORRECT</b>Right answer.</div><div class="hi"><b>WRONG</b>Confident and false — a “hallucination”.</div><div><b>“I DON’T KNOW”</b>Abstains.</div></div><p class="fa">هر نرخ خطا این سه را به یک شکل خاص تقسیم کرده.</p>
+</main><footer>Homodyne<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>سه نوع جواب</strong><p>[B-ROLL CUE] فید تیترهای ساختگی «سه برابر کمتر توهم». تا آخر این ویدیو: صورت/مخرج + «با چه خریده‌اند».</p><p>در یک جمله: هر نرخ خطا سه نوع جواب را به یک شکل خاص تقسیم کرده.</p></aside></section>
+
+<section class="frame paper" id="beat-3" data-start="100" aria-label="Beat 3"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">03 / 14 · 01:40 · GUESS FIRST</div><h1>10 answers: 5 correct · 2 wrong · 3 “I don’t know”. Error rate = ?</h1><div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i class="hi">✗</i><i class="hi">✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div><p class="tag">ILLUSTRATIVE · made-up teaching cards</p>
+</main><footer>ILLUSTRATIVE teaching data<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>ده کارت</strong><p>[GRAPHIC] ده کارت. مکث دوثانیه‌ای برای حدس بیننده.</p><p>در یک جمله: یک دسته جواب، و هنوز معلوم نیست «نرخ خطا» یعنی کدام عدد.</p></aside></section>
+
+<section class="frame paper" id="beat-4" data-start="160" aria-label="Beat 4"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">04 / 14 · 02:40</div><div class="cols"><div><span>WRONG ÷ ALL QUESTIONS</span><b>2/10 <small>= 20%</small></b></div><div><span>WRONG ÷ ANSWERED</span><b>2/7 <small>≈ 29%</small></b></div><div class="hi"><span>WRONG ÷ NOT CORRECT (AA-Omniscience)</span><b>2/5 <small>= 40%</small></b></div></div><p class="fa">چندتا، از چندتا؟</p>
+</main><footer>ILLUSTRATIVE teaching data · formula 3 as defined in AA-Omniscience (R08)<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>یک دسته کارت، سه عدد درست</strong><p>[UNEXPECTED STAT] کسرها یکی‌یکی؛ زیر هر کسر کارت‌های داخل مخرج روشن شوند.</p><p>در یک جمله: نرخ خطا بدون مخرجش فقط یک عدد بی‌صاحب است.</p></aside></section>
+
+<section class="frame paper" id="beat-5" data-start="220" aria-label="Beat 5"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">05 / 14 · 03:40 · MID-CTA · GUESS FIRST</div><h1 style="margin-bottom:2vh">SimpleQA · two OpenAI models</h1><div class="cols"><div><span>ERROR RATE</span><b>26% <small>vs 75%</small></b><p>gpt-5-thinking-mini vs o4-mini</p></div><div><span>ACCURACY</span><b>22% <small>vs 24%</small></b><p>the older model answered slightly more correctly</p></div><div class="hi"><span>ABSTENTION (“I don’t know”)</span><b>52% <small>vs 1%</small></b><p>the column headlines skip</p></div></div>
+</main><footer>R01 · OpenAI, Why Language Models Hallucinate · Sept 2025<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>جدول واقعی و ستونی که دیده نمی‌شود</strong><p>[MID-CTA] اول CTA نرم. [GRAPHIC] فقط ستون خطا؛ حدس؛ بعد دقت و abstention.</p><p>در یک جمله: بخش بزرگی از «خطای کمتر» این جدول، از «نمی‌دانم» بیشتر آمده.</p></aside></section>
+
+<section class="frame paper" id="beat-6" data-start="285" aria-label="Beat 6"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">06 / 14 · 04:45</div><h1>When it does answer, how often is it wrong?</h1><div class="bars"><div><span>gpt-5-thinking-mini</span><i style="--v:54"></i><span>26/48 ≈ 54%</span></div><div class="hi"><span>o4-mini</span><i style="--v:76"></i><span>75/99 ≈ 76%</span></div></div><div class="cards" style="margin-top:3vh"><div><b>DRUG DOSE</b>“I don’t know” beats a confident wrong answer.</div><div><b>CAFÉ NAMES</b>A bad guess costs little.</div></div>
+</main><footer>Our arithmetic on R01’s numbers<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>همان جدول، با مخرج دیگر</strong><p>[UNEXPECTED STAT] برچسب «حساب ما روی عددهای R01». SimpleQA عمداً سؤال‌های سخت دارد. نکتهٔ Kalai: نمره‌دهی فقط-درست حدس را تشویق می‌کند؛ کنکور بی‌نمرهٔ منفی.</p><p>در یک جمله: کدام مدل بهتر است، به هزینهٔ یک جواب غلط در کار تو بستگی دارد.</p></aside></section>
+
+<section class="frame paper" id="beat-7" data-start="350" aria-label="Beat 7"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">07 / 14 · 05:50 · GUESS FIRST</div><div class="code"><span class="c">$ python3 tools/bluff_lab.py score tools/bluff-demo.csv --condition t75</span>
+<span class="c"># correct +1 · abstain 0 · wrong −3</span>
+model  accuracy  coverage  risk   score/prompt
+A      0.50      0.70      0.29   <span class="o">−0.10</span>
+B      0.40      0.50      0.20   +0.10
+<span class="c">source_status: ILLUSTRATIVE</span></div><p class="tag">A = the ten cards (5/2/3) · B = 4 correct / 1 wrong / 5 abstain</p>
+</main><footer>tools/bluff_lab.py · tools/bluff-demo.csv · ILLUSTRATIVE teaching data<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>چهار عدد کنار هم</strong><p>[B-ROLL CUE] ضبط صفحهٔ اجرای واقعی؛ فقط چهار ستون بزرگ‌نمایی. «برنده عوض شد» با زوم.</p><p>در یک جمله: هر کدام از چهار عدد به یک سؤال متفاوت جواب می‌دهد.</p></aside></section>
+
+<section class="frame paper" id="beat-8" data-start="415" aria-label="Beat 8"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">08 / 14 · 06:55</div><div class="cols"><div class="hi"><span>RISK OF “ALWAYS I DON’T KNOW”</span><b>0 ÷ 0</b><p>undefined — not 0%</p></div><div><span>PENALISED SCORE</span><b>0</b><p>the line of silence</p></div><div><span>ABSTENTIONBENCH · 20 models · 20 datasets</span><b>−24<small>%</small></b><p>abstention after reasoning fine-tuning (average)</p></div></div>
+</main><footer>R09 · AbstentionBench · Kirichenko et al. 2025<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>دستیار ساکت و خط سکوت</strong><p>[SOUND EFFECT] یک ثانیه سکوت کامل.</p><p>در یک جمله: سکوت مرجع است، نه هدف؛ و «صفر خطا» بدون سهم پاسخ گمراه‌کننده است.</p></aside></section>
+
+<section class="frame paper" id="beat-9" data-start="470" aria-label="Beat 9"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">09 / 14 · 07:50 · RE-HOOK</div><h1 style="margin-bottom:2vh">Both called “hallucination rate”</h1><div class="cols"><div><span>VECTARA · lowest listed</span><b>1.8<small>%</small></b><p>Summarise a given document. Rate = 100 − % consistent with it.</p></div><div class="hi"><span>AA-OMNISCIENCE · GPT-5 (high)</span><b>81<small>%</small></b><p>Answer from memory, no document. Rate = wrong ÷ (wrong + partial + abstain).</p></div></div><p class="tag">different task · different formula · different models → not comparable</p>
+</main><footer>Vectara leaderboard (HHEM-2.3, updated 2026-10-22) · R08 AA-Omniscience (Nov 2025)<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>هوک دوم: ۱٫۸٪ یا ۸۱٪؟</strong><p>[RE-HOOK] [CAMERA CHANGE] اول دو عدد، مکث، حدس؛ بعد کار و فرمول زیر هر کدام.</p><p>در یک جمله: دو «نرخ توهم» می‌توانند دو کار، دو فرمول و دو مدل متفاوت باشند.</p></aside></section>
+
+<section class="frame paper" id="beat-10" data-start="535" aria-label="Beat 10"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">10 / 14 · 08:55</div><h1>What we want <em>≠</em> what we count</h1><div class="steps"><div><b>CONSTRUCT</b>What we want: an answer you can rely on.</div><div><b>PROXY</b>What we count: wrong ÷ answered, on short questions.</div><div><b>MISSES</b>“I don’t know” share · long answers · Persian · date.</div></div><p class="tag">thermometer ≠ health · 445 LLM benchmarks · 29 expert reviewers · 8 recommendations</p>
+</main><footer>R02 · Bean et al. · Measuring what Matters · NeurIPS 2025<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>چیزی که می‌خواهیم، چیزی که می‌شماریم</strong><p>[GRAPHIC] دماسنج و سه ستون. اصطلاح «سازه» فقط بعد از مثال.</p><p>در یک جمله: هر عدد خطا جانشین چیزی است که واقعاً می‌خواهیم؛ باید بدانیم چه چیزی را نمی‌بیند.</p></aside></section>
+
+<section class="frame paper" id="beat-11" data-start="595" aria-label="Beat 11"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">11 / 14 · 09:55</div><h1>Construct card · fill it for any “fewer errors” claim</h1><div class="cards"><div><b>1 · WANT</b>An answer you can lean on.</div><div><b>2 · COUNTED</b>Wrong answers on short questions, no document.</div><div class="hi"><b>3 · NUMERATOR / DENOMINATOR</b>Wrong ÷ all? ÷ answered? ÷ not-correct?</div><div><b>4 · MISSES</b>Abstention share · long answers · Persian.</div></div><p class="tag">Bluff spec starts here · not run yet · measures answering behaviour, not honesty</p>
+</main><footer>artifact/construct-card.md<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>کارت سازه</strong><p>[B-ROLL CUE] پرکردن زندهٔ کارت روی یک تیتر.</p><p>در یک جمله: چهار خط کافی است تا یک ادعای خطا را از تیتر به تعریف برگردانی.</p></aside></section>
+
+<section class="frame night" id="beat-12" data-start="655" aria-label="Beat 12"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">12 / 14 · 10:55 · CLAIM BOUNDARY</div><div class="boundary"><div><b>THIS SHOWS</b>How each error rate is built — and that “fewer errors” can be bought with abstention.</div><div class="no"><b>THIS DOES NOT SHOW</b>Which model is better · that Vectara or AA are bad tests · what a model “knows” · current rankings. Cards and A/B are ILLUSTRATIVE.</div></div>
+</main><footer>HMD-006 claim boundary<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>مرز ادعا</strong><p>[CAMERA CHANGE] بدون موسیقی.</p><p>در یک جمله: این قسمت خواندن عدد را یاد می‌دهد، نه رتبه‌بندی مدل‌ها را.</p></aside></section>
+
+<section class="frame night" id="beat-13" data-start="700" aria-label="Beat 13"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">13 / 14 · 11:40</div><h1>Out of what? Bought with <em>what</em>?</h1><div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✗</i><i>✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div><p class="fa">پس: «کمتر خطا» معمولاً نمی‌گوید از چندتا، و به قیمت چند «نمی‌دانم».</p>
+</main><footer>Homodyne<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>جواب</strong><p>جواب صریح با «پس». تمرین: جلوی هر درصد خطا دو سؤال.</p><p>در یک جمله: هر درصد خطا را با صورت، مخرج و سهم «نمی‌دانم» بخوان.</p></aside></section>
+
+<section class="frame paper" id="beat-14" data-start="740" aria-label="Beat 14"><header>HOMODYNE <span>BENCHMARK LAB · E03 / HMD-006</span></header><main>
+<div class="eyebrow">14 / 14 · 12:20 · NEXT</div><h1>Next: what if the document itself is <em>steering</em> the AI?</h1><div class="code"><span class="c">INVOICE #0417 · Fictional Co.</span>
+Total: 12,400,000 IRR   Due: 30 Aban
+<span class="c">…</span>
+<span class="o">[a line written for the assistant, not for you]</span></div>
+</main><footer>Next: HMD-007 · OWASP LLM01<span>v5 · 2026-11-02</span></footer><aside class="notes" dir="rtl"><strong>قسمت بعد</strong><p>[SOUND EFFECT] فاکتور ساختگی؛ خط آخر محو و بعد کهربایی. End screen به HMD-007.</p><p>در یک جمله: بعد از خطای خود مدل، نوبت سندی است که عمداً مدل را گمراه می‌کند.</p></aside></section>
+
+<nav><button id="prev" aria-label="Previous">←</button><span id="counter"></span><button id="next" aria-label="Next">→</button><span>F fullscreen · H chrome · N presenter notes</span></nav><div class="progress"></div>
+<script>const frames=[...document.querySelectorAll('.frame')];let current=0;function show(n){current=Math.max(0,Math.min(frames.length-1,n));frames.forEach((f,i)=>f.classList.toggle('active',i===current));document.querySelector('#counter').textContent=(current+1)+' / '+frames.length;document.querySelector('.progress').style.width=((current+1)/frames.length*100)+'%';}document.querySelector('#next').onclick=()=>show(current+1);document.querySelector('#prev').onclick=()=>show(current-1);document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1);}if(e.key==='Home')show(0);if(e.key==='End')show(frames.length-1);if(e.key.toLowerCase()==='n')document.body.classList.toggle('show-notes');if(e.key.toLowerCase()==='h')document.body.classList.toggle('hide-chrome');if(e.key.toLowerCase()==='f'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen();}});show(0);</script></body></html>

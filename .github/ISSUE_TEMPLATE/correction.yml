@@ -1,0 +1,25 @@
+name: Correction / اصلاح
+description: A number, source or claim in an episode or post is wrong. · عدد، منبع یا ادعایی در یک قسمت یا نوشته اشتباه است.
+labels: [correction]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Episode or post · قسمت یا نوشته
+      placeholder: HMD-005, or the post URL
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What is wrong · چه چیزی اشتباه است
+      description: Quote the line and give the timestamp if it is in the video.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence · شاهد
+      description: A link to the primary source, or a way to reproduce.
+    validations:
+      required: true

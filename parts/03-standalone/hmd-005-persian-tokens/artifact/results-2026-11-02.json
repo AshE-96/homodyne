@@ -1,0 +1,4745 @@
+{
+ "date": "2026-11-02",
+ "python": "3.11.7",
+ "corpus": "pairs.jsonl",
+ "n_pairs": 50,
+ "tokenizers": [
+  {
+   "label": "o200k_base",
+   "version": "tiktoken 0.9.0",
+   "vocab": 200019,
+   "note": "tiktoken map: gpt-4o, o1, o3",
+   "ratio": {
+    "median": 1.3923076923076922,
+    "p10": 1.1527472527472526,
+    "p25": 1.2319004524886878,
+    "p75": 1.5,
+    "p90": 1.7550000000000001,
+    "min": 1.0454545454545454,
+    "max": 2.1,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 1.3820224719101124,
+   "fa_tokens": 984,
+   "en_tokens": 712,
+   "ratio_latin_digits_median": 1.3550420168067228,
+   "ratio_no_number_rows_median": 1.4,
+   "fa_chars_per_token": 2.821138211382114,
+   "en_chars_per_token": 4.396067415730337,
+   "domain_median": {
+    "address": 1.2613636363636362,
+    "chat": 1.4083333333333332,
+    "code": 1.1993464052287583,
+    "howto": 1.7214285714285715,
+    "news": 1.445054945054945,
+    "numbers": 1.358974358974359,
+    "support": 1.4416666666666667
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.021219649304460023,
+     "min": -0.11764705882352941,
+     "max": 0.0,
+     "total_change": -0.021276595744680882
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.018586469335639913,
+     "min": -0.11764705882352941,
+     "max": 0.06666666666666667,
+     "total_change": -0.018439716312056764
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.06666666666666667,
+     "mean_change": 0.09719932728057448,
+     "min": -0.07142857142857142,
+     "max": 0.3333333333333333,
+     "total_change": 0.09523809523809534
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.08333333333333333,
+     "mean_change": -0.0917343973832177,
+     "min": -0.1875,
+     "max": 0.0,
+     "total_change": -0.09333333333333338
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.04,
+     "mean_change": 0.04916034207776494,
+     "min": 0.0,
+     "max": 0.1875,
+     "total_change": 0.04444444444444451
+    }
+   },
+   "demo": {
+    "fa": [
+     "می",
+     "‌",
+     "خوا",
+     "هم",
+     " اشت",
+     "را",
+     "کم",
+     " را",
+     " لغ",
+     "و",
+     " کنم",
+     " و",
+     " هزینه",
+     "‌ی",
+     " ماه",
+     " آخر",
+     " را",
+     " پس",
+     " ب",
+     "گیر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "cl100k_base",
+   "version": "tiktoken 0.9.0",
+   "vocab": 100277,
+   "note": "tiktoken map: gpt-4, gpt-3.5-turbo",
+   "ratio": {
+    "median": 2.916083916083916,
+    "p10": 2.045,
+    "p25": 2.5903361344537816,
+    "p75": 3.3181818181818183,
+    "p90": 3.542948717948718,
+    "min": 1.631578947368421,
+    "max": 4.9,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 2.809065934065934,
+   "fa_tokens": 2045,
+   "en_tokens": 728,
+   "ratio_latin_digits_median": 2.809090909090909,
+   "ratio_no_number_rows_median": 3.0,
+   "fa_chars_per_token": 1.3574572127139364,
+   "en_chars_per_token": 4.299450549450549,
+   "domain_median": {
+    "address": 2.4813664596273295,
+    "chat": 2.85,
+    "code": 2.025,
+    "howto": 3.392857142857143,
+    "news": 3.2857142857142856,
+    "numbers": 2.8976190476190475,
+    "support": 3.033333333333333
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": -0.022233201581027668,
+     "mean_change": -0.02050053853797021,
+     "min": -0.08333333333333333,
+     "max": 0.0,
+     "total_change": -0.019485038274182354
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": -0.030776515151515152,
+     "mean_change": -0.038215978732070464,
+     "min": -0.08333333333333333,
+     "max": -0.017241379310344827,
+     "total_change": -0.0375782881002088
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.0,
+     "mean_change": 0.010489239293971995,
+     "min": -0.03125,
+     "max": 0.0625,
+     "total_change": 0.00994035785288272
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.21212121212121213,
+     "mean_change": -0.21277035768978908,
+     "min": -0.34210526315789475,
+     "max": -0.09090909090909091,
+     "total_change": -0.2155172413793104
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    }
+   },
+   "demo": {
+    "fa": [
+     "م",
+     "ی",
+     "‌",
+     "خ",
+     "و",
+     "ا",
+     "ه",
+     "م",
+     " ا",
+     "ش",
+     "ت",
+     "ر",
+     "ا",
+     "ک",
+     "م",
+     " ر",
+     "ا",
+     " ل",
+     "غ",
+     "و",
+     " ک",
+     "ن",
+     "م",
+     " و",
+     " ه",
+     "ز",
+     "ین",
+     "ه",
+     "‌",
+     "ی",
+     " م",
+     "ا",
+     "ه",
+     "<20d8>",
+     "<a2>",
+     "خ",
+     "ر",
+     " ر",
+     "ا",
+     " پ",
+     "س",
+     " ب",
+     "گ",
+     "یر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "gpt2 (r50k)",
+   "version": "tiktoken 0.9.0",
+   "vocab": 50257,
+   "note": "GPT-2 era, historical baseline",
+   "ratio": {
+    "median": 4.607692307692307,
+    "p10": 2.929667519181586,
+    "p25": 4.0,
+    "p75": 5.324999999999999,
+    "p90": 5.755,
+    "min": 2.2142857142857144,
+    "max": 7.8,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 4.3283173734610125,
+   "fa_tokens": 3164,
+   "en_tokens": 731,
+   "ratio_latin_digits_median": 4.516666666666667,
+   "ratio_no_number_rows_median": 4.636363636363637,
+   "fa_chars_per_token": 0.877370417193426,
+   "en_chars_per_token": 4.281805745554036,
+   "domain_median": {
+    "address": 3.7386363636363633,
+    "chat": 4.282051282051282,
+    "code": 2.5,
+    "howto": 5.757142857142857,
+    "news": 5.166666666666666,
+    "numbers": 4.568181818181818,
+    "support": 4.923076923076923
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": -0.024695121951219513,
+     "mean_change": -0.02838817601642228,
+     "min": -0.07547169811320754,
+     "max": -0.01098901098901099,
+     "total_change": -0.027564392227745094
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": -0.04399808703969393,
+     "mean_change": -0.048598684139940125,
+     "min": -0.11320754716981132,
+     "max": -0.02197802197802198,
+     "total_change": -0.04789877993673741
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": -0.0625,
+     "mean_change": -0.06685229644994249,
+     "min": -0.12962962962962962,
+     "max": 0.0,
+     "total_change": -0.06745904272406045
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.16666666666666666,
+     "mean_change": -0.18079966846871845,
+     "min": -0.27450980392156865,
+     "max": -0.09375,
+     "total_change": -0.1796042617960426
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": -0.03225806451612903,
+     "mean_change": -0.032681213488628,
+     "min": -0.04878048780487805,
+     "max": -0.015151515151515152,
+     "total_change": -0.03196347031963476
+    }
+   },
+   "demo": {
+    "fa": [
+     "م",
+     "<db>",
+     "<8c>",
+     "<e280>",
+     "<8c>",
+     "<d8>",
+     "<ae>",
+     "و",
+     "ا",
+     "ه",
+     "م",
+     " ",
+     "<d8a7d8>",
+     "<b4>",
+     "ت",
+     "ر",
+     "ا",
+     "<da>",
+     "<a9>",
+     "م",
+     "<20d8>",
+     "<b1>",
+     "ا",
+     " ",
+     "ل",
+     "<d8>",
+     "<ba>",
+     "و",
+     " ",
+     "<da>",
+     "<a9>",
+     "ن",
+     "م",
+     " و",
+     "<20d9>",
+     "<87>",
+     "<d8>",
+     "<b2>",
+     "<db>",
+     "<8c>",
+     "ن",
+     "ه",
+     "<e280>",
+     "<8c>",
+     "<db>",
+     "<8c>",
+     " م",
+     "ا",
+     "ه",
+     "<20d8>",
+     "<a2>",
+     "<d8>",
+     "<ae>",
+     "ر",
+     "<20d8>",
+     "<b1>",
+     "ا",
+     "<20d9>",
+     "<be>",
+     "س",
+     "<20d8>",
+     "<a8>",
+     "<da>",
+     "<af>",
+     "<db>",
+     "<8c>",
+     "ر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "Llama-2",
+   "version": "NousResearch/Llama-2-7b-hf@8efe6c9b9365 · transformers 4.49.0",
+   "vocab": 32000,
+   "note": "32k SentencePiece; mirror",
+   "ratio": {
+    "median": 3.4230769230769234,
+    "p10": 2.2633603238866398,
+    "p25": 2.896139705882353,
+    "p75": 3.8700980392156863,
+    "p90": 4.6,
+    "min": 1.9130434782608696,
+    "max": 6.5,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 3.278708133971292,
+   "fa_tokens": 2741,
+   "en_tokens": 836,
+   "ratio_latin_digits_median": 3.4065934065934065,
+   "ratio_no_number_rows_median": 3.5555555555555554,
+   "fa_chars_per_token": 1.0127690623859904,
+   "en_chars_per_token": 3.7440191387559807,
+   "domain_median": {
+    "address": 2.5870098039215685,
+    "chat": 3.358974358974359,
+    "code": 2.2398785425101213,
+    "howto": 4.697619047619048,
+    "news": 3.9755639097744364,
+    "numbers": 2.9411764705882355,
+    "support": 3.677083333333333
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": -0.024404761904761905,
+     "mean_change": -0.028224065231333133,
+     "min": -0.06521739130434782,
+     "max": -0.013157894736842105,
+     "total_change": -0.027734170591313445
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.12244897959183673,
+     "mean_change": -0.11182580869876554,
+     "min": -0.1875,
+     "max": -0.05454545454545454,
+     "total_change": -0.1116751269035533
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    }
+   },
+   "demo": {
+    "fa": [
+     "",
+     "م",
+     "ی",
+     "‌",
+     "خ",
+     "و",
+     "ا",
+     "ه",
+     "م",
+     "",
+     "ا",
+     "ش",
+     "ت",
+     "ر",
+     "ا",
+     "ک",
+     "م",
+     "",
+     "ر",
+     "ا",
+     "",
+     "ل",
+     "غ",
+     "و",
+     "",
+     "ک",
+     "ن",
+     "م",
+     "",
+     "و",
+     "",
+     "ه",
+     "ز",
+     "ی",
+     "ن",
+     "ه",
+     "‌",
+     "ی",
+     "",
+     "م",
+     "ا",
+     "ه",
+     "",
+     "آ",
+     "خ",
+     "ر",
+     "",
+     "ر",
+     "ا",
+     "",
+     "پ",
+     "س",
+     "",
+     "ب",
+     "گ",
+     "ی",
+     "ر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     "want",
+     "to",
+     "cancel",
+     "my",
+     "subscription",
+     "and",
+     "get",
+     "a",
+     "ref",
+     "und",
+     "for",
+     "the",
+     "last",
+     "month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "Llama-3.2",
+   "version": "unsloth/Llama-3.2-1B-Instruct@5a8abab4a5d6 · transformers 4.49.0",
+   "vocab": 128256,
+   "note": "128k BPE; mirror",
+   "ratio": {
+    "median": 1.3904761904761904,
+    "p10": 1.0905138339920948,
+    "p25": 1.1941964285714286,
+    "p75": 1.4615384615384615,
+    "p90": 1.7178571428571427,
+    "min": 1.0,
+    "max": 2.3,
+    "share_fa_more": 0.98
+   },
+   "corpus_ratio": 1.3543956043956045,
+   "fa_tokens": 986,
+   "en_tokens": 728,
+   "ratio_latin_digits_median": 1.3636363636363635,
+   "ratio_no_number_rows_median": 1.4,
+   "fa_chars_per_token": 2.815415821501014,
+   "en_chars_per_token": 4.299450549450549,
+   "domain_median": {
+    "address": 1.1168831168831168,
+    "chat": 1.4,
+    "code": 1.210239651416122,
+    "howto": 1.7142857142857144,
+    "news": 1.396103896103896,
+    "numbers": 1.2403846153846154,
+    "support": 1.458041958041958
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.018701415240846366,
+     "min": -0.11764705882352941,
+     "max": 0.0,
+     "total_change": -0.01849217638691325
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.004467190162294998,
+     "min": -0.08695652173913043,
+     "max": 0.07692307692307693,
+     "total_change": -0.004267425320056861
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.11538461538461539,
+     "mean_change": 0.13423605954118153,
+     "min": 0.0,
+     "max": 0.4666666666666667,
+     "total_change": 0.13119834710743805
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": -0.061443363324241065,
+     "min": -0.1724137931034483,
+     "max": 0.0,
+     "total_change": -0.06756756756756754
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.13793103448275862,
+     "mean_change": 0.12007956300067386,
+     "min": 0.041666666666666664,
+     "max": 0.2,
+     "total_change": 0.11261261261261257
+    }
+   },
+   "demo": {
+    "fa": [
+     "می",
+     "‌خ",
+     "واه",
+     "م",
+     " اش",
+     "تر",
+     "اکم",
+     " را",
+     " لغ",
+     "و",
+     " کنم",
+     " و",
+     " هزینه",
+     "‌ی",
+     " ماه",
+     " آخر",
+     " را",
+     " پس",
+     " بگیر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "Gemma-3",
+   "version": "unsloth/gemma-3-1b-it@5b11413a10db · transformers 4.49.0",
+   "vocab": 262145,
+   "note": "262k SentencePiece; mirror",
+   "ratio": {
+    "median": 1.2142857142857142,
+    "p10": 0.9594545454545454,
+    "p25": 1.0535714285714286,
+    "p75": 1.3777472527472527,
+    "p90": 1.5633928571428573,
+    "min": 0.875,
+    "max": 1.9,
+    "share_fa_more": 0.76
+   },
+   "corpus_ratio": 1.1925545571245186,
+   "fa_tokens": 929,
+   "en_tokens": 779,
+   "ratio_latin_digits_median": 1.2290209790209792,
+   "ratio_no_number_rows_median": 1.25,
+   "fa_chars_per_token": 2.9881593110871907,
+   "en_chars_per_token": 4.017971758664955,
+   "domain_median": {
+    "address": 1.0357142857142856,
+    "chat": 1.2613636363636362,
+    "code": 1.1570723684210527,
+    "howto": 1.5,
+    "news": 1.311904761904762,
+    "numbers": 0.9772727272727273,
+    "support": 1.28125
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.007772318395383411,
+     "min": -0.125,
+     "max": 0.10526315789473684,
+     "total_change": -0.0075301204819276935
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.0016374960453907825,
+     "min": -0.09090909090909091,
+     "max": 0.15789473684210525,
+     "total_change": -0.001506024096385561
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.11538461538461539,
+     "mean_change": 0.13508429244939638,
+     "min": 0.0,
+     "max": 0.5,
+     "total_change": 0.1323851203501094
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": 0.14285714285714285,
+     "mean_change": 0.15278263188479907,
+     "min": 0.1111111111111111,
+     "max": 0.2,
+     "total_change": 0.14925373134328357
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.06666666666666667,
+     "mean_change": 0.07603102092266179,
+     "min": 0.0,
+     "max": 0.2,
+     "total_change": 0.07462686567164178
+    }
+   },
+   "demo": {
+    "fa": [
+     "می",
+     "‌",
+     "خوا",
+     "هم",
+     " اشت",
+     "را",
+     "کم",
+     " را",
+     " ل",
+     "غو",
+     " کنم",
+     " و",
+     " هز",
+     "ین",
+     "ه‌ی",
+     " ماه",
+     " آخر",
+     " را",
+     " پس",
+     " بگیر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "Qwen3",
+   "version": "Qwen/Qwen3-8B@b968826d9c46 · transformers 4.49.0",
+   "vocab": 151669,
+   "note": "151k BPE",
+   "ratio": {
+    "median": 2.2967032967032965,
+    "p10": 1.7134453781512604,
+    "p25": 1.8960526315789472,
+    "p75": 2.592857142857143,
+    "p90": 2.8500000000000005,
+    "min": 1.35,
+    "max": 4.1,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 2.18668407310705,
+   "fa_tokens": 1675,
+   "en_tokens": 766,
+   "ratio_latin_digits_median": 2.236607142857143,
+   "ratio_no_number_rows_median": 2.3846153846153846,
+   "fa_chars_per_token": 1.657313432835821,
+   "en_chars_per_token": 4.0861618798955615,
+   "domain_median": {
+    "address": 1.8276397515527951,
+    "chat": 2.2371794871794872,
+    "code": 1.7100840336134453,
+    "howto": 2.8,
+    "news": 2.5576923076923075,
+    "numbers": 1.9478609625668448,
+    "support": 2.3923076923076922
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": -0.0238230289279637,
+     "mean_change": -0.019288728146441992,
+     "min": -0.07317073170731707,
+     "max": 0.0,
+     "total_change": -0.019425675675675658
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": -0.04499494438827098,
+     "mean_change": -0.04991291303930209,
+     "min": -0.11428571428571428,
+     "max": -0.02,
+     "total_change": -0.048986486486486513
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": -0.046511627906976744,
+     "mean_change": -0.06021877477224614,
+     "min": -0.17857142857142858,
+     "max": 0.038461538461538464,
+     "total_change": -0.05942995755003033
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.17857142857142858,
+     "mean_change": -0.16469919781256345,
+     "min": -0.24242424242424243,
+     "max": -0.08333333333333333,
+     "total_change": -0.1670886075949367
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    }
+   },
+   "demo": {
+    "fa": [
+     "م",
+     "ی",
+     "‌",
+     "خ",
+     "وا",
+     "هم",
+     " ا",
+     "شت",
+     "را",
+     "ک",
+     "م",
+     " ر",
+     "ا",
+     " ل",
+     "غو",
+     " ک",
+     "نم",
+     " و",
+     " ه",
+     "ز",
+     "ین",
+     "ه",
+     "‌",
+     "ی",
+     " م",
+     "اه",
+     " آخر",
+     " ر",
+     "ا",
+     " پ",
+     "س",
+     " ب",
+     "گ",
+     "یر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "DeepSeek-V3",
+   "version": "deepseek-ai/DeepSeek-V3@e815299b0bcb · transformers 4.49.0",
+   "vocab": 128815,
+   "note": "128k BPE",
+   "ratio": {
+    "median": 1.6306818181818183,
+    "p10": 1.3069230769230769,
+    "p25": 1.4308035714285714,
+    "p75": 1.8511904761904763,
+    "p90": 2.1785714285714284,
+    "min": 1.1304347826086956,
+    "max": 3.0,
+    "share_fa_more": 1.0
+   },
+   "corpus_ratio": 1.6443228454172367,
+   "fa_tokens": 1202,
+   "en_tokens": 731,
+   "ratio_latin_digits_median": 1.6041666666666665,
+   "ratio_no_number_rows_median": 1.6923076923076923,
+   "fa_chars_per_token": 2.3094841930116474,
+   "en_chars_per_token": 4.281805745554036,
+   "domain_median": {
+    "address": 1.487012987012987,
+    "chat": 1.809090909090909,
+    "code": 1.3518518518518519,
+    "howto": 2.2142857142857144,
+    "news": 1.6586538461538463,
+    "numbers": 1.5523809523809524,
+    "support": 1.7774725274725274
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": -0.13484848484848483,
+     "mean_change": -0.13695758258650306,
+     "min": -0.2916666666666667,
+     "max": -0.06060606060606061,
+     "total_change": -0.13651877133105805
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": -0.11437908496732026,
+     "mean_change": -0.13394408544670836,
+     "min": -0.26666666666666666,
+     "max": -0.06060606060606061,
+     "total_change": -0.13424345847554042
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.0625,
+     "mean_change": 0.0811451863394715,
+     "min": -0.041666666666666664,
+     "max": 0.3333333333333333,
+     "total_change": 0.07959356477561386
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": -0.07142857142857142,
+     "mean_change": -0.07628213335141956,
+     "min": -0.15151515151515152,
+     "max": 0.0,
+     "total_change": -0.0786516853932584
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.11764705882352941,
+     "mean_change": 0.13125872933391,
+     "min": 0.034482758620689655,
+     "max": 0.24242424242424243,
+     "total_change": 0.13108614232209748
+    }
+   },
+   "demo": {
+    "fa": [
+     "می",
+     "<e280>",
+     "<8c>",
+     "خ",
+     "واه",
+     "م",
+     " اش",
+     "تر",
+     "اک",
+     "م",
+     " را",
+     " لغ",
+     "و",
+     " کن",
+     "م",
+     " و",
+     " هزینه",
+     "<e280>",
+     "<8c>",
+     "ی",
+     " ماه",
+     " آخر",
+     " را",
+     " پس",
+     " بگیر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  },
+  {
+   "label": "Mistral-Nemo",
+   "version": "mistralai/Mistral-Nemo-Instruct-2407@04d8a90549d2 · transformers 4.49.0",
+   "vocab": 131072,
+   "note": "131k BPE (Tekken)",
+   "ratio": {
+    "median": 1.292857142857143,
+    "p10": 1.0905138339920948,
+    "p25": 1.1456043956043955,
+    "p75": 1.4532967032967032,
+    "p90": 1.5892857142857142,
+    "min": 1.0,
+    "max": 2.1,
+    "share_fa_more": 0.96
+   },
+   "corpus_ratio": 1.2853437094682232,
+   "fa_tokens": 991,
+   "en_tokens": 771,
+   "ratio_latin_digits_median": 1.292857142857143,
+   "ratio_no_number_rows_median": 1.3571428571428572,
+   "fa_chars_per_token": 2.801210898082745,
+   "en_chars_per_token": 4.059662775616083,
+   "domain_median": {
+    "address": 1.09717868338558,
+    "chat": 1.358974358974359,
+    "code": 1.1688804554079697,
+    "howto": 1.6714285714285713,
+    "news": 1.3452380952380953,
+    "numbers": 1.1549019607843136,
+    "support": 1.4589743589743591
+   },
+   "controls": {
+    "zwnj_space": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": -0.009074652551032873,
+     "min": -0.07692307692307693,
+     "max": 0.05,
+     "total_change": -0.008510638297872353
+    },
+    "zwnj_none": {
+     "n_rows": 34,
+     "median_change": 0.0,
+     "mean_change": 0.0016728649327546338,
+     "min": -0.058823529411764705,
+     "max": 0.07142857142857142,
+     "total_change": 0.0
+    },
+    "arabic_yk": {
+     "n_rows": 49,
+     "median_change": 0.10526315789473684,
+     "mean_change": 0.13316989690228115,
+     "min": -0.06666666666666667,
+     "max": 0.42857142857142855,
+     "total_change": 0.12949640287769792
+    },
+    "latin_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    },
+    "arabic_digits": {
+     "n_rows": 11,
+     "median_change": 0.0,
+     "mean_change": 0.0,
+     "min": 0.0,
+     "max": 0.0,
+     "total_change": 0.0
+    }
+   },
+   "demo": {
+    "fa": [
+     "می",
+     "‌خ",
+     "وا",
+     "هم",
+     " اشتر",
+     "اک",
+     "م",
+     " را",
+     " لغ",
+     "و",
+     " کن",
+     "م",
+     " و",
+     " هزینه",
+     "‌ی",
+     " ماه",
+     " آخر",
+     " را",
+     " پس",
+     " ب",
+     "گیر",
+     "م",
+     "."
+    ],
+    "en": [
+     "I",
+     " want",
+     " to",
+     " cancel",
+     " my",
+     " subscription",
+     " and",
+     " get",
+     " a",
+     " refund",
+     " for",
+     " the",
+     " last",
+     " month",
+     "."
+    ]
+   }
+  }
+ ],
+ "skipped": [],
+ "rows": [
+  {
+   "id": "chat-01",
+   "domain": "chat",
+   "fa_chars": 33,
+   "en_chars": 42,
+   "fa_words": 6,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 14,
+     "en": 10,
+     "zwnj_space": 13,
+     "zwnj_none": 14,
+     "arabic_yk": 13
+    },
+    "cl100k_base": {
+     "fa": 27,
+     "en": 10,
+     "zwnj_space": 26,
+     "zwnj_none": 26,
+     "arabic_yk": 27
+    },
+    "gpt2 (r50k)": {
+     "fa": 41,
+     "en": 10,
+     "zwnj_space": 39,
+     "zwnj_none": 39,
+     "arabic_yk": 36
+    },
+    "Llama-2": {
+     "fa": 35,
+     "en": 11,
+     "zwnj_space": 35,
+     "zwnj_none": 34,
+     "arabic_yk": 35
+    },
+    "Llama-3.2": {
+     "fa": 14,
+     "en": 10,
+     "zwnj_space": 13,
+     "zwnj_none": 14,
+     "arabic_yk": 16
+    },
+    "Gemma-3": {
+     "fa": 12,
+     "en": 10,
+     "zwnj_space": 12,
+     "zwnj_none": 12,
+     "arabic_yk": 13
+    },
+    "Qwen3": {
+     "fa": 20,
+     "en": 10,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 18
+    },
+    "DeepSeek-V3": {
+     "fa": 18,
+     "en": 10,
+     "zwnj_space": 15,
+     "zwnj_none": 16,
+     "arabic_yk": 18
+    },
+    "Mistral-Nemo": {
+     "fa": 13,
+     "en": 10,
+     "zwnj_space": 12,
+     "zwnj_none": 13,
+     "arabic_yk": 14
+    }
+   }
+  },
+  {
+   "id": "chat-02",
+   "domain": "chat",
+   "fa_chars": 42,
+   "en_chars": 49,
+   "fa_words": 8,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 15,
+     "en": 12,
+     "arabic_yk": 16
+    },
+    "cl100k_base": {
+     "fa": 30,
+     "en": 12,
+     "arabic_yk": 31
+    },
+    "gpt2 (r50k)": {
+     "fa": 48,
+     "en": 12,
+     "arabic_yk": 46
+    },
+    "Llama-2": {
+     "fa": 43,
+     "en": 13,
+     "arabic_yk": 43
+    },
+    "Llama-3.2": {
+     "fa": 17,
+     "en": 12,
+     "arabic_yk": 17
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 12,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 22,
+     "en": 12,
+     "arabic_yk": 22
+    },
+    "DeepSeek-V3": {
+     "fa": 19,
+     "en": 12,
+     "arabic_yk": 19
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 12,
+     "arabic_yk": 17
+    }
+   }
+  },
+  {
+   "id": "chat-03",
+   "domain": "chat",
+   "fa_chars": 44,
+   "en_chars": 50,
+   "fa_words": 8,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 15,
+     "en": 10,
+     "zwnj_space": 15,
+     "zwnj_none": 16,
+     "arabic_yk": 16
+    },
+    "cl100k_base": {
+     "fa": 36,
+     "en": 10,
+     "zwnj_space": 33,
+     "zwnj_none": 33,
+     "arabic_yk": 37
+    },
+    "gpt2 (r50k)": {
+     "fa": 53,
+     "en": 10,
+     "zwnj_space": 49,
+     "zwnj_none": 47,
+     "arabic_yk": 47
+    },
+    "Llama-2": {
+     "fa": 46,
+     "en": 10,
+     "zwnj_space": 46,
+     "zwnj_none": 43,
+     "arabic_yk": 46
+    },
+    "Llama-3.2": {
+     "fa": 14,
+     "en": 10,
+     "zwnj_space": 14,
+     "zwnj_none": 15,
+     "arabic_yk": 17
+    },
+    "Gemma-3": {
+     "fa": 16,
+     "en": 10,
+     "zwnj_space": 14,
+     "zwnj_none": 15,
+     "arabic_yk": 17
+    },
+    "Qwen3": {
+     "fa": 28,
+     "en": 10,
+     "zwnj_space": 27,
+     "zwnj_none": 25,
+     "arabic_yk": 23
+    },
+    "DeepSeek-V3": {
+     "fa": 24,
+     "en": 10,
+     "zwnj_space": 17,
+     "zwnj_none": 18,
+     "arabic_yk": 26
+    },
+    "Mistral-Nemo": {
+     "fa": 14,
+     "en": 10,
+     "zwnj_space": 14,
+     "zwnj_none": 15,
+     "arabic_yk": 18
+    }
+   }
+  },
+  {
+   "id": "chat-04",
+   "domain": "chat",
+   "fa_chars": 43,
+   "en_chars": 41,
+   "fa_words": 7,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 17,
+     "en": 12,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 17
+    },
+    "cl100k_base": {
+     "fa": 32,
+     "en": 12,
+     "zwnj_space": 30,
+     "zwnj_none": 30,
+     "arabic_yk": 33
+    },
+    "gpt2 (r50k)": {
+     "fa": 52,
+     "en": 12,
+     "zwnj_space": 49,
+     "zwnj_none": 48,
+     "arabic_yk": 48
+    },
+    "Llama-2": {
+     "fa": 44,
+     "en": 13,
+     "zwnj_space": 44,
+     "zwnj_none": 42,
+     "arabic_yk": 44
+    },
+    "Llama-3.2": {
+     "fa": 17,
+     "en": 12,
+     "zwnj_space": 15,
+     "zwnj_none": 16,
+     "arabic_yk": 17
+    },
+    "Gemma-3": {
+     "fa": 16,
+     "en": 12,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 26,
+     "en": 12,
+     "zwnj_space": 25,
+     "zwnj_none": 24,
+     "arabic_yk": 25
+    },
+    "DeepSeek-V3": {
+     "fa": 22,
+     "en": 12,
+     "zwnj_space": 17,
+     "zwnj_none": 18,
+     "arabic_yk": 23
+    },
+    "Mistral-Nemo": {
+     "fa": 17,
+     "en": 12,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 18
+    }
+   }
+  },
+  {
+   "id": "chat-05",
+   "domain": "chat",
+   "fa_chars": 46,
+   "en_chars": 63,
+   "fa_words": 9,
+   "en_words": 12,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 13,
+     "zwnj_space": 17,
+     "zwnj_none": 17
+    },
+    "cl100k_base": {
+     "fa": 33,
+     "en": 14,
+     "zwnj_space": 33,
+     "zwnj_none": 32
+    },
+    "gpt2 (r50k)": {
+     "fa": 51,
+     "en": 14,
+     "zwnj_space": 50,
+     "zwnj_none": 49
+    },
+    "Llama-2": {
+     "fa": 47,
+     "en": 16,
+     "zwnj_space": 47,
+     "zwnj_none": 46
+    },
+    "Llama-3.2": {
+     "fa": 18,
+     "en": 14,
+     "zwnj_space": 17,
+     "zwnj_none": 17
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 15,
+     "zwnj_space": 14,
+     "zwnj_none": 14
+    },
+    "Qwen3": {
+     "fa": 26,
+     "en": 14,
+     "zwnj_space": 26,
+     "zwnj_none": 25
+    },
+    "DeepSeek-V3": {
+     "fa": 21,
+     "en": 14,
+     "zwnj_space": 19,
+     "zwnj_none": 19
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 14,
+     "zwnj_space": 17,
+     "zwnj_none": 17
+    }
+   }
+  },
+  {
+   "id": "chat-06",
+   "domain": "chat",
+   "fa_chars": 45,
+   "en_chars": 51,
+   "fa_words": 9,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 14,
+     "en": 9,
+     "arabic_yk": 16
+    },
+    "cl100k_base": {
+     "fa": 31,
+     "en": 9,
+     "arabic_yk": 32
+    },
+    "gpt2 (r50k)": {
+     "fa": 54,
+     "en": 10,
+     "arabic_yk": 47
+    },
+    "Llama-2": {
+     "fa": 46,
+     "en": 10,
+     "arabic_yk": 46
+    },
+    "Llama-3.2": {
+     "fa": 12,
+     "en": 9,
+     "arabic_yk": 15
+    },
+    "Gemma-3": {
+     "fa": 13,
+     "en": 9,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 27,
+     "en": 9,
+     "arabic_yk": 24
+    },
+    "DeepSeek-V3": {
+     "fa": 15,
+     "en": 9,
+     "arabic_yk": 20
+    },
+    "Mistral-Nemo": {
+     "fa": 12,
+     "en": 9,
+     "arabic_yk": 16
+    }
+   }
+  },
+  {
+   "id": "chat-07",
+   "domain": "chat",
+   "fa_chars": 46,
+   "en_chars": 57,
+   "fa_words": 9,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 19,
+     "en": 13,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 24
+    },
+    "cl100k_base": {
+     "fa": 39,
+     "en": 13,
+     "zwnj_space": 38,
+     "zwnj_none": 37,
+     "arabic_yk": 38
+    },
+    "gpt2 (r50k)": {
+     "fa": 60,
+     "en": 13,
+     "zwnj_space": 58,
+     "zwnj_none": 56,
+     "arabic_yk": 53
+    },
+    "Llama-2": {
+     "fa": 49,
+     "en": 15,
+     "zwnj_space": 49,
+     "zwnj_none": 47,
+     "arabic_yk": 49
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 13,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 23
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 14,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 21
+    },
+    "Qwen3": {
+     "fa": 31,
+     "en": 13,
+     "zwnj_space": 30,
+     "zwnj_none": 29,
+     "arabic_yk": 28
+    },
+    "DeepSeek-V3": {
+     "fa": 25,
+     "en": 13,
+     "zwnj_space": 20,
+     "zwnj_none": 19,
+     "arabic_yk": 26
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 14,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 23
+    }
+   }
+  },
+  {
+   "id": "chat-08",
+   "domain": "chat",
+   "fa_chars": 45,
+   "en_chars": 49,
+   "fa_words": 9,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 15,
+     "en": 11,
+     "zwnj_space": 15,
+     "zwnj_none": 14,
+     "arabic_yk": 20
+    },
+    "cl100k_base": {
+     "fa": 36,
+     "en": 11,
+     "zwnj_space": 36,
+     "zwnj_none": 35,
+     "arabic_yk": 36
+    },
+    "gpt2 (r50k)": {
+     "fa": 60,
+     "en": 11,
+     "zwnj_space": 59,
+     "zwnj_none": 58,
+     "arabic_yk": 54
+    },
+    "Llama-2": {
+     "fa": 46,
+     "en": 12,
+     "zwnj_space": 46,
+     "zwnj_none": 45,
+     "arabic_yk": 46
+    },
+    "Llama-3.2": {
+     "fa": 15,
+     "en": 11,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 22
+    },
+    "Gemma-3": {
+     "fa": 14,
+     "en": 11,
+     "zwnj_space": 14,
+     "zwnj_none": 14,
+     "arabic_yk": 21
+    },
+    "Qwen3": {
+     "fa": 29,
+     "en": 11,
+     "zwnj_space": 29,
+     "zwnj_none": 28,
+     "arabic_yk": 27
+    },
+    "DeepSeek-V3": {
+     "fa": 20,
+     "en": 11,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 24
+    },
+    "Mistral-Nemo": {
+     "fa": 14,
+     "en": 11,
+     "zwnj_space": 14,
+     "zwnj_none": 14,
+     "arabic_yk": 20
+    }
+   }
+  },
+  {
+   "id": "chat-09",
+   "domain": "chat",
+   "fa_chars": 43,
+   "en_chars": 53,
+   "fa_words": 9,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 15,
+     "en": 13,
+     "arabic_yk": 17
+    },
+    "cl100k_base": {
+     "fa": 32,
+     "en": 13,
+     "arabic_yk": 31
+    },
+    "gpt2 (r50k)": {
+     "fa": 49,
+     "en": 13,
+     "arabic_yk": 46
+    },
+    "Llama-2": {
+     "fa": 44,
+     "en": 13,
+     "arabic_yk": 44
+    },
+    "Llama-3.2": {
+     "fa": 15,
+     "en": 13,
+     "arabic_yk": 16
+    },
+    "Gemma-3": {
+     "fa": 14,
+     "en": 13,
+     "arabic_yk": 15
+    },
+    "Qwen3": {
+     "fa": 27,
+     "en": 13,
+     "arabic_yk": 24
+    },
+    "DeepSeek-V3": {
+     "fa": 16,
+     "en": 13,
+     "arabic_yk": 17
+    },
+    "Mistral-Nemo": {
+     "fa": 15,
+     "en": 13,
+     "arabic_yk": 15
+    }
+   }
+  },
+  {
+   "id": "chat-10",
+   "domain": "chat",
+   "fa_chars": 49,
+   "en_chars": 54,
+   "fa_words": 10,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 12,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19
+    },
+    "cl100k_base": {
+     "fa": 39,
+     "en": 13,
+     "zwnj_space": 38,
+     "zwnj_none": 37,
+     "arabic_yk": 38
+    },
+    "gpt2 (r50k)": {
+     "fa": 55,
+     "en": 13,
+     "zwnj_space": 53,
+     "zwnj_none": 51,
+     "arabic_yk": 53
+    },
+    "Llama-2": {
+     "fa": 50,
+     "en": 15,
+     "zwnj_space": 50,
+     "zwnj_none": 48,
+     "arabic_yk": 50
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 13,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 20
+    },
+    "Gemma-3": {
+     "fa": 18,
+     "en": 13,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19
+    },
+    "Qwen3": {
+     "fa": 30,
+     "en": 13,
+     "zwnj_space": 30,
+     "zwnj_none": 28,
+     "arabic_yk": 29
+    },
+    "DeepSeek-V3": {
+     "fa": 25,
+     "en": 13,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 25
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 13,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19
+    }
+   }
+  },
+  {
+   "id": "news-01",
+   "domain": "news",
+   "fa_chars": 70,
+   "en_chars": 96,
+   "fa_words": 14,
+   "en_words": 15,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 16,
+     "arabic_yk": 21
+    },
+    "cl100k_base": {
+     "fa": 51,
+     "en": 16,
+     "arabic_yk": 50
+    },
+    "gpt2 (r50k)": {
+     "fa": 80,
+     "en": 16,
+     "arabic_yk": 76
+    },
+    "Llama-2": {
+     "fa": 71,
+     "en": 19,
+     "arabic_yk": 71
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 16,
+     "arabic_yk": 23
+    },
+    "Gemma-3": {
+     "fa": 18,
+     "en": 16,
+     "arabic_yk": 23
+    },
+    "Qwen3": {
+     "fa": 40,
+     "en": 16,
+     "arabic_yk": 38
+    },
+    "DeepSeek-V3": {
+     "fa": 23,
+     "en": 16,
+     "arabic_yk": 25
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 16,
+     "arabic_yk": 24
+    }
+   }
+  },
+  {
+   "id": "news-02",
+   "domain": "news",
+   "fa_chars": 60,
+   "en_chars": 78,
+   "fa_words": 11,
+   "en_words": 14,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 15,
+     "zwnj_space": 17,
+     "zwnj_none": 18,
+     "arabic_yk": 22
+    },
+    "cl100k_base": {
+     "fa": 43,
+     "en": 15,
+     "zwnj_space": 41,
+     "zwnj_none": 40,
+     "arabic_yk": 44
+    },
+    "gpt2 (r50k)": {
+     "fa": 72,
+     "en": 15,
+     "zwnj_space": 68,
+     "zwnj_none": 66,
+     "arabic_yk": 67
+    },
+    "Llama-2": {
+     "fa": 60,
+     "en": 18,
+     "zwnj_space": 60,
+     "zwnj_none": 57,
+     "arabic_yk": 60
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 15,
+     "zwnj_space": 18,
+     "zwnj_none": 19,
+     "arabic_yk": 22
+    },
+    "Gemma-3": {
+     "fa": 19,
+     "en": 15,
+     "zwnj_space": 17,
+     "zwnj_none": 18,
+     "arabic_yk": 23
+    },
+    "Qwen3": {
+     "fa": 35,
+     "en": 15,
+     "zwnj_space": 33,
+     "zwnj_none": 31,
+     "arabic_yk": 34
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 16,
+     "zwnj_space": 19,
+     "zwnj_none": 20,
+     "arabic_yk": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 15,
+     "zwnj_space": 17,
+     "zwnj_none": 18,
+     "arabic_yk": 23
+    }
+   }
+  },
+  {
+   "id": "news-03",
+   "domain": "news",
+   "fa_chars": 74,
+   "en_chars": 84,
+   "fa_words": 11,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 24,
+     "en": 14,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 27
+    },
+    "cl100k_base": {
+     "fa": 58,
+     "en": 14,
+     "zwnj_space": 58,
+     "zwnj_none": 57,
+     "arabic_yk": 60
+    },
+    "gpt2 (r50k)": {
+     "fa": 91,
+     "en": 14,
+     "zwnj_space": 90,
+     "zwnj_none": 89,
+     "arabic_yk": 86
+    },
+    "Llama-2": {
+     "fa": 76,
+     "en": 17,
+     "zwnj_space": 76,
+     "zwnj_none": 75,
+     "arabic_yk": 76
+    },
+    "Llama-3.2": {
+     "fa": 23,
+     "en": 14,
+     "zwnj_space": 23,
+     "zwnj_none": 24,
+     "arabic_yk": 28
+    },
+    "Gemma-3": {
+     "fa": 22,
+     "en": 14,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 26
+    },
+    "Qwen3": {
+     "fa": 43,
+     "en": 14,
+     "zwnj_space": 43,
+     "zwnj_none": 42,
+     "arabic_yk": 41
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 14,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 31
+    },
+    "Mistral-Nemo": {
+     "fa": 24,
+     "en": 14,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 29
+    }
+   }
+  },
+  {
+   "id": "news-04",
+   "domain": "news",
+   "fa_chars": 45,
+   "en_chars": 44,
+   "fa_words": 9,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 17,
+     "en": 11,
+     "zwnj_space": 17,
+     "zwnj_none": 16,
+     "arabic_yk": 20
+    },
+    "cl100k_base": {
+     "fa": 32,
+     "en": 11,
+     "zwnj_space": 32,
+     "zwnj_none": 31,
+     "arabic_yk": 34
+    },
+    "gpt2 (r50k)": {
+     "fa": 54,
+     "en": 12,
+     "zwnj_space": 53,
+     "zwnj_none": 52,
+     "arabic_yk": 49
+    },
+    "Llama-2": {
+     "fa": 46,
+     "en": 13,
+     "zwnj_space": 46,
+     "zwnj_none": 45,
+     "arabic_yk": 46
+    },
+    "Llama-3.2": {
+     "fa": 15,
+     "en": 11,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 19
+    },
+    "Gemma-3": {
+     "fa": 16,
+     "en": 13,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 17
+    },
+    "Qwen3": {
+     "fa": 23,
+     "en": 11,
+     "zwnj_space": 23,
+     "zwnj_none": 22,
+     "arabic_yk": 22
+    },
+    "DeepSeek-V3": {
+     "fa": 19,
+     "en": 12,
+     "zwnj_space": 17,
+     "zwnj_none": 17,
+     "arabic_yk": 21
+    },
+    "Mistral-Nemo": {
+     "fa": 16,
+     "en": 12,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 20
+    }
+   }
+  },
+  {
+   "id": "news-05",
+   "domain": "news",
+   "fa_chars": 59,
+   "en_chars": 74,
+   "fa_words": 12,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 17,
+     "en": 14,
+     "arabic_yk": 17
+    },
+    "cl100k_base": {
+     "fa": 45,
+     "en": 14,
+     "arabic_yk": 44
+    },
+    "gpt2 (r50k)": {
+     "fa": 68,
+     "en": 14,
+     "arabic_yk": 64
+    },
+    "Llama-2": {
+     "fa": 59,
+     "en": 14,
+     "arabic_yk": 59
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 14,
+     "arabic_yk": 16
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 14,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 32,
+     "en": 14,
+     "arabic_yk": 28
+    },
+    "DeepSeek-V3": {
+     "fa": 17,
+     "en": 14,
+     "arabic_yk": 19
+    },
+    "Mistral-Nemo": {
+     "fa": 16,
+     "en": 14,
+     "arabic_yk": 17
+    }
+   }
+  },
+  {
+   "id": "news-06",
+   "domain": "news",
+   "fa_chars": 60,
+   "en_chars": 74,
+   "fa_words": 10,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 19,
+     "en": 13,
+     "arabic_yk": 22
+    },
+    "cl100k_base": {
+     "fa": 46,
+     "en": 13,
+     "arabic_yk": 46
+    },
+    "gpt2 (r50k)": {
+     "fa": 77,
+     "en": 14,
+     "arabic_yk": 70
+    },
+    "Llama-2": {
+     "fa": 61,
+     "en": 17,
+     "arabic_yk": 61
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 13,
+     "arabic_yk": 25
+    },
+    "Gemma-3": {
+     "fa": 19,
+     "en": 12,
+     "arabic_yk": 23
+    },
+    "Qwen3": {
+     "fa": 34,
+     "en": 13,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 22,
+     "en": 13,
+     "arabic_yk": 27
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 13,
+     "arabic_yk": 23
+    }
+   }
+  },
+  {
+   "id": "news-07",
+   "domain": "news",
+   "fa_chars": 64,
+   "en_chars": 72,
+   "fa_words": 11,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 20,
+     "en": 14,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 23
+    },
+    "cl100k_base": {
+     "fa": 47,
+     "en": 14,
+     "zwnj_space": 46,
+     "zwnj_none": 45,
+     "arabic_yk": 49
+    },
+    "gpt2 (r50k)": {
+     "fa": 79,
+     "en": 14,
+     "zwnj_space": 77,
+     "zwnj_none": 75,
+     "arabic_yk": 73
+    },
+    "Llama-2": {
+     "fa": 65,
+     "en": 14,
+     "zwnj_space": 65,
+     "zwnj_none": 63,
+     "arabic_yk": 65
+    },
+    "Llama-3.2": {
+     "fa": 20,
+     "en": 14,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 22
+    },
+    "Gemma-3": {
+     "fa": 19,
+     "en": 14,
+     "zwnj_space": 20,
+     "zwnj_none": 19,
+     "arabic_yk": 22
+    },
+    "Qwen3": {
+     "fa": 37,
+     "en": 14,
+     "zwnj_space": 36,
+     "zwnj_none": 34,
+     "arabic_yk": 36
+    },
+    "DeepSeek-V3": {
+     "fa": 27,
+     "en": 14,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 14,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 25
+    }
+   }
+  },
+  {
+   "id": "news-08",
+   "domain": "news",
+   "fa_chars": 57,
+   "en_chars": 70,
+   "fa_words": 11,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 19,
+     "en": 12,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 20
+    },
+    "cl100k_base": {
+     "fa": 43,
+     "en": 12,
+     "zwnj_space": 42,
+     "zwnj_none": 42,
+     "arabic_yk": 43
+    },
+    "gpt2 (r50k)": {
+     "fa": 64,
+     "en": 12,
+     "zwnj_space": 63,
+     "zwnj_none": 62,
+     "arabic_yk": 61
+    },
+    "Llama-2": {
+     "fa": 58,
+     "en": 13,
+     "zwnj_space": 58,
+     "zwnj_none": 57,
+     "arabic_yk": 58
+    },
+    "Llama-3.2": {
+     "fa": 21,
+     "en": 12,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 22
+    },
+    "Gemma-3": {
+     "fa": 18,
+     "en": 12,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19
+    },
+    "Qwen3": {
+     "fa": 32,
+     "en": 12,
+     "zwnj_space": 32,
+     "zwnj_none": 31,
+     "arabic_yk": 31
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 12,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 27
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 12,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 21
+    }
+   }
+  },
+  {
+   "id": "howto-01",
+   "domain": "howto",
+   "fa_chars": 65,
+   "en_chars": 72,
+   "fa_words": 14,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 23,
+     "en": 17,
+     "arabic_yk": 22
+    },
+    "cl100k_base": {
+     "fa": 45,
+     "en": 17,
+     "arabic_yk": 45
+    },
+    "gpt2 (r50k)": {
+     "fa": 76,
+     "en": 17,
+     "arabic_yk": 71
+    },
+    "Llama-2": {
+     "fa": 66,
+     "en": 17,
+     "arabic_yk": 66
+    },
+    "Llama-3.2": {
+     "fa": 24,
+     "en": 17,
+     "arabic_yk": 25
+    },
+    "Gemma-3": {
+     "fa": 21,
+     "en": 17,
+     "arabic_yk": 21
+    },
+    "Qwen3": {
+     "fa": 37,
+     "en": 17,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 24,
+     "en": 17,
+     "arabic_yk": 25
+    },
+    "Mistral-Nemo": {
+     "fa": 21,
+     "en": 17,
+     "arabic_yk": 21
+    }
+   }
+  },
+  {
+   "id": "howto-02",
+   "domain": "howto",
+   "fa_chars": 68,
+   "en_chars": 87,
+   "fa_words": 13,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 23,
+     "en": 14,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 28
+    },
+    "cl100k_base": {
+     "fa": 47,
+     "en": 14,
+     "zwnj_space": 47,
+     "zwnj_none": 45,
+     "arabic_yk": 48
+    },
+    "gpt2 (r50k)": {
+     "fa": 80,
+     "en": 14,
+     "zwnj_space": 78,
+     "zwnj_none": 76,
+     "arabic_yk": 70
+    },
+    "Llama-2": {
+     "fa": 67,
+     "en": 15,
+     "zwnj_space": 67,
+     "zwnj_none": 65,
+     "arabic_yk": 67
+    },
+    "Llama-3.2": {
+     "fa": 23,
+     "en": 14,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 28
+    },
+    "Gemma-3": {
+     "fa": 21,
+     "en": 14,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 28
+    },
+    "Qwen3": {
+     "fa": 42,
+     "en": 14,
+     "zwnj_space": 42,
+     "zwnj_none": 40,
+     "arabic_yk": 40
+    },
+    "DeepSeek-V3": {
+     "fa": 32,
+     "en": 14,
+     "zwnj_space": 27,
+     "zwnj_none": 27,
+     "arabic_yk": 36
+    },
+    "Mistral-Nemo": {
+     "fa": 23,
+     "en": 14,
+     "zwnj_space": 24,
+     "zwnj_none": 22,
+     "arabic_yk": 30
+    }
+   }
+  },
+  {
+   "id": "howto-03",
+   "domain": "howto",
+   "fa_chars": 50,
+   "en_chars": 57,
+   "fa_words": 10,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 10,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19
+    },
+    "cl100k_base": {
+     "fa": 35,
+     "en": 10,
+     "zwnj_space": 35,
+     "zwnj_none": 34,
+     "arabic_yk": 36
+    },
+    "gpt2 (r50k)": {
+     "fa": 58,
+     "en": 10,
+     "zwnj_space": 57,
+     "zwnj_none": 56,
+     "arabic_yk": 56
+    },
+    "Llama-2": {
+     "fa": 51,
+     "en": 10,
+     "zwnj_space": 51,
+     "zwnj_none": 50,
+     "arabic_yk": 51
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 10,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 21
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 10,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 17
+    },
+    "Qwen3": {
+     "fa": 26,
+     "en": 10,
+     "zwnj_space": 26,
+     "zwnj_none": 25,
+     "arabic_yk": 27
+    },
+    "DeepSeek-V3": {
+     "fa": 23,
+     "en": 10,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 23
+    },
+    "Mistral-Nemo": {
+     "fa": 17,
+     "en": 10,
+     "zwnj_space": 17,
+     "zwnj_none": 17,
+     "arabic_yk": 19
+    }
+   }
+  },
+  {
+   "id": "howto-04",
+   "domain": "howto",
+   "fa_chars": 68,
+   "en_chars": 69,
+   "fa_words": 14,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 26,
+     "en": 14,
+     "zwnj_space": 26,
+     "zwnj_none": 27,
+     "arabic_yk": 28
+    },
+    "cl100k_base": {
+     "fa": 48,
+     "en": 14,
+     "zwnj_space": 48,
+     "zwnj_none": 47,
+     "arabic_yk": 49
+    },
+    "gpt2 (r50k)": {
+     "fa": 84,
+     "en": 14,
+     "zwnj_space": 83,
+     "zwnj_none": 82,
+     "arabic_yk": 76
+    },
+    "Llama-2": {
+     "fa": 69,
+     "en": 14,
+     "zwnj_space": 69,
+     "zwnj_none": 68,
+     "arabic_yk": 69
+    },
+    "Llama-3.2": {
+     "fa": 25,
+     "en": 14,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 27
+    },
+    "Gemma-3": {
+     "fa": 24,
+     "en": 14,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 27
+    },
+    "Qwen3": {
+     "fa": 42,
+     "en": 14,
+     "zwnj_space": 42,
+     "zwnj_none": 41,
+     "arabic_yk": 38
+    },
+    "DeepSeek-V3": {
+     "fa": 30,
+     "en": 14,
+     "zwnj_space": 28,
+     "zwnj_none": 28,
+     "arabic_yk": 33
+    },
+    "Mistral-Nemo": {
+     "fa": 25,
+     "en": 14,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 30
+    }
+   }
+  },
+  {
+   "id": "howto-05",
+   "domain": "howto",
+   "fa_chars": 58,
+   "en_chars": 56,
+   "fa_words": 12,
+   "en_words": 12,
+   "counts": {
+    "o200k_base": {
+     "fa": 16,
+     "en": 14,
+     "zwnj_space": 16,
+     "zwnj_none": 17,
+     "arabic_yk": 17
+    },
+    "cl100k_base": {
+     "fa": 42,
+     "en": 15,
+     "zwnj_space": 41,
+     "zwnj_none": 41,
+     "arabic_yk": 41
+    },
+    "gpt2 (r50k)": {
+     "fa": 68,
+     "en": 15,
+     "zwnj_space": 66,
+     "zwnj_none": 66,
+     "arabic_yk": 65
+    },
+    "Llama-2": {
+     "fa": 59,
+     "en": 16,
+     "zwnj_space": 59,
+     "zwnj_none": 58,
+     "arabic_yk": 59
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 15,
+     "zwnj_space": 16,
+     "zwnj_none": 17,
+     "arabic_yk": 17
+    },
+    "Gemma-3": {
+     "fa": 16,
+     "en": 16,
+     "zwnj_space": 16,
+     "zwnj_none": 17,
+     "arabic_yk": 18
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 15,
+     "zwnj_space": 35,
+     "zwnj_none": 35,
+     "arabic_yk": 34
+    },
+    "DeepSeek-V3": {
+     "fa": 22,
+     "en": 15,
+     "zwnj_space": 19,
+     "zwnj_none": 20,
+     "arabic_yk": 23
+    },
+    "Mistral-Nemo": {
+     "fa": 16,
+     "en": 15,
+     "zwnj_space": 16,
+     "zwnj_none": 17,
+     "arabic_yk": 17
+    }
+   }
+  },
+  {
+   "id": "howto-06",
+   "domain": "howto",
+   "fa_chars": 64,
+   "en_chars": 59,
+   "fa_words": 12,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 21,
+     "en": 10,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 28
+    },
+    "cl100k_base": {
+     "fa": 49,
+     "en": 10,
+     "zwnj_space": 46,
+     "zwnj_none": 46,
+     "arabic_yk": 51
+    },
+    "gpt2 (r50k)": {
+     "fa": 78,
+     "en": 10,
+     "zwnj_space": 75,
+     "zwnj_none": 72,
+     "arabic_yk": 71
+    },
+    "Llama-2": {
+     "fa": 65,
+     "en": 10,
+     "zwnj_space": 65,
+     "zwnj_none": 62,
+     "arabic_yk": 65
+    },
+    "Llama-3.2": {
+     "fa": 23,
+     "en": 10,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 27
+    },
+    "Gemma-3": {
+     "fa": 19,
+     "en": 10,
+     "zwnj_space": 21,
+     "zwnj_none": 22,
+     "arabic_yk": 25
+    },
+    "Qwen3": {
+     "fa": 41,
+     "en": 10,
+     "zwnj_space": 38,
+     "zwnj_none": 37,
+     "arabic_yk": 35
+    },
+    "DeepSeek-V3": {
+     "fa": 30,
+     "en": 10,
+     "zwnj_space": 23,
+     "zwnj_none": 22,
+     "arabic_yk": 34
+    },
+    "Mistral-Nemo": {
+     "fa": 21,
+     "en": 10,
+     "zwnj_space": 21,
+     "zwnj_none": 22,
+     "arabic_yk": 26
+    }
+   }
+  },
+  {
+   "id": "support-01",
+   "domain": "support",
+   "fa_chars": 54,
+   "en_chars": 62,
+   "fa_words": 10,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 17,
+     "en": 12,
+     "arabic_yk": 21
+    },
+    "cl100k_base": {
+     "fa": 42,
+     "en": 13,
+     "arabic_yk": 43
+    },
+    "gpt2 (r50k)": {
+     "fa": 64,
+     "en": 13,
+     "arabic_yk": 59
+    },
+    "Llama-2": {
+     "fa": 55,
+     "en": 15,
+     "arabic_yk": 55
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 13,
+     "arabic_yk": 24
+    },
+    "Gemma-3": {
+     "fa": 17,
+     "en": 14,
+     "arabic_yk": 21
+    },
+    "Qwen3": {
+     "fa": 31,
+     "en": 13,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 22,
+     "en": 13,
+     "arabic_yk": 26
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 13,
+     "arabic_yk": 22
+    }
+   }
+  },
+  {
+   "id": "support-02",
+   "domain": "support",
+   "fa_chars": 58,
+   "en_chars": 69,
+   "fa_words": 12,
+   "en_words": 14,
+   "counts": {
+    "o200k_base": {
+     "fa": 22,
+     "en": 15,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 27
+    },
+    "cl100k_base": {
+     "fa": 46,
+     "en": 15,
+     "zwnj_space": 45,
+     "zwnj_none": 44,
+     "arabic_yk": 47
+    },
+    "gpt2 (r50k)": {
+     "fa": 69,
+     "en": 15,
+     "zwnj_space": 66,
+     "zwnj_none": 65,
+     "arabic_yk": 64
+    },
+    "Llama-2": {
+     "fa": 59,
+     "en": 16,
+     "zwnj_space": 59,
+     "zwnj_none": 57,
+     "arabic_yk": 59
+    },
+    "Llama-3.2": {
+     "fa": 21,
+     "en": 15,
+     "zwnj_space": 20,
+     "zwnj_none": 21,
+     "arabic_yk": 26
+    },
+    "Gemma-3": {
+     "fa": 22,
+     "en": 15,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 25
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 15,
+     "zwnj_space": 35,
+     "zwnj_none": 34,
+     "arabic_yk": 33
+    },
+    "DeepSeek-V3": {
+     "fa": 27,
+     "en": 15,
+     "zwnj_space": 22,
+     "zwnj_none": 23,
+     "arabic_yk": 31
+    },
+    "Mistral-Nemo": {
+     "fa": 23,
+     "en": 15,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 25
+    }
+   }
+  },
+  {
+   "id": "support-03",
+   "domain": "support",
+   "fa_chars": 60,
+   "en_chars": 68,
+   "fa_words": 11,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 25,
+     "en": 12,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 28
+    },
+    "cl100k_base": {
+     "fa": 42,
+     "en": 14,
+     "zwnj_space": 41,
+     "zwnj_none": 39,
+     "arabic_yk": 41
+    },
+    "gpt2 (r50k)": {
+     "fa": 69,
+     "en": 14,
+     "zwnj_space": 67,
+     "zwnj_none": 65,
+     "arabic_yk": 63
+    },
+    "Llama-2": {
+     "fa": 61,
+     "en": 16,
+     "zwnj_space": 61,
+     "zwnj_none": 59,
+     "arabic_yk": 61
+    },
+    "Llama-3.2": {
+     "fa": 24,
+     "en": 14,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 28
+    },
+    "Gemma-3": {
+     "fa": 21,
+     "en": 16,
+     "zwnj_space": 20,
+     "zwnj_none": 21,
+     "arabic_yk": 26
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 14,
+     "zwnj_space": 35,
+     "zwnj_none": 33,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 25,
+     "en": 14,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 22,
+     "en": 14,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 26
+    }
+   }
+  },
+  {
+   "id": "support-04",
+   "domain": "support",
+   "fa_chars": 46,
+   "en_chars": 56,
+   "fa_words": 8,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 16,
+     "en": 13,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 20
+    },
+    "cl100k_base": {
+     "fa": 38,
+     "en": 13,
+     "zwnj_space": 37,
+     "zwnj_none": 36,
+     "arabic_yk": 39
+    },
+    "gpt2 (r50k)": {
+     "fa": 64,
+     "en": 13,
+     "zwnj_space": 62,
+     "zwnj_none": 60,
+     "arabic_yk": 58
+    },
+    "Llama-2": {
+     "fa": 49,
+     "en": 14,
+     "zwnj_space": 49,
+     "zwnj_none": 47,
+     "arabic_yk": 49
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 13,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 21
+    },
+    "Gemma-3": {
+     "fa": 16,
+     "en": 13,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 19
+    },
+    "Qwen3": {
+     "fa": 31,
+     "en": 13,
+     "zwnj_space": 30,
+     "zwnj_none": 29,
+     "arabic_yk": 26
+    },
+    "DeepSeek-V3": {
+     "fa": 23,
+     "en": 13,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 27
+    },
+    "Mistral-Nemo": {
+     "fa": 17,
+     "en": 13,
+     "zwnj_space": 17,
+     "zwnj_none": 17,
+     "arabic_yk": 18
+    }
+   }
+  },
+  {
+   "id": "support-05",
+   "domain": "support",
+   "fa_chars": 56,
+   "en_chars": 61,
+   "fa_words": 10,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 21,
+     "en": 12,
+     "zwnj_space": 20,
+     "zwnj_none": 19,
+     "arabic_yk": 21
+    },
+    "cl100k_base": {
+     "fa": 40,
+     "en": 12,
+     "zwnj_space": 38,
+     "zwnj_none": 38,
+     "arabic_yk": 41
+    },
+    "gpt2 (r50k)": {
+     "fa": 67,
+     "en": 12,
+     "zwnj_space": 64,
+     "zwnj_none": 63,
+     "arabic_yk": 61
+    },
+    "Llama-2": {
+     "fa": 56,
+     "en": 14,
+     "zwnj_space": 56,
+     "zwnj_none": 54,
+     "arabic_yk": 56
+    },
+    "Llama-3.2": {
+     "fa": 20,
+     "en": 12,
+     "zwnj_space": 20,
+     "zwnj_none": 19,
+     "arabic_yk": 21
+    },
+    "Gemma-3": {
+     "fa": 18,
+     "en": 12,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 20
+    },
+    "Qwen3": {
+     "fa": 34,
+     "en": 12,
+     "zwnj_space": 33,
+     "zwnj_none": 32,
+     "arabic_yk": 29
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 12,
+     "zwnj_space": 21,
+     "zwnj_none": 20,
+     "arabic_yk": 27
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 13,
+     "zwnj_space": 20,
+     "zwnj_none": 21,
+     "arabic_yk": 20
+    }
+   }
+  },
+  {
+   "id": "support-06",
+   "domain": "support",
+   "fa_chars": 43,
+   "en_chars": 56,
+   "fa_words": 9,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 14,
+     "en": 10,
+     "arabic_yk": 15
+    },
+    "cl100k_base": {
+     "fa": 31,
+     "en": 11,
+     "arabic_yk": 32
+    },
+    "gpt2 (r50k)": {
+     "fa": 51,
+     "en": 11,
+     "arabic_yk": 48
+    },
+    "Llama-2": {
+     "fa": 44,
+     "en": 13,
+     "arabic_yk": 44
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 11,
+     "arabic_yk": 19
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 12,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 26,
+     "en": 11,
+     "arabic_yk": 22
+    },
+    "DeepSeek-V3": {
+     "fa": 16,
+     "en": 11,
+     "arabic_yk": 18
+    },
+    "Mistral-Nemo": {
+     "fa": 15,
+     "en": 11,
+     "arabic_yk": 18
+    }
+   }
+  },
+  {
+   "id": "code-01",
+   "domain": "code",
+   "fa_chars": 79,
+   "en_chars": 89,
+   "fa_words": 13,
+   "en_words": 15,
+   "counts": {
+    "o200k_base": {
+     "fa": 23,
+     "en": 22,
+     "arabic_yk": 25
+    },
+    "cl100k_base": {
+     "fa": 39,
+     "en": 22,
+     "arabic_yk": 38
+    },
+    "gpt2 (r50k)": {
+     "fa": 62,
+     "en": 28,
+     "arabic_yk": 58
+    },
+    "Llama-2": {
+     "fa": 52,
+     "en": 25,
+     "arabic_yk": 52
+    },
+    "Llama-3.2": {
+     "fa": 23,
+     "en": 22,
+     "arabic_yk": 25
+    },
+    "Gemma-3": {
+     "fa": 24,
+     "en": 25,
+     "arabic_yk": 27
+    },
+    "Qwen3": {
+     "fa": 34,
+     "en": 22,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 23,
+     "arabic_yk": 28
+    },
+    "Mistral-Nemo": {
+     "fa": 25,
+     "en": 23,
+     "arabic_yk": 27
+    }
+   }
+  },
+  {
+   "id": "code-02",
+   "domain": "code",
+   "fa_chars": 77,
+   "en_chars": 72,
+   "fa_words": 16,
+   "en_words": 12,
+   "counts": {
+    "o200k_base": {
+     "fa": 24,
+     "en": 16,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 25
+    },
+    "cl100k_base": {
+     "fa": 44,
+     "en": 16,
+     "zwnj_space": 43,
+     "zwnj_none": 43,
+     "arabic_yk": 45
+    },
+    "gpt2 (r50k)": {
+     "fa": 67,
+     "en": 15,
+     "zwnj_space": 66,
+     "zwnj_none": 65,
+     "arabic_yk": 65
+    },
+    "Llama-2": {
+     "fa": 64,
+     "en": 18,
+     "zwnj_space": 64,
+     "zwnj_none": 63,
+     "arabic_yk": 64
+    },
+    "Llama-3.2": {
+     "fa": 26,
+     "en": 16,
+     "zwnj_space": 26,
+     "zwnj_none": 28,
+     "arabic_yk": 26
+    },
+    "Gemma-3": {
+     "fa": 25,
+     "en": 16,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 26
+    },
+    "Qwen3": {
+     "fa": 35,
+     "en": 16,
+     "zwnj_space": 34,
+     "zwnj_none": 33,
+     "arabic_yk": 35
+    },
+    "DeepSeek-V3": {
+     "fa": 29,
+     "en": 17,
+     "zwnj_space": 27,
+     "zwnj_none": 27,
+     "arabic_yk": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 25,
+     "en": 17,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 26
+    }
+   }
+  },
+  {
+   "id": "code-03",
+   "domain": "code",
+   "fa_chars": 86,
+   "en_chars": 85,
+   "fa_words": 11,
+   "en_words": 12,
+   "counts": {
+    "o200k_base": {
+     "fa": 26,
+     "en": 21,
+     "zwnj_space": 25,
+     "zwnj_none": 26,
+     "arabic_yk": 27
+    },
+    "cl100k_base": {
+     "fa": 44,
+     "en": 21,
+     "zwnj_space": 43,
+     "zwnj_none": 42,
+     "arabic_yk": 44
+    },
+    "gpt2 (r50k)": {
+     "fa": 64,
+     "en": 28,
+     "zwnj_space": 62,
+     "zwnj_none": 60,
+     "arabic_yk": 61
+    },
+    "Llama-2": {
+     "fa": 55,
+     "en": 24,
+     "zwnj_space": 55,
+     "zwnj_none": 53,
+     "arabic_yk": 55
+    },
+    "Llama-3.2": {
+     "fa": 26,
+     "en": 21,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 29
+    },
+    "Gemma-3": {
+     "fa": 27,
+     "en": 22,
+     "zwnj_space": 26,
+     "zwnj_none": 26,
+     "arabic_yk": 28
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 21,
+     "zwnj_space": 36,
+     "zwnj_none": 34,
+     "arabic_yk": 35
+    },
+    "DeepSeek-V3": {
+     "fa": 30,
+     "en": 21,
+     "zwnj_space": 26,
+     "zwnj_none": 25,
+     "arabic_yk": 31
+    },
+    "Mistral-Nemo": {
+     "fa": 28,
+     "en": 23,
+     "zwnj_space": 27,
+     "zwnj_none": 28,
+     "arabic_yk": 29
+    }
+   }
+  },
+  {
+   "id": "code-04",
+   "domain": "code",
+   "fa_chars": 61,
+   "en_chars": 61,
+   "fa_words": 12,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 20,
+     "en": 17,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 20
+    },
+    "cl100k_base": {
+     "fa": 34,
+     "en": 17,
+     "zwnj_space": 33,
+     "zwnj_none": 33,
+     "arabic_yk": 35
+    },
+    "gpt2 (r50k)": {
+     "fa": 51,
+     "en": 21,
+     "zwnj_space": 50,
+     "zwnj_none": 49,
+     "arabic_yk": 48
+    },
+    "Llama-2": {
+     "fa": 42,
+     "en": 19,
+     "zwnj_space": 42,
+     "zwnj_none": 41,
+     "arabic_yk": 42
+    },
+    "Llama-3.2": {
+     "fa": 21,
+     "en": 17,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 22
+    },
+    "Gemma-3": {
+     "fa": 22,
+     "en": 19,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 22
+    },
+    "Qwen3": {
+     "fa": 29,
+     "en": 17,
+     "zwnj_space": 29,
+     "zwnj_none": 28,
+     "arabic_yk": 26
+    },
+    "DeepSeek-V3": {
+     "fa": 24,
+     "en": 18,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 26
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 17,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 21
+    }
+   }
+  },
+  {
+   "id": "code-05",
+   "domain": "code",
+   "fa_chars": 106,
+   "en_chars": 98,
+   "fa_words": 17,
+   "en_words": 17,
+   "counts": {
+    "o200k_base": {
+     "fa": 33,
+     "en": 27,
+     "zwnj_space": 32,
+     "zwnj_none": 32,
+     "arabic_yk": 35
+    },
+    "cl100k_base": {
+     "fa": 50,
+     "en": 27,
+     "zwnj_space": 49,
+     "zwnj_none": 47,
+     "arabic_yk": 51
+    },
+    "gpt2 (r50k)": {
+     "fa": 72,
+     "en": 28,
+     "zwnj_space": 69,
+     "zwnj_none": 66,
+     "arabic_yk": 66
+    },
+    "Llama-2": {
+     "fa": 68,
+     "en": 32,
+     "zwnj_space": 68,
+     "zwnj_none": 65,
+     "arabic_yk": 68
+    },
+    "Llama-3.2": {
+     "fa": 32,
+     "en": 27,
+     "zwnj_space": 31,
+     "zwnj_none": 33,
+     "arabic_yk": 35
+    },
+    "Gemma-3": {
+     "fa": 37,
+     "en": 32,
+     "zwnj_space": 36,
+     "zwnj_none": 36,
+     "arabic_yk": 40
+    },
+    "Qwen3": {
+     "fa": 50,
+     "en": 31,
+     "zwnj_space": 48,
+     "zwnj_none": 47,
+     "arabic_yk": 49
+    },
+    "DeepSeek-V3": {
+     "fa": 37,
+     "en": 27,
+     "zwnj_space": 31,
+     "zwnj_none": 31,
+     "arabic_yk": 40
+    },
+    "Mistral-Nemo": {
+     "fa": 36,
+     "en": 31,
+     "zwnj_space": 35,
+     "zwnj_none": 35,
+     "arabic_yk": 41
+    }
+   }
+  },
+  {
+   "id": "code-06",
+   "domain": "code",
+   "fa_chars": 80,
+   "en_chars": 89,
+   "fa_words": 14,
+   "en_words": 14,
+   "counts": {
+    "o200k_base": {
+     "fa": 20,
+     "en": 18,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 23
+    },
+    "cl100k_base": {
+     "fa": 41,
+     "en": 20,
+     "zwnj_space": 40,
+     "zwnj_none": 40,
+     "arabic_yk": 40
+    },
+    "gpt2 (r50k)": {
+     "fa": 65,
+     "en": 23,
+     "zwnj_space": 64,
+     "zwnj_none": 63,
+     "arabic_yk": 58
+    },
+    "Llama-2": {
+     "fa": 59,
+     "en": 26,
+     "zwnj_space": 59,
+     "zwnj_none": 58,
+     "arabic_yk": 59
+    },
+    "Llama-3.2": {
+     "fa": 21,
+     "en": 20,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 26
+    },
+    "Gemma-3": {
+     "fa": 22,
+     "en": 21,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 26
+    },
+    "Qwen3": {
+     "fa": 38,
+     "en": 20,
+     "zwnj_space": 37,
+     "zwnj_none": 37,
+     "arabic_yk": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 20,
+     "zwnj_space": 23,
+     "zwnj_none": 22,
+     "arabic_yk": 28
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 20,
+     "zwnj_space": 20,
+     "zwnj_none": 20,
+     "arabic_yk": 25
+    }
+   }
+  },
+  {
+   "id": "num-01",
+   "domain": "numbers",
+   "fa_chars": 42,
+   "en_chars": 35,
+   "fa_words": 8,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 16,
+     "en": 14,
+     "zwnj_space": 16,
+     "zwnj_none": 15,
+     "arabic_yk": 16,
+     "latin_digits": 16,
+     "arabic_digits": 19
+    },
+    "cl100k_base": {
+     "fa": 41,
+     "en": 14,
+     "zwnj_space": 40,
+     "zwnj_none": 40,
+     "arabic_yk": 41,
+     "latin_digits": 32,
+     "arabic_digits": 41
+    },
+    "gpt2 (r50k)": {
+     "fa": 54,
+     "en": 12,
+     "zwnj_space": 52,
+     "zwnj_none": 52,
+     "arabic_yk": 53,
+     "latin_digits": 43,
+     "arabic_digits": 52
+    },
+    "Llama-2": {
+     "fa": 49,
+     "en": 17,
+     "zwnj_space": 49,
+     "zwnj_none": 48,
+     "arabic_yk": 49,
+     "latin_digits": 43,
+     "arabic_digits": 49
+    },
+    "Llama-3.2": {
+     "fa": 17,
+     "en": 14,
+     "zwnj_space": 17,
+     "zwnj_none": 16,
+     "arabic_yk": 17,
+     "latin_digits": 17,
+     "arabic_digits": 20
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 17,
+     "zwnj_space": 16,
+     "zwnj_none": 15,
+     "arabic_yk": 16,
+     "latin_digits": 18,
+     "arabic_digits": 16
+    },
+    "Qwen3": {
+     "fa": 32,
+     "en": 17,
+     "zwnj_space": 31,
+     "zwnj_none": 31,
+     "arabic_yk": 32,
+     "latin_digits": 26,
+     "arabic_digits": 32
+    },
+    "DeepSeek-V3": {
+     "fa": 22,
+     "en": 14,
+     "zwnj_space": 19,
+     "zwnj_none": 18,
+     "arabic_yk": 22,
+     "latin_digits": 21,
+     "arabic_digits": 24
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 17,
+     "zwnj_space": 19,
+     "zwnj_none": 20,
+     "arabic_yk": 19,
+     "latin_digits": 19,
+     "arabic_digits": 19
+    }
+   }
+  },
+  {
+   "id": "num-02",
+   "domain": "numbers",
+   "fa_chars": 35,
+   "en_chars": 35,
+   "fa_words": 6,
+   "en_words": 5,
+   "counts": {
+    "o200k_base": {
+     "fa": 16,
+     "en": 12,
+     "arabic_yk": 17,
+     "latin_digits": 13,
+     "arabic_digits": 18
+    },
+    "cl100k_base": {
+     "fa": 38,
+     "en": 12,
+     "arabic_yk": 39,
+     "latin_digits": 25,
+     "arabic_digits": 38
+    },
+    "gpt2 (r50k)": {
+     "fa": 51,
+     "en": 11,
+     "arabic_yk": 48,
+     "latin_digits": 37,
+     "arabic_digits": 50
+    },
+    "Llama-2": {
+     "fa": 46,
+     "en": 17,
+     "arabic_yk": 46,
+     "latin_digits": 38,
+     "arabic_digits": 46
+    },
+    "Llama-3.2": {
+     "fa": 15,
+     "en": 12,
+     "arabic_yk": 17,
+     "latin_digits": 13,
+     "arabic_digits": 18
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 17,
+     "arabic_yk": 16,
+     "latin_digits": 18,
+     "arabic_digits": 18
+    },
+    "Qwen3": {
+     "fa": 33,
+     "en": 17,
+     "arabic_yk": 32,
+     "latin_digits": 25,
+     "arabic_digits": 33
+    },
+    "DeepSeek-V3": {
+     "fa": 21,
+     "en": 12,
+     "arabic_yk": 22,
+     "latin_digits": 18,
+     "arabic_digits": 26
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 17,
+     "arabic_yk": 21,
+     "latin_digits": 20,
+     "arabic_digits": 20
+    }
+   }
+  },
+  {
+   "id": "num-03",
+   "domain": "numbers",
+   "fa_chars": 43,
+   "en_chars": 54,
+   "fa_words": 10,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 15,
+     "en": 12,
+     "arabic_yk": 16,
+     "latin_digits": 14,
+     "arabic_digits": 16
+    },
+    "cl100k_base": {
+     "fa": 35,
+     "en": 13,
+     "arabic_yk": 37,
+     "latin_digits": 29,
+     "arabic_digits": 35
+    },
+    "gpt2 (r50k)": {
+     "fa": 51,
+     "en": 11,
+     "arabic_yk": 49,
+     "latin_digits": 43,
+     "arabic_digits": 49
+    },
+    "Llama-2": {
+     "fa": 48,
+     "en": 16,
+     "arabic_yk": 48,
+     "latin_digits": 44,
+     "arabic_digits": 48
+    },
+    "Llama-3.2": {
+     "fa": 15,
+     "en": 13,
+     "arabic_yk": 15,
+     "latin_digits": 15,
+     "arabic_digits": 18
+    },
+    "Gemma-3": {
+     "fa": 14,
+     "en": 16,
+     "arabic_yk": 15,
+     "latin_digits": 16,
+     "arabic_digits": 14
+    },
+    "Qwen3": {
+     "fa": 30,
+     "en": 15,
+     "arabic_yk": 30,
+     "latin_digits": 26,
+     "arabic_digits": 30
+    },
+    "DeepSeek-V3": {
+     "fa": 17,
+     "en": 13,
+     "arabic_yk": 18,
+     "latin_digits": 16,
+     "arabic_digits": 19
+    },
+    "Mistral-Nemo": {
+     "fa": 17,
+     "en": 15,
+     "arabic_yk": 18,
+     "latin_digits": 17,
+     "arabic_digits": 17
+    }
+   }
+  },
+  {
+   "id": "num-04",
+   "domain": "numbers",
+   "fa_chars": 49,
+   "en_chars": 60,
+   "fa_words": 11,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 21,
+     "en": 15,
+     "arabic_yk": 22,
+     "latin_digits": 18,
+     "arabic_digits": 21
+    },
+    "cl100k_base": {
+     "fa": 43,
+     "en": 15,
+     "arabic_yk": 44,
+     "latin_digits": 32,
+     "arabic_digits": 43
+    },
+    "gpt2 (r50k)": {
+     "fa": 62,
+     "en": 14,
+     "arabic_yk": 59,
+     "latin_digits": 50,
+     "arabic_digits": 60
+    },
+    "Llama-2": {
+     "fa": 57,
+     "en": 20,
+     "arabic_yk": 57,
+     "latin_digits": 50,
+     "arabic_digits": 57
+    },
+    "Llama-3.2": {
+     "fa": 22,
+     "en": 15,
+     "arabic_yk": 24,
+     "latin_digits": 19,
+     "arabic_digits": 23
+    },
+    "Gemma-3": {
+     "fa": 19,
+     "en": 19,
+     "arabic_yk": 20,
+     "latin_digits": 22,
+     "arabic_digits": 21
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 19,
+     "arabic_yk": 35,
+     "latin_digits": 29,
+     "arabic_digits": 36
+    },
+    "DeepSeek-V3": {
+     "fa": 23,
+     "en": 15,
+     "arabic_yk": 23,
+     "latin_digits": 20,
+     "arabic_digits": 27
+    },
+    "Mistral-Nemo": {
+     "fa": 21,
+     "en": 19,
+     "arabic_yk": 22,
+     "latin_digits": 21,
+     "arabic_digits": 21
+    }
+   }
+  },
+  {
+   "id": "num-05",
+   "domain": "numbers",
+   "fa_chars": 33,
+   "en_chars": 33,
+   "fa_words": 8,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 18,
+     "en": 13,
+     "zwnj_space": 18,
+     "zwnj_none": 17,
+     "arabic_yk": 19,
+     "latin_digits": 17,
+     "arabic_digits": 18
+    },
+    "cl100k_base": {
+     "fa": 33,
+     "en": 13,
+     "zwnj_space": 33,
+     "zwnj_none": 32,
+     "arabic_yk": 33,
+     "latin_digits": 26,
+     "arabic_digits": 33
+    },
+    "gpt2 (r50k)": {
+     "fa": 41,
+     "en": 11,
+     "zwnj_space": 40,
+     "zwnj_none": 39,
+     "arabic_yk": 40,
+     "latin_digits": 32,
+     "arabic_digits": 39
+    },
+    "Llama-2": {
+     "fa": 40,
+     "en": 15,
+     "zwnj_space": 40,
+     "zwnj_none": 39,
+     "arabic_yk": 40,
+     "latin_digits": 35,
+     "arabic_digits": 40
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 13,
+     "zwnj_space": 16,
+     "zwnj_none": 16,
+     "arabic_yk": 17,
+     "latin_digits": 16,
+     "arabic_digits": 19
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 15,
+     "zwnj_space": 15,
+     "zwnj_none": 15,
+     "arabic_yk": 16,
+     "latin_digits": 18,
+     "arabic_digits": 16
+    },
+    "Qwen3": {
+     "fa": 28,
+     "en": 15,
+     "zwnj_space": 28,
+     "zwnj_none": 27,
+     "arabic_yk": 28,
+     "latin_digits": 23,
+     "arabic_digits": 28
+    },
+    "DeepSeek-V3": {
+     "fa": 19,
+     "en": 13,
+     "zwnj_space": 17,
+     "zwnj_none": 17,
+     "arabic_yk": 19,
+     "latin_digits": 19,
+     "arabic_digits": 22
+    },
+    "Mistral-Nemo": {
+     "fa": 18,
+     "en": 15,
+     "zwnj_space": 18,
+     "zwnj_none": 18,
+     "arabic_yk": 19,
+     "latin_digits": 18,
+     "arabic_digits": 18
+    }
+   }
+  },
+  {
+   "id": "num-06",
+   "domain": "numbers",
+   "fa_chars": 62,
+   "en_chars": 67,
+   "fa_words": 14,
+   "en_words": 13,
+   "counts": {
+    "o200k_base": {
+     "fa": 24,
+     "en": 20,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 26,
+     "latin_digits": 22,
+     "arabic_digits": 24
+    },
+    "cl100k_base": {
+     "fa": 54,
+     "en": 20,
+     "zwnj_space": 54,
+     "zwnj_none": 53,
+     "arabic_yk": 53,
+     "latin_digits": 46,
+     "arabic_digits": 54
+    },
+    "gpt2 (r50k)": {
+     "fa": 74,
+     "en": 17,
+     "zwnj_space": 73,
+     "zwnj_none": 72,
+     "arabic_yk": 70,
+     "latin_digits": 63,
+     "arabic_digits": 71
+    },
+    "Llama-2": {
+     "fa": 69,
+     "en": 22,
+     "zwnj_space": 69,
+     "zwnj_none": 68,
+     "arabic_yk": 69,
+     "latin_digits": 63,
+     "arabic_digits": 69
+    },
+    "Llama-3.2": {
+     "fa": 22,
+     "en": 20,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 25,
+     "latin_digits": 22,
+     "arabic_digits": 24
+    },
+    "Gemma-3": {
+     "fa": 21,
+     "en": 22,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 24,
+     "latin_digits": 24,
+     "arabic_digits": 21
+    },
+    "Qwen3": {
+     "fa": 43,
+     "en": 22,
+     "zwnj_space": 42,
+     "zwnj_none": 42,
+     "arabic_yk": 41,
+     "latin_digits": 37,
+     "arabic_digits": 43
+    },
+    "DeepSeek-V3": {
+     "fa": 28,
+     "en": 20,
+     "zwnj_space": 26,
+     "zwnj_none": 26,
+     "arabic_yk": 30,
+     "latin_digits": 26,
+     "arabic_digits": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 24,
+     "en": 22,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 26,
+     "latin_digits": 24,
+     "arabic_digits": 24
+    }
+   }
+  },
+  {
+   "id": "num-07",
+   "domain": "numbers",
+   "fa_chars": 47,
+   "en_chars": 39,
+   "fa_words": 8,
+   "en_words": 6,
+   "counts": {
+    "o200k_base": {
+     "fa": 19,
+     "en": 10,
+     "zwnj_space": 19,
+     "zwnj_none": 19,
+     "arabic_yk": 22,
+     "latin_digits": 16,
+     "arabic_digits": 20
+    },
+    "cl100k_base": {
+     "fa": 42,
+     "en": 10,
+     "zwnj_space": 42,
+     "zwnj_none": 41,
+     "arabic_yk": 44,
+     "latin_digits": 31,
+     "arabic_digits": 42
+    },
+    "gpt2 (r50k)": {
+     "fa": 66,
+     "en": 10,
+     "zwnj_space": 65,
+     "zwnj_none": 64,
+     "arabic_yk": 60,
+     "latin_digits": 55,
+     "arabic_digits": 65
+    },
+    "Llama-2": {
+     "fa": 55,
+     "en": 14,
+     "zwnj_space": 55,
+     "zwnj_none": 54,
+     "arabic_yk": 55,
+     "latin_digits": 48,
+     "arabic_digits": 55
+    },
+    "Llama-3.2": {
+     "fa": 21,
+     "en": 10,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 23,
+     "latin_digits": 18,
+     "arabic_digits": 24
+    },
+    "Gemma-3": {
+     "fa": 17,
+     "en": 14,
+     "zwnj_space": 17,
+     "zwnj_none": 17,
+     "arabic_yk": 21,
+     "latin_digits": 19,
+     "arabic_digits": 19
+    },
+    "Qwen3": {
+     "fa": 39,
+     "en": 14,
+     "zwnj_space": 39,
+     "zwnj_none": 38,
+     "arabic_yk": 39,
+     "latin_digits": 32,
+     "arabic_digits": 39
+    },
+    "DeepSeek-V3": {
+     "fa": 25,
+     "en": 10,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 29,
+     "latin_digits": 22,
+     "arabic_digits": 29
+    },
+    "Mistral-Nemo": {
+     "fa": 22,
+     "en": 14,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 26,
+     "latin_digits": 22,
+     "arabic_digits": 22
+    }
+   }
+  },
+  {
+   "id": "num-08",
+   "domain": "numbers",
+   "fa_chars": 58,
+   "en_chars": 66,
+   "fa_words": 12,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 21,
+     "en": 14,
+     "zwnj_space": 20,
+     "zwnj_none": 21,
+     "arabic_yk": 23,
+     "latin_digits": 19,
+     "arabic_digits": 21
+    },
+    "cl100k_base": {
+     "fa": 47,
+     "en": 14,
+     "zwnj_space": 46,
+     "zwnj_none": 46,
+     "arabic_yk": 47,
+     "latin_digits": 39,
+     "arabic_digits": 47
+    },
+    "gpt2 (r50k)": {
+     "fa": 69,
+     "en": 12,
+     "zwnj_space": 68,
+     "zwnj_none": 67,
+     "arabic_yk": 69,
+     "latin_digits": 59,
+     "arabic_digits": 67
+    },
+    "Llama-2": {
+     "fa": 64,
+     "en": 17,
+     "zwnj_space": 64,
+     "zwnj_none": 63,
+     "arabic_yk": 64,
+     "latin_digits": 59,
+     "arabic_digits": 64
+    },
+    "Llama-3.2": {
+     "fa": 22,
+     "en": 14,
+     "zwnj_space": 22,
+     "zwnj_none": 23,
+     "arabic_yk": 25,
+     "latin_digits": 20,
+     "arabic_digits": 23
+    },
+    "Gemma-3": {
+     "fa": 20,
+     "en": 17,
+     "zwnj_space": 18,
+     "zwnj_none": 19,
+     "arabic_yk": 21,
+     "latin_digits": 23,
+     "arabic_digits": 22
+    },
+    "Qwen3": {
+     "fa": 41,
+     "en": 17,
+     "zwnj_space": 40,
+     "zwnj_none": 40,
+     "arabic_yk": 39,
+     "latin_digits": 36,
+     "arabic_digits": 41
+    },
+    "DeepSeek-V3": {
+     "fa": 26,
+     "en": 14,
+     "zwnj_space": 23,
+     "zwnj_none": 24,
+     "arabic_yk": 27,
+     "latin_digits": 24,
+     "arabic_digits": 29
+    },
+    "Mistral-Nemo": {
+     "fa": 20,
+     "en": 17,
+     "zwnj_space": 21,
+     "zwnj_none": 21,
+     "arabic_yk": 24,
+     "latin_digits": 20,
+     "arabic_digits": 20
+    }
+   }
+  },
+  {
+   "id": "addr-01",
+   "domain": "address",
+   "fa_chars": 51,
+   "en_chars": 54,
+   "fa_words": 9,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 25,
+     "en": 20,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 26,
+     "latin_digits": 25,
+     "arabic_digits": 26
+    },
+    "cl100k_base": {
+     "fa": 44,
+     "en": 22,
+     "zwnj_space": 44,
+     "zwnj_none": 43,
+     "arabic_yk": 44,
+     "latin_digits": 40,
+     "arabic_digits": 44
+    },
+    "gpt2 (r50k)": {
+     "fa": 64,
+     "en": 19,
+     "zwnj_space": 63,
+     "zwnj_none": 62,
+     "arabic_yk": 60,
+     "latin_digits": 58,
+     "arabic_digits": 62
+    },
+    "Llama-2": {
+     "fa": 55,
+     "en": 24,
+     "zwnj_space": 55,
+     "zwnj_none": 54,
+     "arabic_yk": 55,
+     "latin_digits": 52,
+     "arabic_digits": 55
+    },
+    "Llama-3.2": {
+     "fa": 24,
+     "en": 22,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 28,
+     "latin_digits": 24,
+     "arabic_digits": 25
+    },
+    "Gemma-3": {
+     "fa": 21,
+     "en": 21,
+     "zwnj_space": 22,
+     "zwnj_none": 22,
+     "arabic_yk": 24,
+     "latin_digits": 24,
+     "arabic_digits": 22
+    },
+    "Qwen3": {
+     "fa": 36,
+     "en": 23,
+     "zwnj_space": 36,
+     "zwnj_none": 35,
+     "arabic_yk": 35,
+     "latin_digits": 33,
+     "arabic_digits": 36
+    },
+    "DeepSeek-V3": {
+     "fa": 29,
+     "en": 21,
+     "zwnj_space": 27,
+     "zwnj_none": 27,
+     "arabic_yk": 30,
+     "latin_digits": 29,
+     "arabic_digits": 30
+    },
+    "Mistral-Nemo": {
+     "fa": 23,
+     "en": 22,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 26,
+     "latin_digits": 23,
+     "arabic_digits": 23
+    }
+   }
+  },
+  {
+   "id": "addr-02",
+   "domain": "address",
+   "fa_chars": 69,
+   "en_chars": 81,
+   "fa_words": 10,
+   "en_words": 11,
+   "counts": {
+    "o200k_base": {
+     "fa": 28,
+     "en": 22,
+     "zwnj_space": 27,
+     "zwnj_none": 27,
+     "arabic_yk": 29
+    },
+    "cl100k_base": {
+     "fa": 55,
+     "en": 23,
+     "zwnj_space": 55,
+     "zwnj_none": 53,
+     "arabic_yk": 55
+    },
+    "gpt2 (r50k)": {
+     "fa": 82,
+     "en": 22,
+     "zwnj_space": 80,
+     "zwnj_none": 78,
+     "arabic_yk": 79
+    },
+    "Llama-2": {
+     "fa": 69,
+     "en": 23,
+     "zwnj_space": 69,
+     "zwnj_none": 67,
+     "arabic_yk": 69
+    },
+    "Llama-3.2": {
+     "fa": 25,
+     "en": 23,
+     "zwnj_space": 24,
+     "zwnj_none": 24,
+     "arabic_yk": 29
+    },
+    "Gemma-3": {
+     "fa": 24,
+     "en": 22,
+     "zwnj_space": 25,
+     "zwnj_none": 25,
+     "arabic_yk": 28
+    },
+    "Qwen3": {
+     "fa": 43,
+     "en": 23,
+     "zwnj_space": 42,
+     "zwnj_none": 41,
+     "arabic_yk": 43
+    },
+    "DeepSeek-V3": {
+     "fa": 34,
+     "en": 22,
+     "zwnj_space": 29,
+     "zwnj_none": 30,
+     "arabic_yk": 34
+    },
+    "Mistral-Nemo": {
+     "fa": 24,
+     "en": 22,
+     "zwnj_space": 23,
+     "zwnj_none": 23,
+     "arabic_yk": 28
+    }
+   }
+  },
+  {
+   "id": "addr-03",
+   "domain": "address",
+   "fa_chars": 51,
+   "en_chars": 66,
+   "fa_words": 9,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 29,
+     "en": 20,
+     "zwnj_space": 29,
+     "zwnj_none": 29,
+     "arabic_yk": 30,
+     "latin_digits": 24,
+     "arabic_digits": 31
+    },
+    "cl100k_base": {
+     "fa": 56,
+     "en": 21,
+     "zwnj_space": 56,
+     "zwnj_none": 55,
+     "arabic_yk": 56,
+     "latin_digits": 37,
+     "arabic_digits": 56
+    },
+    "gpt2 (r50k)": {
+     "fa": 75,
+     "en": 20,
+     "zwnj_space": 74,
+     "zwnj_none": 73,
+     "arabic_yk": 70,
+     "latin_digits": 55,
+     "arabic_digits": 73
+    },
+    "Llama-2": {
+     "fa": 64,
+     "en": 31,
+     "zwnj_space": 64,
+     "zwnj_none": 63,
+     "arabic_yk": 64,
+     "latin_digits": 52,
+     "arabic_digits": 64
+    },
+    "Llama-3.2": {
+     "fa": 29,
+     "en": 21,
+     "zwnj_space": 29,
+     "zwnj_none": 29,
+     "arabic_yk": 32,
+     "latin_digits": 24,
+     "arabic_digits": 33
+    },
+    "Gemma-3": {
+     "fa": 26,
+     "en": 27,
+     "zwnj_space": 27,
+     "zwnj_none": 27,
+     "arabic_yk": 29,
+     "latin_digits": 29,
+     "arabic_digits": 28
+    },
+    "Qwen3": {
+     "fa": 50,
+     "en": 28,
+     "zwnj_space": 50,
+     "zwnj_none": 49,
+     "arabic_yk": 48,
+     "latin_digits": 38,
+     "arabic_digits": 50
+    },
+    "DeepSeek-V3": {
+     "fa": 33,
+     "en": 21,
+     "zwnj_space": 31,
+     "zwnj_none": 31,
+     "arabic_yk": 35,
+     "latin_digits": 28,
+     "arabic_digits": 41
+    },
+    "Mistral-Nemo": {
+     "fa": 32,
+     "en": 29,
+     "zwnj_space": 32,
+     "zwnj_none": 32,
+     "arabic_yk": 33,
+     "latin_digits": 32,
+     "arabic_digits": 32
+    }
+   }
+  },
+  {
+   "id": "addr-04",
+   "domain": "address",
+   "fa_chars": 40,
+   "en_chars": 49,
+   "fa_words": 8,
+   "en_words": 8,
+   "counts": {
+    "o200k_base": {
+     "fa": 21,
+     "en": 17,
+     "arabic_yk": 21,
+     "latin_digits": 20,
+     "arabic_digits": 21
+    },
+    "cl100k_base": {
+     "fa": 31,
+     "en": 19,
+     "arabic_yk": 31,
+     "latin_digits": 27,
+     "arabic_digits": 31
+    },
+    "gpt2 (r50k)": {
+     "fa": 50,
+     "en": 17,
+     "arabic_yk": 49,
+     "latin_digits": 44,
+     "arabic_digits": 48
+    },
+    "Llama-2": {
+     "fa": 44,
+     "en": 23,
+     "arabic_yk": 44,
+     "latin_digits": 41,
+     "arabic_digits": 44
+    },
+    "Llama-3.2": {
+     "fa": 19,
+     "en": 19,
+     "arabic_yk": 21,
+     "latin_digits": 19,
+     "arabic_digits": 20
+    },
+    "Gemma-3": {
+     "fa": 18,
+     "en": 19,
+     "arabic_yk": 19,
+     "latin_digits": 20,
+     "arabic_digits": 19
+    },
+    "Qwen3": {
+     "fa": 27,
+     "en": 20,
+     "arabic_yk": 27,
+     "latin_digits": 24,
+     "arabic_digits": 27
+    },
+    "DeepSeek-V3": {
+     "fa": 24,
+     "en": 19,
+     "arabic_yk": 23,
+     "latin_digits": 23,
+     "arabic_digits": 25
+    },
+    "Mistral-Nemo": {
+     "fa": 19,
+     "en": 19,
+     "arabic_yk": 21,
+     "latin_digits": 19,
+     "arabic_digits": 19
+    }
+   }
+  },
+  {
+   "id": "addr-05",
+   "domain": "address",
+   "fa_chars": 48,
+   "en_chars": 65,
+   "fa_words": 8,
+   "en_words": 10,
+   "counts": {
+    "o200k_base": {
+     "fa": 17,
+     "en": 14,
+     "arabic_yk": 18
+    },
+    "cl100k_base": {
+     "fa": 36,
+     "en": 14,
+     "arabic_yk": 36
+    },
+    "gpt2 (r50k)": {
+     "fa": 56,
+     "en": 14,
+     "arabic_yk": 54
+    },
+    "Llama-2": {
+     "fa": 49,
+     "en": 17,
+     "arabic_yk": 49
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 14,
+     "arabic_yk": 18
+    },
+    "Gemma-3": {
+     "fa": 15,
+     "en": 14,
+     "arabic_yk": 16
+    },
+    "Qwen3": {
+     "fa": 28,
+     "en": 14,
+     "arabic_yk": 27
+    },
+    "DeepSeek-V3": {
+     "fa": 20,
+     "en": 14,
+     "arabic_yk": 21
+    },
+    "Mistral-Nemo": {
+     "fa": 16,
+     "en": 14,
+     "arabic_yk": 19
+    }
+   }
+  },
+  {
+   "id": "addr-06",
+   "domain": "address",
+   "fa_chars": 44,
+   "en_chars": 59,
+   "fa_words": 8,
+   "en_words": 9,
+   "counts": {
+    "o200k_base": {
+     "fa": 14,
+     "en": 11,
+     "arabic_yk": 14
+    },
+    "cl100k_base": {
+     "fa": 33,
+     "en": 11,
+     "arabic_yk": 33
+    },
+    "gpt2 (r50k)": {
+     "fa": 52,
+     "en": 11,
+     "arabic_yk": 49
+    },
+    "Llama-2": {
+     "fa": 45,
+     "en": 13,
+     "arabic_yk": 45
+    },
+    "Llama-3.2": {
+     "fa": 16,
+     "en": 11,
+     "arabic_yk": 17
+    },
+    "Gemma-3": {
+     "fa": 13,
+     "en": 12,
+     "arabic_yk": 15
+    },
+    "Qwen3": {
+     "fa": 27,
+     "en": 11,
+     "arabic_yk": 24
+    },
+    "DeepSeek-V3": {
+     "fa": 18,
+     "en": 11,
+     "arabic_yk": 18
+    },
+    "Mistral-Nemo": {
+     "fa": 15,
+     "en": 11,
+     "arabic_yk": 14
+    }
+   }
+  }
+ ],
+ "char_ratio_median": 0.8804761904761904,
+ "word_ratio_median": 1.0
+}

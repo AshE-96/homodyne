@@ -1,0 +1,66 @@
+{
+  "status": "ILLUSTRATIVE synthetic traffic - not Google Maps, not Tehran data",
+  "seed": 2026,
+  "split": "train days 1-45, test days 46-60 (time-based, no shuffle)",
+  "route_km": 12.0,
+  "test_trips": 555,
+  "mean_actual_trip_min": 15.8,
+  "mae_min": {
+    "constant": 3.43,
+    "historical": 1.72,
+    "live-now": 1.13,
+    "neighbour": 0.56
+  },
+  "mae_rush_0715_0845_min": {
+    "constant": 3.16,
+    "historical": 2.44,
+    "live-now": 1.84,
+    "neighbour": 0.85
+  },
+  "mae_incident_days_min": {
+    "constant": 3.48,
+    "historical": 1.8,
+    "live-now": 1.23,
+    "neighbour": 0.73
+  },
+  "mae_calm_days_min": {
+    "constant": 3.4,
+    "historical": 1.67,
+    "live-now": 1.07,
+    "neighbour": 0.45
+  },
+  "share_off_by_more_than_5min": {
+    "constant": 0.099,
+    "historical": 0.045,
+    "live-now": 0.014,
+    "neighbour": 0.002
+  },
+  "n_rush": 285,
+  "n_incident_trips": 222,
+  "mean_actual_rush_trip_min": 18.5,
+  "max_actual_trip_min": 27.4,
+  "example_jam_building": {
+    "day": 54,
+    "depart": "07:45",
+    "actual": 24.0,
+    "constant": 16.6,
+    "historical": 21.1,
+    "live-now": 18.1,
+    "neighbour": 20.6
+  },
+  "example_jam_clearing": {
+    "day": 60,
+    "depart": "08:30",
+    "actual": 22.6,
+    "constant": 16.6,
+    "historical": 19.8,
+    "live-now": 29.9,
+    "neighbour": 24.8
+  },
+  "robustness": {
+    "extra_seeds": 20,
+    "best_model_counts": {
+      "neighbour": 20
+    }
+  }
+}

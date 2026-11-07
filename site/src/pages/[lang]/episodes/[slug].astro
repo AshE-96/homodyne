@@ -1,0 +1,42 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { ui, langs, REPO, type Lang } from '../../../i18n';
+import { episodes, episodeUrl, posts, type Episode } from '../../../lib';
+
+export function getStaticPaths() {
+  return langs.flatMap((lang) => episodes.map((e) => ({ params: { lang, slug: e.slug }, props: { e } })));
+}
+const lang = Astro.params.lang as Lang;
+const { e } = Astro.props as { e: Episode };
+const t = ui[lang];
+const other: Lang = lang === 'fa' ? 'en' : 'fa';
+const related = (await posts(lang)).filter((p) => p.data.hmd === e.hmd);
+const url = new URL(episodeUrl(e, lang), Astro.site).href;
+const jsonld: object[] = [
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t.site, item: new URL(`/${lang}/`, Astro.site).href },
+    { '@type': 'ListItem', position: 2, name: t.episodes, item: new URL(`/${lang}/episodes/`, Astro.site).href },
+    { '@type': 'ListItem', position: 3, name: e[lang].title, item: url },
+  ] },
+];
+if (e.youtube) jsonld.push({ '@context': 'https://schema.org', '@type': 'VideoObject', name: e[lang].title, description: e[lang].summary,
+  thumbnailUrl: `https://i.ytimg.com/vi/${e.youtube}/hqdefault.jpg`, embedUrl: `https://www.youtube-nocookie.com/embed/${e.youtube}`, inLanguage: 'fa-IR' });
+---
+<Base lang={lang} title={e[lang].title} description={e[lang].summary} alternate={episodeUrl(e, other)} nav="episodes" jsonld={jsonld}>
+  <div class="eyebrow">{e.hmd} · {e.format}</div>
+  <h1>{e[lang].title}</h1>
+  <p class="lede">{e[lang].summary}</p>
+  {lang === 'fa' && e.fa.boundary && <div class="boundary"><strong>{t.boundary}:</strong> {e.fa.boundary}</div>}
+  {e.youtube
+    ? <div style="aspect-ratio:16/9;max-width:860px"><iframe style="width:100%;height:100%;border:0" src={`https://www.youtube-nocookie.com/embed/${e.youtube}`} title={e[lang].title} loading="lazy" allowfullscreen></iframe></div>
+    : <p class="muted">{t.soon}</p>}
+  <div class="actions">
+    {e.hasDeck && <a class="btn" href={`/decks/${e.slug}/`}>{t.deck}</a>}
+    <a class="btn" href={`${REPO}/tree/main/${e.path}`}>GitHub</a>
+  </div>
+  {related.length > 0 && <>
+    <h2>{t.posts}</h2>
+    <div class="grid">{related.map((p) => <PostCard post={p} />)}</div>
+  </>}
+</Base>

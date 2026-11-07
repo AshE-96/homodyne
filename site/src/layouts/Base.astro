@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import { ui, REPO, type Lang } from '../i18n';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  alternate?: string | null;   // path of the same page in the other language
+  type?: 'website' | 'article';
+  jsonld?: object[];
+  nav?: 'home' | 'episodes' | 'blog';
+}
+const { lang, title, description, alternate = null, type = 'website', jsonld = [], nav } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'fa' ? 'en' : 'fa';
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const altHref = alternate ? new URL(alternate, Astro.site).href : null;
+const fullTitle = title === t.site ? t.site : `${title} · ${t.site}`;
+const og = new URL('/og-default.png', Astro.site).href;
+---
+<!doctype html>
+<html lang={lang} dir={t.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang === 'fa' ? 'fa-IR' : 'en'} href={canonical} />
+    {altHref && <link rel="alternate" hreflang={other === 'fa' ? 'fa-IR' : 'en'} href={altHref} />}
+    {altHref && lang === 'fa' && <link rel="alternate" hreflang="x-default" href={canonical} />}
+    {altHref && lang === 'en' && <link rel="alternate" hreflang="x-default" href={altHref} />}
+    <link rel="alternate" type="application/rss+xml" title={`${t.site} · RSS`} href={`/${lang}/rss.xml`} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#111214" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={t.site} />
+    <meta property="og:locale" content={t.locale} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={og} />
+    {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href={`/${lang}/`}><img src="/mark.svg" alt="" width="30" height="30" />{t.site}</a>
+        <nav class="main" aria-label={lang === 'fa' ? 'ناوبری' : 'Main'}>
+          <a href={`/${lang}/episodes/`} aria-current={nav === 'episodes' ? 'page' : undefined}>{t.episodes}</a>
+          <a href={`/${lang}/blog/`} aria-current={nav === 'blog' ? 'page' : undefined}>{t.blog}</a>
+          <a class="lang-switch" href={alternate ?? `/${other}/`} hreflang={other} lang={other}>{t.other}</a>
+        </nav>
+      </div>
+    </header>
+    <main><div class="wrap"><slot /></div></main>
+    <footer class="site">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} {t.site} · CC BY-NC-SA 4.0</span>
+        <a href={REPO}>{t.code}</a>
+        <a href={`/${lang}/rss.xml`}>{t.rss}</a>
+        <a href="https://m2gh.ir">m2gh.ir</a>
+      </div>
+    </footer>
+  </body>
+</html>

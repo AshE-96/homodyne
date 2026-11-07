@@ -1,0 +1,13 @@
+---
+import { ui, formatDate } from '../i18n';
+import { postUrl, type Post } from '../lib';
+interface Props { post: Post }
+const { post } = Astro.props;
+const t = ui[post.data.lang];
+---
+<div class="card">
+  <span class="meta">{post.data.hmd} · {post.data.kind === 'companion' ? t.companion : t.deepDive}</span>
+  <h3><a href={postUrl(post)}>{post.data.title}</a></h3>
+  <p>{post.data.description}</p>
+  <span class="muted" style="font-size:.8rem">{formatDate(post.data.date, post.data.lang)}</span>
+</div>

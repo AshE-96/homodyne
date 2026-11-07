@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Homodyne HMD-0XX — Recording Deck v5</title>
+<!--
+  Homodyne Recording Deck v5 — season-01 template.
+  Same engine and keys as v4 (← → / Space, Home/End, F fullscreen, H chrome, N presenter notes).
+  Rules: self-contained (no external fonts or <script src>), one amber element per frame,
+  English on screen, optional one-line Persian caption (.fa), notes in Persian (dir="rtl").
+  One <section class="frame ..."> per script beat; id="beat-N", data-start = seconds from the script.
+  Copy this file to the episode folder as deck.html, delete the component examples you don't use.
+-->
+<style>
+:root{--paper:#F3F1EC;--ink:#16181B;--night:#111214;--amber:#E8A33D;--amber-ink:#975C08;--amber-night:#F0B45A;--line:#B9B4AA;--muted:#6B6A66}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--night);color:var(--ink);font-family:Arial,Tahoma,sans-serif}body{overflow:hidden}
+.frame{display:none;position:absolute;inset:0;padding:3.7vh 5vw 58px;background:var(--paper)}.frame.active{display:flex;flex-direction:column}
+.night{background:var(--night);color:var(--paper)}.night .muted{color:#9a988f}
+header,footer{font:12px monospace;letter-spacing:.1em;display:flex;justify-content:space-between;gap:20px}header{border-bottom:1px solid var(--line);padding-bottom:15px}
+footer{border-top:1px solid var(--line);padding-top:15px;letter-spacing:0;font-size:11px}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.eyebrow{font:14px monospace;color:var(--amber-ink);margin-bottom:2vh}.night .eyebrow{color:var(--amber-night)}
+h1{font:clamp(28px,4.7vw,76px)/1.12 Georgia,serif;max-width:1250px;font-weight:400;letter-spacing:-.035em;margin:0 0 4vh}
+h1 em{font-style:normal;color:var(--amber-ink)}.night h1 em{color:var(--amber-night)}
+.sub{font-size:clamp(18px,2vw,31px);max-width:1000px;line-height:1.5;border-top:1px solid var(--line);padding-top:2vh;margin:0}
+.fa{direction:rtl;text-align:right;font:clamp(18px,1.9vw,30px)/1.7 Tahoma,Arial,sans-serif;max-width:1100px;margin:2vh 0 0 auto;color:var(--muted)}.night .fa{color:#bdbab1}
+.tag{font:14px/1.5 monospace;color:var(--amber-ink);margin:2vh 0 0}.night .tag{color:var(--amber-night)}
+.muted{color:var(--muted)}
+/* big single number */
+.stat b{display:block;font:clamp(80px,13vw,220px)/1 Georgia,serif;letter-spacing:-.04em}.stat span{font:clamp(16px,1.6vw,24px) monospace}
+/* two or three columns side by side */
+.cols{display:flex;gap:5vw}.cols>div{flex:1;border-top:1px solid var(--line);padding-top:2vh}.cols span{display:block;font:14px monospace}
+.cols b{display:block;font:clamp(35px,5vw,72px) Georgia,serif;margin-top:1vh}.cols small{font:20px Arial}.cols p{font-size:clamp(16px,1.6vw,22px);line-height:1.5}
+.cols .hi{border-top:3px solid var(--amber)}
+/* horizontal bars: style="--v:62" for 62% */
+.bars{display:flex;flex-direction:column;gap:2.2vh;max-width:1300px}.bars div{display:grid;grid-template-columns:14vw 1fr 7vw;align-items:center;gap:1.5vw;font:clamp(14px,1.4vw,20px) monospace}
+.bars i{display:block;height:3.4vh;background:var(--ink);width:calc(var(--v)*1%)}.night .bars i{background:var(--paper)}.bars .hi i{background:var(--amber)}
+/* terminal / code */
+.code{background:#1b1d20;color:#e9e6de;font:clamp(15px,1.5vw,22px)/1.65 monospace;padding:2.6vh 2vw;border-left:3px solid var(--amber);white-space:pre;overflow:hidden;max-width:1400px}
+.code .c{color:#8f8c84}.code .o{color:var(--amber-night)}
+/* row of cards; add class "hi" to the single highlighted card */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.6vw}.cards>div{border:1px solid var(--line);padding:2.2vh 1.2vw;font-size:clamp(15px,1.5vw,22px);line-height:1.45}
+.cards>div b{display:block;font:13px monospace;letter-spacing:.08em;margin-bottom:1vh}.cards .hi{border:2px solid var(--amber)}.cards .off{opacity:.35}
+/* tokens / chips */
+.tokens{display:flex;flex-wrap:wrap;gap:.6vw}.tokens i{font:clamp(18px,2.2vw,32px) monospace;font-style:normal;border:1px solid #999;padding:.8vh .8vw}.tokens .hi{background:var(--amber);color:var(--ink)}.tokens .off{opacity:.4}
+/* source card */
+.source{border-left:3px solid var(--amber);padding:1vh 0 1vh 2vw;max-width:1200px}.source q{display:block;font:clamp(22px,2.6vw,40px)/1.35 Georgia,serif;quotes:none}.source cite{display:block;font:14px monospace;margin-top:2vh;font-style:normal}
+/* claim boundary card */
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:3vw;max-width:1400px}.boundary>div{border-top:1px solid var(--line);padding-top:2vh;font-size:clamp(17px,1.8vw,26px);line-height:1.5}
+.boundary b{display:block;font:13px monospace;letter-spacing:.1em;margin-bottom:1.5vh}.boundary .no b{color:var(--amber-ink)}.night .boundary .no b{color:var(--amber-night)}
+/* timeline / steps */
+.steps{display:flex;gap:0;max-width:1500px}.steps>div{flex:1;border-top:2px solid var(--line);padding:2vh 1vw 0 0;font-size:clamp(14px,1.4vw,20px);line-height:1.45}.steps>div b{display:block;font:13px monospace;margin-bottom:1vh}.steps .hi{border-top-color:var(--amber)}
+.notes{display:none;position:fixed;left:5vw;right:5vw;bottom:8vh;background:#fff7e5;color:#16181b;padding:20px;font:18px/1.8 Tahoma;max-height:40vh;overflow:auto;border:1px solid var(--amber-ink)}.show-notes .active .notes{display:block}
+nav{position:fixed;bottom:0;left:0;right:0;height:32px;background:#16181b;color:#eee;display:flex;align-items:center;justify-content:center;gap:12px;font:11px monospace;z-index:9}
+button{background:transparent;color:inherit;border:1px solid #555;border-radius:2px;padding:3px 10px;cursor:pointer}.hide-chrome nav,.hide-chrome .progress{display:none}
+.progress{height:2px;position:fixed;bottom:32px;left:0;background:var(--amber);z-index:10}
+@media(max-width:700px){header,footer{font-size:9px}h1{font-size:30px}.cols{flex-direction:column;gap:2vh}.bars div{grid-template-columns:24vw 1fr 12vw}.boundary{grid-template-columns:1fr}.code{font-size:12px}}
+</style><body>
+
+<!-- BEAT 1 · cold open (night). Component: two columns -->
+<section class="frame night" id="beat-1" data-start="0" aria-label="Beat 1"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">01 / NN · 00:00</div><h1>One sharp on-screen line with <em>one</em> amber word.</h1>
+<div class="cols"><div><span>OPTION A</span><b>60 <small>unit</small></b><p>context line</p></div><div class="hi"><span>OPTION B</span><b>50 <small>unit</small></b><p>context line</p></div></div>
+<p class="tag">ILLUSTRATIVE · label every made-up number</p>
+</main><footer>Primary source short name<span>v5 · 2026-11-02</span></footer>
+<aside class="notes" dir="rtl"><strong>عنوان قاب</strong><p>دستور تصویر / اجرا</p><p>در یک جمله</p></aside></section>
+
+<!-- Component: big stat -->
+<section class="frame paper" id="beat-2" data-start="40" aria-label="Beat 2"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">02 / NN · 00:40</div><div class="stat"><b>×1.8</b><span>what the number means · source / date</span></div><p class="fa">یک خط فارسی اختیاری برای بینندهٔ غیرمتخصص</p>
+</main><footer>Primary source<span>v5</span></footer><aside class="notes" dir="rtl"><strong>…</strong><p>…</p><p>…</p></aside></section>
+
+<!-- Component: bars -->
+<section class="frame paper" id="beat-3" data-start="80" aria-label="Beat 3"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">03 / NN · 01:20</div><h1>Bars compare one quantity.</h1>
+<div class="bars"><div><span>English</span><i style="--v:40"></i><span>40</span></div><div class="hi"><span>Persian</span><i style="--v:72"></i><span>72</span></div></div>
+<p class="tag">[RUN] values come from the recorded run</p>
+</main><footer>Primary source<span>v5</span></footer><aside class="notes" dir="rtl"><strong>…</strong><p>…</p><p>…</p></aside></section>
+
+<!-- Component: code / terminal -->
+<section class="frame paper" id="beat-4" data-start="120" aria-label="Beat 4"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">04 / NN · 02:00</div><div class="code"><span class="c">$ python3 artifact/demo.py</span>
+model  correct  wrong  abstain  score
+A      60       30     10       <span class="o">-30</span></div>
+</main><footer>Primary source<span>v5</span></footer><aside class="notes" dir="rtl"><strong>…</strong><p>…</p><p>…</p></aside></section>
+
+<!-- Component: cards / steps / source / boundary -->
+<section class="frame paper" id="beat-5" data-start="160" aria-label="Beat 5"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">05 / NN · 02:40</div><div class="source"><q>Short quote from the primary source (under 15 words).</q><cite>Author · Title · Year</cite></div>
+</main><footer>Primary source<span>v5</span></footer><aside class="notes" dir="rtl"><strong>…</strong><p>…</p><p>…</p></aside></section>
+
+<section class="frame night" id="beat-6" data-start="200" aria-label="Beat 6"><header>HOMODYNE <span>FORMAT / HMD-0XX</span></header><main>
+<div class="eyebrow">06 / NN · 03:20 · CLAIM BOUNDARY</div>
+<div class="boundary"><div><b>THIS SHOWS</b>…</div><div class="no"><b>THIS DOES NOT SHOW</b>…</div></div>
+</main><footer>Primary source<span>v5</span></footer><aside class="notes" dir="rtl"><strong>مرز ادعا</strong><p>…</p><p>…</p></aside></section>
+
+<nav><button id="prev" aria-label="Previous">←</button><span id="counter"></span><button id="next" aria-label="Next">→</button><span>F fullscreen · H chrome · N presenter notes</span></nav><div class="progress"></div>
+<script>const frames=[...document.querySelectorAll('.frame')];let current=0;function show(n){current=Math.max(0,Math.min(frames.length-1,n));frames.forEach((f,i)=>f.classList.toggle('active',i===current));document.querySelector('#counter').textContent=(current+1)+' / '+frames.length;document.querySelector('.progress').style.width=((current+1)/frames.length*100)+'%';}document.querySelector('#next').onclick=()=>show(current+1);document.querySelector('#prev').onclick=()=>show(current-1);document.addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(current+1);}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(current-1);}if(e.key==='Home')show(0);if(e.key==='End')show(frames.length-1);if(e.key.toLowerCase()==='n')document.body.classList.toggle('show-notes');if(e.key.toLowerCase()==='h')document.body.classList.toggle('hide-chrome');if(e.key.toLowerCase()==='f'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen();}});show(0);</script></body></html>

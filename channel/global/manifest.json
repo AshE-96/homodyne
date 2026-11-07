@@ -1,0 +1,16 @@
+[
+ {
+  "hmd": "HMD-G01",
+  "format": "Benchmark Lab · Global",
+  "path": "parts/04-global/hmd-g01-model-collapse",
+  "title": "وقتی AI از نوشته‌های AI یاد بگیرد چه می‌شود؟",
+  "next": "HMD-G03"
+ },
+ {
+  "hmd": "HMD-B07",
+  "format": "Benchmark Lab · Bridge",
+  "path": "parts/04-global/hmd-b07-photo-geolocation",
+  "title": "AI از یک عکس می‌فهمد کجایی؟",
+  "next": "HMD-B13"
+ }
+]

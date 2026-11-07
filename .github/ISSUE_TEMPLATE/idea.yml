@@ -1,0 +1,15 @@
+name: Episode idea / ایدهٔ قسمت
+description: A familiar question about AI or science that could be answered with an experiment. · یک سؤال آشنا که با یک آزمایش جواب داده شود.
+labels: [idea]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: The question · سؤال
+    validations:
+      required: true
+  - type: textarea
+    id: measure
+    attributes:
+      label: How could we measure it? · چطور می‌شود اندازه‌اش گرفت؟
+      description: Dataset, demo, or primary source.

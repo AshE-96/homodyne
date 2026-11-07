@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+const site = Astro.site!.href;
+---
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>هومودین · Homodyne</title>
+    <meta name="description" content="هومودین: یک سؤال آشنا دربارهٔ AI و علم، با یک آزمایش دیدنی. Homodyne: one familiar question about AI and science, answered with an experiment you can see." />
+    <link rel="canonical" href={site} />
+    <link rel="alternate" hreflang="fa-IR" href={`${site}fa/`} />
+    <link rel="alternate" hreflang="en" href={`${site}en/`} />
+    <link rel="alternate" hreflang="x-default" href={site} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta property="og:title" content="Homodyne · هومودین" />
+    <meta property="og:image" content={`${site}og-default.png`} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'WebSite', name: 'Homodyne', alternateName: 'هومودین', url: site,
+      inLanguage: ['fa-IR', 'en'], publisher: { '@type': 'Organization', name: 'Homodyne', logo: `${site}favicon.png` },
+    })} />
+  </head>
+  <body>
+    <div class="picker">
+      <div>
+        <img src="/mark-night.svg" alt="" width="72" height="72" />
+        <h1 style="margin:.4em 0 .2em">هومودین · <span lang="en" dir="ltr">Homodyne</span></h1>
+        <p style="color:#bdbab1;margin:0">یک سؤال آشنا دربارهٔ AI و علم، با یک آزمایش دیدنی.</p>
+        <p lang="en" dir="ltr" style="color:#bdbab1;margin:.2em 0 0">One familiar question about AI and science, answered with an experiment you can see.</p>
+        <div class="choices">
+          <a class="btn primary" href="/fa/" hreflang="fa">فارسی</a>
+          <a class="btn" href="/en/" hreflang="en" lang="en">English</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

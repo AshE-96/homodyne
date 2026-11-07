@@ -1,0 +1,19 @@
+# Normalise line endings so a deck edited on Windows does not show up as a
+# 1,600-line diff.
+* text=auto eol=lf
+
+*.html  text diff=html
+*.css   text
+*.js    text
+*.py    text diff=python
+*.md    text
+*.sh    text eol=lf
+*.zip   binary
+*.png   binary
+*.jpg   binary
+
+# GitHub's language stats: this repo is a curriculum, not a JavaScript project.
+# Without this, the 700 KB of self-contained decks make it look like an HTML app.
+parts/02-benchmarking/*/*_Design_Mockup.html linguist-documentation
+docs/**                          linguist-documentation
+*.md                             linguist-documentation
