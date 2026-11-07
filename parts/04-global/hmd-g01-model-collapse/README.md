@@ -27,7 +27,9 @@
 | [`script-fa.md`](script-fa.md) | متن ضبط v5، ۱۴ قاب |
 | [`hooks-fa.md`](hooks-fa.md) | پنج هوک + توصیه (برنده: Shock/Contradiction) |
 | [`package-fa.md`](package-fa.md) | عنوان، تامبنیل A/B/C، توضیحات، فصل‌ها، تگ، کامنت، End screen، دو Short، Community، metadata انگلیسی |
-| [`deck.html`](deck.html) | دک ضبط، ۱۴ قاب، بدون منبع بیرونی |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [`sources.md`](sources.md) | منابع با شناسهٔ R-G01 تا R-G05 |
 | [`artifact/collapse_lab.py`](artifact/collapse_lab.py) | شبیه‌ساز (فقط کتابخانهٔ استاندارد Python) |
 | [`artifact/results-seed2026.md`](artifact/results-seed2026.md) · [`.json`](artifact/results-seed2026.json) | خروجی اجرای واقعی |

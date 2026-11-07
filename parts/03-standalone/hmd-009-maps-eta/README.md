@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۴ قاب) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل |
-| [deck.html](deck.html) | دک ضبط v5 (۱۴ section، گراف SVG درون‌خطی) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع، جدول کامل نتایج شبیه‌سازی، هشدار طراحی |
 | [artifact/eta_toy.py](artifact/eta_toy.py) | شبیه‌سازی (فقط stdlib، Python 3.10+) |
 | [artifact/results-seed2026.json](artifact/results-seed2026.json) | خروجی ذخیره‌شدهٔ اجرای ۲ نوامبر ۲۰۲۶ |

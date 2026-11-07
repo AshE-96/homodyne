@@ -15,12 +15,12 @@
 | [`idea-bank-fa.md`](idea-bank-fa.md) | ۲۰ ایدهٔ تازه برای بعد از قسمت ۱۰ + سه سری Shorts |
 | [`idea-bank-global-fa.md`](idea-bank-global-fa.md) | ۱۰ ایدهٔ جهانی (روندها و پیش‌بینی‌های ۲۰۲۶، ده رشتهٔ علمی) + «دفتر پیش‌بینی هومودین» |
 | [`idea-bank-bridge-fa.md`](idea-bank-bridge-fa.md) | ۱۷ ایدهٔ «پل» (هم جهانی، هم ایرانی) در سه خانواده: پیش‌بینی از دادهٔ عمومی (چالوس)، AI چطور می‌بیند، AI و سرعت علم |
-| [`deck-template.html`](deck-template.html) | قالب دک ضبط v5 (همان کلیدهای v4: ←/→، F، H، N) |
+| [`deck-engine/`](deck-engine/README.md) | موتور و راهنمای دک ضبط v6: یک منبع دوزبانه، دک فارسی راست‌به‌چپ و دک انگلیسی هم‌ترتیب |
 | [`manifest.json`](manifest.json) | فهرست ماشینی قسمت‌ها برای چک‌کننده |
 
 ## قسمت‌ها
 
-هر پوشه شامل `README.md`، `script-fa.md`، `hooks-fa.md` (۵ هوک + توصیه)، `package-fa.md` (عنوان‌ها، تامبنیل، توضیحات، chapters، تگ‌ها، کامنت پین‌شده، end screen، ۲ Short، پست Community)، `deck.html`، `sources.md` و `artifact/` است.
+هر پوشه شامل `README.md`، `script-fa.md`، `hooks-fa.md` (۵ هوک + توصیه)، `package-fa.md` (عنوان‌ها، تامبنیل، توضیحات، chapters، تگ‌ها، کامنت پین‌شده، end screen، ۲ Short، پست Community)، `deck.src.html` (منبع) و `deck-fa.html` / `deck-en.html` (ساخته‌شده)، `sources.md` و `artifact/` است.
 
 | HMD | قالب | سؤال | قاب | واژهٔ گفتاری | هوک | پیش از ضبط |
 |---|---|---|---:|---:|---|---|

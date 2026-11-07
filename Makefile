@@ -1,8 +1,9 @@
 # Homodyne: episode packages, recording kit and website.
 PY ?= python3
-.PHONY: help episodes teleprompter selftest site site-dev preview deploy check
+.PHONY: help decks episodes teleprompter selftest site site-dev preview deploy check
 
 help:
+	@echo "make decks         build deck-fa.html + deck-en.html from each deck.src.html"
 	@echo "make episodes      check every episode package (beats, words, decks, links)"
 	@echo "make teleprompter  write parts/…/recording/ (teleprompter + recording sheet) for every episode"
 	@echo "make selftest      run the artifact self-tests"
@@ -12,7 +13,11 @@ help:
 	@echo "make deploy        check, build and upload to Cloudflare (homodyne.m2gh.ir)"
 	@echo "make check         episodes + selftest + site"
 
+decks:
+	$(PY) scripts/build-decks.py --quiet
+
 episodes:
+	$(PY) scripts/build-decks.py --check --quiet
 	$(PY) scripts/check-season-01.py
 	$(PY) scripts/check-season-01.py channel/global/manifest.json
 	@if [ -d private/planning/production-v3 ]; then $(PY) scripts/check-production-v3.py; else echo "skip check-production-v3 (private/ not present)"; fi

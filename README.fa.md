@@ -41,6 +41,10 @@
 ## اجرا
 
 ```bash
+make decks
+```
+
+```bash
 make episodes
 ```
 
@@ -52,6 +56,7 @@ make teleprompter
 make site
 ```
 
+- `make decks` از `deck.src.html` هر قسمت دو دک می‌سازد: `deck-fa.html` (فارسی، راست‌به‌چپ، برای ضبط) و `deck-en.html` (انگلیسی، با همان ترتیب).
 - `make episodes` همهٔ بسته‌ها را بررسی می‌کند.
 - `make teleprompter` تله‌پرامپتر و برگهٔ ضبط هر قسمت را در `parts/…/recording/` می‌سازد.
 - `make site` وبسایت را در `site/dist` می‌سازد.

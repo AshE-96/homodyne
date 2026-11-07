@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۵ قاب؛ قاب ۱۱ و ۱۲ [RUN] با سه شاخه) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه (Story-Open)؛ هیچ هوکی نتیجه نمی‌گوید |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل + English metadata؛ موارد وابسته به نتیجه «پس از قفل داده» |
-| [deck.html](deck.html) | دک ضبط v5 (۱۵ section؛ beat-11 و beat-12 کارت `[RUN] · NOT RUN YET`) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۵ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع با تاریخ بازبینی، محاسبه‌ها، خروجی کامل دمو |
 | [artifact/abstain_report.py](artifact/abstain_report.py) | گزارش پوشش/ریسک/خودداری/امتیاز، نگهبان سؤال‌های بی‌جواب، اختلاف جفتی تأییدی با بازهٔ بوت‌استرپ خوشه‌ای، مقایسه‌های اکتشافی، هش قفل داده و طرح (stdlib؛ امتیازدهی از `tools/bluff_lab.py`) |
 | [artifact/abstain-demo-ILLUSTRATIVE.csv](artifact/abstain-demo-ILLUSTRATIVE.csv) | دادهٔ آموزشی تولیدشده با `--demo` (سه مدل خیالی؛ sha256 `a39e3469…`) |

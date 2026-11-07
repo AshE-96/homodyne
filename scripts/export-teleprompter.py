@@ -102,7 +102,7 @@ def export(ep):
     sheet = [f'# برگهٔ ضبط · {ep["hmd"]} · {title}', '',
              f'- **قاب:** {len(rows)} · **واژهٔ گفتاری:** {words} · **گفتار:** حدود {words // WPM} دقیقه (به‌اضافهٔ زمان نمایش دک)',
              f'- **هوک:** {hook.group(1).strip() if hook else "—"}',
-             f'- **دک:** [`deck.html`](../deck.html) (← →، F تمام‌صفحه، N یادداشت راوی؛ هنگام ضبط N خاموش)',
+             f'- **دک:** [`deck-fa.html`](../deck-fa.html) (→ بعدی، ← قبلی، F تمام‌صفحه، H پنهان‌کردن نوار، N یادداشت راوی؛ هنگام ضبط H بزن و N خاموش باشد). قاب اول کاور است: بعد از هوک و معرفی کانال نشانش بده. نسخهٔ انگلیسی با همان ترتیب: [`deck-en.html`](../deck-en.html)',
              '- **تله‌پرامپتر:** [`teleprompter-fa.html`](teleprompter-fa.html) (Space پخش/توقف، ↑↓ سرعت، M آینه) یا [`teleprompter-fa.txt`](teleprompter-fa.txt)',
              '', '## نقشهٔ قاب‌ها', '', '| قاب | شروع | عنوان | روی صفحه |', '|---:|---|---|---|']
     sheet += [f'| {n} | {start} | {t} | `{s}` |' for n, start, _, t, s, _, _ in rows]

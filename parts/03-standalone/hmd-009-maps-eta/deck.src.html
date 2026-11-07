@@ -1,0 +1,189 @@
+<!-- HMD-009 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks. -->
+
+<style>
+/* toy road graph (beats 6 and 7): viewBox 1300×320, shown at up to 1664px wide */
+.chart.road{max-width:1300px}
+.chart.road line{stroke:#A9A49A;stroke-width:4}
+.chart.road line.msg{stroke:var(--amber);stroke-width:7}
+.chart.road circle{fill:var(--paper);stroke:var(--ink);stroke-width:3}
+.chart.road circle.hot{stroke:var(--amber);stroke-width:8}
+.chart.road circle.jam{fill:#C9C4B8}
+.chart.road text{font-size:26px;font-weight:700}
+.chart.road text.end{font-size:24px;font-weight:400;fill:var(--muted)}
+</style>
+
+<section class="cover">
+<h1><t-fa>گوگل‌مپس از کجا می‌فهمد <em>کی</em> می‌رسی؟</t-fa><t-en>How does Google Maps know <em>when</em> you will arrive?</t-en></h1>
+<p class="promise"><t-fa>از توضیح DeepMind تا یک شهر اسباب‌بازی: چهار روش پیش‌بینی زمان رسیدن در یک مسابقه.</t-fa><t-en>From DeepMind's description to a toy city: four ways to predict arrival time, in one race.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>زمان رسیدنت پیش‌بینیِ ترافیکی است که <em>هنوز نیامده</em>.</t-fa><t-en>Your ETA is a forecast of traffic that <em>doesn't exist yet</em>.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>الان · ۰۷:۳۰</t-fa><t-en>Now · 07:30</t-en></span><b class="word"><t-fa>خلوت</t-fa><t-en>Clear</t-en></b><p><t-fa>خیابان جلوی تو</t-fa><t-en>The street in front of you</t-en></p></div>
+<div class="hi"><span><t-fa>۱۰ دقیقهٔ دیگر</t-fa><t-en>In 10 minutes</t-en></span><b class="word"><t-fa>صف؟</t-fa><t-en>A queue?</t-en></b><p><t-fa>تقاطعی که به آن می‌رسی</t-fa><t-en>The junction you will reach</t-en></p></div>
+</div>
+<footer><t-fa>صحنه: رفت‌وآمد عمومی شهری · بدون دادهٔ اپ</t-fa><t-en>Scene: generic city commute · no app data</t-en></footer>
+<aside class="notes"><t-fa><b>ترافیکی که هنوز نیامده</b><p>[B-ROLL CUE] نمای داشبورد صبح در یک بزرگراه شهری (تصویر عمومی یا ضبط خودمان، بدون پلاک خوانا)؛ گوشی روی داشبورد با عدد ۲۲ دقیقه. بعد انیمیشن ساده: خیابان جلوی ماشین سبز، تقاطع بعدی خاکستری با برچسب «۱۰ دقیقهٔ بعد». کات روی «من محمدم…».</p><p>در یک جمله: زمان رسیدن، پیش‌بینیِ آینده است، نه عکسِ الان.</p></t-fa><t-en><b>Traffic that has not arrived yet</b><p>[B-ROLL CUE] A morning dashboard shot on a city highway (generic footage or our own, no readable plates); a phone on the dashboard showing 22 min. Then a simple animation: the street ahead of the car green, the next junction grey with a "+10 min" label. Cut on "I'm Mohammad…".</p><p>In one line: arrival time is a forecast of the future, not a snapshot of now.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="49">
+<p class="kicker"><t-fa>یک عدد، یک تصمیم</t-fa><t-en>One number, one decision</t-en></p>
+<h1><t-fa>یک عدد. یک تصمیم <em>هر روزه</em>.</t-fa><t-en>One number. One <em>daily</em> decision.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>امتحان ساعت ۸:۰۰</t-fa><t-en>Exam at 8:00</t-en></b><t-fa>الان راه بیفتم یا صبحانه بخورم؟</t-fa><t-en>Leave now or have breakfast?</t-en></div>
+<div class="hi"><b><t-fa>تاکسی اینترنتی</t-fa><t-en>Ride-hail</t-en></b><t-fa>راننده ۷ دقیقه · سفر ۲۲ دقیقه</t-fa><t-en>Driver 7 min · trip 22 min</t-en></div>
+<div><b><t-fa>جلسهٔ ساعت ۹:۰۰</t-fa><t-en>Meeting at 9:00</t-en></b><t-fa>زنگ بزنم بگویم دیر می‌رسم یا نه؟</t-fa><t-en>Call ahead to say I'll be late, or not?</t-en></div>
+</div>
+<p class="caption"><t-fa>این ۲۲ دقیقه از کجا آمده؟</t-fa><t-en>Where did these 22 minutes come from?</t-en></p>
+<footer><t-fa>تصمیم‌های روزمره · بدون لوگوی اپ</t-fa><t-en>Everyday decisions · no app logos</t-en></footer>
+<aside class="notes"><t-fa><b>یک عدد، یک تصمیم</b><p>[CAMERA CHANGE] نمای مدیوم راوی. روی دک سه کارت موقعیت روزمره: امتحان ساعت ۸ · تاکسی اینترنتی · جلسهٔ ساعت ۹. بدون لوگوی اپ‌ها.</p><p>در یک جمله: ETA عددی است که هر روز بر اساسش تصمیم می‌گیریم، پس ارزش دارد بدانیم از کجا می‌آید.</p></t-fa><t-en><b>One number, one decision</b><p>[CAMERA CHANGE] Medium shot of the narrator. Three everyday-situation cards on the deck: exam at 8 · ride-hail · meeting at 9. No app logos.</p><p>In one line: the ETA is a number we make decisions on every day, so it is worth knowing where it comes from.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="108">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<div class="stat"><b><t-fa>تا ۵۰٪</t-fa><t-en>Up to 50%</t-en></b><span><t-fa>دقیق‌تر شدن ETA زنده در جاهایی مثل برلین، جاکارتا، سائوپائولو، سیدنی، توکیو و واشنگتن</t-fa><t-en>more accurate live ETAs in places like Berlin, Jakarta, São Paulo, Sydney, Tokyo and Washington D.C.</t-en></span></div>
+<p class="sub"><t-fa>پیش از آن: دقیق برای بیش از ۹۷٪ سفرها · مقالهٔ CIKM 2021: بیش از ۴۰٪ کاهش پیامدهای منفی ETA در شهرهایی مثل سیدنی</t-fa><t-en>Before: accurate for over 97% of trips · CIKM 2021 paper: over 40% fewer negative ETA outcomes in cities like Sydney</t-en></p>
+<p class="tag"><t-fa>توضیح سال ۲۰۲۰ از یک سامانهٔ تاریخی · سامانهٔ خصوصی امروز منتشر نشده</t-fa><t-en>A 2020 description of a historical system · today's private system is not published</t-en></p>
+<footer><t-fa>R15 · بلاگ DeepMind، ۳ سپتامبر ۲۰۲۰ · Derrow-Pinion و همکاران، CIKM 2021</t-fa><t-en>R15 · DeepMind blog, 3 Sep 2020 · Derrow-Pinion et al., CIKM 2021</t-en></footer>
+<aside class="notes"><t-fa><b>منبع</b><p>[UNEXPECTED STAT] اول سؤال: «حدس بزن: مدل جدید چقدر بهتر شد؟» سه ثانیه مکث. بعد کارت منبع (بلاگ DeepMind، ۳ سپتامبر ۲۰۲۰) با «بیش از ۹۷٪ سفرها دقیق (پیش از آن)» و «تا ۵۰٪» و فهرست شهرها: برلین · جاکارتا · سائوپائولو · سیدنی · توکیو · واشنگتن.</p><p>در یک جمله: گوگل گزارش داده با یک مدل تازه، ETA را در بعضی شهرها تا پنجاه درصد دقیق‌تر کرده.</p></t-fa><t-en><b>The source</b><p>[UNEXPECTED STAT] Question first: "Guess: how much better did the new model get?" Pause three seconds. Then the source card (DeepMind blog, 3 Sep 2020) with "over 97% of trips accurate (before)", "up to 50%" and the list of cities: Berlin · Jakarta · São Paulo · Sydney · Tokyo · Washington D.C.</p><p>In one line: Google reports that a new model made ETAs up to fifty percent more accurate in some cities.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="185">
+<p class="kicker"><t-fa>تاریخچه و الان</t-fa><t-en>History and now</t-en></p>
+<h1><t-fa>دو مادهٔ اصلی: تاریخچه و <em>الان</em>.</t-fa><t-en>Two ingredients: history and <em>now</em>.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>مادهٔ ۱ · تاریخچه</t-fa><t-en>Ingredient 1 · History</t-en></span><b class="word"><t-fa>دوشنبه ۸:۰۰</t-fa><t-en>Mon 8:00</t-en></b><p><t-fa>یک روز معمولی چه شکلی است</t-fa><t-en>What a normal day looks like</t-en></p></div>
+<div class="hi"><span><t-fa>مادهٔ ۲ · زنده</t-fa><t-en>Ingredient 2 · Live</t-en></span><b class="word"><t-fa>همین الان</t-fa><t-en>Right now</t-en></b><p><t-fa>…ولی به تکهٔ ششم ۱۵ دقیقهٔ دیگر می‌رسی</t-fa><t-en>…but you reach segment 6 in 15 minutes</t-en></p></div>
+</div>
+<p class="tag"><t-fa>DeepMind: دادهٔ زنده ترافیکِ ۱۰، ۲۰ یا حتی ۵۰ دقیقه بعدِ مسیر را نشان نمی‌دهد</t-fa><t-en>DeepMind: live data does not show the traffic 10, 20 or even 50 minutes into a drive</t-en></p>
+<footer><t-fa>R15 · بلاگ DeepMind، ۳ سپتامبر ۲۰۲۰</t-fa><t-en>R15 · DeepMind blog, 3 Sep 2020</t-en></footer>
+<aside class="notes"><t-fa><b>تاریخچه و الان</b><p>[GRAPHIC] دو ستون. چپ: منحنی میانگین ترافیک دوشنبه‌ها ساعت ۶ تا ۱۰ صبح (ILLUSTRATIVE). راست: نوار سرعت زندهٔ همین لحظه. زیر ستون راست، خط کهربایی: «ولی ۱۵ دقیقهٔ دیگر می‌رسی».</p><p>در یک جمله: تاریخچه روز معمولی را می‌داند، الان امروز را؛ هیچ‌کدام به‌تنهایی آینده را نمی‌داند.</p></t-fa><t-en><b>History and now</b><p>[GRAPHIC] Two columns. Left: the average Monday traffic curve from 6 to 10 a.m. (ILLUSTRATIVE). Right: a live speed bar for this moment. Under the right column, an amber line: "but you arrive in 15 min".</p><p>In one line: history knows a normal day, now knows today; neither knows the future on its own.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="252">
+<p class="kicker"><t-fa>مادهٔ سوم: همسایه‌ها</t-fa><t-en>Ingredient 3: neighbours</t-en></p>
+<h1><t-fa>ترافیک مثل موج <em>رو به عقب</em> می‌رود.</t-fa><t-en>Traffic jams travel <em>backwards</em>.</t-en></h1>
+<div class="tokens mono" dir="ltr"><i>R1</i><i>R2</i><i>R3</i><i>R4</i><i class="off">R5</i><i class="hi">R6</i><i class="hi">R7</i><i class="hi">R8</i><i>D</i></div>
+<p class="sub"><t-fa>صف از گلوگاه رو به تو بزرگ می‌شود. وضعیت R4 در ده دقیقهٔ بعد، الان در R5 و R6 نوشته شده.</t-fa><t-en>The queue grows from the bottleneck toward you. R4 in ten minutes is written in R5 and R6 now.</t-en></p>
+<p class="caption"><t-fa>اگر این‌جور باز کردن الگوریتم‌های روزمره به کارت می‌آید، هومودین هر هفته یکی را باز می‌کند.</t-fa><t-en>If this kind of opening up of everyday algorithms is useful to you, Homodyne opens one every week.</t-en></p>
+<footer><t-fa>فیزیک ترافیک، به زبان تصویر</t-fa><t-en>Traffic physics, illustrated</t-en></footer>
+<aside class="notes"><t-fa><b>موج ترافیک</b><p>[CAMERA CHANGE] کات به نمای نزدیک برای CTA. بعد [B-ROLL CUE] نمای هوایی (آرشیوی با مجوز یا انیمیشن) از صفی که از یک خروجی به عقب کش می‌آید؛ روی دک: نوارهای قرمز که هر چند ثانیه یک تکه عقب‌تر می‌روند.</p><p>در یک جمله: آیندهٔ یک خیابان، در وضعیت الانِ همسایه‌هایش نوشته شده.</p></t-fa><t-en><b>The traffic wave</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [B-ROLL CUE] an aerial shot (licensed archive or animation) of a queue stretching back from an exit; on the deck: red bars that move one segment further back every few seconds.</p><p>In one line: a street's future is written in its neighbours' present.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="319">
+<p class="kicker"><t-fa>گراف و پیام</t-fa><t-en>Graph and messages</t-en></p>
+<h1><t-fa>هر تکهٔ خیابان به <em>همسایه‌هایش</em> گوش می‌دهد.</t-fa><t-en>Each segment listens to its <em>neighbours</em>.</t-en></h1>
+<div dir="ltr"><svg class="chart road" viewBox="0 0 1300 320" role="img" aria-label="Toy road graph: 8 route segments, 4 side streets, a bottleneck">
+<line x1="80" y1="200" x2="220" y2="200"/><line x1="220" y1="200" x2="360" y2="200"/><line x1="360" y1="200" x2="500" y2="200"/><line x1="500" y1="200" x2="640" y2="200"/><line x1="640" y1="200" x2="780" y2="200"/><line x1="780" y1="200" x2="920" y2="200"/><line x1="920" y1="200" x2="1060" y2="200"/><line x1="1060" y1="200" x2="1240" y2="200"/>
+<line x1="360" y1="78" x2="360" y2="200"/><line x1="640" y1="78" x2="640" y2="200"/><line x1="920" y1="78" x2="920" y2="200"/><line x1="1060" y1="78" x2="1060" y2="200"/>
+<line class="msg" x1="612" y1="200" x2="530" y2="200"/><line class="msg" x1="388" y1="200" x2="470" y2="200"/>
+<circle cx="80" cy="200" r="26"/><circle cx="220" cy="200" r="26"/><circle cx="360" cy="200" r="26"/><circle class="hot" cx="500" cy="200" r="26"/><circle cx="640" cy="200" r="26"/><circle cx="780" cy="200" r="26"/><circle cx="920" cy="200" r="26"/><circle cx="1060" cy="200" r="26"/><circle class="jam" cx="1240" cy="200" r="26"/>
+<circle cx="360" cy="60" r="18"/><circle cx="640" cy="60" r="18"/><circle cx="920" cy="60" r="18"/><circle cx="1060" cy="60" r="18"/>
+<text x="80" y="264" text-anchor="middle">R1</text><text x="220" y="264" text-anchor="middle">R2</text><text x="360" y="264" text-anchor="middle">R3</text><text x="500" y="264" text-anchor="middle">R4</text><text x="640" y="264" text-anchor="middle">R5</text><text x="780" y="264" text-anchor="middle">R6</text><text x="920" y="264" text-anchor="middle">R7</text><text x="1060" y="264" text-anchor="middle">R8</text><text x="1240" y="264" text-anchor="middle">D</text>
+<text x="388" y="69">S3</text><text x="668" y="69">S5</text><text x="948" y="69">S7</text><text x="1088" y="69">S8</text>
+<text class="end" x="54" y="310"><t-fa>خانه</t-fa><t-en>Home</t-en></text><text class="end" x="1270" y="310" text-anchor="end"><t-fa>محل کار، گلوگاه</t-fa><t-en>Office, bottleneck</t-en></text>
+</svg></div>
+<p class="caption"><t-fa>پیام‌رسانی: دور اول از همسایه‌ها، دور دوم از همسایه‌های همسایه.</t-fa><t-en>Message passing: round one from the neighbours, round two from the neighbours' neighbours.</t-en></p>
+<p class="tag"><t-fa>supersegment (اصطلاح DeepMind): چند تکهٔ مجاور با حجم ترافیک مشترکِ قابل‌توجه</t-fa><t-en>Supersegment (DeepMind's term): adjacent segments that share significant traffic volume</t-en></p>
+<footer><t-fa>R15 · بلاگ DeepMind، ۳ سپتامبر ۲۰۲۰ · supersegments</t-fa><t-en>R15 · DeepMind blog, 3 Sep 2020 · supersegments</t-en></footer>
+<aside class="notes"><t-fa><b>گراف و پیام</b><p>[GRAPHIC] انیمیشن گراف: ۸ دایرهٔ مسیر (R1 تا R8) + ۴ خیابان فرعی + گلوگاه D. دور اول: هر دایره از همسایه‌های مستقیمش «پیام» می‌گیرد (فلش‌های کهربایی). دور دوم: از همسایه‌های همسایه. زیرش: تعریف supersegment از DeepMind.</p><p>در یک جمله: شبکهٔ عصبی گرافی به هر تکه خیابان یاد می‌دهد از همسایه‌هایش خبر بگیرد.</p></t-fa><t-en><b>Graph and messages</b><p>[GRAPHIC] Graph animation: 8 route circles (R1 to R8) + 4 side streets + bottleneck D. Round one: each circle receives a "message" from its direct neighbours (amber arrows). Round two: from the neighbours' neighbours. Below: DeepMind's definition of a supersegment.</p><p>In one line: a graph neural network teaches every road segment to get news from its neighbours.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="394">
+<p class="kicker"><t-fa>نقشهٔ کوچک ما</t-fa><t-en>Our small map</t-en></p>
+<h1><t-fa>شهر اسباب‌بازی: مسیر ۱۲ کیلومتری · ۸ تکه · ۴ خیابان فرعی</t-fa><t-en>Toy city: 12 km route · 8 segments · 4 side streets</t-en></h1>
+<div dir="ltr"><svg class="chart road" viewBox="0 0 1300 320" role="img" aria-label="Toy road graph: 8 route segments, 4 side streets, a bottleneck">
+<line x1="80" y1="200" x2="220" y2="200"/><line x1="220" y1="200" x2="360" y2="200"/><line x1="360" y1="200" x2="500" y2="200"/><line x1="500" y1="200" x2="640" y2="200"/><line x1="640" y1="200" x2="780" y2="200"/><line x1="780" y1="200" x2="920" y2="200"/><line x1="920" y1="200" x2="1060" y2="200"/><line x1="1060" y1="200" x2="1240" y2="200"/>
+<line x1="360" y1="78" x2="360" y2="200"/><line x1="640" y1="78" x2="640" y2="200"/><line x1="920" y1="78" x2="920" y2="200"/><line x1="1060" y1="78" x2="1060" y2="200"/>
+<circle cx="80" cy="200" r="26"/><circle cx="220" cy="200" r="26"/><circle cx="360" cy="200" r="26"/><circle cx="500" cy="200" r="26"/><circle cx="640" cy="200" r="26"/><circle class="jam" cx="780" cy="200" r="26"/><circle class="jam" cx="920" cy="200" r="26"/><circle class="jam" cx="1060" cy="200" r="26"/><circle class="jam" cx="1240" cy="200" r="26"/>
+<circle cx="360" cy="60" r="18"/><circle cx="640" cy="60" r="18"/><circle cx="920" cy="60" r="18"/><circle cx="1060" cy="60" r="18"/>
+<text x="80" y="264" text-anchor="middle">R1</text><text x="220" y="264" text-anchor="middle">R2</text><text x="360" y="264" text-anchor="middle">R3</text><text x="500" y="264" text-anchor="middle">R4</text><text x="640" y="264" text-anchor="middle">R5</text><text x="780" y="264" text-anchor="middle">R6</text><text x="920" y="264" text-anchor="middle">R7</text><text x="1060" y="264" text-anchor="middle">R8</text><text x="1240" y="264" text-anchor="middle">D</text>
+<text x="388" y="69">S3</text><text x="668" y="69">S5</text><text x="948" y="69">S7</text><text x="1088" y="69">S8</text>
+<text class="end" x="54" y="310"><t-fa>خانه</t-fa><t-en>Home</t-en></text><text class="end" x="1270" y="310" text-anchor="end"><t-fa>محل کار، گلوگاه</t-fa><t-en>Office, bottleneck</t-en></text>
+</svg></div>
+<p class="caption"><t-fa>۶۰ روز کاری ساختگی: روز ۱ تا ۴۵ آموزش، روز ۴۶ تا ۶۰ آزمون؛ هیچ مدلی آینده را نمی‌بیند.</t-fa><t-en>60 synthetic workdays: days 1 to 45 train, days 46 to 60 test; no model sees the future.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>ترافیک ساختگی · نه دادهٔ گوگل · نه دادهٔ تهران</t-fa><t-en>Synthetic traffic · not Google data · not Tehran data</t-en></p>
+<footer><t-fa>artifact/eta_toy.py · seed 2026 · ترافیک ساختگی</t-fa><t-en>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic</t-en></footer>
+<aside class="notes"><t-fa><b>نقشهٔ کوچک ما</b><p>[B-ROLL CUE] ضبط صفحه از باز کردن artifact/eta_toy.py و بالا آمدن نقشهٔ گراف روی دک. برچسب بزرگ و ثابت ILLUSTRATIVE: ترافیک ساختگی، نه دادهٔ گوگل، نه دادهٔ تهران. نوار زمانی ۶۰ روز: ۴۵ روز اول آموزش، ۱۵ روز آخر آزمون (کهربایی).</p><p>در یک جمله: یک شهر ساختگی با ترافیکی ساختیم که رو به عقب پخش می‌شود، و آموزش و آزمون را با زمان جدا کردیم.</p></t-fa><t-en><b>Our small map</b><p>[B-ROLL CUE] Screen recording of opening artifact/eta_toy.py and the graph map coming up on the deck. A large, fixed ILLUSTRATIVE label: synthetic traffic, not Google data, not Tehran data. A 60-day timeline: the first 45 days train, the last 15 days test (amber).</p><p>In one line: we built a synthetic city whose traffic spreads backwards, and split training and testing by time.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="464">
+<p class="kicker"><t-fa>رتبه‌ها را حدس بزن</t-fa><t-en>Guess the ranking</t-en></p>
+<h1><t-fa>چهار پیش‌بین، یک امتحان</t-fa><t-en>Four predictors, one exam</t-en></h1>
+<div class="cards">
+<div><b><t-fa>۱ · سرعت ثابت</t-fa><t-en>1 · Constant</t-en></b><t-fa>یک سرعت متوسط برای کل مسیر</t-fa><t-en>One average speed for the whole route</t-en></div>
+<div><b><t-fa>۲ · تاریخچه</t-fa><t-en>2 · Historical</t-en></b><t-fa>میانگین هر تکه در همین ساعت از روزهای قبل</t-fa><t-en>Each segment's average at this time on earlier days</t-en></div>
+<div><b><t-fa>۳ · فقط الان</t-fa><t-en>3 · Live-now</t-en></b><t-fa>سرعت لحظهٔ حرکت را تا آخر سفر ثابت فرض کن</t-fa><t-en>Freeze the speeds at departure for the whole trip</t-en></div>
+<div class="hi"><b><t-fa>۴ · همسایه‌ها</t-fa><t-en>4 · Neighbour-aware</t-en></b><t-fa>تاریخچه + اصلاحِ یادگرفته از وضعیت زندهٔ خود و همسایه‌ها (۲ دور)</t-fa><t-en>History + a learned correction from its own and its neighbours' live state (2 rounds)</t-en></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>اصلاح فقط از ۴۵ روز آموزشی یاد گرفته شده</t-fa><t-en>The correction is learned from the 45 training days only</t-en></p>
+<footer><t-fa>artifact/eta_toy.py · seed 2026 · ترافیک ساختگی</t-fa><t-en>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic</t-en></footer>
+<aside class="notes"><t-fa><b>چهار پیش‌بین</b><p>[CAMERA CHANGE] نمای نزدیک راوی هنگام «حدس بزن». روی دک چهار کارت، هر کدام یک خط توضیح؛ کارت چهارم کهربایی. شمارش معکوس ۳ ثانیه‌ای برای حدس.</p><p>در یک جمله: سرعت ثابت، تاریخچه، الان، و همسایه‌ها؛ چهار پیش‌بین، یک امتحان.</p></t-fa><t-en><b>Four predictors</b><p>[CAMERA CHANGE] Close-up of the narrator on "guess". Four cards on the deck, one line each; the fourth card is amber. A 3-second countdown for the guess.</p><p>In one line: constant speed, history, now, and neighbours; four predictors, one exam.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="526">
+<p class="kicker"><t-fa>میانگین خطای مطلق، به دقیقه</t-fa><t-en>Mean absolute error, in minutes</t-en></p>
+<div class="bars">
+<div><span><t-fa>سرعت ثابت</t-fa><t-en>Constant</t-en></span><i style="--v:100"></i><span><t-fa>۳٫۴۳</t-fa><t-en>3.43</t-en></span></div>
+<div><span><t-fa>تاریخچه</t-fa><t-en>Historical</t-en></span><i style="--v:50"></i><span><t-fa>۱٫۷۲</t-fa><t-en>1.72</t-en></span></div>
+<div><span><t-fa>فقط الان</t-fa><t-en>Live-now</t-en></span><i style="--v:33"></i><span><t-fa>۱٫۱۳</t-fa><t-en>1.13</t-en></span></div>
+<div class="hi"><span><t-fa>همسایه‌ها</t-fa><t-en>Neighbour-aware</t-en></span><i style="--v:16"></i><span><t-fa>۰٫۵۶</t-fa><t-en>0.56</t-en></span></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>اوج ۰۷:۱۵ تا ۰۸:۴۵: ۳٫۱۶ · ۲٫۴۴ · ۱٫۸۴ · ۰٫۸۵ · همسایه‌ها در ۲۰ از ۲۰ seed دیگر بهترین</t-fa><t-en>Rush 07:15 to 08:45: 3.16 · 2.44 · 1.84 · 0.85 · neighbour-aware best in 20 of 20 extra seeds</t-en></p>
+<footer><t-fa>artifact/eta_toy.py · seed 2026 · ترافیک ساختگی · ۵۵۵ سفر آزمون · میانگین سفر ۱۵٫۸ دقیقه</t-fa><t-en>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic · 555 test trips · mean trip 15.8 min</t-en></footer>
+<aside class="notes"><t-fa><b>نتیجه</b><p>[CAMERA CHANGE] نمای نزدیک راوی برای جملهٔ re-hook؛ بعد ضبط اجرای واقعی python3 artifact/eta_toy.py؛ سپس نمودار میله‌ای روی دک. [SOUND EFFECT] صدای کوتاه هنگام ظاهر شدن میلهٔ آخر. [UNEXPECTED STAT] کارت «۲۰ از ۲۰ seed دیگر: همسایه‌ها بهترین». برچسب ILLUSTRATIVE.</p><p>در یک جمله: در شهر ساختگی ما، گوش‌دادن به همسایه‌ها خطا را نصف کرد.</p></t-fa><t-en><b>The result</b><p>[CAMERA CHANGE] Close-up of the narrator for the re-hook line; then a recording of the real run of python3 artifact/eta_toy.py; then the bar chart on the deck. [SOUND EFFECT] A short sound as the last bar appears. [UNEXPECTED STAT] The card "20 of 20 extra seeds: neighbour-aware best". ILLUSTRATIVE label.</p><p>In one line: in our synthetic city, listening to the neighbours halved the error.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="614">
+<p class="kicker"><t-fa>دو صبح، دو اشتباه</t-fa><t-en>Two mornings, two mistakes</t-en></p>
+<div class="cols">
+<div><span><t-fa>۰۷:۴۵ · صف در حال ساخته شدن</t-fa><t-en>07:45 · Jam building</t-en></span><b><t-fa>۲۴٫۰ <small>دقیقه، واقعی</small></t-fa><t-en>24.0 <small>min actual</small></t-en></b><p><t-fa>فقط الان ۱۸٫۱ · تاریخچه ۲۱٫۱ · همسایه‌ها ۲۰٫۶ · سرعت ثابت ۱۶٫۶</t-fa><t-en>Live-now 18.1 · historical 21.1 · neighbour-aware 20.6 · constant 16.6</t-en></p></div>
+<div class="hi"><span><t-fa>۰۸:۳۰ · صف در حال باز شدن</t-fa><t-en>08:30 · Jam clearing</t-en></span><b><t-fa>۲۲٫۶ <small>دقیقه، واقعی</small></t-fa><t-en>22.6 <small>min actual</small></t-en></b><p><t-fa>فقط الان ۲۹٫۹ (بدتر از سرعت ثابت با ۱۶٫۶) · همسایه‌ها ۲۴٫۸</t-fa><t-en>Live-now 29.9 (worse than constant at 16.6) · neighbour-aware 24.8</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>«الان» در هر دو جهت اشتباه می‌کند</t-fa><t-en>"Now" goes wrong in both directions</t-en></p>
+<footer><t-fa>artifact/eta_toy.py · seed 2026 · ترافیک ساختگی · روزهای آزمون ۵۴ و ۶۰</t-fa><t-en>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic · test days 54 and 60</t-en></footer>
+<aside class="notes"><t-fa><b>دو صبح، دو اشتباه</b><p>[CAMERA CHANGE] کات به نمای مدیوم. بعد [GRAPHIC] دو کارت کنار هم: صبح ۷:۴۵ (صف در حال ساخته شدن) و ۸:۳۰ (صف در حال باز شدن)؛ عدد «واقعی» کهربایی. ILLUSTRATIVE.</p><p>در یک جمله: «الان» گاهی ترافیک آینده را نمی‌بیند و گاهی ترافیکی را می‌بیند که دیگر نیست.</p></t-fa><t-en><b>Two mornings, two mistakes</b><p>[CAMERA CHANGE] Cut to a medium shot. Then [GRAPHIC] two cards side by side: 7:45 (jam building) and 8:30 (jam clearing); the "actual" number in amber. ILLUSTRATIVE.</p><p>In one line: "now" sometimes misses the traffic ahead and sometimes sees traffic that is already gone.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="702">
+<p class="kicker"><t-fa>بدبینی سالم</t-fa><t-en>Healthy scepticism</t-en></p>
+<h1><t-fa>دنیایی ساختیم که در آن همسایه‌ها مهم‌اند. معلوم است که <em>بردند</em>.</t-fa><t-en>We built a world where neighbours matter. Of course they <em>won</em>.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>ماکت ما</t-fa><t-en>Our toy</t-en></span><p><t-fa>نشان می‌دهد این ایده چرا می‌تواند کار کند</t-fa><t-en>Shows why the idea can work</t-en></p></div>
+<div class="hi"><span><t-fa>سامانهٔ واقعی</t-fa><t-en>The real system</t-en></span><p><t-fa>سنجیده‌شده روی سفرهای واقعی · GNNها به روش آموزش حساس‌اند · MetaGradients نرخ یادگیری را تنظیم می‌کند</t-fa><t-en>Measured on real trips · GNNs are sensitive to the training curriculum · MetaGradients adapt the learning rate</t-en></p></div>
+</div>
+<footer><t-fa>R15 · بلاگ DeepMind، ۳ سپتامبر ۲۰۲۰</t-fa><t-en>R15 · DeepMind blog, 3 Sep 2020</t-en></footer>
+<aside class="notes"><t-fa><b>بدبینی سالم</b><p>[CAMERA CHANGE] نمای ثابت و نزدیک، لحن آرام. روی دک دو ستون: ماکت ما / سامانهٔ واقعی؛ زیر ستون دوم: حساسیت GNN به روش آموزش و MetaGradients برای تنظیم نرخ یادگیری (DeepMind).</p><p>در یک جمله: ماکت سازوکار را نشان می‌دهد، عدد واقعی از سنجش روی سفرهای واقعی می‌آید.</p></t-fa><t-en><b>Healthy scepticism</b><p>[CAMERA CHANGE] A still close shot, calm tone. Two columns on the deck: our toy / the real system; under the second column: GNN sensitivity to the training curriculum and MetaGradients to adapt the learning rate (DeepMind).</p><p>In one line: the toy shows the mechanism; the real number comes from measuring real trips.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="764">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>زمان رسیدن یک پیش‌بینی است. سرعت الان به‌تنهایی می‌تواند در هر دو جهت گمراه کند. در یک دنیای ساختگی، خبرِ همسایه‌ها خطا را کم کرد.</t-fa><t-en>An ETA is a forecast. Live speed alone can mislead in both directions. In a synthetic world, information from the neighbours cut the error.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>گوگل‌مپس امروز دقیقاً چطور کار می‌کند (توضیح مال ۲۰۲۰ است) · هیچ چیز دربارهٔ ترافیک تهران · عدد «نصف شدن خطا» بیرون از ماکت ما</t-fa><t-en>How Google Maps works today (the description is from 2020) · anything about Tehran traffic · the "half the error" number outside our toy</t-en></div>
+</div>
+<footer><t-fa>مرز ادعای HMD-009</t-fa><t-en>HMD-009 claim boundary</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[GRAPHIC] کارت مرز ادعا در دک؛ موسیقی پایین.</p><p>در یک جمله: سازوکار را نشان دادیم، نه کارایی واقعی یک اپ خاص یا یک شهر خاص.</p></t-fa><t-en><b>Claim boundary</b><p>[GRAPHIC] The claim-boundary card on the deck; music low.</p><p>In one line: we showed the mechanism, not the real performance of a particular app or a particular city.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-13" data-start="805">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>ETA = تاریخچه + الان + <em>همسایه‌ها</em> ← یک پیش‌بینی</t-fa><t-en>ETA = history + live + <em>neighbours</em> → a forecast</t-en></h1>
+<div class="steps">
+<div><b><t-fa>روز ۱ تا ۵</t-fa><t-en>Days 1 to 5</t-en></b><t-fa>وقت راه افتادن، عدد اپ را یادداشت کن</t-fa><t-en>When you leave, note the app's ETA</t-en></div>
+<div><b><t-fa>وقت رسیدن</t-fa><t-en>On arrival</t-en></b><t-fa>زمان واقعی را یادداشت کن</t-fa><t-en>Note the real time</t-en></div>
+<div class="hi"><b><t-fa>مقایسه کن</t-fa><t-en>Compare</t-en></b><t-fa>شروع شلوغی در برابر آخر شلوغی</t-fa><t-en>Start of the rush vs. end of the rush</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-009</t-fa><t-en>Answer · HMD-009</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>[B-ROLL CUE] برگشت به همان نمای داشبورد قاب ۱؛ این بار روی تصویر سه برچسب کوچک: تاریخچه · الان · همسایه‌ها. کارت تمرین پنج‌روزه.</p><p>در یک جمله: ETA ترکیب تاریخچه، الان و همسایه‌هاست، و هنوز یک پیش‌بینی است.</p></t-fa><t-en><b>The answer</b><p>[B-ROLL CUE] Back to the same dashboard shot from beat 1; this time three small labels on the image: history · live · neighbours. The five-day exercise card.</p><p>In one line: the ETA combines history, now and the neighbours, and it is still a forecast.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="853">
+<p class="kicker"><t-fa>قسمت بعد · HMD-010</t-fa><t-en>Next · HMD-010</t-en></p>
+<h1><t-fa>ETA غلط چند دقیقه هزینه دارد. جواب غلط AI می‌تواند <em>بیشتر</em>.</t-fa><t-en>A wrong ETA costs minutes. A wrong AI answer can cost <em>more</em>.</t-en></h1>
+<p class="sub"><t-fa>کنکور نمرهٔ منفی دارد. آیا جریمه می‌تواند به AI یاد بدهد بگوید «نمی‌دانم»؟</t-fa><t-en>The Konkur uses negative marking. Can a penalty teach an AI to say "I don't know"?</t-en></p>
+<footer><t-fa>قسمت بعد · HMD-010 · بنچمارک E05</t-fa><t-en>Next · HMD-010 · Benchmark E05</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] صدای کوتاه زنگ مدرسه یا جلسهٔ امتحان؛ کارت End screen به HMD-010 با تصویر پاسخ‌برگ کنکور.</p><p>در یک جمله: قسمت بعد، نمرهٔ منفی می‌تواند AI را محتاط‌تر کند؟</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] A short school or exam-hall bell; End screen card to HMD-010 with an image of a Konkur answer sheet.</p><p>In one line: next, can negative marking make an AI more cautious?</p></t-en></aside>
+</section>

@@ -14,7 +14,9 @@
 | [`script-fa.md`](script-fa.md) | متن ضبط v5، ۱۴ قاب (قاب ۱۱: NOT RUN YET + شاهد بیرونی) |
 | [`hooks-fa.md`](hooks-fa.md) | پنج هوک + توصیه (برنده: Story-Open) |
 | [`package-fa.md`](package-fa.md) | بستهٔ انتشار کامل |
-| [`deck.html`](deck.html) | دک ضبط، ۱۴ قاب |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [`sources.md`](sources.md) | R33، OWASP LLM01، Hines 2024، Greshake 2023 |
 | [`artifact/injection_lab.py`](artifact/injection_lab.py) | آزمایشگاه آفلاین: ابزار قلابی، چهار حالت (baseline، spotlight، least_privilege، combined)، سنجه‌ها، trace |
 | [`artifact/cases.json`](artifact/cases.json) | ۲۰ سند ساختگی: ۱۲ حمله (۷ ابزاری، ۵ فقط-جواب)، ۸ سالم |

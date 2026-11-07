@@ -1,0 +1,188 @@
+<!-- HMD-014 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks. -->
+
+<section class="cover">
+<h1><t-fa>این جدول درست است؛ چرا <em>گمراه‌کننده</em> است؟</t-fa><t-en>Every number in this table is right. Why does it <em>mislead</em>?</t-en></h1>
+<p class="promise"><t-fa>از یک جدول بی‌غلط، چهار تیتر راست با برنده‌های متفاوت؛ و سه سؤال که جلوی هر جدولی کار می‌کند.</t-fa><t-en>From one error-free table, four true headlines with different winners, and three questions that work on any table.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>همهٔ عددهای این جدول درست است. <em>برنده</em> را انتخاب کن.</t-fa><t-en>Every number in this table is correct. Pick a <em>winner</em>.</t-en></h1>
+<div class="code"><span class="c">system subset  questions answered correct  acc_answered</span>
+A      easy         600      600     570   95.0%
+A      hard         400      390     234   60.0%
+<span class="o">A      ALL         1000      990     804   81.2%</span>
+B      easy         600      590     555   94.1%
+B      hard         400       60      33   55.0%
+<span class="o">B      ALL         1000      650     588   90.5%</span></div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>عددهای آموزشی از artifact/mislead_lab.py · هیچ مدلی صدا زده نشد</t-fa><t-en>Teaching numbers from artifact/mislead_lab.py · no model was called</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۱</t-fa><t-en>artifact/mislead_lab.py · section 1</t-en></footer>
+<aside class="notes"><t-fa><b>یک جدول، هر برنده‌ای که بخواهی</b><p>[GRAPHIC] جدول شش‌ردیفی بخش ۱ خروجی mislead_lab.py روی زمینهٔ تیره، ردیف به ردیف ظاهر می‌شود؛ دو ردیف ALL کهربایی. برچسب ثابت: ILLUSTRATIVE · no model was called. کات تند روی «من محمدم…».</p><p>یه جدول بی‌غلط هم می‌تونه برندهٔ اشتباه رو نشونت بده.</p></t-fa><t-en><b>One table, any winner you like</b><p>[GRAPHIC] The six-row table from section 1 of the mislead_lab.py output on a dark background, appearing row by row; the two ALL rows amber. Fixed label: ILLUSTRATIVE · no model was called. Hard cut on “I'm Mohammad…”.</p><p>Even a table without a single error can show you the wrong winner.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="49">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<h1><t-fa>کدام <em>بهتر</em> است؟</t-fa><t-en>Which one is <em>better</em>?</t-en></h1>
+<div class="cols">
+<div><span><t-fa>دقت روی جواب‌ها · کل</t-fa><t-en>Accuracy on answered · all</t-en></span><b><t-fa>A ۸۱٫۲٪</t-fa><t-en>A 81.2<small>%</small></t-en></b><p><t-fa>B ۹۰٫۵٪ ← B بهتر به نظر می‌رسد</t-fa><t-en>B 90.5% → B looks better</t-en></p></div>
+<div class="hi"><span><t-fa>فقط سؤال‌های آسان</t-fa><t-en>Easy questions only</t-en></span><b><t-fa>A ۹۵٫۰٪</t-fa><t-en>A 95.0<small>%</small></t-en></b><p><t-fa>B ۹۴٫۱٪ ← A</t-fa><t-en>B 94.1% → A</t-en></p></div>
+<div class="hi"><span><t-fa>فقط سؤال‌های سخت</t-fa><t-en>Hard questions only</t-en></span><b><t-fa>A ۶۰٫۰٪</t-fa><t-en>A 60.0<small>%</small></t-en></b><p><t-fa>B ۵۵٫۰٪ ← A</t-fa><t-en>B 55.0% → A</t-en></p></div>
+</div>
+<p class="caption"><t-fa>A در هر گروه می‌برد و در جمع می‌بازد.</t-fa><t-en>A wins every group and loses overall.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>عددهای آموزشی از artifact/mislead_lab.py · هیچ مدلی صدا زده نشد</t-fa><t-en>Teaching numbers from artifact/mislead_lab.py · no model was called</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۲</t-fa><t-en>artifact/mislead_lab.py · section 2</t-en></footer>
+<aside class="notes"><t-fa><b>کدام بهتر است؟ حدس بزن</b><p>[GRAPHIC] دو ستون بزرگ A و B؛ شمارش معکوس ۳ ثانیه برای حدس. بعد [SOUND EFFECT] صدای «شکستن» و هر ستون به دو تکهٔ easy / hard تقسیم می‌شود؛ هر دو تکهٔ A کهربایی.</p><p>یه مدل می‌تونه تو هر تکه برنده باشه و تو جمع ببازه.</p></t-fa><t-en><b>Which is better? Guess</b><p>[GRAPHIC] Two big columns, A and B; a 3-second countdown for the guess. Then [SOUND EFFECT] a “crack” and each column splits into easy / hard pieces; both of A's pieces amber.</p><p>A model can win every piece and lose the total.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="113">
+<p class="kicker"><t-fa>مخرج‌ها یکی نیستند</t-fa><t-en>The denominators differ</t-en></p>
+<h1><t-fa>همان جدول. <em>مخرج‌های</em> متفاوت.</t-fa><t-en>Same table. Different <em>denominators</em>.</t-en></h1>
+<div class="bars">
+<div><span><t-fa>A · سهم سؤال سخت از جواب‌ها</t-fa><t-en>A · hard share of answers</t-en></span><i style="--v:39"></i><span><t-fa>۳۹٪</t-fa><t-en>39%</t-en></span></div>
+<div class="hi"><span><t-fa>B · سهم سؤال سخت از جواب‌ها</t-fa><t-en>B · hard share of answers</t-en></span><i style="--v:9"></i><span><t-fa>۹٪</t-fa><t-en>9%</t-en></span></div>
+</div>
+<p class="caption"><t-fa>B دقیق‌تر نیست؛ فقط امتحان آسان‌تری برای خودش انتخاب کرده.</t-fa><t-en>B is not more accurate; it just picked an easier exam for itself.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>سؤال سخت جواب‌داده: A ۳۹۰ از ۴۰۰ · B ۶۰ از ۴۰۰ · نامش: پارادوکس سیمپسون</t-fa><t-en>Hard questions answered: A 390 of 400 · B 60 of 400 · its name: Simpson's paradox</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۲</t-fa><t-en>artifact/mislead_lab.py · section 2</t-en></footer>
+<aside class="notes"><t-fa><b>مخرج‌ها یکی نیستند</b><p>[GRAPHIC] دو میلهٔ «سهم سؤال سخت از جواب‌ها»: A ۳۹٪، B ۹٪ (کهربایی). اصطلاح Simpson's paradox فقط بعد از مثال، روی صفحه می‌آید.</p><p>وقتی هر مدل به سؤال‌های متفاوتی جواب داده، عدد کل مهارت رو با انتخاب سؤال قاطی می‌کنه.</p></t-fa><t-en><b>The denominators differ</b><p>[GRAPHIC] Two bars, “hard share of answers”: A 39%, B 9% (amber). The term Simpson's paradox appears on screen only after the example.</p><p>When each model answered different questions, the overall number mixes skill with question choice.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="175">
+<p class="kicker"><t-fa>برکلی، پاییز ۱۹۷۳</t-fa><t-en>Berkeley, fall 1973</t-en></p>
+<div class="cols">
+<div><span><t-fa>مردان · پاییز ۱۹۷۳</t-fa><t-en>Men · fall 1973</t-en></span><b><t-fa>۴۴٪ <small>پذیرش</small></t-fa><t-en>44<small>% admitted</small></t-en></b><p><t-fa>۸٬۴۴۲ متقاضی</t-fa><t-en>8,442 applicants</t-en></p></div>
+<div><span><t-fa>زنان · پاییز ۱۹۷۳</t-fa><t-en>Women · fall 1973</t-en></span><b><t-fa>۳۵٪ <small>پذیرش</small></t-fa><t-en>35<small>% admitted</small></t-en></b><p><t-fa>۴٬۳۲۱ متقاضی</t-fa><t-en>4,321 applicants</t-en></p></div>
+</div>
+<p class="caption"><t-fa>با تفکیک رشته‌ها: زنان بیشتر سراغ رشته‌های سخت‌گیرتر رفته بودند. شکاف کل دیده نشد؛ سوگیری کوچکی <em>به نفع زنان</em> پیدا شد.</t-fa><t-en>Split by department: women had applied more to the stricter departments. The overall gap did not show; a small bias <em>in favour of women</em> appeared.</t-en></p>
+<footer>Bickel, Hammel &amp; O'Connell · Science 187 (1975) 398–404 · via Wikipedia / Reinhart (S1, S4)</footer>
+<aside class="notes"><t-fa><b>برکلی، پاییز ۱۹۷۳</b><p>[B-ROLL CUE] نمای عمومی و بی‌نام از یک پردیس دانشگاهی و برگه‌های درخواست بازسازی‌شده (بدون سند واقعی). بعد [UNEXPECTED STAT] کارت منبع: Bickel، Hammel و O'Connell · Science، ۱۹۷۵؛ عدد ۴۴٪ و ۳۵٪، سپس دو پیکان «رشتهٔ سخت / رشتهٔ آسان».</p><p>تو برکلی هم عدد کل درست بود، ولی بدون تفکیک رشته‌ها داستان غلطی می‌گفت.</p></t-fa><t-en><b>Berkeley, fall 1973</b><p>[B-ROLL CUE] A generic, unnamed shot of a university campus and reconstructed application forms (no real document). Then [UNEXPECTED STAT] the source card: Bickel, Hammel and O'Connell · Science, 1975; the numbers 44% and 35%, then two arrows, “strict department / easy department”.</p><p>At Berkeley too the overall number was correct, but without splitting by department it told the wrong story.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="243">
+<p class="kicker"><t-fa>کدام عدد؟</t-fa><t-en>Which number?</t-en></p>
+<div class="cols">
+<div><span><t-fa>دقت روی جواب‌ها</t-fa><t-en>Accuracy on answered</t-en></span><b><t-fa>B ۹۰٫۵٪</t-fa><t-en>B 90.5<small>%</small></t-en></b><p><t-fa>A ۸۱٫۲٪ · به سکوت جایزه می‌دهد</t-fa><t-en>A 81.2% · rewards silence</t-en></p></div>
+<div class="hi"><span><t-fa>درست از کل ۱٬۰۰۰ سؤال</t-fa><t-en>Correct out of all 1,000</t-en></span><b><t-fa>A ۸۰٫۴٪</t-fa><t-en>A 80.4<small>%</small></t-en></b><p><t-fa>B ۵۸٫۸٪ · به جواب‌دادن جایزه می‌دهد</t-fa><t-en>B 58.8% · rewards answering</t-en></p></div>
+</div>
+<p class="caption"><t-fa>کدام سنجه؟ انتخاب سنجه یعنی انتخاب برنده. (یادآوری HMD-006 / E03)</t-fa><t-en>Which metric? Choosing the metric is choosing the winner. (Recall HMD-006 / E03.)</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>عددهای آموزشی از artifact/mislead_lab.py · هیچ مدلی صدا زده نشد</t-fa><t-en>Teaching numbers from artifact/mislead_lab.py · no model was called</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۲</t-fa><t-en>artifact/mislead_lab.py · section 2</t-en></footer>
+<aside class="notes"><t-fa><b>کدام عدد؟</b><p>[CAMERA CHANGE] نمای نزدیک رو به دوربین برای CTA میانی. بعد [GRAPHIC] دو سنجه کنار هم: accuracy on answered (B جلو) و correct out of all (A جلو، کهربایی). کارت کوچک بازگشت به HMD-006.</p><p>انتخاب سنجه، خودش انتخاب برنده‌ست.</p></t-fa><t-en><b>Which number?</b><p>[CAMERA CHANGE] Close-up to camera for the mid-video CTA. Then [GRAPHIC] the two metrics side by side: accuracy on answered (B ahead) and correct out of all (A ahead, amber). A small card linking back to HMD-006.</p><p>Choosing the metric is itself choosing the winner.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="310">
+<p class="kicker"><t-fa>کدام جریمه؟ اول حدس بزن</t-fa><t-en>Which penalty? Guess first</t-en></p>
+<h1><t-fa>درست: یک امتیاز · «نمی‌دانم»: صفر · غلط: منفی <em><bdi dir="ltr">k</bdi></em></t-fa><t-en>Right: 1 point · “I don't know”: 0 · wrong: −<em>k</em></t-en></h1>
+<div class="code"><span class="c">points per 100 questions      A       B</span>
+k = 0                      80.4    58.8   → A
+k = 1                      61.8    52.6   → A
+k = 2                      43.2    46.4   → B
+k = 3                      24.6    40.2   → B
+<span class="o">winner flips at k = 1.74</span></div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>غلط‌ها: A ۱۸۶ · B ۶۲ · قانون جریمه از HMD-010 / E05</t-fa><t-en>Wrong answers: A 186 · B 62 · penalty rule from HMD-010 / E05</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۳</t-fa><t-en>artifact/mislead_lab.py · section 3</t-en></footer>
+<aside class="notes"><t-fa><b>کدام جریمه؟</b><p>[GRAPHIC] دو خط امتیاز بر حسب k (A تند پایین می‌آید، B آرام)؛ نقطهٔ برخورد در <bdi dir="ltr">k = 1.74</bdi> کهربایی. اعداد از بخش ۳ خروجی. ILLUSTRATIVE.</p><p>با همون جواب‌ها، عوض‌کردن جریمه برنده رو عوض می‌کنه.</p></t-fa><t-en><b>Which penalty?</b><p>[GRAPHIC] Two score lines against k (A falls steeply, B gently); the crossing at k = 1.74 amber. Numbers from section 3 of the output. ILLUSTRATIVE.</p><p>With the same answers, changing the penalty changes the winner.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="378">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<h1><t-fa>۱۰ نسخهٔ خصوصی. مهارت واقعی همه ۷۰٪. <em>یکی</em> را منتشر کن.</t-fa><t-en>10 private variants. Same true skill: 70%. Publish <em>one</em>.</t-en></h1>
+<div class="tokens"><i class="hi"><t-fa>۷۴٫۵</t-fa><t-en>74.5</t-en></i><i class="off"><t-fa>۷۰٫۰</t-fa><t-en>70.0</t-en></i><i class="off"><t-fa>۷۰٫۵</t-fa><t-en>70.5</t-en></i><i class="off"><t-fa>۶۹٫۰</t-fa><t-en>69.0</t-en></i><i class="off"><t-fa>۷۴٫۰</t-fa><t-en>74.0</t-en></i><i class="off"><t-fa>۶۸٫۰</t-fa><t-en>68.0</t-en></i><i class="off"><t-fa>۷۰٫۵</t-fa><t-en>70.5</t-en></i><i class="off"><t-fa>۷۱٫۰</t-fa><t-en>71.0</t-en></i><i class="off"><t-fa>۶۵٫۰</t-fa><t-en>65.0</t-en></i><i class="off"><t-fa>۶۶٫۵</t-fa><t-en>66.5</t-en></i></div>
+<p class="caption"><t-fa>میانگین هر ده: ۶۹٫۹٪. منتشرشده: ۷۴٫۵٪. در ۲٬۰۰۰ تکرار، بهترین به‌طور میانگین ۷۴٫۹٪.</t-fa><t-en>Mean of all ten: 69.9%. Published: 74.5%. Over 2,000 repeats, the best averages 74.9%.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>نسخه‌های شبیه‌سازی‌شده، هر کدام ۲۰۰ سؤال · seed 7، پیش از اجرا انتخاب شد</t-fa><t-en>Simulated variants, 200 questions each · seed 7, chosen before the run</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۴</t-fa><t-en>artifact/mislead_lab.py · section 4</t-en></footer>
+<aside class="notes"><t-fa><b>ده نسخه، یک انتشار</b><p>[B-ROLL CUE] ضبط ترمینال <bdi dir="ltr">python3 artifact/mislead_lab.py</bdi> بخش ۴؛ ده عدد خصوصی کم‌رنگ، فقط ۷۴٫۵ روشن و کهربایی. پیش از نمایش، مکث برای حدس. برچسب ثابت: ILLUSTRATIVE · simulated variants, seed 7.</p><p>اگه از چند تلاش فقط بهترین رو گزارش کنی، شانس رو به اسم مهارت فروختی.</p></t-fa><t-en><b>Ten variants, one release</b><p>[B-ROLL CUE] Terminal recording of python3 artifact/mislead_lab.py, section 4; ten faded private scores, only 74.5 lit and amber. Pause for a guess before showing it. Fixed label: ILLUSTRATIVE · simulated variants, seed 7.</p><p>If you report only the best of several attempts, you have sold luck as skill.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="449">
+<p class="kicker"><t-fa>توهم جدول رتبه‌بندی</t-fa><t-en>The leaderboard illusion</t-en></p>
+<h1><t-fa><em>۲۷</em> نسخهٔ خصوصی LLM که Meta پیش از انتشار Llama-4 آزمود</t-fa><t-en><em>27</em> private LLM variants tested by Meta before the Llama-4 release</t-en></h1>
+<div class="source"><q><t-fa>«توانایی […] انتخاب بهترین نمره به نمره‌های سوگیرانهٔ Arena می‌انجامد»</t-fa><t-en>“the ability … to choose the best score leads to biased Arena scores”</t-en></q><cite><t-fa>Singh و همکاران · The Leaderboard Illusion · arXiv 2504.20879 · v2، ۱۲ مه ۲۰۲۵ · ترجمهٔ هومودین</t-fa><t-en>Singh et al. · The Leaderboard Illusion · arXiv 2504.20879 · v2, 12 May 2025</t-en></cite></div>
+<p class="tag"><t-fa>LMArena بخش‌هایی از مقاله را رد کرد (BetaKit، ۲ مه ۲۰۲۵) · اینجا داوری نمی‌کنیم</t-fa><t-en>LMArena disputed parts of the paper (BetaKit, 2 May 2025) · no verdict here</t-en></p>
+<footer>R10 · S3</footer>
+<aside class="notes"><t-fa><b>توهم جدول رتبه‌بندی</b><p>[UNEXPECTED STAT] کارت منبع R10 (arXiv 2504.20879) با عدد ۲۷ کهربایی و نقل کوتاه «choose the best score leads to biased Arena scores». زیرش خط کوچک: LMArena disputed parts of the paper (مه ۲۰۲۵). بدون لوگوی شرکت‌ها.</p><p>انتشار گزینشی نمره، حتی بدون یک عدد جعلی، جدول رو کج می‌کنه.</p></t-fa><t-en><b>The leaderboard illusion</b><p>[UNEXPECTED STAT] The R10 source card (arXiv 2504.20879) with the number 27 in amber and the short quote “choose the best score leads to biased Arena scores”. A small line below: LMArena disputed parts of the paper (May 2025). No company logos.</p><p>Selective reporting of scores bends the table, even without a single fake number.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="519">
+<p class="kicker"><t-fa>holdout: آزمون کنارگذاشته</t-fa><t-en>Holdout: the test kept aside</t-en></p>
+<div class="cols">
+<div><span><t-fa>همین اجرا · seed 7</t-fa><t-en>This run · seed 7</t-en></span><b><t-fa>۷۴٫۵ ← ۷۴٫۰</t-fa><t-en>74.5 → 74.0</t-en></b><p><t-fa>منتشرشده ← holdout (یک اجرای پرنویز)</t-fa><t-en>Published → holdout (one noisy run)</t-en></p></div>
+<div class="hi"><span><t-fa>۲٬۰۰۰ تکرار</t-fa><t-en>2,000 repeats</t-en></span><b><t-fa>۷۴٫۹ ← ۶۹٫۹</t-fa><t-en>74.9 → 69.9</t-en></b><p><t-fa>منتشرشده ← holdout (واقعی: ۷۰)</t-fa><t-en>Published → holdout (true: 70)</t-en></p></div>
+</div>
+<p class="caption"><t-fa>holdout یعنی سؤال‌هایی که مدل هرگز ندیده؛ خودش هم یک نمونه است. seed را عوض نکردم.</t-fa><t-en>Holdout means questions the model has never seen; it is a sample too. I did not change the seed.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>عددهای آموزشی از artifact/mislead_lab.py · هیچ مدلی صدا زده نشد</t-fa><t-en>Teaching numbers from artifact/mislead_lab.py · no model was called</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۵ · R07</t-fa><t-en>artifact/mislead_lab.py · section 5 · R07</t-en></footer>
+<aside class="notes"><t-fa><b>holdout: آزمون کنارگذاشته</b><p>[CAMERA CHANGE] نمای نزدیک برای جملهٔ re-hook. بعد خروجی بخش ۵: <bdi dir="ltr">this run 74.5 → 74.0</bdi> و زیرش <bdi dir="ltr">2000 repeats: 74.9 → 69.9</bdi> (کهربایی). کارت کوچک: seed 7 · chosen before the run.</p><p>holdout کار می‌کنه، ولی خودش هم یه نمونه‌ست و یه اجرای تنهاش ممکنه گولت بزنه.</p></t-fa><t-en><b>Holdout: the test kept aside</b><p>[CAMERA CHANGE] Close-up for the re-hook line. Then section 5 of the output: this run 74.5 → 74.0, and below it 2000 repeats: 74.9 → 69.9 (amber). Small card: seed 7 · chosen before the run.</p><p>A holdout works, but it is a sample too, and a single run of it can fool you.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="590">
+<p class="kicker"><t-fa>آلودگی و GSM1k</t-fa><t-en>Contamination and GSM1k</t-en></p>
+<h1><t-fa>سؤال تازهٔ دیده‌نشده: افت دقت <em>تا ۸٪</em></t-fa><t-en>Fresh, unseen questions: accuracy drops of <em>up to 8%</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>GSM8k · عمومی</t-fa><t-en>GSM8k · public</t-en></b><t-fa>قدیمی؛ شاید در دادهٔ آموزشی بوده</t-fa><t-en>Old; may have been in the training data</t-en></div>
+<div class="hi"><b><t-fa>GSM1k · تازه، منتشرنشده</t-fa><t-en>GSM1k · new, held back</t-en></b><t-fa>۱٬۲۰۵ سؤال، نوشتهٔ انسان، هم‌سبک</t-fa><t-en>1,205 problems, written by people, same style</t-en></div>
+</div>
+<p class="caption"><t-fa>Phi و Mistral: نشانهٔ بیش‌برازش تقریباً در همهٔ اندازه‌ها · بیشتر مدل‌های پیشرو: نشانهٔ اندک</t-fa><t-en>Phi and Mistral: signs of overfitting at almost all sizes · most frontier models: minimal signs</t-en></p>
+<p class="tag"><t-fa>پیدا نکردن نشانهٔ آلودگی ≠ اثبات پاکی</t-fa><t-en>No evidence of contamination ≠ proof of no contamination</t-en></p>
+<footer>Zhang et al. · arXiv 2405.00332 v4 · 22 Nov 2024 (S2)</footer>
+<aside class="notes"><t-fa><b>آلودگی و GSM1k</b><p>[GRAPHIC] دو برگهٔ سؤال کنار هم: GSM8k (public) و GSM1k (new, held back)؛ پیکان «تا منفی ۸٪» کهربایی. کارت منبع S2 (Zhang و همکاران، arXiv 2405.00332 v4). بدون نام بردن از مدل‌ها روی صفحه به‌جز دو خانوادهٔ نام‌برده در مقاله.</p><p>سؤال تازهٔ دیده‌نشده، حفظ‌کردن رو از مهارت جدا می‌کنه؛ ولی ندیدن آلودگی، اثبات پاکی نیست.</p></t-fa><t-en><b>Contamination and GSM1k</b><p>[GRAPHIC] Two question sheets side by side: GSM8k (public) and GSM1k (new, held back); an amber arrow “up to −8%”. Source card S2 (Zhang et al., arXiv 2405.00332 v4). No model names on screen except the two families the paper names.</p><p>Fresh, unseen questions separate memorising from skill; but not seeing contamination is not proof of being clean.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="663">
+<p class="kicker"><t-fa>نامعلوم را سبز نکن</t-fa><t-en>Don't paint unknown green</t-en></p>
+<h1><t-fa>قبول، نقض، یا <em>نامعلوم</em></t-fa><t-en>Pass, breach, or <em>unknown</em></t-en></h1>
+<div class="code sm"><span class="c"># limit 5% · two-sided 95% Wilson interval</span>
+0 errors in   2 checked -> 95% interval  0.0%.. 65.8%  UNKNOWN
+<span class="o">0 errors in  20 checked -> 95% interval  0.0%.. 16.1%  UNKNOWN</span>
+0 errors in 100 checked -> 95% interval  0.0%..  3.7%  PASS
+zero errors needs n >= 73 checked questions before PASS at 5%
+<span class="c">$ python3 tools/bluff_lab.py score tools/bluff-demo.csv --condition t75 --max-fabrication 0.05</span>
+  "status": "UNKNOWN"</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>قبول: سقف بازه زیر حد · نقض: کف بازه بالای حد · نامعلوم: هنوز شاهد کافی نیست</t-fa><t-en>Pass: upper bound within the limit · breach: lower bound above it · unknown: not enough evidence yet</t-en></p>
+<footer><t-fa>artifact/mislead_lab.py · بخش ۶ · tools/bluff_lab.py</t-fa><t-en>artifact/mislead_lab.py · section 6 · tools/bluff_lab.py</t-en></footer>
+<aside class="notes"><t-fa><b>نامعلوم را سبز نکن</b><p>[GRAPHIC] سه کارت PASS · BREACH · UNKNOWN؛ UNKNOWN کهربایی. زیرش خروجی بخش ۶ و یک خط از <bdi dir="ltr">tools/bluff_lab.py score tools/bluff-demo.csv --condition t75 --max-fabrication 0.05</bdi> با <bdi dir="ltr">"status": "UNKNOWN"</bdi>. [SOUND EFFECT] صدای «بوق خنثی» به‌جای «تیک سبز».</p><p>«خطایی ندیدیم» با «خطایی نیست» فرق داره؛ جاش «نامعلوم» است.</p></t-fa><t-en><b>Don't paint unknown green</b><p>[GRAPHIC] Three cards, PASS · BREACH · UNKNOWN; UNKNOWN amber. Below them the section 6 output and one line from tools/bluff_lab.py score tools/bluff-demo.csv --condition t75 --max-fabrication 0.05 with "status": "UNKNOWN". [SOUND EFFECT] A neutral beep instead of a green tick.</p><p>“We saw no errors” is not “there are no errors”; its place is “unknown”.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="729">
+<p class="kicker"><t-fa>سه سؤال جلوی هر جدول</t-fa><t-en>Three questions for any table</t-en></p>
+<div class="steps">
+<div class="hi"><b><t-fa>۱ · کدام تکه؟</t-fa><t-en>1 · Which subset?</t-en></b><t-fa>عدد کل کنار عدد هر گروه، و تعداد جواب هر مدل.</t-fa><t-en>The total next to every group, and how many each model answered.</t-en></div>
+<div><b><t-fa>۲ · کدام عدد؟</t-fa><t-en>2 · Which metric?</t-en></b><t-fa>چرا همین سنجه؟ k را چه کسی انتخاب کرد؟</t-fa><t-en>Why this metric? Who chose k?</t-en></div>
+<div><b><t-fa>۳ · چه چیزی نشان داده نشد؟</t-fa><t-en>3 · What wasn't shown?</t-en></b><t-fa>نسخه‌ها، دستورها، تلاش‌ها، holdout، خانه‌های نامعلوم.</t-fa><t-en>Variants, prompts, attempts, holdout, unknown cells.</t-en></div>
+</div>
+<p class="caption"><t-fa>BetterBench: ۲۴ بنچمارک AI، ۴۶ معیار؛ بیشترشان معنی‌داری آماری را گزارش نمی‌کنند.</t-fa><t-en>BetterBench: 24 AI benchmarks, 46 criteria; most do not report statistical significance.</t-en></p>
+<footer>Reuel et al. · BetterBench · arXiv 2411.12990 · 2024 (R11)</footer>
+<aside class="notes"><t-fa><b>سه سؤال جلوی هر جدول</b><p>[B-ROLL CUE] یک جدول رتبه‌بندی ساختگی و بی‌برند روی لپ‌تاپ؛ سه برچسب روی آن می‌چسبد. کارت کوچک R11: BetterBench · ۲۴ بنچمارک · ۴۶ معیار.</p><p>سه سؤال «کدوم تکه، کدوم عدد، چی پنهان مونده» جلوی هر جدولی کار می‌کنه.</p></t-fa><t-en><b>Three questions for any table</b><p>[B-ROLL CUE] A made-up, unbranded leaderboard on a laptop; three labels stick onto it. Small R11 card: BetterBench · 24 benchmarks · 46 criteria.</p><p>The three questions “which subset, which number, what was hidden” work on any table.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="798">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>جدولی با عددهای درست، بسته به تکه، سنجه و تلاش‌های گزارش‌شده، می‌تواند دو برندهٔ متفاوت داشته باشد. بهترینِ چند تلاش نمره را بالا می‌برد و holdout برش می‌گرداند (شبیه‌سازی).</t-fa><t-en>A table of correct numbers can have two different winners, depending on the subset, the metric and which attempts are reported. Best-of-several inflates the score and a holdout brings it back (simulation).</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که فلان جدول یا شرکت تقلب کرده · A و B مدل واقعی نیستند · ممیزی کوچک بی‌خطا ثابت نمی‌کند خطایی نیست</t-fa><t-en>That any particular table or company cheated · A and B are not real models · a small audit with no errors does not prove there are none</t-en></div>
+</div>
+<footer><t-fa>مرز ادعا · HMD-014</t-fa><t-en>Claim boundary · HMD-014</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] نمای ثابت؛ کارت مرز ادعا.</p><p>مکانیزم گمراه‌شدن رو نشون دادیم، نه گناه هیچ جدول مشخصی رو.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] Steady shot; the claim-boundary card.</p><p>We showed the mechanism of being misled, not the guilt of any particular table.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="842">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>جدول درست فقط به <em>یک سؤالِ انتخاب‌شده</em> جواب می‌دهد. بپرس کدام.</t-fa><t-en>A correct table answers <em>one chosen question</em>. Ask which one.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>کل · دقت</t-fa><t-en>All · accuracy</t-en></b>B</div>
+<div><b><t-fa>به تفکیک سختی</t-fa><t-en>By difficulty</t-en></b>A</div>
+<div><b><t-fa>جریمهٔ <bdi dir="ltr">k = 1</bdi></t-fa><t-en>Penalty k = 1</t-en></b>A</div>
+<div class="hi"><b><t-fa>جریمهٔ <bdi dir="ltr">k = 3</bdi></t-fa><t-en>Penalty k = 3</t-en></b>B</div>
+</div>
+<p class="caption"><t-fa>تمرین: نمودار بعدی «ما اول شدیم»: چند مدل، چند نسخه و چند بار امتحان پشت همین یک ستون است؟</t-fa><t-en>Exercise: the next “we ranked first” chart: how many models, variants and attempts are behind this one bar?</t-en></p>
+<footer>artifact/mislead_lab.py</footer>
+<aside class="notes"><t-fa><b>جواب</b><p>[GRAPHIC] بازگشت به جدول قاب ۱؛ چهار تیتر یکی‌یکی کنارش می‌نشینند (B · A · A · B). کارت تمرین.</p><p>عدد درست به‌اضافهٔ انتخاب پنهان، می‌شه داستان گمراه‌کننده؛ هر سه انتخاب رو بخواه.</p></t-fa><t-en><b>The answer</b><p>[GRAPHIC] Back to the table from beat 1; four headlines take their place beside it one by one (B · A · A · B). The exercise card.</p><p>A correct number plus a hidden choice makes a misleading story; ask for all three choices.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-15" data-start="896">
+<p class="kicker"><t-fa>قسمت بعد · HMD-015</t-fa><t-en>Next · HMD-015</t-en></p>
+<h1><t-fa>جواب داخل فایل است. <em>چرا AI باز هم اشتباه می‌کند؟</em></t-fa><t-en>The answer is in the file. <em>Why does the AI still get it wrong?</em></t-en></h1>
+<p class="sub"><t-fa>HMD-015 · آن بند را پیدا نکرد، یا پیدا کرد و بد فهمید؟</t-fa><t-en>HMD-015 · did it not find that clause, or find it and misunderstand it?</t-en></p>
+<footer><t-fa>قسمت بعد · HMD-015</t-fa><t-en>Next episode · HMD-015</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] صدای ورق‌خوردن؛ [B-ROLL CUE] یک سند ساختگی که یک بندش کهربایی است و یک پنجرهٔ چت کنارش. End screen به HMD-015.</p><p>قسمت بعد: وقتی جواب جلوی چشم AI است و باز گاهی اشتباه می‌کند.</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] A page-turn sound; [B-ROLL CUE] a made-up document with one clause in amber and a chat window beside it. End screen to HMD-015.</p><p>Next episode: when the answer is right in front of the AI and it still sometimes gets it wrong.</p></t-en></aside>
+</section>

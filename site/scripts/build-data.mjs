@@ -1,5 +1,5 @@
 // Build-time data: reads the episode manifests and packages from the repo root,
-// writes src/data/episodes.json and copies each deck to public/decks/<slug>/.
+// writes src/data/episodes.json and copies each deck to public/decks/<slug>/ (fa) and /en/.
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -21,10 +21,13 @@ for (const file of manifests) {
     if (!m) continue;
     const folder = join(root, ep.path);
     const readme = readFileSync(join(folder, 'README.md'), 'utf8');
-    const deck = join(folder, 'deck.html');
+    // /decks/<slug>/ is the Persian recording deck (old links keep working), /decks/<slug>/en/ its English twin
+    const deck = join(folder, 'deck-fa.html');
+    const deckEn = join(folder, 'deck-en.html');
     if (existsSync(deck)) {
-      mkdirSync(join(site, 'public/decks', m.slug), { recursive: true });
+      mkdirSync(join(site, 'public/decks', m.slug, 'en'), { recursive: true });
       copyFileSync(deck, join(site, 'public/decks', m.slug, 'index.html'));
+      if (existsSync(deckEn)) copyFileSync(deckEn, join(site, 'public/decks', m.slug, 'en', 'index.html'));
     }
     episodes.push({
       hmd: ep.hmd,

@@ -19,7 +19,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5، ۱۴ قاب، لاگ و نقشهٔ ریسک |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل |
-| [deck.html](deck.html) | دک ضبط v5، ۱۴ قاب |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع، تاریخ بازبینی، خروجی‌های اجراشده |
 | [artifact/decision-card.md](artifact/decision-card.md) | کارت چهارخانه: کار ← خطای پرهزینه ← شاهد ← آزمون، با دو دستور نمایش‌داده‌شده |
 | [artifact/landscape-card.md](artifact/landscape-card.md) | پنج سؤال، دو محور، شش وضعیت عمر (از v2) |

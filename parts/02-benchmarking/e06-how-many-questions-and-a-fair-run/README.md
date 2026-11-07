@@ -19,7 +19,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۵ قاب، MID-CTA در ۲۶٪، RE-HOOK در ۶۱٪) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه (برنده: Curiosity-Gap) |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل + metadata انگلیسی |
-| [deck.html](deck.html) | دک ضبط v5 (۱۵ section، `data-start` = شروع هر قاب) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۵ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع R07، R09–R13، محاسبه‌ها، پارامترهای شبیه‌سازی |
 | [artifact/power_lab.py](artifact/power_lab.py) | توان و MDE مقایسهٔ جفتی؛ McNemar دقیق؛ تکرار؛ خوشه‌ها و اثر طرح؛ ۱۵ جفت (stdlib، seeded) |
 | [artifact/power_lab-output.txt](artifact/power_lab-output.txt) | خروجی اجرای seed 12 (منبع همهٔ عددهای ILLUSTRATIVE متن و دک) |

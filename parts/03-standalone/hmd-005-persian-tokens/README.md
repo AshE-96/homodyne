@@ -30,7 +30,9 @@
 | [`script-fa.md`](script-fa.md) | متن ضبط v5، ۱۴ قاب |
 | [`hooks-fa.md`](hooks-fa.md) | پنج هوک + توصیه (برنده: Shock/Contradiction) |
 | [`package-fa.md`](package-fa.md) | عنوان، تامبنیل A/B/C، توضیحات، فصل‌ها، تگ، کامنت، End screen، دو Short، Community |
-| [`deck.html`](deck.html) | دک ضبط، ۱۴ قاب، بدون منبع بیرونی |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [`sources.md`](sources.md) | منابع، نسخهٔ دقیق tokenizerها |
 | [`artifact/count_tokens.py`](artifact/count_tokens.py) | اسکریپت شمارش (tiktoken + tokenizerهای باز HF؛ اگر یکی بار نشود، رد می‌شود و گزارش می‌دهد) |
 | [`artifact/corpus/pairs.jsonl`](artifact/corpus/pairs.jsonl) | ۵۰ جفت فارسی/انگلیسی خودنوشته در ۷ حوزه |

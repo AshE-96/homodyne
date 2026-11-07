@@ -19,7 +19,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5، ۱۵ قاب، شاخهٔ B برای قاب ۸، لاگ و نقشهٔ ریسک |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل |
-| [deck.html](deck.html) | دک ضبط v5، ۱۵ قاب |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۵ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع، تاریخ بازبینی، محاسبه‌ها |
 | [artifact/firms_timeline.py](artifact/firms_timeline.py) | خواندن/دانلود FIRMS، فیلتر اطمینان، علامت نزدیکی به محل صنعتی و تکرار، خط زمانی (فقط stdlib) |
 | [artifact/README.md](artifact/README.md) | اجرای آفلاین، گرفتن MAP_KEY، منطقه‌ها، معنی علامت‌ها |

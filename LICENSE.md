@@ -8,6 +8,10 @@ Episode scripts, hooks, publishing packages, recording decks, sources notes, cha
 
 Credit: "Homodyne (homodyne.m2gh.ir)". The Homodyne name and logo identify the channel; do not use them to suggest endorsement.
 
+## Third-party font: SIL Open Font License 1.1
+
+`brand/fonts/` holds the Vazirmatn font (© The Vazirmatn Project Authors), which is embedded in every recording deck. It is licensed under the SIL Open Font License 1.1; see [`brand/fonts/OFL-Vazirmatn.txt`](brand/fonts/OFL-Vazirmatn.txt). It is not covered by CC BY-NC-SA.
+
 ## Code: MIT
 
 All code (`scripts/`, `tools/`, every `parts/*/*/artifact/*.py` and `*.js`, and `site/` outside `site/src/content/`) is released under the MIT License:

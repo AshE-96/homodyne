@@ -1,0 +1,184 @@
+<!-- HMD-002 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks. -->
+
+<section class="cover">
+<h1><t-fa>چطور با همان جواب‌ها، <em>برندهٔ</em> AI عوض می‌شود؟</t-fa><t-en>How can the same answers crown a different AI <em>winner</em>?</t-en></h1>
+<p class="promise"><t-fa>حتی یک جواب عوض نمی‌شود. فقط قانون نمره عوض می‌شود، و برنده جابه‌جا می‌شود.</t-fa><t-en>Not one answer changes. Only the scoring rule changes, and the winner flips.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>از هر چهار جواب، سه‌تا غلط. <em>باز هم</em> برنده.</t-fa><t-en>3 of 4 answers wrong. <em>Still</em> the winner.</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>OpenAI o4-mini · دقت</t-fa><t-en>OpenAI o4-mini · accuracy</t-en></span><b><t-fa>۲۴٪</t-fa><t-en>24<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
+<div><span><t-fa>gpt-5-thinking-mini · دقت</t-fa><t-en>gpt-5-thinking-mini · accuracy</t-en></span><b><t-fa>۲۲٪</t-fa><t-en>22<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
+</div>
+<p class="tag"><t-fa>SimpleQA، منتشرشده در OpenAI، ۵ سپتامبر ۲۰۲۵ · جدول تاریخی، نه رتبه‌بندی امروز</t-fa><t-en>SimpleQA, as published by OpenAI, 5 Sep 2025 · a historical table, not today's ranking</t-en></p>
+<footer><t-fa>R01 · OpenAI، Why Language Models Hallucinate</t-fa><t-en>R01 · OpenAI, Why Language Models Hallucinate</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>ردیف خطا را نشان نده؛ فقط ۲۴ در برابر ۲۲. زوم روی ۲۴.</p><p>یک عدد بزرگ در جدول ممکن است فقط نیمی از ماجرا باشد. پایان قاب: «من محمدم، اینجا هومودینه.» بعد کاور.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Do not show the error row; only 24 against 22. Zoom in on 24.</p><p>A big number in a table can be only half the story. End of beat: "I'm Mohammad, this is Homodyne." Then the cover.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="44">
+<p class="kicker"><t-fa>نمره را کی می‌سازد؟</t-fa><t-en>Who builds the score?</t-en></p>
+<h1><t-fa>«این کفش را می‌توانم پس بدهم؟»</t-fa><t-en>"Can I return these shoes?"</t-en></h1>
+<div class="cards">
+<div><b><t-fa>درست</t-fa><t-en>Right</t-en></b><t-fa>قانون واقعی مرجوعی را می‌گوید.</t-fa><t-en>States the real return policy.</t-en></div>
+<div class="hi"><b><t-fa>غلط، با اطمینان</t-fa><t-en>Wrong, confidently</t-en></b><t-fa>قانونی را می‌گوید که وجود ندارد.</t-fa><t-en>States a policy that does not exist.</t-en></div>
+<div><b><t-fa>«مطمئن نیستم»</t-fa><t-en>"I'm not sure"</t-en></b><t-fa>مشتری را به یک همکار انسانی وصل می‌کند.</t-fa><t-en>Hands the customer to a human colleague.</t-en></div>
+</div>
+<p class="caption"><t-fa>سه پاسخ، سه هزینهٔ متفاوت. قیمت یک جواب غلط چقدر است؟</t-fa><t-en>Three answers, three different costs. What does a wrong answer cost?</t-en></p>
+<footer><t-fa>مثال آموزشی</t-fa><t-en>Teaching example</t-en></footer>
+<aside class="notes"><t-fa><b>نمره را کی می‌سازد؟</b><p>پل از HMD-001 (eval). کارت وسط کهربایی.</p><p>سه نوع پاسخ، سه هزینهٔ متفاوت؛ نمره باید این را ببیند.</p></t-fa><t-en><b>Who builds the score?</b><p>Bridge from HMD-001 (evals). The middle card is amber.</p><p>Three kinds of answer, three different costs; the score has to see that.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="102">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<h1><t-fa>کدام دستیار را استخدام می‌کنی؟</t-fa><t-en>Which assistant do you hire?</t-en></h1>
+<div class="cols">
+<div><span><t-fa>دستیار A · در هر ۱۰۰ سؤال</t-fa><t-en>Assistant A · per 100 questions</t-en></span><b><t-fa>۶۰ <small>درست</small></t-fa><t-en>60 <small>correct</small></t-en></b><p><t-fa>۳۰ غلط · ۱۰ «نمی‌دانم»</t-fa><t-en>30 wrong · 10 "I don't know"</t-en></p></div>
+<div class="hi"><span><t-fa>دستیار B · در هر ۱۰۰ سؤال</t-fa><t-en>Assistant B · per 100 questions</t-en></span><b><t-fa>۵۰ <small>درست</small></t-fa><t-en>50 <small>correct</small></t-en></b><p><t-fa>۵ غلط · ۴۵ «نمی‌دانم»</t-fa><t-en>5 wrong · 45 "I don't know"</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>عددهای آموزشی؛ مال هیچ مدل واقعی نیستند</t-fa><t-en>Made-up teaching numbers, not a real model</t-en></p>
+<footer><t-fa>دادهٔ نمایشی tools/bluff_lab.py</t-fa><t-en>tools/bluff_lab.py demo data</t-en></footer>
+<aside class="notes"><t-fa><b>حدس بزن</b><p>اول فقط ۶۰ و ۵۰؛ دو ثانیه مکث؛ بعد ردیف دوم.</p><p>درست، غلط و «نمی‌دانم» را همیشه کنار هم بخوان.</p></t-fa><t-en><b>Guess first</b><p>First only 60 and 50; pause two seconds; then the second row.</p><p>Always read right, wrong and "I don't know" together.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="164">
+<p class="kicker"><t-fa>قیمت یک جواب غلط</t-fa><t-en>The price of a wrong answer</t-en></p>
+<h1><t-fa>نمره = درست − <em>k</em> × غلط</t-fa><t-en>score = correct − <em>k</em> × wrong</t-en></h1>
+<div class="steps">
+<div><b><bdi dir="ltr">k = 0</bdi></b><t-fa>A ۶۰ · B ۵۰<br>A می‌برد</t-fa><t-en>A 60 · B 50<br>A wins</t-en></div>
+<div class="hi"><b><bdi dir="ltr">k = 0.4</bdi></b><t-fa>A ۴۸ · B ۴۸<br>مساوی: نقطهٔ جابه‌جایی</t-fa><t-en>A 48 · B 48<br>a tie: the crossover</t-en></div>
+<div><b><bdi dir="ltr">k = 1</bdi></b><t-fa>A ۳۰ · B ۴۵<br>B می‌برد</t-fa><t-en>A 30 · B 45<br>B wins</t-en></div>
+<div><b><bdi dir="ltr">k = 3</bdi></b><t-fa>A منفی ۳۰ · B ۳۵<br>B می‌برد</t-fa><t-en>A −30 · B 35<br>B wins</t-en></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>«نمی‌دانم» = صفر · نقطهٔ جابه‌جایی:</t-fa><t-en>"I don't know" = 0 · crossover:</t-en><bdi dir="ltr">k = (60 − 50) / (30 − 5) = 0.4</bdi></p>
+<footer><t-fa>قانون نمره: Kalai و همکاران ۲۰۲۵، بخش ۴٫۲</t-fa><t-en>Scoring rule: Kalai et al. 2025, §4.2</t-en></footer>
+<aside class="notes"><t-fa><b>قیمت یک جواب غلط</b><p>قبل از گفتن ۰٫۴ بپرس «کجا عوض می‌شود؟». پایان قاب: CTA نرم.</p><p>یک عدد، یعنی قیمت اشتباه، تعریف «بهتر» را عوض می‌کند.</p></t-fa><t-en><b>The price of a wrong answer</b><p>Before saying 0.4, ask "where does it flip?". End of beat: soft CTA.</p><p>One number, the price of a mistake, changes what "better" means.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="227">
+<p class="kicker"><t-fa>خودت اجرا کن</t-fa><t-en>Run it yourself</t-en></p>
+<div class="code"><span class="c">$ python3 tools/bluff_lab.py demo        # excerpt</span>
+  "source_status": "ILLUSTRATIVE",
+  ...
+    "3": {
+      "A": -30,
+      "B": 35
+    },
+<span class="o">    "9": {
+      "A": -210,
+      "B": 5</span>
+    }
+  },
+  "threshold": "k=t/(1-t) assumes ... Stating t does not make a model calibrated."</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>گزیده‌ای از خروجی واقعی دستور (۲ نوامبر ۲۰۲۶)؛ «...» یعنی سطرهای حذف‌شده</t-fa><t-en>Excerpt of the command's real output (2 Nov 2026); "..." marks lines left out</t-en></p>
+<footer><t-fa>tools/bluff_lab.py · مخزن هومودین</t-fa><t-en>tools/bluff_lab.py · Homodyne repository</t-en></footer>
+<aside class="notes"><t-fa><b>خودت اجرا کن</b><p>گزیدهٔ عین خروجی؛ «...» یعنی سطرهای حذف‌شده. روی ۹ و خط threshold هایلایت.</p><p>محاسبه باید بیرون از ویدیو هم قابل‌بررسی باشد.</p></t-fa><t-en><b>Run it yourself</b><p>An exact excerpt of the output; "..." marks removed lines. Highlight 9 and the threshold line.</p><p>The calculation has to be checkable outside the video too.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="302">
+<p class="kicker"><t-fa>جدول واقعی OpenAI</t-fa><t-en>OpenAI's real table</t-en></p>
+<h1><t-fa>همان آزمون. حالا ردیف <em>خطا</em> را بخوان.</t-fa><t-en>Same test. Now read the <em>error</em> row.</t-en></h1>
+<div class="cols">
+<div><span>gpt-5-thinking-mini</span><b><t-fa>۲۲٪<small> درست</small></t-fa><t-en>22<small>% correct</small></t-en></b><p><t-fa>۵۲٪ «نمی‌دانم» · ۲۶٪ غلط</t-fa><t-en>52% "I don't know" · 26% wrong</t-en></p></div>
+<div class="hi"><span>OpenAI o4-mini</span><b><t-fa>۲۴٪<small> درست</small></t-fa><t-en>24<small>% correct</small></t-en></b><p><t-fa>۱٪ «نمی‌دانم» · ۷۵٪ غلط</t-fa><t-en>1% "I don't know" · 75% wrong</t-en></p></div>
+</div>
+<p class="tag"><t-fa>SimpleQA · OpenAI، Why Language Models Hallucinate، ۵ سپتامبر ۲۰۲۵ · برگرفته از کارت سیستم GPT-5 · جدول تاریخی</t-fa><t-en>SimpleQA · OpenAI, Why Language Models Hallucinate, 5 Sep 2025 · from the GPT-5 System Card · historical</t-en></p>
+<footer>R01 · openai.com/index/why-language-models-hallucinate</footer>
+<aside class="notes"><t-fa><b>جدول واقعی OpenAI</b><p>اول فقط دقت؛ مکث برای حدس؛ بعد «نمی‌دانم» و خطا. بگو «رتبهٔ امروز نیست».</p><p>مدلی که تقریباً هیچ‌وقت «نمی‌دانم» نمی‌گوید، در ردیف دقت جلو می‌افتد.</p></t-fa><t-en><b>OpenAI's real table</b><p>Accuracy first; pause for a guess; then "I don't know" and errors. Say "this is not today's ranking".</p><p>A model that almost never says "I don't know" gets ahead on the accuracy row.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="367">
+<p class="kicker"><t-fa>چرا حدس‌زدن جایزه می‌گیرد</t-fa><t-en>Why guessing pays</t-en></p>
+<h1><t-fa><em>۹ از ۱۰</em> ارزیابی پرکاربرد به «نمی‌دانم» هیچ امتیازی نمی‌دهند.</t-fa><t-en><em>9 of 10</em> popular evals give no credit for "I don't know".</t-en></h1>
+<div class="tokens"><i class="off">GPQA</i><i class="off">MMLU-Pro</i><i class="off">IFEval</i><i class="off">Omni-MATH</i><i class="hi"><t-fa>WildBench · اعتبار جزئی</t-fa><t-en>WildBench · partial credit</t-en></i><i class="off">BBH</i><i class="off">MATH L5</i><i class="off">MuSR</i><i class="off">SWE-bench</i><i class="off">HLE</i></div>
+<p class="tag"><t-fa>تاریخ تولد ناشناخته: «نمی‌دانم» یعنی قطعاً صفر؛ یک تاریخ تصادفی حدود ۱ شانس از ۳۶۵ · Kalai و همکاران ۲۰۲۵، جدول ۲ (arXiv 2509.04664)</t-fa><t-en>Unknown birthday: "I don't know" is a sure 0; a random date is about a 1 in 365 chance · Kalai et al. 2025, Table 2 (arXiv 2509.04664)</t-en></p>
+<footer><t-fa>Kalai، Nachum، Vempala، Zhang ۲۰۲۵</t-fa><t-en>Kalai, Nachum, Vempala, Zhang 2025</t-en></footer>
+<aside class="notes"><t-fa><b>چرا حدس‌زدن جایزه می‌گیرد</b><p>مثال تولد، بعد آمار. بگو «یکی از توضیح‌ها، نه تنها علت».</p><p>وقتی غلط جریمه ندارد، قانون نمره به حدس‌زدن پاداش می‌دهد.</p></t-fa><t-en><b>Why guessing pays</b><p>Birthday example first, then the statistic. Say "one of the explanations, not the only cause".</p><p>When a wrong answer costs nothing, the scoring rule rewards guessing.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="426">
+<p class="kicker"><t-fa>قانون کنکور: هر سه غلط یک درست را پاک می‌کند، یعنی <bdi dir="ltr">k = 1/3</bdi></t-fa><t-en>The Konkur rule: 3 wrong cancel 1 right, so <bdi dir="ltr">k = 1/3</bdi></t-en></p>
+<div class="code"><span class="c">$ python3 artifact/two_scores.py</span>
+ t (confidence target)       k   OpenAI o4-mini   gpt-5-thinking-mini   winner
+                  0.00   0.000             24.0                  22.0   OpenAI o4-mini
+<span class="o">                  0.25   0.333             -1.0                  13.3   gpt-5-thinking-mini</span>
+                  0.50   1.000            -51.0                  -4.0   gpt-5-thinking-mini
+                  0.75   3.000           -201.0                 -56.0   gpt-5-thinking-mini
+<span class="c">Crossover: k = 0.0408 points per wrong answer (confidence target t = 3.9%).
+A wrong answer costing 1/24.5 of a right one is enough to flip the winner.</span></div>
+<p class="tag"><t-fa>خروجی واقعی (۲ نوامبر ۲۰۲۶)؛ ردیف <bdi dir="ltr">t = 0.90</bdi> حذف شده · بازنمره‌دهی، نه اجرای دوباره</t-fa><t-en>Real output (2 Nov 2026); the <bdi dir="ltr">t = 0.90</bdi> row is left out · rescoring, not re-running</t-en></p>
+<footer><t-fa>artifact/two_scores.py · دادهٔ R01</t-fa><t-en>artifact/two_scores.py · data R01</t-en></footer>
+<aside class="notes"><t-fa><b>قانون کنکور روی جدول واقعی</b><p>قبل از اجرا بپرس: «با منفی کنکور، ۲۴ چند می‌شود؟»</p><p>با قانون آشنای کنکور، مدلِ اولِ ستون دقت به زیر صفر می‌رود.</p></t-fa><t-en><b>The Konkur rule on the real table</b><p>Before running it, ask: "with Konkur negative marking, what does 24 become?"</p><p>Under the familiar Konkur rule, the model at the top of the accuracy column drops below zero.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="489">
+<p class="kicker"><t-fa>ولی یک جای این حساب می‌لنگد</t-fa><t-en>But one part of this limps</t-en></p>
+<h1><t-fa>بازنمره‌دهی <em>≠</em> اجرای دوباره</t-fa><t-en>Rescoring <em>≠</em> re-running</t-en></h1>
+<div class="cols">
+<div><span><t-fa>کاری که کردیم</t-fa><t-en>What we did</t-en></span><b class="word"><t-fa>همان جواب‌ها</t-fa><t-en>Same answers</t-en></b><p><t-fa>قانون تازه بعد از جواب‌دادن اعمال شد. مدل‌ها از جریمه خبر نداشتند.</t-fa><t-en>The new rule was applied after the answers were given. The models never knew about a penalty.</t-en></p></div>
+<div class="hi"><span><t-fa>سؤالی که Bluff می‌پرسد</t-fa><t-en>What Bluff will ask</t-en></span><b class="word"><t-fa>جواب‌های تازه</t-fa><t-en>New answers</t-en></b><p><t-fa>پیش از جواب به مدل بگوییم «هر غلط منفی یک‌سوم». کمتر حدس می‌زند، یا فقط کمتر جواب می‌دهد؟</t-fa><t-en>Tell the model "each wrong answer is −1/3" before it answers. Does it guess less, or just answer less?</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>آزمایش Bluff طراحی شده و هنوز اجرا نشده است</t-fa><t-en>The Bluff experiment is designed and has not been run yet</t-en></p>
+<footer><t-fa>سؤال دوره · bluff-v1 (مرحلهٔ طراحی)</t-fa><t-en>Course question · bluff-v1 (design stage)</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت پیش از جملهٔ اول. نگو Bluff اجرا شده.</p><p>عوض‌شدن رتبه روی کاغذ، عوض‌شدن رفتار مدل را ثابت نمی‌کند.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence before the first line. Do not say Bluff has been run.</p><p>A ranking that changes on paper does not prove the model's behaviour changes.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="546">
+<p class="kicker"><t-fa>منفی یک‌سوم کنکور از کجا آمده؟</t-fa><t-en>Where does the Konkur −1/3 come from?</t-en></p>
+<h1 class="formula">k = t / (1 − t)</h1>
+<div class="tokens"><i class="hi mono">t 0.25 → k 1/3</i><i class="mono">t 0.50 → k 1</i><i class="mono">t 0.75 → k 3</i><i class="mono">t 0.90 → k 9</i></div>
+<p class="sub"><t-fa>تست چهارگزینه‌ای، حدس کور:</t-fa><t-en>A four-choice test, a blind guess:</t-en> <bdi dir="ltr">¼ × (+1) + ¾ × (−⅓) = 0</bdi></p>
+<p class="tag"><t-fa><bdi dir="ltr">t</bdi> یعنی «فقط وقتی جواب بده که دست‌کم این‌قدر مطمئنی» · گفتن <bdi dir="ltr">t</bdi> مدل را کالیبره نمی‌کند</t-fa><t-en><bdi dir="ltr">t</bdi> = "answer only if you are at least this sure" · stating <bdi dir="ltr">t</bdi> does not make a model calibrated</t-en></p>
+<footer><t-fa>Kalai و همکاران ۲۰۲۵، بخش ۴٫۲: آستانهٔ صریح اطمینان</t-fa><t-en>Kalai et al. 2025, §4.2: explicit confidence targets</t-en></footer>
+<aside class="notes"><t-fa><b>منفی یک‌سوم کنکور از کجا آمده؟</b><p>[UNEXPECTED STAT] حساب حدس کور را آرام بگو.</p><p>هر جریمه، پشتش یک آستانهٔ اطمینان پنهان دارد.</p></t-fa><t-en><b>Where does the Konkur −1/3 come from?</b><p>[UNEXPECTED STAT] Say the blind-guess arithmetic slowly.</p><p>Every penalty hides a confidence threshold behind it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="614">
+<p class="kicker"><t-fa>شناسنامهٔ یک نمره</t-fa><t-en>A score's ID card</t-en></p>
+<div class="cards">
+<div class="off"><b><t-fa>۱ · تصمیم</t-fa><t-en>1 · Decision</t-en></b><t-fa>برای کدام تصمیم واقعی؟</t-fa><t-en>Which real decision?</t-en></div>
+<div class="off"><b><t-fa>۲ · کار</t-fa><t-en>2 · Task</t-en></b><t-fa>از مدل چه کاری خواسته شد؟</t-fa><t-en>What was the model asked to do?</t-en></div>
+<div class="off"><b><t-fa>۳ · داده</t-fa><t-en>3 · Data</t-en></b><t-fa>کدام سؤال‌ها، به چه زبانی؟</t-fa><t-en>Which questions, in which language?</t-en></div>
+<div class="off"><b><t-fa>۴ · اجرا</t-fa><t-en>4 · Run</t-en></b><t-fa>نسخه‌ها، پرامپت‌ها، تکرارها؟</t-fa><t-en>Versions, prompts, repeats?</t-en></div>
+<div class="hi"><b><t-fa>۵ · نمره</t-fa><t-en>5 · Score</t-en></b><t-fa>«نمی‌دانم» چقدر می‌ارزد؟</t-fa><t-en>What is "I don't know" worth?</t-en></div>
+<div class="off"><b><t-fa>۶ · مرز</t-fa><t-en>6 · Boundary</t-en></b><t-fa>دربارهٔ چه چیزی حرفی نمی‌زند؟</t-fa><t-en>What does it not cover?</t-en></div>
+</div>
+<p class="tag"><t-fa>artifact/claim-check-card.md · یک صفحه</t-fa><t-en>artifact/claim-check-card.md · one page</t-en></p>
+<footer><t-fa>کارت بررسی ادعای هومودین</t-fa><t-en>Homodyne claim-check card</t-en></footer>
+<aside class="notes"><t-fa><b>شناسنامهٔ یک نمره</b><p>فقط کارت ۵ روشن؛ امروز فقط با همین بازی کردیم.</p><p>نمره بدون شناسنامه‌اش ناقص است.</p></t-fa><t-en><b>A score's ID card</b><p>Only card 5 lit; today we only played with this one.</p><p>A score without its ID card is incomplete.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="662">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>با جواب‌های ثابت، عوض‌کردن قانون نمره می‌تواند برنده را جابه‌جا کند؛ هم در مثال آموزشی، هم در جدول منتشرشدهٔ SimpleQA از OpenAI.</t-fa><t-en>With fixed answers, changing the scoring rule can flip the winner, both in a teaching example and in OpenAI's published SimpleQA table.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>کدام مدل امروز بهتر است · که دقت بی‌ارزش است · یک قانون درست برای همهٔ کارها · رفتار مدل‌ها وقتی جریمه را بدانند</t-fa><t-en>Which model is better today · that accuracy is worthless · one right rule for every job · how models behave when they know the penalty</t-en></div>
+</div>
+<footer>R01 · R07</footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۵ ثانیه.</p><p>بازنمره‌دهی حساب را عوض می‌کند، نه رفتار را.</p></t-fa><t-en><b>Claim boundary</b><p>Under 45 seconds.</p><p>Rescoring changes the arithmetic, not the behaviour.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-13" data-start="702">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>«بهتر»؛ <em>طبق کدام قانون؟</em></t-fa><t-en>"Better" — <em>under which rule?</em></t-en></h1>
+<div class="cols">
+<div class="hi"><span>OpenAI o4-mini</span><b><t-fa>۲۴٪<small> درست</small></t-fa><t-en>24<small>% correct</small></t-en></b><p><t-fa>۷۵٪ غلط · فقط تا وقتی برنده است که غلط مجانی باشد</t-fa><t-en>75% wrong · wins only while a wrong answer is free</t-en></p></div>
+<div><span>gpt-5-thinking-mini</span><b><t-fa>۲۲٪<small> درست</small></t-fa><t-en>22<small>% correct</small></t-en></b><p><t-fa>۲۶٪ غلط · از <bdi dir="ltr">k ≈ 0.04</bdi> به بعد برنده است</t-fa><t-en>26% wrong · wins from <bdi dir="ltr">k ≈ 0.04</bdi> upwards</t-en></p></div>
+</div>
+<p class="caption"><t-fa>تمرین: در کار تو، یک جواب غلط چند برابرِ یک جواب درست ضرر دارد؟ همان عدد، <bdi dir="ltr">k</bdi> توست.</t-fa><t-en>Exercise: in your work, a wrong answer does how many times the damage of a right one? That number is your <bdi dir="ltr">k</bdi>.</t-en></p>
+<footer><t-fa>R01 · two_scores.py</t-fa><t-en>R01 · two_scores.py</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام و واضح. تمرین را به کامنت وصل کن.</p><p>اول بپرس برندهٔ کدام قانون است.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly and clearly. Tie the exercise to the comments.</p><p>First ask: winner under which rule?</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="745">
+<p class="kicker"><t-fa>قسمت بعد · HMD-003</t-fa><t-en>Next · HMD-003</t-en></p>
+<h1><t-fa>یک نقطهٔ داغ از فضا. <em>آتش</em> است، یا نه؟</t-fa><t-en>One hot dot from space. <em>Fire</em>, or not?</t-en></h1>
+<div class="steps">
+<div><b><t-fa>هشدار بی‌دلیل</t-fa><t-en>False alarm</t-en></b><t-fa>می‌گوییم آتش است؛ یک کارخانه بود.</t-fa><t-en>We say fire. It was a factory.</t-en></div>
+<div class="hi"><b><t-fa>جاافتادن</t-fa><t-en>Miss</t-en></b><t-fa>چیزی نمی‌گوییم؛ آتش بود.</t-fa><t-en>We say nothing. It was a fire.</t-en></div>
+<div><b><t-fa>داده</t-fa><t-en>The data</t-en></b><t-fa>نقطه‌های داغ NASA FIRMS · شمال ایران</t-fa><t-en>NASA FIRMS hot spots · northern Iran</t-en></div>
+</div>
+<footer><t-fa>قسمت بعد · پیشرفت بی‌صدا</t-fa><t-en>Next episode · Silent Breakthrough</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ثانیهٔ ۱۰. انرژی تا آخر.</p><p>از نمرهٔ مدل‌ها به یک تشخیص واقعی می‌رویم: آتش است یا نه؟</p></t-fa><t-en><b>Next episode</b><p>End screen from second 10. Keep the energy to the end.</p><p>From model scores to a real-world call: is it a fire or not?</p></t-en></aside>
+</section>

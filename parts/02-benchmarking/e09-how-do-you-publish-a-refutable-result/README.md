@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۶ قاب؛ MID-CTA قاب ۵ حدود ۲۵٪؛ RE-HOOK قاب ۱۰ حدود ۵۸٪؛ قاب ۱۵ کل دوره E01 تا E09) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه (Problem-Agitation) |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل + متادیتای انگلیسی |
-| [deck.html](deck.html) | دک ضبط v5 (۱۶ section، data-start = شروع هر قاب) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۶ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع R40–R44، R03، خروجی واقعی artifact |
 | [artifact/recompute_check.py](artifact/recompute_check.py) | چک‌کنندهٔ خواننده: مانیفست SHA-256، لنگر، دفتر اصلاحیه، محاسبهٔ دوبارهٔ نمره با `tools/bluff_lab.py` (stdlib) |
 | [artifact/handoff-v3.md](artifact/handoff-v3.md) | پیوند به پیش‌نیازهای اجرای واقعی Bluff (از نسخهٔ قبل، دست‌نخورده) |

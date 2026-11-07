@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۴ قاب، Pattern Interrupt Log، Retention Risk Map، کنترل پیش از ضبط) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک ۳۰ ثانیه‌ای + توصیه |
 | [package-fa.md](package-fa.md) | عنوان‌ها، تامبنیل A/B/C، توضیحات، فصل‌ها، تگ، کامنت پین، end screen، دو Short، پست کامیونیتی |
-| [deck.html](deck.html) | دک ضبط v5 (۱۴ section، `data-start` هم‌زمان با متن) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۴ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع با شناسه، لینک و تاریخ بازبینی |
 | [artifact/key_audit_demo.py](artifact/key_audit_demo.py) | دموی قابل اجرا (stdlib)؛ ILLUSTRATIVE |
 | `artifact/key-v1.csv`، `artifact/key-v2.csv` | همان پاسخ‌ها در قالب `tools/bluff_lab.py` |

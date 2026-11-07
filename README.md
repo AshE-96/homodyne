@@ -40,7 +40,8 @@ Full map with status: [`channel/README.md`](channel/README.md). HMD-001 (what an
 
 ```
 parts/        one folder per episode: README, script-fa.md, hooks-fa.md, package-fa.md,
-              deck.html (recording deck), sources.md, artifact/ (runnable code and results)
+              deck.src.html → deck-fa.html + deck-en.html (recording decks), sources.md,
+              artifact/ (runnable code and results)
 channel/      season map, episode bible, hook bank, calendar, idea banks, manifests
 site/         homodyne.m2gh.ir: Astro, Persian (RTL) + English, blog in site/src/content/blog/
 tools/        bluff_lab.py: scoring tool shared by the benchmark-course episodes
@@ -51,6 +52,7 @@ brand/        logo, mark, favicon
 ## Run it
 
 ```bash
+make decks         # build deck-fa.html + deck-en.html from each deck.src.html
 make episodes      # check every package: beats, word counts, decks, links
 make teleprompter  # write parts/…/recording/ (teleprompter HTML/TXT + recording sheet)
 make selftest      # artifact self-tests

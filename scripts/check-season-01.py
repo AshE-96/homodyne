@@ -4,7 +4,8 @@
 Reads channel/season-01/manifest.json (or the manifest given as the first
 argument, e.g. channel/global/manifest.json) and checks, for every episode folder:
 required files, beat structure, spoken word count, deck/script beat match,
-deck self-containment and JS syntax, banned words, and local links.
+deck self-containment and JS syntax, Persian/English deck parity, banned words,
+and local links.
 Warnings (not failures) list open [RUN] / [VERIFY] items to resolve before recording.
 """
 import json
@@ -16,7 +17,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT/(sys.argv[1] if len(sys.argv) > 1 else 'channel/season-01/manifest.json')
-FILES = ['README.md', 'script-fa.md', 'hooks-fa.md', 'package-fa.md', 'deck.html', 'sources.md']
+FILES = ['README.md', 'script-fa.md', 'hooks-fa.md', 'package-fa.md', 'deck.src.html', 'deck-fa.html', 'deck-en.html', 'sources.md']
+DECKS = ('deck-fa.html', 'deck-en.html')
 WORDS = (1400, 1900)
 BEATS = (12, 16)
 BANNED = ['انقلابی', 'باورنکردنی', 'همه‌چیز را عوض کرد', 'رازی که نمی‌گویند', 'ممنون که دیدید']
@@ -32,6 +34,46 @@ def spoken_words(md):
     return total
 
 
+def frame_shape(deck):
+    """Frame ids, start times and the sequence of component classes: must be identical in fa and en."""
+    out = []
+    for attrs, body in re.findall(r'<section ([^>]*)>(.*?)</section>', deck, re.S):
+        body = re.sub(r'<aside class="notes">.*?</aside>', '', body, flags=re.S)
+        out.append((re.search(r'id="([^"]+)"', attrs).group(1), re.search(r'data-start="(\d+)"', attrs) and
+                    re.search(r'data-start="(\d+)"', attrs).group(1),
+                    tuple(c for c in re.findall(r'class="([^"]+)"', body) if c not in ('sep', 'long'))))  # sep: fa-only separator; long: per-language cover title size
+    return out
+
+
+def check_deck(path, beats, script_starts):
+    deck = path.read_text()
+    errors = []
+    frames = deck.count('<section class="frame ')
+    if frames != beats + 1:
+        errors.append(f'{frames} frames, expected {beats} beats + cover')
+    starts = [int(x) for x in re.findall(r'data-start="(\d+)"', deck)]
+    if starts != sorted(starts):
+        errors.append('data-start values are not ascending')
+    if script_starts and starts != script_starts:
+        errors.append(f'data-start {starts} does not match the script beat times {script_starts}')
+    if re.search(r'</?t-(fa|en)\b', deck):
+        errors.append('unbuilt <t-fa>/<t-en> tags left in the deck')
+    if 'https://fonts.' in deck or '<script src=' in deck or '<link ' in deck:
+        errors.append('loads external fonts, styles or scripts')
+    if 'id="next"' not in deck or 'id="prev"' not in deck:
+        errors.append('missing prev/next buttons')
+    js = re.search(r'<script>(.*?)</script>', deck, re.S)
+    if js:
+        with tempfile.NamedTemporaryFile(suffix='.js', mode='w') as f:
+            f.write(js.group(1))
+            f.flush()
+            if subprocess.run(['node', '--check', f.name], capture_output=True).returncode:
+                errors.append('JS has a syntax error')
+    else:
+        errors.append('no inline script')
+    return errors
+
+
 def check(ep):
     folder = ROOT/ep['path']
     errors, notes = [], []
@@ -44,11 +86,9 @@ def check(ep):
         return errors, notes, {}
 
     md = (folder/'script-fa.md').read_text()
-    deck = (folder/'deck.html').read_text()
     beats = md.count('**متن گفتاری:**')
     words = spoken_words(md)
-    sections = deck.count('<section class="frame ')
-    stats = {'beats': beats, 'words': words, 'deck': sections}
+    stats = {'beats': beats, 'words': words}
 
     if md.count('**ON SCREEN:**') != beats or md.count('**در یک جمله:**') != beats:
         errors.append('each beat needs one ON SCREEN, one متن گفتاری and one در یک جمله')
@@ -56,24 +96,14 @@ def check(ep):
         errors.append(f'{beats} beats, expected {BEATS[0]}-{BEATS[1]}')
     if not WORDS[0] <= words <= WORDS[1]:
         errors.append(f'{words} spoken words, expected {WORDS[0]}-{WORDS[1]}')
-    if sections != beats:
-        errors.append(f'deck has {sections} frames, script has {beats} beats')
-    starts = [int(x) for x in re.findall(r'data-start="(\d+)"', deck)]
-    if starts != sorted(starts):
-        errors.append('deck data-start values are not ascending')
-    if 'https://fonts.' in deck or '<script src=' in deck:
-        errors.append('deck loads external fonts or scripts')
-    if 'id="next"' not in deck or 'id="prev"' not in deck:
-        errors.append('deck is missing prev/next buttons')
-    js = re.search(r'<script>(.*?)</script>', deck, re.S)
-    if js:
-        with tempfile.NamedTemporaryFile(suffix='.js', mode='w') as f:
-            f.write(js.group(1))
-            f.flush()
-            if subprocess.run(['node', '--check', f.name], capture_output=True).returncode:
-                errors.append('deck JS has a syntax error')
-    else:
-        errors.append('deck has no inline script')
+    script_starts = [int(m) * 60 + int(s) for m, s in re.findall(r'^### قاب \d+ · (\d+):(\d+)', md, re.M)]
+    shapes = {}
+    for name in DECKS:
+        errors += [f'{name}: {e}' for e in check_deck(folder/name, beats, script_starts)]
+        shapes[name] = frame_shape((folder/name).read_text())
+    stats['deck'] = f'{beats}+cover ×2'
+    if shapes['deck-fa.html'] != shapes['deck-en.html']:
+        errors.append('deck-fa.html and deck-en.html differ in frames, timings or components')
 
     for name in ('script-fa.md', 'hooks-fa.md', 'package-fa.md'):
         text = (folder/name).read_text()

@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۵ قاب، MID-CTA در قاب ۵، RE-HOOK در قاب ۹) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه (Shock/Contradiction) |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل، با metadata انگلیسی |
-| [deck.html](deck.html) | دک ضبط v5 (۱۵ section، بدون منبع بیرونی) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۵ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع، تاریخ بازبینی، اعداد اجرا، آنچه نمی‌گوییم |
 | [artifact/mislead_lab.py](artifact/mislead_lab.py) | جدول درست با چهار تیتر و دو برنده، جریمهٔ k، best-of-N، holdout، ممیزی PASS/BREACH/UNKNOWN (stdlib، `--selftest`) |
 | [artifact/handoff-v3.md](artifact/handoff-v3.md) | پیوند به پیش‌نیازهای اجرای واقعی Bluff (از نسخهٔ قبل، دست‌نخورده) |

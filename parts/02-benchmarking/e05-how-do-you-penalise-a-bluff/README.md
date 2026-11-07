@@ -17,7 +17,9 @@
 | [script-fa.md](script-fa.md) | متن ضبط v5 (۱۵ قاب؛ قاب ۱۱ سه شاخهٔ A/B/C) |
 | [hooks-fa.md](hooks-fa.md) | پنج هوک + توصیه |
 | [package-fa.md](package-fa.md) | بستهٔ انتشار کامل |
-| [deck.html](deck.html) | دک ضبط v5 (۱۵ section) |
+| [`deck-fa.html`](deck-fa.html) | دک ضبط v6، فارسی و راست‌به‌چپ: کاور + ۱۵ قاب (→ ← · F · H · N) |
+| [`deck-en.html`](deck-en.html) | همان دک به انگلیسی، با همان قاب‌ها و همان ترتیب |
+| [`deck.src.html`](deck.src.html) | منبع دوزبانهٔ هر دو دک؛ بعد از ویرایش `make decks` |
 | [sources.md](sources.md) | منابع، محاسبه‌ها، پارامترهای شبیه‌سازی |
 | [artifact/penalty_threshold.py](artifact/penalty_threshold.py) | خط سکوت، حساب کنکور، شبیه‌سازی کالیبره/مطمئن، نمره‌دادن دوباره در برابر رفتار (stdlib) |
 | [artifact/handoff-v3.md](artifact/handoff-v3.md) | پیوند به پیش‌نیازهای اجرای واقعی Bluff (از نسخهٔ قبل، دست‌نخورده) |

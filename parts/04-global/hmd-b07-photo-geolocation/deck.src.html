@@ -1,0 +1,182 @@
+<!-- HMD-B07 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Beats 9, 10 and 14 hold [RUN] placeholders: fill them only from private/geo-lab/results.md after geo_lab.py score. -->
+
+<style>
+.chart.rings{width:1100px;max-width:100%}
+.chart.rings text{font-size:26px;fill:var(--muted)}
+.night .chart.rings text{fill:var(--muted-night)}
+</style>
+
+<section class="cover">
+<h1><t-fa>AI از یک عکس <em>می‌فهمد</em> کجایی؟</t-fa><t-en>Can AI find where you are from <em>one photo</em>?</t-en></h1>
+<p class="promise"><t-fa>از سرنخ‌های معمولی یک عکس تا یک نقطه روی نقشه؛ آزموده روی ۲۰ عکس خودم، با سه مدل و یک آدم.</t-fa><t-en>From the ordinary clues in a photo to one point on the map, tested on 20 of my own photos with three models and one human.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa><em>۶۰٪</em> حدس‌ها کمتر از ۱ مایل خطا داشتند. بدون GPS.</t-fa><t-en><em>60%</em> of guesses landed less than 1 mile away. No GPS.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>ورودی</t-fa><t-en>Input</t-en></span><b><t-fa>۱ <small>عکس معمولی</small></t-fa><t-en>1 <small>ordinary photo</small></t-en></b><p><t-fa>متادیتا پاک‌شده</t-fa><t-en>Metadata removed</t-en></p></div>
+<div class="hi"><span><t-fa>خروجی</t-fa><t-en>Output</t-en></span><b class="word"><t-fa>کمتر از ۱ مایل</t-fa><t-en>Under 1 mile</t-en></b><p><t-fa>در ۶۰٪ از ۵۰ عکس آمریکایی (o3)</t-fa><t-en>In 60% of 50 US photos (o3)</t-en></p></div>
+</div>
+<p class="caption"><t-fa>از یک عکس معمولی، بدون GPS، تا همان خیابان.</t-fa><t-en>From one ordinary photo, without GPS, to the very street.</t-en></p>
+<footer><t-fa>R-B01 · Luo و همکاران، Doxing via the Lens، arXiv 2504.19373</t-fa><t-en>R-B01 · Luo et al., Doxing via the Lens, arXiv 2504.19373</t-en></footer>
+<aside class="notes"><t-fa><b>۶۰٪ زیر یک مایل</b><p>[B-ROLL CUE] زوم نقشه از کشور به خیابان؛ سه خط از تابلو، درخت و پنجره به نقطه.</p><p>مدل‌ها از یک عکس معمولی، بدون GPS، جای عکاسی را اغلب پیدا می‌کنند.</p></t-fa><t-en><b>60% under one mile</b><p>[B-ROLL CUE] Map zoom from country to street; three lines from a sign, a tree and a window to the point.</p><p>From one ordinary photo, without GPS, models often find where it was taken.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>عکس بالکن</t-fa><t-en>The balcony photo</t-en></p>
+<h1><t-fa><em>یک</em> عکس معمولی چه چیزهایی را لو می‌دهد؟</t-fa><t-en>What does <em>one</em> ordinary photo give away?</t-en></h1>
+<div class="tokens"><i><t-fa>گلدان</t-fa><t-en>Plant pot</t-en></i><i class="hi"><t-fa>کولر آبی</t-fa><t-en>Evaporative cooler</t-en></i><i><t-fa>رنگ آجر</t-fa><t-en>Brick colour</t-en></i><i><t-fa>زاویهٔ آفتاب</t-fa><t-en>Sun angle</t-en></i><i><t-fa>ساختمان روبه‌رو</t-fa><t-en>Building opposite</t-en></i><i><t-fa>آسمان</t-fa><t-en>Sky</t-en></i></div>
+<p class="sub"><t-fa>اول حدس بزن: روی عکس‌های ایران، میانهٔ خطای بهترین مدل چقدر است؟ ۱ · ۱۰ · ۱۰۰ · ۱۰۰۰ کیلومتر</t-fa><t-en>Guess first: on photos from Iran, what is the best model's median error? 1 · 10 · 100 · 1,000 km</t-en></p>
+<footer><t-fa>هومودین · سؤال این قسمت</t-fa><t-en>Homodyne · this episode's question</t-en></footer>
+<aside class="notes"><t-fa><b>عکس بالکن</b><p>[CAMERA CHANGE] چهره؛ کنارش عکس فرضی بالکن. حدس اول بیننده.</p><p>سؤال این است که یک عکس معمولی چقدر از جای تو را لو می‌دهد.</p></t-fa><t-en><b>The balcony photo</b><p>[CAMERA CHANGE] Face to camera; a hypothetical balcony photo beside it. The viewer's first guess.</p><p>The question is how much one ordinary photo gives away about where you are.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="105">
+<p class="kicker"><t-fa>دو آزمایش منتشرشده</t-fa><t-en>Two published tests</t-en></p>
+<div class="cols">
+<div><span><t-fa>Luo و همکاران · ۵۰ عکس آمریکا · o3</t-fa><t-en>Luo et al. · 50 US photos · o3</t-en></span><b><t-fa>۶۰٪ <small>زیر ۱ مایل</small></t-fa><t-en>60% <small>under 1 mile</small></t-en></b><p><t-fa>۸۴٪ زیر ۵ مایل. عکس‌ها از Google Maps بودند؛ شاید مدل در آموزش دیده باشدشان.</t-fa><t-en>84% under 5 miles. The photos came from Google Maps, so the model may have seen them in training.</t-en></p></div>
+<div class="hi"><span><t-fa>Bellingcat · اکتبر ۲۰۲۶ · ۵۲ عکسِ هرگز منتشرنشده</t-fa><t-en>Bellingcat · Oct 2026 · 52 never-published photos</t-en></span><b><t-fa>بیش از ۵۰٪ <small>زیر ۲۵ کیلومتر</small></t-fa><t-en>Over 50% <small>under 25 km</small></t-en></b><p><t-fa>بهترین مدل‌ها. منطقه را خوب می‌یابند، نقطهٔ دقیق را کمتر، و گاهی با اطمینان اشتباه می‌کنند.</t-fa><t-en>The best models. Good at the area, less often exact, sometimes confidently wrong.</t-en></p></div>
+</div>
+<footer><t-fa>R-B01 · arXiv 2504.19373 (v5، مارس ۲۰۲۶) · R-B02 · Bellingcat، ۲۲ اکتبر ۲۰۲۶</t-fa><t-en>R-B01 · arXiv 2504.19373 (v5, Mar 2026) · R-B02 · Bellingcat, 22 Oct 2026</t-en></footer>
+<aside class="notes"><t-fa><b>دو آزمایش منتشرشده</b><p>[UNEXPECTED STAT] کارت دو منبع با نام و تاریخ. [VERIFY] پیش از ضبط «بیش از نصف زیر ۲۵ کیلومتر» را با جدول تعاملی Bellingcat تطبیق بده؛ نام مدل‌ها را نگو.</p><p>روی عکس‌های دیده‌نشده هم مدل‌ها نصف عکس‌ها را تا حد شهر پیدا کردند.</p></t-fa><t-en><b>Two published tests</b><p>[UNEXPECTED STAT] A card with both sources, names and dates. [VERIFY] Before recording, check "more than half under 25 km" against Bellingcat's interactive table; do not name the models.</p><p>Even on unseen photos, models placed half of them down to the city.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="170">
+<p class="kicker"><t-fa>متادیتا؛ و چرا کافی نیست</t-fa><t-en>Metadata, and why it is not enough</t-en></p>
+<div class="code sm"><span class="c">$ python3 artifact/geo_lab.py strip ~/Pictures/geo-iran --set iran</span>
+<span class="o"># EXIF GPS 35.70 N, 51.40 E  → saved to private truth.csv, removed from the copy</span>
+10 photos -> private/geo-lab/clean  (truth in private/geo-lab/truth.csv)
+Check: the clean copies must show no location in your photo viewer before you upload them.</div>
+<p class="sub"><t-fa>مدل فقط نسخهٔ تمیز را می‌بیند. <em>پیکسل‌ها هنوز حرف می‌زنند.</em></t-fa><t-en>The model only ever sees the clean copy. <em>The pixels still talk.</em></t-en></p>
+<p class="tag"><t-fa>نمونهٔ خروجی · مختصات فقط یک مثال است</t-fa><t-en>Sample output · the coordinates are only an example</t-en></p>
+<footer>artifact/geo_lab.py</footer>
+<aside class="notes"><t-fa><b>متادیتا</b><p>[GRAPHIC] لایهٔ EXIF که پاک می‌شود. [MID-CTA] در پایان قاب.</p><p>پاک‌کردن متادیتا لازم است، ولی مدل‌ها از خود تصویر می‌خوانند.</p></t-fa><t-en><b>Metadata</b><p>[GRAPHIC] The EXIF layer being wiped. [MID-CTA] at the end of the beat.</p><p>Stripping metadata is necessary, but models read the image itself.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="230">
+<p class="kicker"><t-fa>قهرمان‌های GeoGuessr</t-fa><t-en>GeoGuessr champions</t-en></p>
+<div class="stat"><b><t-fa>۶ از ۶</t-fa><t-en>6 of 6</t-en></b><span><t-fa>بازی‌هایی که PIGEON از یک بازیکن حرفه‌ای GeoGuessr برد</t-fa><t-en>Games PIGEON won against a professional GeoGuessr player</t-en></span></div>
+<p class="sub"><t-fa>آزمایش کور، ۴۵۸ مسابقه: بهتر از Champion Division (بهترین ۰٫۰۱٪ بازیکن‌ها). میانهٔ خطا روی Street View: ۴۴٫۴ کیلومتر.</t-fa><t-en>Blind test, 458 matches: beat the Champion Division (top 0.01% of players). Median error on Street View: 44.4 km.</t-en></p>
+<footer><t-fa>R-B03 · Haas و همکاران، PIGEON، CVPR 2024</t-fa><t-en>R-B03 · Haas et al., PIGEON, CVPR 2024</t-en></footer>
+<aside class="notes"><t-fa><b>قهرمان‌های GeoGuessr</b><p>[B-ROLL CUE] صفحهٔ بازی؛ تیر برق، خط جاده و خاک کهربایی.</p><p>مدلی که فقط برای این بازی ساخته شد، از قهرمان‌های آدم جلو زد.</p></t-fa><t-en><b>GeoGuessr champions</b><p>[B-ROLL CUE] The game screen; the utility pole, road line and soil turn amber.</p><p>A model built only for this game overtook the human champions.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="295">
+<p class="kicker"><t-fa>مدل چطور فکر می‌کند</t-fa><t-en>How the model thinks</t-en></p>
+<div class="steps">
+<div><b><t-fa>۱ · پیکسل‌ها</t-fa><t-en>1 · Pixels</t-en></b><t-fa>عکس تمیز</t-fa><t-en>The clean photo</t-en></div>
+<div><b><t-fa>۲ · embedding</t-fa><t-en>2 · Embedding</t-en></b><t-fa>یک ردیف عدد؛ عکس‌های شبیه نزدیک هم‌اند</t-fa><t-en>A row of numbers; similar photos sit close</t-en></div>
+<div><b><t-fa>۳ · نزدیک‌ترین جاها</t-fa><t-en>3 · Nearest places</t-en></b><t-fa>کدام جاهای دنیا این شکلی‌اند؟</t-fa><t-en>Which parts of the world look like this?</t-en></div>
+<div class="hi"><b><t-fa>۴ · استدلال</t-fa><t-en>4 · Reasoning</t-en></b><t-fa>رانندگی از راست · خاک قرمز · فونت تابلو</t-fa><t-en>Drives on the right · red soil · sign font</t-en></div>
+<div><b><t-fa>۵ · یک نقطه</t-fa><t-en>5 · One point</t-en></b><t-fa>عرض و طول جغرافیایی</t-fa><t-en>Latitude, longitude</t-en></div>
+</div>
+<p class="sub"><t-fa>GeoRC (ACL 2026): مدل‌های بزرگ در <em>کجا</em> به متخصص‌های آدم می‌رسند، ولی در توضیح <em>چرا</em> هنوز عقب‌اند.</t-fa><t-en>GeoRC (ACL 2026): big models rival human experts at <em>where</em>, but still lag at explaining <em>why</em>.</t-en></p>
+<footer><t-fa>R-B04 · Talreja و همکاران، GeoRC، arXiv 2601.21278</t-fa><t-en>R-B04 · Talreja et al., GeoRC, arXiv 2601.21278</t-en></footer>
+<aside class="notes"><t-fa><b>مدل چطور فکر می‌کند</b><p>[GRAPHIC] نقشهٔ embedding و زنجیرهٔ سرنخ.</p><p>مدل عکس را به نزدیک‌ترین جاهای آشنا وصل می‌کند و سرنخ‌ها را زنجیر می‌کند.</p></t-fa><t-en><b>How the model thinks</b><p>[GRAPHIC] The embedding map and the chain of clues.</p><p>The model links the photo to the nearest familiar places and chains the clues together.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="355">
+<p class="kicker"><t-fa>معمای ایران</t-fa><t-en>The Iran puzzle</t-en></p>
+<h1><t-fa>Iran-Places: جاهای معروف ایران، حدود <em>۱۷٪</em>.</t-fa><t-en>Iran-Places: well-known places in Iran, about <em>17%</em>.</t-en></h1>
+<div class="bars">
+<div><span>GPT-4o</span><i style="--v:16.44"></i><span><t-fa>۱۶٫۴۴٪</t-fa><t-en>16.44%</t-en></span></div>
+<div class="hi"><span>Claude 3.5 Sonnet</span><i style="--v:17.07"></i><span><t-fa>۱۷٫۰۷٪</t-fa><t-en>17.07%</t-en></span></div>
+<div><span>Llama 3.2 90B</span><i style="--v:16.43"></i><span><t-fa>۱۶٫۴۳٪</t-fa><t-en>16.43%</t-en></span></div>
+</div>
+<p class="tag"><t-fa>بیش از ۵۰۰ عکس، دست‌کم ۷ از هر استان · استان یا مکان درست نیم امتیاز، هر دو یک · مدل‌های ۲۰۲۴ · جاهای معروف، نه کوچه‌ها</t-fa><t-en>500+ photos, at least 7 per province · province or place right 0.5, both 1 · 2024 models · landmarks, not streets</t-en></p>
+<footer><t-fa>R-B05 · Farsi و همکاران، Persian in a Court، EvalMG 2025، جدول ۱</t-fa><t-en>R-B05 · Farsi et al., Persian in a Court, EvalMG 2025, Table 1</t-en></footer>
+<aside class="notes"><t-fa><b>معمای ایران</b><p>[UNEXPECTED STAT] جدول مقاله. حدس دوم بیننده: ایران سخت‌تر است؟</p><p>مدل‌های ۲۰۲۴ جاهای معروف ایران را فقط حدود ۱۷٪ درست شناختند.</p></t-fa><t-en><b>The Iran puzzle</b><p>[UNEXPECTED STAT] The paper's table. The viewer's second guess: is Iran harder?</p><p>2024 models recognised well-known places in Iran only about 17% of the time.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="420">
+<p class="kicker"><t-fa>آزمایش من</t-fa><t-en>My test</t-en></p>
+<h1><t-fa>۲۰ عکس · بدون EXIF · ۳ مدل و <em>یک آدم</em> · یک پرسش ثابت</t-fa><t-en>20 photos · EXIF removed · 3 models and <em>1 human</em> · one fixed prompt</t-en></h1>
+<div dir="ltr"><svg class="chart rings" viewBox="0 0 1100 300" role="img"><title><t-fa>دایره‌های فاصله</t-fa><t-en>Distance rings</t-en></title><g fill="none" stroke="#B9B4AA" stroke-width="2"><circle cx="250" cy="150" r="140"/><circle cx="250" cy="150" r="95"/><circle cx="250" cy="150" r="50"/></g><circle cx="250" cy="150" r="14" fill="#E8A33D"/><text x="420" y="60"><t-fa>تا ۱ کیلومتر: خیابان</t-fa><t-en>Up to 1 km: street</t-en></text><text x="420" y="110"><t-fa>تا ۲۵ کیلومتر: شهر</t-fa><t-en>Up to 25 km: city</t-en></text><text x="420" y="160"><t-fa>تا ۲۰۰ کیلومتر: منطقه</t-fa><t-en>Up to 200 km: region</t-en></text><text x="420" y="210"><t-fa>تا ۷۵۰ کیلومتر: کشور</t-fa><t-en>Up to 750 km: country</t-en></text><text x="420" y="260"><t-fa>میانه گزارش می‌شود، نه میانگین</t-fa><t-en>We report the median, not the mean</t-en></text></svg></div>
+<footer><t-fa>طرح آزمایش هومودین · شعاع‌ها مثل PIGEON (CVPR 2024)</t-fa><t-en>Homodyne test design · radii as in PIGEON (CVPR 2024)</t-en></footer>
+<aside class="notes"><t-fa><b>آزمایش من</b><p>[CAMERA CHANGE] میز کار و دایره‌های فاصله؛ فرمان geo_lab.py prompt روی صفحه.</p><p>بیست عکس تمیز، یک پرسش ثابت، و خطا به کیلومتر.</p></t-fa><t-en><b>My test</b><p>[CAMERA CHANGE] The desk and the distance rings; the geo_lab.py prompt command on screen.</p><p>Twenty clean photos, one fixed prompt, and the error in kilometres.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="480">
+<p class="kicker"><t-fa>نتیجه · هوک دوم</t-fa><t-en>The result · second hook</t-en></p>
+<div class="cols">
+<div><span><t-fa>بهترین مدل · خارج · ۱۰ عکس</t-fa><t-en>Best model · abroad · 10 photos</t-en></span><b>[RUN] <small><t-fa>کیلومتر، میانه</t-fa><t-en>km median</t-en></small></b><p><t-fa>[RUN] از ۱۰ زیر ۲۵ کیلومتر</t-fa><t-en>[RUN] of 10 within 25 km</t-en></p></div>
+<div class="hi"><span><t-fa>بهترین مدل · ایران · ۱۰ عکس</t-fa><t-en>Best model · Iran · 10 photos</t-en></span><b>[RUN] <small><t-fa>کیلومتر، میانه</t-fa><t-en>km median</t-en></small></b><p><t-fa>[RUN] از ۱۰ زیر ۲۵ کیلومتر</t-fa><t-en>[RUN] of 10 within 25 km</t-en></p></div>
+<div><span><t-fa>من · آدم</t-fa><t-en>Me · human</t-en></span><b>[RUN] <small><t-fa>کیلومتر، میانه</t-fa><t-en>km median</t-en></small></b><p><t-fa>هر ۲۰ عکس</t-fa><t-en>All 20 photos</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>[RUN] فقط از private/geo-lab/results.md پر شود · آزمایش هومودین · ۲۰ عکس</t-fa><t-en>[RUN] fill only from private/geo-lab/results.md · Homodyne test · 20 photos</t-en></p>
+<footer><t-fa>آزمایش هومودین · geo_lab.py score</t-fa><t-en>Homodyne test · geo_lab.py score</t-en></footer>
+<aside class="notes"><t-fa><b>نتیجه</b><p>[SOUND EFFECT] [RE-HOOK] جدول نتیجه؛ فقط شاخهٔ درست (الف یا ب) ضبط شود.</p><p>روی عکس‌های من، فاصلهٔ مدل‌ها با جای واقعی این بود: [RUN].</p></t-fa><t-en><b>The result</b><p>[SOUND EFFECT] [RE-HOOK] The results table; record only the branch (A or B) that matches.</p><p>On my photos, the models' distance from the real spot was: [RUN].</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="550">
+<p class="kicker"><t-fa>پوشاندن سرنخ‌ها</t-fa><t-en>Hiding the clues</t-en></p>
+<div class="bars">
+<div><span><t-fa>L0 عکس اصلی</t-fa><t-en>L0 original</t-en></span><i style="--v:0"></i><span>[RUN]</span></div>
+<div><span><t-fa>L1 نوشته‌ها پوشیده</t-fa><t-en>L1 text hidden</t-en></span><i style="--v:0"></i><span>[RUN]</span></div>
+<div class="hi"><span><t-fa>L2 نشانه‌ها پوشیده</t-fa><t-en>L2 landmarks hidden</t-en></span><i style="--v:0"></i><span>[RUN]</span></div>
+<div><span><t-fa>L3 برش تنگ</t-fa><t-en>L3 tight crop</t-en></span><i style="--v:0"></i><span>[RUN]</span></div>
+</div>
+<p class="sub"><t-fa>سرنخ‌ها اضافه دارند: یکی را بپوشانی، سه تای دیگر می‌ماند. (کلیولند: باز هم از کنار آب و ریل قطار پیدا شد.)</t-fa><t-en>Clues are redundant: hide one, three more remain. (Cleveland: found again from the waterfront and rail tracks.)</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>[RUN] میانهٔ خطا، کیلومتر، بهترین مدل · پهنای میله‌ها بعد از اجرا</t-fa><t-en>[RUN] median error, km, best model · bar widths set after the run</t-en></p>
+<footer><t-fa>آزمایش هومودین · Luo و همکاران ۲۰۲۶، بخش پوشاندن سرنخ</t-fa><t-en>Homodyne test · Luo et al. 2026, section on obfuscation</t-en></footer>
+<aside class="notes"><t-fa><b>پوشاندن سرنخ‌ها</b><p>[GRAPHIC] یک عکس در چهار سطح پوشاندن.</p><p>پوشاندن کمک می‌کند، ولی سرنخ‌های جایگزین همیشه می‌مانند.</p></t-fa><t-en><b>Hiding the clues</b><p>[GRAPHIC] One photo at four levels of masking.</p><p>Masking helps, but substitute clues always remain.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="615">
+<p class="kicker"><t-fa>چرا ایران</t-fa><t-en>Why Iran</t-en></p>
+<h1><t-fa>عکس آنلاین بیشتر ← مکان‌یابی <em>آسان‌تر</em>.</t-fa><t-en>More photos online → <em>easier</em> to place.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>کم‌دیده‌تر</t-fa><t-en>Less seen</t-en></b><t-fa>امروز حریم خصوصی بیشتر.</t-fa><t-en>More privacy today.</t-en></div>
+<div class="hi"><b><t-fa>ولی</t-fa><t-en>But</t-en></b><t-fa>وقتی ویدیوی سیل یا زلزله باید مکان‌یابی شود، کمک کمتر.</t-fa><t-en>Less help when a flood or earthquake video needs locating.</t-en></div>
+<div><b><t-fa>و</t-fa><t-en>And</t-en></b><t-fa>هر عکسی که پست می‌کنیم، آلبوم مدل بعدی را پرتر می‌کند.</t-fa><t-en>Every photo we post fills the album for the next model.</t-en></div>
+</div>
+<p class="tag"><t-fa>[VERIFY] پوشش Google Street View در ایران</t-fa><t-en>[VERIFY] Google Street View coverage in Iran</t-en></p>
+<footer><t-fa>هومودین</t-fa><t-en>Homodyne</t-en></footer>
+<aside class="notes"><t-fa><b>چرا ایران</b><p>[B-ROLL CUE] نقشهٔ چگالی عکس‌های جهان، زوم روی ایران. [VERIFY] جملهٔ Street View را پیش از ضبط روی نقشهٔ پوشش رسمی ببین؛ اگر تأیید نشد، بگو «پوشش خیلی کمی دارد».</p><p>هر جا عکس آنلاین کمتری دارد، برای مدل‌ها سخت‌تر است؛ فعلاً.</p></t-fa><t-en><b>Why Iran</b><p>[B-ROLL CUE] A world map of photo density, zooming in on Iran. [VERIFY] Check the Street View line against the official coverage map before recording; if not confirmed, say "has very little coverage".</p><p>Wherever there are fewer photos online, it is harder for models, for now.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="675">
+<p class="kicker"><t-fa>پنج قدم پیش از پست‌کردن</t-fa><t-en>Five steps before you post</t-en></p>
+<div class="cards">
+<div><b><t-fa>۱</t-fa><t-en>1</t-en></b><t-fa>موقعیت مکانی دوربین را خاموش کن</t-fa><t-en>Turn off location in the camera</t-en></div>
+<div><b><t-fa>۲</t-fa><t-en>2</t-en></b><t-fa>پیش از فرستادن، متادیتا را پاک کن</t-fa><t-en>Strip metadata before sending</t-en></div>
+<div class="hi"><b><t-fa>۳</t-fa><t-en>3</t-en></b><t-fa>هرگز خانه و خیابان با هم در یک عکس</t-fa><t-en>Never home and street in one photo</t-en></div>
+<div><b><t-fa>۴</t-fa><t-en>4</t-en></b><t-fa>نوشته‌ها را بپوشان: تابلو، پلاک، اسم مغازه</t-fa><t-en>Hide text: signs, plates, shop names</t-en></div>
+<div><b><t-fa>۵</t-fa><t-en>5</t-en></b><t-fa>دیرتر پست کن</t-fa><t-en>Post later</t-en></div>
+</div>
+<p class="sub"><t-fa>هیچ‌کدام تضمین نیست؛ فقط کار را سخت‌تر می‌کنند.</t-fa><t-en>None of these is a guarantee; they only make it harder.</t-en></p>
+<footer><t-fa>چک‌لیست هومودین</t-fa><t-en>Homodyne checklist</t-en></footer>
+<aside class="notes"><t-fa><b>پنج قدم</b><p>[CAMERA CHANGE] کارت قابل ذخیره.</p><p>پنج قدم ساده خطر را کم می‌کند، ولی صفر نمی‌کند.</p></t-fa><t-en><b>Five steps</b><p>[CAMERA CHANGE] A card worth saving.</p><p>Five simple steps lower the risk, but do not remove it.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-13" data-start="730">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>پاک‌کردن متادیتا کافی نیست. پیکسل‌ها جای عکاسی را با خود دارند. پوشاندن سرنخ‌ها کمک می‌کند، ولی نه کامل.</t-fa><t-en>Removing metadata is not enough. The pixels carry the location. Hiding clues helps, but not fully.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>دقت عمومی هیچ مدلی: ۲۰ عکس، یک نفر، یک اجرا · که هر کسی با هر عکسی پیدا می‌شود (عکس داخل خانه خیلی سخت‌تر است) · عدد ۶۰٪ فقط مال عکس‌های آمریکا و یک مدل است</t-fa><t-en>Any model's general accuracy: 20 photos, one person, one run · that anyone can be found from any photo (indoor photos are much harder) · the 60% is US photos and one model only</t-en></div>
+</div>
+<footer><t-fa>مرز ادعای HMD-B07</t-fa><t-en>HMD-B07 claim boundary</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>بدون موسیقی.</p><p>نمونه کوچک است؛ ولی سازوکار و درسش واقعی است.</p></t-fa><t-en><b>Claim boundary</b><p>No music.</p><p>The sample is small, but the mechanism and the lesson are real.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="770">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>اغلب شهر. <em>گاهی</em> خیابان.</t-fa><t-en>Often the city. <em>Sometimes</em> the street.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>حدس اول · عکس‌های ایران</t-fa><t-en>First guess · Iran photos</t-en></span><b>[RUN] <small><t-fa>کیلومتر</t-fa><t-en>km</t-en></small></b><p><t-fa>میانهٔ خطای بهترین مدل</t-fa><t-en>The best model's median error</t-en></p></div>
+<div class="hi"><span><t-fa>دفتر پیش‌بینی هومودین</t-fa><t-en>Homodyne Forecast Ledger</t-en></span><b><t-fa>۶۰٪</t-fa><t-en>60%</t-en></b><p><t-fa>آبان ۱۴۰۶، همین ۱۰ عکس ایران: میانهٔ خطای بهترین مدل دست‌کم نصف می‌شود</t-fa><t-en>Aban 1406 (Oct–Nov 2027), the same 10 Iran photos: the best model's median error at least halves</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>[RUN] بعد از اجرای <bdi dir="ltr">python3 artifact/geo_lab.py score</bdi> پر می‌شود</t-fa><t-en>[RUN] filled in after running python3 artifact/geo_lab.py score</t-en></p>
+<footer><t-fa>دفتر پیش‌بینی هومودین</t-fa><t-en>Homodyne Forecast Ledger</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>قاب night؛ نقشهٔ خطاها و کارت دفتر پیش‌بینی. تمرین: یک عکسِ پست‌شدهٔ خودت را ببین؛ غریبه با کدام سرنخ به کوچه‌ات می‌رسد؟</p><p>اغلب شهر، گاهی خیابان؛ و سال بعد دوباره اندازه می‌گیریم.</p></t-fa><t-en><b>The answer</b><p>Night frame; the map of errors and the forecast-ledger card. Exercise: look at a photo you have posted; which clue would lead a stranger to your street?</p><p>Often the city, sometimes the street; and we measure again next year.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="815">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1><t-fa>یک کلمه لو داد ChatGPT چقدر از علم را <em>می‌نویسد</em>.</t-fa><t-en>One word exposed how much of science <em>ChatGPT</em> writes.</t-en></h1>
+<div class="stat"><b><t-fa>۴۷ برابر</t-fa><t-en>×47</t-en></b><span><t-fa>«delves» در چکیده‌های PubMed، ۲۰۲۲ ← ۲۰۲۴ · بعد افتاد</t-fa><t-en>"delves" in PubMed abstracts, 2022 → 2024 · then it fell</t-en></span></div>
+<footer><t-fa>قسمت بعد · ایدهٔ ۱۳ از بانک ایده‌های پل</t-fa><t-en>Next · idea 13 of the bridge bank</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] نمودار delve؛ بعد End screen.</p><p>بعد از عکس، نوبت یک کلمه است که دست ChatGPT را در علم رو کرد.</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] The "delve" chart; then the end screen.</p><p>After the photo, a single word that exposed ChatGPT's hand in science.</p></t-en></aside>
+</section>

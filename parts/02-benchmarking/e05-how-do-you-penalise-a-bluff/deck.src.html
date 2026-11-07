@@ -1,0 +1,177 @@
+<!-- HMD-010 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks. -->
+
+<section class="cover">
+<h1><t-fa>نمرهٔ منفی می‌تواند AI را <em>محتاط‌تر</em> کند؟</t-fa><t-en>Can negative marking make an AI more <em>careful</em>?</t-en></h1>
+<p class="promise"><t-fa>نمرهٔ منفی یک «خط سکوت» می‌کشد؛ ولی AI فقط وقتی محتاط‌تر می‌شود که قانون را بشنود و اطمینانش صادق باشد.</t-fa><t-en>Negative marking draws a "silence line"; but an AI only gets more careful if it hears the rule and its confidence is honest.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>سؤال ۱۳۷. دو گزینه مانده. <em>بزنی یا رها کنی؟</em></t-fa><t-en>Question 137. Two options left. <em>Answer or skip?</em></t-en></h1>
+<div class="tokens"><i class="off"><t-fa>۱</t-fa><t-en>1</t-en></i><i><t-fa>۲</t-fa><t-en>2</t-en></i><i class="off"><t-fa>۳</t-fa><t-en>3</t-en></i><i><t-fa>۴</t-fa><t-en>4</t-en></i></div>
+<p class="caption"><t-fa>داوطلب کنکور و AI، هر دو، هر بار بین «جواب» و «نمی‌دانم» انتخاب می‌کنند.</t-fa><t-en>A Konkur candidate and an AI both choose, every time, between "answer" and "I don't know".</t-en></p>
+<footer><t-fa>پاسخ‌برگ بازسازی‌شده · بدون سند رسمی</t-fa><t-en>Reconstructed answer sheet · no official document</t-en></footer>
+<aside class="notes"><t-fa><b>سؤال ۱۳۷</b><p>[B-ROLL CUE] نمای خیلی نزدیک از پاسخ‌برگ چهارگزینه‌ای بازسازی‌شده؛ دو گزینه خط‌خورده، مداد بالای دو گزینهٔ دیگر می‌لرزد؛ صدای تیک‌تاک ساعت. بدون لوگو یا سند واقعی. کات روی «من محمدم…».</p><p>هم داوطلب کنکور و هم AI، هر بار بین «جواب» و «نمی‌دونم» انتخاب می‌کنن.</p></t-fa><t-en><b>Question 137</b><p>[B-ROLL CUE] Extreme close-up of a reconstructed four-choice answer sheet; two options crossed out, the pencil hovering over the other two; a ticking clock. No logo or real document. Cut on "I'm Mohammad…".</p><p>Both a Konkur candidate and an AI choose, every time, between "answer" and "I don't know".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="47">
+<p class="kicker"><t-fa>قانون کنکور · اول حدس بزن</t-fa><t-en>The Konkur rule · guess first</t-en></p>
+<div class="cols">
+<div><span><t-fa>جواب درست</t-fa><t-en>Right</t-en></span><b class="word"><t-fa>مثبت ۳</t-fa><t-en>+3</t-en></b></div>
+<div><span><t-fa>جواب غلط</t-fa><t-en>Wrong</t-en></span><b class="word"><t-fa>منفی ۱</t-fa><t-en>−1</t-en></b></div>
+<div><span><t-fa>سفید</t-fa><t-en>Blank</t-en></span><b class="word"><t-fa>صفر</t-fa><t-en>0</t-en></b></div>
+</div>
+<p class="sub"><t-fa>حدس کور بین چهار گزینه:</t-fa><t-en>A blind guess among four options:</t-en> <bdi dir="ltr">¼ × 3 − ¾ × 1 = <em>0</em></bdi></p>
+<footer><t-fa>قاعدهٔ رایج کنکور · راهنماهای کارنامهٔ ۱۴۰۵ و Zoomit (منبع ثانویه)</t-fa><t-en>Common Konkur rule · 1405 result-sheet guides and Zoomit (secondary source)</t-en></footer>
+<aside class="notes"><t-fa><b>قانون کنکور</b><p>[GRAPHIC] سه کارت امتیاز؛ زیرش سؤال حدسی بزرگ با شمارش معکوس ۳ ثانیه. برچسب کوچک: <bdi dir="ltr">Konkur 1405 · +3 / −1</bdi>.</p><p>با قاعدهٔ سه به یک، حدسِ کاملاً کور به‌طور میانگین نه سود داره نه ضرر.</p></t-fa><t-en><b>The Konkur rule</b><p>[GRAPHIC] Three score cards; below them a big guess question with a 3-second countdown. Small label: Konkur 1405 · +3 / −1.</p><p>Under the three-to-one rule, a completely blind guess neither gains nor loses on average.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="96">
+<p class="kicker"><t-fa>صفر، یک‌نهم، یک‌سوم</t-fa><t-en>Zero, one-ninth, one-third</t-en></p>
+<div class="code sm"><span class="c">$ python3 artifact/penalty_threshold.py        # excerpt: section 2</span>
+2) KONKUR ARITHMETIC (4 options, wrong = -1/3 of a right answer)
+   blind guess, 4 options left      P= 1/4  expected value =     0 of a right answer (+0.000)
+   one option eliminated, 3 left    P= 1/3  expected value =   1/9 of a right answer (+0.111)
+<span class="o">   two options eliminated, 2 left   P= 1/2  expected value =   1/3 of a right answer (+0.333)</span>
+   -> this penalty makes BLIND guessing worth zero on average; it does not forbid informed guessing</div>
+<p class="tag"><t-fa>به واحد یک جواب درست · میانگین است، نه تضمین · فقط اگر پنجاه‌پنجاهِ تو واقعاً پنجاه‌پنجاه باشد</t-fa><t-en>In units of one right answer · an average, not a guarantee · only if your 50–50 really is 50–50</t-en></p>
+<footer><t-fa>artifact/penalty_threshold.py · seed 5 · ساختگی</t-fa><t-en>artifact/penalty_threshold.py · seed 5 · ILLUSTRATIVE</t-en></footer>
+<aside class="notes"><t-fa><b>صفر، یک‌نهم، یک‌سوم</b><p>[UNEXPECTED STAT] خروجی بخش ۲ از penalty_threshold.py؛ سه ردیف با کسرهای دقیق؛ ردیف «دو گزینه» کهربایی. بازگشت کوتاه به تصویر مداد قاب ۱.</p><p>نمرهٔ منفی کنکور حدس کور رو صفر می‌کنه، ولی حدسِ آگاهانه رو هنوز سودمند نگه می‌داره.</p></t-fa><t-en><b>Zero, one-ninth, one-third</b><p>[UNEXPECTED STAT] Section 2 of penalty_threshold.py's output; three rows with exact fractions; the "two options" row in amber. A short return to the pencil shot from beat 1.</p><p>Konkur negative marking makes a blind guess worth zero, but still keeps an informed guess worthwhile.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="159">
+<p class="kicker"><t-fa>خط سکوت</t-fa><t-en>The silence line</t-en></p>
+<h1><t-fa>فقط وقتی جواب بده که احتمال درست‌بودن از <em>k/(k+1)</em> بیشتر است</t-fa><t-en>Answer only if the chance of being right is above <em>k/(k+1)</em></t-en></h1>
+<div class="bars">
+<div><span>k = 0</span><i style="--v:0"></i><span><t-fa>۰٪</t-fa><t-en>0%</t-en></span></div>
+<div><span><t-fa>کنکور <bdi dir="ltr">k = 1/3</bdi></t-fa><t-en>Konkur k = 1/3</t-en></span><i style="--v:25"></i><span><t-fa>۲۵٪</t-fa><t-en>25%</t-en></span></div>
+<div><span>k = 1</span><i style="--v:50"></i><span><t-fa>۵۰٪</t-fa><t-en>50%</t-en></span></div>
+<div class="hi"><span>k = 3</span><i style="--v:75"></i><span><t-fa>۷۵٪</t-fa><t-en>75%</t-en></span></div>
+<div><span>k = 9</span><i style="--v:90"></i><span><t-fa>۹۰٪</t-fa><t-en>90%</t-en></span></div>
+</div>
+<footer><t-fa>قانون نمره: درست مثبت ۱ · «نمی‌دانم» صفر · غلط منفی k</t-fa><t-en>Scoring rule: right +1 · "I don't know" 0 · wrong −k</t-en></footer>
+<aside class="notes"><t-fa><b>خط سکوت</b><p>[GRAPHIC] جدول بخش ۱ اسکریپت، پنج ردیف از <bdi dir="ltr">k = 0 → 0%</bdi> تا <bdi dir="ltr">k = 9 → 90%</bdi>؛ ردیف <bdi dir="ltr">k = 3</bdi> کهربایی. یک خط افقی «silence line» روی محور احتمال که با k بالا می‌رود.</p><p>با جریمهٔ k، فقط وقتی جواب بده که احتمال درست‌بودنت از k تقسیم بر k به‌علاوهٔ یک بیشتره.</p></t-fa><t-en><b>The silence line</b><p>[GRAPHIC] The table from section 1 of the script, five rows from k = 0 → 0% to k = 9 → 90%; the k = 3 row in amber. A horizontal "silence line" on the probability axis that rises with k.</p><p>With a penalty of k, answer only if your chance of being right is above k divided by k+1.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="218">
+<p class="kicker"><t-fa>چرا AI حدس می‌زند</t-fa><t-en>Why AI guesses</t-en></p>
+<h1><t-fa>بیشتر امتحان‌های AI: درست ۱ · غلط ۰ · «نمی‌دانم» ۰ ← خط سکوت <em>صفر</em></t-fa><t-en>Most AI tests: right 1 · wrong 0 · "I don't know" 0 → silence line <em>zero</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>تشبیه مقاله</t-fa><t-en>The paper's analogy</t-en></b><t-fa>مثل دانش‌آموز سر سؤال سخت، مدل‌ها در عدم‌قطعیت حدس می‌زنند.</t-fa><t-en>Like students on hard exam questions, models guess when uncertain.</t-en></div>
+<div><b><t-fa>آزمون‌های جریمه‌دار، به نقل مقاله</t-fa><t-en>Exams with penalties, as the paper lists</t-en></b><t-fa>JEE · NEET · GATE · AMC · SAT / AP / GRE (سال‌های قبل)</t-fa><t-en>JEE · NEET · GATE · AMC · SAT / AP / GRE (earlier years)</t-en></div>
+<div class="hi"><b><t-fa>پیشنهاد</t-fa><t-en>The proposal</t-en></b><t-fa>قانون را در دستور بگو: فقط اگر بیش از t مطمئنی، جواب بده.</t-fa><t-en>State the rule in the prompt: answer only if more than t confident.</t-en></div>
+</div>
+<p class="caption"><t-fa>اگر بازکردن قانون‌های امتحان AI به کارت می‌آید، هومودین هر هفته یکی را باز می‌کند.</t-fa><t-en>If unpacking the rules behind AI tests is useful to you, Homodyne unpacks one every week.</t-en></p>
+<footer><t-fa>R01 · Kalai، Nachum، Vempala، Zhang · Why Language Models Hallucinate · ۲۰۲۵</t-fa><t-en>R01 · Kalai, Nachum, Vempala, Zhang · Why Language Models Hallucinate · 2025</t-en></footer>
+<aside class="notes"><t-fa><b>چرا AI حدس می‌زند</b><p>[CAMERA CHANGE] کات به نمای نزدیک برای CTA. بعد [GRAPHIC] کارت منبع R01 (Kalai و همکاران، سپتامبر ۲۰۲۵) با نقل کوتاه دربارهٔ دانش‌آموز و حدس، و فهرست آزمون‌های جریمه‌داری که خود مقاله نام برده: <bdi dir="ltr">JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years)</bdi>.</p><p>وقتی امتحان AI نمرهٔ منفی نداره، خط سکوت صفره و حدس‌زدن همیشه می‌صرفه.</p></t-fa><t-en><b>Why AI guesses</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [GRAPHIC] the R01 source card (Kalai et al., Sep 2025) with a short quote about the student and guessing, and the list of penalised exams the paper itself names: JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years).</p><p>When an AI test has no negative marking, the silence line is zero and guessing always pays.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="292">
+<p class="kicker"><t-fa>یک غلط در خود مقاله</t-fa><t-en>A mistake in the paper itself</t-en></p>
+<div class="source"><q><bdi dir="ltr">“t = 0.75 (penalty <em>2</em>)”</bdi></q><cite><t-fa>Kalai و همکاران · arXiv 2509.04664v1، ۴ سپتامبر ۲۰۲۵ · بخش ۴٫۲ · ولی فرمول خودشان <bdi dir="ltr">t/(1−t)</bdi> می‌دهد <bdi dir="ltr">0.75 / 0.25 = 3</bdi></t-fa><t-en>Kalai et al. · arXiv 2509.04664v1, 4 Sep 2025 · section 4.2 · but their own formula t/(1−t) gives 0.75 / 0.25 = 3</t-en></cite></div>
+<p class="caption"><t-fa>جواب‌نامه‌ها هم غلط دارند؛ جلسهٔ قبل (HMD-008) یادت هست؟</t-fa><t-en>Answer keys have mistakes too; remember the last session (HMD-008)?</t-en></p>
+<footer><t-fa>arXiv 2509.04664v1 · بخش ۴٫۲</t-fa><t-en>arXiv 2509.04664v1 · section 4.2</t-en></footer>
+<aside class="notes"><t-fa><b>یک غلط در خود مقاله</b><p>[UNEXPECTED STAT] اسکرین‌شات کوتاه از بخش ۴٫۲ نسخهٔ v1 مقاله (arXiv 2509.04664v1)؛ عدد ۲ کهربایی؛ کنارش محاسبهٔ <bdi dir="ltr">0.75 / 0.25 = 3</bdi>. [SOUND EFFECT] صدای «تیک» تصحیح.</p><p>مثال عددی مقاله با فرمول خودش جور نیست؛ ایده درسته، ولی عدد رو خودت حساب کن.</p></t-fa><t-en><b>A mistake in the paper itself</b><p>[UNEXPECTED STAT] A short screenshot of section 4.2 of the paper's v1 (arXiv 2509.04664v1); the number 2 in amber; next to it the calculation 0.75 / 0.25 = 3. [SOUND EFFECT] A correction "tick".</p><p>The paper's worked example does not match its own formula; the idea is right, but do the arithmetic yourself.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="356">
+<p class="kicker"><t-fa>نمره‌دادن دوباره ≠ رفتار تازه</t-fa><t-en>Rescoring ≠ new behaviour</t-en></p>
+<div class="cols">
+<div><span><t-fa>نمره‌دادن دوباره</t-fa><t-en>Rescore</t-en></span><b class="word"><t-fa>همان جواب‌ها</t-fa><t-en>Same answers</t-en></b><p><t-fa>قانون تازه ← عدد تازه. مدل کاری نکرده.</t-fa><t-en>New rule → new number. The model did nothing.</t-en></p></div>
+<div class="hi"><span><t-fa>دستور تازه · اجرا نشده</t-fa><t-en>Instruct · not run yet</t-en></span><b class="word"><t-fa>دستور تازه</t-fa><t-en>New prompt</t-en></b><p><t-fa>جواب‌های تازه ← شاید رفتار تازه</t-fa><t-en>Fresh answers → maybe new behaviour</t-en></p></div>
+</div>
+<div class="code sm"><span class="c">$ python3 tools/bluff_lab.py score tools/bluff-demo.csv --condition t75        # excerpt</span>
+  "plain_note": "plain is RESCORED at k=3 for comparison; its prompt did not state the penalty.",</div>
+<footer><t-fa>tools/bluff_lab.py · tools/bluff-demo.csv (ساختگی)</t-fa><t-en>tools/bluff_lab.py · tools/bluff-demo.csv (ILLUSTRATIVE)</t-en></footer>
+<aside class="notes"><t-fa><b>نمره‌دادن دوباره ≠ رفتار تازه</b><p>[GRAPHIC] دو ستون: «نمره‌دادن دوباره: همان جواب‌ها، قانون تازه» و «دستور تازه: دستور تازه، جواب‌های تازه»؛ ستون دوم کهربایی با برچسب NOT RUN YET. زیرش خروجی واقعی bluff_lab.py score tools/bluff-demo.csv --condition t75 و سطر plain_note.</p><p>نمره‌دادن دوباره خط‌کش رو عوض می‌کنه؛ فقط اجرای تازه نشون می‌ده رفتار عوض شده یا نه.</p></t-fa><t-en><b>Rescoring ≠ new behaviour</b><p>[GRAPHIC] Two columns: "Rescore: same answers, new rule" and "Instruct: new prompt, new answers"; the second column in amber with the NOT RUN YET label. Below, the real output of bluff_lab.py score tools/bluff-demo.csv --condition t75 and the plain_note line.</p><p>Rescoring changes the ruler; only a fresh run shows whether the behaviour changed.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="424">
+<p class="kicker"><t-fa>پاسخ‌دهندهٔ کالیبره · <bdi dir="ltr">k = 3</bdi> · اول حدس بزن</t-fa><t-en>Calibrated answerer · k = 3 · guess first</t-en></p>
+<div class="cols">
+<div><span><t-fa>همیشه جواب بده</t-fa><t-en>Always answer</t-en></span><b><t-fa>منفی ۰٫۷۹</t-fa><t-en>−0.79</t-en></b><p><t-fa>امتیاز برای هر سؤال</t-fa><t-en>Points per question</t-en></p></div>
+<div class="hi"><span><t-fa>فقط بالای ۷۵٪ جواب بده</t-fa><t-en>Answer only above 75%</t-en></span><b><t-fa>مثبت ۰٫۱۳</t-fa><t-en>+0.13</t-en></b><p><t-fa>به ۲۹٪ سؤال‌ها جواب می‌دهد · ۱۴٪ جواب‌ها غلط</t-fa><t-en>Answers 29% of questions · 14% of answers wrong</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>۱٬۰۰۰ سؤال ساختگی · پاسخ‌دهنده‌های شبیه‌سازی‌شده، نه مدل زبانی</t-fa><t-en>1,000 made-up questions · simulated answerers, not language models</t-en></p>
+<footer><t-fa>artifact/penalty_threshold.py · بخش ۴ · seed 5</t-fa><t-en>artifact/penalty_threshold.py · section 4 · seed 5</t-en></footer>
+<aside class="notes"><t-fa><b>پاسخ‌دهندهٔ صادق</b><p>[B-ROLL CUE] ضبط صفحه از اجرای python3 artifact/penalty_threshold.py؛ بخش ۴. برچسب ثابت <bdi dir="ltr">ILLUSTRATIVE · simulated answerers, not language models</bdi>.</p><p>اگه اطمینان صادق باشه، رعایت خط سکوت با جریمهٔ بالا امتیاز رو از منفی به مثبت می‌بره.</p></t-fa><t-en><b>The honest answerer</b><p>[B-ROLL CUE] Screen recording of python3 artifact/penalty_threshold.py; section 4. Fixed label ILLUSTRATIVE · simulated answerers, not language models.</p><p>If the confidence is honest, respecting the silence line under a high penalty takes the score from negative to positive.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="504">
+<p class="kicker"><t-fa>همان قانون، <bdi dir="ltr">k = 3</bdi></t-fa><t-en>Same rule, k = 3</t-en></p>
+<div class="cols">
+<div><span><t-fa>کالیبره</t-fa><t-en>Calibrated</t-en></span><b><t-fa>مثبت ۰٫۱۳</t-fa><t-en>+0.13</t-en></b><p><t-fa>به ۲۹٪ جواب می‌دهد · ۱۴٪ جواب‌ها غلط</t-fa><t-en>Answers 29% · 14% of answers wrong</t-en></p></div>
+<div class="hi"><span><t-fa>بیش‌ازحد مطمئن (۲۵ واحد درصد بیشتر)</t-fa><t-en>Overconfident (+25 percentage points)</t-en></span><b><t-fa>منفی ۰٫۰۵</t-fa><t-en>−0.05</t-en></b><p><t-fa>به ۵۹٪ جواب می‌دهد · ۲۷٪ جواب‌ها غلط</t-fa><t-en>Answers 59% · 27% of answers wrong</t-en></p></div>
+</div>
+<p class="sub"><t-fa>قانون سر جایش است؛ <em>قطب‌نما</em> خراب است.</t-fa><t-en>The rule is fine; the <em>compass</em> is broken.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>پاسخ‌دهنده‌های شبیه‌سازی‌شده، نه مدل زبانی</t-fa><t-en>Simulated answerers, not language models</t-en></p>
+<footer><t-fa>artifact/penalty_threshold.py · بخش ۳ · seed 5</t-fa><t-en>artifact/penalty_threshold.py · section 3 · seed 5</t-en></footer>
+<aside class="notes"><t-fa><b>بیش‌ازحد مطمئن</b><p>[CAMERA CHANGE] نمای نزدیک رو به دوربین برای جملهٔ re-hook؛ بعد [GRAPHIC] دو ستون از بخش ۳ اسکریپت در <bdi dir="ltr">k = 3</bdi>: <bdi dir="ltr">calibrated 0.130 · cover 29% · risk 14%</bdi> و <bdi dir="ltr">overconfident −0.054 · cover 59% · risk 27%</bdi>؛ ستون دوم کهربایی. ILLUSTRATIVE.</p><p>خط سکوت فقط برای کسی کار می‌کنه که اطمینانش با واقعیت جور باشه.</p></t-fa><t-en><b>Overconfident</b><p>[CAMERA CHANGE] Close-up to camera for the re-hook line; then [GRAPHIC] two columns from section 3 of the script at k = 3: calibrated 0.130 · cover 29% · risk 14% and overconfident −0.054 · cover 59% · risk 27%; the second column in amber. ILLUSTRATIVE.</p><p>The silence line only works for someone whose confidence matches reality.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="568">
+<p class="kicker"><t-fa>سؤال واقعی</t-fa><t-en>The real question</t-en></p>
+<h1><t-fa>یک مدل واقعی قانون را <em>می‌شنود</em>؟</t-fa><t-en>Does a real model <em>listen</em> to the rule?</t-en></h1>
+<div class="steps">
+<div><b>plain</b><t-fa>هیچ قانونی گفته نمی‌شود</t-fa><t-en>No rule stated</t-en></div>
+<div><b>t50</b><t-fa>غلط = منفی ۱</t-fa><t-en>Wrong = −1</t-en></div>
+<div><b>t75</b><t-fa>غلط = منفی ۳</t-fa><t-en>Wrong = −3</t-en></div>
+<div><b>t90</b><t-fa>غلط = منفی ۹</t-fa><t-en>Wrong = −9</t-en></div>
+</div>
+<p class="caption"><t-fa>همان سؤال‌ها، جواب تازه برای هر دستور، برچسب درست / غلط / «نمی‌دانم». سه عدد: پوشش، ریسک، امتیاز.</t-fa><t-en>Same questions, fresh answers for each prompt, labelled right / wrong / "I don't know". Three numbers: coverage, risk, score.</t-en></p>
+<p class="tag"><t-fa>«محتاط‌تر» پیش از اجرا تعریف می‌شود: غلط کمتر، بی‌آنکه همان‌قدر جواب درست از دست برود</t-fa><t-en>"More careful" is defined before the run: fewer errors without losing as many right answers</t-en></p>
+<footer><t-fa>طرح آزمایش · examples/bluff-v1/production-v3/scoring-guide.md</t-fa><t-en>Experiment design · examples/bluff-v1/production-v3/scoring-guide.md</t-en></footer>
+<aside class="notes"><t-fa><b>سؤال واقعی</b><p>[CAMERA CHANGE] کات به نمای مدیوم. روی دک چهار کارت شرط؛ زیرشان سه سنجه: <bdi dir="ltr">coverage · risk · score</bdi> و قاعدهٔ ازپیش‌نوشته.</p><p>فقط یه اجرای تازه با چند دستور نشون می‌ده مدل قانون رو می‌شنوه یا نه.</p></t-fa><t-en><b>The real question</b><p>[CAMERA CHANGE] Cut to a medium shot. On the deck, four condition cards; below them three measures: coverage · risk · score, and the rule written in advance.</p><p>Only a fresh run with several prompts shows whether the model hears the rule.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="633">
+<p class="kicker"><t-fa>آزمایشی که هنوز اجرا نشده</t-fa><t-en>An experiment not run yet</t-en></p>
+<h1><t-fa>یک مدل، چهار دستور: <em>سه</em> نتیجهٔ ممکن</t-fa><t-en>One model, four prompts: <em>three</em> possible outcomes</t-en></h1>
+<div class="cards">
+<div><b><t-fa>الف · محتاط‌تر</t-fa><t-en>A · More careful</t-en></b><t-fa>غلط کمتر، همان جواب‌های درست</t-fa><t-en>Fewer errors, same correct answers</t-en></div>
+<div><b><t-fa>ب · بی‌تغییر</t-fa><t-en>B · No change</t-en></b><t-fa>نمره جابه‌جا می‌شود، رفتار نه</t-fa><t-en>The score moves, the behaviour does not</t-en></div>
+<div><b><t-fa>ج · فقط کم‌حرف‌تر</t-fa><t-en>C · Just quieter</t-en></b><t-fa>«نمی‌دانم» بیشتر، ولی جواب‌های درست هم از دست رفته</t-fa><t-en>More "I don't know", but correct answers lost too</t-en></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>طراحی شده، هنوز اجرا نشده · نتیجهٔ واقعی، با نام و نسخهٔ مدل، در ویدیوی جدا</t-fa><t-en>Designed, not run yet · the real result, with the model's name and version, in a separate video</t-en></p>
+<footer><t-fa>یک مدل · plain / t50 / t75 / t90 · نتیجه در ویدیوی پیگیری</t-fa><t-en>One model · plain / t50 / t75 / t90 · result in a follow-up video</t-en></footer>
+<aside class="notes"><t-fa><b>آزمایشی که هنوز اجرا نشده</b><p>[GRAPHIC] کارت NOT RUN YET و سه نتیجهٔ ممکن، هر سه هم‌وزن؛ هیچ عددی روی صفحه نیست. از بیننده بخواه حدسش را کامنت کند.</p><p>آزمایش طراحی شده ولی هنوز اجرا نشده؛ معنای هر سه نتیجهٔ ممکن از قبل روشن است.</p></t-fa><t-en><b>An experiment not run yet</b><p>[GRAPHIC] The NOT RUN YET card and three possible outcomes, all three with equal weight; no numbers on screen. Ask viewers to post their guess in the comments.</p><p>The experiment is designed but not run yet; what each of the three possible outcomes means is clear in advance.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="680">
+<p class="kicker"><t-fa>k را چه کسی تعیین می‌کند؟</t-fa><t-en>Who sets k?</t-en></p>
+<h1><t-fa><em>k</em> جهانی وجود ندارد.</t-fa><t-en>There is no universal <em>k</em>.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>بازی حدس اسم فیلم</t-fa><t-en>Guess-the-movie game</t-en></b><t-fa>غلط = یک خنده ← k کوچک</t-fa><t-en>Wrong = a laugh → small k</t-en></div>
+<div class="hi"><b><t-fa>قانون مرجوعی فروشگاه</t-fa><t-en>Store return policy</t-en></b><t-fa>غلط = دردسر واقعی ← k بزرگ‌تر</t-fa><t-en>Wrong = a real problem → larger k</t-en></div>
+<div><b>AA-Omniscience</b><t-fa>شاخص منفی ۱۰۰ تا ۱۰۰ · صفر = به همان اندازه درست که غلط (عملاً <bdi dir="ltr">k = 1</bdi>)</t-fa><t-en>Index −100 to 100 · 0 = as many right as wrong (in effect k = 1)</t-en></div>
+<div><b><t-fa>«نمی‌دانم»</t-fa><t-en>"I don't know"</t-en></b><t-fa>همیشه مجانی نیست (ارجاع به پشتیبانی)</t-fa><t-en>Is not always free (hand-off to support)</t-en></div>
+</div>
+<footer><t-fa>R08 · AA-Omniscience · arXiv 2511.13029 · نوامبر ۲۰۲۵</t-fa><t-en>R08 · AA-Omniscience · arXiv 2511.13029 · Nov 2025</t-en></footer>
+<aside class="notes"><t-fa><b>k را چه کسی تعیین می‌کند؟</b><p>[B-ROLL CUE] سه تصویر کوتاه: بازی حدس اسم فیلم با دوستان، رسید خرید و قانون مرجوعی، و (فقط نماد) یک داروخانهٔ عمومی بدون توصیهٔ پزشکی. کارت کوچک: <bdi dir="ltr">AA-Omniscience (R08): score 0 = as many right as wrong → k = 1</bdi>.</p><p>k یه انتخاب محصوله، نه یه عدد جهانی.</p></t-fa><t-en><b>Who sets k?</b><p>[B-ROLL CUE] Three short shots: a guess-the-movie game with friends, a shop receipt and its return policy, and (as a symbol only) a generic pharmacy, with no medical advice. Small card: AA-Omniscience (R08): score 0 = as many right as wrong → k = 1.</p><p>k is a product choice, not a universal number.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-13" data-start="738">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>با قانون مثبت ۱، صفر، منفی k، خط سکوت <bdi dir="ltr">k/(k+1)</bdi> است. قاعدهٔ رایج کنکور حدس کور را صفر می‌کند. در شبیه‌سازی، این قانون فقط به اطمینانِ صادق کمک می‌کند.</t-fa><t-en>With +1 / 0 / −k, the silence line is k/(k+1). The common Konkur rule makes a blind guess worth zero. In simulation, the rule only helps an honest confidence.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>اینکه مدل‌های امروزی کالیبره‌اند یا نه · پاسخ‌دهنده‌های ما مدل زبانی نبودند · نمره‌دادن دوباره به جواب‌های قدیمی جای اجرای تازه را نمی‌گیرد</t-fa><t-en>Whether today's models are calibrated · our answerers were not language models · rescoring old answers never replaces a fresh run</t-en></div>
+</div>
+<footer><t-fa>مرز ادعای HMD-010</t-fa><t-en>HMD-010 claim boundary</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] نمای ثابت؛ کارت مرز ادعا.</p><p>حساب و شبیه‌سازی رو نشون دادیم؛ رفتار مدل واقعی فقط از اجرا میاد.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] A static shot; the claim-boundary card.</p><p>We showed the arithmetic and the simulation; a real model's behaviour only comes from a run.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="776">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>روی کاغذ، بله. در عمل، فقط اگر مدل <em>گوش بدهد</em> و اطمینانش صادق باشد.</t-fa><t-en>On paper, yes. In practice, only if the model <em>listens</em> and its confidence is honest.</t-en></h1>
+<p class="sub"><t-fa>تمرین: «اگر کمتر از ۹۰٪ مطمئنی، بگو نمی‌دانم.» بعد یکی از جواب‌هایش را خودت چک کن.</t-fa><t-en>Try it: "If you are less than 90% sure, say I don't know." Then check one of its answers yourself.</t-en></p>
+<footer><t-fa>جواب · HMD-010</t-fa><t-en>Answer · HMD-010</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>[GRAPHIC] برگشت به پاسخ‌برگ قاب ۱؛ این بار با خط افقی «silence line» روی آن. کارت تمرین. بگو اجرای واقعی، با هر نتیجه‌ای، جدا منتشر می‌شود.</p><p>نمرهٔ منفی محتاط‌تر می‌کنه، فقط اگه مدل گوش بده و اطمینانش صادق باشه.</p></t-fa><t-en><b>The answer</b><p>[GRAPHIC] Back to the answer sheet from beat 1, this time with the horizontal "silence line" across it. The exercise card. Say the real run will be published separately, whatever the result.</p><p>Negative marking makes it more careful, but only if the model listens and its confidence is honest.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-15" data-start="829">
+<p class="kicker"><t-fa>قسمت بعد · HMD-011</t-fa><t-en>Next · HMD-011</t-en></p>
+<h1><t-fa>نه «باران»، نه «نمی‌دانم»؛ <em>«۷۰٪ احتمال باران»</em>.</t-fa><t-en>Not "rain", not "I don't know": <em>"70% chance of rain"</em>.</t-en></h1>
+<p class="sub"><t-fa>چرا پیش‌بینی هوا عوض می‌شود، و هوش مصنوعی کجا کمک می‌کند؟</t-fa><t-en>Why do weather forecasts change, and where does AI help?</t-en></p>
+<footer><t-fa>قسمت بعد · HMD-011 · Paper → Build</t-fa><t-en>Next · HMD-011 · Paper → Build</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] صدای کوتاه باران؛ [B-ROLL CUE] آسمان ابری و صفحهٔ یک اپ هواشناسی عمومی با ۷۰٪. End screen به HMD-011.</p><p>قسمت بعد: پیش‌بینی‌ای که به‌جای جواب قطعی، احتمال می‌ده.</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] A short rain sound; [B-ROLL CUE] a cloudy sky and a generic weather app showing 70%. End screen to HMD-011.</p><p>Next: a forecast that gives a probability instead of a definite answer.</p></t-en></aside>
+</section>
