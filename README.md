@@ -28,6 +28,10 @@ Numbers come from a named source or from a run in this repo. Simulated data is l
 | 009 | How does Google Maps know when you will arrive? | [`parts/03-standalone/hmd-009-…`](parts/03-standalone/hmd-009-maps-eta/) |
 | 010 | Can negative marking make an AI more careful? | [`parts/02-benchmarking/e05-…`](parts/02-benchmarking/e05-how-do-you-penalise-a-bluff/) |
 | G01 | What happens when AI learns from AI-written text? | [`parts/04-global/hmd-g01-…`](parts/04-global/hmd-g01-model-collapse/) |
+| 012 | We tested it a thousand times. Can we trust it now? (course E06) | [`parts/02-benchmarking/e06-…`](parts/02-benchmarking/e06-how-many-questions-and-a-fair-run/) |
+| 014 | Every number in this table is right. Why does it mislead? (E07) | [`parts/02-benchmarking/e07-…`](parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you/) |
+| 016 | Which AI says "I don't know" at the right time? (E08, results after data lock) | [`parts/02-benchmarking/e08-…`](parts/02-benchmarking/e08-which-model-knows-when-to-abstain/) |
+| 018 | Where did this AI score come from? Check it yourself (E09) | [`parts/02-benchmarking/e09-…`](parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result/) |
 | B07 | Can AI find where you are from one photo? | [`parts/04-global/hmd-b07-…`](parts/04-global/hmd-b07-photo-geolocation/) |
 
 Full map with status: [`channel/README.md`](channel/README.md). HMD-001 (what an AI PM does) lives in [`parts/01-ai-pm/`](parts/01-ai-pm/).

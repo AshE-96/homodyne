@@ -25,6 +25,10 @@ selftest:
 	$(PY) parts/04-global/hmd-b07-photo-geolocation/artifact/geo_lab.py selftest
 	$(PY) parts/04-global/hmd-g01-model-collapse/artifact/collapse_lab.py --quick > /dev/null
 	$(PY) parts/03-standalone/hmd-003-wildfire-from-space/artifact/firms_timeline.py --demo --quiet > /dev/null
+	$(PY) parts/02-benchmarking/e06-how-many-questions-and-a-fair-run/artifact/power_lab.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you/artifact/mislead_lab.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e08-which-model-knows-when-to-abstain/artifact/abstain_report.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result/artifact/recompute_check.py --selftest > /dev/null
 
 site:
 	cd site && npm ci && npm run build

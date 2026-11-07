@@ -1,0 +1,18 @@
+ok   Miller sec.5 n for delta .03, omega^2 1/9 == 969
+ok   Miller sec.5 MDE K=1 matches paper 13.2% (within 0.1 pt)
+ok   Miller sec.5 MDE K=10 matches paper 7.5% (within 0.1 pt)
+ok   split(0.10, 0.02) == (0.06, 0.04)
+ok   paired SD = sqrt(0.10 - 0.0004)
+ok   analytic power n=2000 within 0.75-0.85 (paper: nearly 80%)
+ok   analytic power n=500 within 0.20-0.35 (paper: ~0.25)
+ok   exact McNemar: 0 vs 6 discordant is significant
+ok   exact McNemar: 0 vs 5 discordant is not (p = 0.0625)
+ok   exact McNemar: 10 vs 10 is not significant
+ok   design effect m=4, icc .5 == 2.5
+ok   15 pairs: P(at least one false winner) = 53.7%
+ok   design effect m=1 == 1
+ok   null, 50x20, icc .5: naive false-winner rate > clustered
+ok   null, 50x20, icc .5: naive false-winner rate > 20%
+ok   null, 1000x1: both rates near 5% (2-10%)
+
+16/16 checks pass

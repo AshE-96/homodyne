@@ -1,0 +1,45 @@
+# ILLUSTRATIVE (assumed rates, simulated data; no model was called)
+# seed 12 · 2000 simulated runs per cell · alpha 0.05 two-sided · power target 0.80
+
+1) CARD ET AL. 2020, APPENDIX C SCENARIO  (true difference 2 points, models agree on 90%)
+   p(A right, B wrong) = 0.06 · p(A wrong, B right) = 0.04
+   questions  analytic power  simulated power (exact McNemar)  exaggeration when 'significant'
+         500             29%                              24%  x1.9
+        2000             81%                              78%  x1.1
+   paper reports: n=500 power ~0.25, exaggeration x1.9 · n=2000 'nearly 80%', x1.1
+
+2) MINIMUM DETECTABLE EFFECT (accuracy points; 80% power, alpha 0.05, paired, independent questions)
+   questions   disagree  5%  disagree 10%  disagree 20%  disagree 30%
+         100          6.3 pt         8.9 pt        12.5 pt        15.3 pt
+         250          4.0 pt         5.6 pt         7.9 pt         9.7 pt
+         500          2.8 pt         4.0 pt         5.6 pt         6.9 pt
+        1000          2.0 pt         2.8 pt         4.0 pt         4.9 pt
+        2000          1.4 pt         2.0 pt         2.8 pt         3.4 pt
+        4000          1.0 pt         1.4 pt         2.0 pt         2.4 pt
+   (SD of d = sqrt(disagreement rate): exact when the true gap is 0, close for small gaps)
+   Miller 2024 check: omega^2 = 1/9, delta = 0.03 -> n = 969 questions (paper: ~969)
+
+3) PAIRED vs UNPAIRED, and REPEATS
+   same 500 questions, accuracy A 72% vs B 70%, disagree on 10%:
+     unpaired (compare two totals)   MDE 8.0 pt
+     paired   (question by question) MDE 4.0 pt
+   Miller sec. 5: 198 questions, each answered K=1   times -> MDE 13.3%
+   Miller sec. 5: 198 questions, each answered K=2   times -> MDE 10.5%
+   Miller sec. 5: 198 questions, each answered K=10  times -> MDE 7.6%
+   Miller sec. 5: 198 questions, each answered K=100 times -> MDE 6.7%
+   (paper, rounded: 13.2% at K=1, 7.5% at K=10)
+   ceiling with infinite repeats: 6.6% (repeats cannot replace questions)
+
+4) THE SAME 1,000 ROWS, THREE SHAPES  (ICC = 0.5 inside a cluster; models disagree on 10% of rows)
+   shape      design effect  effective n  MDE (clustered)  NO real difference:  naive 'winner'  clustered 'winner'   real 3-pt gap: clustered power
+   1000 x 1             1.00         1000           2.8 pt                               4.7%                4.7%                           86.2%
+    250 x 4             2.50          400           4.4 pt                              23.1%                5.5%                           50.6%
+     50 x 20           10.50           95           9.1 pt                              52.8%                5.3%                           17.5%
+   naive = treats all 1,000 rows as independent; clustered = Miller eq. 8 (sum within cluster first).
+   With only 50 clusters a z-test is slightly liberal; a t or bootstrap test is safer.
+
+5) MANY COMPARISONS  (6 models -> 15 pairs; no real difference anywhere; tests treated as independent)
+   pairs = 15 · chance at least one pair looks 'significant' at 5% = 53.7%
+   (pairs share models, so they are not independent; the point is the order of magnitude)
+
+Not shown: real model behaviour, real disagreement rates, real ICCs. Measure them in a pilot.

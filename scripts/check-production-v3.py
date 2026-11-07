@@ -22,7 +22,7 @@ def main():
     for c in cards:
         assert c['sources'] and all(x in refs for x in c['sources'])
         assert c['hook'] and c['build'] and c['metrics'] and c['boundary'] and c['fallback']
-    # E01-E05 were rewritten for season 01; scripts/check-season-01.py checks them.
+    # E01-E09 were rewritten for season 01 (v5); scripts/check-season-01.py checks them.
     for s in [s for s in scripts if s['status'] != 'MOVED_TO_SEASON_01']:
         folder = ROOT/'parts/02-benchmarking'/s['slug']
         md = (folder/'script-fa.md').read_text()
@@ -44,7 +44,7 @@ def main():
         for target in re.findall(r'\]\(([^)]+)\)', md):
             if not target.startswith(('https://','http://','#')):
                 assert (folder/target).exists(), (folder, target)
-    print('PASS: 30 future episodes, 11 new topics, 36 source IDs; v4 scripts E06-E09 with matched deck beats, JS syntax and script links.')
+    print('PASS: 30 future episodes, 11 new topics, 36 source IDs; benchmark course E01-E09 checked by check-season-01.py.')
 
 
 if __name__ == '__main__':

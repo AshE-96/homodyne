@@ -49,6 +49,8 @@ Posts are scheduled: a post appears on the site when its `date` has arrived and 
 | 004 | 2026-12-11 | | 009 | 2027-01-15 |
 | 005 | 2026-12-18 | | 010 | 2027-01-22 |
 | 006 | 2026-12-25 | | G01 | 2027-01-29 |
+| 012 | 2027-02-12 | | 016 | 2027-03-12 |
+| 014 | 2027-02-26 | | 018 | 2027-03-26 |
 
 ## Rules (non-negotiable)
 

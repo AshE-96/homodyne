@@ -30,6 +30,10 @@
 | 009 | گوگل‌مپس از کجا می‌فهمد کی می‌رسی؟ | [`hmd-009`](parts/03-standalone/hmd-009-maps-eta/) |
 | 010 | نمرهٔ منفی می‌تواند AI را محتاط‌تر کند؟ | [`e05`](parts/02-benchmarking/e05-how-do-you-penalise-a-bluff/) |
 | G01 | وقتی AI از نوشته‌های AI یاد بگیرد چه می‌شود؟ | [`hmd-g01`](parts/04-global/hmd-g01-model-collapse/) |
+| 012 | هزار بار امتحان کردیم؛ حالا می‌شود اعتماد کرد؟ | [`e06`](parts/02-benchmarking/e06-how-many-questions-and-a-fair-run/) |
+| 014 | این جدول درست است؛ چرا گمراه‌کننده است؟ | [`e07`](parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you/) |
+| 016 | کدام AI به‌موقع می‌گوید «نمی‌دانم»؟ | [`e08`](parts/02-benchmarking/e08-which-model-knows-when-to-abstain/) |
+| 018 | این نمرهٔ AI از کجا آمده؟ خودت بررسی کن | [`e09`](parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result/) |
 | B07 | AI از یک عکس می‌فهمد کجایی؟ | [`hmd-b07`](parts/04-global/hmd-b07-photo-geolocation/) |
 
 نقشهٔ کامل با وضعیت: [`channel/README.md`](channel/README.md) و [`channel/season-01/README-fa.md`](channel/season-01/README-fa.md).

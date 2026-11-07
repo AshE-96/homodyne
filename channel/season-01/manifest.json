@@ -7,5 +7,9 @@
   {"hmd": "HMD-007", "format": "AI in Production", "path": "parts/03-standalone/hmd-007-prompt-injection", "title": "می‌شود با یک متن، دستیار AI را از کارش منحرف کرد؟", "next": "HMD-008"},
   {"hmd": "HMD-008", "format": "Benchmark Lab · E04", "path": "parts/02-benchmarking/e04-who-decides-the-right-answer", "title": "اگر جواب‌نامه غلط باشد، کدام AI می‌بازد؟", "next": "HMD-009"},
   {"hmd": "HMD-009", "format": "Algorithm X-Ray", "path": "parts/03-standalone/hmd-009-maps-eta", "title": "گوگل‌مپس از کجا می‌فهمد کی می‌رسی؟", "next": "HMD-010"},
-  {"hmd": "HMD-010", "format": "Benchmark Lab · E05", "path": "parts/02-benchmarking/e05-how-do-you-penalise-a-bluff", "title": "نمرهٔ منفی می‌تواند AI را محتاط‌تر کند؟", "next": "HMD-011"}
+  {"hmd": "HMD-010", "format": "Benchmark Lab · E05", "path": "parts/02-benchmarking/e05-how-do-you-penalise-a-bluff", "title": "نمرهٔ منفی می‌تواند AI را محتاط‌تر کند؟", "next": "HMD-011"},
+  {"hmd": "HMD-012", "format": "Benchmark Lab · E06", "path": "parts/02-benchmarking/e06-how-many-questions-and-a-fair-run", "title": "هزار بار امتحان کردیم؛ حالا می‌شود اعتماد کرد؟", "next": "HMD-013"},
+  {"hmd": "HMD-014", "format": "Benchmark Lab · E07", "path": "parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you", "title": "این جدول درست است؛ چرا گمراه‌کننده است؟", "next": "HMD-015"},
+  {"hmd": "HMD-016", "format": "Benchmark Lab · E08", "path": "parts/02-benchmarking/e08-which-model-knows-when-to-abstain", "title": "کدام AI به‌موقع می‌گوید «نمی‌دانم»؟ نتیجهٔ آزمون ما", "next": "HMD-017"},
+  {"hmd": "HMD-018", "format": "Benchmark Lab · E09", "path": "parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result", "title": "این نمرهٔ AI از کجا آمده؟ خودت بررسی کن", "next": "HMD-019"}
 ]
