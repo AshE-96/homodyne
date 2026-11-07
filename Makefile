@@ -9,7 +9,7 @@ help:
 	@echo "make site          build homodyne.m2gh.ir into site/dist"
 	@echo "make site-dev      local dev server with future posts visible"
 	@echo "make preview       build and serve the site as it will go live (http://localhost:4321)"
-	@echo "make deploy        check, build and upload to Cloudflare Pages (homodyne.m2gh.ir)"
+	@echo "make deploy        check, build and upload to Cloudflare (homodyne.m2gh.ir)"
 	@echo "make check         episodes + selftest + site"
 
 episodes:

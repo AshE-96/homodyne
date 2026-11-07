@@ -52,7 +52,7 @@ make teleprompter  # write parts/…/recording/ (teleprompter HTML/TXT + recordi
 make selftest      # artifact self-tests
 make site          # build the website into site/dist
 make preview       # serve it locally as it will go live
-make deploy        # check, build and upload to Cloudflare Pages (run on each release day)
+make deploy        # check, build and upload to Cloudflare (run on each release day)
 ```
 
 Every artifact uses the Python standard library unless its README says otherwise. The benchmark-course episodes refer to the M2Lab benchmarking framework (`framework/`, `examples/bluff-v1`, `m2bench`), which lives in its own repository.

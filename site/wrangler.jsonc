@@ -1,0 +1,12 @@
+{
+  // homodyne.m2gh.ir: the built Astro site (dist/) served as Cloudflare Workers static assets.
+  "name": "homodyne",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [{ "pattern": "homodyne.m2gh.ir", "custom_domain": true }],
+  "workers_dev": true
+}

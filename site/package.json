@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "homodyne.m2gh.ir: Homodyne episodes and bilingual blog (Persian / English), deployed to Cloudflare Pages",
+  "description": "homodyne.m2gh.ir: Homodyne episodes and bilingual blog (Persian / English), served from Cloudflare",
   "scripts": {
     "data": "node scripts/build-data.mjs",
     "dev": "npm run data && astro dev",
     "build": "npm run data && astro build",
     "preview": "astro preview",
-    "deploy": "npm run build && wrangler pages deploy dist --project-name homodyne --branch main --commit-dirty=true"
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@astrojs/rss": "4.0.19",
