@@ -11,7 +11,7 @@ export const postSlug = (p: Post) => p.id.split('/').slice(1).join('/');
 export const postUrl = (p: Post) => `/${p.data.lang}/blog/${postSlug(p)}/`;
 export const episodeUrl = (e: Episode, lang: Lang) => `/${lang}/episodes/${e.slug}/`;
 
-// Scheduled publishing: a post goes live when its date arrives (the deploy workflow rebuilds daily).
+// Scheduled publishing: a post goes live when its date arrives and the site is rebuilt (`make deploy` on release day).
 // SHOW_ALL=1 shows future posts for local preview.
 const now = Date.now();
 export const isLive = (p: Post) => !p.data.draft && (process.env.SHOW_ALL === '1' || p.data.date.valueOf() <= now);

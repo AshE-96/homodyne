@@ -1,6 +1,6 @@
 # Homodyne: episode packages, recording kit and website.
 PY ?= python3
-.PHONY: help episodes teleprompter selftest site site-dev check
+.PHONY: help episodes teleprompter selftest site site-dev preview deploy check
 
 help:
 	@echo "make episodes      check every episode package (beats, words, decks, links)"
@@ -8,6 +8,8 @@ help:
 	@echo "make selftest      run the artifact self-tests"
 	@echo "make site          build homodyne.m2gh.ir into site/dist"
 	@echo "make site-dev      local dev server with future posts visible"
+	@echo "make preview       build and serve the site as it will go live (http://localhost:4321)"
+	@echo "make deploy        check, build and upload to Cloudflare Pages (homodyne.m2gh.ir)"
 	@echo "make check         episodes + selftest + site"
 
 episodes:
@@ -29,5 +31,12 @@ site:
 
 site-dev:
 	cd site && SHOW_ALL=1 npm run dev
+
+preview: site
+	cd site && npx astro preview
+
+# Posts go live when their date has arrived, so deploy on each release day.
+deploy: episodes selftest
+	cd site && npm ci && npm run deploy
 
 check: episodes selftest site

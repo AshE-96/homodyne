@@ -1,9 +1,7 @@
 name: checks
 
+# Manual only: the same checks run locally with `make check` before `make deploy`.
 on:
-  push:
-    branches: [main]
-  pull_request:
   workflow_dispatch:
 
 jobs:

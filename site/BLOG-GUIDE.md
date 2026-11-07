@@ -40,7 +40,7 @@ datasets:                  # deep-dive: every dataset/tool used (optional for co
 ---
 ```
 
-Posts are scheduled: a post appears on the site when its `date` arrives (daily rebuild).
+Posts are scheduled: a post appears on the site when its `date` has arrived and the site is rebuilt, so run `make deploy` on each release day.
 
 | HMD | date | | HMD | date |
 |---|---|---|---|---|
