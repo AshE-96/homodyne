@@ -3,14 +3,14 @@
 
 <section class="cover">
 <h1><t-fa>چرا نوشتن فارسی برای بعضی AIها <em>توکن بیشتری</em> می‌برد؟</t-fa><t-en>Why does Persian cost <em>more tokens</em> for some AI models?</t-en></h1>
-<p class="promise"><t-fa>پنجاه جفت جملهٔ هم‌معنی، فارسی و انگلیسی، شمرده‌شده با نُه tokenizer واقعی.</t-fa><t-en>Fifty matching sentence pairs, Persian and English, counted by nine real tokenizers.</t-en></p>
+<p class="promise"><t-fa>پنجاه جفت جملهٔ هم‌معنی، فارسی و انگلیسی، شمرده‌شده با نُه توکن‌ساز واقعی.</t-fa><t-en>Fifty matching sentence pairs, Persian and English, counted by nine real tokenizers.</t-en></p>
 </section>
 
 <section class="frame night" id="beat-1" data-start="0">
 <h1><t-fa>حرف کمتر. <em>توکن</em> بیشتر.</t-fa><t-en>Fewer letters. More <em>tokens</em>.</t-en></h1>
 <div class="cols">
 <div><span><t-fa>تعداد حرف · فارسی ÷ انگلیسی (میانه)</t-fa><t-en>Characters · fa ÷ en (median)</t-en></span><b><t-fa>۰٫۸۸<small>×</small></t-fa><t-en>0.88<small>×</small></t-en></b><p><t-fa>فارسی کوتاه‌تر نوشته می‌شود…</t-fa><t-en>Persian is written shorter…</t-en></p></div>
-<div class="hi"><span><t-fa>تعداد توکن · فارسی ÷ انگلیسی (میانه، ۹ tokenizer)</t-fa><t-en>Tokens · fa ÷ en (median, 9 tokenizers)</t-en></span><b><t-fa>۱٫۲۱ تا ۴٫۶۱<small>×</small></t-fa><t-en>1.21–4.61<small>×</small></t-en></b><p><t-fa>…ولی بلندتر شمرده می‌شود.</t-fa><t-en>…but counted longer.</t-en></p></div>
+<div class="hi"><span><t-fa>تعداد توکن · فارسی ÷ انگلیسی (میانه، ۹ توکن‌ساز)</t-fa><t-en>Tokens · fa ÷ en (median, 9 tokenizers)</t-en></span><b><t-fa>۱٫۲۱ تا ۴٫۶۱<small>×</small></t-fa><t-en>1.21–4.61<small>×</small></t-en></b><p><t-fa>…ولی بلندتر شمرده می‌شود.</t-fa><t-en>…but counted longer.</t-en></p></div>
 </div>
 <p class="tag"><t-fa>۵۰ جفت جملهٔ خودنوشته · اندازه‌گیری ۲ نوامبر ۲۰۲۶ · tiktoken 0.9.0 · transformers 4.49.0</t-fa><t-en>50 self-written pairs · measured 2 Nov 2026 · tiktoken 0.9.0 · transformers 4.49.0</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
@@ -22,7 +22,7 @@
 <h1><t-fa>پولی که می‌دهی برای حرف نیست؛ برای <em>توکن</em> است.</t-fa><t-en>What you pay for is not letters. It is <em>tokens</em>.</t-en></h1>
 <div class="steps">
 <div><b><t-fa>۱</t-fa><t-en>1</t-en></b><t-fa>توکن چیست؛ ببینیمش.</t-fa><t-en>What a token is: see it.</t-en></div>
-<div><b><t-fa>۲</t-fa><t-en>2</t-en></b><t-fa>فارسی در برابر انگلیسی، روی ۹ tokenizer واقعی.</t-fa><t-en>Persian vs English on 9 real tokenizers.</t-en></div>
+<div><b><t-fa>۲</t-fa><t-en>2</t-en></b><t-fa>فارسی در برابر انگلیسی، روی ۹ توکن‌ساز واقعی.</t-fa><t-en>Persian vs English on 9 real tokenizers.</t-en></div>
 <div class="hi"><b><t-fa>۳</t-fa><t-en>3</t-en></b><t-fa>کدام عادت تایپی این عدد را جابه‌جا می‌کند.</t-fa><t-en>Which typing habit moves the number.</t-en></div>
 </div>
 <p class="caption"><t-fa>حدس بزن: فارسی چند برابر انگلیسی؟ ۱٫۵؟ ۲؟ ۳؟</t-fa><t-en>Guess: how many times the English count is the Persian? 1.5? 2? 3?</t-en></p>
@@ -51,19 +51,19 @@
 </div>
 <p class="tag"><t-fa>gpt2 حرف «آ» را به دو بایت خام می‌شکند: <bdi dir="ltr">&lt;20d8&gt; &lt;a2&gt;</bdi></t-fa><t-en>gpt2 splits «<bdi lang="fa">آ</bdi>» into two raw bytes: <bdi dir="ltr">&lt;20d8&gt; &lt;a2&gt;</bdi></t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
-<aside class="notes"><t-fa><b>همان جمله به فارسی</b><p>[UNEXPECTED STAT] اول مکث روی علامت سؤال، بعد ۲۲، ۴۶، ۶۹. نسبت‌دادن tokenizer به مدل فقط طبق نقشهٔ tiktoken 0.9.0.</p><p>در یک جمله: یک جملهٔ فارسی، بسته به tokenizer، از ۲۲ تا ۶۹ تکه می‌شود؛ انگلیسی‌اش ۱۵.</p></t-fa><t-en><b>The same sentence in Persian</b><p>[UNEXPECTED STAT] Pause on the question mark first, then 22, 46, 69. Match tokenizers to models only by the tiktoken 0.9.0 map.</p><p>In one line: one Persian sentence becomes 22 to 69 pieces depending on the tokenizer; its English is 15.</p></t-en></aside>
+<aside class="notes"><t-fa><b>همان جمله به فارسی</b><p>[UNEXPECTED STAT] اول مکث روی علامت سؤال، بعد ۲۲، ۴۶، ۶۹. نسبت‌دادن توکن‌ساز به مدل فقط طبق نقشهٔ tiktoken 0.9.0.</p><p>در یک جمله: یک جملهٔ فارسی، بسته به توکن‌ساز، از ۲۲ تا ۶۹ تکه می‌شود؛ انگلیسی‌اش ۱۵.</p></t-fa><t-en><b>The same sentence in Persian</b><p>[UNEXPECTED STAT] Pause on the question mark first, then 22, 46, 69. Match tokenizers to models only by the tiktoken 0.9.0 map.</p><p>In one line: one Persian sentence becomes 22 to 69 pieces depending on the tokenizer; its English is 15.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-5" data-start="215">
 <p class="kicker"><t-fa>چرا؟ منبع اصلی</t-fa><t-en>Why? The primary source</t-en></p>
 <div class="source"><q><t-fa>«…در بعضی موارد، تفاوت تا <em>۱۵ برابر</em>.»</t-fa><t-en>"…differences up to <em>15 times</em> in some cases."</t-en></q><cite><t-fa>Petrov، La Malfa، Torr، Bibi · Language Model Tokenizers Introduce Unfairness Between Languages · NeurIPS 2023 · arXiv 2305.15425 · ترجمهٔ هومودین</t-fa><t-en>Petrov, La Malfa, Torr, Bibi · Language Model Tokenizers Introduce Unfairness Between Languages · NeurIPS 2023 · arXiv 2305.15425</t-en></cite></div>
-<p class="sub"><t-fa>tokenizerها روی متن آموزش می‌بینند. همهٔ زبان‌ها سهم برابر نمی‌گیرند.</t-fa><t-en>Tokenizers are trained on text. Not all languages get equal room.</t-en></p>
+<p class="sub"><t-fa>توکن‌سازها روی متن آموزش می‌بینند. همهٔ زبان‌ها سهم برابر نمی‌گیرند.</t-fa><t-en>Tokenizers are trained on text. Not all languages get equal room.</t-en></p>
 <footer><t-fa>R14 · Petrov و همکاران · NeurIPS 2023</t-fa><t-en>R14 · Petrov et al. · NeurIPS 2023</t-en></footer>
-<aside class="notes"><t-fa><b>چرا؟ منبع اصلی + CTA نرم</b><p>[MID-CTA] اول CTA نرم رو به دوربین، بعد کارت منبع. [CAMERA CHANGE]</p><p>ضریب فارسی امروز از این مقاله نمی‌آید؛ از اجرای خودمان. در یک جمله: tokenizer زبانی را که کمتر دیده با تکه‌های ریزتر می‌نویسد.</p></t-fa><t-en><b>Why? Primary source + soft CTA</b><p>[MID-CTA] Soft CTA to camera first, then the source card. [CAMERA CHANGE]</p><p>Today's Persian ratio does not come from this paper; it comes from our own run. In one line: a tokenizer writes a language it has seen less in smaller pieces.</p></t-en></aside>
+<aside class="notes"><t-fa><b>چرا؟ منبع اصلی + CTA نرم</b><p>[MID-CTA] اول CTA نرم رو به دوربین، بعد کارت منبع. [CAMERA CHANGE]</p><p>ضریب فارسی امروز از این مقاله نمی‌آید؛ از اجرای خودمان. در یک جمله: توکن‌ساز زبانی را که کمتر دیده با تکه‌های ریزتر می‌نویسد.</p></t-fa><t-en><b>Why? Primary source + soft CTA</b><p>[MID-CTA] Soft CTA to camera first, then the source card. [CAMERA CHANGE]</p><p>Today's Persian ratio does not come from this paper; it comes from our own run. In one line: a tokenizer writes a language it has seen less in smaller pieces.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-6" data-start="275">
-<p class="kicker"><t-fa>آزمایش: ۵۰ جفت، ۹ tokenizer</t-fa><t-en>The experiment: 50 pairs, 9 tokenizers</t-en></p>
+<p class="kicker"><t-fa>آزمایش: ۵۰ جفت، ۹ توکن‌ساز</t-fa><t-en>The experiment: 50 pairs, 9 tokenizers</t-en></p>
 <div class="code"><span class="c">$ python3 artifact/count_tokens.py</span>
 corpus   50 pairs · chat news howto support code numbers address
 tiktoken o200k_base · cl100k_base · gpt2
@@ -72,7 +72,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <span class="o">chars    fa ÷ en median = 0.88</span></div>
 <p class="tag"><t-fa>نسخه‌های Hugging Face روی commit دقیق قفل شده‌اند · توکن‌های ویژه شمرده نشده‌اند</t-fa><t-en>Hugging Face revisions pinned to exact commits · special tokens not counted</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
-<aside class="notes"><t-fa><b>آزمایش: ۵۰ جفت، ۹ tokenizer</b><p>[B-ROLL CUE] ضبط صفحهٔ اجرای اسکریپت.</p><p>در یک جمله: نسبت توکن فارسی به انگلیسی را برای ۵۰ جفت هم‌معنی و ۹ tokenizer اندازه گرفتیم.</p></t-fa><t-en><b>The experiment: 50 pairs, 9 tokenizers</b><p>[B-ROLL CUE] Screen recording of the script running.</p><p>In one line: we measured the Persian-to-English token ratio for 50 matching pairs on 9 tokenizers.</p></t-en></aside>
+<aside class="notes"><t-fa><b>آزمایش: ۵۰ جفت، ۹ توکن‌ساز</b><p>[B-ROLL CUE] ضبط صفحهٔ اجرای اسکریپت.</p><p>در یک جمله: نسبت توکن فارسی به انگلیسی را برای ۵۰ جفت هم‌معنی و ۹ توکن‌ساز اندازه گرفتیم.</p></t-fa><t-en><b>The experiment: 50 pairs, 9 tokenizers</b><p>[B-ROLL CUE] Screen recording of the script running.</p><p>In one line: we measured the Persian-to-English token ratio for 50 matching pairs on 9 tokenizers.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-7" data-start="335">
@@ -108,7 +108,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 </div>
 <p class="tag"><t-fa>کمینه ۱٫۰۵ · بیشینه ۲٫۱۰ · در هر ۵۰ جفت فارسی توکن بیشتری گرفت (o200k) · در Gemma-3، ۷ جفت فارسی ارزان‌تر بود</t-fa><t-en>Min 1.05 · max 2.10 · Persian higher in 50 of 50 pairs (o200k) · Gemma-3: 7 pairs where Persian was cheaper</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
-<aside class="notes"><t-fa><b>یک عدد کافی نیست</b><p>[SOUND EFFECT] کلیک با ورود هر کارت.</p><p>در یک جمله: ضریب فارسی به نوع متن هم بستگی دارد، نه فقط به tokenizer.</p></t-fa><t-en><b>One number is not enough</b><p>[SOUND EFFECT] A click as each card comes in.</p><p>In one line: the Persian ratio also depends on the kind of text, not only the tokenizer.</p></t-en></aside>
+<aside class="notes"><t-fa><b>یک عدد کافی نیست</b><p>[SOUND EFFECT] کلیک با ورود هر کارت.</p><p>در یک جمله: ضریب فارسی به نوع متن هم بستگی دارد، نه فقط به توکن‌ساز.</p></t-fa><t-en><b>One number is not enough</b><p>[SOUND EFFECT] A click as each card comes in.</p><p>In one line: the Persian ratio also depends on the kind of text, not only the tokenizer.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-9" data-start="465">
@@ -117,25 +117,25 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <div class="cols">
 <div><span>o200k_base</span><b><t-fa>۶٫۷٪<small> بیشتر</small></t-fa><t-en>+6.7<small>%</small></t-en></b><p><t-fa>میانهٔ تغییر، با «ی» و «ک» عربی</t-fa><t-en>Median change with Arabic yeh and kaf</t-en></p></div>
 <div class="hi"><span>Llama-3.2 · Gemma-3</span><b><t-fa>۱۱٫۵٪<small> بیشتر</small></t-fa><t-en>+11.5<small>%</small></t-en></b><p><t-fa>بدترین جمله: ۴۶٫۷٪ و ۵۰٪ بیشتر</t-fa><t-en>Worst sentence: +46.7% / +50%</t-en></p></div>
-<div><span>Mistral-Nemo</span><b><t-fa>۱۰٫۵٪<small> بیشتر</small></t-fa><t-en>+10.5<small>%</small></t-en></b><p><t-fa>tokenizerهای قدیمی‌تر: حدود صفر یا منفی</t-fa><t-en>Older tokenizers: about zero or negative</t-en></p></div>
+<div><span>Mistral-Nemo</span><b><t-fa>۱۰٫۵٪<small> بیشتر</small></t-fa><t-en>+10.5<small>%</small></t-en></b><p><t-fa>Qwen3 و توکن‌سازهای قدیمی‌تر: حدود صفر یا منفی</t-fa><t-en>Qwen3 and older tokenizers: about zero or negative</t-en></p></div>
 </div>
 <p class="tag"><t-fa>۴۹ جملهٔ فارسی با U+064A و U+0643 بازنویسی شد · فقط سمت فارسی</t-fa><t-en>49 Persian sentences rewritten with U+064A / U+0643 · Persian side only</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
-<aside class="notes"><t-fa><b>هوک دوم: کیبورد خودت</b><p>[RE-HOOK] [CAMERA CHANGE] نمای نزدیک کیبورد. اول حدس، بعد عدد.</p><p>در یک جمله: روی tokenizerهای جدید، «ی» و «ک» عربی حدود ۷ تا ۱۲ درصد توکن اضافه می‌کنند.</p></t-fa><t-en><b>Second hook: your own keyboard</b><p>[RE-HOOK] [CAMERA CHANGE] Close-up of the keyboard. Guess first, then the number.</p><p>In one line: on newer tokenizers, Arabic yeh and kaf add about 7 to 12 percent more tokens.</p></t-en></aside>
+<aside class="notes"><t-fa><b>هوک دوم: کیبورد خودت</b><p>[RE-HOOK] [CAMERA CHANGE] نمای نزدیک کیبورد. اول حدس، بعد عدد.</p><p>در یک جمله: روی بیشتر توکن‌سازهای جدید، «ی» و «ک» عربی حدود ۶ تا ۱۲ درصد توکن اضافه می‌کنند؛ روی Qwen3 و قدیمی‌ترها نه.</p></t-fa><t-en><b>Second hook: your own keyboard</b><p>[RE-HOOK] [CAMERA CHANGE] Close-up of the keyboard. Guess first, then the number.</p><p>In one line: on most newer tokenizers, Arabic yeh and kaf add about 6 to 12 percent more tokens; not on Qwen3 or the older ones.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-10" data-start="530">
 <p class="kicker"><t-fa>نیم‌فاصله و رقم‌ها</t-fa><t-en>Half-spaces and digits</t-en></p>
 <h1><t-fa>نیم‌فاصله: برای بیشتر رایگان، برای یکی گران. رقم‌ها: بستگی دارد.</t-fa><t-en>Half-space (ZWNJ): free on most, costly on one. Digits: it depends.</t-en></h1>
 <div class="cards">
-<div><b><t-fa>نیم‌فاصله ← فاصله · بیشتر tokenizerها</t-fa><t-en>ZWNJ → space · most tokenizers</t-en></b><t-fa>میانهٔ تغییر: صفر</t-fa><t-en>Median change ±0%</t-en></div>
+<div><b><t-fa>نیم‌فاصله ← فاصله · بیشتر توکن‌سازها</t-fa><t-en>ZWNJ → space · most tokenizers</t-en></b><t-fa>میانهٔ تغییر: صفر</t-fa><t-en>Median change ±0%</t-en></div>
 <div class="hi"><b><t-fa>نیم‌فاصله · DeepSeek-V3</t-fa><t-en>ZWNJ · DeepSeek-V3</t-en></b><t-fa>هر نیم‌فاصله = ۲ توکن بایتی؛ فاصله به‌جای آن حدود ۱۳٫۵٪ کم می‌کند</t-fa><t-en>Each half-space = 2 byte tokens; a space instead saves ~13.5%</t-en></div>
 <div><b><t-fa>رقم لاتین · o200k / cl100k</t-fa><t-en>Latin digits · o200k / cl100k</t-en></b><t-fa>۸٫۳٪ و ۲۱٫۲٪ کمتر</t-fa><t-en>−8.3% / −21.2%</t-en></div>
 <div><b><t-fa>رقم لاتین · Gemma-3</t-fa><t-en>Latin digits · Gemma-3</t-en></b><t-fa>۱۴٫۳٪ بیشتر (رقم فارسی ارزان‌تر است)</t-fa><t-en>+14.3% (Persian digits are cheaper)</t-en></div>
 </div>
 <p class="caption"><t-fa>فارسی را برای توکن خراب ننویس؛ نیم‌فاصله برای خوانایی و جست‌وجو مهم است.</t-fa><t-en>Do not break your Persian to save tokens; the half-space matters for readability and search.</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
-<aside class="notes"><t-fa><b>نیم‌فاصله و رقم‌ها</b><p>[UNEXPECTED STAT] نیم‌فاصله در DeepSeek: e2 80 8c به دو تکه. رقم‌ها: ۱۱ جملهٔ عددی.</p><p>در یک جمله: اثر نیم‌فاصله و رقم‌ها به tokenizer بستگی دارد؛ قاعدهٔ کلی ندارد.</p></t-fa><t-en><b>Half-spaces and digits</b><p>[UNEXPECTED STAT] The half-space in DeepSeek: e2 80 8c in two pieces. Digits: 11 sentences with numbers.</p><p>In one line: the effect of half-spaces and digits depends on the tokenizer; there is no general rule.</p></t-en></aside>
+<aside class="notes"><t-fa><b>نیم‌فاصله و رقم‌ها</b><p>[UNEXPECTED STAT] نیم‌فاصله در DeepSeek: e2 80 8c به دو تکه. رقم‌ها: ۱۱ جملهٔ عددی.</p><p>در یک جمله: اثر نیم‌فاصله و رقم‌ها به توکن‌ساز بستگی دارد؛ قاعدهٔ کلی ندارد.</p></t-fa><t-en><b>Half-spaces and digits</b><p>[UNEXPECTED STAT] The half-space in DeepSeek: e2 80 8c in two pieces. Digits: 11 sentences with numbers.</p><p>In one line: the effect of half-spaces and digits depends on the tokenizer; there is no general rule.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-11" data-start="595">
@@ -153,8 +153,8 @@ window_fa  ≈ window_en ÷ ratio     <span class="c"># 1 ÷ 1.39 ≈ 72% of the
 <section class="frame night" id="beat-12" data-start="655">
 <p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
 <div class="boundary">
-<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی ۵۰ جفت جملهٔ خودنوشته، فارسی بسته به tokenizer بین ۱٫۲۱ تا ۴٫۶۱ برابر انگلیسی توکن گرفت؛ شیوهٔ نوشتن هم این عدد را جابه‌جا می‌کند.</t-fa><t-en>On 50 self-written pairs, Persian took 1.21 to 4.61 times the tokens of English, depending on the tokenizer; spelling choices shift it.</t-en></div>
-<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که AI فارسی را بدتر می‌فهمد · که هر متن فارسی همین نسبت را دارد · محصول تو امروز از کدام tokenizer استفاده می‌کند · تأخیر</t-fa><t-en>That AI understands Persian worse · that every Persian text has this ratio · which tokenizer your product uses today · latency</t-en></div>
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی ۵۰ جفت جملهٔ خودنوشته، فارسی بسته به توکن‌ساز بین ۱٫۲۱ تا ۴٫۶۱ برابر انگلیسی توکن گرفت؛ شیوهٔ نوشتن هم این عدد را جابه‌جا می‌کند.</t-fa><t-en>On 50 self-written pairs, Persian took 1.21 to 4.61 times the tokens of English, depending on the tokenizer; spelling choices shift it.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که AI فارسی را بدتر می‌فهمد · که هر متن فارسی همین نسبت را دارد · محصول تو امروز از کدام توکن‌ساز استفاده می‌کند · تأخیر</t-fa><t-en>That AI understands Persian worse · that every Persian text has this ratio · which tokenizer your product uses today · latency</t-en></div>
 </div>
 <footer><t-fa>مرز ادعای HMD-005</t-fa><t-en>HMD-005 claim boundary</t-en></footer>
 <aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی.</p><p>در یک جمله: شکاف توکنی واقعی است، ولی دربارهٔ کیفیت فهم چیزی نمی‌گوید.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music.</p><p>In one line: the token gap is real, but it says nothing about how well the model understands.</p></t-en></aside>
@@ -162,9 +162,9 @@ window_fa  ≈ window_en ÷ ratio     <span class="c"># 1 ÷ 1.39 ≈ 72% of the
 
 <section class="frame night" id="beat-13" data-start="705">
 <p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
-<div class="stat"><b><t-fa>۱٫۲ تا ۴٫۶×</t-fa><t-en>1.2–4.6×</t-en></b><span><t-fa>توکن فارسی به‌ازای هر توکن انگلیسی · ۹ tokenizer · ۵۰ جفت</t-fa><t-en>Persian tokens per English token · 9 tokenizers · 50 pairs</t-en></span></div>
-<p class="tag"><t-fa>متن خودت. tokenizer خودت. بشمارش:</t-fa><t-en>Your text. Your tokenizer. Count it:</t-en> <bdi dir="ltr">python3 artifact/count_tokens.py</bdi></p>
-<p class="caption"><t-fa>پس: tokenizerها تکه‌های فارسی کمتری می‌شناسند و متن ما را ریزتر می‌شکنند.</t-fa><t-en>So: tokenizers know fewer Persian chunks, so they break our text into smaller pieces.</t-en></p>
+<div class="stat"><b><t-fa>۱٫۲ تا ۴٫۶×</t-fa><t-en>1.2–4.6×</t-en></b><span><t-fa>توکن فارسی به‌ازای هر توکن انگلیسی · ۹ توکن‌ساز · ۵۰ جفت</t-fa><t-en>Persian tokens per English token · 9 tokenizers · 50 pairs</t-en></span></div>
+<p class="tag"><t-fa>متن خودت. توکن‌ساز خودت. بشمارش:</t-fa><t-en>Your text. Your tokenizer. Count it:</t-en> <bdi dir="ltr">python3 artifact/count_tokens.py</bdi></p>
+<p class="caption"><t-fa>پس: توکن‌سازها تکه‌های فارسی کمتری می‌شناسند و متن ما را ریزتر می‌شکنند.</t-fa><t-en>So: tokenizers know fewer Persian chunks, so they break our text into smaller pieces.</t-en></p>
 <footer><t-fa>اجرای HMD-005 · artifact/results-2026-11-02.md</t-fa><t-en>HMD-005 run · artifact/results-2026-11-02.md</t-en></footer>
 <aside class="notes"><t-fa><b>جواب</b><p>[GRAPHIC] جواب صریح با «پس». حلقهٔ «عادت تایپی» را ببند: ی/ک فارسیِ درست. تمرین: یک ایمیل واقعی را فارسی و انگلیسی بشمار؛ حدس اول را در کامنت بگذار.</p><p>در یک جمله: فارسی ریزتر شکسته می‌شود؛ اندازه‌اش را با متن خودت بشمار.</p></t-fa><t-en><b>The answer</b><p>[GRAPHIC] A plain answer starting with "So". Close the "typing habit" loop: the correct Persian yeh and kaf. Exercise: count a real email in Persian and English; post your first guess in the comments.</p><p>In one line: Persian is broken into smaller pieces; measure how much with your own text.</p></t-en></aside>
 </section>

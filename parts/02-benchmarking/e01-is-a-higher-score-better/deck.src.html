@@ -9,8 +9,8 @@
 <section class="frame night" id="beat-1" data-start="0">
 <h1><t-fa>از هر چهار جواب، سه‌تا غلط. <em>باز هم</em> برنده.</t-fa><t-en>3 of 4 answers wrong. <em>Still</em> the winner.</t-en></h1>
 <div class="cols">
-<div class="hi"><span><t-fa>OpenAI o4-mini · دقت</t-fa><t-en>OpenAI o4-mini · accuracy</t-en></span><b><t-fa>۲۴٪</t-fa><t-en>24<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
-<div><span><t-fa>gpt-5-thinking-mini · دقت</t-fa><t-en>gpt-5-thinking-mini · accuracy</t-en></span><b><t-fa>۲۲٪</t-fa><t-en>22<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
+<div class="hi"><span><t-fa>OpenAI o4-mini · درصد جواب درست</t-fa><t-en>OpenAI o4-mini · accuracy</t-en></span><b><t-fa>۲۴٪</t-fa><t-en>24<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
+<div><span><t-fa>gpt-5-thinking-mini · درصد جواب درست</t-fa><t-en>gpt-5-thinking-mini · accuracy</t-en></span><b><t-fa>۲۲٪</t-fa><t-en>22<small>%</small></t-en></b><p><t-fa>نرخ خطا: فعلاً پنهان</t-fa><t-en>Error rate: hidden for now</t-en></p></div>
 </div>
 <p class="tag"><t-fa>SimpleQA، منتشرشده در OpenAI، ۵ سپتامبر ۲۰۲۵ · جدول تاریخی، نه رتبه‌بندی امروز</t-fa><t-en>SimpleQA, as published by OpenAI, 5 Sep 2025 · a historical table, not today's ranking</t-en></p>
 <footer><t-fa>R01 · OpenAI، Why Language Models Hallucinate</t-fa><t-en>R01 · OpenAI, Why Language Models Hallucinate</t-en></footer>
@@ -117,10 +117,10 @@ A wrong answer costing 1/24.5 of a right one is enough to flip the winner.</span
 <h1><t-fa>بازنمره‌دهی <em>≠</em> اجرای دوباره</t-fa><t-en>Rescoring <em>≠</em> re-running</t-en></h1>
 <div class="cols">
 <div><span><t-fa>کاری که کردیم</t-fa><t-en>What we did</t-en></span><b class="word"><t-fa>همان جواب‌ها</t-fa><t-en>Same answers</t-en></b><p><t-fa>قانون تازه بعد از جواب‌دادن اعمال شد. مدل‌ها از جریمه خبر نداشتند.</t-fa><t-en>The new rule was applied after the answers were given. The models never knew about a penalty.</t-en></p></div>
-<div class="hi"><span><t-fa>سؤالی که Bluff می‌پرسد</t-fa><t-en>What Bluff will ask</t-en></span><b class="word"><t-fa>جواب‌های تازه</t-fa><t-en>New answers</t-en></b><p><t-fa>پیش از جواب به مدل بگوییم «هر غلط منفی یک‌سوم». کمتر حدس می‌زند، یا فقط کمتر جواب می‌دهد؟</t-fa><t-en>Tell the model "each wrong answer is −1/3" before it answers. Does it guess less, or just answer less?</t-en></p></div>
+<div class="hi"><span><t-fa>سؤالی که آزمایش بلوف می‌پرسد</t-fa><t-en>What Bluff will ask</t-en></span><b class="word"><t-fa>جواب‌های تازه</t-fa><t-en>New answers</t-en></b><p><t-fa>پیش از جواب به مدل بگوییم «هر غلط منفی یک‌سوم». کمتر حدس می‌زند، یا فقط کمتر جواب می‌دهد؟</t-fa><t-en>Tell the model "each wrong answer is −1/3" before it answers. Does it guess less, or just answer less?</t-en></p></div>
 </div>
-<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>آزمایش Bluff طراحی شده و هنوز اجرا نشده است</t-fa><t-en>The Bluff experiment is designed and has not been run yet</t-en></p>
-<footer><t-fa>سؤال دوره · bluff-v1 (مرحلهٔ طراحی)</t-fa><t-en>Course question · bluff-v1 (design stage)</t-en></footer>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>آزمایش بلوف طراحی شده و هنوز اجرا نشده است</t-fa><t-en>The Bluff experiment is designed and has not been run yet</t-en></p>
+<footer><t-fa>سؤال دوره · آزمایش بلوف، bluff-v1 (مرحلهٔ طراحی)</t-fa><t-en>Course question · bluff-v1 (design stage)</t-en></footer>
 <aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت پیش از جملهٔ اول. نگو Bluff اجرا شده.</p><p>عوض‌شدن رتبه روی کاغذ، عوض‌شدن رفتار مدل را ثابت نمی‌کند.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence before the first line. Do not say Bluff has been run.</p><p>A ranking that changes on paper does not prove the model's behaviour changes.</p></t-en></aside>
 </section>
 

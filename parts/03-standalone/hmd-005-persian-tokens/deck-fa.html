@@ -185,7 +185,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="stage">
 <section class="frame night cover" id="cover" aria-label="کاور">
 <div class="top"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="hmd"><bdi dir="ltr">HMD-005</bdi></span></div>
-<main><div class="fit"><p class="series">آزمایشگاه بنچمارک</p><h1>چرا نوشتن فارسی برای بعضی <bdi dir="ltr">AI</bdi>ها <em>توکن بیشتری</em> می‌برد؟</h1><p class="promise">پنجاه جفت جملهٔ هم‌معنی، فارسی و انگلیسی، شمرده‌شده با نُه <bdi dir="ltr">tokenizer</bdi> واقعی.</p></div></main>
+<main><div class="fit"><p class="series">آزمایشگاه بنچمارک</p><h1>چرا نوشتن فارسی برای بعضی <bdi dir="ltr">AI</bdi>ها <em>توکن بیشتری</em> می‌برد؟</h1><p class="promise">پنجاه جفت جملهٔ هم‌معنی، فارسی و انگلیسی، شمرده‌شده با نُه توکن‌ساز واقعی.</p></div></main>
 <svg class="wave" aria-hidden="true"></svg>
 <div class="bottom"><span>متن، منبع‌ها و کد این قسمت:</span><span class="site"><bdi dir="ltr">homodyne.m2gh.ir</bdi></span></div>
 <aside class="notes"><b>کاور</b><p>بعد از هوک و «من محمدم، اینجا هومودینه» دو تا سه ثانیه روی این قاب بمان، بعد → برای قاب ۱.</p></aside>
@@ -197,7 +197,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <h1>حرف کمتر. <em>توکن</em> بیشتر.</h1>
 <div class="cols">
 <div><span>تعداد حرف <span class="sep">·</span> فارسی ÷ انگلیسی (میانه)</span><b>۰٫۸۸<small>×</small></b><p>فارسی کوتاه‌تر نوشته می‌شود…</p></div>
-<div class="hi"><span>تعداد توکن <span class="sep">·</span> فارسی ÷ انگلیسی (میانه، ۹ <bdi dir="ltr">tokenizer</bdi>)</span><b>۱٫۲۱ تا ۴٫۶۱<small>×</small></b><p>…ولی بلندتر شمرده می‌شود.</p></div>
+<div class="hi"><span>تعداد توکن <span class="sep">·</span> فارسی ÷ انگلیسی (میانه، ۹ توکن‌ساز)</span><b>۱٫۲۱ تا ۴٫۶۱<small>×</small></b><p>…ولی بلندتر شمرده می‌شود.</p></div>
 </div>
 <p class="tag">۵۰ جفت جملهٔ خودنوشته <span class="sep">·</span> اندازه‌گیری ۲ نوامبر ۲۰۲۶ <span class="sep">·</span> <bdi dir="ltr">tiktoken 0.9.0</bdi> <span class="sep">·</span> <bdi dir="ltr">transformers 4.49.0</bdi></p>
 </div></main>
@@ -212,7 +212,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <h1>پولی که می‌دهی برای حرف نیست؛ برای <em>توکن</em> است.</h1>
 <div class="steps">
 <div><b>۱</b>توکن چیست؛ ببینیمش.</div>
-<div><b>۲</b>فارسی در برابر انگلیسی، روی ۹ <bdi dir="ltr">tokenizer</bdi> واقعی.</div>
+<div><b>۲</b>فارسی در برابر انگلیسی، روی ۹ توکن‌ساز واقعی.</div>
 <div class="hi"><b>۳</b>کدام عادت تایپی این عدد را جابه‌جا می‌کند.</div>
 </div>
 <p class="caption">حدس بزن: فارسی چند برابر انگلیسی؟ ۱٫۵؟ ۲؟ ۳؟</p>
@@ -248,7 +248,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="tag"><bdi dir="ltr">gpt2</bdi> حرف «آ» را به دو بایت خام می‌شکند: <bdi dir="ltr">&lt;20d8&gt; &lt;a2&gt;</bdi></p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
-<aside class="notes"><b>همان جمله به فارسی</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] اول مکث روی علامت سؤال، بعد ۲۲، ۴۶، ۶۹. نسبت‌دادن <bdi dir="ltr">tokenizer</bdi> به مدل فقط طبق نقشهٔ <bdi dir="ltr">tiktoken 0.9.0</bdi>.</p><p>در یک جمله: یک جملهٔ فارسی، بسته به <bdi dir="ltr">tokenizer</bdi>، از ۲۲ تا ۶۹ تکه می‌شود؛ انگلیسی‌اش ۱۵.</p></aside>
+<aside class="notes"><b>همان جمله به فارسی</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] اول مکث روی علامت سؤال، بعد ۲۲، ۴۶، ۶۹. نسبت‌دادن توکن‌ساز به مدل فقط طبق نقشهٔ <bdi dir="ltr">tiktoken 0.9.0</bdi>.</p><p>در یک جمله: یک جملهٔ فارسی، بسته به توکن‌ساز، از ۲۲ تا ۶۹ تکه می‌شود؛ انگلیسی‌اش ۱۵.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-5" data-start="215" aria-label="قاب ۵">
@@ -256,16 +256,16 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <main><div class="fit">
 <p class="kicker">چرا؟ منبع اصلی</p>
 <div class="source"><q>«…در بعضی موارد، تفاوت تا <em>۱۵ برابر</em>.»</q><cite><bdi dir="ltr">Petrov</bdi>، <bdi dir="ltr">La Malfa</bdi>، <bdi dir="ltr">Torr</bdi>، <bdi dir="ltr">Bibi</bdi> <span class="sep">·</span> <bdi dir="ltr">Language Model Tokenizers Introduce Unfairness Between Languages</bdi> <span class="sep">·</span> <bdi dir="ltr">NeurIPS 2023</bdi> <span class="sep">·</span> <bdi dir="ltr">arXiv 2305.15425</bdi> <span class="sep">·</span> ترجمهٔ هومودین</cite></div>
-<p class="sub"><bdi dir="ltr">tokenizer</bdi>ها روی متن آموزش می‌بینند. همهٔ زبان‌ها سهم برابر نمی‌گیرند.</p>
+<p class="sub">توکن‌سازها روی متن آموزش می‌بینند. همهٔ زبان‌ها سهم برابر نمی‌گیرند.</p>
 </div></main>
 <footer><bdi dir="ltr">R14</bdi> <span class="sep">·</span> <bdi dir="ltr">Petrov</bdi> و همکاران <span class="sep">·</span> <bdi dir="ltr">NeurIPS 2023</bdi></footer>
-<aside class="notes"><b>چرا؟ منبع اصلی + <bdi dir="ltr">CTA</bdi> نرم</b><p>[<bdi dir="ltr">MID-CTA</bdi>] اول <bdi dir="ltr">CTA</bdi> نرم رو به دوربین، بعد کارت منبع. [<bdi dir="ltr">CAMERA CHANGE</bdi>]</p><p>ضریب فارسی امروز از این مقاله نمی‌آید؛ از اجرای خودمان. در یک جمله: <bdi dir="ltr">tokenizer</bdi> زبانی را که کمتر دیده با تکه‌های ریزتر می‌نویسد.</p></aside>
+<aside class="notes"><b>چرا؟ منبع اصلی + <bdi dir="ltr">CTA</bdi> نرم</b><p>[<bdi dir="ltr">MID-CTA</bdi>] اول <bdi dir="ltr">CTA</bdi> نرم رو به دوربین، بعد کارت منبع. [<bdi dir="ltr">CAMERA CHANGE</bdi>]</p><p>ضریب فارسی امروز از این مقاله نمی‌آید؛ از اجرای خودمان. در یک جمله: توکن‌ساز زبانی را که کمتر دیده با تکه‌های ریزتر می‌نویسد.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-6" data-start="275" aria-label="قاب ۶">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">آزمایش: ۵۰ جفت، ۹ <bdi dir="ltr">tokenizer</bdi></p>
+<p class="kicker">آزمایش: ۵۰ جفت، ۹ توکن‌ساز</p>
 <div class="code"><span class="c">$ python3 artifact/count_tokens.py</span>
 corpus   50 pairs · chat news howto support code numbers address
 tiktoken o200k_base · cl100k_base · gpt2
@@ -275,7 +275,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <p class="tag">نسخه‌های <bdi dir="ltr">Hugging Face</bdi> روی <bdi dir="ltr">commit</bdi> دقیق قفل شده‌اند <span class="sep">·</span> توکن‌های ویژه شمرده نشده‌اند</p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
-<aside class="notes"><b>آزمایش: ۵۰ جفت، ۹ <bdi dir="ltr">tokenizer</bdi></b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحهٔ اجرای اسکریپت.</p><p>در یک جمله: نسبت توکن فارسی به انگلیسی را برای ۵۰ جفت هم‌معنی و ۹ <bdi dir="ltr">tokenizer</bdi> اندازه گرفتیم.</p></aside>
+<aside class="notes"><b>آزمایش: ۵۰ جفت، ۹ توکن‌ساز</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحهٔ اجرای اسکریپت.</p><p>در یک جمله: نسبت توکن فارسی به انگلیسی را برای ۵۰ جفت هم‌معنی و ۹ توکن‌ساز اندازه گرفتیم.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-7" data-start="335" aria-label="قاب ۷">
@@ -317,7 +317,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <p class="tag">کمینه ۱٫۰۵ <span class="sep">·</span> بیشینه ۲٫۱۰ <span class="sep">·</span> در هر ۵۰ جفت فارسی توکن بیشتری گرفت (<bdi dir="ltr">o200k</bdi>) <span class="sep">·</span> در <bdi dir="ltr">Gemma-3</bdi>، ۷ جفت فارسی ارزان‌تر بود</p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
-<aside class="notes"><b>یک عدد کافی نیست</b><p>[<bdi dir="ltr">SOUND EFFECT</bdi>] کلیک با ورود هر کارت.</p><p>در یک جمله: ضریب فارسی به نوع متن هم بستگی دارد، نه فقط به <bdi dir="ltr">tokenizer</bdi>.</p></aside>
+<aside class="notes"><b>یک عدد کافی نیست</b><p>[<bdi dir="ltr">SOUND EFFECT</bdi>] کلیک با ورود هر کارت.</p><p>در یک جمله: ضریب فارسی به نوع متن هم بستگی دارد، نه فقط به توکن‌ساز.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-9" data-start="465" aria-label="قاب ۹">
@@ -328,12 +328,12 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <div class="cols">
 <div><span><bdi dir="ltr">o200k_base</bdi></span><b>۶٫۷٪<small> بیشتر</small></b><p>میانهٔ تغییر، با «ی» و «ک» عربی</p></div>
 <div class="hi"><span><bdi dir="ltr">Llama-3.2</bdi> <span class="sep">·</span> <bdi dir="ltr">Gemma-3</bdi></span><b>۱۱٫۵٪<small> بیشتر</small></b><p>بدترین جمله: ۴۶٫۷٪ و ۵۰٪ بیشتر</p></div>
-<div><span><bdi dir="ltr">Mistral-Nemo</bdi></span><b>۱۰٫۵٪<small> بیشتر</small></b><p><bdi dir="ltr">tokenizer</bdi>های قدیمی‌تر: حدود صفر یا منفی</p></div>
+<div><span><bdi dir="ltr">Mistral-Nemo</bdi></span><b>۱۰٫۵٪<small> بیشتر</small></b><p><bdi dir="ltr">Qwen3</bdi> و توکن‌سازهای قدیمی‌تر: حدود صفر یا منفی</p></div>
 </div>
 <p class="tag">۴۹ جملهٔ فارسی با <bdi dir="ltr">U+064A</bdi> و <bdi dir="ltr">U+0643</bdi> بازنویسی شد <span class="sep">·</span> فقط سمت فارسی</p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
-<aside class="notes"><b>هوک دوم: کیبورد خودت</b><p>[<bdi dir="ltr">RE-HOOK] [CAMERA CHANGE</bdi>] نمای نزدیک کیبورد. اول حدس، بعد عدد.</p><p>در یک جمله: روی <bdi dir="ltr">tokenizer</bdi>های جدید، «ی» و «ک» عربی حدود ۷ تا ۱۲ درصد توکن اضافه می‌کنند.</p></aside>
+<aside class="notes"><b>هوک دوم: کیبورد خودت</b><p>[<bdi dir="ltr">RE-HOOK] [CAMERA CHANGE</bdi>] نمای نزدیک کیبورد. اول حدس، بعد عدد.</p><p>در یک جمله: روی بیشتر توکن‌سازهای جدید، «ی» و «ک» عربی حدود ۶ تا ۱۲ درصد توکن اضافه می‌کنند؛ روی <bdi dir="ltr">Qwen3</bdi> و قدیمی‌ترها نه.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-10" data-start="530" aria-label="قاب ۱۰">
@@ -342,7 +342,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <p class="kicker">نیم‌فاصله و رقم‌ها</p>
 <h1>نیم‌فاصله: برای بیشتر رایگان، برای یکی گران. رقم‌ها: بستگی دارد.</h1>
 <div class="cards">
-<div><b>نیم‌فاصله ← فاصله <span class="sep">·</span> بیشتر <bdi dir="ltr">tokenizer</bdi>ها</b>میانهٔ تغییر: صفر</div>
+<div><b>نیم‌فاصله ← فاصله <span class="sep">·</span> بیشتر توکن‌سازها</b>میانهٔ تغییر: صفر</div>
 <div class="hi"><b>نیم‌فاصله <span class="sep">·</span> <bdi dir="ltr">DeepSeek-V3</bdi></b>هر نیم‌فاصله = ۲ توکن بایتی؛ فاصله به‌جای آن حدود ۱۳٫۵٪ کم می‌کند</div>
 <div><b>رقم لاتین <span class="sep">·</span> <bdi dir="ltr">o200k / cl100k</bdi></b>۸٫۳٪ و ۲۱٫۲٪ کمتر</div>
 <div><b>رقم لاتین <span class="sep">·</span> <bdi dir="ltr">Gemma-3</bdi></b>۱۴٫۳٪ بیشتر (رقم فارسی ارزان‌تر است)</div>
@@ -350,7 +350,7 @@ ratio    fa_tokens ÷ en_tokens  (per pair, then median)
 <p class="caption">فارسی را برای توکن خراب ننویس؛ نیم‌فاصله برای خوانایی و جست‌وجو مهم است.</p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
-<aside class="notes"><b>نیم‌فاصله و رقم‌ها</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] نیم‌فاصله در <bdi dir="ltr">DeepSeek: e2 80 8c</bdi> به دو تکه. رقم‌ها: ۱۱ جملهٔ عددی.</p><p>در یک جمله: اثر نیم‌فاصله و رقم‌ها به <bdi dir="ltr">tokenizer</bdi> بستگی دارد؛ قاعدهٔ کلی ندارد.</p></aside>
+<aside class="notes"><b>نیم‌فاصله و رقم‌ها</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] نیم‌فاصله در <bdi dir="ltr">DeepSeek: e2 80 8c</bdi> به دو تکه. رقم‌ها: ۱۱ جملهٔ عددی.</p><p>در یک جمله: اثر نیم‌فاصله و رقم‌ها به توکن‌ساز بستگی دارد؛ قاعدهٔ کلی ندارد.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-11" data-start="595" aria-label="قاب ۱۱">
@@ -373,8 +373,8 @@ window_fa  ≈ window_en ÷ ratio     <span class="c"># 1 ÷ 1.39 ≈ 72% of the
 <main><div class="fit">
 <p class="kicker">مرز ادعا</p>
 <div class="boundary">
-<div><b>این قسمت نشان می‌دهد</b>روی ۵۰ جفت جملهٔ خودنوشته، فارسی بسته به <bdi dir="ltr">tokenizer</bdi> بین ۱٫۲۱ تا ۴٫۶۱ برابر انگلیسی توکن گرفت؛ شیوهٔ نوشتن هم این عدد را جابه‌جا می‌کند.</div>
-<div class="no"><b>این قسمت نشان نمی‌دهد</b>که <bdi dir="ltr">AI</bdi> فارسی را بدتر می‌فهمد <span class="sep">·</span> که هر متن فارسی همین نسبت را دارد <span class="sep">·</span> محصول تو امروز از کدام <bdi dir="ltr">tokenizer</bdi> استفاده می‌کند <span class="sep">·</span> تأخیر</div>
+<div><b>این قسمت نشان می‌دهد</b>روی ۵۰ جفت جملهٔ خودنوشته، فارسی بسته به توکن‌ساز بین ۱٫۲۱ تا ۴٫۶۱ برابر انگلیسی توکن گرفت؛ شیوهٔ نوشتن هم این عدد را جابه‌جا می‌کند.</div>
+<div class="no"><b>این قسمت نشان نمی‌دهد</b>که <bdi dir="ltr">AI</bdi> فارسی را بدتر می‌فهمد <span class="sep">·</span> که هر متن فارسی همین نسبت را دارد <span class="sep">·</span> محصول تو امروز از کدام توکن‌ساز استفاده می‌کند <span class="sep">·</span> تأخیر</div>
 </div>
 </div></main>
 <footer>مرز ادعای <bdi dir="ltr">HMD-005</bdi></footer>
@@ -385,9 +385,9 @@ window_fa  ≈ window_en ÷ ratio     <span class="c"># 1 ÷ 1.39 ≈ 72% of the
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">جواب</p>
-<div class="stat"><b>۱٫۲ تا ۴٫۶×</b><span>توکن فارسی به‌ازای هر توکن انگلیسی <span class="sep">·</span> ۹ <bdi dir="ltr">tokenizer</bdi> <span class="sep">·</span> ۵۰ جفت</span></div>
-<p class="tag">متن خودت. <bdi dir="ltr">tokenizer</bdi> خودت. بشمارش: <bdi dir="ltr">python3 artifact/count_tokens.py</bdi></p>
-<p class="caption">پس: <bdi dir="ltr">tokenizer</bdi>ها تکه‌های فارسی کمتری می‌شناسند و متن ما را ریزتر می‌شکنند.</p>
+<div class="stat"><b>۱٫۲ تا ۴٫۶×</b><span>توکن فارسی به‌ازای هر توکن انگلیسی <span class="sep">·</span> ۹ توکن‌ساز <span class="sep">·</span> ۵۰ جفت</span></div>
+<p class="tag">متن خودت. توکن‌ساز خودت. بشمارش: <bdi dir="ltr">python3 artifact/count_tokens.py</bdi></p>
+<p class="caption">پس: توکن‌سازها تکه‌های فارسی کمتری می‌شناسند و متن ما را ریزتر می‌شکنند.</p>
 </div></main>
 <footer>اجرای <bdi dir="ltr">HMD-005</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/results-2026-11-02.md</bdi></footer>
 <aside class="notes"><b>جواب</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] جواب صریح با «پس». حلقهٔ «عادت تایپی» را ببند: ی/ک فارسیِ درست. تمرین: یک ایمیل واقعی را فارسی و انگلیسی بشمار؛ حدس اول را در کامنت بگذار.</p><p>در یک جمله: فارسی ریزتر شکسته می‌شود؛ اندازه‌اش را با متن خودت بشمار.</p></aside>
