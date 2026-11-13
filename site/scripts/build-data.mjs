@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const site = join(dirname(fileURLToPath(import.meta.url)), '..');
 const root = process.env.HOMODYNE_ROOT || join(site, '..');
 const meta = JSON.parse(readFileSync(join(site, 'src/data/episodes-meta.json'), 'utf8'));
-const manifests = ['channel/season-01/manifest.json', 'channel/global/manifest.json'];
+const manifests = ['channel/season-01/manifest.json', 'channel/global/manifest.json', 'channel/season-02/manifest.json'];
 
 const field = (md, label) => {
   const m = md.match(new RegExp(`\\*\\*${label}:\\*\\*\\s*(.+)`));

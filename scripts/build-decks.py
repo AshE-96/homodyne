@@ -34,7 +34,8 @@ ENGINE = ROOT / 'channel/season-01/deck-engine'
 FONTS = ROOT / 'brand/fonts'
 MARK = ROOT / 'brand/logo/homodyne-mark-small-night.svg'
 META_EN = ROOT / 'site/src/data/episodes-meta.json'
-MANIFESTS = [ROOT / 'channel/season-01/manifest.json', ROOT / 'channel/global/manifest.json']
+MANIFESTS = [ROOT / 'channel/season-01/manifest.json', ROOT / 'channel/global/manifest.json',
+             ROOT / 'channel/season-02/manifest.json']
 
 SERIES_FA = {
     'Benchmark Lab': 'آزمایشگاه بنچمارک',

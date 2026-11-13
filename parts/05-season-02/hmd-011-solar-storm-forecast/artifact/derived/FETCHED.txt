@@ -1,0 +1,19 @@
+Downloaded 2026-11-12 21:28-21:31 UTC by storm_replay.py --fetch
+https://kp.gfz.de/app/files/Kp_ap_Ap_SN_F107_since_1932.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2018/2018_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2018/2018_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2019/2019_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2019/2019_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2020/2020_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2020/2020_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2021/2021_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2021/2021_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2022/2022_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2022/2022_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2023/2023_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2023/2023_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2024/2024_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2024/2024_DGD.txt
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2025/2025_RSGA.tar.gz
+ftp://ftp.swpc.noaa.gov/pub/warehouse/2025/2025_DGD.txt
+RSGA reports parsed: 2915; unparsed files skipped: 0

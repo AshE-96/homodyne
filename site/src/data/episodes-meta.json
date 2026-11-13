@@ -103,5 +103,40 @@
    "title": "Where did this AI score come from? Check it yourself",
    "summary": "A refutable result ships the files a reader needs to recompute it. Recompute vs rerun, versions, checksums and a public correction log."
   }
+ },
+ "HMD-011": {
+  "slug": "hmd-011",
+  "en": {
+   "title": "Can we forecast the next solar storm?",
+   "summary": "A storm warning is a probability, not a promise. Warn earlier and you raise more false alarms; we replay real space-weather data to see the trade-off."
+  }
+ },
+ "HMD-013": {
+  "slug": "hmd-013",
+  "en": {
+   "title": "Can you spot a fake review? Can AI?",
+   "summary": "Humans, simple rules and a model try to spot deceptive reviews. The real question is what a false accusation costs, and whether a detector should flag or delete."
+  }
+ },
+ "HMD-015": {
+  "slug": "hmd-015",
+  "en": {
+   "title": "The answer is in the file. Why does the AI still get it wrong?",
+   "summary": "Give the model every document, or retrieve only the relevant page? We separate 'never found it' from 'found it and misread it', and price each correct answer."
+  }
+ },
+ "HMD-017": {
+  "slug": "hmd-017",
+  "en": {
+   "title": "Why did YouTube recommend this video to you?",
+   "summary": "We build a small recommender on public movie ratings and watch two identical users drift apart. What the system optimises decides what you get to see."
+  }
+ },
+ "HMD-019": {
+  "slug": "hmd-019",
+  "en": {
+   "title": "We gave a paper to an AI agent. Can it repeat the experiment?",
+   "summary": "One success is a demo. We run an agent on the same multi-step tasks many times and count how often it finishes every step without breaking anything."
+  }
  }
 }

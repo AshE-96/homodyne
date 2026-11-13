@@ -1,0 +1,19 @@
+HMD-015 · local retrieval (ILLUSTRATIVE documents; no model called)
+
+pack   passages  words   method    R@1   R@3   R@5  R@10  hits@5   older version in top 5
+short        53   2296   bm25     0.59  0.81  0.95  0.98  40/42    12/13 (ranked above gold: 10)
+short        53   2296   char4    0.67  0.91  0.95  0.98  40/42    12/13 (ranked above gold: 9)
+short        53   2296   hybrid   0.62  0.88  0.95  0.98  40/42    12/13 (ranked above gold: 8)
+long        225   9464   bm25     0.62  0.76  0.81  0.91  34/42    12/14 (ranked above gold: 10)
+long        225   9464   char4    0.67  0.83  0.88  0.93  37/42    14/14 (ranked above gold: 8)
+long        225   9464   hybrid   0.64  0.79  0.91  0.93  38/42    13/14 (ranked above gold: 8)
+
+short: misses at 5 → bm25 ['P03', 'L10'] · hybrid ['P03', 'L10']
+short: recall@5 by overlap (bm25) {'high': '20/20', 'low': '10/12', 'medium': '10/10'} · (hybrid) {'high': '20/20', 'low': '10/12', 'medium': '10/10'}
+short: same top-5 after shuffling the pack 5 times: True
+
+long: misses at 5 → bm25 ['P01', 'P03', 'P04', 'P05', 'L08', 'L09', 'L10', 'L11'] · hybrid ['P01', 'P03', 'L10', 'L11']
+long: recall@5 by overlap (bm25) {'high': '20/20', 'low': '4/12', 'medium': '10/10'} · (hybrid) {'high': '20/20', 'low': '8/12', 'medium': '10/10'}
+long: same top-5 after shuffling the pack 5 times: True
+
+Only the 42 answerable test questions count. Dev split is in results/retrieval-local.json.

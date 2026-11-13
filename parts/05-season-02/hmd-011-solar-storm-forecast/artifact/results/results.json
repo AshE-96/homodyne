@@ -1,0 +1,846 @@
+{
+ "experiment": "HMD-011 storm_replay",
+ "event": "UT day with max planetary Kp >= 5- (4.667), NOAA G1 or stronger; truth = GFZ definitive Kp",
+ "fit_period": "1996-01-01 .. 2017-12-31",
+ "test_period": "2018-01-01 .. 2025-12-31",
+ "test_days_scored": 2844,
+ "test_days_total": 2922,
+ "test_days_dropped_missing_noaa": 78,
+ "storm_days": 315,
+ "storm_rate": 0.111,
+ "fit": {
+  "base_rate": 0.144,
+  "persistence": {
+   "1": {
+    "if_storm_today": 0.428,
+    "if_quiet_today": 0.101
+   },
+   "2": {
+    "if_storm_today": 0.275,
+    "if_quiet_today": 0.124
+   },
+   "3": {
+    "if_storm_today": 0.224,
+    "if_quiet_today": 0.132
+   }
+  },
+  "recurrence": {
+   "if_storm_27_days_ago": 0.303,
+   "if_quiet_27_days_ago": 0.117
+  }
+ },
+ "scores": [
+  {
+   "forecaster": "climatology",
+   "brier": 0.0996,
+   "skill_vs_climatology": 0.0,
+   "mean_forecast": 0.144
+  },
+  {
+   "forecaster": "always_warn",
+   "brier": 0.8892,
+   "skill_vs_climatology": -7.928,
+   "mean_forecast": 1.0
+  },
+  {
+   "forecaster": "recurrence_27d",
+   "brier": 0.0964,
+   "skill_vs_climatology": 0.032,
+   "mean_forecast": 0.138
+  },
+  {
+   "forecaster": "persistence_d1",
+   "brier": 0.0913,
+   "skill_vs_climatology": 0.083,
+   "mean_forecast": 0.134
+  },
+  {
+   "forecaster": "persistence_d2",
+   "brier": 0.1,
+   "skill_vs_climatology": -0.004,
+   "mean_forecast": 0.139
+  },
+  {
+   "forecaster": "persistence_d3",
+   "brier": 0.1003,
+   "skill_vs_climatology": -0.007,
+   "mean_forecast": 0.141
+  },
+  {
+   "forecaster": "noaa_d3",
+   "brier": 0.0908,
+   "skill_vs_climatology": 0.089,
+   "mean_forecast": 0.096
+  },
+  {
+   "forecaster": "noaa_d2",
+   "brier": 0.0887,
+   "skill_vs_climatology": 0.11,
+   "mean_forecast": 0.112
+  },
+  {
+   "forecaster": "noaa_d1",
+   "brier": 0.0845,
+   "skill_vs_climatology": 0.152,
+   "mean_forecast": 0.124
+  }
+ ],
+ "reliability": {
+  "noaa_d1": [
+   {
+    "bin": "0-9%",
+    "n": 1688,
+    "mean_forecast": 0.04,
+    "observed_rate": 0.038
+   },
+   {
+    "bin": "10-19%",
+    "n": 598,
+    "mean_forecast": 0.127,
+    "observed_rate": 0.12
+   },
+   {
+    "bin": "20-29%",
+    "n": 152,
+    "mean_forecast": 0.235,
+    "observed_rate": 0.211
+   },
+   {
+    "bin": "30-39%",
+    "n": 202,
+    "mean_forecast": 0.311,
+    "observed_rate": 0.282
+   },
+   {
+    "bin": "40-59%",
+    "n": 126,
+    "mean_forecast": 0.453,
+    "observed_rate": 0.349
+   },
+   {
+    "bin": "60-100%",
+    "n": 78,
+    "mean_forecast": 0.697,
+    "observed_rate": 0.59
+   }
+  ],
+  "noaa_d2": [
+   {
+    "bin": "0-9%",
+    "n": 1780,
+    "mean_forecast": 0.04,
+    "observed_rate": 0.048
+   },
+   {
+    "bin": "10-19%",
+    "n": 604,
+    "mean_forecast": 0.129,
+    "observed_rate": 0.151
+   },
+   {
+    "bin": "20-29%",
+    "n": 140,
+    "mean_forecast": 0.235,
+    "observed_rate": 0.221
+   },
+   {
+    "bin": "30-39%",
+    "n": 158,
+    "mean_forecast": 0.31,
+    "observed_rate": 0.259
+   },
+   {
+    "bin": "40-59%",
+    "n": 101,
+    "mean_forecast": 0.45,
+    "observed_rate": 0.317
+   },
+   {
+    "bin": "60-100%",
+    "n": 61,
+    "mean_forecast": 0.675,
+    "observed_rate": 0.557
+   }
+  ],
+  "noaa_d3": [
+   {
+    "bin": "0-9%",
+    "n": 1904,
+    "mean_forecast": 0.04,
+    "observed_rate": 0.065
+   },
+   {
+    "bin": "10-19%",
+    "n": 570,
+    "mean_forecast": 0.128,
+    "observed_rate": 0.142
+   },
+   {
+    "bin": "20-29%",
+    "n": 132,
+    "mean_forecast": 0.236,
+    "observed_rate": 0.174
+   },
+   {
+    "bin": "30-39%",
+    "n": 134,
+    "mean_forecast": 0.31,
+    "observed_rate": 0.306
+   },
+   {
+    "bin": "40-59%",
+    "n": 70,
+    "mean_forecast": 0.443,
+    "observed_rate": 0.371
+   },
+   {
+    "bin": "60-100%",
+    "n": 34,
+    "mean_forecast": 0.625,
+    "observed_rate": 0.588
+   }
+  ],
+  "persistence_d1": [
+   {
+    "bin": "10-19%",
+    "n": 2555,
+    "mean_forecast": 0.101,
+    "observed_rate": 0.081
+   },
+   {
+    "bin": "40-59%",
+    "n": 289,
+    "mean_forecast": 0.428,
+    "observed_rate": 0.374
+   }
+  ]
+ },
+ "counts_at_threshold": {
+  "noaa_d1": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 147,
+   "misses": 168,
+   "false_alarms": 259,
+   "correct_quiet": 2270,
+   "hit_rate": 0.467,
+   "false_alarm_ratio": 0.638,
+   "warning_days_per_year": 52.1,
+   "false_alarms_per_year": 33.3,
+   "missed_storm_days_per_year": 21.6
+  },
+  "noaa_d2": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 107,
+   "misses": 208,
+   "false_alarms": 213,
+   "correct_quiet": 2316,
+   "hit_rate": 0.34,
+   "false_alarm_ratio": 0.666,
+   "warning_days_per_year": 41.1,
+   "false_alarms_per_year": 27.4,
+   "missed_storm_days_per_year": 26.7
+  },
+  "noaa_d3": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 87,
+   "misses": 228,
+   "false_alarms": 151,
+   "correct_quiet": 2378,
+   "hit_rate": 0.276,
+   "false_alarm_ratio": 0.634,
+   "warning_days_per_year": 30.6,
+   "false_alarms_per_year": 19.4,
+   "missed_storm_days_per_year": 29.3
+  },
+  "persistence_d1": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 108,
+   "misses": 207,
+   "false_alarms": 181,
+   "correct_quiet": 2348,
+   "hit_rate": 0.343,
+   "false_alarm_ratio": 0.626,
+   "warning_days_per_year": 37.1,
+   "false_alarms_per_year": 23.2,
+   "missed_storm_days_per_year": 26.6
+  },
+  "recurrence_27d": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 81,
+   "misses": 234,
+   "false_alarms": 228,
+   "correct_quiet": 2301,
+   "hit_rate": 0.257,
+   "false_alarm_ratio": 0.738,
+   "warning_days_per_year": 39.7,
+   "false_alarms_per_year": 29.3,
+   "missed_storm_days_per_year": 30.1
+  },
+  "always_warn": {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 315,
+   "misses": 0,
+   "false_alarms": 2529,
+   "correct_quiet": 0,
+   "hit_rate": 1.0,
+   "false_alarm_ratio": 0.889,
+   "warning_days_per_year": 365.2,
+   "false_alarms_per_year": 324.8,
+   "missed_storm_days_per_year": 0.0
+  }
+ },
+ "counts_noaa_d1_by_threshold": [
+  {
+   "threshold": 0.05,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 296,
+   "misses": 19,
+   "false_alarms": 1717,
+   "correct_quiet": 812,
+   "hit_rate": 0.94,
+   "false_alarm_ratio": 0.853,
+   "warning_days_per_year": 258.5,
+   "false_alarms_per_year": 220.5,
+   "missed_storm_days_per_year": 2.4
+  },
+  {
+   "threshold": 0.1,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 251,
+   "misses": 64,
+   "false_alarms": 905,
+   "correct_quiet": 1624,
+   "hit_rate": 0.797,
+   "false_alarm_ratio": 0.783,
+   "warning_days_per_year": 148.5,
+   "false_alarms_per_year": 116.2,
+   "missed_storm_days_per_year": 8.2
+  },
+  {
+   "threshold": 0.2,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 179,
+   "misses": 136,
+   "false_alarms": 379,
+   "correct_quiet": 2150,
+   "hit_rate": 0.568,
+   "false_alarm_ratio": 0.679,
+   "warning_days_per_year": 71.7,
+   "false_alarms_per_year": 48.7,
+   "missed_storm_days_per_year": 17.5
+  },
+  {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 147,
+   "misses": 168,
+   "false_alarms": 259,
+   "correct_quiet": 2270,
+   "hit_rate": 0.467,
+   "false_alarm_ratio": 0.638,
+   "warning_days_per_year": 52.1,
+   "false_alarms_per_year": 33.3,
+   "missed_storm_days_per_year": 21.6
+  },
+  {
+   "threshold": 0.5,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 61,
+   "misses": 254,
+   "false_alarms": 51,
+   "correct_quiet": 2478,
+   "hit_rate": 0.194,
+   "false_alarm_ratio": 0.455,
+   "warning_days_per_year": 14.4,
+   "false_alarms_per_year": 6.5,
+   "missed_storm_days_per_year": 32.6
+  }
+ ],
+ "counts_noaa_d3_by_threshold": [
+  {
+   "threshold": 0.05,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 274,
+   "misses": 41,
+   "false_alarms": 1621,
+   "correct_quiet": 908,
+   "hit_rate": 0.87,
+   "false_alarm_ratio": 0.855,
+   "warning_days_per_year": 243.4,
+   "false_alarms_per_year": 208.2,
+   "missed_storm_days_per_year": 5.3
+  },
+  {
+   "threshold": 0.1,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 191,
+   "misses": 124,
+   "false_alarms": 749,
+   "correct_quiet": 1780,
+   "hit_rate": 0.606,
+   "false_alarm_ratio": 0.797,
+   "warning_days_per_year": 120.7,
+   "false_alarms_per_year": 96.2,
+   "missed_storm_days_per_year": 15.9
+  },
+  {
+   "threshold": 0.2,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 110,
+   "misses": 205,
+   "false_alarms": 260,
+   "correct_quiet": 2269,
+   "hit_rate": 0.349,
+   "false_alarm_ratio": 0.703,
+   "warning_days_per_year": 47.5,
+   "false_alarms_per_year": 33.4,
+   "missed_storm_days_per_year": 26.3
+  },
+  {
+   "threshold": 0.3,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 87,
+   "misses": 228,
+   "false_alarms": 151,
+   "correct_quiet": 2378,
+   "hit_rate": 0.276,
+   "false_alarm_ratio": 0.634,
+   "warning_days_per_year": 30.6,
+   "false_alarms_per_year": 19.4,
+   "missed_storm_days_per_year": 29.3
+  },
+  {
+   "threshold": 0.5,
+   "days": 2844,
+   "storm_days": 315,
+   "hits": 29,
+   "misses": 286,
+   "false_alarms": 20,
+   "correct_quiet": 2509,
+   "hit_rate": 0.092,
+   "false_alarm_ratio": 0.408,
+   "warning_days_per_year": 6.3,
+   "false_alarms_per_year": 2.6,
+   "missed_storm_days_per_year": 36.7
+  }
+ ],
+ "episodes": {
+  "n": 191,
+  "lead_at_30pct": {
+   "threshold": 0.3,
+   "episodes": 191,
+   "first_day_warned_at_lead": {
+    "1": 67,
+    "2": 49,
+    "3": 41
+   },
+   "share": {
+    "1": 0.351,
+    "2": 0.257,
+    "3": 0.215
+   }
+  },
+  "lead_at_10pct": {
+   "threshold": 0.1,
+   "episodes": 191,
+   "first_day_warned_at_lead": {
+    "1": 136,
+    "2": 127,
+    "3": 99
+   },
+   "share": {
+    "1": 0.712,
+    "2": 0.665,
+    "3": 0.518
+   }
+  },
+  "big_storms_kp_ge_8minus": [
+   {
+    "first_day": "2023-03-23",
+    "days": 2,
+    "peak_kp": 8.0,
+    "noaa_p_first_day": {
+     "d3": 0.02,
+     "d2": 0.11,
+     "d1": 0.45
+    }
+   },
+   {
+    "first_day": "2023-04-23",
+    "days": 2,
+    "peak_kp": 8.333,
+    "noaa_p_first_day": {
+     "d3": 0.11,
+     "d2": 0.11,
+     "d1": 0.4
+    }
+   },
+   {
+    "first_day": "2024-03-23",
+    "days": 3,
+    "peak_kp": 8.333,
+    "noaa_p_first_day": {
+     "d3": 0.02,
+     "d2": 0.02,
+     "d1": 0.02
+    }
+   },
+   {
+    "first_day": "2024-05-10",
+    "days": 4,
+    "peak_kp": 9.0,
+    "noaa_p_first_day": {
+     "d3": 0.11,
+     "d2": 0.4,
+     "d1": 0.4
+    }
+   },
+   {
+    "first_day": "2024-06-28",
+    "days": 1,
+    "peak_kp": 7.667,
+    "noaa_p_first_day": {
+     "d3": 0.02,
+     "d2": 0.25,
+     "d1": 0.25
+    }
+   },
+   {
+    "first_day": "2024-08-11",
+    "days": 2,
+    "peak_kp": 8.0,
+    "noaa_p_first_day": {
+     "d3": 0.55,
+     "d2": 0.55,
+     "d1": 0.55
+    }
+   },
+   {
+    "first_day": "2024-10-10",
+    "days": 3,
+    "peak_kp": 8.667,
+    "noaa_p_first_day": {
+     "d3": 0.06,
+     "d2": 0.06,
+     "d1": 0.8
+    }
+   },
+   {
+    "first_day": "2025-01-01",
+    "days": 2,
+    "peak_kp": 8.0,
+    "noaa_p_first_day": {
+     "d3": 0.35,
+     "d2": 0.35,
+     "d1": 0.35
+    }
+   },
+   {
+    "first_day": "2025-04-14",
+    "days": 3,
+    "peak_kp": 7.667,
+    "noaa_p_first_day": {
+     "d3": 0.11,
+     "d2": 0.11,
+     "d1": 0.11
+    }
+   },
+   {
+    "first_day": "2025-06-01",
+    "days": 4,
+    "peak_kp": 7.667,
+    "noaa_p_first_day": {
+     "d3": 0.3,
+     "d2": 0.3,
+     "d1": 0.95
+    }
+   },
+   {
+    "first_day": "2025-11-12",
+    "days": 2,
+    "peak_kp": 8.667,
+    "noaa_p_first_day": {
+     "d3": 0.6,
+     "d2": 0.7,
+     "d1": 0.75
+    }
+   }
+  ]
+ },
+ "bootstrap_brier_skill": {
+  "block_days": 27,
+  "resamples": 2000,
+  "seed": 11,
+  "noaa_d1_vs_climatology": {
+   "skill": 0.152,
+   "ci95": [
+    0.11,
+    0.198
+   ]
+  },
+  "noaa_d1_vs_persistence_d1": {
+   "skill": 0.075,
+   "ci95": [
+    0.028,
+    0.125
+   ]
+  },
+  "noaa_d3_vs_persistence_d3": {
+   "skill": 0.095,
+   "ci95": [
+    0.06,
+    0.134
+   ]
+  },
+  "noaa_d3_vs_climatology": {
+   "skill": 0.089,
+   "ci95": [
+    0.053,
+    0.129
+   ]
+  }
+ },
+ "users_ILLUSTRATIVE_costs": [
+  {
+   "id": "photographer",
+   "name": "aurora photographer",
+   "C_over_L": 0.25,
+   "needs_lead": 1,
+   "why": "a wasted night and fuel vs missing a rare sky; decides the evening before",
+   "threshold": 0.25,
+   "value_noaa_by_lead": {
+    "d1": 0.19,
+    "d2": 0.122,
+    "d3": 0.091
+   },
+   "value": {
+    "climatology": 0.0,
+    "recurrence_27d": 0.016,
+    "persistence_d1": 0.151,
+    "noaa_d1": 0.19,
+    "always_warn": -1.676
+   },
+   "counts_noaa_at_needed_lead": {
+    "threshold": 0.25,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 172,
+    "misses": 143,
+    "false_alarms": 336,
+    "correct_quiet": 2193,
+    "hit_rate": 0.546,
+    "false_alarm_ratio": 0.661,
+    "warning_days_per_year": 65.2,
+    "false_alarms_per_year": 43.2,
+    "missed_storm_days_per_year": 18.4
+   },
+   "counts_noaa_d1": {
+    "threshold": 0.25,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 172,
+    "misses": 143,
+    "false_alarms": 336,
+    "correct_quiet": 2193,
+    "hit_rate": 0.546,
+    "false_alarm_ratio": 0.661,
+    "warning_days_per_year": 65.2,
+    "false_alarms_per_year": 43.2,
+    "missed_storm_days_per_year": 18.4
+   }
+  },
+  {
+   "id": "satellite",
+   "name": "satellite operator",
+   "C_over_L": 0.1,
+   "needs_lead": 3,
+   "why": "postponing a manoeuvre or upload vs an anomaly; plans two to three days ahead",
+   "threshold": 0.1,
+   "value_noaa_by_lead": {
+    "d1": 0.414,
+    "d2": 0.364,
+    "d3": 0.263
+   },
+   "value": {
+    "climatology": 0.0,
+    "recurrence_27d": 0.0,
+    "persistence_d3": 0.0,
+    "noaa_d3": 0.263,
+    "noaa_d1": 0.414,
+    "always_warn": 0.0
+   },
+   "counts_noaa_at_needed_lead": {
+    "threshold": 0.1,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 191,
+    "misses": 124,
+    "false_alarms": 749,
+    "correct_quiet": 1780,
+    "hit_rate": 0.606,
+    "false_alarm_ratio": 0.797,
+    "warning_days_per_year": 120.7,
+    "false_alarms_per_year": 96.2,
+    "missed_storm_days_per_year": 15.9
+   },
+   "counts_noaa_d1": {
+    "threshold": 0.1,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 251,
+    "misses": 64,
+    "false_alarms": 905,
+    "correct_quiet": 1624,
+    "hit_rate": 0.797,
+    "false_alarm_ratio": 0.783,
+    "warning_days_per_year": 148.5,
+    "false_alarms_per_year": 116.2,
+    "missed_storm_days_per_year": 8.2
+   }
+  },
+  {
+   "id": "grid",
+   "name": "power-grid operator",
+   "C_over_L": 0.05,
+   "needs_lead": 2,
+   "why": "extra reserves and deferred maintenance vs equipment stress; plans a day or two ahead",
+   "threshold": 0.05,
+   "value_noaa_by_lead": {
+    "d1": 0.178,
+    "d2": 0.173,
+    "d3": 0.051
+   },
+   "value": {
+    "climatology": 0.0,
+    "recurrence_27d": 0.0,
+    "persistence_d2": 0.0,
+    "noaa_d2": 0.173,
+    "noaa_d1": 0.178,
+    "always_warn": 0.0
+   },
+   "counts_noaa_at_needed_lead": {
+    "threshold": 0.05,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 293,
+    "misses": 22,
+    "false_alarms": 1674,
+    "correct_quiet": 855,
+    "hit_rate": 0.93,
+    "false_alarm_ratio": 0.851,
+    "warning_days_per_year": 252.6,
+    "false_alarms_per_year": 215.0,
+    "missed_storm_days_per_year": 2.8
+   },
+   "counts_noaa_d1": {
+    "threshold": 0.05,
+    "days": 2844,
+    "storm_days": 315,
+    "hits": 296,
+    "misses": 19,
+    "false_alarms": 1717,
+    "correct_quiet": 812,
+    "hit_rate": 0.94,
+    "false_alarm_ratio": 0.853,
+    "warning_days_per_year": 258.5,
+    "false_alarms_per_year": 220.5,
+    "missed_storm_days_per_year": 2.4
+   }
+  }
+ ],
+ "noaa_vs_own_target_fredericksburg_k5": {
+  "days": 2778,
+  "event_rate": 0.061,
+  "note": "climatology here = the test-period rate itself (an optimistic reference)",
+  "skill_vs_inperiod_climatology": {
+   "d1": -0.036,
+   "d2": -0.03,
+   "d3": -0.029
+  },
+  "reliability_d1": [
+   {
+    "bin": "0-9%",
+    "n": 1652,
+    "mean_forecast": 0.04,
+    "observed_rate": 0.017
+   },
+   {
+    "bin": "10-19%",
+    "n": 585,
+    "mean_forecast": 0.127,
+    "observed_rate": 0.068
+   },
+   {
+    "bin": "20-29%",
+    "n": 147,
+    "mean_forecast": 0.235,
+    "observed_rate": 0.116
+   },
+   {
+    "bin": "30-39%",
+    "n": 198,
+    "mean_forecast": 0.311,
+    "observed_rate": 0.136
+   },
+   {
+    "bin": "40-59%",
+    "n": 122,
+    "mean_forecast": 0.455,
+    "observed_rate": 0.197
+   },
+   {
+    "bin": "60-100%",
+    "n": 74,
+    "mean_forecast": 0.697,
+    "observed_rate": 0.446
+   }
+  ]
+ },
+ "may_2024": {
+  "2024-05-10": {
+   "kp_max_gfz": 8.667,
+   "noaa_p": {
+    "d3": 0.11,
+    "d2": 0.4,
+    "d1": 0.4
+   }
+  },
+  "2024-05-11": {
+   "kp_max_gfz": 9.0,
+   "noaa_p": {
+    "d3": 0.6,
+    "d2": 0.85,
+    "d1": 0.95
+   }
+  },
+  "2024-05-12": {
+   "kp_max_gfz": 7.0,
+   "noaa_p": {
+    "d3": 0.65,
+    "d2": 0.65,
+    "d1": 0.95
+   }
+  }
+ }
+}

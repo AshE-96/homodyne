@@ -1,0 +1,193 @@
+{
+ "dataset": "MovieLens ml-latest-small (GroupLens, generated 26 Sep 2018)",
+ "dataset_sha256": "696d65a3dfceac7c45750ad32df2c259311949efec81f0f144fdfb91ebc9e436",
+ "model": "item-item cosine on binary 'rated' signal, numpy",
+ "config": {
+  "test_fraction": 0.2,
+  "relevant_rating": 4.0,
+  "min_train_ratings": 5,
+  "shrink": 10.0,
+  "k": 10,
+  "pool": 100,
+  "lambdas": [
+   1.0,
+   0.9,
+   0.8,
+   0.7,
+   0.6,
+   0.5
+  ],
+  "product_lambda": 0.7,
+  "bootstrap": 2000,
+  "seed": 0,
+  "sim_rounds": 20,
+  "sim_runs": 200,
+  "sim_start": [
+   "Toy Story (1995)",
+   "Forrest Gump (1994)",
+   "Jurassic Park (1993)",
+   "Matrix, The (1999)",
+   "Shawshank Redemption, The (1994)"
+  ],
+  "sim_click_a": "Shining, The (1980)",
+  "sim_click_b": "Sleepless in Seattle (1993)"
+ },
+ "ratings": 100836,
+ "users": 610,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Animation",
+  "Children",
+  "Comedy",
+  "Crime",
+  "Documentary",
+  "Drama",
+  "Fantasy",
+  "Film-Noir",
+  "Horror",
+  "Musical",
+  "Mystery",
+  "Romance",
+  "Sci-Fi",
+  "Thriller",
+  "War",
+  "Western"
+ ],
+ "users_evaluated": 587,
+ "catalogue_items": 3037,
+ "policies": [
+  {
+   "policy": "popular",
+   "lambda": null,
+   "ndcg10": 0.07580653175387264,
+   "ild": 0.7900002975618323,
+   "distinct_genres": 11.809199318568995,
+   "coverage": 0.032268686203490285,
+   "items_recommended": 98,
+   "mean_popularity": 216.0725715286281
+  },
+  {
+   "policy": "lambda=1.0",
+   "lambda": 1.0,
+   "ndcg10": 0.08679812629090339,
+   "ild": 0.7504495129279739,
+   "distinct_genres": 10.913117546848381,
+   "coverage": 0.09680605861047085,
+   "items_recommended": 294,
+   "mean_popularity": 139.01226598034523
+  },
+  {
+   "policy": "lambda=0.9",
+   "lambda": 0.9,
+   "ndcg10": 0.08792332369356383,
+   "ild": 0.8194948570124809,
+   "distinct_genres": 12.14991482112436,
+   "coverage": 0.09812314784326638,
+   "items_recommended": 298,
+   "mean_popularity": 136.79471904618168,
+   "ndcg_diff_vs_similarity": 0.001125197402660434,
+   "ndcg_rel_change": 0.012963383551499046,
+   "ndcg_diff_ci95": [
+    -0.0018942215104901042,
+    0.003988711466652743
+   ],
+   "ndcg_rel_change_ci95": [
+    -0.021596599701181548,
+    0.04731697541115776
+   ]
+  },
+  {
+   "policy": "lambda=0.8",
+   "lambda": 0.8,
+   "ndcg10": 0.08513099766681644,
+   "ild": 0.8534719788532308,
+   "distinct_genres": 12.836456558773424,
+   "coverage": 0.10306223246624958,
+   "items_recommended": 313,
+   "mean_popularity": 134.4810904871666,
+   "ndcg_diff_vs_similarity": -0.0016671286240869494,
+   "ndcg_rel_change": -0.01920696558010455,
+   "ndcg_diff_ci95": [
+    -0.006298023828455483,
+    0.0028167375687846987
+   ],
+   "ndcg_rel_change_ci95": [
+    -0.07195714696696283,
+    0.0338390217556673
+   ]
+  },
+  {
+   "policy": "lambda=0.7",
+   "lambda": 0.7,
+   "ndcg10": 0.08404900002497723,
+   "ild": 0.877709280610502,
+   "distinct_genres": 13.395229982964224,
+   "coverage": 0.1080013170892328,
+   "items_recommended": 328,
+   "mean_popularity": 131.37972757966597,
+   "ndcg_diff_vs_similarity": -0.0027491262659261567,
+   "ndcg_rel_change": -0.03167264529089576,
+   "ndcg_diff_ci95": [
+    -0.008828920987230685,
+    0.003015337465508821
+   ],
+   "ndcg_rel_change_ci95": [
+    -0.09863434001576211,
+    0.0363534501775671
+   ]
+  },
+  {
+   "policy": "lambda=0.6",
+   "lambda": 0.6,
+   "ndcg10": 0.08110840090837507,
+   "ild": 0.8924464280711257,
+   "distinct_genres": 13.695059625212947,
+   "coverage": 0.10898913401382944,
+   "items_recommended": 331,
+   "mean_popularity": 128.38143095572113,
+   "ndcg_diff_vs_similarity": -0.005689725382528318,
+   "ndcg_rel_change": -0.06555124661861061,
+   "ndcg_diff_ci95": [
+    -0.012234788286313162,
+    0.0007425642459780029
+   ],
+   "ndcg_rel_change_ci95": [
+    -0.1355083966482102,
+    0.008556263783117217
+   ]
+  },
+  {
+   "policy": "lambda=0.5",
+   "lambda": 0.5,
+   "ndcg10": 0.075826925888784,
+   "ild": 0.9004564751242116,
+   "distinct_genres": 13.996592844974446,
+   "coverage": 0.11162331247942048,
+   "items_recommended": 339,
+   "mean_popularity": 125.4379897629382,
+   "ndcg_diff_vs_similarity": -0.0109712004021194,
+   "ndcg_rel_change": -0.12639904651109046,
+   "ndcg_diff_ci95": [
+    -0.018158441492999246,
+    -0.0038970258039668043
+   ],
+   "ndcg_rel_change_ci95": [
+    -0.20179923316611637,
+    -0.047152655905319966
+   ]
+  }
+ ],
+ "similarity_vs_popular": {
+  "ndcg_diff": 0.010991594537030741,
+  "ndcg_rel_change": 0.14499534911738296,
+  "ndcg_diff_ci95": [
+   -0.0010105207741070404,
+   0.023113666234653944
+  ],
+  "ndcg_rel_change_ci95": [
+   -0.011867048858470012,
+   0.3333671635483044
+  ]
+ }
+}

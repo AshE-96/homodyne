@@ -1,0 +1,25 @@
+
+OFFLINE · real ratings · 587 users · catalogue 3037 films
+     policy  NDCG@10        vs lambda=1 (95% CI) diversity genres coverage popularity
+    popular   0.0758                                 0.790  11.81    3.2%      216.1
+ lambda=1.0   0.0868                                 0.750  10.91    9.7%      139.0
+ lambda=0.9   0.0879        +1.3% [-2.2%, +4.7%]     0.819  12.15    9.8%      136.8
+ lambda=0.8   0.0851        -1.9% [-7.2%, +3.4%]     0.853  12.84   10.3%      134.5
+ lambda=0.7   0.0840        -3.2% [-9.9%, +3.6%]     0.878  13.40   10.8%      131.4
+ lambda=0.6   0.0811       -6.6% [-13.6%, +0.9%]     0.892  13.70   10.9%      128.4
+ lambda=0.5   0.0758      -12.6% [-20.2%, -4.7%]     0.900  14.00   11.2%      125.4
+similarity vs popular: NDCG +14.5% [-1.2%, +33.3%] (paired bootstrap, 95%)
+
+ONE CLICK · same five starting films
+  knob lambda 1.0 -> 0.7: 5/10 films change
+  click_a: entered (rank before) {} · nearest films (rank before) {'Psycho (1960)': 228, 'Clockwork Orange, A (1971)': 93, 'Goodfellas (1990)': 61}
+  click_b: entered (rank before) {'Apollo 13 (1995)': 11, 'Lion King, The (1994)': 12, 'Speed (1994)': 17, 'Mrs. Doubtfire (1993)': 25} · nearest films (rank before) {'Pretty Woman (1990)': 69, 'Ghost (1990)': 80, 'Mrs. Doubtfire (1993)': 25}
+  spread: 123 films with 70-116 ratings, films changed by one click -> 0: 13, 1: 67, 2: 25, 3: 3, 4: 9, 5: 6
+  similarity: click A changes 0/10 · click B changes 4/10 · A and B share 6/10
+         mmr: click A changes 0/10 · click B changes 4/10 · A and B share 6/10
+
+SIMULATION · ILLUSTRATIVE · 200 paired runs · 20 rounds
+  similarity: shared films (of 10) round 0 6.0 -> round 5 2.9 -> round 10 2.0 -> round 20 0.9
+              overlap (Jaccard) 0.43 -> 0.06 · genres in list 12.0 -> 12.2 · entropy 3.23 -> 3.32 bits · popularity 204 -> 134
+         mmr: shared films (of 10) round 0 6.0 -> round 5 4.3 -> round 10 3.0 -> round 20 1.8
+              overlap (Jaccard) 0.43 -> 0.12 · genres in list 15.0 -> 13.4 · entropy 3.58 -> 3.48 bits · popularity 195 -> 135

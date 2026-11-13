@@ -1,0 +1,11 @@
+ok   sentences split on . ! ?
+ok   first_k keeps k sentences
+ok   first_k None keeps all
+ok   features add word pairs
+ok   Wilson 8/10 ~ [0.49, 0.94]
+ok   metrics: precision 1/2, recall 1/2, FPR 1/3
+ok   projection: 0.9 recall, 10% FPR at 4.4% -> precision ~ 29%
+ok   NB separates toy fake/real
+ok   NB is neutral on unseen text
+ok   rules flag the I-heavy toy review
+10/10 checks passed

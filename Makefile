@@ -20,6 +20,7 @@ episodes:
 	$(PY) scripts/build-decks.py --check --quiet
 	$(PY) scripts/check-season-01.py
 	$(PY) scripts/check-season-01.py channel/global/manifest.json
+	$(PY) scripts/check-season-01.py channel/season-02/manifest.json
 	@if [ -d private/planning/production-v3 ]; then $(PY) scripts/check-production-v3.py; else echo "skip check-production-v3 (private/ not present)"; fi
 
 teleprompter:
@@ -34,6 +35,13 @@ selftest:
 	$(PY) parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you/artifact/mislead_lab.py --selftest > /dev/null
 	$(PY) parts/02-benchmarking/e08-which-model-knows-when-to-abstain/artifact/abstain_report.py --selftest > /dev/null
 	$(PY) parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result/artifact/recompute_check.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) tools/llm.py which > /dev/null
+	$(PY) parts/05-season-02/hmd-011-solar-storm-forecast/artifact/storm_replay.py --selftest > /dev/null
+	$(PY) parts/05-season-02/hmd-013-fake-review-detector/artifact/review_lab.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-013-fake-review-detector/artifact/ai_text_lab.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-015-answer-in-the-file/artifact/answer_in_file.py --selftest > /dev/null
+	$(PY) parts/05-season-02/hmd-017-why-this-recommendation/artifact/recsys_xray.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-019-agent-repeats-a-paper/artifact/selftest.py > /dev/null
 
 site:
 	cd site && npm ci && npm run build

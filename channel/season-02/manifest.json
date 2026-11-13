@@ -1,0 +1,37 @@
+[
+ {
+  "hmd": "HMD-011",
+  "format": "Silent Breakthrough",
+  "path": "parts/05-season-02/hmd-011-solar-storm-forecast",
+  "title": "طوفان خورشیدی بعدی را می‌شود پیش‌بینی کرد؟",
+  "next": "HMD-012"
+ },
+ {
+  "hmd": "HMD-013",
+  "format": "AI in Production",
+  "path": "parts/05-season-02/hmd-013-fake-review-detector",
+  "title": "نظر جعلی را تشخیص می‌دهی؟ AI چطور؟",
+  "next": "HMD-014"
+ },
+ {
+  "hmd": "HMD-015",
+  "format": "AI in Production",
+  "path": "parts/05-season-02/hmd-015-answer-in-the-file",
+  "title": "جواب داخل فایل است؛ چرا AI باز هم اشتباه می‌کند؟",
+  "next": "HMD-016"
+ },
+ {
+  "hmd": "HMD-017",
+  "format": "Algorithm X-Ray",
+  "path": "parts/05-season-02/hmd-017-why-this-recommendation",
+  "title": "یوتیوب چرا این ویدیو را به تو پیشنهاد داد؟",
+  "next": "HMD-018"
+ },
+ {
+  "hmd": "HMD-019",
+  "format": "Benchmark Lab",
+  "path": "parts/05-season-02/hmd-019-agent-repeats-a-paper",
+  "title": "مقاله را به ایجنت AI دادیم؛ می‌تواند آزمایشش را تکرار کند؟",
+  "next": "HMD-020"
+ }
+]

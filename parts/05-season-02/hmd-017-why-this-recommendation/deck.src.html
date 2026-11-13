@@ -1,0 +1,202 @@
+<!-- HMD-017 · deck source. Build: python3 scripts/build-decks.py --only hmd-017  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     All numbers: artifact/results/ (run of 13 Nov 2026). Simulation frames are ILLUSTRATIVE. -->
+
+<style>
+.chart.loop{direction:ltr;max-width:1500px}
+.chart.loop .grid{stroke:var(--line);stroke-width:2}
+.chart.loop .axis{font-size:26px;fill:var(--muted)}
+.chart.loop .sim{fill:none;stroke:var(--amber);stroke-width:7;stroke-linejoin:round;stroke-linecap:round}
+.chart.loop .mmr{fill:none;stroke:var(--ink);stroke-width:5;stroke-dasharray:14 10;stroke-linejoin:round}
+.chart.loop .dot{fill:var(--amber)}
+.chart.loop .lab{font-size:30px;font-weight:700}
+.chart.loop .lab.a{fill:var(--amber-ink)}
+</style>
+
+<section class="cover">
+<h1><t-fa>یوتیوب چرا این ویدیو را به <em>تو</em> پیشنهاد داد؟</t-fa><t-en>Why did YouTube recommend this video to <em>you</em>?</t-en></h1>
+<p class="promise"><t-fa>یک سیستم پیشنهاد کوچک می‌سازیم و می‌بینیم یک کلیک، و یک وزن، چقدر فهرست را جابه‌جا می‌کند.</t-fa><t-en>We build a small recommender and watch how much one click, and one weight, move the list.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>یوتیوب چرا این‌ها را به تو پیشنهاد داده؟</t-fa><t-en>Why did YouTube suggest these to you?</t-en></p>
+<h1><t-fa>همان شروع. <em>یک</em> کلیک فرق. بیست انتخاب بعد؟</t-fa><t-en>Same start. <em>One</em> different click. Twenty choices later?</t-en></h1>
+<div class="cols">
+<div><span><t-fa>پروفایل ۱ · پنج فیلم اول</t-fa><t-en>Profile 1 · first five films</t-en></span><b class="word"><t-fa>همان پنج فیلم</t-fa><t-en>The same five</t-en></b><p><t-fa>+ یک فیلم ترسناک</t-fa><t-en>+ one horror film</t-en></p></div>
+<div class="hi"><span><t-fa>پروفایل ۲ · پنج فیلم اول</t-fa><t-en>Profile 2 · first five films</t-en></span><b class="word"><t-fa>همان پنج فیلم</t-fa><t-en>The same five</t-en></b><p><t-fa>+ یک کمدی عاشقانه</t-fa><t-en>+ one romantic comedy</t-en></p></div>
+</div>
+<p class="caption"><t-fa>از ده پیشنهاد، چند تا هنوز مشترک است؟</t-fa><t-en>Of ten suggestions, how many are still shared?</t-en></p>
+<footer><t-fa>هومودین · الگوریتم زیر ذره‌بین</t-fa><t-en>Homodyne · Algorithm X-Ray</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>ستون کناری همین ویدیو را نشان بده. سؤال «چند تا مشترک است؟» را باز بگذار؛ جوابش قاب ۸.</p><p>پایان قاب: «من محمدم، اینجا هومودینه.»</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Point at the side column of this very video. Leave "how many are shared?" open; the answer is in beat 8.</p><p>End of beat: "I'm Mohammad, this is Homodyne."</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="52">
+<p class="kicker"><t-fa>خود یوتیوب چه می‌گوید</t-fa><t-en>What YouTube itself says</t-en></p>
+<h1><t-fa>علامت‌ها را گفته؛ <em>وزنشان</em> را نه.</t-fa><t-en>It names the signals, not their <em>weights</em>.</t-en></h1>
+<div class="tokens"><i class="hi"><t-fa>تاریخچهٔ تماشا</t-fa><t-en>Watch history</t-en></i><i><t-fa>تاریخچهٔ جست‌وجو</t-fa><t-en>Search history</t-en></i><i><t-fa>کانال‌های دنبال‌شده</t-fa><t-en>Subscriptions</t-en></i><i><t-fa>لایک و دیس‌لایک</t-fa><t-en>Likes and dislikes</t-en></i><i><t-fa>«علاقه ندارم»</t-fa><t-en>"Not interested"</t-en></i><i><t-fa>نظرسنجی رضایت</t-fa><t-en>Satisfaction surveys</t-en></i></div>
+<p class="sub"><t-fa>صفحهٔ اول: بیشتر تاریخچهٔ تماشا · ستون کناری: ویدیویی که همین حالا می‌بینی</t-fa><t-en>Home: mostly watch history · Up next: the video you are watching now</t-en></p>
+<p class="tag"><t-fa>وبلاگ یوتیوب، ۲۰۲۱: سال ۲۰۱۱ فهمیدند کلیک یعنی دیدن نیست؛ ۲۰۱۲ زمان تماشا اضافه شد</t-fa><t-en>YouTube blog, 2021: in 2011 they learned a click is not a watch; watch time was added in 2012</t-en></p>
+<footer><t-fa>S1 · YouTube Help، How YouTube recommendations work (بازبینی ۱۳ نوامبر ۲۰۲۶) · S2 · Goodrow، ۲۰۲۱</t-fa><t-en>S1 · YouTube Help, How YouTube recommendations work (checked 13 Nov 2026) · S2 · Goodrow, 2021</t-en></footer>
+<aside class="notes"><t-fa><b>خود یوتیوب چه می‌گوید</b><p>پل از HMD-016. چیپ‌ها یکی‌یکی. «Don't recommend channel» در گفتار با «علاقه ندارم» یک‌جا آمده.</p><p>یوتیوب فهرست علامت‌هایش را گفته، ولی وزن و کدش را نه.</p></t-fa><t-en><b>What YouTube itself says</b><p>Bridge from HMD-016. Light the chips one by one. "Don't recommend channel" is folded into "Not interested" in the narration.</p><p>YouTube has listed its signals, but not their weights or its code.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="109">
+<p class="kicker"><t-fa>الک کن، بعد مرتب کن</t-fa><t-en>Sift, then sort</t-en></p>
+<div class="steps">
+<div><b><t-fa>میلیون‌ها</t-fa><t-en>Millions</t-en></b><t-fa>همهٔ ویدیوها</t-fa><t-en>Every video</t-en></div>
+<div class="hi"><b><t-fa>چند صد</t-fa><t-en>Hundreds</t-en></b><t-fa>الک: نامزدهای مرتبط با تو</t-fa><t-en>Sift: candidates relevant to you</t-en></div>
+<div><b><t-fa>چند ده</t-fa><t-en>Dozens</t-en></b><t-fa>مرتب‌شده، بیشتر با زمان تماشای مورد انتظار</t-fa><t-en>Sorted, mostly by expected watch time</t-en></div>
+</div>
+<p class="caption"><t-fa>نسخهٔ ما: MovieLens · ۱۰۰٬۸۳۶ امتیاز · ۶۱۰ نفر · ۹٬۷۴۲ فیلم</t-fa><t-en>Our version: MovieLens · 100,836 ratings · 610 people · 9,742 films</t-en></p>
+<p class="tag"><t-fa>مقالهٔ ۲۰۱۶، نه سیستم امروز · دادهٔ GroupLens، دانشگاه مینه‌سوتا، ۲۰۱۸</t-fa><t-en>A 2016 paper, not today's system · data: GroupLens, University of Minnesota, 2018</t-en></p>
+<footer><t-fa>S3 · Covington، Adams، Sargin، RecSys ۲۰۱۶ · S4 · MovieLens</t-fa><t-en>S3 · Covington, Adams, Sargin, RecSys 2016 · S4 · MovieLens</t-en></footer>
+<aside class="notes"><t-fa><b>الک کن، بعد مرتب کن</b><p>[UNEXPECTED STAT] قیف. بگو «ده سال پیش؛ سیستم امروز حتماً فرق کرده».</p><p>طرح اصلی ساده است: اول چند صد گزینه را جدا کن، بعد مرتبشان کن.</p></t-fa><t-en><b>Sift, then sort</b><p>[UNEXPECTED STAT] The funnel. Say "ten years ago; today's system is surely different".</p><p>The core design is simple: first pick a few hundred options, then sort them.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="164">
+<p class="kicker"><t-fa>کسانی که این را دیدند، آن را هم دیدند</t-fa><t-en>People who watched this also watched that</t-en></p>
+<div class="cards">
+<div class="off"><b><t-fa>پنج فیلم شروع</t-fa><t-en>Five starting films</t-en></b>Toy Story · Forrest Gump · Jurassic Park · The Matrix · The Shawshank Redemption</div>
+<div class="hi"><b><t-fa>ده پیشنهاد اول</t-fa><t-en>First ten suggestions</t-en></b>Pulp Fiction · Braveheart · The Silence of the Lambs · Star Wars IV · Terminator 2 · Fight Club · Star Wars V · Star Wars VI · Se7en · Independence Day</div>
+</div>
+<p class="caption"><t-fa>شباهت فیلم به فیلم: دو فیلم نزدیک‌اند اگر آدم‌های زیادی هر دو را دیده باشند.</t-fa><t-en>Item-to-item similarity: two films are close if many people watched both.</t-en></p>
+<footer><t-fa>artifact/results/one_click.json · سیاست «فقط شباهت»</t-fa><t-en>artifact/results/one_click.json · "similarity only" policy</t-en></footer>
+<aside class="notes"><t-fa><b>شباهت فیلم به فیلم</b><p>[CAMERA CHANGE] نمای نزدیک، بعد صفحه. پایان قاب: CTA نرم.</p><p>فهرست اول فقط جمعِ «کسانی که این را دیدند، آن را هم دیدند» است.</p></t-fa><t-en><b>Item-to-item similarity</b><p>[CAMERA CHANGE] Close shot, then the screen. End of beat: soft CTA.</p><p>The first list is just a sum of "people who watched this also watched that".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="224">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<h1><t-fa>کدام کلیک فهرست را <em>جابه‌جا</em> می‌کند؟</t-fa><t-en>Which click <em>moves</em> the list?</t-en></h1>
+<div class="cols">
+<div><span>+ The Shining</span><b><t-fa>۰ <small>از ۱۰</small></t-fa><t-en>0 <small>of 10</small></t-en></b><p><t-fa>نزدیک‌ترین فیلم‌هایش پیش از کلیک خیلی پایین بودند: Psycho در رتبهٔ ۲۲۸، A Clockwork Orange در رتبهٔ ۹۳</t-fa><t-en>Its nearest films sat far down before the click: Psycho at rank 228, A Clockwork Orange at rank 93</t-en></p></div>
+<div class="hi"><span>+ Sleepless in Seattle</span><b><t-fa>۴ <small>از ۱۰</small></t-fa><t-en>4 <small>of 10</small></t-en></b><p><t-fa>تازه‌واردها پیش از کلیک پشت در بودند، در رتبه‌های ۱۱، ۱۲، ۱۷ و ۲۵: Apollo 13، The Lion King، Speed، Mrs. Doubtfire. نزدیک‌ترین فیلم خودش، Pretty Woman در رتبهٔ ۶۹، نیامد.</t-fa><t-en>The new entries were waiting just outside, at ranks 11, 12, 17 and 25: Apollo 13, The Lion King, Speed, Mrs. Doubtfire. Its own nearest film, Pretty Woman at rank 69, did not come in.</t-en></p></div>
+</div>
+<p class="tag"><t-fa>این دو، عمداً از دو سرِ طیف · از ۱۲۳ فیلم هم‌اندازه، یک کلیک در ۶۷ مورد فقط ۱ فیلم را عوض کرد (بقیه: صفر فیلم ۱۳ بار، دو فیلم ۲۵، سه ۳، چهار ۹، پنج ۶) · یک پروفایل نمونه روی دادهٔ واقعی MovieLens</t-fa><t-en>These two are picked on purpose from the two ends · across 123 similar-sized films, one click changed just 1 film in 67 cases (the rest: 0 films 13 times, 2 films 25, 3 three, 4 nine, 5 six) · one example profile on real MovieLens data</t-en></p>
+<footer><t-fa>artifact/results/one_click.json</t-fa><t-en>artifact/results/one_click.json</t-en></footer>
+<aside class="notes"><t-fa><b>کدام کلیک؟</b><p>دو ثانیه مکث برای حدس، بعد ۰ و ۴. [SOUND EFFECT] تیک روی هر عدد.</p><p>بیشتر کلیک‌ها فقط یک فیلم را عوض می‌کنند؛ کلیکی بیشتر جابه‌جا می‌کند که به گزینه‌های پشت در برسد.</p></t-fa><t-en><b>Which click?</b><p>Two-second pause for a guess, then 0 and 4. [SOUND EFFECT] A tick on each number.</p><p>Most clicks change just one film; a click moves the list more when it reaches options waiting just outside it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="285">
+<p class="kicker"><t-fa>پیچ سازنده: وزن تنوع</t-fa><t-en>The builder's knob: a diversity weight</t-en></p>
+<h1 class="formula">next = λ × closeness − (1 − λ) × repeated genres</h1>
+<div class="tokens"><i class="hi"><t-fa>λ از ۱ به ۰٫۷: ۵ از ۱۰ عوض شد</t-fa><t-en>λ from 1 to 0.7: 5 of 10 change</t-en></i><i>The Lion King</i><i>Speed</i><i>American Beauty</i><i>The Fellowship of the Ring</i><i>The Sixth Sense</i></div>
+<p class="caption"><t-fa>مثل ظرف میوه: بعد از دو پرتقال، دست به سمت انار می‌رود.</t-fa><t-en>Like a fruit bowl: after two oranges, the hand reaches for a pomegranate.</t-en></p>
+<footer><t-fa>S6 · MMR، Carbonell و Goldstein، SIGIR ۱۹۹۸ · تکرار = هم‌پوشانی ژانر</t-fa><t-en>S6 · MMR, Carbonell and Goldstein, SIGIR 1998 · repetition = genre overlap</t-en></footer>
+<aside class="notes"><t-fa><b>وزن تنوع</b><p>اسلایدر λ را آرام بلغزان؛ پنج کارت برمی‌گردند.</p><p>فهرست فقط از کلیک تو نمی‌آید؛ از وزنی هم می‌آید که یکی پشت میز انتخاب کرده.</p></t-fa><t-en><b>Diversity weight</b><p>Slide λ slowly; five cards flip.</p><p>The list does not come only from your clicks; it also comes from a weight someone chose at a desk.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="342">
+<p class="kicker"><t-fa>امتحان روی گذشته</t-fa><t-en>A test on the past</t-en></p>
+<h1><t-fa>۲۰٪ آخرِ هر نفر را قایم کن؛ فهرست ما <em>پیدایش</em> می‌کند؟</t-fa><t-en>Hide each person's last 20%. Does our list <em>find</em> it?</t-en></h1>
+<div class="bars">
+<div><span><t-fa>پرطرفدارترین فیلم‌هایی که هنوز ندیده</t-fa><t-en>Most-rated films not yet seen</t-en></span><i style="--v:87"></i><span><t-fa>۰٫۰۷۶</t-fa><t-en>0.076</t-en></span></div>
+<div class="hi"><span><t-fa>فقط شباهت <bdi dir="ltr">(λ = 1)</bdi></t-fa><t-en>Similarity only (λ = 1)</t-en></span><i style="--v:100"></i><span><t-fa>۰٫۰۸۷</t-fa><t-en>0.087</t-en></span></div>
+<div><span><t-fa>شباهت + تنوع <bdi dir="ltr">(λ = 0.7)</bdi></t-fa><t-en>Similarity + diversity (λ = 0.7)</t-en></span><i style="--v:97"></i><span><t-fa>۰٫۰۸۴</t-fa><t-en>0.084</t-en></span></div>
+<div><span><t-fa>تنوع زیاد <bdi dir="ltr">(λ = 0.5)</bdi></t-fa><t-en>Heavy diversity (λ = 0.5)</t-en></span><i style="--v:87"></i><span><t-fa>۰٫۰۷۶</t-fa><t-en>0.076</t-en></span></div>
+</div>
+<p class="tag"><t-fa><bdi dir="ltr">NDCG@10</bdi>: صفر یعنی هیچ‌چیز پیدا نشد، یک یعنی فهرست بی‌نقص · مرتبط = امتیاز ۴ یا بیشتر · ۵۸۷ نفر · شباهت در برابر پرطرفدارها: ۱۴٫۵٪ بیشتر، بازهٔ ۹۵٪ از ۱٫۲٪ کمتر تا ۳۳٫۳٪ بیشتر؛ صفر داخل بازه</t-fa><t-en>NDCG@10: 0 means nothing found, 1 means a perfect list · relevant = rated 4 or more · 587 people · similarity vs most-rated: +14.5%, 95% interval −1.2% to +33.3%; zero is inside</t-en></p>
+<footer><t-fa>آزمون آفلاین روی دادهٔ واقعی MovieLens · artifact/results/offline.json · S7</t-fa><t-en>Real MovieLens data, offline test · artifact/results/offline.json · S7</t-en></footer>
+<aside class="notes"><t-fa><b>امتحان روی گذشته</b><p>آرام‌ترین قاب. عدد خام را نخوان؛ فقط «حدود سه درصد» و «حدود سیزده درصد».</p><p>افت تنوعِ متوسط از صفر جدا نشد؛ افت تنوعِ زیاد جدا شد.</p></t-fa><t-en><b>A test on the past</b><p>The calmest beat. Don't read raw numbers; just "about three percent" and "about thirteen percent".</p><p>The drop from moderate diversity could not be told from zero; the drop from heavy diversity could.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="401">
+<p class="kicker"><t-fa>حلقهٔ بازخورد · دو کاربر ساختگی، یک کلیک فرق</t-fa><t-en>Feedback loop · two simulated users, one different click</t-en></p>
+<svg class="chart loop" viewBox="0 0 1500 540" role="img" aria-label="Shared films out of 10 by round">
+<line class="grid" x1="140" y1="470" x2="1340" y2="470"/><line class="grid" x1="140" y1="330" x2="1340" y2="330"/><line class="grid" x1="140" y1="190" x2="1340" y2="190"/><line class="grid" x1="140" y1="50" x2="1340" y2="50"/>
+<text class="axis" x="110" y="479" text-anchor="middle"><t-fa>۰</t-fa><t-en>0</t-en></text><text class="axis" x="110" y="339" text-anchor="middle"><t-fa>۲</t-fa><t-en>2</t-en></text><text class="axis" x="110" y="199" text-anchor="middle"><t-fa>۴</t-fa><t-en>4</t-en></text><text class="axis" x="110" y="59" text-anchor="middle"><t-fa>۶</t-fa><t-en>6</t-en></text>
+<text class="axis" x="140" y="515" text-anchor="middle"><t-fa>۰</t-fa><t-en>0</t-en></text><text class="axis" x="440" y="515" text-anchor="middle"><t-fa>۵</t-fa><t-en>5</t-en></text><text class="axis" x="740" y="515" text-anchor="middle"><t-fa>۱۰</t-fa><t-en>10</t-en></text><text class="axis" x="1040" y="515" text-anchor="middle"><t-fa>۱۵</t-fa><t-en>15</t-en></text><text class="axis" x="1340" y="515" text-anchor="middle"><t-fa>دور ۲۰</t-fa><t-en>round 20</t-en></text>
+<polyline class="mmr" points="140,50 200,60 260,96 320,141 380,168 440,168 500,179 560,198 620,213 680,234 740,259 800,276 860,296 920,310 980,317 1040,330 1100,329 1160,334 1220,334 1280,342 1340,347"/>
+<polyline class="sim" points="140,50 200,164 260,184 320,218 380,246 440,267 500,292 560,299 620,305 680,320 740,327 800,352 860,368 920,378 980,389 1040,392 1100,392 1160,396 1220,401 1280,404 1340,408"/>
+<circle class="dot" cx="1340" cy="408" r="10"/>
+<text class="lab a" x="1420" y="418" text-anchor="middle"><t-fa>۰٫۹</t-fa><t-en>0.9</t-en></text><text class="lab" x="1420" y="352" text-anchor="middle"><t-fa>۱٫۸</t-fa><t-en>1.8</t-en></text>
+<text class="lab" x="300" y="40" text-anchor="middle"><t-fa>۶ از ۱۰ مشترک</t-fa><t-en>6 of 10 shared</t-en></text>
+</svg>
+<p class="caption"><t-fa>فیلم مشترک از ۱۰، میانگین ۲۰۰ اجرا · خط کهربایی: فقط شباهت · خط‌چین: <bdi dir="ltr">λ = 0.7</bdi></t-fa><t-en>Shared films out of 10, mean of 200 runs · amber line: similarity only · dashed: λ = 0.7</t-en></p>
+<p class="tag"><b><t-fa>ساختگی / ILLUSTRATIVE</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>کاربرهای ساختگی بی‌سلیقه؛ کلیک بیشتر از بالای فهرست؛ تاس مشترک · با همان کلیک، تا آخر یکسان می‌ماندند</t-fa><t-en>Simulated users with no taste; clicks favour the top of the list; shared dice · with the same click they would stay identical</t-en></p>
+<footer><t-fa>artifact/results/chart-data.csv · نه آدم واقعی، نه یوتیوب</t-fa><t-en>artifact/results/chart-data.csv · not real people, not YouTube</t-en></footer>
+<aside class="notes"><t-fa><b>حلقهٔ بازخورد</b><p>اول دایرهٔ کلیک ← تاریخچه ← فهرست. تایمر حدس پیش از نقطهٔ دور ۲۰.</p><p>در این شبیه‌سازی، یک کلیک فرق در بیست دور تقریباً کل فهرست مشترک را از بین برد.</p></t-fa><t-en><b>Feedback loop</b><p>First the click → history → list circle. Guess timer before the round-20 point.</p><p>In this simulation, one different click wiped out almost the whole shared list in twenty rounds.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="467">
+<p class="kicker"><t-fa>ولی تنگ‌تر هم شدند؟</t-fa><t-en>But did they get narrower?</t-en></p>
+<div class="cols">
+<div><span><t-fa>ژانر در فهرست ده‌تایی · فقط شباهت</t-fa><t-en>Genres in a list of 10 · similarity only</t-en></span><b><t-fa>۱۲٫۰ ← ۱۲٫۲</t-fa><t-en>12.0 → 12.2</t-en></b><p><t-fa>با <bdi dir="ltr">λ = 0.7</bdi>: ۱۵٫۰ ← ۱۳٫۴، هنوز بیشتر</t-fa><t-en>With λ = 0.7: 15.0 → 13.4, still higher</t-en></p></div>
+<div class="hi"><span><t-fa>امتیازدهندگانِ هر فیلم فهرست · میانگین</t-fa><t-en>Raters per listed film · average</t-en></span><b><t-fa>۲۰۴ ← ۱۳۴</t-fa><t-en>204 → 134</t-en></b><p><t-fa>بخشی از طراحی است: فیلم دیده‌شده دوباره نمی‌آید، پس پرطرفدارها زود تمام شدند</t-fa><t-en>Partly by design: a watched film is never suggested again, so the popular ones ran out early</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی / ILLUSTRATIVE</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>«متفاوت» با «تنگ‌تر» یکی نیست · شبیه‌سازی دیگری (۲۰۱۸) برعکسش را دید: کاربرها شبیه‌تر شدند</t-fa><t-en>"Different" is not "narrower" · another simulation (2018) found the opposite: users grew more alike</t-en></p>
+<footer><t-fa>artifact/results/simulation.json · S8</t-fa><t-en>artifact/results/simulation.json · S8</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت. اعتراف: «انتظار حباب داشتم».</p><p>دو فهرست از هم دور شدند، ولی در این شبیه‌سازی تنگ‌تر نشدند.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence. Admit it: "I expected a bubble".</p><p>The two lists drifted apart, but in this simulation they did not get narrower.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="533">
+<p class="kicker"><t-fa>قیمت تنوع · <bdi dir="ltr">λ = 0.7</bdi> در برابر فقط شباهت</t-fa><t-en>The price of diversity · λ = 0.7 against similarity only</t-en></p>
+<div class="cols">
+<div><span><t-fa>ژانر در هر فهرست</t-fa><t-en>Genres per list</t-en></span><b><t-fa>۱۳٫۴</t-fa><t-en>13.4</t-en></b><p><t-fa>پیش‌تر ۱۰٫۹ · از ۱۸ ژانر</t-fa><t-en>was 10.9 · out of 18 genres</t-en></p></div>
+<div><span><t-fa>پوشش کاتالوگ</t-fa><t-en>Catalogue coverage</t-en></span><b><t-fa>۳۲۸</t-fa><t-en>328</t-en></b><p><t-fa>پیش‌تر ۲۹۴ · فیلمِ پیشنهادشده از ۳٬۰۳۷</t-fa><t-en>was 294 · films ever suggested, of 3,037</t-en></p></div>
+<div class="hi"><span>NDCG@10</span><b><t-fa>۳٫۲٪ کمتر</t-fa><t-en>−3.2%</t-en></b><p><t-fa>بازهٔ ۹۵٪: از ۹٫۹٪ کمتر تا ۳٫۶٪ بیشتر؛ صفر داخل بازه</t-fa><t-en>95% interval: −9.9% to +3.6%; zero is inside</t-en></p></div>
+</div>
+<p class="tag"><t-fa><bdi dir="ltr">λ = 0.5</bdi>: NDCG ۱۲٫۶٪ کمتر، بازه از ۲۰٫۲٪ کمتر تا ۴٫۷٪ کمتر؛ کل بازه زیر صفر · بوت‌استرپ جفتی روی ۵۸۷ نفر</t-fa><t-en>λ = 0.5: NDCG −12.6%, interval −20.2% to −4.7%; the whole interval below zero · paired bootstrap over 587 people</t-en></p>
+<footer><t-fa>آزمون آفلاین روی دادهٔ واقعی MovieLens · artifact/results/offline.json</t-fa><t-en>Real MovieLens data, offline test · artifact/results/offline.json</t-en></footer>
+<aside class="notes"><t-fa><b>قیمت تنوع</b><p>بازهٔ NDCG کهربایی؛ خط صفر را نشان بده.</p><p>تنوع متوسط افتِ قابل‌تشخیصی نداشت؛ تنوع زیاد داشت.</p></t-fa><t-en><b>The price of diversity</b><p>The NDCG interval in amber; show the zero line.</p><p>Moderate diversity had no detectable drop; heavy diversity did.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="580">
+<p class="kicker"><t-fa>تصمیم مدیر محصول</t-fa><t-en>The product manager's decision</t-en></p>
+<h1><t-fa>تنوع متوسط به <em>آزمایش زنده</em> می‌رود، نه به همه.</t-fa><t-en>Moderate diversity goes to a <em>live test</em>, not to everyone.</t-en></h1>
+<div class="steps">
+<div class="hi"><b><bdi dir="ltr">λ = 0.7</bdi></b><t-fa>به آزمایش زنده، نه عرضه برای همه</t-fa><t-en>To a live A/B test, not a launch for everyone</t-en></div>
+<div class="off"><b><bdi dir="ltr">λ = 0.5</bdi></b><t-fa>نه: افتِ روشن، هم‌نمرهٔ فهرست پرطرفدارها</t-fa><t-en>No: a clear drop, level with the most-rated list</t-en></div>
+<div><b><t-fa>سنجه‌های زنده</t-fa><t-en>Live metrics</t-en></b><t-fa>برگشت کاربر · نظرسنجی رضایت · نرخ «علاقه ندارم»</t-fa><t-en>Return visits · satisfaction surveys · "Not interested" rate</t-en></div>
+<div><b><t-fa>شرط برگشت</t-fa><t-en>Rollback rule</t-en></b><t-fa>از پیش نوشته: اگر رضایت افت کرد، برمی‌گردیم</t-fa><t-en>Written in advance: if satisfaction drops, we roll back</t-en></div>
+</div>
+<p class="tag"><t-fa>چرا آزمایش زنده؟ به گفتهٔ مقالهٔ ۲۰۱۶ (S3)، نتیجهٔ آزمایش زنده همیشه با امتحان روی گذشته هم‌سو نیست.</t-fa><t-en>Why a live test? The 2016 paper (S3): "live A/B results are not always correlated with offline experiments".</t-en></p>
+<footer><t-fa>تصمیم بر پایهٔ artifact/results/offline.json</t-fa><t-en>Decision based on artifact/results/offline.json</t-en></footer>
+<aside class="notes"><t-fa><b>تصمیم مدیر محصول</b><p>[CAMERA CHANGE] رو به دوربین. «حالا از جای خودم حرف می‌زنم».</p><p>آزمون آفلاین گزینه‌ها را غربال می‌کند؛ تصمیم عرضه با آزمایش زنده است.</p></t-fa><t-en><b>The product manager's decision</b><p>[CAMERA CHANGE] To camera. "Now I speak from my own seat".</p><p>An offline test screens the options; the launch decision belongs to a live experiment.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="627">
+<p class="kicker"><t-fa>سلیقه عوض می‌شود؟</t-fa><t-en>Does taste change?</t-en></p>
+<h1><t-fa>اثر بر آدم را فقط آزمایش <em>تصادفی</em> با آدم واقعی می‌سنجد.</t-fa><t-en>Only a <em>randomised</em> test with real people measures an effect on people.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>داده‌ای مثل MovieLens</t-fa><t-en>Data like MovieLens</t-en></b><t-fa>کی چه دید. نه اینکه با فهرست دیگری چه می‌شد.</t-fa><t-en>Who watched what. Not what would have happened with another list.</t-en></div>
+<div class="hi"><b><t-fa>PNAS، ۱۸ فوریهٔ ۲۰۲۵</t-fa><t-en>PNAS, 18 Feb 2025</t-en></b><t-fa>۴ آزمایش، نزدیک ۹٬۰۰۰ نفر، سایت شبیه یوتیوب با ویدیوهای واقعی؛ اثر کوتاه‌مدت بر نظر: محدود</t-fa><t-en>4 experiments, nearly 9,000 people, a YouTube-like site with real videos; short-term effect on opinions: limited</t-en></div>
+<div><b><t-fa>مرز همان مطالعه</t-fa><t-en>That study's limits</t-en></b><t-fa>اثر بلندمدت رد نشده · دو موضوع سیاسی، نه سلیقهٔ فیلم</t-fa><t-en>Long-term effects not ruled out · two political issues, not film taste</t-en></div>
+</div>
+<footer><t-fa>S5 · Liu و همکاران، <bdi dir="ltr">PNAS 122(8)</bdi>، ۲۰۲۵</t-fa><t-en>S5 · Liu et al., PNAS 122(8), 2025</t-en></footer>
+<aside class="notes"><t-fa><b>سلیقه عوض می‌شود؟</b><p>بگو «نظر سیاسی»، نه «سلیقه». بگو «کوتاه‌مدت».</p><p>اثر الگوریتم بر آدم را فقط آزمایش تصادفی با آدم واقعی می‌سنجد، و آن هم فقط برای همان موضوع و همان مدت.</p></t-fa><t-en><b>Does taste change?</b><p>Say "political opinions", not "taste". Say "short-term".</p><p>Only a randomised experiment with real people measures an algorithm's effect on people, and only for that topic and that time span.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="683">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی دادهٔ واقعی MovieLens، یک وزن تنوع فهرست‌ها را متنوع‌تر کرد با افتی که این آزمون از صفر جدا نکرد · در یک شبیه‌سازی آموزشی، یک کلیک فرق دو کاربر یکسان را در بیست دور تقریباً کامل از هم جدا کرد</t-fa><t-en>On real MovieLens data, a diversity weight made lists more varied, with a drop this test could not tell from zero · in a teaching simulation, one different click split two identical users almost completely within twenty rounds</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>الگوریتم واقعی یوتیوب · تغییر سلیقهٔ هیچ آدم واقعی · که نتیجهٔ آفلاین در آزمایش زنده تکرار شود · که «دورتر، نه تنگ‌تر» برای هر سیستمی درست باشد</t-fa><t-en>YouTube's real algorithm · any change in a real person's taste · that the offline result holds in a live test · that "further apart, not narrower" holds for any system</t-en></div>
+</div>
+<footer>S1 · S3 · S4 · S5</footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۰ ثانیه.</p><p>سیستم کوچک خودمان را سنجیدیم، نه یوتیوب را و نه ذهن آدم‌ها را.</p></t-fa><t-en><b>Claim boundary</b><p>Under 40 seconds.</p><p>We measured our own small system, not YouTube and not people's minds.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="729">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>علامت‌های تو + آدم‌های شبیه تو + <em>وزنی که کس دیگری انتخاب کرده</em></t-fa><t-en>Your signals + people like you + <em>a weight someone else chose</em></t-en></h1>
+<div class="steps">
+<div><b><t-fa>امروز</t-fa><t-en>Today</t-en></b><t-fa>ده ویدیوی اول صفحهٔ اصلی را یادداشت کن</t-fa><t-en>Note the first ten videos on your home page</t-en></div>
+<div class="hi"><b><t-fa>یک کلیک</t-fa><t-en>One click</t-en></b><t-fa>روی یکی بزن «علاقه ندارم»</t-fa><t-en>Tap "Not interested" on one</t-en></div>
+<div><b><t-fa>فردا</t-fa><t-en>Tomorrow</t-en></b><t-fa>بشمار چند تا از ده تا عوض شده</t-fa><t-en>Count how many of the ten changed</t-en></div>
+</div>
+<p class="tag"><t-fa>آزمایش تمیزی نیست؛ فهرست به دلیل‌های دیگر هم عوض می‌شود. ولی اولین عدد خودت است.</t-fa><t-en>Not a clean experiment; the list changes for other reasons too. But it is your first number.</t-en></p>
+<footer><t-fa>S1 · کنترل‌های خود یوتیوب</t-fa><t-en>S1 · YouTube's own controls</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>پیشنهاد، جمعِ علامت‌های تو و آدم‌های شبیه تو است، با وزنی که کس دیگری انتخاب کرده.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>A recommendation is the sum of your signals and those of people like you, under a weight someone else chose.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-15" data-start="776">
+<p class="kicker"><t-fa>قسمت بعد · HMD-018</t-fa><t-en>Next · HMD-018</t-en></p>
+<h1><t-fa>«این مدل اول شد.» کی گفته؟ <em>فایل‌هایش کجاست؟</em></t-fa><t-en>"This model ranked #1." Says who? <em>Where are the files?</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>امروز</t-fa><t-en>Today</t-en></b><t-fa>گفتم تنوع ژانر از حدود ۱۱ به ۱۳٫۴ رسید.</t-fa><t-en>I said genre variety rose from about 11 to 13.4.</t-en></div>
+<div class="hi"><b><t-fa>سؤال</t-fa><t-en>The question</t-en></b><t-fa>از کجا معلوم درست حساب کرده باشم؟</t-fa><t-en>How do you know I computed it right?</t-en></div>
+<div><b><t-fa>قسمت بعد</t-fa><t-en>Next time</t-en></b><t-fa>نتیجه‌ای که هر غریبه‌ای با چند فایل، بدون ما، دوباره حسابش کند</t-fa><t-en>A result any stranger can recompute from a few files, without us</t-en></div>
+</div>
+<footer><t-fa>قسمت بعد · آزمایشگاه بنچمارک E09</t-fa><t-en>Next episode · Benchmark Lab E09</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ثانیهٔ ۱۰. انرژی تا آخر.</p><p>از سیستمی که با عدد مرتب می‌کند، به خودِ عدد می‌رسیم: از کجا آمده؟</p></t-fa><t-en><b>Next episode</b><p>End screen from second 10. Keep the energy to the end.</p><p>From a system that sorts with numbers to the number itself: where did it come from?</p></t-en></aside>
+</section>

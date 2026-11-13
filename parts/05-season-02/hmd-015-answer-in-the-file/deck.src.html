@@ -1,0 +1,205 @@
+<!-- HMD-015 · deck source. Build: python3 scripts/build-decks.py --only hmd-015  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     data-start = beat start in seconds, from script-fa.md. -->
+
+<style>
+svg.chart.ushape { width: 1200px; height: 470px; display: block; margin: 0 auto; }
+svg.chart.ushape .curve { fill: none; stroke: var(--amber, #E8A33D); stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+svg.chart.ushape .base { stroke: currentColor; stroke-width: 4; stroke-dasharray: 18 14; opacity: .55; }
+svg.chart.ushape .axis { stroke: currentColor; stroke-width: 3; opacity: .35; }
+svg.chart.ushape text { fill: currentColor; font-size: 34px; font-family: inherit; opacity: .8; }
+</style>
+
+<section class="cover">
+<h1><t-fa>جواب داخل فایل است؛ چرا AI باز هم <em>اشتباه</em> می‌کند؟</t-fa><t-en>The answer is in the file. Why does the AI still get it <em>wrong</em>?</t-en></h1>
+<p class="promise"><t-fa>مسیر جواب را قدم‌به‌قدم دنبال می‌کنیم: «پیدا نکرد» را از «پیدا کرد، بد خواند» جدا می‌کنیم و هزینهٔ هر جواب درست را می‌سنجیم.</t-fa><t-en>We follow the answer step by step: we separate "never found it" from "found it, misread it" and price each correct answer.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>جواب توی فایل است. <em>دو</em> مظنون.</t-fa><t-en>The answer is in the file. <em>Two</em> suspects.</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>فایل · بیمهٔ تکمیلی ۱۴۰۵ · عینک طبی</t-fa><t-en>The file · supplementary insurance 1405 · glasses</t-en></span><b class="word"><t-fa>۴٫۵ میلیون تومان</t-fa><t-en>4.5 million toman</t-en></b><p><t-fa>کلمه به کلمه در سند</t-fa><t-en>Word for word in the document</t-en></p></div>
+<div><span><t-fa>جواب دستیار</t-fa><t-en>The assistant's answer</t-en></span><b class="word"><t-fa>۳ میلیون تومان</t-fa><t-en>3 million toman</t-en></b><p><t-fa>این هم جایی از همین فایل نوشته شده</t-fa><t-en>This is also written somewhere in the same file</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>صحنهٔ بازسازی‌شده</t-fa><t-en>RECONSTRUCTED SCENE</t-en></b><t-fa>ساختگی؛ نتیجهٔ آزمایش نیست</t-fa><t-en>ILLUSTRATIVE, not a test result</t-en></p>
+<footer><t-fa>شرکت خیالی «دایره» · هومودین</t-fa><t-en>Fictional company "Dayereh" · Homodyne</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>اول فقط ستون فایل؛ بعد جواب دستیار. بگو «این صحنه رو برای توضیح ساختم».</p><p>پایان قاب: «من محمدم، اینجا هومودینه.» بعد کاور.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>First only the file column, then the assistant's answer. Say "I built this scene to explain".</p><p>End of beat: "I'm Mohammad, this is Homodyne." Then the cover.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="53">
+<p class="kicker"><t-fa>از قسمت قبل: پیدا نکرده، یا بد فهمیده؟</t-fa><t-en>From last episode: never found it, or misunderstood it?</t-en></p>
+<h1><t-fa>هر جواب غلط، <em>یکی</em> از این دو است</t-fa><t-en>Every wrong answer is <em>one</em> of these two</t-en></h1>
+<div class="cards">
+<div><b><t-fa>مظنون ۱ · «پیدا نکرد»</t-fa><t-en>Suspect 1 · "never found it"</t-en></b><t-fa>بند درست اصلاً به دست مدل نرسید. درمان: جست‌وجوی بهتر.</t-fa><t-en>The right passage never reached the model. Fix: better search.</t-en></div>
+<div class="hi"><b><t-fa>مظنون ۲ · «پیدا کرد، بد خواند»</t-fa><t-en>Suspect 2 · "found it, misread it"</t-en></b><t-fa>بند جلوی مدل بود؛ مثلاً نسخهٔ قدیمی را برداشت. درمان: خواندن بهتر.</t-fa><t-en>The passage was in front of the model; say, it picked the old version. Fix: better reading.</t-en></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>پوشهٔ «دایره»: آیین‌نامه ۱۴۰۳ · الحاقیهٔ ۱۴۰۴ · الحاقیهٔ ۱۴۰۵ · بیمهٔ ۱۴۰۴ · بیمهٔ ۱۴۰۵ · مأموریت · امنیت</t-fa><t-en>The "Dayereh" folder: handbook 1403 · amendment 1404 · amendment 1405 · insurance 1404 · insurance 1405 · travel · IT security</t-en></p>
+<footer><t-fa>پل از HMD-014</t-fa><t-en>Bridge from HMD-014</t-en></footer>
+<aside class="notes"><t-fa><b>دو مظنون</b><p>جملهٔ اول همان سؤال تیزر قسمت قبل است. کارت دوم کهربایی.</p><p>هر جواب غلط یا از «پیدا نکردن» می‌آید یا از «بد خواندن»، و درمانشان فرق دارد.</p></t-fa><t-en><b>Two suspects</b><p>The first line is last episode's teaser question. The second card is amber.</p><p>Every wrong answer comes from "never found" or from "misread", and the fixes differ.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="116">
+<p class="kicker"><t-fa>راه اول</t-fa><t-en>Path 1</t-en></p>
+<h1><t-fa>کل پرونده روی <em>میز</em></t-fa><t-en>The whole file on the <em>desk</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>«پیدا نکرد»: حذف می‌شود</t-fa><t-en>"Never found it": gone</t-en></b><t-fa>بند درست حتماً جلوی مدل است.</t-fa><t-en>The right passage is always in front of the model.</t-en></div>
+<div class="hi"><b><t-fa>هزینه: کل پرونده، برای هر سؤال</t-fa><t-en>Cost: the whole file, for every question</t-en></b><t-fa>حتی اگر جواب یک خط باشد. و میز شلوغ‌تر، خط گم‌تر.</t-fa><t-en>Even if the answer is one line. And the busier the desk, the easier the line gets lost.</t-en></div>
+</div>
+<p class="caption"><t-fa>به ظرفیت این میز می‌گویند «پنجرهٔ متن».</t-fa><t-en>The size of this desk is called the context window.</t-en></p>
+<footer><t-fa>full context · پنجرهٔ متن</t-fa><t-en>Full context · context window</t-en></footer>
+<aside class="notes"><t-fa><b>راه اول</b><p>تصویر میز، یک خط کهربایی میان برگه‌ها.</p><p>دادن کل پرونده «پیدا نکردن» را حذف می‌کند، ولی هر سؤال را گران‌تر می‌کند.</p></t-fa><t-en><b>Path 1</b><p>The desk image, one amber line among the pages.</p><p>Giving the whole file removes "never found", but makes every question more expensive.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="162">
+<p class="kicker"><t-fa>راه دوم: جست‌وجو، بعد جواب</t-fa><t-en>Path 2: search, then answer</t-en></p>
+<h1><t-fa>فقط <em>پنج</em> بند به مدل می‌رسد</t-fa><t-en>Only <em>five</em> passages reach the model</t-en></h1>
+<div class="steps">
+<div><b><t-fa>۱ · سؤال</t-fa><t-en>1 · Question</t-en></b><t-fa>«سقف بیمه برای عینک چقدره؟»</t-fa><t-en>"What is the insurance cap for glasses?"</t-en></div>
+<div class="hi"><b><t-fa>۲ · جست‌وجو</t-fa><t-en>2 · Search</t-en></b><t-fa>کتابدار پنج بند مرتبط‌تر را جدا می‌کند</t-fa><t-en>The librarian picks the five most relevant passages</t-en></div>
+<div><b><t-fa>۳ · مدل</t-fa><t-en>3 · Model</t-en></b><t-fa>فقط همان پنج بند را می‌خواند</t-fa><t-en>Reads only those five</t-en></div>
+</div>
+<p class="tag"><t-fa>نام RAG از مقالهٔ Lewis و همکاران، NeurIPS ۲۰۲۰ · ارزان‌تر، ولی «پیدا نکرد» برمی‌گردد</t-fa><t-en>The name RAG comes from Lewis et al., NeurIPS 2020 · cheaper, but "never found it" is back</t-en></p>
+<footer>R02 · arXiv 2005.11401</footer>
+<aside class="notes"><t-fa><b>راه دوم + CTA نرم</b><p>تصویر کتابدار و پنج برگه. پایان قاب: CTA نرم رو به دوربین.</p><p>جست‌وجو پیش از جواب ارزان‌تر است، ولی خطر «پیدا نکردن» را برمی‌گرداند.</p></t-fa><t-en><b>Path 2 + soft CTA</b><p>Librarian image and five pages. End of beat: soft CTA to camera.</p><p>Searching before answering is cheaper, but brings back the risk of "never found".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="218">
+<p class="kicker"><t-fa>اول حدس بزن: اول، وسط یا آخر؟</t-fa><t-en>Guess first: start, middle or end?</t-en></p>
+<h1><t-fa>گم‌شده در <em>وسط</em></t-fa><t-en>Lost in the <em>middle</em></t-en></h1>
+<svg class="chart ushape" viewBox="0 0 1200 470" role="img" aria-label="U-shaped curve, schematic">
+<line class="axis" x1="80" y1="400" x2="1140" y2="400"/>
+<line class="base" x1="80" y1="250" x2="1140" y2="250"/>
+<polyline class="curve" points="110,70 230,175 360,255 500,285 640,290 780,280 920,240 1040,160 1110,120"/>
+<text x="90" y="450"><t-fa>اول</t-fa><t-en>start</t-en></text>
+<text x="560" y="450"><t-fa>وسط</t-fa><t-en>middle</t-en></text>
+<text x="1060" y="450"><t-fa>آخر</t-fa><t-en>end</t-en></text>
+<text x="700" y="232"><t-fa>بدون هیچ سند</t-fa><t-en>no documents at all</t-en></text>
+</svg>
+<p class="tag"><b><t-fa>طرح‌واره</t-fa><t-en>SCHEMATIC</t-en></b><t-fa>شکل کلی از شکل ۱ مقاله، بدون عدد · ۲۰ سند · برای GPT-3.5-Turbo جواب وسط زیر حالت بدون سند · مدل‌های ۲۰۲۳</t-fa><t-en>General shape from the paper's Figure 1, no numbers · 20 documents · for GPT-3.5-Turbo the middle fell below no documents · 2023 models</t-en></p>
+<footer><t-fa>R01 · Liu و همکاران، Lost in the Middle، TACL ۲۰۲۴</t-fa><t-en>R01 · Liu et al., Lost in the Middle, TACL 2024</t-en></footer>
+<aside class="notes"><t-fa><b>گم‌شده در وسط</b><p>اول فقط سؤال و تایمر دوثانیه‌ای. بعد منحنی. حتماً بگو «مدل‌های ۲۰۲۳».</p><p>جای جواب در متن بلند زمانی مهم بود؛ برای مدل‌های امروز باید دوباره سنجید.</p></t-fa><t-en><b>Lost in the middle</b><p>First only the question and a two-second timer. Then the curve. Always say "2023 models".</p><p>Answer position in long text mattered once; for today's models it has to be measured again.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="287">
+<p class="kicker"><t-fa>اول آزمون، بعد مدل</t-fa><t-en>Test first, model second</t-en></p>
+<h1><t-fa>همه‌چیز ثابت، جز <em>یک</em> چیز</t-fa><t-en>Everything fixed except <em>one</em> thing</t-en></h1>
+<table class="t">
+<tr><td><t-fa>سؤال</t-fa><t-en>Questions</t-en></td><td><t-fa>۵۰ سؤال قفل‌شده: ۴۲ با جواب مرجع و شمارهٔ بند، ۸ بی‌جواب در پرونده</t-fa><t-en>50 frozen questions: 42 with a gold answer and passage ID, 8 not in the file</t-en></td></tr>
+<tr><td><t-fa>پرونده</t-fa><t-en>File</t-en></td><td><t-fa>کوتاه: ۵۳ بند، حدود ۲٬۳۰۰ کلمه · بلند: ۲۲۵ بند، حدود ۹٬۵۰۰ کلمه</t-fa><t-en>Short: 53 passages, about 2,300 words · long: 225 passages, about 9,500 words</t-en></td></tr>
+<tr class="hi"><td><t-fa>جای بند</t-fa><t-en>Position</t-en></td><td><t-fa>راه اول: بند جواب یک بار اول، یک بار وسط، یک بار آخر</t-fa><t-en>Path 1: the answer passage at the start, in the middle, at the end</t-en></td></tr>
+<tr><td><t-fa>ثابت</t-fa><t-en>Fixed</t-en></td><td><t-fa>یک مدل، یک دستور، ۱۰ سؤال جدا فقط برای امتحان ابزار</t-fa><t-en>One model, one prompt, 10 separate questions only to test the tooling</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>artifact/pack/questions.json · artifact/protocol.md</t-fa><t-en>artifact/pack/questions.json · artifact/protocol.md</t-en></p>
+<footer><t-fa>طرح آزمون، ۱۳ نوامبر ۲۰۲۶</t-fa><t-en>Test design, 13 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>آزمون را اول می‌نویسیم</b><p>رو به دوربین؛ بعد جدول. «هشت تاش عمداً بی‌جوابه» را نگه دار برای قاب ۱۵.</p><p>آزمون منصفانه یعنی همه‌چیز ثابت، جز همان چیزی که می‌خواهی بسنجی.</p></t-fa><t-en><b>We write the test first</b><p>To camera, then the table. Hold "eight have no answer on purpose" for beat 15.</p><p>A fair test keeps everything fixed except the thing you want to measure.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="351">
+<p class="kicker"><t-fa>اجرای واقعی محلی · بدون مدل زبانی</t-fa><t-en>Real local run · no language model</t-en></p>
+<div class="code"><span class="c">$ python3 artifact/answer_in_file.py retrieval        # excerpt</span>
+pack   passages  words   method    R@1   R@3   R@5  R@10  hits@5
+short        53   2296   bm25     0.59  0.81  0.95  0.98  40/42
+<span class="o">long        225   9464   bm25     0.62  0.76  0.81  0.91  34/42</span>
+short        53   2296   hybrid   0.62  0.88  0.95  0.98  40/42
+long        225   9464   hybrid   0.64  0.79  0.91  0.93  38/42</div>
+<p class="tag"><t-fa>خروجی واقعی، ۱۳ نوامبر ۲۰۲۶؛ ستون آخر یعنی «بند درست بین ۵ نتیجهٔ اول» از ۴۲ سؤال جواب‌دار · اسناد ساختگی</t-fa><t-en>Real output, 13 Nov 2026; the last column is "right passage in the top 5" out of 42 answerable questions · invented documents</t-en></p>
+<footer><t-fa>artifact/results/retrieval-local.txt · BM25: R03</t-fa><t-en>artifact/results/retrieval-local.txt · BM25: R03</t-en></footer>
+<aside class="notes"><t-fa><b>اول خود کتابدار را امتحان کن</b><p>ستون آخر را بپوشان؛ بپرس «چند تا؟»؛ بعد ۴۰، و «تیک» روی ۳۴.</p><p>روی این پروندهٔ ساختگی، سؤال‌هایی که کلمه‌هایشان با سند فرق داشت گم شدند؛ در پروندهٔ شلوغ‌تر بیشتر.</p></t-fa><t-en><b>Test the librarian first</b><p>Cover the last column; ask "how many?"; then 40, and a "tick" on 34.</p><p>On this invented file, questions worded differently from the document got lost; more of them in the busier file.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="409">
+<p class="kicker"><t-fa>«دندون‌پزشکی» در سؤال · «دندان‌پزشکی» در سند</t-fa><t-en>"Dondoon-pezeshki" (colloquial) in the question · "dandan-pezeshki" (formal) in the document</t-en></p>
+<h1><t-fa>سؤال محاوره‌ای، سند <em>رسمی</em></t-fa><t-en>Colloquial question, <em>formal</em> document</t-en></h1>
+<div class="bars">
+<div><span><t-fa>کلمه‌شمار (BM25)</t-fa><t-en>Word counter (BM25)</t-en></span><i style="--v:33"></i><span><t-fa>۴ از ۱۲</t-fa><t-en>4 of 12</t-en></span></div>
+<div class="hi"><span><t-fa>ترکیبی (کلمه + تکه‌های ۴حرفی)</t-fa><t-en>Hybrid (words + 4-letter pieces)</t-en></span><i style="--v:67"></i><span><t-fa>۸ از ۱۲</t-fa><t-en>8 of 12</t-en></span></div>
+<div><span><t-fa>سؤال‌های هم‌کلمه با سند</t-fa><t-en>Questions worded like the document</t-en></span><i style="--v:100"></i><span><t-fa>۳۰ از ۳۰</t-fa><t-en>30 of 30</t-en></span></div>
+</div>
+<p class="caption"><t-fa>راه سوم، ترکیبی: دو جست‌وجو با هم. این جست‌وجو به ترتیب پرونده نگاه نمی‌کند؛ برای اطمینان پنج بار به‌هم ریختیم و پنج نتیجهٔ اول عوض نشد.</t-fa><t-en>Path 3, hybrid: two searches together. This search ignores the order of the file; as a check we shuffled it five times and no top five changed.</t-en></p>
+<p class="tag"><t-fa>اجرای واقعی محلی · پروندهٔ بلند · بند درست بین ۵ نتیجهٔ اول · «پول ناهار» در برابر «کمک‌هزینهٔ غذا»</t-fa><t-en>Real local run · long file · right passage in the top 5 · "lunch money" vs "food allowance"</t-en></p>
+<footer><t-fa>ادغام رتبه‌ها: Cormack و همکاران، SIGIR ۲۰۰۹ (R04)</t-fa><t-en>Rank fusion: Cormack et al., SIGIR 2009 (R04)</t-en></footer>
+<aside class="notes"><t-fa><b>«دندون» یا «دندان»؟</b><p>اینجا «راه سوم: ترکیبی» معرفی می‌شود. اول چیپ‌ها، بعد میله‌ها. آخر قاب: به‌هم‌ریختن پرونده، به‌عنوان آزمون اطمینان، نه کشف.</p><p>کتابدار کلمه‌شمار سؤال محاوره‌ای را گم می‌کند، ولی جای بند برایش مهم نیست.</p></t-fa><t-en><b>"Dondoon" or "dandan"?</b><p>Path 3, hybrid, is introduced here. Chips first, then the bars. End of beat: the shuffle, as a sanity check, not a discovery.</p><p>The word-counting librarian loses colloquial questions, but position does not matter to it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="482">
+<p class="kicker"><t-fa>ولی «پیدا شد» یعنی درست جواب داد؟</t-fa><t-en>But does "found" mean "answered right"?</t-en></p>
+<h1><t-fa>پیدا شد. <em>سوم.</em></t-fa><t-en>Found it. <em>Third.</em></t-en></h1>
+<div class="steps">
+<div class="off"><b><t-fa>رتبهٔ ۱ · پرسش‌های پرتکرار ۱۴۰۲</t-fa><t-en>Rank 1 · FAQ 1402</t-en></b><t-fa>عینک: ۲ میلیون تومان</t-fa><t-en>Glasses: 2 million toman</t-en></div>
+<div class="off"><b><t-fa>رتبهٔ ۲ · قرارداد بیمهٔ ۱۴۰۴</t-fa><t-en>Rank 2 · insurance contract 1404</t-en></b><t-fa>عینک: ۳ میلیون تومان</t-fa><t-en>Glasses: 3 million toman</t-en></div>
+<div class="hi"><b><t-fa>رتبهٔ ۳ · قرارداد بیمهٔ ۱۴۰۵ (معتبر)</t-fa><t-en>Rank 3 · insurance contract 1405 (valid)</t-en></b><t-fa>عینک: ۴٫۵ میلیون تومان</t-fa><t-en>Glasses: 4.5 million toman</t-en></div>
+</div>
+<p class="caption"><t-fa>از ۱۴ سؤال نسخه‌دار، در ۱۰ تا نسخهٔ قدیمی بالاتر از نسخهٔ معتبر نشست. جست‌وجو تاریخ نمی‌فهمد.</t-fa><t-en>Of 14 questions with an older version, in 10 the old version ranked above the valid one. Search does not understand dates.</t-en></p>
+<p class="tag"><t-fa>اجرای واقعی محلی · پروندهٔ بلند · BM25 · سؤال L01 · اسناد ساختگی</t-fa><t-en>Real local run · long file · BM25 · question L01 · invented documents</t-en></p>
+<footer><t-fa>artifact/results/retrieval-per-question.csv</t-fa><t-en>artifact/results/retrieval-per-question.csv</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت. برگه‌ها به ترتیب رتبه، از بالا.</p><p>پیدا کردن بند درست کافی نیست؛ نسخهٔ قدیمی کنارش، و گاهی بالاترش، نشسته است.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence. The pages in rank order, from the top.</p><p>Finding the right passage is not enough; the old version sits next to it, and sometimes above it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="538">
+<p class="kicker"><t-fa>اشتباه‌ها از کجا می‌آیند؟</t-fa><t-en>Where do the mistakes come from?</t-en></p>
+<h1><t-fa>درست · «پیدا نکرد» · «پیدا کرد، <em>بد خواند</em>»</t-fa><t-en>Right · "never found" · "found, <em>misread</em>"</t-en></h1>
+<div class="cols">
+<div><span><t-fa>کل پرونده · میانگین سه جای بند</t-fa><t-en>Whole file · average of three positions</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>از ۱۲۶ بار (هر سؤال سه جا) · «پیدا نکرد»: ممکن نیست · بد خواند: [تعداد]</t-fa><t-en>Of 126 trials (each question at three positions) · "never found": impossible · misread: [n]</t-en></p></div>
+<div><span><t-fa>جست‌وجوی ساده</t-fa><t-en>Simple search</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>از ۴۲ سؤال · پیدا نکرد: [تعداد] · بد خواند: [تعداد]</t-fa><t-en>Of 42 questions · never found: [n] · misread: [n]</t-en></p></div>
+<div class="hi"><span><t-fa>ترکیبی</t-fa><t-en>Hybrid</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>از ۴۲ سؤال · پیدا نکرد: [تعداد] · بد خواند: [تعداد]</t-fa><t-en>Of 42 questions · never found: [n] · misread: [n]</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>پس از run و report پر شود · پروندهٔ بلند · نام و نسخهٔ مدل و تاریخ اجرا</t-fa><t-en>Fill in after run and report · long file · model name, version and run date</t-en></p>
+<footer><t-fa>artifact/answer_in_file.py report</t-fa><t-en>artifact/answer_in_file.py report</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] اشتباه‌ها از کجا می‌آیند</b><p>تا اجرای واقعی ضبط نشود. فقط یک شاخه. جملهٔ «[حذف پس از اجرا]» هرگز ضبط نشود.</p><p>اشتباه‌ها را دو دسته کن تا بدانی پول را کجا خرج کنی.</p></t-fa><t-en><b>[RUN] Where the mistakes come from</b><p>Do not record before the real run. One branch only. Never record the "[delete after the run]" line.</p><p>Split the mistakes in two to know where to spend the money.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="610">
+<p class="kicker"><t-fa>راه اول · جای بند جواب</t-fa><t-en>Path 1 · where the answer passage sits</t-en></p>
+<h1><t-fa>اول، <em>وسط</em>، آخر</t-fa><t-en>Start, <em>middle</em>, end</t-en></h1>
+<div class="cols">
+<div><span><t-fa>اول پرونده</t-fa><t-en>Start of file</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>جواب درست</t-fa><t-en>correct</t-en></p></div>
+<div class="hi"><span><t-fa>وسط پرونده</t-fa><t-en>Middle of file</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>فقط وسط غلط: [تعداد] · فقط وسط درست: [تعداد]</t-fa><t-en>Wrong only in the middle: [n] · right only in the middle: [n]</t-en></p></div>
+<div><span><t-fa>آخر پرونده</t-fa><t-en>End of file</t-en></span><b class="word"><t-fa>[درصد]</t-fa><t-en>[%]</t-en></b><p><t-fa>جواب درست</t-fa><t-en>correct</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>۴۲ سؤال، هر کدام در هر سه جا · مقایسهٔ سؤال‌به‌سؤال با آزمون علامت</t-fa><t-en>42 questions, each at all three positions · paired comparison with a sign test</t-en></p>
+<footer><t-fa>انگیزه: R01 · نتیجه فقط برای همین مدل و پرونده</t-fa><t-en>Motivation: R01 · the result holds only for this model and file</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] اول، وسط یا آخر</b><p>«تیک» روی ستون وسط. فقط یک شاخه.</p><p>جای جواب را باید برای مدل خودت سنجید، نه از روی مقالهٔ قدیمی.</p></t-fa><t-en><b>[RUN] Start, middle or end</b><p>A "tick" on the middle column. One branch only.</p><p>Measure answer position for your own model, not from an old paper.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="649">
+<p class="kicker"><t-fa>تصمیم محصولی</t-fa><t-en>The product decision</t-en></p>
+<h1><t-fa>کل هزینه ÷ جواب‌های <em>درست</em></t-fa><t-en>Total cost ÷ <em>correct</em> answers</t-en></h1>
+<div class="stat"><b><t-fa>حدود ۲۹ برابر</t-fa><t-en>About 29×</t-en></b><span><t-fa>متن هر سؤال در «کل پرونده»، در برابر «جست‌وجوی ساده» · پروندهٔ بلند</t-fa><t-en>text per question with "whole file", versus "simple search" · long file</t-en></span></div>
+<p class="caption"><t-fa>[RUN] هر ۱۰۰ جواب درست: کل پرونده [مبلغ] · ساده [مبلغ] · ترکیبی [مبلغ] · زمان جواب [ثانیه]</t-fa><t-en>[RUN] per 100 correct answers: whole file [$] · simple [$] · hybrid [$] · response time [s]</t-en></p>
+<p class="tag"><b><t-fa>برآورد</t-fa><t-en>ESTIMATE</t-en></b><t-fa>نسبت نویسه‌ها از estimate، نه توکن صورت‌حساب · قیمت‌ها از prices.json با تاریخ</t-fa><t-en>A character ratio from estimate, not billed tokens · prices from prices.json, dated</t-en></p>
+<footer><t-fa>artifact/answer_in_file.py estimate · report</t-fa><t-en>artifact/answer_in_file.py estimate · report</t-en></footer>
+<aside class="notes"><t-fa><b>هزینهٔ هر جواب درست</b><p>«حدود ۲۹ برابر» همین حالا گفتنی است. جملهٔ [RUN] و شاخه‌ها پس از اجرا.</p><p>معیار تصمیم، هزینه به‌ازای هر جواب درست است، نه هزینه به‌ازای هر سؤال.</p></t-fa><t-en><b>Cost per correct answer</b><p>"About 29×" can be said now. The [RUN] sentence and branches after the run.</p><p>Decide on cost per correct answer, not cost per question.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="719">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی یک پروندهٔ ساختگی، با اجرای واقعی: سؤال‌هایی که کلمه‌هایشان با سند فرق داشت گم شدند، در پروندهٔ شلوغ‌تر بیشتر؛ و نسخهٔ قدیمی کنار نسخهٔ معتبر، و گاهی بالاترش، آمد.</t-fa><t-en>On an invented file, from a real run: questions worded differently from the document got lost, more of them in the busier file; and the old version came up next to the valid one, sometimes above it.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>اینکه یک راه همه‌جا بهتر است · نتیجه برای اسناد، زبان‌ها یا مدل‌های دیگر · جست‌وجوی ترکیبی با مدل معنایی · رفتار مدل‌های امروز از روی مقالهٔ ۲۰۲۳</t-fa><t-en>That one path wins everywhere · results for other documents, languages or models · hybrid search with a semantic model · today's models' behaviour from a 2023 paper</t-en></div>
+</div>
+<footer>R01 · R05</footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۰ ثانیه.</p><p>روش برنده را باید روی اسناد خودت پیدا کنی؛ این آزمایش راه سنجیدنش را نشان می‌دهد.</p></t-fa><t-en><b>Claim boundary</b><p>Under 40 seconds.</p><p>Find the winning method on your own documents; this experiment shows how to measure it.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="761">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>جواب باید <em>دو بار</em> سالم برسد</t-fa><t-en>The answer has to arrive intact <em>twice</em></t-en></h1>
+<div class="steps">
+<div><b><t-fa>۱ · جست‌وجو</t-fa><t-en>1 · Search</t-en></b><t-fa>بند درست را بیاورد</t-fa><t-en>Bring the right passage</t-en></div>
+<div class="hi"><b><t-fa>۲ · خواندن</t-fa><t-en>2 · Reading</t-en></b><t-fa>نسخهٔ درست را درست بخواند</t-fa><t-en>Read the right version correctly</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: از چت‌بات شمارهٔ بند و تاریخ سند را بخواه، و خودت آن بند را باز کن.</t-fa><t-en>Exercise: ask the chatbot for the passage number and the document date, and open that passage yourself.</t-en></p>
+<footer><t-fa>artifact/pack/generated · پرونده برای امتحان خودت</t-fa><t-en>artifact/pack/generated · the file to try yourself</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>همیشه شمارهٔ بند را بخواه؛ این‌طوری می‌فهمی کدام قدم لغزیده.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>Always ask for the passage number; that tells you which step slipped.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-15" data-start="817">
+<p class="kicker"><t-fa>قسمت بعد · HMD-016</t-fa><t-en>Next · HMD-016</t-en></p>
+<h1><t-fa>وقتی جواب <em>هیچ‌جا</em> نیست</t-fa><t-en>When the answer is <em>nowhere</em></t-en></h1>
+<div class="cards">
+<div class="hi"><b><t-fa>«نمی‌دانم»</t-fa><t-en>"I don't know"</t-en></b><t-fa>نه در فایل است، نه در حافظهٔ مدل؛ پس کنار می‌کشد.</t-fa><t-en>It is neither in the file nor in the model's memory, so it steps back.</t-en></div>
+<div><b><t-fa>جواب ساختگی</t-fa><t-en>An invented answer</t-en></b><t-fa>«سومین کتاب این نویسنده کی ترجمه شد؟» نویسنده فقط دو کتاب نوشته.</t-fa><t-en>"When was this author's third book translated?" The author wrote only two.</t-en></div>
+</div>
+<footer><t-fa>قسمت بعد · آزمایشگاه بنچمارک E08</t-fa><t-en>Next episode · Benchmark Lab E08</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ثانیهٔ ۱۹ این قاب (۲۰ ثانیهٔ آخر). کات پیش از جواب.</p><p>وقتی جواب هیچ‌جا نیست، نه در فایل و نه در حافظهٔ مدل، کدام AI به‌موقع «نمی‌دانم» می‌گوید؟</p></t-fa><t-en><b>Next episode</b><p>End screen from second 19 of this beat (the last 20 seconds). Cut before the answer.</p><p>When the answer is nowhere, neither in the file nor in the model's memory, which AI says "I don't know" in time?</p></t-en></aside>
+</section>

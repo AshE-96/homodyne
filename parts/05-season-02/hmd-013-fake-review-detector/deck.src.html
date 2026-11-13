@@ -1,0 +1,211 @@
+<!-- HMD-013 · deck source. Build: python3 scripts/build-decks.py --only hmd-013  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Numbers: artifact/results/local-output.txt (13 Nov 2026). Frames 9–10 stay NOT RUN YET until ai_text_lab.py run. -->
+
+<section class="cover">
+<h1><t-fa>نظر <em>جعلی</em> را تشخیص می‌دهی؟ AI چطور؟</t-fa><t-en>Can you spot a <em>fake</em> review? Can AI?</t-en></h1>
+<p class="promise"><t-fa>آدم، قانون ساده و مدل روی ۱٬۶۰۰ نظر هتل؛ و اینکه هر اتهام چقدر متن لازم دارد.</t-fa><t-en>Humans, a simple rule and a model on 1,600 hotel reviews, and how much text each accusation needs.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>نظر صادقت: <em>«جعلی است.»</em> پاک شد.</t-fa><t-en>Your honest review: <em>"Fake."</em> Removed.</t-en></h1>
+<div class="steps">
+<div><b><t-fa>نظر صادق</t-fa><t-en>An honest review</t-en></b><t-fa>تجربهٔ واقعی، با کلمه‌های خودت</t-fa><t-en>A real stay, in your own words</t-en></div>
+<div class="hi"><b><t-fa>برچسب: جعلی</t-fa><t-en>Label: fake</t-en></b><t-fa>یک نرم‌افزار، بدون دلیل</t-fa><t-en>One piece of software, no reason given</t-en></div>
+<div><b><t-fa>پاک شد</t-fa><t-en>Removed</t-en></b><t-fa>راه اعتراض: ندارد</t-fa><t-en>Appeal: none</t-en></div>
+<div class="off"><b><t-fa>همان برچسب، روی انشا</t-fa><t-en>The same label, on an essay</t-en></b><t-fa>«این متن را AI نوشته»</t-fa><t-en>"AI wrote this"</t-en></div>
+</div>
+<footer><t-fa>صحنهٔ فرضی · مسئلهٔ این قسمت</t-fa><t-en>Hypothetical scene · this episode's problem</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>مهر «جعلی» روی نظر، بعد روی انشا. بدون موسیقی تا پایان Grab. پایان قاب: «من محمدم، اینجا هومودینه.»</p><p>هر آشکارسازِ جعلی در نهایت اتهام می‌زند؛ سؤال این است که اشتباهش را چه کسی می‌پردازد.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>The "fake" stamp on a review, then on an essay. No music until the end of the Grab. End of beat: "I'm Mohammad, this is Homodyne."</p><p>Every fake detector ends in an accusation; the question is who pays for its mistakes.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="46">
+<p class="kicker"><t-fa>اول حدس بزن</t-fa><t-en>Guess first</t-en></p>
+<h1><t-fa>نویسندهٔ یکی از این دو، هرگز آن هتل را <em>ندیده</em>.</t-fa><t-en>One of these two writers <em>never</em> stayed there.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>نظر اول</t-fa><t-en>Review 1</t-en></b><t-fa>سی سال پیش اتاقمان کوچک بود و خدمات سرد. این بار کارکنان عالی بودند و حتی قیمت را برایمان پایین آوردند.</t-fa><t-en>Thirty years ago our room was tiny and the service cold. This time the staff were superb, and even lowered our price.</t-en></div>
+<div><b><t-fa>نظر دوم</t-fa><t-en>Review 2</t-en></b><t-fa>این هتل را انتخاب کردیم چون همه‌چیز نزدیکش بود. تخت‌ها آن‌قدر راحت بود که یادم نمی‌آید کی این‌طور خوابیده بودم. حتماً برمی‌گردیم!</t-fa><t-en>We chose this hotel because everything was close by. The beds were so comfortable I can't remember sleeping that well. We'll be back!</t-en></div>
+</div>
+<p class="tag"><t-fa>خلاصه و ترجمه از پیکرهٔ Ott و همکاران (CC BY-NC-SA 3.0) · هر دو مثبت، هر دو دربارهٔ Hilton Chicago</t-fa><t-en>Paraphrased from the Ott et al. corpus (CC BY-NC-SA 3.0) · both positive, both about the Hilton Chicago</t-en></p>
+<footer><t-fa>آزمونک: پرسش ۱ و ۳ از review_lab.py --quiz</t-fa><t-en>Quiz: items 1 and 3 of review_lab.py --quiz</t-en></footer>
+<aside class="notes"><t-fa><b>حدس بزن</b><p>سه ثانیه شمارش معکوس. جواب: نظر دوم (pos/d_hilton_18)؛ نویسنده یک دلار گرفته بود تا قانع‌کننده بنویسد. نظر اول pos/t_hilton_2.</p><p>لحن قانع‌کننده شاهد تجربهٔ واقعی نیست.</p></t-fa><t-en><b>Guess</b><p>Three-second countdown. Answer: review 2 (pos/d_hilton_18); its writer was paid one dollar to sound convincing. Review 1 is pos/t_hilton_2.</p><p>A convincing tone is not evidence of a real stay.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="100">
+<p class="kicker"><t-fa>همان سؤال قسمت قبل</t-fa><t-en>Last episode's question</t-en></p>
+<h1><t-fa>یک مسئله، دو برچسب: <em>اتهام</em></t-fa><t-en>One problem, two labels: an <em>accusation</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>«نظر جعلی است»</t-fa><t-en>"This review is fake"</t-en></b><t-fa>یک متن، یک حکم</t-fa><t-en>One text, one verdict</t-en></div>
+<div><b><t-fa>«این متن را AI نوشته»</t-fa><t-en>"AI wrote this text"</t-en></b><t-fa>یک متن، یک حکم</t-fa><t-en>One text, one verdict</t-en></div>
+<div class="hi"><b><t-fa>اتهام اشتباه (مثبت کاذب)</t-fa><t-en>False accusation (false positive)</t-en></b><t-fa>آدم صادق، برچسب جعلی</t-fa><t-en>An honest person, labelled fake</t-en></div>
+</div>
+<p class="caption"><t-fa>تا آخر ویدیو: این آشکارساز فقط حق علامت‌زدن دارد، یا حق پاک‌کردن هم؟</t-fa><t-en>By the end: may this detector only flag, or also delete?</t-en></p>
+<footer><t-fa>پل از HMD-012: «چقدر متن لازم دارد؟ کی تاوانش را می‌دهد؟»</t-fa><t-en>Bridge from HMD-012: "How much text does it need? Who pays?"</t-en></footer>
+<aside class="notes"><t-fa><b>همان سؤال قسمت قبل</b><p>کادر نزدیک‌تر. فقط یک اصطلاح تازه: اتهام اشتباه.</p><p>نظر جعلی و «متن AI» یک مسئله‌اند: اتهامی که اشتباهش هزینه دارد.</p></t-fa><t-en><b>Last episode's question</b><p>Closer framing. Only one new term: false accusation.</p><p>Fake reviews and "AI text" are one problem: an accusation whose mistakes cost something.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="145">
+<p class="kicker"><t-fa>منبع</t-fa><t-en>Source</t-en></p>
+<h1><t-fa>داورهای انسانی: کمی بهتر از <em>سکه</em></t-fa><t-en>Human judges: barely better than a <em>coin</em></t-en></h1>
+<div class="bars">
+<div><span><t-fa>داور ۱</t-fa><t-en>Judge 1</t-en></span><i style="--v:61.9"></i><span><t-fa>۶۱٫۹٪</t-fa><t-en>61.9%</t-en></span></div>
+<div><span><t-fa>داور ۲</t-fa><t-en>Judge 2</t-en></span><i style="--v:56.9"></i><span><t-fa>۵۶٫۹٪</t-fa><t-en>56.9%</t-en></span></div>
+<div><span><t-fa>داور ۳</t-fa><t-en>Judge 3</t-en></span><i style="--v:53.1"></i><span><t-fa>۵۳٫۱٪</t-fa><t-en>53.1%</t-en></span></div>
+<div><span><t-fa>سکه</t-fa><t-en>Coin</t-en></span><i style="--v:50"></i><span><t-fa>۵۰٪</t-fa><t-en>50%</t-en></span></div>
+</div>
+<p class="tag"><t-fa>درستی روی ۱۶۰ نظر مثبتِ ۴ هتل · داور ۲ فقط ۱۸٫۸٪ جعلی‌ها را گرفت · پیکره: ۴۰۰ جعلی از Mechanical Turk، ۴۰۰ «واقعی» از TripAdvisor؛ بعدها ۸۰۰ نظر منفی</t-fa><t-en>Accuracy on 160 positive reviews of 4 hotels · Judge 2 caught only 18.8% of fakes · corpus: 400 fakes from Mechanical Turk, 400 "truthful" from TripAdvisor; later 800 negative reviews</t-en></p>
+<footer><t-fa>R01 · Ott، Choi، Cardie، Hancock · ACL ۲۰۱۱، جدول ۲</t-fa><t-en>R01 · Ott, Choi, Cardie, Hancock · ACL 2011, Table 2</t-en></footer>
+<aside class="notes"><t-fa><b>منبع: آدم‌ها و سکه</b><p>میلهٔ سکه آخر ظاهر شود. «یک دلار» و «فرض شده واقعی‌اند» را بگو.</p><p>در این آزمایش، داورهای انسانی فقط کمی بهتر از سکه بودند.</p></t-fa><t-en><b>Source: humans and a coin</b><p>Show the coin bar last. Say "one dollar" and "presumed truthful".</p><p>In this study, human judges were only a little better than a coin.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="204">
+<p class="kicker"><t-fa>قانون ساده</t-fa><t-en>A simple rule</t-en></p>
+<h1><t-fa>«من» بیشتر، جزئیات کمتر ← <em>جعلی</em></t-fa><t-en>More "I", fewer concrete details → <em>fake</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>جعلی‌های گرفته‌شده (پوشش)</t-fa><t-en>Fakes caught (recall)</t-en></span><b><t-fa>۷۰٫۸٪</t-fa><t-en>70.8%</t-en></b></div>
+<div><span><t-fa>درستی · همان ۱۶۰ نظر داورها</t-fa><t-en>Accuracy · the judges' 160 reviews</t-en></span><b><t-fa>۷۱٫۲٪</t-fa><t-en>71.2%</t-en></b><p><t-fa>روی همهٔ ۱٬۶۰۰ نظر: ۶۹٫۴٪</t-fa><t-en>On all 1,600 reviews: 69.4%</t-en></p></div>
+<div class="hi"><span><t-fa>نظرهای صادقِ متهم‌شده</t-fa><t-en>Honest reviews accused</t-en></span><b><t-fa>۳۲٪</t-fa><t-en>32%</t-en></b><p><t-fa>از هر سه، حدود یکی (همهٔ ۱٬۶۰۰ نظر)</t-fa><t-en>About 1 in 3 (all 1,600 reviews)</t-en></p></div>
+</div>
+<p class="tag"><t-fa>review_lab.py · آستانه‌ها روی ۱۶ هتل، آزمون روی ۴ هتل ندیده، ۵ بار · ۱۳ نوامبر ۲۰۲۶</t-fa><t-en>review_lab.py · thresholds set on 16 hotels, tested on 4 unseen ones, 5 times · 13 Nov 2026</t-en></p>
+<footer><t-fa>نشانه‌ها از R01، بخش ۵</t-fa><t-en>Cues from R01, section 5</t-en></footer>
+<aside class="notes"><t-fa><b>قانون ساده · CTA نرم اول قاب</b><p>بعد از CTA، «I/my» را در نظر دوم قاب ۲ کهربایی کن. پیش از ۳۲٪ بپرس.</p><p>قانون ساده از آدم‌ها بهتر بود، ولی از هر سه نظر صادق حدود یکی را متهم کرد.</p></t-fa><t-en><b>A simple rule · soft CTA at the start</b><p>After the CTA, highlight "I/my" in review 2 of beat 2. Ask before revealing 32%.</p><p>The simple rule beat the humans, but accused about one honest review in three.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="267">
+<p class="kicker"><t-fa>مدل</t-fa><t-en>The model</t-en></p>
+<h1><t-fa>Naive Bayes روی هتل‌هایی که <em>ندیده</em></t-fa><t-en>Naive Bayes on hotels it never <em>saw</em></t-en></h1>
+<div class="bars">
+<div><span><t-fa>بهترین داور انسانی، ۱۶۰ نظر</t-fa><t-en>Best human judge, 160 reviews</t-en></span><i style="--v:61.9"></i><span><t-fa>۶۱٫۹٪</t-fa><t-en>61.9%</t-en></span></div>
+<div><span><t-fa>قانون ساده، همان ۱۶۰ نظر</t-fa><t-en>Simple rule, the same 160 reviews</t-en></span><i style="--v:71.2"></i><span><t-fa>۷۱٫۲٪</t-fa><t-en>71.2%</t-en></span></div>
+<div><span><t-fa>مدل، همان ۱۶۰ نظر داورها</t-fa><t-en>Model, the judges' 160 reviews</t-en></span><i style="--v:82.5"></i><span><t-fa>۸۲٫۵٪</t-fa><t-en>82.5%</t-en></span></div>
+<div><span><t-fa>مدل، همهٔ ۱٬۶۰۰ نظر</t-fa><t-en>Model, all 1,600 reviews</t-en></span><i style="--v:87.8"></i><span><t-fa>۸۷٫۸٪</t-fa><t-en>87.8%</t-en></span></div>
+</div>
+<p class="tag"><t-fa>درستی · واژه و جفت واژه · آموزش روی ۱۶ هتل، آزمون روی ۴ هتل ندیده، ۵ بار · مقالهٔ اصلی: حدود ۸۹٪ · عدد داورها منتشرشده است، نه اجرای دوباره</t-fa><t-en>Accuracy · words and word pairs · trained on 16 hotels, tested on 4 unseen ones, 5 times · original paper: about 89% · judges' figure is published, not re-run</t-en></p>
+<footer><t-fa>review_lab.py · R01</t-fa><t-en>review_lab.py · R01</t-en></footer>
+<aside class="notes"><t-fa><b>مدل، روی هتل‌هایی که ندیده</b><p>«چرا هتل‌ها را جدا کردیم» مهم‌ترین جملهٔ قاب است. پیش از ۸۸٪ مکث دو ثانیه.</p><p>مدل روی هتل‌های ندیده حدود هشتادوهشت درصد درست گفت؛ خیلی بهتر از آدم‌ها.</p></t-fa><t-en><b>The model, on hotels it never saw</b><p>"Why we held out hotels" is the key line. Pause two seconds before 88%.</p><p>On unseen hotels the model was right about 88% of the time; far better than the humans.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="321">
+<p class="kicker"><t-fa>سه عدد، نه یکی</t-fa><t-en>Three numbers, not one</t-en></p>
+<h1><t-fa>عددی که کمتر در تیتر می‌آید: <em>اتهام اشتباه</em></t-fa><t-en>The number headlines rarely show: <em>false accusations</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>پوشش: از جعلی‌ها چند تا گرفته شد</t-fa><t-en>Recall: fakes caught</t-en></span><b><t-fa>۹۳٪</t-fa><t-en>93%</t-en></b></div>
+<div><span><t-fa>دقت اتهام: از علامت‌خورده‌ها چند تا جعلی بود</t-fa><t-en>Precision: flags that were fake</t-en></span><b><t-fa>۸۴٪</t-fa><t-en>84%</t-en></b></div>
+<div class="hi"><span><t-fa>نظرهای صادقِ متهم‌شده</t-fa><t-en>Honest reviews accused</t-en></span><b><t-fa>۱۷٪</t-fa><t-en>17%</t-en></b><p><t-fa>از هر شش نظر صادق، حدود یکی</t-fa><t-en>About 1 in 6 honest reviews</t-en></p></div>
+</div>
+<p class="tag"><t-fa>کل نظر، هتل‌های ندیده · بازهٔ ۹۵٪: پوشش ۹۰٫۹ تا ۹۴٫۵ · دقت اتهام ۸۱٫۸ تا ۸۶٫۶ · اتهام اشتباه ۱۴٫۸ تا ۲۰٫۰</t-fa><t-en>Whole reviews, unseen hotels · 95% intervals: recall 90.9–94.5 · precision 81.8–86.6 · false accusations 14.8–20.0</t-en></p>
+<footer><t-fa>review_lab.py · بخش ۲</t-fa><t-en>review_lab.py · section 2</t-en></footer>
+<aside class="notes"><t-fa><b>سه عدد</b><p>فقط یک اصطلاح تازه: دقت اتهام. آدمک‌ها: ۱۷ از ۱۰۰ کهربایی.</p><p>درستیِ کل کافی نیست؛ نرخ اتهام اشتباه را جدا بپرس.</p></t-fa><t-en><b>Three numbers</b><p>Only one new term: precision. Figures: 17 of 100 turn amber.</p><p>Overall accuracy is not enough; ask for the false-accusation rate separately.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="358">
+<p class="kicker"><t-fa>چقدر متن؟</t-fa><t-en>How much text?</t-en></p>
+<h1><t-fa>هرچه متن <em>کمتر</em>، اتهام اشتباه بیشتر</t-fa><t-en><em>Less</em> text, more false accusations</t-en></h1>
+<table class="t">
+<tr><th><t-fa>متنی که مدل می‌بیند</t-fa><t-en>Text the model sees</t-en></th><th><t-fa>درستی</t-fa><t-en>Accuracy</t-en></th><th><t-fa>نظر صادقِ متهم‌شده</t-fa><t-en>Honest reviews accused</t-en></th></tr>
+<tr class="hi"><td><t-fa>۱ جمله</t-fa><t-en>1 sentence</t-en></td><td><t-fa>۷۲٫۶٪</t-fa><t-en>72.6%</t-en></td><td><t-fa>۳۸٫۶٪</t-fa><t-en>38.6%</t-en></td></tr>
+<tr><td><t-fa>۳ جمله</t-fa><t-en>3 sentences</t-en></td><td><t-fa>۸۱٫۰٪</t-fa><t-en>81.0%</t-en></td><td><t-fa>۲۵٫۴٪</t-fa><t-en>25.4%</t-en></td></tr>
+<tr><td><t-fa>۵ جمله</t-fa><t-en>5 sentences</t-en></td><td><t-fa>۸۴٫۲٪</t-fa><t-en>84.2%</t-en></td><td><t-fa>۲۱٫۲٪</t-fa><t-en>21.2%</t-en></td></tr>
+<tr><td><t-fa>کل نظر (میانه ۸ جمله)</t-fa><t-en>Whole review (median 8 sentences)</t-en></td><td><t-fa>۸۷٫۸٪</t-fa><t-en>87.8%</t-en></td><td><t-fa>۱۷٫۲٪</t-fa><t-en>17.2%</t-en></td></tr>
+</table>
+<p class="caption"><t-fa>OpenAI دربارهٔ ابزار خودش (۳۱ ژانویهٔ ۲۰۲۳): زیر ۱٬۰۰۰ حرف «very unreliable»؛ کنار گذاشته در ۲۰ ژوئیهٔ ۲۰۲۳. Turnitin، نرم‌افزار بررسی تقلب در نوشتهٔ دانشجویی (۲۳ مه ۲۰۲۳): حداقل متن از ۱۵۰ به ۳۰۰ کلمه.</t-fa><t-en>OpenAI on its own tool (31 Jan 2023): "very unreliable" below 1,000 characters; withdrawn on 20 Jul 2023. Turnitin, a checker for student writing (23 May 2023): minimum raised from 150 to 300 words.</t-en></p>
+<p class="tag"><t-fa>review_lab.py، بخش ۳ · روی ۵۸۴ نظرِ دست‌کم ده‌جمله‌ای: ۴۱٫۲٪ ← ۲۸٫۸٪ ← ۱۶٫۴٪ برای ۱، ۳ و ۱۰ جمله</t-fa><t-en>review_lab.py, section 3 · on the 584 reviews with at least 10 sentences: 41.2% → 28.8% → 16.4% for 1, 3 and 10 sentences</t-en></p>
+<footer><t-fa>R05 · R06</t-fa><t-en>R05 · R06</t-en></footer>
+<aside class="notes"><t-fa><b>چقدر متن؟</b><p>ردیف «۱ جمله» کهربایی. «هر جمله یک شاهد» را به HMD-012 وصل کن.</p><p>هرچه متن کمتر، اتهام اشتباه بیشتر؛ سازنده‌های آشکارساز هم همین را نوشته‌اند.</p></t-fa><t-en><b>How much text?</b><p>The "1 sentence" row is amber. Tie "each sentence is a piece of evidence" back to HMD-012.</p><p>Less text, more false accusations; the detector makers wrote the same.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="418">
+<p class="kicker"><t-fa>نویسنده یا موضوع تازه</t-fa><t-en>A new writer or domain</t-en></p>
+<h1><t-fa>آموزش روی نظر مثبت، آزمون روی <em>منفی</em></t-fa><t-en>Trained on positive, tested on <em>negative</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>مثبت ← مثبتِ هتل‌های ندیده · پوشش</t-fa><t-en>Positive → positive, unseen hotels · recall</t-en></span><b><t-fa>۹۴٫۵٪</t-fa><t-en>94.5%</t-en></b><p><t-fa>صادقِ متهم‌شده: ۱۸٫۰٪</t-fa><t-en>Honest accused: 18.0%</t-en></p></div>
+<div class="hi"><span><t-fa>مثبت ← منفی · پوشش</t-fa><t-en>Positive → negative · recall</t-en></span><b><t-fa>۶۵٫۵٪</t-fa><t-en>65.5%</t-en></b><p><t-fa>حدود یک‌سوم جعلی‌ها از دست رفت · صادقِ متهم‌شده: ۱۴٫۸٪</t-fa><t-en>About a third of fakes missed · honest accused: 14.8%</t-en></p></div>
+<div class="off"><span><t-fa>نویسندهٔ ماشینی · ۸۰ نظر AI · «جعلی» خوانده شد</t-fa><t-en>Machine writer · 80 AI reviews · called fake</t-en></span><b class="word"><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></b></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>ستون سوم تا اجرای ai_text_lab.py خالی می‌ماند؛ هیچ عددی پیش از اجرا</t-fa><t-en>The third column stays empty until ai_text_lab.py is run; no number before the run</t-en></p>
+<footer><t-fa>review_lab.py، بخش ۵ · ai_text_lab.py</t-fa><t-en>review_lab.py, section 5 · ai_text_lab.py</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] نویسنده یا موضوع تازه</b><p>جمله‌های [RUN] را از خروجی «report» (قاب ۹) بخوان؛ ستون سوم را با همان عدد پر کن و نشان «اجرا نشده» را بردار.</p><p>روی دامنهٔ تازه، آشکارساز یک‌سومِ جعلی‌ها را از دست داد.</p></t-fa><t-en><b>[RUN] A new writer or domain</b><p>Read the [RUN] lines from the "report" output (beat 9); fill the third column with the same number and remove the "not run yet" badge.</p><p>On a new domain the detector missed a third of the fakes.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="467">
+<p class="kicker"><t-fa>آشکارساز متن AI</t-fa><t-en>An AI-text detector</t-en></p>
+<h1><t-fa>یک جمله، سه جمله، <em>ده</em> جمله</t-fa><t-en>One sentence, three, <em>ten</em></t-en></h1>
+<table class="t">
+<tr><th><t-fa>متنی که می‌بیند</t-fa><t-en>Text it sees</t-en></th><th><t-fa>متن AI، گرفته‌شده</t-fa><t-en>AI text caught</t-en></th><th><t-fa>متن آدم، متهم‌شده</t-fa><t-en>Human text accused</t-en></th><th><t-fa>نظر واقعیِ ویرایش‌شده با AI، متهم‌شده</t-fa><t-en>Real review, AI-polished, accused</t-en></th></tr>
+<tr><td><t-fa>۱ جمله</t-fa><t-en>1 sentence</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>۳ جمله</t-fa><t-en>3 sentences</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+<tr class="hi"><td><t-fa>۱۰ جمله</t-fa><t-en>10 sentences</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="caption"><t-fa>داور دوم: خودِ مدل زبانی («احتمال اینکه AI نوشته باشد»، علامت از ۵۰ به بالا)</t-fa><t-en>Second judge: the language model itself ("probability AI wrote this", flag at 50 or above)</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>۸۰ نظر انسانی، ۸۰ نظر AI، ۳۰ نظر ویرایش‌شده · یک مدل، یک نوع پرامپت · هتل‌ها جدا</t-fa><t-en>80 human, 80 AI, 30 AI-polished reviews · one model, one prompt style · hotels held out</t-en></p>
+<footer>ai_text_lab.py run · report</footer>
+<aside class="notes"><t-fa><b>[RUN] یک، سه، ده جمله</b><p>جدول را فقط با خروجی «report» پر کن. پیش از اجرا هیچ عددی نگو.</p><p>این‌که «متن AI» چقدر متن لازم دارد، پس از اجرا با عدد واقعی گفته می‌شود.</p></t-fa><t-en><b>[RUN] One, three, ten sentences</b><p>Fill the table only from the "report" output. Say no number before the run.</p><p>How much text an "AI text" call needs is stated with real numbers after the run.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="529">
+<p class="kicker"><t-fa>کی تاوان می‌دهد؟</t-fa><t-en>Who pays?</t-en></p>
+<div class="stat"><b><t-fa>۶۱٪</t-fa><t-en>61%</t-en></b><span><t-fa>از انشاهای TOEFL نویسندگانِ غیربومی، به‌طور میانگین «کار AI» خوانده شد؛ همه را آدم نوشته بود</t-fa><t-en>of TOEFL essays by non-native writers were labelled "AI" on average; humans wrote all of them</t-en></span></div>
+<p class="caption"><t-fa>هفت آشکارساز · ۹۱ انشا · ۹۷٫۸٪ دست‌کم از یک آشکارساز برچسب خورد · انشاهای کلاس هشتم آمریکا: تقریباً بی‌خطا · پس از صیقل با ChatGPT: ۱۱٫۸٪</t-fa><t-en>Seven detectors · 91 essays · 97.8% flagged by at least one detector · US 8th-grade essays: near-perfect · after ChatGPT polishing: 11.8%</t-en></p>
+<p class="tag"><t-fa>نمونهٔ کوچک؛ بیشتر آشکارسازها بر پایهٔ GPT-2 (محدودیت‌هایی که خود مقاله می‌گوید)</t-fa><t-en>Small sample; most detectors built on GPT-2 (limitations the paper itself states)</t-en></p>
+<footer><t-fa>R04 · Liang، Yuksekgonul، Mao، Wu، Zou · Patterns، ژوئیهٔ ۲۰۲۳</t-fa><t-en>R04 · Liang, Yuksekgonul, Mao, Wu, Zou · Patterns, July 2023</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK] کی تاوان می‌دهد؟</b><p>یک ثانیه سکوت، بعد رو به دوربین. «برای خیلی از ما که انگلیسی زبان دوممان است» را آرام بگو.</p><p>اتهام اشتباه پخش مساوی نیست؛ بیشتر به کسی می‌خورد که ساده‌تر می‌نویسد.</p></t-fa><t-en><b>[RE-HOOK] Who pays?</b><p>One second of silence, then to camera. Say "for many of us who write English as a second language" slowly.</p><p>False accusations are not spread evenly; they hit those who write more simply.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="588">
+<p class="kicker"><t-fa>ده هزار نظر، یک سایت فرضی</t-fa><t-en>10,000 reviews on a hypothetical site</t-en></p>
+<h1><t-fa>از هر پنج علامت، حدود <em>چهار</em> تا به آدم صادق می‌خورد</t-fa><t-en>About <em>4 in 5</em> flags hit honest people</t-en></h1>
+<div class="cols">
+<div><span><t-fa>جعلی‌ها در ۱۰٬۰۰۰ نظر (۴٫۴٪)</t-fa><t-en>Fakes in 10,000 reviews (4.4%)</t-en></span><b><t-fa>۴۴۰</t-fa><t-en>440</t-en></b></div>
+<div><span><t-fa>جعلیِ علامت‌خورده</t-fa><t-en>Fakes flagged</t-en></span><b><t-fa>۴۰۹</t-fa><t-en>409</t-en></b></div>
+<div class="hi"><span><t-fa>صادقِ علامت‌خورده</t-fa><t-en>Honest reviews flagged</t-en></span><b><t-fa>۱٬۶۴۹</t-fa><t-en>1,649</t-en></b><p><t-fa>دقت اتهام: ۱۹٫۹٪</t-fa><t-en>Precision: 19.9%</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>حساب، نه اندازه‌گیری</t-fa><t-en>PROJECTION</t-en></b><t-fa>فرض: خطای پیکره در آن سایت هم برقرار است · نرخ ۴٫۴٪: Tripadvisor برای ۲۰۲۲، با معیار خودش</t-fa><t-en>Assumes the corpus error rates hold on that site · 4.4% rate: Tripadvisor for 2022, by its own detection</t-en></p>
+<footer><t-fa>R08 · review_lab.py، بخش ۶</t-fa><t-en>R08 · review_lab.py, section 6</t-en></footer>
+<aside class="notes"><t-fa><b>ده هزار نظر</b><p>پیش از عدد بپرس. صدای «دینگ» روی ۱٬۶۴۹. «حساب است، نه اندازه‌گیری» را حتماً بگو.</p><p>وقتی جعلی‌ها کم‌یاب‌اند، بیشترِ علامت‌ها به آدم‌های صادق می‌خورد.</p></t-fa><t-en><b>10,000 reviews</b><p>Ask before the number. "Ding" on 1,649. Always say "arithmetic, not a measurement".</p><p>When fakes are rare, most flags land on honest people.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="643">
+<p class="kicker"><t-fa>تصمیم من</t-fa><t-en>My decision</t-en></p>
+<h1><t-fa>متن به‌تنهایی: <em>علامت</em> بزن، پاک نکن</t-fa><t-en>Text alone: <em>flag</em>, don't delete</t-en></h1>
+<div class="steps">
+<div><b><t-fa>علامت</t-fa><t-en>Flag</t-en></b><t-fa>نظر سر جایش می‌ماند</t-fa><t-en>The review stays up</t-en></div>
+<div class="hi"><b><t-fa>حذف خودکار</t-fa><t-en>Auto-delete</t-en></b><t-fa>با متن تنها، هرگز</t-fa><t-en>Never on text alone</t-en></div>
+<div><b><t-fa>صف بررسی انسانی</t-fa><t-en>Human review queue</t-en></b><t-fa>با دلیلِ علامت</t-fa><t-en>With the reason for the flag</t-en></div>
+<div><b><t-fa>اعتراض</t-fa><t-en>Appeal</t-en></b><t-fa>با رسید رزرو؛ جواب را آدم می‌دهد</t-fa><t-en>With a booking receipt; a person answers</t-en></div>
+<div><b><t-fa>سنجش ماهانه</t-fa><t-en>Monthly check</t-en></b><t-fa>پاک‌کردن‌های اشتباه: از اعتراض‌ها و نمونهٔ تصادفی</t-fa><t-en>Wrongful removals: from appeals and a random audit</t-en></div>
+</div>
+<p class="tag"><t-fa>حالت سخت‌گیر (حداکثر ۱٪ اتهام روی هتل‌های آموزشی): فقط ۳۵٫۴٪ جعلی‌ها گرفته شد؛ در ۱۰٬۰۰۰ نظر هنوز حدود ۸۴ نظر صادق پاک می‌شود (حساب)</t-fa><t-en>Strict mode (at most 1% accused on the training hotels): only 35.4% of fakes caught; in 10,000 reviews about 84 honest ones would still be deleted (projection)</t-en></p>
+<footer>artifact/flag-or-delete-card.md</footer>
+<aside class="notes"><t-fa><b>تصمیم من</b><p>رو به دوربین. یک ثانیه مکث پیش از «پس تصمیم من…». پله‌ها یکی‌یکی.</p><p>متن به‌تنهایی فقط حق علامت‌زدن دارد؛ تصمیم و جواب اعتراض با انسان است.</p></t-fa><t-en><b>My decision</b><p>To camera. One second's pause before "So my decision…". Steps one by one.</p><p>Text alone may only flag; the decision and the appeal answer belong to a person.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="699">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی پیکرهٔ پژوهشی و هتل‌های ندیده، مدل از آدم و قانون ساده خیلی بهتر بود؛ با متن کمتر، آدم صادقِ بیشتری را متهم کرد؛ روی دامنهٔ تازه، جعلی‌های بیشتری را از دست داد.</t-fa><t-en>On a research corpus and unseen hotels, the model was far better than humans and a simple rule; with less text it accused more honest people; on a new domain it missed more fakes.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که فریبِ نوشته‌شده برای پژوهش، همهٔ تقلب واقعی است · که نظرهای «واقعی» قطعاً واقعی‌اند · که از یک متن می‌شود دروغ را ثابت کرد · عدد سایت واقعی (حساب است) · هیچ عددی از بخش متن AI (اجرا نشده)</t-fa><t-en>That research deception is all real-world fraud · that the "truthful" reviews are surely truthful · that one text can prove a lie · the real-site figures (they are arithmetic) · any number for the AI-text part (not run yet)</t-en></div>
+</div>
+<footer>R01 · R02 · R08</footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۵ ثانیه. پس از اجرای بخش API، آخرین مورد ستون دوم را به «ادعایی فراتر از یک مدل و یک نوع پرامپت» تغییر بده.</p><p>شباهت متن به دروغ، اثبات دروغ نیست.</p></t-fa><t-en><b>Claim boundary</b><p>Under 45 seconds. After the API run, change the last item of the second column to "anything beyond one model and one prompt style".</p><p>A text that resembles lies is not proof of a lie.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="748">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>آدم‌ها: نزدیک سکه. مدل: خیلی بهتر؛ <em>نه برای حکمِ تنها</em>.</t-fa><t-en>Humans: close to a coin. The model: far better; <em>not enough to judge alone</em>.</t-en></h1>
+<div class="tokens"><i><t-fa>چقدر متن دیده؟</t-fa><t-en>How much text did it see?</t-en></i><i class="hi"><t-fa>چند درصد آدم صادق را متهم می‌کند؟</t-fa><t-en>What share of honest people does it accuse?</t-en></i><i><t-fa>راه اعتراض کجاست؟</t-fa><t-en>Where is the appeal?</t-en></i></div>
+<p class="caption"><t-fa>آزمونک ده‌نظره: review_lab.py --quiz · مدل ۷ از ۱۰ گرفت: هر ۵ جعلی را گرفت و ۳ از ۵ صادق را متهم کرد</t-fa><t-en>Ten-review quiz: review_lab.py --quiz · the model got 7 of 10: all 5 fakes caught, 3 of 5 honest reviews accused</t-en></p>
+<footer><t-fa>R01 · review_lab.py</t-fa><t-en>R01 · review_lab.py</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«پس جواب کوتاه: …» آرام و واضح. تمرین را به کامنت وصل کن.</p><p>AI بهتر از ما تشخیص می‌دهد، ولی نه آن‌قدر که تنهایی حکم بدهد.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly and clearly. Tie the exercise to the comments.</p><p>AI tells them apart better than we do, but not well enough to judge alone.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-16" data-start="802">
+<p class="kicker"><t-fa>قسمت بعد · HMD-014</t-fa><t-en>Next · HMD-014</t-en></p>
+<h1><t-fa>این جدول حتی یک عدد <em>غلط</em> ندارد.</t-fa><t-en>Not one number in this table is <em>wrong</em>.</t-en></h1>
+<div class="steps">
+<div><b><t-fa>۸۸٪ درستی</t-fa><t-en>88% accuracy</t-en></b><t-fa>درست</t-fa><t-en>True</t-en></div>
+<div><b><t-fa>۴ از ۵ علامت، به آدم صادق</t-fa><t-en>4 in 5 flags hit honest people</t-en></b><t-fa>این هم درست</t-fa><t-en>Also true</t-en></div>
+<div class="hi"><b><t-fa>هزار سؤال، دو AI</t-fa><t-en>1,000 questions, two AIs</t-en></b><t-fa>و هر برنده‌ای که بخواهم</t-fa><t-en>And any winner I want</t-en></div>
+</div>
+<footer><t-fa>قسمت بعد · آزمایشگاه بنچمارک · «این جدول درست است؛ چرا گمراه‌کننده است؟»</t-fa><t-en>Next episode · Benchmark Lab · "Every number in this table is right. Why does it mislead?"</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ثانیهٔ ۱۰. انرژی تا آخر.</p><p>عددهای درست هم می‌توانند گمراه کنند؛ قسمت بعد، خودِ جدول.</p></t-fa><t-en><b>Next episode</b><p>End screen from second 10. Keep the energy to the end.</p><p>Correct numbers can mislead too; next episode, the table itself.</p></t-en></aside>
+</section>

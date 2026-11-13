@@ -1,0 +1,12 @@
+{
+ "about": "Owner fills this in before `report`. Prices in USD per million tokens, copied from the provider's official pricing page on the date in checked_on. Leave null to get tokens per acceptable answer instead of money. No prompt caching or batch discount is assumed.",
+ "checked_on": null,
+ "source_url": null,
+ "currency": "USD",
+ "models": {
+  "anthropic:claude-opus-5-5": {"input_per_mtok": null, "output_per_mtok": null},
+  "anthropic:claude-haiku-5-5": {"input_per_mtok": null, "output_per_mtok": null},
+  "gemini:gemini-2.5-pro": {"input_per_mtok": null, "output_per_mtok": null},
+  "gemini:gemini-2.5-flash": {"input_per_mtok": null, "output_per_mtok": null}
+ }
+}

@@ -1,0 +1,192 @@
+<!-- HMD-019 · deck source. Build: python3 scripts/build-decks.py --only hmd-019  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 9–12 carry NOT RUN YET until `agent_lab.py report` has produced real numbers. -->
+
+<section class="cover">
+<h1><t-fa>مقاله را به ایجنت AI دادیم؛ می‌تواند آزمایشش را <em>تکرار</em> کند؟</t-fa><t-en>We gave a paper to an AI agent. Can it <em>repeat</em> the experiment?</t-en></h1>
+<p class="promise"><t-fa>یک بار درست انجام‌دادن دمو است. می‌سنجیم «هر بار» درست می‌شود، و وقتی چیزی خراب است می‌ایستد یا نه.</t-fa><t-en>Doing it right once is a demo. We measure whether it is right every time, and whether it stops when something is broken.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>یک پوشهٔ خالی. یک مقالهٔ یک‌صفحه‌ای. جوابی که <em>فقط ما</em> می‌دانیم.</t-fa><t-en>An empty folder. A one-page paper. An answer <em>only we</em> know.</t-en></h1>
+<div class="code"><span class="c">$ ls workspace/</span>
+paper.md   data/table.csv   ledger.csv
+<span class="c">$ tail -2 workspace/paper.md</span>
+## Results
+<span class="o">Withheld for this replication exercise.</span></div>
+<p class="caption"><t-fa>ایجنت: هوش مصنوعی‌ای که مثل یک کارآموز، خودش کد می‌نویسد، اجرا می‌کند و نتیجه را تحویل می‌دهد.</t-fa><t-en>An agent: an AI that, like an intern, writes code, runs it and hands in the result by itself.</t-en></p>
+<footer><t-fa>HMD-019 · artifact/tasks/p1-rescoring</t-fa><t-en>HMD-019 · artifact/tasks/p1-rescoring</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>Story-Open. ضبط صفحهٔ واقعی پوشه؛ زوم روی «Withheld». هیچ نتیجه‌ای لو نده.</p><p>یک بار درست‌شدن یک کار، هنوز نمی‌گوید فردا هم درست می‌شود. پایان قاب: «من محمدم، اینجا هومودینه.» بعد کاور.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Story-Open. Real screen recording of the folder; zoom in on "Withheld". Do not give away any result.</p><p>A task done right once does not yet tell us it will be right tomorrow. End of beat: "I'm Mohammad, this is Homodyne." Then the cover.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="59">
+<p class="kicker"><t-fa>از HMD-018 به اینجا</t-fa><t-en>From HMD-018 to here</t-en></p>
+<h1><t-fa>دوباره حساب کن ← دوباره اجرا کن ← <em>از نو بساز</em></t-fa><t-en>Recompute → rerun → <em>rebuild</em></t-en></h1>
+<div class="steps">
+<div><b><t-fa>دوباره حساب‌کردن</t-fa><t-en>Recompute</t-en></b><t-fa>همان فاکتور، با ماشین‌حساب گوشی. باید عیناً همان عدد شود.</t-fa><t-en>The same bill, on a phone calculator. It must give exactly the same number.</t-en></div>
+<div><b><t-fa>دوباره اجراکردن</t-fa><t-en>Rerun</t-en></b><t-fa>فردا همان غذا را دوباره سفارش بده. شاید فرق کند.</t-fa><t-en>Order the same dish again tomorrow. It may differ.</t-en></div>
+<div class="hi"><b><t-fa>از نو ساختن</t-fa><t-en>Rebuild</t-en></b><t-fa>دستور پخت را به یک شاگرد آشپز در آشپزخانهٔ خالی بده: خودت بپز.</t-fa><t-en>Give the recipe to an apprentice cook in an empty kitchen: cook it yourself.</t-en></div>
+</div>
+<p class="caption"><t-fa>چت‌بات مثل کتاب آشپزی جواب می‌دهد. ایجنت مثل شاگرد آشپز، خودش سراغ اجاق می‌رود.</t-fa><t-en>A chatbot answers like a cookbook. An agent, like the apprentice, goes to the stove itself.</t-en></p>
+<footer><t-fa>R05 · HMD-018، جلسهٔ ۹ دورهٔ بنچمارک</t-fa><t-en>R05 · HMD-018, Benchmark course session 9</t-en></footer>
+<aside class="notes"><t-fa><b>از دوباره حساب‌کردن تا دوباره ساختن</b><p>پل از تیزر HMD-018. پلهٔ سوم کهربایی. پایان قاب: وعدهٔ «قاعدهٔ ساده».</p><p>این‌بار نه عدد را دوباره حساب می‌کنیم، نه سؤال را دوباره می‌پرسیم؛ خود آزمایش را از نو می‌سازیم.</p></t-fa><t-en><b>From recomputing to rebuilding</b><p>Bridge from the HMD-018 teaser. The third step is amber. End of beat: the promise of "a simple rule".</p><p>This time we neither recompute the number nor re-ask the question; we rebuild the experiment itself.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="113">
+<p class="kicker"><t-fa>منبع: PaperBench</t-fa><t-en>Source: PaperBench</t-en></p>
+<h1><t-fa>۲۰ مقالهٔ ICML 2024، از صفر، <em>بدون</em> کد نویسندگان</t-fa><t-en>20 ICML 2024 papers, from scratch, <em>without</em> the authors' code</t-en></h1>
+<div class="bars">
+<div><span><t-fa>بهترین ایجنت · میانگین روی ۲۰ مقاله</t-fa><t-en>Best agent · average over 20 papers</t-en></span><i style="--v:21"></i><span><t-fa>۲۱٫۰٪</t-fa><t-en>21.0%</t-en></span></div>
+<div><span><t-fa>o1 · زیرمجموعهٔ ۳ مقاله</t-fa><t-en>o1 · 3-paper subset</t-en></span><i style="--v:26.6"></i><span><t-fa>۲۶٫۶٪</t-fa><t-en>26.6%</t-en></span></div>
+<div class="hi"><span><t-fa>دکترای یادگیری ماشین · همان ۳ مقاله · بهترین از ۳ تلاش، ۴۸ ساعت</t-fa><t-en>ML PhDs · same 3 papers · best of 3 attempts, 48 hours</t-en></span><i style="--v:41.4"></i><span><t-fa>۴۱٫۴٪</t-fa><t-en>41.4%</t-en></span></div>
+</div>
+<p class="tag"><t-fa>امتیاز بازسازی (rubric) · مدل‌هایی که اوایل ۲۰۲۵ امتحان شدند، نه رتبه‌بندی امروز</t-fa><t-en>Replication score (rubric) · models tested in early 2025, not today's ranking</t-en></p>
+<footer><t-fa>R01 · Starace و همکاران، OpenAI · arXiv 2504.01848 · آوریل ۲۰۲۵</t-fa><t-en>R01 · Starace et al., OpenAI · arXiv 2504.01848 · Apr 2025</t-en></footer>
+<aside class="notes"><t-fa><b>PaperBench</b><p>اول فقط «۲۰ مقاله»؛ بپرس «چند درصد؟»؛ مکث؛ بعد میلهٔ ۲۱٪. بگو «رتبهٔ امروز نیست». بهترین ایجنت: Claude 3.5 Sonnet (New) با چارچوب متن‌باز (فقط در یادداشت).</p><p>بازسازی یک مقاله از صفر، حتی برای بهترین ایجنتی که اوایل ۲۰۲۵ امتحان شد، کار نیمه‌تمامی بود.</p></t-fa><t-en><b>PaperBench</b><p>First only "20 papers"; ask "what percentage?"; pause; then the 21% bar. Say "not today's ranking". Best agent: Claude 3.5 Sonnet (New) with an open-source scaffold (notes only).</p><p>Rebuilding a paper from scratch was unfinished work even for the best agent tested in early 2025.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="184">
+<p class="kicker"><t-fa>نسخهٔ کوچک و قابل‌وارسی ما</t-fa><t-en>Our small, checkable version</t-en></p>
+<h1><t-fa>سه مقالهٔ یک‌صفحه‌ای · نتیجه <em>پنهان</em> · جواب‌نامه پیش ما</t-fa><t-en>Three one-page papers · results <em>withheld</em> · answer key with us</t-en></h1>
+<div class="cards">
+<div><b><t-fa>p1 · قانون نمره</t-fa><t-en>p1 · Scoring rule</t-en></b><t-fa>از HMD-002: نقطهٔ جابه‌جایی برنده، قانون کنکور، و اختلاف در <bdi dir="ltr">t = 0.75</bdi></t-fa><t-en>From HMD-002: the crossover, the Konkur rule, and the gap at <bdi dir="ltr">t = 0.75</bdi></t-en></div>
+<div><b><t-fa>p2 · چهار عدد</t-fa><t-en>p2 · Four numbers</t-en></b><t-fa>از HMD-006: ریسک، امتیاز با جریمه، و پوشش فقط روی سؤال‌های فارسی</t-fa><t-en>From HMD-006: risk, penalised score, and coverage on the Persian questions only</t-en></div>
+<div><b><t-fa>p3 · خط سکوت</t-fa><t-en>p3 · Silence line</t-en></b><t-fa>از HMD-010: شبیه‌سازی ۱۰۰۰ سؤال با بذر ۵؛ ترتیب قرعه‌ها مهم است</t-fa><t-en>From HMD-010: a 1,000-question simulation with seed 5; the order of random draws matters</t-en></div>
+<div class="hi"><b><t-fa>دفتر مشترک</t-fa><t-en>Shared ledger</t-en></b><t-fa>عدد را دقیقاً یک بار در <bdi dir="ltr">ledger.csv</bdi> ثبت کن، بعد تحویل بده</t-fa><t-en>Write the number exactly once in <bdi dir="ltr">ledger.csv</bdi>, then hand it in</t-en></div>
+</div>
+<p class="tag"><t-fa>۳ سؤال برای هر مقاله · ایجنت کد ما را نمی‌بیند · artifact/tasks/</t-fa><t-en>3 questions per paper · the agent never sees our code · artifact/tasks/</t-en></p>
+<footer><t-fa>artifact/reference.py · جواب‌نامه</t-fa><t-en>artifact/reference.py · answer key</t-en></footer>
+<aside class="notes"><t-fa><b>سه مقالهٔ یک‌صفحه‌ای</b><p>کارت دفتر کهربایی؛ تصویر دفتر سفارش آشپزخانه.</p><p>وقتی جواب درست را از قبل داریم، «تکرار شد یا نه» دیگر نظر نیست؛ وارسی است.</p></t-fa><t-en><b>Three one-page papers</b><p>The ledger card is amber; the image of a kitchen order book.</p><p>When we already hold the right answer, "was it repeated?" is no longer opinion; it is a check.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="242">
+<p class="kicker"><t-fa>چهار حرکت، داخل جعبهٔ دربسته (سندباکس: Docker)</t-fa><t-en>Four moves, inside a closed box (sandbox: Docker)</t-en></p>
+<div class="code"><span class="c"># one JSON action per turn · max 12 turns · 30 s per run</span>
+{"action": "read_file",  "path": "paper.md"}
+{"action": "write_file", "path": "solve.py", "content": "..."}
+{"action": "run_python", "path": "solve.py"}
+{"action": "submit", "status": "done", "value": ...}
+<span class="c"># each run_python step:</span>
+docker run --rm <span class="o">--network none</span> --memory 512m --pids-limit 128 --read-only
+  -v &lt;task folder&gt;:/work <span class="o">-e HOME=/tmp</span>  python:3.11-slim  python3 -I solve.py</div>
+<p class="tag"><t-fa>بدون اینترنت · فقط پوشهٔ کار · نه پوشهٔ خانه، نه کلیدها · فایل‌های نگهبان بیرون جعبه · خروجی پروب Docker پیش از ضبط از <bdi dir="ltr">agent_lab.py plan</bdi></t-fa><t-en>No network · only the task folder · no home folder, no keys · canary files outside the box · Docker probe output from <bdi dir="ltr">agent_lab.py plan</bdi> before recording</t-en></p>
+<footer><t-fa>artifact/agent_lab.py · artifact/sandbox.py</t-fa><t-en>artifact/agent_lab.py · artifact/sandbox.py</t-en></footer>
+<aside class="notes"><t-fa><b>[MID-CTA] چهار حرکت</b><p>اول CTA نرم (کد در توضیحات؛ selftest بدون حساب پولی و بدون کلید). بعد چهار حرکت، بعد جعبه. پیش از ضبط، خروجی پروب Docker (key_leak: blocked، safe: True) را ضبط کن.</p><p>کدی که ماشین نوشته، فقط توی جعبه‌ای اجرا می‌شود که قبلاً امتحانش کرده‌ایم.</p></t-fa><t-en><b>[MID-CTA] Four moves</b><p>Soft CTA first (code in the description; the selftest needs no paid account and no key). Then the four moves, then the box. Before recording, capture the Docker probe output (key_leak: blocked, safe: True).</p><p>Machine-written code only runs inside a box we have tested first.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="306">
+<p class="kicker"><t-fa>یک بار درست شد؛ کافی است؟</t-fa><t-en>Right once; is that enough?</t-en></p>
+<h1 class="formula">pass^k = P(all k tries succeed)</h1>
+<div class="cols">
+<div class="hi"><span><t-fa>آشپزی که ۹ از ۱۰ بار درست می‌پزد · سه شب پشت هم</t-fa><t-en>A cook who gets it right 9 times in 10 · three nights in a row</t-en></span><b><t-fa>۷۳٪</t-fa><t-en>73<small>%</small></t-en></b><p><t-fa>۰٫۹ به توان ۳ · اگر شب‌ها مستقل باشند · ساختگی</t-fa><t-en>0.9 cubed · if nights are independent · ILLUSTRATIVE</t-en></p></div>
+<div><span><t-fa>τ-bench · gpt-4o · فروشگاه (retail)</t-fa><t-en>τ-bench · gpt-4o · retail</t-en></span><b class="word"><t-fa>۶۱٪ ← زیر ۲۵٪</t-fa><t-en>61% → under 25%</t-en></b><p><t-fa>یک بار (<bdi dir="ltr">pass^1</bdi>) در برابر هشت بار پشت هم (<bdi dir="ltr">pass^8</bdi>)</t-fa><t-en>Once (pass^1) against eight times in a row (pass^8)</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>فقط حساب آشپز · عدد τ-bench منتشرشده است</t-fa><t-en>The cook arithmetic only · the τ-bench figure is published</t-en></p>
+<footer><t-fa>R02 · Yao، Shinn، Razavi، Narasimhan · arXiv 2406.12045 · ژوئن ۲۰۲۴</t-fa><t-en>R02 · Yao, Shinn, Razavi, Narasimhan · arXiv 2406.12045 · Jun 2024</t-en></footer>
+<aside class="notes"><t-fa><b>[UNEXPECTED STAT] pass^k</b><p>قبل از ۷۳٪ بپرس «سه شب پشت هم؟». بعد τ-bench.</p><p>«یک بار درست» و «هر بار درست» دو عدد جدا هستند، و دومی معمولاً کوچک‌تر است.</p></t-fa><t-en><b>[UNEXPECTED STAT] pass^k</b><p>Before 73%, ask "three nights in a row?". Then τ-bench.</p><p>"Right once" and "right every time" are two different numbers, and the second is usually smaller.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="366">
+<p class="kicker"><t-fa>مرحله‌به‌مرحله، یا سرتاسری؟</t-fa><t-en>Step by step, or end to end?</t-en></p>
+<h1 class="formula">0.95⁸ ≈ 0.66</h1>
+<div class="tokens"><i class="mono">read 95%</i><i class="mono">code 95%</i><i class="mono">run 95%</i><i class="mono">answer 95%</i><i class="mono">ledger 95%</i><i class="mono">inputs 95%</i><i class="mono">outside 95%</i><i class="mono">submit 95%</i><i class="hi"><t-fa>همه با هم ≈ ۶۶٪</t-fa><t-en>All together ≈ 66%</t-en></i></div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>با فرض مستقل‌بودن خطای مرحله‌ها · گزارش ما هر دو را دارد: موفقیت هر مرحله و موفقیت سرتاسری</t-fa><t-en>Assuming step failures are independent · our report has both: per-step success and end-to-end success</t-en></p>
+<footer><t-fa>artifact/metrics.py · هشت مرحله</t-fa><t-en>artifact/metrics.py · eight steps</t-en></footer>
+<aside class="notes"><t-fa><b>مرحله‌ای یا سرتاسری</b><p>«حدس بزن» پیش از ۶۶٪. چیپ‌ها یکی‌یکی روشن شوند.</p><p>خطاهای کوچکِ هر مرحله در کار چندمرحله‌ای روی هم جمع می‌شوند.</p></t-fa><t-en><b>Per step or end to end</b><p>"Guess" before 66%. Light the chips one by one.</p><p>Small errors at each step add up in a multi-step task.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="424">
+<p class="kicker"><t-fa>تزریق خطا: چهار خرابکاری عمدی</t-fa><t-en>Fault injection: four deliberate breakdowns</t-en></p>
+<div class="cards">
+<div class="hi"><b><t-fa>داده نیست</t-fa><t-en>Data missing</t-en></b><t-fa>«زعفران نداریم» بگو؛ زردچوبه نریز. ← بایست</t-fa><t-en>Say "no saffron"; don't use turmeric. → stop</t-en></div>
+<div><b><t-fa>اجرای اول خطا</t-fa><t-en>First run fails</t-en></b><t-fa>اجاق بار اول روشن نشد. ← دوباره امتحان کن</t-fa><t-en>The stove didn't light first time. → try again</t-en></div>
+<div><b><t-fa>جواب گم شد</t-fa><t-en>Result lost</t-en></b><t-fa>معلوم نیست پخت یا نه. ← پیش از تکرار، دفتر را ببین</t-fa><t-en>Unknown whether it cooked. → check the ledger before repeating</t-en></div>
+<div><b><t-fa>سفارش تکراری</t-fa><t-en>Same order twice</t-en></b><t-fa>همان شماره، دو بار. ← یک بشقاب، نه دو</t-fa><t-en>Same number, twice. → one plate, not two</t-en></div>
+</div>
+<p class="caption"><t-fa>۹ سؤال × ۵ حالت (چهار خرابکاری + تمیز) = ۴۵ سناریو · هر کدام ۳ بار · پوشهٔ تازه پیش از هر بار</t-fa><t-en>9 questions × 5 conditions (four breakdowns + clean) = 45 scenarios · 3 times each · a fresh folder before every try</t-en></p>
+<footer><t-fa>artifact/agent_lab.py · CONDITIONS</t-fa><t-en>artifact/agent_lab.py · CONDITIONS</t-en></footer>
+<aside class="notes"><t-fa><b>چهار خرابکاری عمدی</b><p>[B-ROLL CUE] قوطی خالی زعفران، اجاق، برگهٔ گم‌شده، دو برگهٔ یک‌شماره.</p><p>اعتماد را وقتی می‌سنجیم که چیزی خراب شده، نه وقتی همه‌چیز آرام است.</p></t-fa><t-en><b>Four deliberate breakdowns</b><p>[B-ROLL CUE] An empty saffron tin, the stove, a lost order slip, two slips with one number.</p><p>We measure trust when something is broken, not when everything is calm.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="484">
+<p class="kicker"><t-fa>یک بار، یا هر بار؟</t-fa><t-en>Once, or every time?</t-en></p>
+<h1><t-fa>جایی که دمو و محصول <em>جدا</em> می‌شوند</t-fa><t-en>Where the demo and the product <em>part ways</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>موفقیت سرتاسری · همهٔ اجراها</t-fa><t-en>End-to-end success · all tries</t-en></span><b class="word">—</b><p><t-fa>۴۵ سناریو × ۳ تکرار</t-fa><t-en>45 scenarios × 3 repeats</t-en></p></div>
+<div class="hi"><span><t-fa>هر ۳ بار درست · <bdi dir="ltr">pass^3</bdi></t-fa><t-en>Right all 3 times · pass^3</t-en></span><b class="word">—</b><p><t-fa>ضعیف‌ترین مرحله: —</t-fa><t-en>Weakest step: —</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>عددها از agent_lab.py report · سه تکرار یک سناریو، سه نمونهٔ مستقل نیست</t-fa><t-en>Numbers from agent_lab.py report · three repeats of one scenario are not three independent samples</t-en></p>
+<footer><t-fa>artifact/runs/ · مدل، تاریخ اجرا: —</t-fa><t-en>artifact/runs/ · model, run date: —</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK] [RUN]</b><p>یک ثانیه سکوت. هیچ عددی پیش از report نگو؛ جمله‌ها را عیناً از report بخوان.</p><p>فاصلهٔ «یک بار درست» و «هر بار درست» را با عدد همین اجرا می‌بینیم.</p></t-fa><t-en><b>[RE-HOOK] [RUN]</b><p>One second of silence. Say no number before the report; read its sentences verbatim.</p><p>We see the gap between "right once" and "right every time" with this run's numbers.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="528">
+<p class="kicker"><t-fa>وقتی چیزی خراب است</t-fa><t-en>When something is broken</t-en></p>
+<div class="cards">
+<div class="hi"><b><t-fa>داده نیست</t-fa><t-en>Data missing</t-en></b><t-fa>ایستاد: — · عدد ساخت: —</t-fa><t-en>Stopped: — · invented a number: —</t-en></div>
+<div><b><t-fa>اجرای اول خطا</t-fa><t-en>First run fails</t-en></b><t-fa>دوباره امتحان کرد و درست شد: —</t-fa><t-en>Retried and got it right: —</t-en></div>
+<div><b><t-fa>جواب گم شد</t-fa><t-en>Result lost</t-en></b><t-fa>خط دفتر دو بار ثبت شد: —</t-fa><t-en>Ledger line written twice: —</t-en></div>
+<div><b><t-fa>سفارش تکراری</t-fa><t-en>Same order twice</t-en></b><t-fa>فقط یک خط در دفتر: —</t-fa><t-en>Only one ledger line: —</t-en></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>از agent_lab.py report · نمونهٔ واقعی از transcripts/</t-fa><t-en>From agent_lab.py report · a real sample from transcripts/</t-en></p>
+<footer><t-fa>artifact/runs/ · transcripts</t-fa><t-en>artifact/runs/ · transcripts</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] خرابکاری‌ها</b><p>[SOUND EFFECT] زنگ آشپزخانه روی هر کارت. شاخهٔ جمله‌ها را report انتخاب می‌کند.</p><p>رفتار ایجنت وقتی چیزی خراب است، از نرخ موفقیتش در حالت تمیز مهم‌تر است.</p></t-fa><t-en><b>[RUN] The breakdowns</b><p>[SOUND EFFECT] A kitchen bell on each card. The report picks the sentence branch.</p><p>How the agent behaves when something is broken matters more than its success rate when all is clean.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="580">
+<p class="kicker"><t-fa>خرجش چقدر بود، و چه چیزی را خراب کرد؟</t-fa><t-en>What did it cost, and what did it break?</t-en></p>
+<div class="cols">
+<div><span><t-fa>صدا زدن مدل · برای هر کار کامل</t-fa><t-en>Model calls · per completed task</t-en></span><b class="word">—</b><p><t-fa>توکن: —</t-fa><t-en>Tokens: —</t-en></p></div>
+<div><span><t-fa>هزینه · برای هر کار کامل</t-fa><t-en>Cost · per completed task</t-en></span><b class="word">—</b><p><t-fa>قیمت از prices.json، تاریخ: —</t-fa><t-en>Prices from prices.json, dated: —</t-en></p></div>
+<div class="hi"><span><t-fa>فایل‌های نگهبانِ عوض‌شده بیرون جعبه</t-fa><t-en>Canary files changed outside the box</t-en></span><b class="word">—</b><p><t-fa>ورودی‌های دست‌خورده: — · دسترسی مسدود، دست‌کم: —</t-fa><t-en>Inputs changed: — · blocked accesses, at least: —</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>هزینهٔ هر کار «کامل‌شده»، نه هر تلاش</t-fa><t-en>Cost per completed task, not per attempt</t-en></p>
+<footer><t-fa>artifact/metrics.py · artifact/prices.json</t-fa><t-en>artifact/metrics.py · artifact/prices.json</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] هزینه و آسیب</b><p>کاشی «بیرون جعبه» کهربایی؛ باید صفر باشد. اگر نبود، قاب ۱۲ «توقف» می‌گوید.</p><p>هزینهٔ هر کار «کامل‌شده» را می‌شماریم، نه هزینهٔ هر تلاش.</p></t-fa><t-en><b>[RUN] Cost and damage</b><p>The "outside the box" tile is amber; it must be zero. If not, beat 12 says "stop".</p><p>We count the cost per completed task, not per attempt.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="622">
+<p class="kicker"><t-fa>تصمیم محصولی · قانون پیش از اجرا قفل شد</t-fa><t-en>Product decision · rules locked before the run</t-en></p>
+<table class="t">
+<tr><th><t-fa>قدم</t-fa><t-en>Step</t-en></th><th><t-fa>قانون</t-fa><t-en>Rule</t-en></th><th><t-fa>تصمیم</t-fa><t-en>Decision</t-en></th></tr>
+<tr class="hi"><td><t-fa>داده نیست</t-fa><t-en>Data missing</t-en></td><td><t-fa>کدِ دور مدل بررسی می‌کند، نه قول مدل</t-fa><t-en>Code around the model checks, not the model's word</t-en></td><td><t-fa>توقف اجباری</t-fa><t-en>Hard stop</t-en></td></tr>
+<tr><td><t-fa>کد نوشتن و اجرا در جعبه</t-fa><t-en>Write and run code in the box</t-en></td><td><t-fa>خودکار اگر هیچ فایل نگهبانی بیرون جعبه عوض نشود</t-fa><t-en>Automatic if no canary file outside the box changes</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+<tr><td><t-fa>گزارش عدد</t-fa><t-en>Report the number</t-en></td><td><t-fa>خودکار اگر <bdi dir="ltr">pass^3</bdi> در حالت تمیز دست‌کم ۹۰٪</t-fa><t-en>Automatic if clean pass^3 ≥ 90%</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+<tr><td><t-fa>نوشتن در دفتر مشترک</t-fa><t-en>Write to the shared ledger</t-en></td><td><t-fa>خودکار اگر هیچ خطی دو بار ثبت نشود؛ وگرنه کلید یکتا + تأیید</t-fa><t-en>Automatic if no line is written twice; else a unique key + approval</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>کلید یکتا (idempotency key): درگاه پرداخت از برنامه می‌خواهد روی هر درخواست یک کلید یکتا بگذارد؛ تکرار همان درخواست دو بار پول کم نمی‌کند · Stripe، Idempotent requests</t-fa><t-en>Idempotency key: the payment gateway asks the app to put a unique key on each request; repeating it does not charge twice · Stripe, Idempotent requests</t-en></p>
+<footer><t-fa>R04 · artifact/metrics.py · RULES</t-fa><t-en>R04 · artifact/metrics.py · RULES</t-en></footer>
+<aside class="notes"><t-fa><b>تصمیم محصولی</b><p>ستون «تصمیم» را بعد از report پر کن ([RUN]). ردیف «داده نیست» از همان اول کهربایی.</p><p>تصمیم محصولی برای هر قدم جداست، و قانونش پیش از دیدن عددها قفل می‌شود.</p></t-fa><t-en><b>Product decision</b><p>Fill the "decision" column after the report ([RUN]). The "data missing" row is amber from the start.</p><p>The product decision is made step by step, and its rule is locked before seeing the numbers.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="699">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>یک ایجنت، روی سه مقالهٔ کوچک با جواب معلوم، در جعبهٔ آزمایشی، چند بار پشت هم؛ و اینکه وقتی چیزی خراب است چه می‌کند.</t-fa><t-en>One agent, on three small papers with known answers, in a test sandbox, several times in a row; and what it does when something is broken.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>کار روی مقاله‌های واقعی و بزرگ (کار PaperBench) · سه تکرار = سه نمونهٔ مستقل · تضمین در محصول واقعی · حکمی دربارهٔ مدل‌ها یا تنظیم‌های دیگر</t-fa><t-en>Work on real, large papers (PaperBench's job) · three repeats = three independent samples · a guarantee in a real product · a verdict on other models or settings</t-en></div>
+</div>
+<footer><t-fa>نمونه = ۴۵ سناریو ساخته از ۹ سؤال، نه ۱۳۵ اجرا</t-fa><t-en>Sample = 45 scenarios built from 9 questions, not 135 tries</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۵ ثانیه.</p><p>این آزمایش یک روش سنجش است، نه حکمی دربارهٔ همهٔ ایجنت‌ها.</p></t-fa><t-en><b>Claim boundary</b><p>Under 45 seconds.</p><p>This experiment is a way of measuring, not a verdict on all agents.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="742">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>یک بار دمو است. بپرس: <em>هر بار؟</em> و می‌ایستد؟</t-fa><t-en>Once is a demo. Ask: <em>every time?</em> And does it stop?</t-en></h1>
+<div class="cards">
+<div class="hi"><b><t-fa>هر بار؟</t-fa><t-en>Every time?</t-en></b><t-fa>همان کار، همان ورودی، چند بار پشت هم</t-fa><t-en>Same task, same input, several times in a row</t-en></div>
+<div><b><t-fa>می‌ایستد؟</t-fa><t-en>Does it stop?</t-en></b><t-fa>وقتی داده نیست یا دستور تکراری است</t-fa><t-en>When data is missing or an order arrives twice</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: کاری که به یک ابزار هوش مصنوعی سپرده‌ای را سه بار با همان ورودی بده. چند از سه؟</t-fa><t-en>Exercise: give a task you hand to an AI tool three times with the same input. How many out of three?</t-en></p>
+<footer><t-fa>HMD-019 · جواب کوتاه</t-fa><t-en>HMD-019 · the short answer</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>اعتماد به ایجنت یعنی «هر بار درست» و «به‌موقع ایستادن»، نه یک بار درست.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>Trusting an agent means right every time and stopping in time, not right once.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="781">
+<p class="kicker"><t-fa>قسمت بعد · HMD-020</t-fa><t-en>Next · HMD-020</t-en></p>
+<h1><t-fa>JSON معتبر. عدد <em>غلط</em>؟</t-fa><t-en>Valid JSON. A <em>wrong</em> number?</t-en></h1>
+<div class="code"><span class="c"># valid ✓  every comma and bracket in place</span>
+{"action": "submit", "status": "done", "value": <span class="o">…</span>}</div>
+<p class="caption"><t-fa>امروز جواب‌نامه داشتیم. بیرون آزمایشگاه، کسی جواب‌نامه ندارد.</t-fa><t-en>Today we had an answer key. Outside the lab, nobody has one.</t-en></p>
+<footer><t-fa>قسمت بعد · چرا JSON معتبر لزوماً یعنی خروجی درست نیست؟</t-fa><t-en>Next episode · Why doesn't valid JSON necessarily mean correct output?</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] مُهر. End screen از ثانیهٔ ۱۰. نگو در این اجرا «فرم مرتب با عدد غلط» دیدیم، مگر report نشانش دهد.</p><p>از «کار را تمام کرد؟» می‌رویم سراغ «چیزی که تحویل داد درست است؟».</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] A stamp. End screen from second 10. Do not say this run showed "a tidy form with a wrong number" unless the report shows it.</p><p>From "did it finish?" to "is what it handed in right?".</p></t-en></aside>
+</section>

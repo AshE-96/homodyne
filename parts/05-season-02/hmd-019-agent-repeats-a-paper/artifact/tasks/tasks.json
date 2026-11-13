@@ -1,0 +1,19 @@
+{
+ "_about": "Nine replication questions on three one-page papers. Each question is run under five conditions (see agent_lab.py CONDITIONS) = 45 scenarios. Ground truth is computed at run time by reference.py from the same data files; it is never copied into the agent's workspace.",
+ "papers": {
+  "p1": {"dir": "p1-rescoring", "data": "data/table.csv", "origin": "HMD-002 · parts/02-benchmarking/e01-is-a-higher-score-better/artifact/two_scores.py"},
+  "p2": {"dir": "p2-four-numbers", "data": "data/labels.csv", "origin": "HMD-006 · tools/bluff_lab.py score tools/bluff-demo.csv --condition t75"},
+  "p3": {"dir": "p3-silence-line", "data": "data/params.json", "origin": "HMD-010 · parts/02-benchmarking/e05-how-do-you-penalise-a-bluff/artifact/penalty_threshold.py"}
+ },
+ "questions": [
+  {"id": "p1a", "paper": "p1", "ask": "the crossover penalty k* between OpenAI o4-mini and gpt-5-thinking-mini, as a decimal number of points per wrong answer", "tol": 0.0005},
+  {"id": "p1b", "paper": "p1", "ask": "the score of OpenAI o4-mini under the Konkur rule (t = 0.25), in points per 100 questions", "tol": 0.05},
+  {"id": "p1c", "paper": "p1", "ask": "score(gpt-5-thinking-mini) minus score(OpenAI o4-mini) at confidence target t = 0.75, in points per 100 questions", "tol": 0.05},
+  {"id": "p2a", "paper": "p2", "ask": "the risk of model A on all ten questions, in percent", "tol": 0.05},
+  {"id": "p2b", "paper": "p2", "ask": "the score(k = 3) of model B on all ten questions, in points per question", "tol": 0.0005},
+  {"id": "p2c", "paper": "p2", "ask": "the coverage of model A on the Persian (language = fa) questions only, in percent", "tol": 0.05},
+  {"id": "p3a", "paper": "p3", "ask": "the calibrated answerer's score at k = 3, in points per question", "tol": 0.0005},
+  {"id": "p3b", "paper": "p3", "ask": "the overconfident answerer's coverage at k = 1, in percent", "tol": 0.05},
+  {"id": "p3c", "paper": "p3", "ask": "the overconfident answerer's score at k = 9, in points per question", "tol": 0.0005}
+ ]
+}

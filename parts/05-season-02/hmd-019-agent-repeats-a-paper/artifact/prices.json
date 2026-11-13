@@ -1,0 +1,11 @@
+{
+ "_how": "Fill in before `report`: USD per million tokens for the model you ran, copied from the provider's price page, with the date you read it. Leave null and the report says the price was not entered. Key = the run's model as provider:model.",
+ "as_of": null,
+ "source_url": null,
+ "models": {
+  "anthropic:claude-opus-5-5": {"input_per_mtok": null, "output_per_mtok": null},
+  "anthropic:claude-haiku-5-5": {"input_per_mtok": null, "output_per_mtok": null},
+  "gemini:gemini-2.5-pro": {"input_per_mtok": null, "output_per_mtok": null},
+  "mock:echo": {"input_per_mtok": null, "output_per_mtok": null}
+ }
+}

@@ -1,0 +1,271 @@
+{
+ "about": "HMD-015 local retrieval run. ILLUSTRATIVE documents and questions. No model was called.",
+ "settings": {
+  "seed": 15,
+  "bm25_k1": 1.2,
+  "bm25_b": 0.75,
+  "rrf_k": 60,
+  "k_answer": 5,
+  "n_distractors": 160,
+  "hybrid": "word BM25 + char 4-gram BM25, reciprocal rank fusion"
+ },
+ "packs": {
+  "short": {
+   "passages": 53,
+   "words": 2296,
+   "chars": 13195,
+   "test:rag": {
+    "n": 42,
+    "recall": {
+     "@1": 0.595,
+     "@3": 0.81,
+     "@5": 0.952,
+     "@10": 0.976
+    },
+    "hits@5": 40,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "11/12",
+     "lookup": "12/12",
+     "paraphrase": "6/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "10/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 13,
+    "older_version_in_top5": 12,
+    "older_version_ranked_above_gold": 10,
+    "misses_at_5": [
+     "P03",
+     "L10"
+    ]
+   },
+   "test:char": {
+    "n": 42,
+    "recall": {
+     "@1": 0.667,
+     "@3": 0.905,
+     "@5": 0.952,
+     "@10": 0.976
+    },
+    "hits@5": 40,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "11/12",
+     "lookup": "12/12",
+     "paraphrase": "6/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "10/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 13,
+    "older_version_in_top5": 12,
+    "older_version_ranked_above_gold": 9,
+    "misses_at_5": [
+     "P01",
+     "L10"
+    ]
+   },
+   "test:hybrid": {
+    "n": 42,
+    "recall": {
+     "@1": 0.619,
+     "@3": 0.881,
+     "@5": 0.952,
+     "@10": 0.976
+    },
+    "hits@5": 40,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "11/12",
+     "lookup": "12/12",
+     "paraphrase": "6/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "10/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 13,
+    "older_version_in_top5": 12,
+    "older_version_ranked_above_gold": 8,
+    "misses_at_5": [
+     "P03",
+     "L10"
+    ]
+   },
+   "dev:rag": {
+    "n": 8,
+    "recall": {
+     "@1": 0.875,
+     "@3": 0.875,
+     "@5": 0.875,
+     "@10": 1.0
+    },
+    "hits@5": 7
+   },
+   "dev:char": {
+    "n": 8,
+    "recall": {
+     "@1": 1.0,
+     "@3": 1.0,
+     "@5": 1.0,
+     "@10": 1.0
+    },
+    "hits@5": 8
+   },
+   "dev:hybrid": {
+    "n": 8,
+    "recall": {
+     "@1": 0.875,
+     "@3": 0.875,
+     "@5": 1.0,
+     "@10": 1.0
+    },
+    "hits@5": 8
+   },
+   "position_invariant": true
+  },
+  "long": {
+   "passages": 225,
+   "words": 9464,
+   "chars": 54958,
+   "test:rag": {
+    "n": 42,
+    "recall": {
+     "@1": 0.619,
+     "@3": 0.762,
+     "@5": 0.81,
+     "@10": 0.905
+    },
+    "hits@5": 34,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "8/12",
+     "lookup": "12/12",
+     "paraphrase": "3/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "4/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 14,
+    "older_version_in_top5": 12,
+    "older_version_ranked_above_gold": 10,
+    "misses_at_5": [
+     "P01",
+     "P03",
+     "P04",
+     "P05",
+     "L08",
+     "L09",
+     "L10",
+     "L11"
+    ]
+   },
+   "test:char": {
+    "n": 42,
+    "recall": {
+     "@1": 0.667,
+     "@3": 0.833,
+     "@5": 0.881,
+     "@10": 0.929
+    },
+    "hits@5": 37,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "11/12",
+     "lookup": "12/12",
+     "paraphrase": "3/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "7/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 14,
+    "older_version_in_top5": 14,
+    "older_version_ranked_above_gold": 8,
+    "misses_at_5": [
+     "P01",
+     "P03",
+     "P04",
+     "P07",
+     "L10"
+    ]
+   },
+   "test:hybrid": {
+    "n": 42,
+    "recall": {
+     "@1": 0.643,
+     "@3": 0.786,
+     "@5": 0.905,
+     "@10": 0.929
+    },
+    "hits@5": 38,
+    "recall@5_by_type": {
+     "compute": "3/3",
+     "condition": "8/8",
+     "latest": "10/12",
+     "lookup": "12/12",
+     "paraphrase": "5/7"
+    },
+    "recall@5_by_overlap": {
+     "high": "20/20",
+     "low": "8/12",
+     "medium": "10/10"
+    },
+    "with_older_version_in_pack": 14,
+    "older_version_in_top5": 13,
+    "older_version_ranked_above_gold": 8,
+    "misses_at_5": [
+     "P01",
+     "P03",
+     "L10",
+     "L11"
+    ]
+   },
+   "dev:rag": {
+    "n": 8,
+    "recall": {
+     "@1": 0.875,
+     "@3": 1.0,
+     "@5": 1.0,
+     "@10": 1.0
+    },
+    "hits@5": 8
+   },
+   "dev:char": {
+    "n": 8,
+    "recall": {
+     "@1": 1.0,
+     "@3": 1.0,
+     "@5": 1.0,
+     "@10": 1.0
+    },
+    "hits@5": 8
+   },
+   "dev:hybrid": {
+    "n": 8,
+    "recall": {
+     "@1": 1.0,
+     "@3": 1.0,
+     "@5": 1.0,
+     "@10": 1.0
+    },
+    "hits@5": 8
+   },
+   "position_invariant": true
+  }
+ }
+}

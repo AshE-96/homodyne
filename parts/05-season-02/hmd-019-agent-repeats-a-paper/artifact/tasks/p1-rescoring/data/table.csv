@@ -1,0 +1,3 @@
+model,accuracy_pct,error_pct,abstention_pct
+OpenAI o4-mini,24,75,1
+gpt-5-thinking-mini,22,26,52

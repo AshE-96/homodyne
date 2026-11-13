@@ -1,0 +1,128 @@
+{
+ "similarity": {
+  "start_list": [
+   "Pulp Fiction (1994)",
+   "Braveheart (1995)",
+   "Silence of the Lambs, The (1991)",
+   "Star Wars: Episode IV - A New Hope (1977)",
+   "Terminator 2: Judgment Day (1991)",
+   "Fight Club (1999)",
+   "Star Wars: Episode V - The Empire Strikes Back (1980)",
+   "Star Wars: Episode VI - Return of the Jedi (1983)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Independence Day (a.k.a. ID4) (1996)"
+  ],
+  "after_click_a": [
+   "Pulp Fiction (1994)",
+   "Silence of the Lambs, The (1991)",
+   "Braveheart (1995)",
+   "Star Wars: Episode IV - A New Hope (1977)",
+   "Terminator 2: Judgment Day (1991)",
+   "Fight Club (1999)",
+   "Star Wars: Episode V - The Empire Strikes Back (1980)",
+   "Star Wars: Episode VI - Return of the Jedi (1983)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Independence Day (a.k.a. ID4) (1996)"
+  ],
+  "after_click_b": [
+   "Pulp Fiction (1994)",
+   "Braveheart (1995)",
+   "Silence of the Lambs, The (1991)",
+   "Terminator 2: Judgment Day (1991)",
+   "Apollo 13 (1995)",
+   "Lion King, The (1994)",
+   "Star Wars: Episode IV - A New Hope (1977)",
+   "Speed (1994)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Mrs. Doubtfire (1993)"
+  ],
+  "changed_by_click_a": 0,
+  "changed_by_click_b": 4,
+  "shared_a_b": 6
+ },
+ "mmr": {
+  "start_list": [
+   "Pulp Fiction (1994)",
+   "Star Wars: Episode IV - A New Hope (1977)",
+   "Braveheart (1995)",
+   "Lion King, The (1994)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Silence of the Lambs, The (1991)",
+   "Speed (1994)",
+   "American Beauty (1999)",
+   "Lord of the Rings: The Fellowship of the Ring, The (2001)",
+   "Sixth Sense, The (1999)"
+  ],
+  "after_click_a": [
+   "Pulp Fiction (1994)",
+   "Star Wars: Episode IV - A New Hope (1977)",
+   "Braveheart (1995)",
+   "Lion King, The (1994)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Silence of the Lambs, The (1991)",
+   "American Beauty (1999)",
+   "Sixth Sense, The (1999)",
+   "Lord of the Rings: The Fellowship of the Ring, The (2001)",
+   "Speed (1994)"
+  ],
+  "after_click_b": [
+   "Pulp Fiction (1994)",
+   "Terminator 2: Judgment Day (1991)",
+   "Braveheart (1995)",
+   "Lion King, The (1994)",
+   "Seven (a.k.a. Se7en) (1995)",
+   "Speed (1994)",
+   "Silence of the Lambs, The (1991)",
+   "Apollo 13 (1995)",
+   "Ace Ventura: Pet Detective (1994)",
+   "Mask, The (1994)"
+  ],
+  "changed_by_click_a": 0,
+  "changed_by_click_b": 4,
+  "shared_a_b": 6
+ },
+ "why": {
+  "click_a": {
+   "entered_list_rank_before": {},
+   "nearest_films_rank_before": {
+    "Psycho (1960)": 228,
+    "Clockwork Orange, A (1971)": 93,
+    "Goodfellas (1990)": 61
+   }
+  },
+  "click_b": {
+   "entered_list_rank_before": {
+    "Apollo 13 (1995)": 11,
+    "Lion King, The (1994)": 12,
+    "Speed (1994)": 17,
+    "Mrs. Doubtfire (1993)": 25
+   },
+   "nearest_films_rank_before": {
+    "Pretty Woman (1990)": 69,
+    "Ghost (1990)": 80,
+    "Mrs. Doubtfire (1993)": 25
+   }
+  }
+ },
+ "click_spread": {
+  "rule": "films with lo..hi training ratings, not in the start list; similarity policy",
+  "lo": 70.4,
+  "hi": 116.39999999999999,
+  "candidates": 123,
+  "changed_of_10_distribution": {
+   "0": 13,
+   "1": 67,
+   "2": 25,
+   "3": 3,
+   "4": 9,
+   "5": 6
+  },
+  "click_a_ratings": 88.0,
+  "click_b_ratings": 97.0
+ },
+ "knob": {
+  "from_lambda": 1.0,
+  "to_lambda": 0.7,
+  "changed": 5
+ }
+}
