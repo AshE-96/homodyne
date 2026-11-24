@@ -1,0 +1,54 @@
+{
+ "about": "Local models for HMD-024. Tags, sizes and quantization read on ollama.com (tag pages) and in the Ollama registry manifests on 2026-11-23. Language claims are quoted from each model's own card on that date. Use the explicit tags below, not the short ones: on Apple silicon a short tag such as qwen3.5:4b may resolve to a different (MLX) build, and the episode must name exactly what ran.",
+ "verified_on": "2026-11-23",
+ "device": "MacBook Air (M1, 2020, model id MacBookAir10,1), 8 GB unified memory: the owner's laptop. run records sysctl hw.model, the chip, the memory and the macOS version itself.",
+ "models": [
+  {
+   "tag": "qwen3.5:2b-q4_K_M",
+   "role": "small (~2 GB)",
+   "spoken_fa": "کوئنِ دو میلیاردی",
+   "ollama_page": "https://ollama.com/library/qwen3.5:2b-q4_K_M",
+   "download_gb": 1.9,
+   "params": "1.88B (+ 331M vision projector, BF16; not used here)",
+   "quantization": "Q4_K_M",
+   "context_window": "256K (we use 8192)",
+   "language_claim": "Qwen3.5 card: 'Expanded support to 201 languages and dialects'. Persian is not named on the card; the Qwen3 blog (Apr 2025) names Persian among the 119 languages of the previous generation.",
+   "licence": "Apache License 2.0",
+   "thinking": "Qwen3.5-2B card: non-thinking by default. We still send think:false when /api/show lists the thinking capability."
+  },
+  {
+   "tag": "qwen3.5:4b-q4_K_M",
+   "role": "medium (~3.3 GB), same family as the small one",
+   "spoken_fa": "کوئنِ چهار میلیاردی",
+   "ollama_page": "https://ollama.com/library/qwen3.5:4b-q4_K_M",
+   "download_gb": 3.3,
+   "params": "4.21B (+ 334M vision projector, BF16; not used here)",
+   "quantization": "Q4_K_M",
+   "context_window": "256K (we use 8192)",
+   "language_claim": "Same Qwen3.5 card claim: 201 languages and dialects; Persian not named on the card.",
+   "licence": "Apache License 2.0",
+   "thinking": "Has the thinking capability; we send think:false so that time to first token measures the answer, not hidden reasoning."
+  },
+  {
+   "tag": "gemma3:4b-it-q4_K_M",
+   "role": "medium (~3.4 GB), another family at the same size",
+   "spoken_fa": "جِمای چهار میلیاردی",
+   "ollama_page": "https://ollama.com/library/gemma3:4b-it-q4_K_M",
+   "download_gb": 3.4,
+   "params": "3.88B (+ 420M vision projector; not used here)",
+   "quantization": "Q4_K_M",
+   "context_window": "128K (we use 8192)",
+   "language_claim": "Gemma 3 card (Hugging Face): 'multilingual support in over 140 languages'; training data 'includes content in over 140 languages'. Persian is not named. The card adds: 'A limitation of our evaluations was they included only English language prompts.'",
+   "licence": "Gemma Terms of Use (last modified 21 Feb 2024) + Gemma Prohibited Use Policy. Google 'claims no rights in Outputs'. Show the outputs on screen freely; do not redistribute the weights without passing on the terms.",
+   "thinking": "No thinking capability; think is not sent."
+  }
+ ],
+ "considered_not_chosen": [
+  "gemma3:1b (806 MB, 32K context): smaller than our 'small'; we kept one family pair (Qwen 2B vs 4B) to show size within a family.",
+  "qwen3:1.7b (1.4 GB): the Qwen3 blog names Persian explicitly, but Qwen3.5 is the newer generation; swap it in with --models if you prefer an explicit Persian claim.",
+  "gemma4:e2b (4.6 GB with projector): tight on 8 GB next to macOS and the screen recorder.",
+  "aya-expanse:8b (5.1 GB): its card names Persian among 23 languages, but it is too large for 8 GB beside the recorder, and its licence is CC BY-NC (non-commercial).",
+  "llama3.2:1b / 3b: Meta lists 8 officially supported languages and Persian is not one of them."
+ ],
+ "online_reference": "Whatever tools/llm.py resolves (HOMODYNE_MODEL, else the first key found). The run records provider, model requested and model served."
+}

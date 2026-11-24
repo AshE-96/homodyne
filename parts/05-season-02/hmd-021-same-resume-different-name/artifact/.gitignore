@@ -1,0 +1,4 @@
+# HMD-021 artifact: never commit the mock rows or pilot runs (regenerate with `run`; see README)
+runs/mock-echo/
+runs/pilot-*/
+__pycache__/

@@ -1,0 +1,490 @@
+{
+ "demo": true,
+ "chosen": "demo-big:q4",
+ "models": [
+  {
+   "model": "demo-small:q4",
+   "arm": "local",
+   "spoken_fa": "مدل نمایشی کوچیک",
+   "dir": "local-demo-small-q4",
+   "passed": 19,
+   "of": 30,
+   "fa": 9,
+   "en": 10,
+   "cats": {
+    "summarise": {
+     "n": 3,
+     "of": 5,
+     "sym": "~",
+     "slow": false,
+     "fa": [
+      2,
+      3
+     ],
+     "en": [
+      1,
+      2
+     ],
+     "source": [
+      "auto",
+      "auto+owner"
+     ],
+     "median_total_s": 0.12112233304651454
+    },
+    "extract": {
+     "n": 3,
+     "of": 5,
+     "sym": "~",
+     "slow": false,
+     "fa": [
+      1,
+      2
+     ],
+     "en": [
+      2,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.30983295798068866
+    },
+    "qa": {
+     "n": 3,
+     "of": 5,
+     "sym": "~",
+     "slow": false,
+     "fa": [
+      2,
+      3
+     ],
+     "en": [
+      1,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.03459724999265745
+    },
+    "translate": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      2
+     ],
+     "en": [
+      2,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.08508529100799933
+    },
+    "classify": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.027616833976935595
+    },
+    "nogo": {
+     "n": 2,
+     "of": 5,
+     "sym": "✗",
+     "slow": false,
+     "fa": [
+      0,
+      2
+     ],
+     "en": [
+      2,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.12187050003558397
+    }
+   },
+   "invented": 2,
+   "absent_n": 2,
+   "errors": 0,
+   "truncated": 0,
+   "ttft_med": 0.03129822900518775,
+   "total_med": 0.09399872901849449,
+   "retry_rows": 0,
+   "tps_med": 50.34699291323837,
+   "busy_s": 4.357729830022436,
+   "peak_rss": 60981248,
+   "ps_size": 1495000000,
+   "ps_vram": 1495000000,
+   "min_avail": 1150943232,
+   "swap_growth": 30867456,
+   "fits": true,
+   "cold_load_s": 0.25,
+   "download_bytes": 1300000000,
+   "quant": "Q4_K_M",
+   "params": "1.9B",
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "offline_verified": true,
+   "fell_back": 0,
+   "demo": true,
+   "locks": {
+    "sha256": {
+     "rules.json": "6e742626da5c1b2c436c26b72ec457dd13b2775bf83d891a8ecae7350735a3e2",
+     "task_bank.py": "768aa87fc2827742dc72f387ed9afda63d8cfd94973e57b21456e8786c55e65e",
+     "graders.py": "709ca55cf040431b652920eb8da5afac77ae76faa5e1cd812881fa416227a46e"
+    },
+    "git": {
+     "commit": null,
+     "locked_files_committed_and_clean": false
+    }
+   },
+   "effort": null,
+   "max_tokens": null,
+   "costs": {
+    "energy_kwh": 1.815720762509348e-05,
+    "energy_cost": 0.018157207625093482,
+    "depreciation_cost": 18.15720762509348
+   }
+  },
+  {
+   "model": "demo-big:q4",
+   "arm": "local",
+   "spoken_fa": "مدل نمایشی بزرگ",
+   "dir": "local-demo-big-q4",
+   "passed": 25,
+   "of": 30,
+   "fa": 11,
+   "en": 14,
+   "cats": {
+    "summarise": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      3,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.2763183329952881
+    },
+    "extract": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      1,
+      2
+     ],
+     "en": [
+      3,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.6721865420113318
+    },
+    "qa": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.05874479201156646
+    },
+    "translate": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      1,
+      2
+     ],
+     "en": [
+      3,
+      3
+     ],
+     "source": [
+      "auto",
+      "owner"
+     ],
+     "median_total_s": 0.18024537502788007
+    },
+    "classify": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      3,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.05234754201956093
+    },
+    "nogo": {
+     "n": 3,
+     "of": 5,
+     "sym": "~",
+     "slow": false,
+     "fa": [
+      1,
+      2
+     ],
+     "en": [
+      2,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.26974895800231025
+    }
+   },
+   "invented": 1,
+   "absent_n": 2,
+   "errors": 0,
+   "truncated": 0,
+   "ttft_med": 0.05677572949207388,
+   "total_med": 0.2086934790131636,
+   "retry_rows": 0,
+   "tps_med": 22.550796062957954,
+   "busy_s": 8.508666377980262,
+   "peak_rss": 93945856,
+   "ps_size": 3564999999,
+   "ps_vram": 3564999999,
+   "min_avail": 1148633088,
+   "swap_growth": 83165184,
+   "fits": true,
+   "cold_load_s": 0.4,
+   "download_bytes": 3100000000,
+   "quant": "Q4_K_M",
+   "params": "4.2B",
+   "tokens_in": 0,
+   "tokens_out": 0,
+   "offline_verified": true,
+   "fell_back": 0,
+   "demo": true,
+   "locks": {
+    "sha256": {
+     "rules.json": "6e742626da5c1b2c436c26b72ec457dd13b2775bf83d891a8ecae7350735a3e2",
+     "task_bank.py": "768aa87fc2827742dc72f387ed9afda63d8cfd94973e57b21456e8786c55e65e",
+     "graders.py": "709ca55cf040431b652920eb8da5afac77ae76faa5e1cd812881fa416227a46e"
+    },
+    "git": {
+     "commit": null,
+     "locked_files_committed_and_clean": false
+    }
+   },
+   "effort": null,
+   "max_tokens": null,
+   "costs": {
+    "energy_kwh": 3.545277657491776e-05,
+    "energy_cost": 0.03545277657491776,
+    "depreciation_cost": 35.452776574917756
+   }
+  },
+  {
+   "model": "mock:echo",
+   "arm": "online",
+   "spoken_fa": "سرویس آنلاین",
+   "dir": "online-mock-echo",
+   "passed": 29,
+   "of": 30,
+   "fa": 15,
+   "en": 14,
+   "cats": {
+    "summarise": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      3,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    },
+    "extract": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      2
+     ],
+     "en": [
+      3,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    },
+    "qa": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      3,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    },
+    "translate": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      2
+     ],
+     "en": [
+      3,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    },
+    "classify": {
+     "n": 5,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      3,
+      3
+     ],
+     "en": [
+      2,
+      2
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    },
+    "nogo": {
+     "n": 4,
+     "of": 5,
+     "sym": "✓",
+     "slow": false,
+     "fa": [
+      2,
+      2
+     ],
+     "en": [
+      2,
+      3
+     ],
+     "source": [
+      "auto"
+     ],
+     "median_total_s": 0.0
+    }
+   },
+   "invented": 0,
+   "absent_n": 2,
+   "errors": 0,
+   "truncated": 0,
+   "ttft_med": null,
+   "total_med": 0.0,
+   "retry_rows": 0,
+   "tps_med": null,
+   "busy_s": 0,
+   "peak_rss": null,
+   "ps_size": null,
+   "ps_vram": null,
+   "min_avail": null,
+   "swap_growth": null,
+   "fits": true,
+   "cold_load_s": null,
+   "download_bytes": null,
+   "quant": null,
+   "params": null,
+   "tokens_in": 6909,
+   "tokens_out": 160,
+   "offline_verified": false,
+   "fell_back": 0,
+   "demo": true,
+   "locks": {
+    "sha256": {
+     "rules.json": "6e742626da5c1b2c436c26b72ec457dd13b2775bf83d891a8ecae7350735a3e2",
+     "task_bank.py": "768aa87fc2827742dc72f387ed9afda63d8cfd94973e57b21456e8786c55e65e",
+     "graders.py": "709ca55cf040431b652920eb8da5afac77ae76faa5e1cd812881fa416227a46e"
+    },
+    "git": {
+     "commit": null,
+     "locked_files_committed_and_clean": false
+    }
+   },
+   "effort": "low",
+   "max_tokens": 1024,
+   "costs": {}
+  }
+ ]
+}

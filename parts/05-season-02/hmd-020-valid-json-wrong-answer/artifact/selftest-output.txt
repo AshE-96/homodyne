@@ -1,0 +1,83 @@
+  ok    Jalali: 1 Farvardin 1406 = 2027-03-21; 18 Farvardin = today; 1 Ordibehesht = today + 14
+  ok    Jalali: leap years 1399 (30 Esfand = 2021-03-20) and 1403 (1 Farvardin = 2024-03-20)
+  ok    generator is deterministic and matches the frozen test file
+  ok    test split: 100 messages, 11 groups; dev split is separate
+  ok    every answer key passes the schema
+  ok    schema: amount as text fails; Jalali-in-ISO passes the schema but breaks the date rule
+  ok    rules: ×10 amount is a price violation; 750 g cheese = 0.75 kg passes
+  ok    grader: 750 g = 0.75 kg; a null in the key must stay null
+  ok    parse: a code fence is tolerated, words around the object are not
+  ok    tools/llm.py passes schema= through to the mock
+  ok    tools/llm.py strips $comment before sending a schema
+HMD-020 · LOCAL RUN · 2026-11-24 · no model called · ILLUSTRATIVE data · test split n=100
+
+1. The answer key itself, through the lights (what a PERFECT extractor would get)
+   schema ok 100/100 · correct 100/100 · routes {'auto': 87, 'human_missing': 9, 'human_rule': 4}
+   rule flags on correct records: {'price': 2, 'quantity': 2}
+
+2. Fault injection: one known error put into each applicable correct record. First light that catches it:
+   fault                  n  structure  rule  silent   what
+   rial_read_as_toman    87          0    87       0   amount ×10 (ریال read as تومن)
+   thousand_dropped      87          0    87       0   amount ÷1000 («۴۵۰ تومن» read literally)
+   jalali_in_iso         87          0    87       0   Jalali date written as YYYY-MM-DD (1406-01-25)
+   one_day_early         87          0     0      87   date one day early («پس‌فردا» read as «فردا»)
+   kg_written_as_g       45          0    45       0   unit g, number unchanged (5 kg → 5 g)
+   size_as_quantity      19          0    19       0   item size read as quantity (+2 pieces)
+   invented_missing       9          0     0       9   missing value invented (quantity 1 / tomorrow)
+   amount_as_text        87         87     0       0   amount as text "1,500,000"
+   cut_off               87         87     0       0   reply cut off before the last bracket
+   renamed_field         87         87     0       0   field renamed (price instead of paid_toman)
+
+3. DEMO extractor (a deliberately simple regex program, NOT an AI model)
+   valid JSON 100/100 · schema ok 100/100 · fully correct 37/100 · schema-valid but wrong 63/100
+   of those, stopped by rules or missing-value check: 61 · recorded automatically: 29, of which wrong: 2 {'relative_date': 2}
+
+4. Rule 5 (an amount or payment the message mentions may not come back null), added after seeing (3):
+   test  recorded automatically and wrong: without rule 5 23/100 {'spoken': 10, 'colloquial': 6, 'rial': 5, 'relative_date': 2} · with rule 5 2/100 {'relative_date': 2}
+   dev   recorded automatically and wrong: without rule 5 3/28 {'spoken': 2, 'colloquial': 1} · with rule 5 0/28 {}
+
+Spoken lines (local, real numbers):
+  [8] وقتی مبلغ رو ده برابر کردم، قانون قیمت از هشتاد‌وهفت مورد، هشتاد‌وهفت تاش رو گرفت.
+  [8] یه روز جابه‌جایی تاریخ: از هشتاد‌وهفت مورد، هشتاد‌وهفت تاش از هر سه قالب و قانون رد شد.
+  [9] برنامهٔ ساده: صد از صد فرم مرتب؛ سی‌وهفت تا کاملاً درست.
+  [9] قبل از این قانون، بیست‌وسه سفارش غلط خودکار ثبت می‌شد؛ بعدش دو تا.
+  [9] حتی جواب‌نامهٔ بی‌نقص هم سیزده سفارش از صد رو می‌فرسته پیش آدم.
+  ok    fault injection: amount ×10 and Jalali-in-ISO are never silent; text amount and cut-off are structure
+  ok    fault injection: a date one day early is mostly silent
+  ok    rule 5 on the demo: test 23 → 2 and dev 3 → 0 auto-recorded and wrong (the numbers spoken in beat 9)
+  ok    the answer key: every record correct; only boundary and missing records leave the automatic path
+model: mock:echo · split test · 100 messages · arms free, schema_prompt, native
+calls: 300 + at most 100 repair calls (only records the rules reject)
+input ≈ 521,412 tokens (characters ÷ 2.5) · output ≈ 320,000 tokens (assumes 800 per call, reasoning included)
+model mock:echo: no API cost
+main=mock:echo · small=unset (No model key found. Set ANTHROPIC_API_KEY, GEMINI_API_KEY or OPENAI_API_KEY, or put it in private/keys.env (or HOMODYNE_MODEL=mock:echo for a dry run). See tools/llm.py.)
+  free: 20/100
+  free: 40/100
+  free: 60/100
+  free: 80/100
+  free: 100/100
+  schema_prompt: 20/100
+  schema_prompt: 40/100
+  schema_prompt: 60/100
+  schema_prompt: 80/100
+  schema_prompt: 100/100
+  native: 20/100
+  native: 40/100
+  native: 60/100
+  native: 80/100
+  native: 100/100
+  repair calls: 49
+wrote /var/folders/bf/_zcs_9vd7fbdd1k_rrbk7mq00000gn/T/tmpya5aanvr/mock-echo/rows-test.jsonl
+  ok    run: 300 first replies + one repair per rule-rejected native record
+  ok    every row carries the frozen test-set hash
+  ok    run aborts when test.jsonl differs from FROZEN.json
+  ok    report aborts on rows made from another test set
+  ok    repair prompt names the rule, never the catalog total
+  ok    false alarms exclude orders the answer key itself sends to a person
+  ok    mock native arm: every reply parses and fits the schema
+  ok    mock free arm: some replies fail to parse (prose around JSON)
+  ok    routing adds up to 100
+  ok    silent errors = schema-valid and wrong
+  ok    report renders, with spoken lines for beats 10–12
+  ok    under 60 seconds (1.1 s)
+SELFTEST PASSED

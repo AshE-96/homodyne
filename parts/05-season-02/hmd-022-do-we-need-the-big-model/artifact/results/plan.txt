@@ -1,0 +1,31 @@
+HMD-022 · plan (no network, nothing spent)
+[models: set at run time]
+200 items · dev 80 · test 120
+category   lang  dev  test  mean chars
+lookup     fa      8    12          28
+lookup     en      8    12          41
+convert    fa      8    12          32
+convert    en      8    12          38
+extract    fa      8    12         171
+extract    en      8    12         189
+multistep  fa      8    12         144
+multistep  en      8    12         133
+highrisk   fa      8    12         448
+highrisk   en      8    12         482
+truth types: number 168, text 26, yesno 6
+calls: 200 items x 3 small samples + 1 [models: set at run time]
+rough input tokens: small 83 k, big 28 k (characters / 2.5 for Persian, / 4 for English; measure with run --limit 5)
+output cap: 2000 tokens per call; expected replies are a short JSON
+dollars ([models: set at run time]
+small unset:small-model: UPPER BOUND ≤ $91.24 (CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE: $15.0/$75.0 per M tokens from prices.json fallback, set 2026-11-24; every call at its 2000-token output cap)
+main  unset:big-model: UPPER BOUND ≤ $30.41 (CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE: $15.0/$75.0 per M tokens from prices.json fallback, set 2026-11-24; every call at its 2000-token output cap)
+TOTAL UPPER BOUND ≤ $121.65 (CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE) · fill prices.json for a real estimate
+design fingerprints (stored by run, checked by report):
+commit 3ca06e379cff7e7f471650e51460211ff76820b1 + uncommitted changes in artifact/
+  sha256 grade.py           12808f5522a9b8b63b53f33f44416a80edb9f73fcb8707810d6f1f5472b87272
+  sha256 routers.py         5182bf6fae686f908c2b067d6a387efa80a7bed920a17d1af684d3a900281bce
+  sha256 tasks/tasks.json   67234532dcceb6f3cc0fbac9f772bfa5220c0013aac2671e5637802896bad290
+  sha256 protocol.md        1da6077369b4ad5cb8243b2bb212f08abda3a0f76bd83c6d4bcae771379b26d4
+run with HOMODYNE_NO_FALLBACK=1 so refusals are recorded, not answered by a fallback model
+routers: always-small, always-big, rule-category, rule-length, confidence, cascade, oracle
+selection: thresholds chosen on dev (non-risk), quality budget 2 points vs always-big; reported on the frozen test set; risk category always big model + human check

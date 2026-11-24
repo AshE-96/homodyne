@@ -1,0 +1,33 @@
+HMD-020 · LOCAL RUN · 2026-11-24 · no model called · ILLUSTRATIVE data · test split n=100
+
+1. The answer key itself, through the lights (what a PERFECT extractor would get)
+   schema ok 100/100 · correct 100/100 · routes {'auto': 87, 'human_missing': 9, 'human_rule': 4}
+   rule flags on correct records: {'price': 2, 'quantity': 2}
+
+2. Fault injection: one known error put into each applicable correct record. First light that catches it:
+   fault                  n  structure  rule  silent   what
+   rial_read_as_toman    87          0    87       0   amount ×10 (ریال read as تومن)
+   thousand_dropped      87          0    87       0   amount ÷1000 («۴۵۰ تومن» read literally)
+   jalali_in_iso         87          0    87       0   Jalali date written as YYYY-MM-DD (1406-01-25)
+   one_day_early         87          0     0      87   date one day early («پس‌فردا» read as «فردا»)
+   kg_written_as_g       45          0    45       0   unit g, number unchanged (5 kg → 5 g)
+   size_as_quantity      19          0    19       0   item size read as quantity (+2 pieces)
+   invented_missing       9          0     0       9   missing value invented (quantity 1 / tomorrow)
+   amount_as_text        87         87     0       0   amount as text "1,500,000"
+   cut_off               87         87     0       0   reply cut off before the last bracket
+   renamed_field         87         87     0       0   field renamed (price instead of paid_toman)
+
+3. DEMO extractor (a deliberately simple regex program, NOT an AI model)
+   valid JSON 100/100 · schema ok 100/100 · fully correct 37/100 · schema-valid but wrong 63/100
+   of those, stopped by rules or missing-value check: 61 · recorded automatically: 29, of which wrong: 2 {'relative_date': 2}
+
+4. Rule 5 (an amount or payment the message mentions may not come back null), added after seeing (3):
+   test  recorded automatically and wrong: without rule 5 23/100 {'spoken': 10, 'colloquial': 6, 'rial': 5, 'relative_date': 2} · with rule 5 2/100 {'relative_date': 2}
+   dev   recorded automatically and wrong: without rule 5 3/28 {'spoken': 2, 'colloquial': 1} · with rule 5 0/28 {}
+
+Spoken lines (local, real numbers):
+  [8] وقتی مبلغ رو ده برابر کردم، قانون قیمت از هشتاد‌وهفت مورد، هشتاد‌وهفت تاش رو گرفت.
+  [8] یه روز جابه‌جایی تاریخ: از هشتاد‌وهفت مورد، هشتاد‌وهفت تاش از هر سه قالب و قانون رد شد.
+  [9] برنامهٔ ساده: صد از صد فرم مرتب؛ سی‌وهفت تا کاملاً درست.
+  [9] قبل از این قانون، بیست‌وسه سفارش غلط خودکار ثبت می‌شد؛ بعدش دو تا.
+  [9] حتی جواب‌نامهٔ بی‌نقص هم سیزده سفارش از صد رو می‌فرسته پیش آدم.

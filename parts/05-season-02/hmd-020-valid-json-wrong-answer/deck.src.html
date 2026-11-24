@@ -1,0 +1,222 @@
+<!-- HMD-020 · deck source. Build: python3 scripts/build-decks.py --only hmd-020  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 8–9 show the REAL LOCAL RUN (24 Nov 2026, no model). Frames 10–12 carry NOT RUN YET until
+     `testbench.py report` has produced real numbers. -->
+
+<section class="cover">
+<h1><t-fa>فرم AI کاملاً مرتب است؛ پس چرا جوابش <em>غلط</em> است؟</t-fa><t-en>The AI's form is perfectly tidy. So why is the answer <em>wrong</em>?</t-en></h1>
+<p class="promise"><t-fa>صد پیام سفارش فارسی، سه راه پرسیدن، و سه چراغ پیش از ثبت: ساختار، معنی، قانون.</t-fa><t-en>One hundred Persian chat orders, three ways of asking, and three lights before anything is recorded: structure, meaning, rule.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>JSON معتبر ✓ · در قالب جا شد ✓ · مبلغ <em>ده برابر</em> ✗</t-fa><t-en>Valid JSON ✓ · Fits the form ✓ · Amount <em>×10</em> ✗</t-en></h1>
+<div class="code"><span class="c"># valid JSON ✓   fits schema.json ✓</span>
+{"product": "oil", "quantity": 1, "unit": "piece",
+ "paid_toman": <span class="o">2500000</span>, "delivery_date": "2027-04-08"}
+<span class="c"># the customer wrote 2,500,000 RIAL = 250,000 toman</span></div>
+<p class="caption"><t-fa>پیام مشتری: «یه روغن مایع می‌خواستم برای فردا. دو و نیم میلیون ریال کارت به کارت کردم.»</t-fa><t-en>The customer's message: "I'd like one bottle of cooking oil for tomorrow. I card-transferred two and a half million rials."</t-en></p>
+<p class="tag"><b><t-fa>مثال دست‌ساز</t-fa><t-en>HAND-MADE EXAMPLE</t-en></b><t-fa>ساختگی · نتیجهٔ هیچ آزمایشی نیست</t-fa><t-en>Illustrative · not a test result</t-en></p>
+<footer><t-fa>HMD-020 · مثال قاب ۱</t-fa><t-en>HMD-020 · beat 1 example</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>Shock. اول فقط فرم سبز؛ روی «ده برابر» خانهٔ مبلغ کهربایی. بگو «با دست ساختم». پایان قاب: «من محمدم، اینجا هومودینه.» بعد کاور.</p><p>یک فرم می‌تواند از نظر شکل بی‌نقص و از نظر عدد ده برابر غلط باشد.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Shock. First only the green form; on "ten times" the amount field turns amber. Say "I made it by hand". End of beat: "I'm Mohammad, this is Homodyne." Then the cover.</p><p>A form can be flawless in shape and ten times wrong in its number.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="48">
+<p class="kicker"><t-fa>از HMD-019 به اینجا: بیرون آزمایشگاه، جواب‌نامه نیست</t-fa><t-en>From HMD-019: outside the lab, there is no answer key</t-en></p>
+<h1><t-fa>سه چراغ: ساختار · معنی · قانون</t-fa><t-en>Three lights: structure · meaning · rule</t-en></h1>
+<div class="cards">
+<div><b><t-fa>ساختار</t-fa><t-en>Structure</t-en></b><t-fa>فیش خواناست و هر عدد در خانهٔ خودش. همه‌جا در دسترس.</t-fa><t-en>The slip is legible and every number sits in its own box. Available everywhere.</t-en></div>
+<div class="hi"><b><t-fa>معنی</t-fa><t-en>Meaning</t-en></b><t-fa>همان چیزی است که مشتری خواست؟ فقط با جواب‌نامه؛ یعنی فقط در آزمایشگاه.</t-fa><t-en>Is it what the customer wanted? Only with an answer key, so only in the lab.</t-en></div>
+<div><b><t-fa>قانون</t-fa><t-en>Rule</t-en></b><t-fa>مبلغ با صورت‌حساب می‌خواند؟ با دانش خود کسب‌وکار. همه‌جا در دسترس.</t-fa><t-en>Does the amount match the bill? With the business's own knowledge. Available everywhere.</t-en></div>
+</div>
+<p class="caption"><t-fa>JSON: فرم متنی برنامه‌ها؛ هر خانه یک اسم و یک مقدار. فرم مرتب فقط چراغ اول را روشن می‌کند.</t-fa><t-en>JSON: the text form programs exchange; each field has a name and a value. A tidy form only turns on the first light.</t-en></p>
+<footer><t-fa>Structured Output Testbench · artifact/checks.py</t-fa><t-en>Structured Output Testbench · artifact/checks.py</t-en></footer>
+<aside class="notes"><t-fa><b>پل از HMD-019 و سه چراغ</b><p>فیش بانک: خوانا (ساختار)، مبلغ با صورت‌حساب (قانون)، آنچه تو خواستی (معنی). جواب کوتاه سؤال قسمت قبل پیش از ۰۱:۴۳.</p><p>فرم مرتب فقط چراغ «ساختار» را روشن می‌کند؛ «معنی» و «قانون» دو وارسی جدا هستند.</p></t-fa><t-en><b>Bridge from HMD-019 and the three lights</b><p>Bank slip: legible (structure), amount against the bill (rule), what you meant (meaning). Short answer to last episode's question before 01:45.</p><p>A tidy form only turns on the "structure" light; "meaning" and "rule" are two separate checks.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="103">
+<p class="kicker"><t-fa>بقالی خیالی «سبد محله» · قرارداد داده</t-fa><t-en>The invented grocery "Sabad-e Mahalleh" · the data contract</t-en></p>
+<h1><t-fa>پیام چت ← AI ← فرم سفارش ← سیستم فروشگاه · ۵ خانه</t-fa><t-en>Chat message → AI → order record → shop API · 5 fields</t-en></h1>
+<table class="t">
+<tr><th><t-fa>خانه</t-fa><t-en>Field</t-en></th><th><t-fa>قرارداد</t-fa><t-en>Contract</t-en></th></tr>
+<tr><td>product</td><td><t-fa>کالا از فهرست؛ ۱۲ کالا</t-fa><t-en>Product from the catalog; 12 items</t-en></td></tr>
+<tr><td>quantity · unit</td><td><t-fa>همان‌طور که مشتری گفت؛ کیلو، گرم، دانه، بسته، لیتر</t-fa><t-en>As the customer said it; kg, g, piece, pack, liter</t-en></td></tr>
+<tr class="hi"><td>paid_toman</td><td><t-fa>مبلغ واریزی، به تومان؛ خالی یعنی «موقع تحویل»</t-fa><t-en>Amount already paid, in toman; empty means "on delivery"</t-en></td></tr>
+<tr><td>delivery_date</td><td><t-fa>روز تحویل، میلادی؛ خالی اگر گفته نشده</t-fa><t-en>Delivery day, Gregorian; empty if not given</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>فروشگاه، قیمت‌ها و پیام‌ها ساختگی‌اند · قرارداد پیش از هر مدل نوشته شد</t-fa><t-en>Shop, prices and messages are invented · the contract was written before any model</t-en></p>
+<footer><t-fa>artifact/schema.json · artifact/data/catalog.json</t-fa><t-en>artifact/schema.json · artifact/data/catalog.json</t-en></footer>
+<aside class="notes"><t-fa><b>قرارداد داده</b><p>خانه‌ها یکی‌یکی با قاعده‌شان. ردیف مبلغ کهربایی.</p><p>پیش از هر مدلی، قرارداد داده می‌گوید هر خانه دقیقاً چه باید باشد.</p></t-fa><t-en><b>The data contract</b><p>Fields appear one by one with their rule. The amount row is amber.</p><p>Before any model, the data contract says exactly what each field must hold.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="156">
+<p class="kicker"><t-fa>حدس بزن · پیام فارسی کجا می‌لغزد؟</t-fa><t-en>Guess · where do Persian messages slip?</t-en></p>
+<h1><t-fa><em>ریال</em> یا تومان · «۴۵۰ تومن» · ۱/۵ میلیون · پس‌فردا · ۲۵ فروردین · هندوانهٔ ۳ تا ۵ کیلویی</t-fa><t-en><em>Rial</em> vs toman · "450 toman" · «<bdi lang="fa">۱/۵</bdi> million» (Persian slash = decimal: 1.5M) · the day after tomorrow · 25 Farvardin · a 3-to-5-kilo watermelon</t-en></h1>
+<div class="tokens">
+<i class="hi"><t-fa>ریال · ۱۲</t-fa><t-en>Rial · 12</t-en></i>
+<i><t-fa>تومن بی‌هزار · ۸</t-fa><t-en>Toman without "thousand" · 8</t-en></i>
+<i><t-fa>مبلغ با حروف · ۱۰</t-fa><t-en>Amount in words · 10</t-en></i>
+<i><t-fa>رقم و جداکننده · ۱۰</t-fa><t-en>Digits and separators · 10</t-en></i>
+<i><t-fa>روز نسبی · ۱۲</t-fa><t-en>Relative day · 12</t-en></i>
+<i><t-fa>تاریخ شمسی · ۱۰</t-fa><t-en>Jalali date · 10</t-en></i>
+<i><t-fa>اندازه و بازه · ۶</t-fa><t-en>Size and range · 6</t-en></i>
+<i><t-fa>گرم و کیلو · ۶</t-fa><t-en>Grams and kilos · 6</t-en></i>
+<i><t-fa>گفته‌نشده · ۶</t-fa><t-en>Not stated · 6</t-en></i>
+<i><t-fa>مرزی · ۸</t-fa><t-en>Boundary · 8</t-en></i>
+<i><t-fa>ساده · ۱۲</t-fa><t-en>Clean · 12</t-en></i>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>۱۰۰ پیام آزمون قفل‌شده + ۲۸ پیام جدا برای ساختن دستورها · جواب هر پیام از پیش معلوم</t-fa><t-en>100 frozen test messages + 28 separate messages for building the prompts · every answer known in advance</t-en></p>
+<footer><t-fa>artifact/data/test.jsonl · R06 · قانون حذف چهار صفر، ۸ نوامبر ۲۰۲۵</t-fa><t-en>artifact/data/test.jsonl · R06 · four-zeros law, 8 Nov 2025</t-en></footer>
+<aside class="notes"><t-fa><b>[MID-CTA] دام‌های پیام فارسی</b><p>اول فقط «حدس بزن» با تایمر. بعد چیپ‌ها. CTA نرم: کد در توضیحات، بدون کلید اجرا می‌شود.</p><p>پیام فارسی پر از دام عدد و تاریخ است؛ صد پیام ساختگی با جواب معلوم، همه‌شان را دارد.</p></t-fa><t-en><b>[MID-CTA] The traps in Persian messages</b><p>First only "guess" with the timer. Then the chips. Soft CTA: the code is in the description and runs without a key.</p><p>Persian messages are full of number and date traps; one hundred synthetic messages with known answers contain all of them.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="224">
+<p class="kicker"><t-fa>قالب (اسکیما)</t-fa><t-en>The schema</t-en></p>
+<h1><t-fa>قالب: اسم خانه‌ها، نوع، گزینه‌های مجاز. <em>نه</em> مقدار درست.</t-fa><t-en>Schema: field names, types, allowed values. <em>Not</em> the right value.</t-en></h1>
+<div class="code"><span class="c"># schema.json (excerpt)</span>
+"paid_toman":    {"anyOf": [{"type": "integer"}, {"type": "null"}]}
+"delivery_date": {"anyOf": [{"type": "string", "format": "date"}, {"type": "null"}]}
+
+<span class="c"># both pass the schema ✓ — both are wrong</span>
+"paid_toman": <span class="o">2500000</span>             <span class="c"># customer meant 250,000</span>
+"delivery_date": <span class="o">"1406-01-25"</span>    <span class="c"># a Jalali date in the Gregorian slot</span></div>
+<p class="tag"><t-fa>R01 · Anthropic: قالبِ خروجی ساختاریافته قیدهای عددی مثل minimum و maximum را پشتیبانی نمی‌کند</t-fa><t-en>R01 · Anthropic: structured outputs do not support numerical constraints such as minimum and maximum</t-en></p>
+<footer><t-fa>R01 · مستندات Anthropic، بازبینی ۲۳ نوامبر ۲۰۲۶</t-fa><t-en>R01 · Anthropic docs, checked 23 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>قالب</b><p>دو خط پایین کهربایی؛ هر دو تیک سبز قالب دارند.</p><p>قالب می‌گوید «این خانه عدد است»، نه «کدام عدد».</p></t-fa><t-en><b>The schema</b><p>The bottom two lines are amber; both carry the schema's green tick.</p><p>The schema says "this field is a number", not "which number".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="266">
+<p class="kicker"><t-fa>سه راه پرسیدن · فقط شکل درخواست فرق دارد</t-fa><t-en>Three ways of asking · only the format request differs</t-en></p>
+<h1><t-fa>راه ۱: «با JSON جواب بده» · راه ۲: قالب در متن دستور · راه ۳: قالب اجباری سرویس</t-fa><t-en>Arm 1: "reply in JSON" · Arm 2: schema in the prompt · Arm 3: schema enforced by the provider</t-en></h1>
+<div class="cols">
+<div><span><t-fa>راه ۱</t-fa><t-en>Arm 1</t-en></span><b class="word"><t-fa>آزاد</t-fa><t-en>Free</t-en></b><p><t-fa>فقط اسم پنج خانه</t-fa><t-en>Only the five field names</t-en></p></div>
+<div><span><t-fa>راه ۲</t-fa><t-en>Arm 2</t-en></span><b class="word"><t-fa>قالب در متن</t-fa><t-en>Schema in prompt</t-en></b><p><t-fa>قالب کامل در دستور</t-fa><t-en>The full schema in the prompt</t-en></p></div>
+<div class="hi"><span><t-fa>راه ۳</t-fa><t-en>Arm 3</t-en></span><b class="word"><t-fa>قالب اجباری</t-fa><t-en>Enforced schema</t-en></b><p><t-fa>خروجی ساختاریافتهٔ خود سرویس</t-fa><t-en>The provider's native structured output</t-en></p></div>
+</div>
+<p class="caption"><t-fa>همان ۱۰۰ پیام، دستور، مدل و روز. پرسش باز: جواب درست بیشتری هم می‌دهد؟</t-fa><t-en>Same 100 messages, prompt, model and day. Open question: more right answers too?</t-en></p>
+<footer><t-fa>R01 · R02 · R03 · R05 · Tam و همکاران، ۲۰۲۴ (مدل‌های همان زمان)</t-fa><t-en>R01 · R02 · R03 · R05 · Tam et al., 2024 (models of that time)</t-en></footer>
+<aside class="notes"><t-fa><b>سه راه</b><p>ستون سوم کهربایی. پژوهش ۲۰۲۴ فقط دلیل باز بودن سؤال است.</p><p>سه روش فقط در «چطور فرم را می‌خواهیم» فرق دارند؛ بقیه ثابت است.</p></t-fa><t-en><b>Three arms</b><p>The third column is amber. The 2024 study is only a reason the question is open.</p><p>The three arms differ only in how we ask for the form; everything else is fixed.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="323">
+<p class="kicker"><t-fa>چراغ قانون و راه چهارم · قفل‌شده پیش از هر سؤال از مدل</t-fa><t-en>The rule light and arm 4 · locked before any model call</t-en></p>
+<h1><t-fa>قانون‌های کسب‌وکار: قیمت × مقدار ±۵٪ · تحویل تا ۱۴ روز · واحد فروش · سقف خرید خانگی</t-fa><t-en>Business rules: price × quantity ±5% · delivery within 14 days · units sold · household cap</t-en></h1>
+<div class="steps">
+<div><b><t-fa>همه سبز</t-fa><t-en>All green</t-en></b><t-fa>ثبت خودکار</t-fa><t-en>Recorded automatically</t-en></div>
+<div class="hi"><b><t-fa>قانون گیر داد</t-fa><t-en>A rule fails</t-en></b><t-fa>یک بار اصلاح با فهرست ایرادها؛ باز گیر کرد ← آدم</t-fa><t-en>One repair with the list of problems; fails again → a person</t-en></div>
+<div><b><t-fa>خانهٔ خالی</t-fa><t-en>Empty field</t-en></b><t-fa>از مشتری بپرس؛ مدل حق حدس ندارد</t-fa><t-en>Ask the customer; the model may not guess</t-en></div>
+<div class="off"><b><t-fa>خارج از قالب</t-fa><t-en>Fails the schema</t-en></b><t-fa>هرگز ثبت نمی‌شود</t-fa><t-en>Never recorded</t-en></div>
+</div>
+<footer><t-fa>artifact/checks.py · artifact/protocol.md</t-fa><t-en>artifact/checks.py · artifact/protocol.md</t-en></footer>
+<aside class="notes"><t-fa><b>قانون کسب‌وکار</b><p>قفسهٔ بقالی و فهرست قیمت. «اصلاح یک بار» کهربایی.</p><p>قانون کسب‌وکار عدد را با چیزی می‌سنجد که فروشگاه از قبل می‌داند.</p></t-fa><t-en><b>Business rules</b><p>Grocery shelf and price list. "One repair" is amber.</p><p>A business rule checks the number against what the shop already knows.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="383">
+<p class="kicker"><t-fa>خرابکاری عمدی · کدام چراغ می‌گیرد؟</t-fa><t-en>Fault injection · which light catches it?</t-en></p>
+<h1><t-fa>۸۷ رکورد درست، هر کدام یک خطای عمدی: یک روز زودتر ← <em>بی‌صدا</em> ۸۷ از ۸۷</t-fa><t-en>87 correct records, one injected error each: one day early → <em>silent</em> 87/87</t-en></h1>
+<table class="t">
+<tr><th><t-fa>خطای عمدی</t-fa><t-en>Injected error</t-en></th><th><t-fa>ساختار</t-fa><t-en>Structure</t-en></th><th><t-fa>قانون</t-fa><t-en>Rule</t-en></th><th><t-fa>بی‌صدا</t-fa><t-en>Silent</t-en></th></tr>
+<tr><td><t-fa>مبلغ ده برابر (ریال، تومان خوانده شد)</t-fa><t-en>Amount ×10 (rial read as toman)</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۸۷</t-fa><t-en>87</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td></tr>
+<tr><td><t-fa>تاریخ شمسی در جای میلادی</t-fa><t-en>Jalali date in the Gregorian slot</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۸۷</t-fa><t-en>87</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td></tr>
+<tr class="hi"><td><t-fa>تاریخ یک روز زودتر</t-fa><t-en>Date one day early</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۸۷</t-fa><t-en>87</t-en></td></tr>
+<tr><td><t-fa>خانهٔ خالی با حدس پر شد (از ۹)</t-fa><t-en>Missing value guessed (of 9)</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۹</t-fa><t-en>9</t-en></td></tr>
+<tr><td><t-fa>مبلغ به‌صورت متن</t-fa><t-en>Amount as text</t-en></td><td><t-fa>۸۷</t-fa><t-en>87</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td><td><t-fa>۰</t-fa><t-en>0</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرای واقعی محلی</t-fa><t-en>REAL LOCAL RUN</t-en></b><t-fa>۲۴ نوامبر ۲۰۲۶ · بدون هیچ مدل · شبیه‌سازی خطا، نه رفتار مدل · داده ساختگی</t-fa><t-en>24 Nov 2026 · no model called · simulated errors, not model behaviour · synthetic data</t-en></p>
+<footer><t-fa>artifact/results/local.txt · بخش ۲</t-fa><t-en>artifact/results/local.txt · section 2</t-en></footer>
+<aside class="notes"><t-fa><b>خطای بی‌صدا</b><p>ستون‌ها پوشیده؛ روی ردیف «یک روز زودتر» مکث برای حدس؛ موسیقی قطع.</p><p>خطای مبلغ و تقویم را قانون می‌گیرد؛ یک روز جابه‌جایی و حدسِ جای خالی، بی‌صدا رد می‌شوند.</p></t-fa><t-en><b>The silent error</b><p>Columns hidden; pause for a guess on the "one day early" row; music cuts.</p><p>Rules catch amount and calendar errors; a one-day shift and a guessed blank pass silently.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="445">
+<p class="kicker"><t-fa>برنامهٔ دمو · هوش مصنوعی نیست</t-fa><t-en>Demo extractor · not AI</t-en></p>
+<h1><t-fa>برنامهٔ ساده: ۱۰۰ از ۱۰۰ مرتب، فقط ۳۷ از ۱۰۰ <em>درست</em></t-fa><t-en>Simple program: 100/100 tidy, only 37/100 <em>right</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>JSON معتبر و در قالب</t-fa><t-en>Valid JSON, fits schema</t-en></span><b><t-fa>۱۰۰</t-fa><t-en>100</t-en></b><small><t-fa>از ۱۰۰</t-fa><t-en>of 100</t-en></small></div>
+<div><span><t-fa>کاملاً درست</t-fa><t-en>Fully right</t-en></span><b><t-fa>۳۷</t-fa><t-en>37</t-en></b><small><t-fa>از ۱۰۰</t-fa><t-en>of 100</t-en></small></div>
+<div><span><t-fa>مرتب و غلط، متوقف‌شده</t-fa><t-en>Tidy and wrong, stopped</t-en></span><b><t-fa>۶۱</t-fa><t-en>61</t-en></b><small><t-fa>از ۶۳</t-fa><t-en>of 63</t-en></small></div>
+<div class="hi"><span><t-fa>خودکار ثبت شد و غلط بود</t-fa><t-en>Auto-recorded, wrong</t-en></span><b><t-fa>۲</t-fa><t-en>2</t-en></b><p><t-fa>۲۳ پیش از قانون ۵ · هر دو «پس‌فردا» ← «فردا»</t-fa><t-en>23 before rule 5 · both: day after tomorrow → tomorrow</t-en></p></div>
+</div>
+<p class="caption"><t-fa>قانون ۵ (پس از دیدن همین آزمون، پیش از اجرای مدل): پولِ گفته‌شده خالی نمی‌ماند.</t-fa><t-en>Rule 5 (after seeing this test set, before any model run): money the message mentions cannot be empty.</t-en></p>
+<p class="tag"><b><t-fa>برنامهٔ دمو، نه AI</t-fa><t-en>DEMO EXTRACTOR · NOT AI</t-en></b><t-fa>اجرای واقعی محلی · ۲۴ نوامبر ۲۰۲۶</t-fa><t-en>Real local run · 24 Nov 2026</t-en></p>
+<footer><t-fa>artifact/demo_extractor.py · artifact/results/local.txt · بخش ۱، ۳ و ۴</t-fa><t-en>artifact/demo_extractor.py · artifact/results/local.txt · sections 1, 3 and 4</t-en></footer>
+<aside class="notes"><t-fa><b>برنامهٔ ساده و سوراخ قرارداد</b><p>ردیف‌ها به ترتیب شناسه، نه دست‌چین. برچسب «نه AI» همیشه روی صفحه.</p><p>حتی خالیِ یک خانه می‌تواند خطای بی‌صدا باشد؛ قرارداد باید «نمی‌دانم» را از «هیچ» جدا کند.</p></t-fa><t-en><b>The simple program and the hole in the contract</b><p>Rows in ID order, not hand-picked. The "not AI" label stays on screen.</p><p>Even an empty field can be a silent error; the contract must tell "unknown" apart from "none".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="515">
+<p class="kicker"><t-fa>سه روش، ۱۰۰ پیام</t-fa><t-en>Three arms, 100 messages</t-en></p>
+<h1><t-fa>خوانده شد · در قالب · کاملاً درست · خطای <em>بی‌صدا</em> — هر روش، از ۱۰۰</t-fa><t-en>Parses · fits schema · fully right · <em>silent</em> errors — per arm, of 100</t-en></h1>
+<table class="t">
+<tr><th></th><th><t-fa>آزاد</t-fa><t-en>Free</t-en></th><th><t-fa>قالب در متن</t-fa><t-en>Schema in prompt</t-en></th><th><t-fa>قالب اجباری</t-fa><t-en>Enforced schema</t-en></th></tr>
+<tr><td><t-fa>خوانده شد (JSON)</t-fa><t-en>Parses (JSON)</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>در قالب جا شد</t-fa><t-en>Fits the schema</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>کاملاً درست (بازهٔ ۹۵٪)</t-fa><t-en>Fully right (95% interval)</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+<tr class="hi"><td><t-fa>مرتب ولی غلط (بی‌صدا)</t-fa><t-en>Tidy but wrong (silent)</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>عددها از testbench.py report · همان ۱۰۰ پیام برای هر سه روش · یک مدل، یک دستور، یک تاریخ</t-fa><t-en>Numbers from testbench.py report · the same 100 messages for all three arms · one model, one prompt, one date</t-en></p>
+<footer><t-fa>artifact/runs/ · مدل و تاریخ اجرا: —</t-fa><t-en>artifact/runs/ · model and run date: —</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK] [RUN]</b><p>یک ثانیه سکوت. هیچ عددی پیش از report نگو؛ جمله‌ها را عیناً از report بخوان؛ یک شاخه.</p><p>فرم سالم و جواب درست را با عدد همین اجرا کنار هم می‌بینیم.</p></t-fa><t-en><b>[RE-HOOK] [RUN]</b><p>One second of silence. Say no number before the report; read its sentences verbatim; one branch.</p><p>We see a sound form and a right answer side by side, with this run's numbers.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="582">
+<p class="kicker"><t-fa>چراغ قانون روی قالب اجباری</t-fa><t-en>The rule light on the enforced-schema arm</t-en></p>
+<h1><t-fa>خطای بی‌صدا: گرفته شد · رد شد · اصلاح شد · درست ولی <em>متوقف</em></t-fa><t-en>Silent errors: caught · slipped · repaired · correct but <em>stopped</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>گرفته شد</t-fa><t-en>Caught by rules</t-en></span><b class="word">—</b><p><t-fa>از — خطای بی‌صدا</t-fa><t-en>of — silent errors</t-en></p></div>
+<div class="hi"><span><t-fa>از همه رد شد</t-fa><t-en>Slipped past all</t-en></span><b class="word">—</b><p><t-fa>گروه: —</t-fa><t-en>Group: —</t-en></p></div>
+<div><span><t-fa>یک بار اصلاح</t-fa><t-en>One repair</t-en></span><b class="word">—</b><p><t-fa>درست شد: — · ظاهراً درست: —</t-fa><t-en>Fixed: — · passed but still wrong: —</t-en></p></div>
+<div><span><t-fa>درست ولی متوقف</t-fa><t-en>Correct but stopped</t-en></span><b class="word">—</b><p><t-fa>هزینهٔ احتیاط</t-fa><t-en>The cost of caution</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>شاخه را report انتخاب می‌کند · ۱۰۰ پیام ساختگی</t-fa><t-en>The report picks the branch · 100 synthetic messages</t-en></p>
+<footer><t-fa>artifact/report.py · artifact/checks.py</t-fa><t-en>artifact/report.py · artifact/checks.py</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] چراغ قانون</b><p>[SOUND EFFECT] تیک روی هر خطای گرفته‌شده. کاشی «رد شد» کهربایی.</p><p>قانون‌ها بخشی از خطاهای بی‌صدا را می‌گیرند؛ بقیه، و هزینهٔ احتیاط، با عدد همین اجرا.</p></t-fa><t-en><b>[RUN] The rule light</b><p>[SOUND EFFECT] A tick on each caught error. The "slipped" tile is amber.</p><p>Rules catch part of the silent errors; the rest, and the cost of caution, come with this run's numbers.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="637">
+<p class="kicker"><t-fa>تصمیم محصولی · قانون پیش از اجرا قفل شد</t-fa><t-en>Product decision · rules locked before the run</t-en></p>
+<h1><t-fa>خودکار · یک بار اصلاح · آدم — و تکرار تاریخ و مبلغ برای <em>مشتری</em></t-fa><t-en>Auto · repair once · person — and echo the date and amount back to the <em>customer</em></t-en></h1>
+<table class="t">
+<tr><th><t-fa>وضعیت</t-fa><t-en>Situation</t-en></th><th><t-fa>تصمیم</t-fa><t-en>Decision</t-en></th><th><t-fa>از ۱۰۰</t-fa><t-en>Of 100</t-en></th></tr>
+<tr><td><t-fa>قالب و قانون سبز</t-fa><t-en>Schema and rules green</t-en></td><td><t-fa>ثبت خودکار</t-fa><t-en>Record automatically</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+<tr><td><t-fa>قانون گیر داد</t-fa><t-en>A rule fails</t-en></td><td><t-fa>یک بار اصلاح، بعد آدم</t-fa><t-en>One repair, then a person</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+<tr><td><t-fa>خانهٔ خالی</t-fa><t-en>Empty field</t-en></td><td><t-fa>از مشتری بپرس</t-fa><t-en>Ask the customer</t-en></td><td><t-fa>اجرا نشده</t-fa><t-en>Not run yet</t-en></td></tr>
+<tr class="hi"><td><t-fa>هر ثبت خودکار</t-fa><t-en>Every automatic record</t-en></td><td><t-fa>«پنجشنبه ۱۹ فروردین، ۲۵۰ هزار تومان؛ درسته؟»</t-fa><t-en>"Thursday 19 Farvardin, 250 thousand toman; correct?"</t-en></td><td><t-fa>همیشه</t-fa><t-en>Always</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>سقف قفل‌شده: حداکثر ۲ از ۱۰۰ خودکار و غلط (۲ از ۱۰۰ یعنی بازهٔ ۰٫۶ تا ۷٪) · هزینه از prices.json، تاریخ: —</t-fa><t-en>Locked cap: at most 2 of 100 automatic and wrong (2 of 100 means a 0.6–7% interval) · cost from prices.json, dated: —</t-en></p>
+<footer><t-fa>artifact/protocol.md · R07 · ۱۹ فروردین ۱۴۰۶ برابر ۸ آوریل ۲۰۲۷</t-fa><t-en>artifact/protocol.md · R07 · 19 Farvardin 1406 is 8 Apr 2027</t-en></footer>
+<aside class="notes"><t-fa><b>تصمیم محصولی</b><p>ردیف تکرار برای مشتری از همان اول کهربایی. ستون عددها را بعد از report پر کن.</p><p>خودکار فقط وقتی قالب و قانون سبزند؛ چیزی که این دو نمی‌بینند به خود مشتری نشان داده می‌شود.</p></t-fa><t-en><b>Product decision</b><p>The customer-echo row is amber from the start. Fill the numbers column after the report.</p><p>Automatic only when the schema and the rules are green; what those two cannot see is shown to the customer.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="710">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>سه چراغ سه جور خطا را می‌گیرند: قالب شکل را، قانون آنچه را با دانش فروشگاه سنجیدنی است؛ و بعضی خطاها، مثل یک روز جابه‌جایی، از هر دو رد می‌شوند.</t-fa><t-en>The three lights catch three kinds of error: the schema checks shape, the rules check what the shop's knowledge can measure; and some errors, like a one-day shift, pass both.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>رفتار هر مدل یا هر فروشگاه · پیام واقعی (۱۰۰ پیام ساختگیِ الگویی، هر کدام یک دام؛ مبلغ همیشه دقیق واریز شده) · بیش از یک مدل، یک دستور، یک تاریخ · وارسی برای اسم و آدرس</t-fa><t-en>The behaviour of every model or shop · real messages (100 synthetic template messages, one trap each; amounts always paid exactly) · more than one model, one prompt, one date · a check for names and addresses</t-en></div>
+</div>
+<footer><t-fa>قالب نوع و بعضی قیدها را چک می‌کند؛ معتبر بودن نحوی یعنی درستی در دنیای واقعی نیست</t-fa><t-en>A schema checks types and some constraints; syntactic validity does not mean real-world correctness</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۵ ثانیه.</p><p>این میز آزمایش روش سنجیدن است، نه حکمی دربارهٔ همهٔ مدل‌ها و همهٔ فرم‌ها.</p></t-fa><t-en><b>Claim boundary</b><p>Under 45 seconds.</p><p>This test bench is a way of measuring, not a verdict on all models and all forms.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="761">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>فرم مرتب = خوانده می‌شود و در قالب جاست. <em>نه</em> اینکه درست است.</t-fa><t-en>Tidy form = it parses and fits. <em>Not</em> that it is right.</t-en></h1>
+<div class="cards">
+<div class="hi"><b><t-fa>مبلغ</t-fa><t-en>Amount</t-en></b><t-fa>با واحدش: تومان یا ریال؟</t-fa><t-en>With its unit: toman or rial?</t-en></div>
+<div><b><t-fa>تاریخ</t-fa><t-en>Date</t-en></b><t-fa>با تقویمش: کدام روز هفته؟</t-fa><t-en>With its calendar: which weekday?</t-en></div>
+<div><b><t-fa>مقدار</t-fa><t-en>Quantity</t-en></b><t-fa>دانه یا کیلو؟</t-fa><t-en>Pieces or kilos?</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: پیش از زدن «تأیید» در هر فرمی که AI پر کرده، همین سه را نگاه کن.</t-fa><t-en>Exercise: before you press "confirm" on any form an AI filled in, check these three.</t-en></p>
+<footer><t-fa>HMD-020 · جواب کوتاه</t-fa><t-en>HMD-020 · the short answer</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>فرم مرتب یعنی خواناست؛ درستی را با قانون و تأیید می‌سنجیم.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>A tidy form means it is readable; correctness is checked with rules and confirmation.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="804">
+<p class="kicker"><t-fa>قسمت بعد · HMD-021</t-fa><t-en>Next · HMD-021</t-en></p>
+<h1><t-fa>دو رزومهٔ یکسان. دو <em>اسم</em>.</t-fa><t-en>Two identical résumés. Two <em>names</em>.</t-en></h1>
+<div class="cards">
+<div><b><t-fa>فرم الف</t-fa><t-en>Form A</t-en></b><t-fa>همهٔ خانه‌ها معتبر · امتیاز: ؟</t-fa><t-en>Every field valid · score: ?</t-en></div>
+<div class="hi"><b><t-fa>فرم ب</t-fa><t-en>Form B</t-en></b><t-fa>فقط اسم فرق دارد · امتیاز: ؟</t-fa><t-en>Only the name differs · score: ?</t-en></div>
+</div>
+<p class="caption"><t-fa>اگر امتیاز جابه‌جا شود، هیچ قالب و قانونی آن را نمی‌گیرد.</t-fa><t-en>If the score moves, no schema and no rule will catch it.</t-en></p>
+<p class="tag"><b><t-fa>فرضی</t-fa><t-en>HYPOTHETICAL</t-en></b><t-fa>تصویرسازی برای تیزر؛ نتیجه‌ای از HMD-021 نیست</t-fa><t-en>Teaser illustration; not a result from HMD-021</t-en></p>
+<footer><t-fa>قسمت بعد · AI بین دو رزومهٔ یکسان تبعیض قائل می‌شود؟</t-fa><t-en>Next episode · Does AI treat two identical résumés differently?</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ۲۰ ثانیهٔ آخر (حدود ۱۳:۳۱). هیچ نتیجه‌ای از HMD-021 نگو؛ فقط «اگر».</p><p>قسمت بعد: وقتی قالب و قانون سبزند و فقط یک اسم عوض شده، امتیاز هم عوض می‌شود؟</p></t-fa><t-en><b>Next episode</b><p>End screen over the last 20 seconds (from about 13:31). Say no HMD-021 result; only "if".</p><p>Next: when the schema and the rules are green and only a name has changed, does the score change too?</p></t-en></aside>
+</section>

@@ -1,0 +1,47 @@
+{
+ "_how": "Owner fills `models` before `run`/`report`: USD per million tokens for the model you ran, copied from the provider's official price page, and the date you read it (date_read). Key = the run's model as provider:model. While a model's price is null, `plan` and `run` show an UPPER BOUND from `fallback` below with every call using MAX_TOKENS (8000) output tokens, and `report` counts tokens instead of money. No batch or caching discount is assumed. Output tokens include reasoning tokens.",
+ "date_read": null,
+ "source_url": null,
+ "models": {
+  "anthropic:claude-opus-5-5": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "anthropic:claude-haiku-5-5": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "gemini:gemini-2.5-pro": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "gemini:gemini-2.5-flash": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "mock:echo": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  }
+ },
+ "fallback": {
+  "about": "CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE. Deliberately high per-million-token prices used only to show a worst-case dollar figure before the owner fills `models` (same values as HMD-021). Never used by `report`.",
+  "set_on": "2026-11-24",
+  "default": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "anthropic": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "gemini": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "openai": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  }
+ }
+}

@@ -42,6 +42,11 @@ selftest:
 	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-015-answer-in-the-file/artifact/answer_in_file.py --selftest > /dev/null
 	$(PY) parts/05-season-02/hmd-017-why-this-recommendation/artifact/recsys_xray.py --selftest > /dev/null
 	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-019-agent-repeats-a-paper/artifact/selftest.py > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-020-valid-json-wrong-answer/artifact/testbench.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-021-same-resume-different-name/artifact/resume_audit.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-022-do-we-need-the-big-model/artifact/routing_lab.py --selftest > /dev/null
+	$(PY) parts/05-season-02/hmd-023-hundred-users-at-once/artifact/load_lab.py --selftest > /dev/null
+	HOMODYNE_MODEL=mock:echo $(PY) parts/05-season-02/hmd-024-ai-without-internet/artifact/offline_lab.py --selftest > /dev/null
 
 site:
 	cd site && npm ci && npm run build

@@ -33,5 +33,40 @@
   "path": "parts/05-season-02/hmd-019-agent-repeats-a-paper",
   "title": "مقاله را به ایجنت AI دادیم؛ می‌تواند آزمایشش را تکرار کند؟",
   "next": "HMD-020"
+ },
+ {
+  "hmd": "HMD-020",
+  "format": "AI in Production",
+  "path": "parts/05-season-02/hmd-020-valid-json-wrong-answer",
+  "title": "فرم AI کاملاً مرتب است؛ پس چرا جوابش غلط است؟",
+  "next": "HMD-021"
+ },
+ {
+  "hmd": "HMD-021",
+  "format": "Algorithm X-Ray",
+  "path": "parts/05-season-02/hmd-021-same-resume-different-name",
+  "title": "AI بین دو رزومهٔ یکسان تبعیض قائل می‌شود؟",
+  "next": "HMD-022"
+ },
+ {
+  "hmd": "HMD-022",
+  "format": "AI in Production",
+  "path": "parts/05-season-02/hmd-022-do-we-need-the-big-model",
+  "title": "برای هر سؤال، گران‌ترین AI لازم است؟",
+  "next": "HMD-023"
+ },
+ {
+  "hmd": "HMD-023",
+  "format": "AI in Production",
+  "path": "parts/05-season-02/hmd-023-hundred-users-at-once",
+  "title": "وقتی صد نفر هم‌زمان از AI سؤال کنند چه می‌شود؟",
+  "next": "HMD-024"
+ },
+ {
+  "hmd": "HMD-024",
+  "format": "Benchmark Lab",
+  "path": "parts/05-season-02/hmd-024-ai-without-internet",
+  "title": "هوش مصنوعی بدون اینترنت واقعاً کار می‌کند؟",
+  "next": "HMD-025"
  }
 ]

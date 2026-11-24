@@ -1,0 +1,33 @@
+PASS  number words
+PASS  nearest-rank p95 (n=20 -> 19th value; inf stays inf)
+PASS  refuses a non-local target
+PASS  OLLAMA_HOST 0.0.0.0:11434 refused
+PASS  OLLAMA_HOST http://192.168.1.5:11434 refused
+PASS  OLLAMA_HOST example.com refused
+PASS  OLLAMA_HOST loopback forms accepted
+PASS  fake server binds 127.0.0.1 only  (127.0.0.1:54812)
+PASS  cold request waits for the model load (4 s simulated)  (cold 4.27s)
+PASS  warm request starts fast  (warm 0.24s)
+PASS  fake server process stopped
+PASS  port closed after stop
+PASS  1 user keeps the SLO  (n=1, p95 0.24s)
+PASS  40 users break the SLO (more arrivals than 4 slots can serve)  (n=76, within SLO 13%)
+PASS  p95 first-word time grows with users
+PASS  Little's law holds over the stage window (L = lambda x W, within 15%)  (L 15.8 vs 15.9)
+PASS  denominator counts every sent request
+PASS  observed concurrency from the timeline equals the 4 slots  (max streaming 4)
+PASS  throughput uses the real span (arrivals + drain)
+PASS  bounded queue rejects with 503 when full  (33 of 71)
+PASS  a rejection is fast (no waiting in line)
+PASS  timeouts are recorded  (21 timeouts)
+PASS  server drops abandoned requests (queue and slots empty after)  (cancelled 22, wasted slot-s 29.325)
+PASS  report builds the spoken [RUN] lines
+   sample (SIMULATED, rehearsal only): پس قول سه‌ثانیه‌ای ما روی این لپ‌تاپ، اولین بار با چهل کاربر شکست.
+PASS  report prints spoken lines for a run that matches the locked protocol
+PASS  report refuses a run whose locked protocol was edited (hash mismatch)
+PASS  protocol.json (committed) equals experiments.RUN_PROTOCOL
+PASS  selftest left results/runs/ untouched
+PASS  charts render (or are skipped without matplotlib)  (charts/ramp.png, charts/queue.png)
+PASS  selftest under 60 s  (14.4s)
+
+SELFTEST PASSED · 30/30 checks · fake service only, SIMULATED SERVICE (ILLUSTRATIVE)

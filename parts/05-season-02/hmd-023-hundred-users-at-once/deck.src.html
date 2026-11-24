@@ -1,0 +1,228 @@
+<!-- HMD-023 · deck source. Build: python3 scripts/build-decks.py --only hmd-023  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Simulated numbers come from artifact/results/simulated/summary.md (SIMULATED SERVICE, ILLUSTRATIVE).
+     Frames 10–11 carry NOT RUN YET until `load_lab.py report` has produced real numbers. -->
+
+<style>
+svg.chart.wall{max-width:1180px;margin-top:6px}
+svg.chart.wall .axis{stroke:var(--muted);stroke-width:2}
+svg.chart.wall .grid{stroke:var(--line);stroke-width:1}
+svg.chart.wall .slo{stroke:var(--ink);stroke-width:2;stroke-dasharray:10 8}
+svg.chart.wall .cap{fill:var(--amber);opacity:.16}
+svg.chart.wall .p95{fill:none;stroke:var(--amber);stroke-width:6;stroke-linejoin:round}
+svg.chart.wall .p50{fill:none;stroke:var(--muted);stroke-width:3}
+svg.chart.wall .pt{fill:var(--amber)}
+svg.chart.wall text{font-size:26px;fill:var(--ink)}
+svg.chart.wall .lab{font-size:24px;fill:var(--muted)}
+</style>
+
+<section class="cover">
+<h1><t-fa>وقتی <em>صد نفر</em> هم‌زمان از AI سؤال کنند چه می‌شود؟</t-fa><t-en>What happens when <em>a hundred people</em> ask the AI at once?</t-en></h1>
+<p class="promise"><t-fa>یک سرویس AI را از یک نفر تا صد نفر شلوغ می‌کنیم، صف را زنده می‌بینیم، و تصمیم می‌گیریم کِی صف را ببندیم، جواب را کوتاه کنیم یا ظرفیت بخریم.</t-fa><t-en>We load an AI service from one person to a hundred, watch the queue live, and decide when to bound the queue, shorten answers or buy capacity.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>شعبهٔ بانک · ساعت ۹ صبح</t-fa><t-en>A bank branch · 9 a.m.</t-en></p>
+<h1><t-fa>ساعت ۹ صبح. چهار باجه. <em>صد</em> نوبت.</t-fa><t-en>9 a.m. Four tellers. <em>A hundred</em> tickets.</t-en></h1>
+<div class="cols">
+<div><span><t-fa>در شعبه باز می‌شود</t-fa><t-en>The doors open</t-en></span><b class="word"><t-fa>۹:۰۰</t-fa><t-en>9:00</t-en></b><p><t-fa>همه تقریباً با هم نوبت می‌گیرند</t-fa><t-en>Almost everyone takes a ticket at once</t-en></p></div>
+<div><span><t-fa>باجه‌های باز</t-fa><t-en>Open tellers</t-en></span><b><t-fa>۴</t-fa><t-en>4</t-en></b><p><t-fa>هم‌زمان چهار نفر</t-fa><t-en>Four people at a time</t-en></p></div>
+<div class="hi"><span><t-fa>نوبت شما</t-fa><t-en>Your ticket</t-en></span><b><t-fa>۱۰۰</t-fa><t-en>100</t-en></b><p><t-fa>تابلو: ۰۰۳</t-fa><t-en>The board says: 003</t-en></p></div>
+</div>
+<p class="caption"><t-fa>در دمو، تو تنها مشتری بانکی.</t-fa><t-en>In a demo, you are the bank's only customer.</t-en></p>
+<footer><t-fa>HMD-023 · صحنهٔ آشنا، نه داده</t-fa><t-en>HMD-023 · a familiar scene, not data</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>Story-Open. اول دستگاه نوبت، بعد تابلو روی ۰۰۳، بعد برگهٔ ۱۰۰ کهربایی. هیچ عددی از آزمایش نگو.</p><p>سرعتی که یک نفر در دمو می‌بیند، چیزی دربارهٔ ساعت شلوغ نمی‌گوید. پایان قاب: «من محمدم، اینجا هومودینه.» بعد کاور.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Story-Open. First the ticket machine, then the board at 003, then ticket 100 in amber. Say no number from the experiment.</p><p>The speed one person sees in a demo says nothing about the busy hour. End of beat: "I'm Mohammad, this is Homodyne." Then the cover.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>از HMD-022 به اینجا</t-fa><t-en>From HMD-022 to here</t-en></p>
+<h1><t-fa>دمو سریع است، چون <em>صفی</em> نیست</t-fa><t-en>The demo is fast because there is <em>no queue</em></t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>زمان تا اولین کلمه · TTFT</t-fa><t-en>Time to first word · TTFT</t-en></span><b class="word"><t-fa>«دارد کار می‌کند»</t-fa><t-en>"It's working"</t-en></b><p><t-fa>از فرستادن سؤال تا اولین کلمهٔ جواب روی صفحه</t-fa><t-en>From sending the question to the first word of the answer on screen</t-en></p></div>
+<div><span><t-fa>زمان تا آخر جواب</t-fa><t-en>Time to the whole answer</t-en></span><b class="word"><t-fa>«کارم راه افتاد»</t-fa><t-en>"I can get on with it"</t-en></b><p><t-fa>از فرستادن سؤال تا آخرین کلمه</t-fa><t-en>From sending the question to the last word</t-en></p></div>
+</div>
+<p class="caption"><t-fa>قسمت قبل: هر سؤال تنها. امروز: صد نفر در یک دقیقه، ساعت ۹ صبح.</t-fa><t-en>Last episode: one question at a time. Today: a hundred people in one minute, at 9 a.m.</t-en></p>
+<footer><t-fa>HMD-022 · «برای هر سؤال، گران‌ترین AI لازم است؟»</t-fa><t-en>HMD-022 · "Do we need the most expensive AI for every question?"</t-en></footer>
+<aside class="notes"><t-fa><b>دمو سریع بود، چون صفی نبود</b><p>پل از تیزر HMD-022. دو تایمر روی یک جواب: اولی کهربایی. پایان قاب: وعدهٔ «قانون سرانگشتی».</p><p>دمو سریع است چون صف ندارد؛ ما دو زمان را می‌سنجیم: تا اولین کلمه، و تا آخر جواب.</p></t-fa><t-en><b>The demo was fast because there was no queue</b><p>Bridge from the HMD-022 teaser. Two timers on one answer: the first in amber. End of beat: the promise of "a rule of thumb".</p><p>The demo is fast because it has no queue; we measure two times: to the first word, and to the end of the answer.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="95">
+<p class="kicker"><t-fa>قول سرویس (SLO)، پیش از هر آزمایش</t-fa><t-en>The service promise (SLO), before any test</t-en></p>
+<h1><t-fa>۹۵٪ <em>درخواست‌ها</em> اولین کلمه را زیر ۳ ثانیه ببینند؛ کمتر از ۱٪ خطا</t-fa><t-en>95% of <em>requests</em> see the first word within 3 s; fewer than 1% fail</t-en></h1>
+<div class="code"><span class="c">// the same promise as load-test thresholds (k6 style)</span>
+thresholds: {
+  ttft:   [<span class="o">'p(95)&lt;3000'</span>],   <span class="c">// 95% see the first word within 3 s</span>
+  failed: [<span class="o">'rate&lt;0.01'</span>],     <span class="c">// fewer than 1% time out or get "busy"</span>
+}</div>
+<p class="tag"><t-fa>مخرج: همهٔ درخواست‌های فرستاده‌شده، حتی بی‌جواب‌ها · درخواست، نه کاربر · ۳ ثانیه انتخاب ماست</t-fa><t-en>Denominator: every request sent, unanswered ones included · requests, not users · 3 s is our choice</t-en></p>
+<footer><t-fa>R01 · Google SRE Book، فصل ۴ · R04 · k6، Thresholds</t-fa><t-en>R01 · Google SRE Book, ch. 4 · R04 · k6, Thresholds</t-en></footer>
+<aside class="notes"><t-fa><b>قول سرویس در یک جمله</b><p>جمله تایپ شود؛ «درخواست‌ها» کهربایی. k6 فقط یک خط: «همین قول، شرط قبولی آزمایش».</p><p>پیش از آزمایش، «خوب» را در یک جملهٔ وارسی‌پذیر می‌نویسیم؛ مخرجش همهٔ درخواست‌هاست.</p></t-fa><t-en><b>The promise in one sentence</b><p>Type the sentence; "requests" in amber. k6 gets one line: "the same promise, as the test's pass condition".</p><p>Before the test we write "good" as one checkable sentence; its denominator is every request.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="150">
+<p class="kicker"><t-fa>چرا میانگین نه؟</t-fa><t-en>Why not the average?</t-en></p>
+<h1><t-fa>میانگین، بدترین‌ها را <em>پنهان</em> می‌کند</t-fa><t-en>The average <em>hides</em> the worst</t-en></h1>
+<div class="cols">
+<div><span><t-fa>میانگین انتظار · ۲۰ نفر</t-fa><t-en>Average wait · 20 people</t-en></span><b><t-fa>≈ ۷<small> دقیقه</small></t-fa><t-en>≈ 7<small> min</small></t-en></b><p><t-fa>«بد نیست، نه؟»</t-fa><t-en>"Not bad, right?"</t-en></p></div>
+<div class="hi"><span><t-fa>صدک نود و پنجم · p95</t-fa><t-en>95th percentile · p95</t-en></span><b><t-fa>۴۰<small> دقیقه</small></t-fa><t-en>40<small> min</small></t-en></b><p><t-fa>زمانی که ۹۵٪ آدم‌ها زیرش هستند</t-fa><t-en>The time 95% of people come in under</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>۱۸ نفر ۲ تا ۴ دقیقه، ۲ نفر ۴۰ دقیقه · با ۱۰ درخواست، p95 همان بدترین است: همیشه بگو از چند تا</t-fa><t-en>18 people wait 2 to 4 min, 2 people 40 min · with 10 requests, p95 is just the worst one: always say out of how many</t-en></p>
+<footer><t-fa>R01 · «We generally prefer to work with percentiles rather than the mean»</t-fa><t-en>R01 · "We generally prefer to work with percentiles rather than the mean"</t-en></footer>
+<aside class="notes"><t-fa><b>[UNEXPECTED STAT] صدک نود و پنجم</b><p>بیست آدمک؛ دو تا کهربایی با ۴۰ دقیقه. اول میانگین، بعد چیدن از کم به زیاد و خط p95.</p><p>میانگین آن یک نفر از هر ده نفر را که چهل دقیقه نشست پنهان می‌کند؛ صدک نود و پنجم نه.</p></t-fa><t-en><b>[UNEXPECTED STAT] The 95th percentile</b><p>Twenty figures; two amber ones at 40 minutes. First the average, then sort from low to high and drop the p95 line.</p><p>The average hides the one in ten who waited forty minutes; the 95th percentile does not.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="200">
+<p class="kicker"><t-fa>سرویس ساختگی · بانک ساختگی ما</t-fa><t-en>Simulated service · our simulated bank</t-en></p>
+<div class="code sm"><span class="o">HOMODYNE · AI LOAD LAB · HMD-023   SIMULATED SERVICE (ILLUSTRATIVE)</span>
+<span class="c">target 127.0.0.1 · 4 slots</span>
+stage 50 users · closed loop, think ~20s · t = 120s / 120s
+<span class="c">SLO: 95% of requests see the first word within 3s · fewer than 1% fail</span>
+
+waiting for first word  ██████████████████████████░░░░░░░░░░
+streaming an answer     ████████████████████████████████████    4
+queue over time         ▁▂▆█▇▆▆▅▆▅▅▆▅▄▅▅▅▄▄▄▃▄▃▃▂
+
+this stage  sent  224 · ok  224 · timeout   0 · busy (503)   0
+first word   p50  11.1s   p95  16.0s   <span class="o">SLO broken (5% good)</span></div>
+<p class="tag"><b><t-fa>شبیه‌سازی</t-fa><t-en>SIMULATED</t-en></b><t-fa>۴ جای کار · یک صف · کلمه‌به‌کلمه با سرعتی که خودمان تنظیم کردیم · مدل ندارد</t-fa><t-en>4 slots · one queue · word by word at a speed we set · no model</t-en></p>
+<footer><t-fa>artifact/fake_server.py · artifact/dashboard.py · فقط <bdi dir="ltr">127.0.0.1</bdi></t-fa><t-en>artifact/fake_server.py · artifact/dashboard.py · 127.0.0.1 only</t-en></footer>
+<aside class="notes"><t-fa><b>[MID-CTA] بانک ساختگی</b><p>اول CTA نرم (کد در توضیحات؛ بدون مدل و بدون حساب پولی). بعد ضبط واقعی داشبورد با --timescale 1. برچسب SIMULATED همیشه دیده شود.</p><p>سرویس ساختگی صف را دیدنی می‌کند؛ عددهایش آموزشی‌اند، نه اندازهٔ یک محصول واقعی.</p></t-fa><t-en><b>[MID-CTA] The simulated bank</b><p>Soft CTA first (code in the description; no model and no paid account). Then a real recording of the dashboard at --timescale 1. The SIMULATED label stays visible.</p><p>The simulated service makes the queue visible; its numbers are for teaching, not the size of a real product.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="260">
+<p class="kicker"><t-fa>بار بسته، بار باز</t-fa><t-en>Closed loop, open loop</t-en></p>
+<h1><t-fa>۱۰۰ کاربر <em>≠</em> ۱۰۰ درخواست در ثانیه</t-fa><t-en>100 users <em>≠</em> 100 requests per second</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>بار بسته · مشتری‌های همیشگی</t-fa><t-en>Closed loop · regular customers</t-en></span><b class="word"><t-fa>بپرس ← بخوان ← فکر کن</t-fa><t-en>Ask → read → think</t-en></b><p><t-fa>هر کاربر حدود ۲۰ ثانیه فکر می‌کند؛ ۱۰۰ کاربر حداکثر حدود ۵ درخواست در ثانیه. سرویس کند شود، کمتر می‌پرسند.</t-fa><t-en>Each user thinks about 20 s; 100 users send at most about 5 requests per second. If the service slows, they ask less.</t-en></p></div>
+<div><span><t-fa>بار باز · آدم‌های خیابان</t-fa><t-en>Open loop · people off the street</t-en></span><b class="word"><t-fa>نرخ ثابت</t-fa><t-en>A fixed rate</t-en></b><p><t-fa>درخواست‌ها با نرخ ثابت می‌رسند، چه سرویس عقب باشد چه نه.</t-fa><t-en>Requests arrive at a fixed rate, whether the service is behind or not.</t-en></p></div>
+</div>
+<p class="caption"><t-fa>«صد کاربر را تحمل می‌کند» را بپرس: با چه فاصله‌ای بین سؤال‌ها؟ با چه جواب‌های بلندی؟</t-fa><t-en>"It handles a hundred users": ask with what gap between questions, and how long the answers are.</t-en></p>
+<footer><t-fa>R05 · k6، Open and closed models · R02 · SRE Book، فصل ۲۱</t-fa><t-en>R05 · k6, Open and closed models · R02 · SRE Book, ch. 21</t-en></footer>
+<aside class="notes"><t-fa><b>صد کاربر، صد درخواست در ثانیه نیست</b><p>چپ: چرخهٔ «بپرس، بخوان، فکر کن». راست: در بانک رو به خیابان. ۵ = ۱۰۰ ÷ ۲۰، اگر جواب فوری باشد.</p><p>«کاربر هم‌زمان» و «درخواست در ثانیه» دو عدد جدا هستند؛ بدون الگوی رفتار کاربر، قابل‌مقایسه نیستند.</p></t-fa><t-en><b>A hundred users are not a hundred requests per second</b><p>Left: the "ask, read, think" cycle. Right: the bank door onto the street. 5 = 100 ÷ 20, if answers were instant.</p><p>"Concurrent users" and "requests per second" are two different numbers; without the users' behaviour they cannot be compared.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="315">
+<p class="kicker"><t-fa>سرویس ساختگی · ۱، ۱۰، ۵۰، ۱۰۰ کاربر · هر مرحله ۲ دقیقه</t-fa><t-en>Simulated service · 1, 10, 50, 100 users · 2 minutes each</t-en></p>
+<h1><t-fa>۵ برابر کاربر، <em>بیش از ۳۰ برابر</em> انتظار</t-fa><t-en>5 times the users, <em>over 30 times</em> the wait</t-en></h1>
+<div class="bars">
+<div><span><t-fa>۱ کاربر · ۶ درخواست</t-fa><t-en>1 user · 6 requests</t-en></span><i style="--v:1.3"></i><span><t-fa>۰٫۳۹ ثانیه</t-fa><t-en>0.39 s</t-en></span></div>
+<div><span><t-fa>۱۰ کاربر · ۵۹ درخواست</t-fa><t-en>10 users · 59 requests</t-en></span><i style="--v:1.4"></i><span><t-fa>۰٫۴۳ ثانیه</t-fa><t-en>0.43 s</t-en></span></div>
+<div class="hi"><span><t-fa>۵۰ کاربر · ۲۲۴ درخواست</t-fa><t-en>50 users · 224 requests</t-en></span><i style="--v:53"></i><span><t-fa>۱۶٫۰ ثانیه</t-fa><t-en>16.0 s</t-en></span></div>
+<div class="hi"><span><t-fa>۱۰۰ کاربر · ۳۱۷ درخواست</t-fa><t-en>100 users · 317 requests</t-en></span><i style="--v:100"></i><span><t-fa>سقف ۳۰ ثانیه</t-fa><t-en>30 s cap</t-en></span></div>
+</div>
+<p class="tag"><b><t-fa>شبیه‌سازی</t-fa><t-en>SIMULATED</t-en></b><t-fa>صدک نود و پنجم زمان تا اولین کلمه · سقف ۳۰ ثانیه؛ با ۱۰۰ کاربر ۹۱ درخواست جواب کامل نگرفت (۷۰ تا اولین کلمه را دیده بودند) · جواب کامل در ثانیه: ۵۰ کاربر ۱٫۷۳، ۱۰۰ کاربر ۱٫۵۲</t-fa><t-en>95th percentile of time to first word · 30 s cap; with 100 users, 91 requests never got a full answer (70 had seen the first word) · full answers per second: 50 users 1.73, 100 users 1.52</t-en></p>
+<footer><t-fa>artifact/results/simulated/summary.md · charts/ramp.png</t-fa><t-en>artifact/results/simulated/summary.md · charts/ramp.png</t-en></footer>
+<aside class="notes"><t-fa><b>[SOUND EFFECT] چهار مرحله</b><p>حدس پیش از میلهٔ ۵۰. ۱۰۰ کاربر در ۲ دقیقه ۳۱۷ درخواست فرستادند: کمتر از ۳ در ثانیه. مرحلهٔ ۲۵ کاربر هم در summary.md هست (p95 حدود ۴٫۳ ثانیه)؛ گفته نمی‌شود. «هر بار اجرا کنی، عددها یه کم فرق می‌کنن؛ شکل منحنی نه.»</p><p>در سرویس ساختگی، از ده به پنجاه کاربر، انتظار پنج برابر نشد؛ چند ده برابر شد.</p></t-fa><t-en><b>[SOUND EFFECT] Four stages</b><p>Guess before the 50 bar. 100 users sent 317 requests in 2 minutes: under 3 per second. The 25-user stage is also in summary.md (p95 about 4.3 s); it is not spoken. "Every run moves the numbers a little; not the shape of the curve."</p><p>In the simulated service, going from ten to fifty users did not multiply the wait by five; it multiplied it by dozens.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="400">
+<p class="kicker"><t-fa>سرویس ساختگی · بار باز، نرخ ثابت</t-fa><t-en>Simulated service · open loop, a fixed rate</t-en></p>
+<h1><t-fa>انتظار آرام بالا نمی‌رود؛ <em>می‌پرد</em></t-fa><t-en>Waiting doesn't climb gently; <em>it jumps</em></t-en></h1>
+<svg class="chart wall" viewBox="0 0 1100 520" direction="ltr" role="img">
+<rect class="cap" x="878" y="40" width="162" height="400"/>
+<line class="grid" x1="120" y1="297" x2="1040" y2="297"/><line class="grid" x1="120" y1="154" x2="1040" y2="154"/>
+<line class="axis" x1="120" y1="440" x2="1040" y2="440"/><line class="axis" x1="120" y1="40" x2="120" y2="440"/>
+<line class="slo" x1="120" y1="354" x2="1040" y2="354"/>
+<polyline class="p50" points="174,431 445,431 580,430 715,413 851,379 986,253"/>
+<polyline class="p95" points="174,412 445,370 580,354 715,321 851,305 986,84"/>
+<circle class="pt" cx="445" cy="370" r="10"/><circle class="pt" cx="851" cy="305" r="10"/><circle class="pt" cx="986" cy="84" r="13"/>
+<text x="460" y="412"><t-fa>۲٫۴۵</t-fa><t-en>2.45</t-en></text><text x="770" y="288"><t-fa>۴٫۷</t-fa><t-en>4.7</t-en></text><text x="880" y="86"><t-fa>۱۲٫۵</t-fa><t-en>12.5</t-en></text>
+<text class="lab" x="20" y="30"><t-fa>ثانیه</t-fa><t-en>seconds</t-en></text>
+<text class="lab" x="160" y="342"><t-fa>قول: ۳ ثانیه</t-fa><t-en>Promise: 3 s</t-en></text>
+<text class="lab" x="1040" y="30" text-anchor="end"><t-fa>ظرفیت: حدود ۱٫۸ جواب در ثانیه</t-fa><t-en>Capacity: about 1.8 answers per second</t-en></text>
+<text class="lab" x="160" y="480">0.5</text><text class="lab" x="430" y="480">1.0</text><text class="lab" x="700" y="480">1.5</text><text class="lab" x="970" y="480">2.0</text>
+<text class="lab" x="70" y="448">0</text><text class="lab" x="70" y="305">5</text><text class="lab" x="56" y="162">10</text>
+<text class="lab" x="420" y="515"><t-fa>درخواست در ثانیه</t-fa><t-en>Requests per second</t-en></text>
+</svg>
+<p class="tag"><b><t-fa>شبیه‌سازی</t-fa><t-en>SIMULATED</t-en></b><t-fa>کهربایی: صدک نود و پنجم · خاکستری: میانه · قول تا ۱٫۲۵ درخواست در ثانیه ماند، حدود دوسوم ظرفیت · نقطهٔ ۲٫۰ بالای ظرفیت است: صف هنوز رو به رشد بود</t-fa><t-en>Amber: 95th percentile · grey: median · the promise held up to 1.25 requests per second, about two thirds of capacity · the 2.0 point is above capacity: the queue was still growing</t-en></p>
+<footer><t-fa>artifact/results/simulated/summary.md · charts/open-loop.png · هر نرخ ۲ دقیقه، الگوی رسیدن یکسان</t-fa><t-en>artifact/results/simulated/summary.md · charts/open-loop.png · 2 minutes per rate, same arrival pattern</t-en></footer>
+<aside class="notes"><t-fa><b>[GRAPHIC] دیوار</b><p>نقطهٔ ۲٫۰ را پنهان نگه دار تا «حدس بزن». ظرفیت = حدود ۱٫۸ جواب کامل در ثانیه (گذردهی در ۲ درخواست در ثانیه، summary.md). ۴ باجه ÷ ۱٫۸ ≈ هر باجه هر ۲٫۲ ثانیه یک جواب.</p><p>نزدیک ظرفیت، انتظار آرام بالا نمی‌رود؛ می‌پرد، و قول سرویس خیلی زودتر از ظرفیت می‌شکند.</p></t-fa><t-en><b>[GRAPHIC] The wall</b><p>Hide the 2.0 point until "guess". Capacity = about 1.8 full answers per second (throughput at 2 requests per second, summary.md). 4 tellers ÷ 1.8 ≈ one answer every 2.2 s per teller.</p><p>Near capacity the wait doesn't climb gently; it jumps, and the promise breaks well before capacity.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="465">
+<p class="kicker"><t-fa>قانون لیتل · ۱۹۶۱</t-fa><t-en>Little's law · 1961</t-en></p>
+<h1 class="formula">L = λ × W</h1>
+<div class="cols">
+<div><span><t-fa>بانک</t-fa><t-en>The bank</t-en></span><b class="word"><t-fa>۱ در دقیقه × ۱۰ دقیقه = ۱۰ نفر</t-fa><t-en>1 a minute × 10 minutes = 10 people</t-en></b><p><t-fa>آدم‌های داخل = نرخ آمدن × مدت ماندن</t-fa><t-en>People inside = arrival rate × time spent</t-en></p></div>
+<div><span><t-fa>شبیه‌سازی · ۱٫۵ درخواست در ثانیه</t-fa><t-en>Simulation · 1.5 requests per second</t-en></span><b class="word"><t-fa>شمارش ۴٫۹ · حساب ۴٫۹</t-fa><t-en>Counted 4.9 · computed 4.9</t-en></b><p><t-fa>میانگین درخواست‌های داخل سرویس، در کل مرحله</t-fa><t-en>Mean requests inside the service, over the whole stage</t-en></p></div>
+<div class="hi"><span><t-fa>برعکسش: سقف صف</t-fa><t-en>The other way round: a queue limit</t-en></span><b class="word"><t-fa>۱٫۸ × ۳ ≈ ۵ ← سقف ۴</t-fa><t-en>1.8 × 3 ≈ 5 → limit 4</t-en></b><p><t-fa>۱٫۸ جواب در ثانیه وقتی پر است × ۳ ثانیه قول؛ با حاشیه، ۴ نفر</t-fa><t-en>1.8 answers per second when full × the 3 s promise; with a margin, 4 people</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>شبیه‌سازی</t-fa><t-en>SIMULATED</t-en></b><t-fa>ستون وسط از سرویس ساختگی · قانون برای میانگین بلندمدتِ سیستمی پایدار است</t-fa><t-en>The middle column is from the simulated service · the law holds for long-run averages of a stable system</t-en></p>
+<footer><t-fa>R06 · Little، Operations Research ۹(۳)، ۱۹۶۱</t-fa><t-en>R06 · Little, Operations Research 9(3), 1961</t-en></footer>
+<aside class="notes"><t-fa><b>[GRAPHIC] قانون لیتل</b><p>اول مثال بانک، بعد فرمول، بعد تطبیق با شبیه‌سازی، بعد ستون کهربایی «سقف صف».</p><p>قانون لیتل از دو عدد آشنا طول صف را می‌دهد؛ و برعکس، سقف مجاز صف را.</p></t-fa><t-en><b>[GRAPHIC] Little's law</b><p>Bank example first, then the formula, then the match with the simulation, then the amber "queue limit" column.</p><p>Little's law turns two familiar numbers into the length of the queue; and the other way round, into the queue's limit.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="520">
+<p class="kicker"><t-fa>حالا یک مدل واقعی · لپ‌تاپ خودم</t-fa><t-en>Now a real model · my own laptop</t-en></p>
+<h1><t-fa>Ollama · <bdi dir="ltr">qwen2.5:1.5b</bdi> · بار <em>اول</em> و بارهای بعد</t-fa><t-en>Ollama · qwen2.5:1.5b · the <em>first</em> try and the rest</t-en></h1>
+<div class="cols">
+<div><span><t-fa>بار اول (سرد) · اولین کلمه</t-fa><t-en>First try (cold) · first word</t-en></span><b class="word">—</b><p><t-fa>مدل از دیسک به حافظه · فقط بار اول واقعاً سرد است</t-fa><t-en>Model loads from disk · only the first try is truly cold</t-en></p></div>
+<div><span><t-fa>گرم · اولین کلمه</t-fa><t-en>Warm · first word</t-en></span><b class="word">—</b><p><t-fa>همان سؤال، بلافاصله بعد · میانهٔ ۳ بار</t-fa><t-en>The same question, right after · median of 3</t-en></p></div>
+<div class="hi"><span><t-fa>بیشترین جواب هم‌زمان (اندازه‌گرفته)</t-fa><t-en>Most answers at once (measured)</t-en></span><b class="word">—</b><p><t-fa>OLLAMA_NUM_PARALLEL واردشده: — · تراشه و حافظه: —</t-fa><t-en>OLLAMA_NUM_PARALLEL as set: — · chip and memory: —</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>عددها از load_lab.py report · مدل ۹۸۶ مگابایت، مجوز Apache 2.0 · بدون حساب پولی</t-fa><t-en>Numbers from load_lab.py report · model 986 MB, Apache 2.0 licence · no paid account</t-en></p>
+<footer><t-fa>R07 · Ollama FAQ · R09 · ollama.com/library/qwen2.5 · artifact/results/runs/ · تاریخ اجرا: —</t-fa><t-en>R07 · Ollama FAQ · R09 · ollama.com/library/qwen2.5 · artifact/results/runs/ · run date: —</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK] [RUN] لپ‌تاپ واقعی</b><p>یک ثانیه سکوت. هیچ عددی پیش از report نگو؛ جمله‌ها را عیناً از report بخوان. عدد هم‌زمانی را از اجرا بخوان، نه از تنظیم. سرد و گرم هرگز در یک میانگین.</p><p>روی لپ‌تاپ واقعی، بار اول و بارهای بعد را جدا می‌سنجیم و هم‌زمانی را از خود اجرا می‌خوانیم.</p></t-fa><t-en><b>[RE-HOOK] [RUN] The real laptop</b><p>One second of silence. Say no number before the report; read its sentences verbatim. Read concurrency from the run, not from the setting. Never mix cold and warm in one average.</p><p>On the real laptop we measure the first try and later tries separately, and read concurrency from the run itself.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="585">
+<p class="kicker"><t-fa>لپ‌تاپ زیر بار · همان پلکان</t-fa><t-en>The laptop under load · the same steps</t-en></p>
+<h1><t-fa>قول ۳ ثانیه‌ای کجا <em>شکست</em>؟</t-fa><t-en>Where did the 3-second promise <em>break</em>?</t-en></h1>
+<table class="t">
+<tr><th><t-fa>کاربر</t-fa><t-en>Users</t-en></th><th><t-fa>درخواست</t-fa><t-en>Requests</t-en></th><th><t-fa>اولین کلمه · p95</t-fa><t-en>First word · p95</t-en></th><th><t-fa>بی‌جواب</t-fa><t-en>Unanswered</t-en></th><th><t-fa>قول</t-fa><t-en>Promise</t-en></th></tr>
+<tr><td><t-fa>۱</t-fa><t-en>1</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>۱۰</t-fa><t-en>10</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>۵۰</t-fa><t-en>50</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr class="hi"><td><t-fa>۱۰۰</t-fa><t-en>100</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>یک لپ‌تاپ، یک مدل، یک الگوی بار · فکر ~۲۰ ثانیه، جواب تا ۱۶۰ توکن، سقف ۳۰ ثانیه · با سرور دیگری قابل‌مقایسه نیست</t-fa><t-en>One laptop, one model, one load pattern · think ~20 s, answers up to 160 tokens, 30 s timeout · not comparable with any other server</t-en></p>
+<footer><t-fa>artifact/results/runs/ · load_lab.py report · جواب کامل در دقیقه: — · ثانیهٔ لپ‌تاپ برای هر جواب: —</t-fa><t-en>artifact/results/runs/ · load_lab.py report · whole answers per minute: — · laptop seconds per answer: —</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] لپ‌تاپ زیر بار</b><p>عددها و شاخهٔ جملهٔ «اولین بار با … کاربر شکست» را report انتخاب می‌کند. ردیف اولی که قول شکست کهربایی شود.</p><p>روی این لپ‌تاپ هم قول سه‌ثانیه‌ای از جایی به بعد نگه داشته نمی‌شود؛ آن نقطه را فقط عدد همین اجرا می‌گوید.</p></t-fa><t-en><b>[RUN] The laptop under load</b><p>The report picks the numbers and the "first broke at … users" sentence. Make the first row that broke the promise amber.</p><p>On this laptop too, the three-second promise stops holding at some point; only this run's numbers say where.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="645">
+<p class="kicker"><t-fa>سرویس ساختگی · تصمیم محصولی · ۱۰۰ کاربر</t-fa><t-en>Simulated service · the product decision · 100 users</t-en></p>
+<h1><t-fa>صف را ببند، جواب را کوتاه کن، یا <em>باجه بیفزا</em>؟</t-fa><t-en>Cap the queue, shorten, or <em>add tellers</em>?</t-en></h1>
+<table class="t">
+<tr><th><t-fa>سیاست (انتخاب ما)</t-fa><t-en>Policy (our choice)</t-en></th><th><t-fa>قول را گرفتند</t-fa><t-en>Within the promise</t-en></th><th><t-fa>فوراً «شلوغ است»</t-fa><t-en>Told "busy" at once</t-en></th><th><t-fa>۳۰ ثانیه، بی جواب کامل</t-fa><t-en>30 s, no full answer</t-en></th><th><t-fa>جواب کامل</t-fa><t-en>Full answers</t-en></th></tr>
+<tr><td><t-fa>بدون اهرم</t-fa><t-en>No lever</t-en></td><td><t-fa>۳٪</t-fa><t-en>3%</t-en></td><td><t-fa>۰٪</t-fa><t-en>0%</t-en></td><td><t-fa>۲۹٪</t-fa><t-en>29%</t-en></td><td><t-fa>۲۲۵</t-fa><t-en>225</t-en></td></tr>
+<tr><td><t-fa>سقف صف (۴)</t-fa><t-en>Queue cap (4)</t-en></td><td><t-fa>۳۱٪</t-fa><t-en>31%</t-en></td><td><t-fa>۶۵٪</t-fa><t-en>65%</t-en></td><td><t-fa>۰٪</t-fa><t-en>0%</t-en></td><td><t-fa>۲۱۸</t-fa><t-en>218</t-en></td></tr>
+<tr class="hi"><td><t-fa>سقف صف + جواب کوتاه</t-fa><t-en>Cap + short answers</t-en></td><td><t-fa>۶۰٪</t-fa><t-en>60%</t-en></td><td><t-fa>۴۰٪</t-fa><t-en>40%</t-en></td><td><t-fa>۰٪</t-fa><t-en>0%</t-en></td><td><t-fa>۳۷۶</t-fa><t-en>376</t-en></td></tr>
+<tr><td><t-fa>۲× جای کار، همان سخت‌افزار</t-fa><t-en>2× slots, same hardware</t-en></td><td><t-fa>۳٪</t-fa><t-en>3%</t-en></td><td><t-fa>۰٪</t-fa><t-en>0%</t-en></td><td><t-fa>۳٪</t-fa><t-en>3%</t-en></td><td><t-fa>۳۶۵</t-fa><t-en>365</t-en></td></tr>
+</table>
+<p class="sub"><t-fa>سقف صف <em>همیشه</em> ← دقیقه‌ها پر: جواب کوتاه (امتحان‌نشده) ← هر روز ۹ صبح: ظرفیت</t-fa><t-en>Queue cap <em>always</em> → full for minutes: shorten (untested) → daily at 9: capacity</t-en></p>
+<p class="tag"><b><t-fa>شبیه‌سازی</t-fa><t-en>SIMULATED</t-en></b><t-fa>مخرج: همهٔ درخواست‌ها (۳۱۷، ۶۲۵، ۶۲۶، ۳۷۵) · کندشدن جای کارها کنار هم، فرض ماست</t-fa><t-en>Denominator: every request (317, 625, 626, 375) · slots slowing each other is our assumption</t-en></p>
+<footer><t-fa>policies.csv · طول جواب ۱۱۷، ۱۲۲، ۶۲، ۱۲۲ توکن · ثانیهٔ باجه برای هر جواب موفق ۲٫۶۵، ۲٫۲۷، ۱٫۳۰، ۲٫۹۶ · R02، R03</t-fa><t-en>policies.csv · answer length 117, 122, 62, 122 tokens · slot-seconds per successful answer 2.65, 2.27, 1.30, 2.96 · R02, R03</t-en></footer>
+<aside class="notes"><t-fa><b>[GRAPHIC] سه اهرم</b><p>ردیف «صف محدود + جواب کوتاه» کهربایی. یادآوری: کسی که «شلوغ است» شنید و ۲۰ ثانیه بعد دوباره پرسید، درخواست تازه حساب می‌شود؛ برای همین مخرج‌ها فرق دارند. جواب‌گرفته‌های سقف صف: p95 حدود ۳٫۲ ثانیه. «دو برابر جای کار» روی همان سخت‌افزار است و نتیجه‌اش از فرض کندشدن ۱۰٪ می‌آید (sources.md).</p><p>صف محدود و جواب کوتاه وقت می‌خرند؛ ظرفیت نمی‌سازند. وقتی شلوغی هر روزی شد، ظرفیت بخر.</p></t-fa><t-en><b>[GRAPHIC] Three levers</b><p>The "bounded queue + short answers" row in amber. Reminder: someone told "busy" who asks again 20 s later counts as a new request, which is why the denominators differ. Served requests under the queue cap: p95 about 3.2 s. "Double slots" runs on the same hardware, and its result follows from the 10% slow-down assumption (sources.md).</p><p>A bounded queue and short answers buy time; they do not create capacity. When the rush is daily, buy capacity.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="745">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>شکل صف: نزدیک ظرفیت، انتظار می‌پرد · «کاربر هم‌زمان» با «درخواست در ثانیه» فرق دارد · قانون لیتل در هر مرحله برقرار بود</t-fa><t-en>The shape of a queue: near capacity, the wait jumps · "concurrent users" differ from "requests per second" · Little's law held in every stage</t-en></div>
+<div class="no"><b><t-fa>نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>سرعت هیچ محصول واقعی (پارامترهای ساختگی را ما انتخاب کردیم) · عدد لپ‌تاپ برای سخت‌افزار یا مدل یا الگوی بار دیگر · کیفیت جواب‌ها · هیچ آزمونی روی سرویس دیگران</t-fa><t-en>The speed of any real product (we chose the simulated parameters) · laptop numbers for other hardware, models or load patterns · answer quality · any test on someone else's service</t-en></div>
+</div>
+<footer><t-fa>artifact/results/simulated/meta.json · artifact/README.md</t-fa><t-en>artifact/results/simulated/meta.json · artifact/README.md</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>زیر ۴۰ ثانیه. ستون «نشان نمی‌دهد» کهربایی.</p><p>این آزمایش شکل صف را نشان می‌دهد، نه سرعت هیچ محصول واقعی را.</p></t-fa><t-en><b>Claim boundary</b><p>Under 40 seconds. The "does not show" column in amber.</p><p>This experiment shows the shape of a queue, not the speed of any real product.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="785">
+<p class="kicker"><t-fa>جواب کوتاه</t-fa><t-en>The short answer</t-en></p>
+<h1><t-fa>تا یک نقطه تقریباً هیچ؛ بعد انتظار <em>می‌پرد</em></t-fa><t-en>Almost nothing up to a point; then the wait <em>jumps</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>با چند نفر؟</t-fa><t-en>With how many?</t-en></b><t-fa>کاربر هم‌زمان، و فاصلهٔ بین سؤال‌ها</t-fa><t-en>Concurrent users, and the gap between questions</t-en></div>
+<div><b><t-fa>با چه الگویی؟</t-fa><t-en>In what pattern?</t-en></b><t-fa>طول جواب، سخت‌افزار، سرد یا گرم</t-fa><t-en>Answer length, hardware, cold or warm</t-en></div>
+<div class="hi"><b><t-fa>قولش چیست؟</t-fa><t-en>What is the promise?</t-en></b><t-fa>۹۵٪ درخواست‌ها، زیر چند ثانیه؟</t-fa><t-en>95% of requests, within how many seconds?</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: یک ابزار AI را یک بار ساعت شلوغ و یک بار نیمه‌شب امتحان کن؛ ثانیه‌های تا اولین کلمه را بشمار.</t-fa><t-en>Try it: test one AI tool at a busy hour and again at midnight; count the seconds to the first word.</t-en></p>
+<footer><t-fa>HMD-023 · زیر همین ویدیو بنویس</t-fa><t-en>HMD-023 · write it under this video</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت به تابلوی نوبت قاب ۱. جملهٔ «محصولی که برای یه نفر خوب کار می‌کنه، هنوز برای صد نفر آماده نیست».</p><p>پس جواب کوتاه: تا نزدیک ظرفیت تقریباً هیچ؛ بعد از آن انتظار می‌پرد و قول سرویس می‌شکند.</p></t-fa><t-en><b>The answer</b><p>Back to the ticket board from beat 1. The line "a product that works for one person isn't ready for a hundred yet".</p><p>So, the short answer: almost nothing until near capacity; after that the wait jumps and the promise breaks.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="820">
+<p class="kicker"><t-fa>قسمت بعد · HMD-024</t-fa><t-en>Next · HMD-024</t-en></p>
+<h1><t-fa>هوش مصنوعی <em>بدون اینترنت</em> واقعاً کار می‌کند؟</t-fa><t-en>Does AI really work <em>without the internet</em>?</t-en></h1>
+<p class="caption"><t-fa>امروز سرویس شلوغ بود. گاهی اصلاً در دسترس نیست. کابل را می‌کشیم بیرون.</t-fa><t-en>Today the service was crowded. Sometimes it is not reachable at all. We pull the cable out.</t-en></p>
+<footer><t-fa>هومودین · فصل ۲</t-fa><t-en>Homodyne · season 2</t-en></footer>
+<aside class="notes"><t-fa><b>[SOUND EFFECT] تیزر</b><p>صدای کشیدن کابل؛ وای‌فای خاموش، لپ‌تاپ روشن. End screen ۲۰ ثانیهٔ آخر.</p><p>قسمت بعد: از «سرویس شلوغ است» می‌رویم سراغ «سرویس در دسترس نیست».</p></t-fa><t-en><b>[SOUND EFFECT] Teaser</b><p>The sound of a cable pulled; Wi-Fi off, laptop still on. End screen for the last 20 seconds.</p><p>Next: from "the service is crowded" to "the service is out of reach".</p></t-en></aside>
+</section>

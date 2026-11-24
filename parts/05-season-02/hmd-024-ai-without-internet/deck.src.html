@@ -1,0 +1,227 @@
+<!-- HMD-024 · deck source. Build: python3 scripts/build-decks.py --only hmd-024  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 9–13 carry NOT RUN YET (values "—") until `offline_lab.py report` has produced real numbers. -->
+
+<section class="cover">
+<h1><t-fa>هوش مصنوعی بدون اینترنت <em>واقعاً</em> کار می‌کند؟</t-fa><t-en>Does AI <em>really</em> work without the internet?</t-en></h1>
+<p class="promise"><t-fa>وای‌فای خاموش، سی کار ثابت فارسی و انگلیسی روی یک لپ‌تاپ، کنار یک سرویس آنلاین: کدام کار بی‌اینترنت انجام می‌شود؟</t-fa><t-en>Wi-Fi off, thirty fixed Persian and English tasks on one laptop, next to an online service: which tasks still get done without the internet?</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>کل این هوش مصنوعی: روی هم کمتر از ۳٫۵ گیگابایت، <em>روی همین لپ‌تاپ</em></t-fa><t-en>The whole AI: under 3.5 GB in total, <em>on this laptop</em></t-en></h1>
+<div class="code sm"><span class="c">$ python3 offline_lab.py check --watch</span>
+  dns raw @1.1.1.1             reached
+  tcp 1.1.1.1:443              reached
+  ONLINE ✗  turn off Wi-Fi first (and unplug the cable)
+<span class="c">   … Wi-Fi off, cable out …</span>
+  dns raw @1.1.1.1             blocked   timeout
+  tcp 1.1.1.1:443              blocked   timeout
+<span class="o">  OFFLINE ✓  no DNS, no TCP to the public internet</span></div>
+<p class="caption"><t-fa>برنامه چند آدرس معروف اینترنت را امتحان می‌کند؛ همه باید بی‌جواب بمانند. مدل روی خود لپ‌تاپ است.</t-fa><t-en>The program tries a few well-known internet addresses; all of them must stay silent. The model lives on the laptop.</t-en></p>
+<footer><t-fa>HMD-024 · artifact/offline_check.py · بزرگ‌ترین فایل: gemma3:4b-it-q4_K_M، ۳٫۴ گیگ</t-fa><t-en>HMD-024 · artifact/offline_check.py · largest file: gemma3:4b-it-q4_K_M, 3.4 GB</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>Shock. اول فایل در Finder، بعد ترمینال قرمز؛ وای‌فای خاموش و کابل بیرون در یک برداشت پیوسته تا نوار سبز. هیچ نتیجه‌ای لو نده. پایان قاب: «من محمدم، اینجا هومودینه.»</p><p>هوش مصنوعی می‌تواند چند گیگابایت فایل روی لپ‌تاپ خودت باشد؛ سؤال این است که با آن چه کاری درست انجام می‌شود.</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Shock. First the file in Finder, then the red terminal; Wi-Fi off and cable out in one continuous take until the green bar. Give away no result. End of beat: "I'm Mohammad, this is Homodyne."</p><p>AI can be a few gigabytes of files on your own laptop; the question is which tasks it gets right.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="56">
+<p class="kicker"><t-fa>از HMD-023 به اینجا</t-fa><t-en>From HMD-023 to here</t-en></p>
+<h1><t-fa>این بار مشکل صف نیست: <em>اینترنت</em> نیست</t-fa><t-en>Not the queue this time: no <em>internet</em> at all</t-en></h1>
+<div class="cards">
+<div class="off"><b><t-fa>صف شلوغ</t-fa><t-en>A busy queue</t-en></b><t-fa>صد نفر هم‌زمان؛ جواب دیر می‌رسد. (HMD-023)</t-fa><t-en>A hundred people at once; answers arrive late. (HMD-023)</t-en></div>
+<div><b><t-fa>اینترنت قطع یا خیلی کند</t-fa><t-en>Internet cut or very slow</t-en></b><t-fa>هر ابزاری که به سرور دوردست وصل است، از کار می‌افتد.</t-fa><t-en>Every tool tied to a distant server stops working.</t-en></div>
+<div class="hi"><b><t-fa>مدل محلی</t-fa><t-en>A local model</t-en></b><t-fa>هوش مصنوعی‌ای که روی لپ‌تاپ یا گوشی خودت اجرا می‌شود، نه روی سرور یک شرکت.</t-fa><t-en>AI that runs on your own laptop or phone, not on a company's server.</t-en></div>
+</div>
+<p class="caption"><t-fa>تا آخر این قسمت: یک کارت از کارهایی که بی‌اینترنت می‌شود سپرد، و کارهایی که نه.</t-fa><t-en>By the end of this episode: a card of the tasks you can hand over without the internet, and the ones you cannot.</t-en></p>
+<footer><t-fa>HMD-023 · وقتی صد نفر هم‌زمان از AI سؤال کنند</t-fa><t-en>HMD-023 · When a hundred people ask the AI at once</t-en></footer>
+<aside class="notes"><t-fa><b>وقتی مشکل صف نیست</b><p>پل از تیزر HMD-023. قطعی اینترنت در یک جمله، بی‌تاریخ و بی‌سیاست. کارت سوم کهربایی.</p><p>مدل محلی برای روزی است که سرور دوردست در دسترس نیست؛ ولی باید دید چه کاری از دستش برمی‌آید.</p></t-fa><t-en><b>When the problem is not the queue</b><p>Bridge from the HMD-023 teaser. Internet cuts in one sentence, no dates, no politics. The third card is amber.</p><p>A local model is for the day the distant server is out of reach; but we have to see what it can actually do.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="106">
+<p class="kicker"><t-fa>منبع: llama.cpp · کوانتیزه‌کردن</t-fa><t-en>Source: llama.cpp · quantization</t-en></p>
+<h1><t-fa>همان مدل، رقم کمتر برای هر عدد: ۱۵ گیگ ← <em>۴٫۶ گیگ</em></t-fa><t-en>Same model, fewer digits per number: 15 GB → <em>4.6 GB</em></t-en></h1>
+<div class="bars">
+<div><span><t-fa>F16 · دقت کامل · ۱۶ بیت برای هر عدد</t-fa><t-en>F16 · full precision · 16 bits per number</t-en></span><i style="--v:100"></i><span><t-fa>۱۴٫۹۶ GiB</t-fa><t-en>14.96 GiB</t-en></span></div>
+<div><span><t-fa>Q8_0 · حدود ۸٫۵ بیت</t-fa><t-en>Q8_0 · about 8.5 bits</t-en></span><i style="--v:53.1"></i><span><t-fa>۷٫۹۵ GiB</t-fa><t-en>7.95 GiB</t-en></span></div>
+<div class="hi"><span><t-fa>Q4_K_M · حدود ۴٫۹ بیت</t-fa><t-en>Q4_K_M · about 4.9 bits</t-en></span><i style="--v:30.6"></i><span><t-fa>۴٫۵۸ GiB</t-fa><t-en>4.58 GiB</t-en></span></div>
+</div>
+<p class="tag"><t-fa>یک مدل در جدول خود llama.cpp، یعنی Llama 3.1 8B؛ نه مدل‌های ما · راهنما: «ممکن است کمی دقت از دست برود»</t-fa><t-en>One model in llama.cpp's own table (Llama 3.1 8B), not our models · the guide: "may introduce some accuracy loss"</t-en></p>
+<footer><t-fa>R02 · llama.cpp · tools/quantize/README.md · بازبینی ۲۳ نوامبر ۲۰۲۶</t-fa><t-en>R02 · llama.cpp · tools/quantize/README.md · checked 23 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>کوانتیزه‌کردن</b><p>اول عکس و نسخهٔ فشرده‌اش. بعد فقط میلهٔ ۱۵ گیگ؛ بپرس «چقدر؟»؛ مکث؛ بعد میلهٔ کهربایی. بگو «مدل ما نیست».</p><p>کوانتیزه‌کردن مدل را کوچک می‌کند تا روی لپ‌تاپ جا شود، به قیمت کمی دقت که باید سنجیده شود.</p></t-fa><t-en><b>Quantization</b><p>First the photo and its compressed copy. Then only the 15 GB bar; ask "how much?"; pause; then the amber bar. Say "not our model".</p><p>Quantization shrinks a model so it fits on a laptop, at the price of a little accuracy that has to be measured.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="168">
+<p class="kicker"><t-fa>دستگاه و مدل‌ها · بازبینی‌شده روی ollama.com، ۲۳ نوامبر ۲۰۲۶</t-fa><t-en>Device and models · checked on ollama.com, 23 Nov 2026</t-en></p>
+<h1><t-fa>مک‌بوک ایر M1 · ۸ گیگ · Ollama · سه مدل، <em>۱٫۹ تا ۳٫۴ گیگ</em></t-fa><t-en>MacBook Air M1 · 8 GB · Ollama · 3 models, <em>1.9 to 3.4 GB</em></t-en></h1>
+<table class="t">
+<tr><th><t-fa>برچسب Ollama</t-fa><t-en>Ollama tag</t-en></th><th><t-fa>روی دیسک</t-fa><t-en>On disk</t-en></th><th><t-fa>پارامتر</t-fa><t-en>Parameters</t-en></th><th><t-fa>ادعای کارت دربارهٔ زبان</t-fa><t-en>Card's language claim</t-en></th><th><t-fa>مجوز</t-fa><t-en>Licence</t-en></th></tr>
+<tr><td>qwen3.5:2b-q4_K_M</td><td><t-fa>۱٫۹ گیگ</t-fa><t-en>1.9 GB</t-en></td><td><t-fa>۱٫۸۸ میلیارد</t-fa><t-en>1.88 B</t-en></td><td><t-fa>۲۰۱ زبان و گویش</t-fa><t-en>201 languages and dialects</t-en></td><td>Apache 2.0</td></tr>
+<tr><td>qwen3.5:4b-q4_K_M</td><td><t-fa>۳٫۳ گیگ</t-fa><t-en>3.3 GB</t-en></td><td><t-fa>۴٫۲۱ میلیارد</t-fa><t-en>4.21 B</t-en></td><td><t-fa>۲۰۱ زبان و گویش</t-fa><t-en>201 languages and dialects</t-en></td><td>Apache 2.0</td></tr>
+<tr><td>gemma3:4b-it-q4_K_M</td><td><t-fa>۳٫۴ گیگ</t-fa><t-en>3.4 GB</t-en></td><td><t-fa>۳٫۸۸ میلیارد</t-fa><t-en>3.88 B</t-en></td><td><t-fa>بیش از ۱۴۰ زبان</t-fa><t-en>over 140 languages</t-en></td><td>Gemma Terms</td></tr>
+<tr class="hi"><td colspan="5"><t-fa>فارسی در هیچ‌کدام از کارت‌ها صریحاً نام برده نشده؛ باید خودمان امتحانش کنیم.</t-fa><t-en>Persian is not named on any of the cards; we have to test it ourselves.</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>همه Q4_K_M · پارامتر: عددهایی که مدل در یادگیری تنظیم کرده · Ollama با llama.cpp شروع شد و مدل‌های تازه را روی موتور خودش با کتابخانهٔ GGML اجرا می‌کند</t-fa><t-en>All Q4_K_M · parameters: the numbers a model tunes while learning · Ollama started on llama.cpp and runs newer models on its own engine with the GGML library</t-en></p>
+<footer><t-fa>R11 · R12 · R15 · R16 · R03</t-fa><t-en>R11 · R12 · R15 · R16 · R03</t-en></footer>
+<aside class="notes"><t-fa><b>یک لپ‌تاپ، سه مدل</b><p>ضبط صفحهٔ `plan`. ردیف «فارسی نام برده نشده» کهربایی. برچسب صریح (نه `qwen3.5:4b`) چون روی مک ممکن است ساخت MLX بیاید. جما: شرایط استفادهٔ Gemma و فهرست کاربردهای ممنوع؛ گوگل در خروجی‌ها حقی ادعا نمی‌کند.</p><p>سه مدل کوچک، یک لپ‌تاپ معمولی، و هیچ قول صریحی دربارهٔ فارسی.</p></t-fa><t-en><b>One laptop, three models</b><p>Screen recording of `plan`. The "Persian not named" row is amber. Explicit tags (not `qwen3.5:4b`) because on a Mac a short tag may pull an MLX build. Gemma: Gemma Terms of Use and its prohibited-use list; Google claims no rights in outputs.</p><p>Three small models, an ordinary laptop, and no explicit promise about Persian.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="220">
+<p class="kicker"><t-fa>همه ساختگی و نوشتهٔ هومودین · ۵ کار در هر دسته</t-fa><t-en>All synthetic, written by Homodyne · 5 tasks per category</t-en></p>
+<h1><t-fa>۳۰ کار · ۱۵ فارسی، ۱۵ انگلیسی · ۶ دسته · <em>پیش از هر اجرا</em> نوشته شد</t-fa><t-en>30 tasks · 15 Persian, 15 English · 6 categories · written <em>before any run</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>خلاصه در ۳ نکته</t-fa><t-en>Summarise in 3 points</t-en></b><t-fa>اطلاعیه، صورت‌جلسه</t-fa><t-en>Notices, meeting notes</t-en></div>
+<div><b><t-fa>بیرون‌کشیدن فیلد به JSON</t-fa><t-en>Extract fields to JSON</t-en></b><t-fa>تاریخ، مبلغ، اسم از فاکتور؛ HMD-020</t-fa><t-en>Dates, amounts, names from invoices; HMD-020</t-en></div>
+<div><b><t-fa>جواب از روی متن</t-fa><t-en>Answer from a passage</t-en></b><t-fa>۲ سؤال از ۵ جوابی در متن ندارند</t-fa><t-en>2 of 5 questions have no answer in the text</t-en></div>
+<div><b><t-fa>ترجمه</t-fa><t-en>Translate</t-en></b><t-fa>۲ بند فارسی ← انگلیسی، ۳ برعکس</t-fa><t-en>2 Persian → English, 3 the other way</t-en></div>
+<div><b><t-fa>دسته‌بندی</t-fa><t-en>Classify</t-en></b><t-fa>لحن یا موضوع یک پیام</t-fa><t-en>Tone or topic of a message</t-en></div>
+<div class="hi"><b><t-fa>عمداً سخت</t-fa><t-en>Hard on purpose</t-en></b><t-fa>استدلال چندمرحله‌ای؛ دفتر ۱۶۰ و ۲۲۰ خطی</t-fa><t-en>Multi-step reasoning; logs of 160 and 220 lines</t-en></div>
+</div>
+<footer><t-fa>artifact/task_bank.py · artifact/rules.json · قفل: ۲۳ نوامبر ۲۰۲۶</t-fa><t-en>artifact/task_bank.py · artifact/rules.json · locked 23 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>[MID-CTA] سی کار</b><p>اول CTA نرم (کد و selftest بدون نصب هیچ مدلی). بعد شش کارت؛ کارت «عمداً سخت» کهربایی.</p><p>سی کار روزمره و ساختگی، با یک دستهٔ عمداً سخت، که پیش از دیدن هر نتیجه‌ای قفل شده‌اند.</p></t-fa><t-en><b>[MID-CTA] Thirty tasks</b><p>Soft CTA first (the code and a selftest that needs no model installed). Then the six cards; "hard on purpose" is amber.</p><p>Thirty everyday, synthetic tasks, with one category that is hard on purpose, locked before any result was seen.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="280">
+<p class="kicker"><t-fa>کی می‌گوید درست است؟</t-fa><t-en>Who says it is right?</t-en></p>
+<h1><t-fa>جواب‌نامه هر جا ممکن است · ترجمه با چک کور · <em>بدون داور AI</em></t-fa><t-en>Answer key where possible · blind owner check for translation · <em>no AI judge</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>جواب‌نامه</t-fa><t-en>Answer key</t-en></span><b class="word"><t-fa>خودکار</t-fa><t-en>Automatic</t-en></b><p><t-fa>هر فیلد فاکتور، هر برچسب، هر عدد؛ خلاصه: دقیقاً ۳ نکته و همهٔ نکته‌های اصلی</t-fa><t-en>Every invoice field, label and number; summaries: exactly 3 points with every key point</t-en></p></div>
+<div class="hi"><span><t-fa>سؤال بی‌جواب</t-fa><t-en>Unanswerable question</t-en></span><b class="word">NOT_IN_TEXT</b><p><t-fa>هر جواب دیگری غلط است و جدا شمرده می‌شود: «جواب ساختگی»</t-fa><t-en>Any other reply is wrong and counted separately: an invented answer</t-en></p></div>
+<div><span><t-fa>ترجمه · ارزیابی کور</t-fa><t-en>Translation · blind grading</t-en></span><b class="word"><t-fa>۳ بار «آره»</t-fa><t-en>3 × yes</t-en></b><p><t-fa>معنی مانده؟ عدد و اسم درست؟ طبیعی خوانده می‌شود؟ کد به‌جای نام مدل</t-fa><t-en>Meaning kept? Numbers and names right? Reads naturally? A code instead of the model's name</t-en></p></div>
+</div>
+<footer><t-fa>artifact/graders.py · artifact/runs/blind/sheet.csv</t-fa><t-en>artifact/graders.py · artifact/runs/blind/sheet.csv</t-en></footer>
+<aside class="notes"><t-fa><b>نمره‌دادن</b><p>ستون وسط کهربایی. ضبط صفحهٔ sheet.csv با کدهای B001… و ستون‌های خالی.</p><p>هر جا جواب‌نامه هست ماشین نمره می‌دهد؛ ترجمه را خودم کور نمره می‌دهم.</p></t-fa><t-en><b>Grading</b><p>The middle column is amber. Screen recording of sheet.csv with codes B001… and empty columns.</p><p>Where there is an answer key the program grades; I grade translations myself, blind.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="333">
+<p class="kicker"><t-fa>چه چیزی را می‌سنجیم</t-fa><t-en>What we measure</t-en></p>
+<h1><t-fa>اولین کلمه · کل جواب · توکن در ثانیه · اوج حافظه · <em>برق = فرض</em></t-fa><t-en>First word · full answer · tokens per second · peak memory · <em>energy = assumption</em></t-en></h1>
+<div class="steps">
+<div class="hi"><b><t-fa>اولین کلمه</t-fa><t-en>First word</t-en></b><t-fa>از فرستادن سؤال تا اولین تکهٔ جواب</t-fa><t-en>From sending the question to the first piece of the answer</t-en></div>
+<div><b><t-fa>کل جواب</t-fa><t-en>Full answer</t-en></b><t-fa>تا آخرین تکه</t-fa><t-en>Until the last piece</t-en></div>
+<div><b><t-fa>توکن در ثانیه</t-fa><t-en>Tokens per second</t-en></b><t-fa>توکن: تکه‌ای که مدل با آن می‌خواند و می‌نویسد</t-fa><t-en>Token: the piece a model reads and writes in</t-en></div>
+<div><b><t-fa>اوج حافظه</t-fa><t-en>Peak memory</t-en></b><t-fa>عدد خود Ollama؛ کنارش نمونه‌برداری ما، ده بار در ثانیه</t-fa><t-en>Ollama's own figure; beside it, our sampling ten times a second</t-en></div>
+<div class="off"><b><t-fa>برق: فرض</t-fa><t-en>Energy: assumption</t-en></b><t-fa>وات × ثانیه ÷ ۳٬۶۰۰٬۰۰۰ = کیلووات‌ساعت</t-fa><t-en>watts × seconds ÷ 3,600,000 = kWh</t-en></div>
+</div>
+<p class="tag"><b><t-fa>فرض</t-fa><t-en>ASSUMPTION</t-en></b><t-fa>برق اندازه‌گیری نمی‌شود؛ اندازه‌گیری اختیاری با powermetrics، نیازمند sudo</t-fa><t-en>Energy is not measured; optional measurement with powermetrics (needs sudo)</t-en></p>
+<footer><t-fa>R04 · Ollama /api/chat (جریانی) · artifact/ollama_client.py · artifact/cost.json</t-fa><t-en>R04 · Ollama /api/chat (streaming) · artifact/ollama_client.py · artifact/cost.json</t-en></footer>
+<aside class="notes"><t-fa><b>سنجه‌ها</b><p>ضبط یک جواب در حال نوشته‌شدن با دو تایمر. «اولین کلمه» کهربایی.</p><p>سرعت را با سه زمان و حافظه را با نمونه‌برداری می‌سنجیم؛ برق یک فرض صریح است، نه اندازه‌گیری.</p></t-fa><t-en><b>Measures</b><p>Recording of an answer being written, with two timers. "First word" is amber.</p><p>We measure speed with three times and memory by sampling; energy is an explicit assumption, not a measurement.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="390">
+<p class="kicker"><t-fa>قانون بازی</t-fa><t-en>The rules of the game</t-en></p>
+<h1><t-fa>همان کارها · همان دستور · مدل گرم · نسخه ثبت‌شده · <em>بررسی آفلاین پیش، وسط، پس</em></t-fa><t-en>Same tasks · same prompt · warm model · version logged · <em>offline checked before, during, after</em></t-en></h1>
+<div class="steps">
+<div><b><t-fa>گرم‌کردن</t-fa><t-en>Warm-up</t-en></b><t-fa>بار اول جدا گزارش می‌شود</t-fa><t-en>The first load is reported separately</t-en></div>
+<div><b><t-fa>همان ورودی</t-fa><t-en>Same input</t-en></b><t-fa>همان ۳۰ کار، همان دستور، سقف ۱۰۲۴ توکن</t-fa><t-en>Same 30 tasks, same prompt, a 1,024-token cap</t-en></div>
+<div><b><t-fa>ثبت</t-fa><t-en>Logged</t-en></b><t-fa>برچسب مدل، نسخهٔ Ollama، تاریخ، هش قانون‌ها</t-fa><t-en>Model tag, Ollama version, date, rule hashes</t-en></div>
+<div class="hi"><b><t-fa>آفلاین؟</t-fa><t-en>Offline?</t-en></b><t-fa>پیش از شروع، هر ۱۰ کار، و در پایان</t-fa><t-en>Before starting, every 10 tasks, and at the end</t-en></div>
+<div><b><t-fa>آنلاین</t-fa><t-en>Online</t-en></b><t-fa>مدلی بسیار بزرگ‌تر، تنظیم‌های دیگر؛ زمان با شبکه</t-fa><t-en>Much larger model, other settings; time includes network</t-en></div>
+</div>
+<div class="code sm">$ python3 offline_lab.py run --local
+<span class="o">Refusing to run the local arm: this machine can still reach the internet.
+Turn off Wi-Fi first (and unplug any network cable), then run again.</span></div>
+<footer><t-fa>محلی: temperature 0، num_ctx 8192 · آنلاین: max_tokens 1024، effort low</t-fa><t-en>Local: temperature 0, num_ctx 8192 · online: max_tokens 1024, effort low</t-en></footer>
+<aside class="notes"><t-fa><b>قانون بازی</b><p>ضبط واقعی پیام رد وقتی وای‌فای روشن است. قدم «آفلاین؟» کهربایی. آنلاین: دمای پیش‌فرض ارائه‌دهنده، بدون جریان؛ فقط زمان کل.</p><p>همه همان کار و همان دستور را می‌گیرند، و قطع‌بودن اینترنت سه بار وارسی می‌شود.</p></t-fa><t-en><b>The rules</b><p>Real recording of the refusal while Wi-Fi is on. The "offline?" step is amber. Online: provider-default temperature, not streamed; total time only.</p><p>Everyone gets the same task and the same prompt, and the internet cut is checked three times.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="456">
+<p class="kicker"><t-fa>نتیجه · کیفیت</t-fa><t-en>Result · quality</t-en></p>
+<h1><t-fa>کارهای درست از <em>۳۰</em></t-fa><t-en>Tasks passed of <em>30</em></t-en></h1>
+<div class="bars">
+<div><span>qwen3.5:2b-q4_K_M</span><i style="--v:0"></i><span>—</span></div>
+<div><span>qwen3.5:4b-q4_K_M</span><i style="--v:0"></i><span>—</span></div>
+<div><span>gemma3:4b-it-q4_K_M</span><i style="--v:0"></i><span>—</span></div>
+<div class="hi"><span><t-fa>سرویس آنلاین · مدل: —</t-fa><t-en>Online service · model: —</t-en></span><i style="--v:0"></i><span>—</span></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>از offline_lab.py report · فارسی — از ۱۵ · انگلیسی — از ۱۵ · جواب ساختگی — از ۲</t-fa><t-en>From offline_lab.py report · Persian — of 15 · English — of 15 · invented answers — of 2</t-en></p>
+<footer><t-fa>results/quality.png · ۵ کار در هر دسته</t-fa><t-en>results/quality.png · 5 tasks per category</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK] [RUN]</b><p>یک ثانیه سکوت. اول حدس. هیچ عددی پیش از report نگو؛ جمله‌ها را عیناً از report بخوان.</p><p>از سی کار ثابت، چند تا بی‌اینترنت درست انجام شد، و فارسی کجای این عدد است.</p></t-fa><t-en><b>[RE-HOOK] [RUN]</b><p>One second of silence. Ask for a guess first. Say no number before the report; read its lines verbatim.</p><p>Of thirty fixed tasks, how many were done right without the internet, and where Persian sits in that number.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="520">
+<p class="kicker"><t-fa>نتیجه · سرعت و حافظه</t-fa><t-en>Result · speed and memory</t-en></p>
+<h1><t-fa>اولین کلمه · کل جواب · توکن در ثانیه · حافظه از <em>۸ گیگ</em></t-fa><t-en>First word · full answer · tokens per second · memory of <em>8 GB</em></t-en></h1>
+<table class="t">
+<tr><th><t-fa>مدل</t-fa><t-en>Model</t-en></th><th><t-fa>اولین کلمه، میانه</t-fa><t-en>First word, median</t-en></th><th><t-fa>کل جواب، میانه</t-fa><t-en>Full answer, median</t-en></th><th><t-fa>توکن در ثانیه</t-fa><t-en>Tokens / s</t-en></th><th><t-fa>حافظه (گزارش Ollama)</t-fa><t-en>Memory (Ollama-reported)</t-en></th></tr>
+<tr><td>qwen3.5:2b-q4_K_M</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>qwen3.5:4b-q4_K_M</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td>gemma3:4b-it-q4_K_M</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr class="hi"><td><t-fa>آنلاین · مدل: —</t-fa><t-en>Online · model: —</t-en></td><td><t-fa>جریانی نیست</t-fa><t-en>not streamed</t-en></td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>زمان آنلاین رفت‌وبرگشت شبکه را هم دارد · بار اول، بالا آمدن مدل، جدا: — · رشد swap: —</t-fa><t-en>Online time includes the network · first load, model start-up, separately: — · swap growth: —</t-en></p>
+<footer><t-fa>results/speed-memory.png · Ollama /api/ps · psutil</t-fa><t-en>results/speed-memory.png · Ollama /api/ps · psutil</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] سرعت و حافظه</b><p>نمودار سه‌پنلی؛ خط ۸ گیگ کهربایی. RSS پردازهٔ runner در کارت هست، ولی گفتار عدد خود Ollama را می‌گوید.</p><p>سرعت مدل محلی را با سرعت آنلاین، و حافظه‌اش را با هشت گیگ کل لپ‌تاپ کنار هم می‌گذاریم.</p></t-fa><t-en><b>[RUN] Speed and memory</b><p>Three-panel chart; the 8 GB line is amber. The runner's RSS is on the card, but the narration quotes Ollama's own number.</p><p>We set the local model's speed beside the online speed, and its memory beside the laptop's 8 GB.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="569">
+<p class="kicker"><t-fa>نتیجه · هزینه</t-fa><t-en>Result · cost</t-en></p>
+<h1><t-fa>محلی: برق + استهلاک، با فرض · آنلاین: <em>قیمت توکن</em></t-fa><t-en>Local: energy + depreciation, assumed · Online: <em>token price</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>محلی · برق (هزینهٔ اضافهٔ واقعی)</t-fa><t-en>Local · energy (the real extra cost)</t-en></span><b class="word">—</b><p><t-fa>وات × زمان مشغول × تعرفه</t-fa><t-en>watts × busy time × tariff</t-en></p></div>
+<div><span><t-fa>محلی · سهم استهلاک</t-fa><t-en>Local · depreciation share</t-en></span><b class="word">—</b><p><t-fa>قیمت ÷ (۴ سال × ۱۰۰۰ ساعت) × ساعت‌های مشغول</t-fa><t-en>price ÷ (4 years × 1,000 hours) × busy hours</t-en></p></div>
+<div class="hi"><span><t-fa>آنلاین · همان ۳۰ کار</t-fa><t-en>Online · the same 30 tasks</t-en></span><b class="word">—</b><p><t-fa>توکن × قیمت رسمی، تاریخ: —</t-fa><t-en>tokens × official price, dated —</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><b><t-fa>فرض</t-fa><t-en>ASSUMPTION</t-en></b><t-fa>وات، تعرفه و قیمت لپ‌تاپ از cost.json؛ قیمت آنلاین از prices.json</t-fa><t-en>Watts, tariff and laptop price from cost.json; online price from prices.json</t-en></p>
+<footer><t-fa>artifact/cost.json · artifact/prices.json</t-fa><t-en>artifact/cost.json · artifact/prices.json</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] هزینه</b><p>اگر cost.json یا prices.json خالی است، عدد پول نگو. استهلاک: سهمی از قیمت لپ‌تاپ برای هر ساعت کار.</p><p>خرج محلی برق و سهمی از لپ‌تاپ است، با فرض‌هایی که روی صفحه است؛ خرج آنلاین قیمت هر توکن.</p></t-fa><t-en><b>[RUN] Cost</b><p>If cost.json or prices.json is empty, say no money figure. Depreciation: a share of the laptop's price per working hour.</p><p>The local cost is electricity and a share of the laptop, on the assumptions shown; the online cost is the price per token.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="613">
+<p class="kicker"><t-fa>نتیجه · کارت</t-fa><t-en>Result · the card</t-en></p>
+<h1><t-fa>کارت <em>توانایی آفلاین</em></t-fa><t-en><em>Offline AI</em> Capability Card</t-en></h1>
+<table class="t">
+<tr><th><t-fa>دسته</t-fa><t-en>Category</t-en></th><th>qwen3.5:2b</th><th>qwen3.5:4b</th><th>gemma3:4b</th><th><t-fa>آنلاین</t-fa><t-en>Online</t-en></th></tr>
+<tr><td><t-fa>خلاصه</t-fa><t-en>Summarise</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>بیرون‌کشیدن فیلد</t-fa><t-en>Extract fields</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>جواب از متن</t-fa><t-en>Answer from text</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>ترجمه</t-fa><t-en>Translate</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>دسته‌بندی</t-fa><t-en>Classify</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>استدلال و متن بلند</t-fa><t-en>Reasoning and long text</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>✓ ۴–۵ از ۵: آفلاین · ~ ۳ از ۵ یا کندتر از ۳۰ ثانیه: آفلاین + چک انسان · ✗ ۰–۲ از ۵: مدل قوی‌تر</t-fa><t-en>✓ 4–5 of 5: offline · ~ 3 of 5 or slower than 30 s: offline + human check · ✗ 0–2 of 5: stronger model</t-en></p>
+<footer><t-fa>results/capability-card.png · یک لپ‌تاپ · ۳۰ کار · همین مدل‌ها · تاریخ اجرا: —</t-fa><t-en>results/capability-card.png · one laptop · 30 tasks · these models · run date: —</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] کارت</b><p>بعد از اجرا، تصویر واقعی کارت جایگزین این جدول شود؛ خانه‌های ✓ کهربایی.</p><p>کارت نشان می‌دهد هر نوع کار روی این لپ‌تاپ کجا می‌ایستد.</p></t-fa><t-en><b>[RUN] The card</b><p>After the run, the real card image replaces this table; ✓ cells are amber.</p><p>The card shows where each kind of task stands on this laptop.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="652">
+<p class="kicker"><t-fa>تصمیم محصولی · محلی، ابری یا ترکیبی</t-fa><t-en>Product decision · local, cloud or hybrid</t-en></p>
+<h1><t-fa>آفلاین · آفلاین + چک انسان · مدل قوی‌تر — و متن محرمانه <em>هیچ‌وقت خودکار</em> به ابر نمی‌رود</t-fa><t-en>Offline · offline + human check · stronger model — and confidential text <em>never goes to the cloud</em> by default</t-en></h1>
+<table class="t">
+<tr><th><t-fa>علامت کارت</t-fa><t-en>Card mark</t-en></th><th><t-fa>متن معمولی</t-fa><t-en>Ordinary text</t-en></th><th><t-fa>متن محرمانه</t-fa><t-en>Confidential text</t-en></th></tr>
+<tr><td>✓</td><td><t-fa>روی دستگاه</t-fa><t-en>On the device</t-en></td><td><t-fa>روی دستگاه</t-fa><t-en>On the device</t-en></td></tr>
+<tr><td>~</td><td><t-fa>روی دستگاه + تأیید انسان</t-fa><t-en>On the device + human approval</t-en></td><td><t-fa>روی دستگاه + تأیید انسان</t-fa><t-en>On the device + human approval</t-en></td></tr>
+<tr class="hi"><td>✗</td><td><t-fa>مدل قوی‌تر، آنلاین</t-fa><t-en>Stronger model, online</t-en></td><td><t-fa>پاک‌کردن اطلاعات حساس، یا انجام دستی</t-fa><t-en>Remove sensitive details, or do it by hand</t-en></td></tr>
+<tr><td><t-fa>✗ برای هر دو</t-fa><t-en>✗ for both</t-en></td><td><t-fa>کار انسان؛ هیچ مسیر خودکاری نیست</t-fa><t-en>A person's job; no automatic route</t-en></td><td><t-fa>کار انسان</t-fa><t-en>A person's job</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>قانون پیش از اجرا قفل شد: rules.json، ۲۳ نوامبر ۲۰۲۶ · تصمیم هر دسته: —</t-fa><t-en>Rule locked before the run: rules.json, 23 Nov 2026 · decision per category: —</t-en></p>
+<footer><t-fa>artifact/rules.json · HMD-022: کِی مدل قوی‌تر</t-fa><t-en>artifact/rules.json · HMD-022: when to use the stronger model</t-en></footer>
+<aside class="notes"><t-fa><b>تصمیم محصولی</b><p>ردیف ✗ کهربایی. جملهٔ آخر قاب از report؛ فقط شاخه‌هایی که دسته دارند.</p><p>تصمیم برای هر نوع کار جداست؛ توانایی مدل محلی و محرمانگی متن با هم مسیر را تعیین می‌کنند.</p></t-fa><t-en><b>Product decision</b><p>The ✗ row is amber. The beat's last line comes from the report; only the branches that have categories.</p><p>The decision is made per kind of task; the local model's ability and the text's confidentiality set the route together.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="712">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>سه مدل کوچک، روی یک لپ‌تاپ ۸ گیگی، با ۳۰ کار ساختگی، در یک تاریخ؛ و اینکه کدام کار بی‌اینترنت درست انجام شد.</t-fa><t-en>Three small models, on one 8 GB laptop, with 30 synthetic tasks, on one date; and which tasks were done right without the internet.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>حکمی دربارهٔ «همهٔ هوش مصنوعی محلی» · مدل‌ها و لپ‌تاپ‌های دیگر · اینکه آفلاین یعنی امن؛ فایل هنوز روی دیسک است</t-fa><t-en>A verdict on "all local AI" · other models and laptops · that offline means secure; the file is still on the disk</t-en></div>
+</div>
+<p class="caption"><t-fa>حتی در Ollama، مدل‌های ابری مثل <bdi dir="ltr">gemma4:cloud</bdi> روی سرورهای خودشان اجرا می‌شوند، نه روی لپ‌تاپ تو.</t-fa><t-en>Even in Ollama, cloud models such as <bdi dir="ltr">gemma4:cloud</bdi> run on their servers, not on your laptop.</t-en></p>
+<footer><t-fa>R08 · ollama.com/download · نمونه = ۳۰ کار، ۵ کار در هر دسته</t-fa><t-en>R08 · ollama.com/download · sample = 30 tasks, 5 per category</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۰ ثانیه. «کلاد» = :cloud.</p><p>این کارت مال یک لپ‌تاپ و سی کار است، و آفلاین‌بودن جای مراقبت از فایل را نمی‌گیرد.</p></t-fa><t-en><b>Claim boundary</b><p>Under 40 seconds. "cloud" = :cloud.</p><p>This card belongs to one laptop and thirty tasks, and being offline does not replace looking after the file.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="748">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>بی‌اینترنت اجرا می‌شود. اینکه کار تو را انجام دهد، <em>یک کارت است</em>، نه آره یا نه.</t-fa><t-en>It runs offline. Whether it does your task is <em>a card</em>, not a yes or no.</t-en></h1>
+<div class="cards">
+<div class="hi"><b><t-fa>تمرین</t-fa><t-en>Exercise</t-en></b><t-fa>سه کاری که این هفته به یک هوش مصنوعی آنلاین سپردی</t-fa><t-en>Three tasks you gave an online AI this week</t-en></div>
+<div><b><t-fa>کنار هر کدام</t-fa><t-en>Next to each</t-en></b><t-fa>اگر فردا اینترنت نباشد چه می‌شود؟ فایلش محرمانه بود؟</t-fa><t-en>What happens if there is no internet tomorrow? Was the file confidential?</t-en></div>
+</div>
+<footer><t-fa>HMD-024 · جواب کوتاه</t-fa><t-en>HMD-024 · the short answer</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>هوش مصنوعی بی‌اینترنت اجرا می‌شود؛ اینکه کار تو را درست انجام دهد را فقط کارت خودت می‌گوید.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>AI runs without the internet; only your own card says whether it does your task right.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-16" data-start="779">
+<p class="kicker"><t-fa>قسمت بعد · HMD-025</t-fa><t-en>Next · HMD-025</t-en></p>
+<h1><t-fa>قسمت بعد · عکس تار، واضح شد: <em>پیدا کرد یا ساخت؟</em></t-fa><t-en>Next · A blurry photo, made sharp: <em>found or invented?</em></t-en></h1>
+<p class="caption"><t-fa>همهٔ هوش مصنوعیِ روی دستگاه خودت چت‌بات نیست؛ یکی از پرکارترینش داخل دوربین گوشی است.</t-fa><t-en>Not all the AI on your own device is a chatbot; one of the busiest is inside your phone camera.</t-en></p>
+<footer><t-fa>قسمت بعد · AI عکس تار را واضح کرد؛ جزئیات را پیدا کرد یا ساخت؟</t-fa><t-en>Next episode · AI sharpened a blurry photo: did it find the detail or make it up?</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] شاتر. End screen از ثانیهٔ ۱ این قاب (۲۰ ثانیهٔ آخر).</p><p>از هوش مصنوعی روی لپ‌تاپ می‌رویم سراغ هوش مصنوعیِ داخل دوربین گوشی.</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] A shutter. End screen from second 1 of this beat (the last 20 seconds).</p><p>From AI on a laptop to the AI inside your phone camera.</p></t-en></aside>
+</section>

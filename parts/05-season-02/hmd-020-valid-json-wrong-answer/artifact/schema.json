@@ -1,0 +1,84 @@
+{
+ "$comment": "HMD-020 data contract for one order line of the invented shop «سبد محله». ILLUSTRATIVE. The same schema is shown to the model (arms schema_prompt, native) and sent as the provider's native structured-output schema (arm native). It uses only keywords that Anthropic, Gemini and OpenAI strict mode all accept. Ranges, prices and the delivery window are business rules, checked in checks.py, not here.",
+ "type": "object",
+ "properties": {
+  "product": {
+   "type": "string",
+   "enum": [
+    "rice",
+    "chicken",
+    "potato",
+    "tomato",
+    "cheese",
+    "saffron",
+    "tea",
+    "oil",
+    "eggs",
+    "watermelon",
+    "melon",
+    "milk"
+   ],
+   "description": "catalog id"
+  },
+  "quantity": {
+   "anyOf": [
+    {
+     "type": "number"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "description": "the amount the customer ordered, in `unit`; null if not stated or given only as a range"
+  },
+  "unit": {
+   "anyOf": [
+    {
+     "type": "string",
+     "enum": [
+      "kg",
+      "g",
+      "piece",
+      "pack",
+      "liter"
+     ]
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "description": "unit of `quantity` as the customer stated it; null if quantity is not stated"
+  },
+  "paid_toman": {
+   "anyOf": [
+    {
+     "type": "integer"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "description": "amount the customer says they already paid, in toman (1 toman = 10 rial); null if they pay on delivery"
+  },
+  "delivery_date": {
+   "anyOf": [
+    {
+     "type": "string",
+     "format": "date"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "description": "requested delivery day, Gregorian YYYY-MM-DD; null if not stated"
+  }
+ },
+ "required": [
+  "product",
+  "quantity",
+  "unit",
+  "paid_toman",
+  "delivery_date"
+ ],
+ "additionalProperties": false
+}

@@ -138,5 +138,40 @@
    "title": "We gave a paper to an AI agent. Can it repeat the experiment?",
    "summary": "One success is a demo. We run an agent on the same multi-step tasks many times and count how often it finishes every step without breaking anything."
   }
+ },
+ "HMD-020": {
+  "slug": "hmd-020",
+  "en": {
+   "title": "The AI's form is perfectly tidy. So why is the answer wrong?",
+   "summary": "Valid JSON, a schema that passes, and a wrong amount. We separate three checks (it parses, it fits the form, it is true) and measure which errors slip past each one."
+  }
+ },
+ "HMD-021": {
+  "slug": "hmd-021",
+  "en": {
+   "title": "Does AI treat two identical résumés differently?",
+   "summary": "Same skills, different name. A paired audit of AI résumé screening with synthetic CVs, repeated runs and a name-blind control, and where a human must stay in the loop."
+  }
+ },
+ "HMD-022": {
+  "slug": "hmd-022",
+  "en": {
+   "title": "Do we need the most expensive AI for every question?",
+   "summary": "A small model, a large one, and a router between them. We pick the router's threshold on one set, test it on another, and count the cost of each acceptable answer."
+  }
+ },
+ "HMD-023": {
+  "slug": "hmd-023",
+  "en": {
+   "title": "What happens when a hundred people ask the AI at once?",
+   "summary": "The demo was fast for one person. We load our own AI service with 1, 10, 50 and 100 virtual users and watch the queue, the waiting time and the errors."
+  }
+ },
+ "HMD-024": {
+  "slug": "hmd-024",
+  "en": {
+   "title": "Does AI really work without the internet?",
+   "summary": "We unplug the internet and run fixed Persian and English tasks on a laptop model, then the same tasks on an online model: what still works, how fast, and at what cost."
+  }
  }
 }

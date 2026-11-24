@@ -1,0 +1,24 @@
+{
+ "about": "Decision rules for the Offline AI Capability Card. Locked before any model run; do not edit after seeing results. If you change one, say so on camera and keep the old file in git history.",
+ "locked_on": "2026-11-23",
+ "per_category": {
+  "of": 5,
+  "offline_ok_min": 4,
+  "offline_with_check_min": 3,
+  "symbols": {"✓": "4 or 5 of 5 tasks pass → keep offline", "~": "3 of 5 → offline, and a person checks every answer", "✗": "0 to 2 of 5 → send to a stronger model"}
+ },
+ "speed": {"max_median_total_s": 30, "rule": "a ✓ category whose median total time per task is above 30 s on this laptop becomes ~ (works, but too slow to use without waiting)"},
+ "fit": {"max_swap_growth_gb": 1.0, "rule": "a model that grows swap by more than 1 GB during the run, or that Ollama does not load fully into GPU memory (size_vram < size), is marked 'does not fit comfortably' and cannot be the chosen model"},
+ "chosen_model": "among the models that fit: the one with the most ✓; ties go to the smaller file on disk",
+ "routing": {
+  "✓": "offline",
+  "~": "offline + human check",
+  "✗": "stronger model online — but if the text is confidential: redact it first, or do the task by hand",
+  "hard_for_both": "if the online model also passes 2 of 5 or fewer, the category is 'hard for both': no automatic route, a person does it"
+ },
+ "grading": {
+  "translate": "main grade = owner's blind checklist (blind/sheet.csv): meaning kept, numbers and names kept, reads naturally; all three yes = pass. Until it is filled, the card shows the automatic required-terms check and marks the cell 'auto'.",
+  "summarise": "auto: exactly N bullet lines and every required key point. If the owner fills the blind sheet, a summary marked 'adds something not in the text' fails.",
+  "llm_judge": "not used; nothing in the main number comes from a model grading a model"
+ }
+}

@@ -1,0 +1,167 @@
+{
+ "date_run": "2026-11-24",
+ "n": 100,
+ "answer_key": {
+  "schema_ok": 100,
+  "correct": 100,
+  "routes": {
+   "auto": 87,
+   "human_missing": 9,
+   "human_rule": 4
+  },
+  "rule_flags": {
+   "price": 2,
+   "quantity": 2
+  },
+  "flagged_ids": [
+   "T092",
+   "T095",
+   "T078",
+   "T087",
+   "T089",
+   "T080",
+   "T096",
+   "T091",
+   "T094",
+   "T093",
+   "T090",
+   "T079",
+   "T088"
+  ]
+ },
+ "faults": [
+  {
+   "fault": "rial_read_as_toman",
+   "label": "amount ×10 (ریال read as تومن)",
+   "n": 87,
+   "structure": 0,
+   "rule": 87,
+   "silent": 0
+  },
+  {
+   "fault": "thousand_dropped",
+   "label": "amount ÷1000 («۴۵۰ تومن» read literally)",
+   "n": 87,
+   "structure": 0,
+   "rule": 87,
+   "silent": 0
+  },
+  {
+   "fault": "jalali_in_iso",
+   "label": "Jalali date written as YYYY-MM-DD (1406-01-25)",
+   "n": 87,
+   "structure": 0,
+   "rule": 87,
+   "silent": 0
+  },
+  {
+   "fault": "one_day_early",
+   "label": "date one day early («پس‌فردا» read as «فردا»)",
+   "n": 87,
+   "structure": 0,
+   "rule": 0,
+   "silent": 87
+  },
+  {
+   "fault": "kg_written_as_g",
+   "label": "unit g, number unchanged (5 kg → 5 g)",
+   "n": 45,
+   "structure": 0,
+   "rule": 45,
+   "silent": 0
+  },
+  {
+   "fault": "size_as_quantity",
+   "label": "item size read as quantity (+2 pieces)",
+   "n": 19,
+   "structure": 0,
+   "rule": 19,
+   "silent": 0
+  },
+  {
+   "fault": "invented_missing",
+   "label": "missing value invented (quantity 1 / tomorrow)",
+   "n": 9,
+   "structure": 0,
+   "rule": 0,
+   "silent": 9
+  },
+  {
+   "fault": "amount_as_text",
+   "label": "amount as text \"1,500,000\"",
+   "n": 87,
+   "structure": 87,
+   "rule": 0,
+   "silent": 0
+  },
+  {
+   "fault": "cut_off",
+   "label": "reply cut off before the last bracket",
+   "n": 87,
+   "structure": 87,
+   "rule": 0,
+   "silent": 0
+  },
+  {
+   "fault": "renamed_field",
+   "label": "field renamed (price instead of paid_toman)",
+   "n": 87,
+   "structure": 87,
+   "rule": 0,
+   "silent": 0
+  }
+ ],
+ "rule5_effect": {
+  "test": {
+   "with_rule5": {
+    "n": 100,
+    "auto": 29,
+    "auto_wrong": 2,
+    "by_group": {
+     "relative_date": 2
+    }
+   },
+   "without_rule5": {
+    "n": 100,
+    "auto": 50,
+    "auto_wrong": 23,
+    "by_group": {
+     "spoken": 10,
+     "colloquial": 6,
+     "rial": 5,
+     "relative_date": 2
+    }
+   }
+  },
+  "dev": {
+   "with_rule5": {
+    "n": 28,
+    "auto": 8,
+    "auto_wrong": 0,
+    "by_group": {}
+   },
+   "without_rule5": {
+    "n": 28,
+    "auto": 11,
+    "auto_wrong": 3,
+    "by_group": {
+     "spoken": 2,
+     "colloquial": 1
+    }
+   }
+  }
+ },
+ "demo": {
+  "parse_ok": 100,
+  "schema_ok": 100,
+  "correct": 37,
+  "silent": 63,
+  "wrong_and_flagged": 61,
+  "auto": 29,
+  "auto_wrong": 2,
+  "silent_by_group": {
+   "relative_date": 2
+  },
+  "n": 100
+ }
+}

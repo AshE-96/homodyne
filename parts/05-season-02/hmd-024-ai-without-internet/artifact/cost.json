@@ -1,0 +1,18 @@
+{
+ "about": "Assumptions for the local cost. These are inputs, not measurements. Fill them before `report`; leave null and the report prints the formula with blanks instead of a number. Energy can be measured (optional, needs sudo): in another terminal during `run --local`, `sudo powermetrics --samplers cpu_power,gpu_power -i 1000`, note the typical 'Combined Power' in mW, and enter watts here with power_source set to 'powermetrics, <date>'.",
+ "currency": "toman",
+ "laptop_price": null,
+ "laptop_price_note": "what the same laptop would cost to replace today, in the currency above",
+ "lifetime_years": 4,
+ "use_hours_per_year": 1000,
+ "power_watts_under_load": null,
+ "power_source": "assumption",
+ "electricity_price_per_kwh": null,
+ "electricity_note": "the household tariff on your own bill, per kWh, in the currency above",
+ "formula": {
+  "energy_kwh": "power_watts_under_load × busy_seconds / 3,600,000",
+  "energy_cost": "energy_kwh × electricity_price_per_kwh   (the marginal cost: the laptop is already paid for)",
+  "depreciation_cost": "laptop_price / (lifetime_years × use_hours_per_year) × busy_seconds / 3600   (a share of the laptop, if you bought it for this work)",
+  "busy_seconds": "sum of total_s over the 30 tasks, warm model; the one-off cold load is reported separately"
+ }
+}

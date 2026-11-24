@@ -1,0 +1,25 @@
+{
+ "sha256": "f39a2eac7ddf590dc8cc5e80b1c5500c464ce30fd02b84e293db7e3f63082f09",
+ "protocol": {
+  "slo_first_word_s": 3.0,
+  "slo_share": 0.95,
+  "slo_max_fail": 0.01,
+  "no_think": false,
+  "prompt_template": "درخواست شمارهٔ {rid}. {q} حدود صد و پنجاه کلمه جواب بده.",
+  "prompts_sha256": "8754c582d040f82478b5c2e43e889c2154c20f0f540c56e05b7e3d140f37f15a",
+  "percentile": "nearest-rank p95 over every sent request; timeouts and 503 count as misses",
+  "users": [
+   1,
+   10,
+   50,
+   100
+  ],
+  "duration_s": 120.0,
+  "think_mean_s": 20.0,
+  "ramp_s": 10.0,
+  "timeout_s": 30.0,
+  "max_tokens": 160,
+  "cold_tries": 3,
+  "model": "qwen2.5:1.5b"
+ }
+}

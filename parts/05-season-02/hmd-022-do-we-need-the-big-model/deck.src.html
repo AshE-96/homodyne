@@ -1,0 +1,225 @@
+<!-- HMD-022 · deck source. Build: python3 scripts/build-decks.py --only hmd-022  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     data-start = beat start in seconds, from script-fa.md. Beats 11–13 are [RUN]: placeholders only, NOT RUN YET. -->
+
+<style>
+svg.chart.axes { width: 1100px; height: 470px; display: block; margin: 0 auto; }
+svg.chart.axes .axis { stroke: currentColor; stroke-width: 4; opacity: .45; }
+svg.chart.axes .good { fill: var(--amber, #E8A33D); opacity: .18; }
+svg.chart.axes .goodline { fill: none; stroke: var(--amber, #E8A33D); stroke-width: 4; stroke-dasharray: 14 10; }
+svg.chart.axes text { fill: currentColor; font-size: 36px; font-family: inherit; opacity: .8; }
+svg.chart.axes text.amber { fill: var(--amber, #E8A33D); opacity: 1; font-weight: 700; }
+</style>
+
+<section class="cover">
+<h1><t-fa>برای هر سؤال، <em>گران‌ترین</em> AI لازم است؟</t-fa><t-en>Do we need the most <em>expensive</em> AI for every question?</t-en></h1>
+<p class="promise"><t-fa>۲۰۰ سؤال با جواب مرجع، یک مدل کوچک، یک مدل بزرگ و چند مسیریاب بینشان؛ آستانه روی یک دسته، نمره روی دستهٔ دیگر.</t-fa><t-en>200 requests with known answers, a small model, a big model and several routers between them; thresholds on one set, scores on another.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1><t-fa>تومن به ریال، یا دوز <em>یک بچه</em>؟</t-fa><t-en>Toman to rial, or a <em>child's</em> dose?</t-en></h1>
+<div class="cols">
+<div><span><t-fa>سؤال ۱ · تبدیل واحد</t-fa><t-en>Question 1 · unit conversion</t-en></span><b class="word"><t-fa>«۱۲٬۵۰۰ تومن چند ریاله؟»</t-fa><t-en>"How many rials is 12,500 toman?"</t-en></b><p><t-fa>به گران‌ترین مدل هم لازم است؟</t-fa><t-en>Does it need the most expensive model too?</t-en></p></div>
+<div class="hi"><span><t-fa>سؤال ۲ · بروشور ساختگی «تامیرکس»</t-fa><t-en>Question 2 · fictional "Tamirex" leaflet</t-en></span><b class="word"><t-fa>«کودک ۲۱ کیلویی، هر نوبت چند میلی‌گرم؟»</t-fa><t-en>"A 21 kg child: how many mg per dose?"</t-en></b><p><t-fa>اشتباهش گران است</t-fa><t-en>A mistake here is costly</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>بروشور ساختگی</t-fa><t-en>FICTIONAL LEAFLET</t-en></b><t-fa>این دارو وجود ندارد؛ توصیهٔ پزشکی نیست · سؤال‌های CON-fa-09 و HIG-fa-07</t-fa><t-en>This medicine does not exist; not medical advice · requests CON-fa-09 and HIG-fa-07</t-en></p>
+<footer><t-fa>artifact/tasks/tasks.json · هومودین</t-fa><t-en>artifact/tasks/tasks.json · Homodyne</t-en></footer>
+<aside class="notes"><t-fa><b>هوک · Grab / Promise / Stakes</b><p>اول کارت ۱، بعد کارت ۲. «حدس بزن…» با مکث. هیچ عددی از نتیجه نگو.</p><p>پایان قاب: «من محمدم، اینجا هومودینه.»</p></t-fa><t-en><b>Hook · Grab / Promise / Stakes</b><p>Card 1 first, then card 2. Pause on "Guess…". Say no result number.</p><p>End of beat: "I'm Mohammad, this is Homodyne."</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="50">
+<p class="kicker"><t-fa>از قسمت قبل: همه‌شان مدل گران لازم داشتند؟</t-fa><t-en>From last episode: did all of them need the expensive model?</t-en></p>
+<h1><t-fa>هر مریضی پیش <em>فوق‌تخصص</em> نمی‌رود</t-fa><t-en>Not every patient goes to the top <em>specialist</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>پزشک عمومی · مدل کوچک</t-fa><t-en>The GP · small model</t-en></b><t-fa>سریع و ارزان؛ اول او می‌بیند.</t-fa><t-en>Fast and cheap; sees you first.</t-en></div>
+<div class="hi"><b><t-fa>متخصص · مدل بزرگ</t-fa><t-en>The specialist · big model</t-en></b><t-fa>قوی‌تر و گران‌تر؛ فقط با ارجاع.</t-fa><t-en>Stronger and dearer; only on referral.</t-en></div>
+</div>
+<p class="tag"><t-fa>قیمت سرویس‌های مدل زبانی می‌تواند تا حدود صد برابر فرق کند («two orders of magnitude»)</t-fa><t-en>Language-model API prices can differ by about a hundred times ("two orders of magnitude")</t-en></p>
+<footer><t-fa>R02 · Chen، Zaharia، Zou · FrugalGPT · TMLR ۲۰۲۴</t-fa><t-en>R02 · Chen, Zaharia, Zou · FrugalGPT · TMLR 2024</t-en></footer>
+<aside class="notes"><t-fa><b>پزشک عمومی یا متخصص؟</b><p>هیچ عددی از هزینهٔ HMD-021 نگو؛ آن قسمت هنوز اجرا نشده.</p><p>مدل کوچک پزشک عمومی است و مدل بزرگ متخصص؛ قیمتشان می‌تواند تا حدود صد برابر فرق کند.</p></t-fa><t-en><b>GP or specialist?</b><p>Quote no cost from HMD-021; that episode has not been run yet.</p><p>The small model is the GP and the big one the specialist; their prices can differ by about a hundred times.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="105">
+<p class="kicker"><t-fa>اول آزمون، بعد مدل</t-fa><t-en>Test first, model second</t-en></p>
+<h1><t-fa>۲۰۰ سؤال، نمره با <em>جواب مرجع</em></t-fa><t-en>200 requests, graded against the <em>truth</em></t-en></h1>
+<table class="t">
+<tr><td><t-fa>سؤال ساده</t-fa><t-en>Simple facts</t-en></td><td><t-fa>«پایتخت استرالیا کدام شهر است؟»</t-fa><t-en>"What is the capital of Australia?"</t-en></td></tr>
+<tr><td><t-fa>تبدیل واحد</t-fa><t-en>Conversions</t-en></td><td><t-fa>«۳٫۷ کیلومتر چند متر است؟» · تومان و ریال</t-fa><t-en>"How many metres in 3.7 km?" · toman and rial</t-en></td></tr>
+<tr><td><t-fa>بیرون کشیدن از متن</t-fa><t-en>Extraction</t-en></td><td><t-fa>مانده از پیامک بانکی ساختگی</t-fa><t-en>The balance from an invented bank SMS</t-en></td></tr>
+<tr><td><t-fa>چندمرحله‌ای</t-fa><t-en>Multi-step</t-en></td><td><t-fa>سهم هر نفر از کرایهٔ تاکسی</t-fa><t-en>Each person's share of a taxi fare</t-en></td></tr>
+<tr class="hi"><td><t-fa>پرخطر</t-fa><t-en>High-risk</t-en></td><td><t-fa>دوز از روی بروشور ساختگی</t-fa><t-en>A dose from a fictional leaflet</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>هر دسته ۴۰ سؤال، نیمی فارسی نیمی انگلیسی · بدون داور هوش مصنوعی</t-fa><t-en>40 requests per kind, half Persian, half English · no AI judge</t-en></p>
+<footer><t-fa>artifact/taskset.py · artifact/grade.py</t-fa><t-en>artifact/taskset.py · artifact/grade.py</t-en></footer>
+<aside class="notes"><t-fa><b>دویست سؤال با جواب مرجع</b><p>بگو داروها وجود ندارند و توصیهٔ پزشکی نیست.</p><p>آزمون پیش از مدل نوشته شده و نمره را جواب مرجع می‌دهد، نه سلیقهٔ یک داور.</p></t-fa><t-en><b>Two hundred requests with known answers</b><p>Say the medicines do not exist and this is not medical advice.</p><p>The test is written before the model and scored against the truth, not a judge's taste.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="155">
+<p class="kicker"><t-fa>مسیریاب (router): همان که ارجاع می‌دهد</t-fa><t-en>The router: the one who refers</t-en></p>
+<h1><t-fa>چه کسی تصمیم می‌گیرد هر سؤال <em>کجا</em> برود؟</t-fa><t-en>Who decides <em>where</em> each request goes?</t-en></h1>
+<div class="steps">
+<div class="off"><b><t-fa>همیشه کوچک</t-fa><t-en>Always small</t-en></b><t-fa>ارزان‌ترین سرِ خط‌کش</t-fa><t-en>The cheap end of the ruler</t-en></div>
+<div class="off"><b><t-fa>همیشه بزرگ</t-fa><t-en>Always big</t-en></b><t-fa>گران‌ترین سرِ خط‌کش</t-fa><t-en>The expensive end</t-en></div>
+<div class="hi"><b><t-fa>قانون نوع سؤال</t-fa><t-en>Rule by type</t-en></b><t-fa>چندمرحله‌ای و دارو ← بزرگ؛ بقیه ← کوچک</t-fa><t-en>Multi-step and medication → big; the rest → small</t-en></div>
+<div class="off"><b><t-fa>قانون طول سؤال</t-fa><t-en>Rule by length</t-en></b><t-fa>سؤال بلند ← بزرگ؛ اینجا طول تقریباً همان نوع است</t-fa><t-en>Long request → big; here length is roughly the type</t-en></div>
+</div>
+<p class="caption"><t-fa>ضعف قانون نوع: در آزمایش ما نوع سؤال معلوم است؛ در محصول واقعی باید اول تشخیصش داد.</t-fa><t-en>The weakness of the type rule: in our test the type is known; a real product must detect it first.</t-en></p>
+<footer><t-fa>قانون پیش از هر اجرا نوشته شد · artifact/protocol.md</t-fa><t-en>Rule written before any run · artifact/protocol.md</t-en></footer>
+<aside class="notes"><t-fa><b>سه قانون ساده + CTA نرم</b><p>پایان قاب: CTA نرم رو به دوربین.</p><p>مسیریاب تصمیم می‌گیرد هر سؤال پیش کدام مدل برود؛ ساده‌ترین‌ها اصلاً فکر نمی‌کنند.</p></t-fa><t-en><b>Three simple rules + soft CTA</b><p>End of beat: soft CTA to camera.</p><p>A router decides which model each request goes to; the simplest ones do not think at all.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="213">
+<p class="kicker"><t-fa>منبع · RouteLLM</t-fa><t-en>Source · RouteLLM</t-en></p>
+<h1><t-fa>بیش از دو برابر ارزان‌تر، «<em>در بعضی حالت‌ها</em>»</t-fa><t-en>Over 2 times cheaper, "<em>in certain cases</em>"</t-en></h1>
+<div class="bars">
+<div><span><t-fa>MT Bench · گفت‌وگو</t-fa><t-en>MT Bench · conversation</t-en></span><i style="--v:100"></i><span><t-fa>۳٫۶۶ برابر</t-fa><t-en>3.66×</t-en></span></div>
+<div><span><t-fa>GSM8K · ریاضی</t-fa><t-en>GSM8K · maths</t-en></span><i style="--v:41"></i><span><t-fa>۱٫۴۹ برابر</t-fa><t-en>1.49×</t-en></span></div>
+<div><span><t-fa>MMLU · دانش عمومی</t-fa><t-en>MMLU · general knowledge</t-en></span><i style="--v:39"></i><span><t-fa>۱٫۴۱ برابر</t-fa><t-en>1.41×</t-en></span></div>
+</div>
+<p class="tag"><b><t-fa>نتیجهٔ آن‌ها</t-fa><t-en>THEIR RESULT</t-en></b><t-fa>صرفه‌جویی در برابر GPT-4، جدول ۶ (CPT ۵۰٪) · در همان نقطه امتیاز حدود ۹۵٪ / ۹۲٪ / ۸۷٪ امتیاز GPT-4 · GPT-4 و Mixtral 8x7B · قول ما نیست</t-fa><t-en>Saving versus GPT-4, Table 6 (CPT 50%) · at that point the score is ≈95% / 92% / 87% of GPT-4's · GPT-4 and Mixtral 8x7B · not our promise</t-en></p>
+<footer><t-fa>R01 · Ong و همکاران · arXiv 2406.18665 · ICLR ۲۰۲۵</t-fa><t-en>R01 · Ong et al. · arXiv 2406.18665 · ICLR 2025</t-en></footer>
+<aside class="notes"><t-fa><b>این ایده تازه نیست</b><p>«در بعضی حالت‌ها» را حتماً بگو؛ و «روی آزمون‌ها و مدل‌های خودشون».</p><p>RouteLLM روی آزمون‌های خودش گاهی بیش از دو برابر صرفه‌جویی دید؛ آن عدد قول ما نیست.</p></t-fa><t-en><b>The idea is not new</b><p>Always say "in certain cases" and "on their own benchmarks and models".</p><p>RouteLLM sometimes saw over 2× savings on its own benchmarks; that number is not our promise.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="269">
+<p class="kicker"><t-fa>مسیریاب پنجم · آستانه</t-fa><t-en>Router five · the threshold</t-en></p>
+<h1><t-fa>«چقدر <em>مطمئنی</em>؟»</t-fa><t-en>"How <em>sure</em> are you?"</t-en></h1>
+<div class="code"><span class="c"># the small model's reply (illustrative)</span>
+{"answer": "125000", <span class="o">"confidence": 62</span>}
+<span class="c"># confidence &lt; threshold  →  ask the big model too</span></div>
+<p class="caption"><t-fa>آستانهٔ بالا: ارجاع بیشتر، خرج بیشتر. آستانهٔ پایین: ارزان‌تر، خطای بیشتری رد می‌شود. این عدد را خود مدل می‌گوید.</t-fa><t-en>High threshold: more escalations, more cost. Low threshold: cheaper, more errors slip through. The model reports this number itself.</t-en></p>
+<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>نمونهٔ قالب جواب؛ نتیجهٔ آزمایش نیست</t-fa><t-en>A sample of the reply format; not a test result</t-en></p>
+<footer><t-fa>artifact/routers.py · confidence</t-fa><t-en>artifact/routers.py · confidence</t-en></footer>
+<aside class="notes"><t-fa><b>«چقدر مطمئنی؟»</b><p>مثال مریض «چیزیم نیست». هزینهٔ پنهان: وقت ارجاع، هر دو را پول داده‌ای.</p><p>اطمینانی که خود مدل می‌گوید یک آستانه می‌خواهد، و آن عدد را باید سنجید، نه باور کرد.</p></t-fa><t-en><b>"How sure are you?"</b><p>The patient who says "I'm fine". Hidden cost: when you escalate, you pay for both.</p><p>Self-reported confidence needs a threshold, and that number must be measured, not believed.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="316">
+<p class="kicker"><t-fa>مسیریاب ششم · آبشار (cascade)</t-fa><t-en>Router six · the cascade</t-en></p>
+<h1><t-fa>نظر <em>دوم</em></t-fa><t-en>A <em>second</em> opinion</t-en></h1>
+<div class="steps">
+<div><b><t-fa>بار ۱</t-fa><t-en>Try 1</t-en></b><t-fa>مدل کوچک: ۱۲۵٬۰۰۰</t-fa><t-en>Small model: 125,000</t-en></div>
+<div><b><t-fa>بار ۲</t-fa><t-en>Try 2</t-en></b><t-fa>مدل کوچک: ۱۲۵٬۰۰۰</t-fa><t-en>Small model: 125,000</t-en></div>
+<div class="hi"><b><t-fa>بار ۳</t-fa><t-en>Try 3</t-en></b><t-fa>مدل کوچک: ۱۲٬۵۰۰ ← ناجور؛ برو پیش بزرگ</t-fa><t-en>Small model: 12,500 → disagrees; go to the big one</t-en></div>
+</div>
+<p class="tag"><b><t-fa>نتیجهٔ آن‌ها</t-fa><t-en>THEIR RESULT</t-en></b><t-fa>FrugalGPT: یک داور کوچک (DistilBERT) تصمیم می‌گیرد بایستد یا نه؛ تا ۹۸٪ صرفه‌جویی روی HEADLINES · ما سه بار می‌پرسیم و پول هر سه را می‌دهیم</t-fa><t-en>FrugalGPT: a small scorer (DistilBERT) decides whether to stop; up to 98% saving on HEADLINES · we ask three times and pay for all three</t-en></p>
+<footer><t-fa>R02 · FrugalGPT · TMLR ۲۰۲۴</t-fa><t-en>R02 · FrugalGPT · TMLR 2024</t-en></footer>
+<aside class="notes"><t-fa><b>نظر دوم</b><p>کارت سوم کهربایی. «باز هم روی داده و مدل‌های خودشون».</p><p>آبشار اول ارزان را امتحان می‌کند و فقط وقت شک سراغ گران می‌رود؛ ولی خود شک‌کردن هم خرج دارد.</p></t-fa><t-en><b>A second opinion</b><p>Third card amber. "Again, on their own data and models."</p><p>A cascade tries the cheap model first and goes to the expensive one only when in doubt; but doubting costs money too.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="369">
+<p class="kicker"><t-fa>بودجهٔ کیفیت</t-fa><t-en>The quality budget</t-en></p>
+<h1><t-fa>انتخاب روی ۶۴، <em>نمره</em> روی ۹۶</t-fa><t-en>Choose on 64, <em>score</em> on 96</t-en></h1>
+<div class="cols">
+<div><span><t-fa>دستهٔ تنظیم · بدون دارو</t-fa><t-en>Dev set · no medication</t-en></span><b><t-fa>۶۴</t-fa><t-en>64</t-en></b><p><t-fa>از ۸۰؛ آستانه‌ها فقط اینجا انتخاب می‌شوند</t-fa><t-en>of 80; thresholds are chosen here only</t-en></p></div>
+<div><span><t-fa>آزمون قفل · بدون دارو</t-fa><t-en>Frozen test · no medication</t-en></span><b><t-fa>۹۶</t-fa><t-en>96</t-en></b><p><t-fa>از ۱۲۰؛ یک بار، آخر کار</t-fa><t-en>of 120; once, at the end</t-en></p></div>
+<div class="hi"><span><t-fa>بودجهٔ کیفیت</t-fa><t-en>Quality budget</t-en></span><b><t-fa>۲</t-fa><t-en>2</t-en></b><small><t-fa>واحد درصد</t-fa><t-en>points</t-en></small><p><t-fa>اینجا یعنی حداکثر یک سؤال</t-fa><t-en>Here: at most one request</t-en></p></div>
+</div>
+<p class="caption"><t-fa>قانون: آستانه‌ای که هر جواب درستش ارزان‌تر تمام شود، و حداکثر دو واحد درصد از مدل بزرگ عقب باشد. پیش از دیدن هر نتیجه نوشته شد.</t-fa><t-en>Rule: the threshold whose correct answers come cheapest, at most two points behind the big model. Written before seeing any result.</t-en></p>
+<footer><t-fa>artifact/protocol.md · ۲۴ نوامبر ۲۰۲۶</t-fa><t-en>artifact/protocol.md · 24 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>آستانه روی یک دسته، نمره روی دستهٔ دیگر</b><p>رو به دوربین؛ مثال معلم و امتحان.</p><p>آستانه روی هشتاد سؤال انتخاب می‌شود و فقط یک بار روی صد و بیست سؤال قفل نمره می‌گیرد.</p></t-fa><t-en><b>Threshold on one set, score on the other</b><p>To camera; the teacher-and-exam example.</p><p>Thresholds are picked on eighty requests and scored once on a hundred and twenty frozen ones.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="425">
+<p class="kicker"><t-fa>هزینهٔ هر کار موفق</t-fa><t-en>Cost per successful task</t-en></p>
+<h1><t-fa>کل خرج ÷ جواب‌های <em>درست</em></t-fa><t-en>Total cost ÷ <em>correct</em> answers</t-en></h1>
+<svg class="chart axes" viewBox="0 0 1100 470" role="img" aria-label="Empty cost and quality chart, schematic">
+<rect class="good" x="110" y="30" width="330" height="170"/>
+<rect class="goodline" x="110" y="30" width="330" height="170"/>
+<line class="axis" x1="110" y1="400" x2="1060" y2="400"/>
+<line class="axis" x1="110" y1="400" x2="110" y2="20"/>
+<text class="amber" x="275" y="130" text-anchor="middle"><t-fa>خوب</t-fa><t-en>good</t-en></text>
+<text x="900" y="450" text-anchor="middle"><t-fa>خرج بیشتر</t-fa><t-en>more cost →</t-en></text>
+<text x="170" y="450" text-anchor="middle"><t-fa>ارزان</t-fa><t-en>cheap</t-en></text>
+<text x="60" y="215" text-anchor="middle" transform="rotate(-90 60 215)"><t-fa>درستی بیشتر</t-fa><t-en>more correct →</t-en></text>
+</svg>
+<p class="tag"><b><t-fa>طرح‌واره</t-fa><t-en>SCHEMATIC</t-en></b><t-fa>بدون داده · هر مسیریاب یک نقطه · کنارش: درستی هر دسته، سهم ارجاع، کندترین جواب از هر ۲۰ (p95)</t-fa><t-en>No data · each router is one point · alongside: correct per kind, share escalated, slowest answer in 20 (p95)</t-en></p>
+<footer><t-fa>artifact/plot.py</t-fa><t-en>artifact/plot.py</t-en></footer>
+<aside class="notes"><t-fa><b>چه چیزی را می‌شمریم</b><p>«جواب غلط مجانی نیست.»</p><p>هر مسیریاب یک نقطه است: چقدر درست، و هر کار موفق چقدر خرج داشت.</p></t-fa><t-en><b>What we count</b><p>"A wrong answer isn't free."</p><p>Each router is one point: how often right, and what each successful task cost.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="471">
+<p class="kicker"><t-fa>ولی ارزان‌ترین نقطه جواب است؟</t-fa><t-en>But is the cheapest point the answer?</t-en></p>
+<h1><t-fa>سؤال‌های دارو <em>ارجاع نمی‌شوند</em></t-fa><t-en>Medication questions are <em>not routed</em></t-en></h1>
+<div class="cards">
+<div class="hi"><b><t-fa>همیشه مدل بزرگ</t-fa><t-en>Always the big model</t-en></b><t-fa>هر چه نمودار بگوید</t-fa><t-en>Whatever the chart says</t-en></div>
+<div class="hi"><b><t-fa>و یک آدم</t-fa><t-en>And a human</t-en></b><t-fa>چون مدل بزرگ هم ممکن است اشتباه کند</t-fa><t-en>Because the big model can be wrong too</t-en></div>
+</div>
+<p class="tag"><b><t-fa>سیاست</t-fa><t-en>POLICY</t-en></b><t-fa>پیش از اجرا نوشته شد · کار مسیریاب‌ها روی این دسته فقط نشان داده می‌شود</t-fa><t-en>Written before the run · routers' behaviour on this kind is only shown, never used</t-en></p>
+<footer><t-fa>artifact/protocol.md</t-fa><t-en>artifact/protocol.md</t-en></footer>
+<aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت. «همون "تقریباً" می‌تونه دوز اشتباه برای یه بچه باشه.»</p><p>جایی که خطا گران است، نمودار تصمیم نمی‌گیرد؛ مدل بزرگ و یک آدم تصمیم می‌گیرند.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence. "That 'almost' could be a wrong dose for a child."</p><p>Where mistakes are costly, the chart does not decide; the big model and a human do.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="521">
+<p class="kicker"><t-fa>آزمون · ۹۶ سؤال غیرپرخطر</t-fa><t-en>Test set · 96 non-risk requests</t-en></p>
+<h1><t-fa>کوچک، بزرگ، <em>پیشگو</em></t-fa><t-en>Small, big, <em>oracle</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>همیشه کوچک</t-fa><t-en>Always small</t-en></span><b class="word"><t-fa>⟨تعداد⟩ از ۹۶</t-fa><t-en>⟨n⟩ of 96</t-en></b><p><t-fa>درست</t-fa><t-en>correct</t-en></p></div>
+<div><span><t-fa>همیشه بزرگ</t-fa><t-en>Always big</t-en></span><b class="word"><t-fa>⟨تعداد⟩ از ۹۶</t-fa><t-en>⟨n⟩ of 96</t-en></b><p><t-fa>درست</t-fa><t-en>correct</t-en></p></div>
+<div class="hi"><span><t-fa>پیشگو (سقف، نه محصول)</t-fa><t-en>Oracle (a ceiling, not a product)</t-en></span><b class="word"><t-fa>⟨تعداد⟩ از ۹۶</t-fa><t-en>⟨n⟩ of 96</t-en></b><p><t-fa>با ⟨درصد⟩ خرج مدل بزرگ</t-fa><t-en>at ⟨%⟩ of the big model's cost</t-en></p></div>
+</div>
+<p class="caption"><t-fa>«نزدیک» در هر دسته: حداکثر دو واحد درصد عقب؛ با ۲۴ سؤال یعنی اصلاً عقب نباشد. سه شاخه: همه نزدیک · هیچ‌کدام · بعضی.</t-fa><t-en>"Near" in a kind: at most two points behind; with 24 requests, not behind at all. Three branches: all near · none · some.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>پس از run و report پر شود · نام و نسخهٔ دو مدل و تاریخ اجرا · هر دسته: کوچک و بزرگ از ۲۴</t-fa><t-en>Fill in after run and report · both models' names and versions, run date · each kind: small and big of 24</t-en></p>
+<footer><t-fa>artifact/routing_lab.py report · curve.png</t-fa><t-en>artifact/routing_lab.py report · curve.png</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] کوچک، بزرگ، پیشگو</b><p>تا اجرای واقعی ضبط نشود. فقط یک شاخه. جملهٔ «[حذف پس از اجرا]» هرگز ضبط نشود.</p><p>پیشگو سقف صرفه‌جویی را نشان می‌دهد؛ فاصلهٔ هر دسته می‌گوید صرفه‌جویی کجا ممکن است.</p></t-fa><t-en><b>[RUN] Small, big, oracle</b><p>Do not record before the real run. One branch only. Never record the "[delete after the run]" line.</p><p>The oracle shows the ceiling on savings; the gap per kind shows where savings are possible.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="590">
+<p class="kicker"><t-fa>ارجاع بی‌خود · ارجاع جاافتاده</t-fa><t-en>Wasted · missed escalations</t-en></p>
+<h1><t-fa>دو جور <em>خطای ارجاع</em></t-fa><t-en>Two kinds of <em>routing error</em></t-en></h1>
+<table class="t">
+<tr><td></td><td><t-fa>سهم ارجاع</t-fa><t-en>Escalated</t-en></td><td><t-fa>جاافتاده</t-fa><t-en>Missed</t-en></td><td><t-fa>بی‌خود</t-fa><t-en>Wasted</t-en></td><td><t-fa>کندترین از هر ۲۰</t-fa><t-en>Slowest 1 in 20</t-en></td></tr>
+<tr class="hi"><td><t-fa>«چقدر مطمئنی؟»</t-fa><t-en>"How sure?"</t-en></td><td><t-fa>⟨درصد⟩</t-fa><t-en>⟨%⟩</t-en></td><td><t-fa>⟨تعداد⟩</t-fa><t-en>⟨n⟩</t-en></td><td><t-fa>⟨تعداد⟩</t-fa><t-en>⟨n⟩</t-en></td><td><t-fa>⟨ثانیه⟩</t-fa><t-en>⟨s⟩</t-en></td></tr>
+<tr><td><t-fa>نظر دوم</t-fa><t-en>Second opinion</t-en></td><td><t-fa>⟨درصد⟩</t-fa><t-en>⟨%⟩</t-en></td><td><t-fa>⟨تعداد⟩</t-fa><t-en>⟨n⟩</t-en></td><td><t-fa>⟨تعداد⟩</t-fa><t-en>⟨n⟩</t-en></td><td><t-fa>⟨ثانیه⟩</t-fa><t-en>⟨s⟩</t-en></td></tr>
+<tr><td><t-fa>دارو، اگر ارجاع می‌شد</t-fa><t-en>Medication, if routed</t-en></td><td colspan="4"><t-fa>⟨تعداد⟩ جواب غلط از ۲۴ · خود مدل بزرگ: ⟨تعداد⟩ غلط، ⟨تعداد⟩ بی‌جواب (رد کرد)</t-fa><t-en>⟨n⟩ wrong answers of 24 · the big model alone: ⟨n⟩ wrong, ⟨n⟩ refused</t-en></td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>جاافتاده: کوچک غلط، بزرگ درست، ارجاع نشد · بی‌خود: کوچک درست بود و ارجاع شد</t-fa><t-en>Missed: small wrong, big right, not escalated · wasted: small was right and it was escalated</t-en></p>
+<footer><t-fa>artifact/routing_lab.py report</t-fa><t-en>artifact/routing_lab.py report</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] دو جور اشتباه</b><p>«تیک» روی ستون جاافتاده. فقط عددهای report.</p><p>ارجاع بی‌خود پول را هدر می‌دهد، ارجاع جاافتاده جواب غلط به کاربر می‌دهد؛ این دو هم‌وزن نیستند.</p></t-fa><t-en><b>[RUN] Two kinds of mistake</b><p>A "tick" on the missed column. Only numbers from report.</p><p>A wasted escalation burns money; a missed one gives the user a wrong answer; they do not weigh the same.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="649">
+<p class="kicker"><t-fa>تصمیم مدیر محصول</t-fa><t-en>The product decision</t-en></p>
+<h1><t-fa><em>نقطهٔ کار</em></t-fa><t-en>The <em>operating point</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>هر ۱۰۰۰ کار موفق · مدل بزرگ</t-fa><t-en>Per 1,000 successful tasks · big model</t-en></span><b class="word"><t-fa>⟨مبلغ⟩</t-fa><t-en>⟨$⟩</t-en></b><p><t-fa>قیمت‌ها: ⟨تاریخ⟩</t-fa><t-en>Prices: ⟨date⟩</t-en></p></div>
+<div><span><t-fa>هر ۱۰۰۰ کار موفق · ⟨مسیریاب⟩</t-fa><t-en>Per 1,000 successful tasks · ⟨router⟩</t-en></span><b class="word"><t-fa>⟨مبلغ⟩</t-fa><t-en>⟨$⟩</t-en></b><p><t-fa>⟨درصد⟩ هزینهٔ هر کار موفقِ مدل بزرگ</t-fa><t-en>⟨%⟩ of the big model's cost per successful task</t-en></p></div>
+<div class="hi"><span><t-fa>فرق درستی با مدل بزرگ</t-fa><t-en>Accuracy versus the big model</t-en></span><b class="word"><t-fa>⟨عدد⟩ واحد</t-fa><t-en>⟨pts⟩</t-en></b><p><t-fa>بازهٔ ۹۵٪: ⟨عدد⟩ تا ⟨عدد⟩</t-fa><t-en>95% interval: ⟨a⟩ to ⟨b⟩</t-en></p></div>
+</div>
+<p class="caption"><t-fa>شرط از پیش نوشته‌شده: مسیریاب فقط اگر هزینهٔ هر کار موفق را دست‌کم ۳۰٪ کم کند و داخل بودجهٔ کیفیت بماند. قانون نوع یا طول در محصول، تشخیص‌دهندهٔ نوع لازم دارد. دارو در هر حال: مدل بزرگ و یک آدم.</t-fa><t-en>Rule written in advance: a router only if it cuts the cost per successful task by at least 30% and stays within the quality budget. A type or length rule needs a type detector in a product. Medication in every case: the big model and a human.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>سه شاخه: روشن کردن مسیریاب · همه پیش مدل بزرگ · مدل کوچک تنها کافی</t-fa><t-en>Three branches: switch the router on · everything to the big model · the small model alone is enough</t-en></p>
+<footer><t-fa>artifact/routing_lab.py report · prices.json</t-fa><t-en>artifact/routing_lab.py report · prices.json</t-en></footer>
+<aside class="notes"><t-fa><b>[RUN] تصمیم</b><p>رو به دوربین. اگر صفر داخل بازه بود، بگو. فقط یک شاخه.</p><p>صرفه‌جویی باید هم افت کیفیت را جبران کند و هم دردسر نگه‌داشتن دو مدل را.</p></t-fa><t-en><b>[RUN] The decision</b><p>To camera. If the interval includes zero, say so. One branch only.</p><p>The saving must pay for both the quality lost and the trouble of running two models.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="730">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>یک روش: آستانه روی یک دسته، سنجش روی دستهٔ قفل، خرج به ازای کار موفق، و دستهٔ پرخطر بیرون از نمودار.</t-fa><t-en>A method: thresholds on one set, measurement on a frozen set, cost per successful task, and the high-risk kind kept off the chart.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>اینکه مسیریاب همه‌جا صرفه دارد · نتیجه برای مدل‌ها، قیمت‌ها یا ترکیب سؤال‌های دیگر · فرق یکی دو سؤال در ۹۶ سؤال آزمون · طول سؤال به‌عنوان نشانهٔ جدا (اینجا طول تقریباً همان نوع است) · عدد RouteLLM و FrugalGPT برای سؤال‌های ما</t-fa><t-en>That a router pays everywhere · results for other models, prices or request mixes · differences of one or two requests among 96 test requests · length as a separate signal (here length is roughly the type) · RouteLLM's or FrugalGPT's numbers for our requests</t-en></div>
+</div>
+<footer>R01 · R02 · artifact/protocol.md</footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۵ ثانیه. «قیمت‌ها هم عوض می‌شن.»</p><p>روش این آزمایش جابه‌جا می‌شود؛ عددهایش نه.</p></t-fa><t-en><b>Claim boundary</b><p>Under 45 seconds. "Prices change too."</p><p>The method travels; the numbers do not.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="781">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>اشتباهش گران است؟ <em>مدل بزرگ و یک آدم</em></t-fa><t-en>Costly if wrong? <em>The big model and a human</em></t-en></h1>
+<div class="steps">
+<div class="hi"><b><t-fa>خطا گران</t-fa><t-en>Costly mistakes</t-en></b><t-fa>همیشه مدل بزرگ و یک آدم</t-fa><t-en>Always the big model and a human</t-en></div>
+<div><b><t-fa>بقیه</t-fa><t-en>The rest</t-en></b><t-fa>فقط اگر آزمایش بگوید صرفه‌جویی می‌ارزد</t-fa><t-en>Only if a test shows the saving is worth it</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: ۵۰ سؤال خودت را بنویس؛ کنار هر کدام: اگر غلط شود، چقدر گران است؟</t-fa><t-en>Exercise: write down 50 of your own questions; next to each: how costly is a wrong answer?</t-en></p>
+<footer><t-fa>artifact/tasks/tasks.json · با دو مدل خودت اجرا کن</t-fa><t-en>artifact/tasks/tasks.json · run it with your own two models</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام. تمرین را به کامنت وصل کن.</p><p>سؤال پرخطر همیشه پیش متخصص؛ بقیه فقط وقتی آزمایش بگوید صرفه‌جویی می‌ارزد.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly. Tie the exercise to the comments.</p><p>High-risk questions always go to the specialist; the rest only when a test says the saving is worth it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-16" data-start="830">
+<p class="kicker"><t-fa>قسمت بعد · HMD-023</t-fa><t-en>Next · HMD-023</t-en></p>
+<h1><t-fa>صد کاربر <em>هم‌زمان</em></t-fa><t-en>A hundred users <em>at once</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>امروز</t-fa><t-en>Today</t-en></b><t-fa>سؤال‌ها یکی‌یکی: کدام مدل، چه خرجی، چقدر طول کشید.</t-fa><t-en>One request at a time: which model, what cost, how long.</t-en></div>
+<div class="hi"><b><t-fa>ساعت ۹ صبح</t-fa><t-en>9 a.m.</t-en></b><t-fa>صد نفر در یک دقیقه «ارسال» می‌زنند. انتظار چه می‌شود؟</t-fa><t-en>A hundred people press "send" in one minute. What happens to the wait?</t-en></div>
+</div>
+<footer><t-fa>قسمت بعد · AI in Production</t-fa><t-en>Next episode · AI in Production</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>End screen از ثانیهٔ ۷ این قاب (۲۰ ثانیهٔ آخر). کات پیش از جواب.</p><p>وقتی صد نفر هم‌زمان می‌پرسند، صف چه بر سر زمان انتظار می‌آورد؟</p></t-fa><t-en><b>Next episode</b><p>End screen from second 7 of this beat (the last 20 seconds). Cut before the answer.</p><p>When a hundred people ask at once, what does the queue do to the wait?</p></t-en></aside>
+</section>

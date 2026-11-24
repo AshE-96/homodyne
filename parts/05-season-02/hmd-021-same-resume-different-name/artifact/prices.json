@@ -1,0 +1,44 @@
+{
+ "about": "Owner fills `models` before `plan` / `run` to see a real dollar estimate: USD per million tokens, copied from the provider's official pricing page on the date in checked_on. While a model's price is null, `plan` and `run` show tokens AND an upper-bound dollar figure computed from `fallback` below. No prompt caching or batch discount is assumed.",
+ "checked_on": null,
+ "source_url": null,
+ "currency": "USD",
+ "models": {
+  "anthropic:claude-opus-5-5": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "anthropic:claude-haiku-5-5": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "gemini:gemini-2.5-pro": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  },
+  "gemini:gemini-2.5-flash": {
+   "input_per_mtok": null,
+   "output_per_mtok": null
+  }
+ },
+ "fallback": {
+  "about": "CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE. Deliberately high per-million-token prices used only to show a worst-case dollar figure before the owner fills `models`; the owner may override. The estimate also assumes 300 output tokens per reply.",
+  "set_on": "2026-11-24",
+  "default": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "anthropic": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "gemini": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "openai": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  }
+ }
+}

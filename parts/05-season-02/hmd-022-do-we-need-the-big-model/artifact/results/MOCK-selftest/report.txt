@@ -1,0 +1,88 @@
+HMD-022 · report · MOCK DATA · selftest · fake model and fake prices · not a result
+big = mock:echo · small = mock:small · prices checked 2027-04-10 · run 2026-11-24 11:05 · HOMODYNE_NO_FALLBACK off
+fingerprints: graders, routers, task set and protocol match the run
+
+test set, non-risk categories (n = 96); thresholds picked on dev; quality budget 2 points below always-big on dev
+
+router           thr   correct    acc  $/1k tasks  $/1k success  escal  p95 s  missed  wasted
+always-small    None   78/96    0.812      0.0381        0.0469   0.00   2.80      18       0
+always-big      None   94/96    0.979      0.1904        0.1944   1.00   4.64       0      78
+rule-category   None   88/96    0.917      0.0872        0.0952   0.25   3.73       7      13
+rule-length      125   89/96    0.927      0.1307        0.1410   0.47   4.40       6      33
+confidence        95   94/96    0.979      0.2071        0.2115   0.88   6.07       0      66
+cascade            3   95/96    0.990      0.1986        0.2007   0.39   5.42       1      20
+oracle          None   96/96    1.000      0.0707        0.0707   0.19   3.17       0       0
+
+paired bootstrap vs always-big (test, non-risk, 2,000 resamples, 95% interval):
+  always-small   accuracy -16.7 pts [-25.0, -8.3] · cost per success x0.24 [0.22, 0.27]
+  rule-category  accuracy -6.2 pts [-11.5, -1.0] · cost per success x0.49 [0.40, 0.58]
+  rule-length    accuracy -5.2 pts [-10.4, +0.0] (interval includes zero) · cost per success x0.73 [0.64, 0.80]
+  confidence     accuracy +0.0 pts [+0.0, +0.0] (interval includes zero) · cost per success x1.09 [1.02, 1.14]
+  cascade        accuracy +1.0 pts [-2.1, +5.2] (interval includes zero) · cost per success x1.03 [0.93, 1.14]
+  oracle         accuracy +2.1 pts [+0.0, +5.2] (interval includes zero) · cost per success x0.36 [0.30, 0.44]
+
+by category (test): small / big / either correct · near = small at most 2 points (in whole items) behind big
+  lookup      22/24   23/24   24/24  behind
+  convert     22/24   24/24   24/24  behind
+  extract     21/24   24/24   24/24  behind
+  multistep   13/24   23/24   24/24  behind
+  highrisk    12/24   21/24   23/24  behind
+big-model errors, non-risk test: 2 = 0 refused + 2 wrong answers
+big-model errors, risk test: 3 = 0 refused + 3 wrong answers
+
+risk category (test, n = 24), NOT routed in the policy; what each router would have done:
+  always-small   correct 12/24 · escalated 0.00 · missed 11
+  always-big     correct 21/24 · escalated 1.00 · missed 0
+  rule-category  correct 21/24 · escalated 1.00 · missed 0
+  rule-length    correct 21/24 · escalated 1.00 · missed 0
+  confidence     correct 22/24 · escalated 0.92 · missed 0
+  cascade        correct 17/24 · escalated 0.42 · missed 5
+  oracle         correct 23/24 · escalated 0.46 · missed 0
+
+call health (refused = the model declined; fallback = another model answered; truncated = hit the cap):
+  small calls  600 · refused 0 · fallback 0 · truncated 0 · no JSON 0 · served {"small": 600}
+  main  calls  200 · refused 0 · fallback 0 · truncated 0 · no JSON 0 · served {"echo": 200}
+  small confidence (first sample, n = 200): formats {"ok": 200} · unparsed share 0.0% · distribution {"80-89": 56, "50-79": 79, "90-99": 58, "<50": 7}
+
+missed = kept on the small model, small wrong, big right · wasted = escalated although small was right
+
+# Spoken lines for the [RUN] beats 11-13 (paste into script-fa.md, keep one branch, drop [bracketed] notes)
+
+— قاب ۱۱ · کوچیک، بزرگ، پیشگو —
+روی نود‌وشش سؤال آزمون، بیرون از دستهٔ دارو.
+مدل کوچیک هفتاد‌وهشت تا رو درست جواب داد، مدل بزرگ نود‌وچهار تا.
+پیشگو نود‌وشش تا رو درست می‌گرفت، با سی‌وهفت درصد خرج مدل بزرگ.
+سؤال‌های ساده: کوچیک بیست‌ودو از بیست‌وچهار.
+بزرگ بیست‌وسه از بیست‌وچهار.
+تبدیل واحد: کوچیک بیست‌ودو از بیست‌وچهار.
+بزرگ بیست‌وچهار از بیست‌وچهار.
+بیرون کشیدن از متن: کوچیک بیست‌ویک از بیست‌وچهار.
+بزرگ بیست‌وچهار از بیست‌وچهار.
+مسئله‌های چندمرحله‌ای: کوچیک سیزده از بیست‌وچهار.
+بزرگ بیست‌وسه از بیست‌وچهار.
+**شاخهٔ ب** · پس کوچیک حتی توی دسته‌های ساده عقبه؛ با این جفت مدل، جای زیادی برای صرفه‌جویی نمونده.
+— قاب ۱۲ · خطای مسیریاب و کندترین جواب‌ها —
+«چقدر مطمئنی؟»، با آستانهٔ نود‌وپنج، هشتاد‌وهشت درصد سؤال‌ها رو فرستاد پیش بزرگ.
+صفر ارجاع جاافتاده داشت، و شصت‌وشش ارجاع بی‌خود.
+نظر دوم، با شرط سه جواب یکسان، سی‌ونه درصد سؤال‌ها رو فرستاد پیش بزرگ.
+یک ارجاع جاافتاده داشت، و بیست ارجاع بی‌خود.
+کندترین جواب از هر بیست تا، همیشه کوچیک: دو ممیز هشت ثانیه.
+کندترین جواب از هر بیست تا، همیشه بزرگ: چهار ممیز شش ثانیه.
+کندترین جواب از هر بیست تا، «چقدر مطمئنی؟»: شش ممیز یک ثانیه.
+کندترین جواب از هر بیست تا، نظر دوم: پنج ممیز چهار ثانیه.
+توی دستهٔ دارو، اگه «چقدر مطمئنی؟» تصمیم می‌گرفت، دو جواب غلط از بیست‌وچهار می‌رفت بیرون.
+توی دستهٔ دارو، اگه نظر دوم تصمیم می‌گرفت، هفت جواب غلط از بیست‌وچهار می‌رفت بیرون.
+خود مدل بزرگ هم اونجا سه تا غلط داشت.
+برای همینه که یه آدم هم نگاه می‌کنه.
+— قاب ۱۳ · تصمیم —
+قیمت‌ها رو ده آوریل دو هزار و بیست‌وهفت خوندم.
+هر هزار کار موفق، مدل بزرگ: نوزده سنت.
+قانون طول سؤال: چهارده سنت.
+فرق درستیش با مدل بزرگ منفی پنج ممیز دو واحد درصده.
+بازه‌اش از منفی ده ممیز چهار تا صفر.
+صفر داخل بازه‌ست؛ یعنی این آزمون نمی‌تونه بگه افتی بوده یا نه.
+هر کار موفقش حدود هفتاد‌وسه درصد مدل بزرگ خرج داشت.
+بازه‌اش از شصت‌وچهار درصد تا هشتاد درصد.
+**شاخهٔ ب** · پس فعلاً همه پیش مدل بزرگ؛ این صرفه‌جویی دردسر دو مدل رو نمی‌خره.
+در هر سه حالت، دستهٔ دارو همیشه مدل بزرگ و یه آدم.
+[فقط همین صد و بیست سؤال آزمون، همین دو مدل: mock:small و mock:echo، همین تاریخ؛ قیمت‌ها عوض می‌شن.]
