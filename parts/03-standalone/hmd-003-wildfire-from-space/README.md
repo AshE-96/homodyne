@@ -2,7 +2,7 @@
 
 ## می‌شود آتش جنگل را وقتی هنوز کوچک است پیدا کرد؟
 
-**وضعیت:** آمادهٔ ضبط (۷ نوامبر ۲۰۲۶). قاب ۸ با عددهای تأییدشدهٔ خبری بازنویسی شد؛ اجرای FIRMS اختیاری است و اگر کلید نرسید، ویدیوی کوتاه پیگیری.
+**وضعیت:** آمادهٔ ضبط (۲۳ نوامبر ۲۰۲۶). قاب ۸ حالا خط زمانی واقعی ماهواره‌ای آتش الیت را دارد (دادهٔ سالانهٔ FIRMS، بی‌نیاز به کلید). عکس‌ها و فیلم حرارتی واقعی آتش الیت (مهر، CC BY 4.0) و دو عکس آزاد برای قاب ۶ در `media/` هستند.
 **قالب:** Silent Breakthrough (مستقل) · **زمان برآوردی:** ۱۳ تا ۱۴ دقیقه · **واژهٔ گفتاری:** ۱۶۴۸ · **قاب:** ۱۵
 **هوک:** Story-Open — «آبان پارسال، جنگل‌های الیت، نزدیک مرزن‌آباد…»
 
@@ -27,15 +27,17 @@
 | [artifact/README.md](artifact/README.md) | اجرای آفلاین، گرفتن MAP_KEY، منطقه‌ها، معنی علامت‌ها |
 | [artifact/sample_firms_ILLUSTRATIVE.csv](artifact/sample_firms_ILLUSTRATIVE.csv) | ۱۸ ردیف ساختگی با ستون‌های FIRMS VIIRS |
 | [artifact/sites_ILLUSTRATIVE.csv](artifact/sites_ILLUSTRATIVE.csv) | یک محل صنعتی فرضی (SITE-A) |
+| [artifact/derived/elit_viirs_2025.csv](artifact/derived/elit_viirs_2025.csv) | همهٔ ۸۳ نقطهٔ داغ VIIRS سال ۲۰۲۵ در محدودهٔ الیت (FIRMS، پردازش استاندارد)؛ منبع و SHA-256 در `SOURCE.txt` |
+| [media/CREDITS.md](media/CREDITS.md) | عکس و فیلم آماده برای تدوین، با مجوز و متن اعتبار هر کدام |
 
 ## پیش از ضبط (همهٔ موارد باز)
 
-- [ ] (اختیاری) MAP_KEY رایگان FIRMS (راهنما در `artifact/README.md`) و اجرای
-  `python3 parts/03-standalone/hmd-003-wildfire-from-space/artifact/firms_timeline.py --fetch --region elit --start 2025-10-28 --end 2025-11-27 --save data/elit_2025-11.csv`؛
-  اگر انجام شد، متن جایگزین زیر قاب ۸ را بخوان و قاب ۸ دک را با خروجی عوض کن. اگر نه، قاب ۸ فعلی ضبط می‌شود.
+- [x] خط زمانی واقعی FIRMS برای الیت اجرا شد (۲۳ نوامبر ۲۰۲۶) و در قاب ۸ متن و دک نشست. ضبط ترمینال قاب ۸:
+  `python3 parts/03-standalone/hmd-003-wildfire-from-space/artifact/firms_timeline.py --csv parts/03-standalone/hmd-003-wildfire-from-space/artifact/derived/elit_viirs_2025.csv --region elit --start 2025-10-28 --end 2025-11-27 --quiet`
 - [x] محدودهٔ `elit` اصلاح شد: (50.95, 36.20, 51.45, 36.55). منبع: مختصات روستای الیت 36.32N 51.11E.
 - [x] تاریخ آتش تأیید شد: ۱۰ آبان ۱۴۰۴ (۱ نوامبر ۲۰۲۵) و شعله‌ورشدن دوباره ۲۴ آبان (۱۵ نوامبر). متن هر دو را می‌گوید.
 - [x] تعریف ستون‌ها از صفحهٔ محصول NASA MODAPS تأیید شد (مرکز پیکسل ۳۷۵ متری، sun glint، type). نکته: ستون type فقط در محصول استاندارد (SP) هست، نه NRT.
-- [ ] فیلم/عکس آرشیوی آتش الیت فقط با مجوز، تاریخ و منبع؛ تصاویر FireSat فقط از صفحهٔ رسمی EFA.
+- [x] عکس و فیلم آرشیوی آتش الیت: مهر، CC BY 4.0، در `media/` (اعتبار روی تصویر و در توضیحات الزامی است).
+- [ ] تصاویر FireSat (قاب ۱۰): شرایط سایت Earth Fire Alliance محتوا را مالکیت خودش می‌داند و برداشت خودکار را ممنوع کرده؛ دانلود نشد. یا از press@earthfirealliance.org اجازه بگیر، یا قاب ۱۰ را با کارت منبع و نمودار خودمان (۳۷۵ متر در برابر ۵ متر) بساز.
 - [ ] `python3 parts/03-standalone/hmd-003-wildfire-from-space/artifact/firms_timeline.py --demo` و `--demo --min-confidence low --quiet` اجرا و با قاب ۵ و ۷ دک تطبیق شود (۲ نوامبر ۲۰۲۶ تطبیق داده شد).
 - [ ] `python3 scripts/check-season-01.py` بدون خطا برای HMD-003.

@@ -23,6 +23,20 @@ python3 artifact/firms_timeline.py --demo --min-confidence high --quiet
 written by hand to teach the columns and the checks. They are not FIRMS data and not a real event;
 the script prints an ILLUSTRATIVE banner whenever it reads them.
 
+## 1b · The real Elit fire, still no key
+
+`derived/elit_viirs_2025.csv` holds every VIIRS hot spot of 2025 inside the `elit` box, cut from NASA FIRMS's free
+**Country Yearly Summary** files for Iran (Standard Processing; S-NPP and NOAA-20). Source URLs and SHA-256 are in
+`derived/SOURCE.txt`. This is the data behind beat 8:
+
+```bash
+python3 firms_timeline.py --csv derived/elit_viirs_2025.csv --region elit --start 2025-10-28 --end 2025-11-27 --min-confidence low
+```
+
+Any finished year and country works the same way, without a key:
+`https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/<YEAR>/viirs-snpp_<YEAR>_Iran.csv`
+(NOAA-20 is `viirs-jpss1`, MODIS is `modis`). Use a MAP_KEY (below) only for recent days the yearly file doesn't cover yet.
+
 ## 2 · Get a free FIRMS MAP_KEY
 
 1. Open the FIRMS API page: <https://firms.modaps.eosdis.nasa.gov/api/area/>.

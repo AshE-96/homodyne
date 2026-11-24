@@ -47,22 +47,28 @@
 04:50 دودکش سر جایش می‌ماند
 05:53 سخت‌گیر باشیم یا حساس؟
 06:54 الیت: عددهایی که با هم نمی‌خوانند
-07:59 نقشه بدون حقیقت زمینی
-08:58 FireSat: آتش ۵ در ۵ متری
-10:00 هوش مصنوعی کجای ماجراست؟
-11:00 بیست دقیقه، هدف است نه امروز
-11:53 این ویدیو چه چیزی را ثابت نمی‌کند
-12:38 جواب
+08:39 نقشه بدون حقیقت زمینی
+09:38 FireSat: آتش ۵ در ۵ متری
+10:40 هوش مصنوعی کجای ماجراست؟
+11:40 بیست دقیقه، هدف است نه امروز
+12:33 این ویدیو چه چیزی را ثابت نمی‌کند
+13:18 جواب
 
 منابع:
 - NASA FIRMS: https://firms.modaps.eosdis.nasa.gov/
 - FIRMS area API و MAP_KEY: https://firms.modaps.eosdis.nasa.gov/api/area/
 - Earth Fire Alliance & Muon Space، اولین تصاویر عملیاتی FireSat (۱۶ سپتامبر ۲۰۲۶): https://earthfirealliance.org/news-article/earth-fire-alliance-and-muon-space-release-first-light-and-first-active-fire-images-from-operational-firesat-constellation/
 - Google، A breakthrough in wildfire detection (۱۶ سپتامبر ۲۰۲۴): https://blog.google/outreach-initiatives/sustainability/google-ai-wildfire-detection/
-- Iran International، آتش جنگل‌های هیرکانی (۱۷ نوامبر ۲۰۲۵): https://www.iranintl.com/en/202511174535
-- IQAir، Hyrcanian Forest Fire: https://www.iqair.com/newsroom/wildfire-map-spotlight-hyrcanian-forest-fire-iran
+- NASA FIRMS، Country Yearly Summary ایران ۲۰۲۵ (پردازش استاندارد): https://firms.modaps.eosdis.nasa.gov/country/
+- خبرگزاری مهر، آتش‌سوزی الیت مهار شد (۲ آذر ۱۴۰۴): https://www.mehrnews.com/news/6665847/
+- ایرنا به نقل انتخاب (۱۰ آذر ۱۴۰۴): https://www.entekhab.ir/fa/news/897735
 
-برنامهٔ firms_timeline.py (فقط کتابخانهٔ استاندارد پایتون) و راهنمای گرفتن MAP_KEY: لینک مخزن پس از انتشار عمومی مخزن اضافه می‌شود.
+اعتبار تصاویر:
+- عکس‌ها و فیلم حرارتی آتش الیت: خبرگزاری مهر (فیلم پهپاد: جمعیت هلال‌احمر)، مجوز CC BY 4.0 — https://www.mehrnews.com/photo/6659251/ و https://www.mehrnews.com/news/6665795/
+- دودکش و مشعل گاز در شب: Aciarium، Wikimedia Commons، مجوز CC BY 4.0
+- دادهٔ نقطه‌های داغ: NASA FIRMS (LANCE/EOSDIS)
+
+برنامهٔ firms_timeline.py (فقط کتابخانهٔ استاندارد پایتون) و دادهٔ الیت: https://github.com/AshE-96/homodyne/tree/main/parts/03-standalone/hmd-003-wildfire-from-space/artifact
 
 قسمت‌های فصل ۱ هومودین:
 HMD-001 · AI PM دقیقاً چیست؟
@@ -99,8 +105,8 @@ HMD-004 · مدل اول جدول، برای تو هم بهترین است؟
 ## ۷. End screen و کارت‌ها
 
 - **کارت ۱ (حدود 02:49، ۲۰٪):** HMD-002 «چطور با همان جواب‌ها، برندهٔ AI عوض می‌شود؟» — متن: «همین معامله، در جدول AI».
-- **کارت ۲ (حدود 09:40، ۷۰٪):** پلی‌لیست «هومودین · فصل ۱» — متن: «قسمت‌های دیگر فصل».
-- **End screen (۲۰ ثانیهٔ آخر، از حدود 13:30):** عنصر ۱ ویدیو: HMD-004 «مدل اول جدول، برای تو هم بهترین است؟» · عنصر ۲: اشتراک · عنصر ۳: پلی‌لیست فصل ۱. جملهٔ گفتاری متناظر: «قسمت بعد: مدلی که اول جدول ایستاده، برای کار تو هم اوله؟»
+- **کارت ۲ (حدود 10:20، ۷۰٪):** پلی‌لیست «هومودین · فصل ۱» — متن: «قسمت‌های دیگر فصل».
+- **End screen (۲۰ ثانیهٔ آخر، از حدود 14:10):** عنصر ۱ ویدیو: HMD-004 «مدل اول جدول، برای تو هم بهترین است؟» · عنصر ۲: اشتراک · عنصر ۳: پلی‌لیست فصل ۱. جملهٔ گفتاری متناظر: «قسمت بعد: مدلی که اول جدول ایستاده، برای کار تو هم اوله؟»
 
 ## ۸. دو Short
 
@@ -121,7 +127,7 @@ HMD-004 · مدل اول جدول، برای تو هم بهترین است؟
 ### Short 2 · «۲۰ دقیقه؟ هنوز نه» (حدود ۴۵ ثانیه)
 
 - **هوک ۲ ثانیه‌ای:** «شنیدی ماهواره‌ها هر بیست دقیقه آتش رو چک می‌کنن؟» · متن روی صفحه: `Every 20 minutes? Not yet.`
-- **زمان در ویدیوی اصلی:** 08:58–11:53.
+- **زمان در ویدیوی اصلی:** 09:38–12:33.
 - **متن:**
   شنیدی ماهواره‌ها قراره هر بیست دقیقه کل زمین رو برای آتش چک کنن؟
   امسال، سپتامبر ۲۰۲۶، اولین تصاویر آتش از ماهواره‌های عملیاتی FireSat منتشر شد. سه ماهواره. به گفتهٔ سازنده‌ها، آتشی به اندازهٔ دو جای پارک رو می‌بینن.

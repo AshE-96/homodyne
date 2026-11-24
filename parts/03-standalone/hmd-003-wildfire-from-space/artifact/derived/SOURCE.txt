@@ -1,0 +1,10 @@
+elit_viirs_2025.csv — every VIIRS hot spot of 2025 inside the `elit` box (W,S,E,N = 50.95,36.20,51.45,36.55).
+
+Source: NASA FIRMS "Country Yearly Summary [.csv]" (Standard Processing, SP), Iran, 2025.
+  https://firms.modaps.eosdis.nasa.gov/data/country/viirs-snpp/2025/viirs-snpp_2025_Iran.csv
+    sha256 dc0c004c55d2b075880337957aea1a25ec0ce6b53607bf24693013f00d87c02c
+  https://firms.modaps.eosdis.nasa.gov/data/country/viirs-jpss1/2025/viirs-jpss1_2025_Iran.csv  (NOAA-20)
+    sha256 9270efb016d31b0baddec11326ae9efcb0720ca84beced525afb9ff4007b52a5
+Downloaded 23 Nov 2026 without a MAP_KEY. The two files were merged and filtered to the box; rows unchanged.
+Credit: NASA FIRMS (LANCE/EOSDIS). NASA data are openly shared; cite FIRMS as requested on its site.
+The full country files (~17 MB each) live in artifact/data/ (git-ignored).
