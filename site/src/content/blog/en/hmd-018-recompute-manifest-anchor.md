@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-018-deep-dive
 hmd: HMD-018
 kind: deep-dive
-date: 2027-03-26
+date: 2027-04-09
 tags: ["reproducibility", "SHA-256", "manifest", "correction log", "versioning", "benchmarks"]
 sources:
   - title: "NeurIPS 2026 Paper Checklist Guidelines (read 7 November 2026)"

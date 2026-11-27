@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-005-deep-dive
 hmd: HMD-005
 kind: deep-dive
-date: 2026-12-18
+date: 2027-01-01
 tags: ["tokenizer", "tokens", "Persian", "reproducibility", "tiktoken", "Hugging Face"]
 sources:
   - title: "Petrov, La Malfa, Torr, Bibi · Language Model Tokenizers Introduce Unfairness Between Languages (NeurIPS 2023)"

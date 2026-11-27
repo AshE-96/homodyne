@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-005-companion
 hmd: HMD-005
 kind: companion
-date: 2026-12-18
+date: 2027-01-01
 tags: ["توکن", "tokenizer", "زبان فارسی", "مدل زبانی", "نیم‌فاصله", "BPE"]
 sources:
   - title: "Petrov, La Malfa, Torr, Bibi · Language Model Tokenizers Introduce Unfairness Between Languages (NeurIPS 2023)"

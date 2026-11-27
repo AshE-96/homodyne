@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-006-companion
 hmd: HMD-006
 kind: companion
-date: 2026-12-25
+date: 2027-01-08
 tags: ["error rate", "hallucination", "abstention", "benchmarks", "SimpleQA"]
 sources:
   - title: "OpenAI (September 2025): Why language models hallucinate"

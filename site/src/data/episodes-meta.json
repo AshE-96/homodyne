@@ -20,6 +20,20 @@
    "summary": "A model has a profile, not a rank, and every benchmark has an expiry date. Start from the error you cannot afford, not from the famous name."
   }
  },
+ "HMD-S01": {
+  "slug": "hmd-s01",
+  "en": {
+   "title": "Did AI just reach the hardest problem in mathematics?",
+   "summary": "An AI pushed the proven share of Riemann zeta zeros on the critical line further, and a proof checker verified it. What was proved, what was not, and who checked it."
+  }
+ },
+ "HMD-K01": {
+  "slug": "hmd-k01",
+  "en": {
+   "title": "If AI sat Iran's Konkur, which university would it get into?",
+   "summary": "Five models sit three years of the Konkur, live: who is fastest, who uses fewer tokens, who scores higher, and what the score could mean for admission (an estimate, with its range)."
+  }
+ },
  "HMD-005": {
   "slug": "hmd-005",
   "en": {

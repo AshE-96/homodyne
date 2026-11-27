@@ -1,0 +1,70 @@
+{
+ "_about": "Small derived facts for rank_estimate.py. Every number has a source id from SOURCE.txt. Read 2026-11-27 (sanjesh.org itself refused automated fetches, so these are news-agency relays of Sanjesh announcements).",
+ "exam_weights": {
+  "_source": "S1 (official 1402 weights relayed by Mehr, republished by gama.ir) + S2 (Mehr 4 Mehr 1402: 1403 keeps the 1402 titles and coefficients). 1404 and 1405: no dated primary source found; ASSUMED unchanged.",
+  "tajrobi": {
+   "bio": 12,
+   "chem": 9,
+   "phys": 7,
+   "math": 7,
+   "geo": 1
+  },
+  "riazi": {
+   "math": 12,
+   "phys": 9,
+   "chem": 7
+  },
+  "status": {
+   "1403": "sourced",
+   "1404": "assumed",
+   "1405": "assumed"
+  }
+ },
+ "sabeqe_share": {
+  "_source": "1403: S2 · 1404: S3 · 1405: S4, S5. 1405 grade split (11th 17% + 12th 43%, تأثیر قطعی) is disputed in other reports (S6, S7); the 60/40 split is not.",
+  "1403": {
+   "school_records": 0.5,
+   "exam": 0.5,
+   "grades": "grade 12 only"
+  },
+  "1404": {
+   "school_records": 0.6,
+   "exam": 0.4,
+   "grades": "grade 11 (20%) + grade 12 (40%)"
+  },
+  "1405": {
+   "school_records": 0.6,
+   "exam": 0.4,
+   "grades": "grade 11 (17%) + grade 12 (43%), disputed"
+  }
+ },
+ "participants": {
+  "_source": "1403 round 2 sat: S8 · 1404 round 2 registered: S9 (riazi reconstructed from a garbled figure) · 1405 single round, registered (not sat): S10. 1403 and 1404 had two rounds each.",
+  "tajrobi": {
+   "1403": 471390,
+   "1404": 399459,
+   "1405": 451522
+  },
+  "riazi": {
+   "1403": 125119,
+   "1404": 114683,
+   "1405": 135813
+  }
+ },
+ "general_subjects": "Removed from the exam since 1402; they count only through school records (S2).",
+ "exam_dates": {
+  "_source": "S13",
+  "1405": {
+   "tajrobi": "1405-05-29 (2026-08-20)",
+   "riazi": "1405-05-30 (2026-08-21)",
+   "sittings": 1
+  },
+  "1404": {
+   "sittings": 2,
+   "first": "Ordibehesht 1404"
+  },
+  "1403": {
+   "sittings": 2
+  }
+ }
+}

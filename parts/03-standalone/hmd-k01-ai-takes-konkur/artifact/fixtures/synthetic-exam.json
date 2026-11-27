@@ -1,0 +1,34 @@
+{
+ "exam": {
+  "year": 1405,
+  "group": "tajrobi",
+  "booklet": "SYNTHETIC — made-up questions for the self-test; not from any Konkur booklet",
+  "key_source": "SYNTHETIC",
+  "key_version": "final",
+  "synthetic": true,
+  "transcribed_by": "n/a",
+  "notes": "ILLUSTRATIVE. The figure crop points at a one-page PDF that the self-test writes itself."
+ },
+ "questions": [
+  {"id": "1405-tajrobi-001", "year": 1405, "group": "tajrobi", "subject": "math", "number": 1,
+   "stem": "[SYNTHETIC] اگر $x^۲ = 9$ و $x > 0$، مقدار $x$ کدام است؟", "options": ["۱", "۲", "۳", "۴"],
+   "figures": [], "key": [3], "key_status": "final", "notes": ""},
+  {"id": "1405-tajrobi-002", "year": 1405, "group": "tajrobi", "subject": "phys", "number": 2,
+   "stem": "[SYNTHETIC] جسمی با تندی ثابت $2\\,\\mathrm{m/s}$ در $5\\,\\mathrm{s}$ چند متر می‌رود؟",
+   "options": ["۵", "۷", "۱۰", "۲۵"], "figures": [], "key": [3], "key_status": "final", "notes": ""},
+  {"id": "1405-tajrobi-003", "year": 1405, "group": "tajrobi", "subject": "bio", "number": 3,
+   "stem": "[SYNTHETIC] در شکل، مستطیل خاکستری چند ضلع دارد؟", "options": ["۲", "۳", "۴", "۶"],
+   "figures": [{"path": "crops/synthetic/q003-stem.png", "role": "stem",
+                "crop": {"pdf": "synthetic.pdf", "page": 1, "dpi": 72, "box": [90, 130, 320, 220]}}],
+   "key": [3], "key_status": "final", "notes": ""},
+  {"id": "1405-tajrobi-004", "year": 1405, "group": "tajrobi", "subject": "chem", "number": 4,
+   "stem": "[SYNTHETIC] نماد شیمیایی آب کدام است؟", "options": ["$\\mathrm{H_2O}$", "$\\mathrm{CO_2}$",
+   "$\\mathrm{O_2}$", "$\\mathrm{NaCl}$"], "figures": [], "key": [1], "key_status": "final", "notes": ""},
+  {"id": "1405-tajrobi-005", "year": 1405, "group": "tajrobi", "subject": "chem", "number": 5,
+   "stem": "[SYNTHETIC] سؤالی که سازمان حذف کرده است (نمونهٔ حذف).", "options": ["الف", "ب", "پ", "ت"],
+   "figures": [], "key": null, "key_status": "cancelled", "notes": "cancelled questions are not scored"},
+  {"id": "1405-tajrobi-006", "year": 1405, "group": "tajrobi", "subject": "math", "number": 6,
+   "stem": "[SYNTHETIC] کدام عدد اول است؟ (دو پاسخ پذیرفته‌شده، نمونهٔ کلید دوگزینه‌ای)",
+   "options": ["۲", "۴", "۶", "۷"], "figures": [], "key": [1, 4], "key_status": "final", "notes": ""}
+ ]
+}

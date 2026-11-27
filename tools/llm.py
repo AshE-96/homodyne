@@ -10,8 +10,12 @@ Set ONE key, then run any episode's experiment. Nothing else to configure.
     # or
     export OPENAI_API_KEY=...         # OpenAI or any OpenAI-compatible gateway (standard library only)
     export OPENAI_BASE_URL=https://…/v1   # only for a gateway; then also set HOMODYNE_MODEL
+    # or
+    export OPENROUTER_API_KEY=...     # OpenRouter (standard library only); always name the model:
+                                      #   HOMODYNE_MODEL=openrouter:qwen/qwen3-vl-235b-a22b-instruct  (or model=...)
 
     python3 tools/llm.py check        # one tiny call: provider, model, latency, tokens
+    python3 tools/llm.py selftest     # no key, no network: provider routing and cache-key checks
 
 Safer than export: put the same KEY=value line in private/keys.env (git-ignored). The key is then read
 by this module only and never enters any process environment, so code an experiment runs can't see it.
@@ -27,8 +31,16 @@ Optional:
                                           (a one-line note goes to stderr). Result.extra['temperature'] says what was sent.
     HOMODYNE_MAX_ATTEMPTS=5               tries per request, first one included (default 5; 1 = no retries). For
                                           Claude it sets the SDK's max_retries to this minus one.
+    HOMODYNE_HTTP_TIMEOUT=900             seconds to wait for one reply (Gemini, OpenAI, OpenRouter, Ollama; default 180);
+                                          a slower reply raises LLMError and is not retried
     HOMODYNE_THINKING_BUDGET=1024         Gemini only: generationConfig.thinkingConfig.thinkingBudget (unset = default)
     HOMODYNE_MODEL=mock:echo              no key, no network: deterministic fake answers for self-tests
+    HOMODYNE_MODEL=openrouter:vendor/model  any model on OpenRouter (https://openrouter.ai/api/v1, OpenAI-compatible;
+                                          key OPENROUTER_API_KEY). Never picked automatically: name it explicitly.
+                                          Result.extra['cost_usd'] = the cost OpenRouter reports for the call, if any.
+
+Reasoning tokens: when OpenAI or OpenRouter report them (usage.completion_tokens_details.reasoning_tokens), they are
+copied to Result.extra['reasoning_tokens']; they are already inside output_tokens. Gemini's are extra['thoughts_tokens'].
     HOMODYNE_MODEL=ollama:llama3.2:3b     a model running on this computer through Ollama (no key, no internet;
                                           OLLAMA_HOST defaults to http://localhost:11434; "0.0.0.0:11434" or a
                                           host without http:// also works)
@@ -70,7 +82,10 @@ DEFAULTS = {
     'gemini': ('gemini-2.5-pro', 'gemini-2.5-flash'),
     'openai': (None, None),  # gateways name models differently: set HOMODYNE_MODEL / HOMODYNE_MODEL_SMALL
 }
-KEYS = {'anthropic': 'ANTHROPIC_API_KEY', 'gemini': 'GEMINI_API_KEY', 'openai': 'OPENAI_API_KEY'}
+KEYS = {'anthropic': 'ANTHROPIC_API_KEY', 'gemini': 'GEMINI_API_KEY', 'openai': 'OPENAI_API_KEY',
+        'openrouter': 'OPENROUTER_API_KEY'}
+AUTO = ('anthropic', 'gemini', 'openai')   # providers resolve() may pick on its own (openrouter must be named)
+OPENROUTER_BASE = 'https://openrouter.ai/api/v1'
 FALLBACK_FAMILIES = ('claude-opus-5', 'claude-sonnet-5-5', 'claude-fable-5')
 KEY_FILE = Path(__file__).resolve().parent.parent / 'private' / 'keys.env'
 
@@ -127,7 +142,7 @@ def resolve(role='main'):
             raise LLMError(f'{var} must look like provider:model, got {spec!r}')
         provider, model = spec.split(':', 1)
         return provider, model
-    for provider in ('anthropic', 'gemini', 'openai'):
+    for provider in AUTO:
         if key(KEYS[provider]):
             model = DEFAULTS[provider][0 if role == 'main' else 1]
             if not model:
@@ -160,9 +175,20 @@ def temperature():
         raise LLMError('HOMODYNE_TEMPERATURE must be a number') from None
 
 
-def _post(url, payload, headers, timeout=180, meta=None):
+def http_timeout():
+    """Seconds to wait for one HTTP reply (HOMODYNE_HTTP_TIMEOUT, default 180). Long reasoning calls need more."""
+    try:
+        return max(1.0, float(os.environ.get('HOMODYNE_HTTP_TIMEOUT') or 180))
+    except ValueError:
+        raise LLMError('HOMODYNE_HTTP_TIMEOUT must be a number of seconds') from None
+
+
+def _post(url, payload, headers, timeout=None, meta=None):
     """POST JSON with retries on 408/409/429/5xx and network errors. If `meta` (a dict) is given, it receives
-    `attempts` (tries made) and `last_attempt_s` (duration of the last try, without the waits between tries)."""
+    `attempts` (tries made) and `last_attempt_s` (duration of the last try, without the waits between tries).
+    A reply slower than `timeout` (default http_timeout()) raises LLMError without a retry: the provider may already
+    have billed the long generation, so it is not silently paid for twice."""
+    timeout = timeout or http_timeout()
     body = json.dumps(payload).encode('utf-8')
     tries = max_attempts()
     meta = meta if meta is not None else {}
@@ -184,6 +210,9 @@ def _post(url, payload, headers, timeout=180, meta=None):
             if e.code in (408, 409, 429) or e.code >= 500:
                 break
             raise LLMError(f'HTTP {e.code}: {detail}') from None
+        except TimeoutError:                # waiting for the reply (urllib does not wrap this one in URLError)
+            meta['last_attempt_s'] = round(time.time() - t, 3)
+            raise LLMError(f'no reply within {timeout:.0f} s (HOMODYNE_HTTP_TIMEOUT)') from None
         except urllib.error.URLError as e:
             meta['last_attempt_s'] = round(time.time() - t, 3)
             if attempt == tries - 1:
@@ -321,7 +350,18 @@ def _gemini(model, system, prompt, images, max_tokens, schema=None):
 OPENAI_REASONING = re.compile(r'^(o\d|gpt-5)')
 
 
-def _openai(model, system, prompt, images, max_tokens, base=None, auth=True, schema=None):
+def reasoning_tokens(usage):
+    """Reasoning tokens from an OpenAI-style usage block (OpenAI, OpenRouter), or None when not reported."""
+    for v in ((usage.get('completion_tokens_details') or {}).get('reasoning_tokens'), usage.get('reasoning_tokens')):
+        if isinstance(v, (int, float)) and not isinstance(v, bool):
+            return int(v)
+    return None
+
+
+def _openai(model, system, prompt, images, max_tokens, base=None, auth=True, schema=None, provider=None):
+    """OpenAI chat completions, or a compatible gateway. `provider` names the gateway in Result.provider and picks its
+    key from KEYS (default: 'openai' with auth, 'ollama' without)."""
+    provider = provider or ('openai' if auth else 'ollama')
     content = [{'type': 'text', 'text': prompt}]
     content += [{'type': 'image_url', 'image_url': {'url': f'data:{m};base64,{d}'}}
                 for m, d in (_image_part(p) for p in images)]
@@ -344,15 +384,26 @@ def _openai(model, system, prompt, images, max_tokens, base=None, auth=True, sch
         payload['response_format'] = {'type': 'json_schema',
                                       'json_schema': {'name': 'homodyne_output', 'strict': True, 'schema': schema}}
     meta = {}
+    if auth and not key(KEYS[provider]):
+        raise LLMError(f'{KEYS[provider]} is not set (environment or private/keys.env)')
     r = _post(f'{base}/chat/completions', payload,
-              {'Authorization': 'Bearer ' + key('OPENAI_API_KEY')} if auth else {}, meta=meta)
+              {'Authorization': 'Bearer ' + key(KEYS[provider])} if auth else {}, meta=meta)
     latency = time.time() - t
     choice = (r.get('choices') or [{}])[0]
-    u = r.get('usage', {})
-    return Result(choice.get('message', {}).get('content') or '', 'openai' if auth else 'ollama', model,
+    u = r.get('usage') or {}
+    extra = {'temperature': temp, **meta}
+    rt = reasoning_tokens(u)
+    if rt is not None:                      # already counted inside completion_tokens
+        extra['reasoning_tokens'] = rt
+    if provider == 'openrouter':
+        if isinstance(u.get('cost'), (int, float)):
+            extra['cost_usd'] = u['cost']
+        if r.get('provider'):
+            extra['upstream_provider'] = r['provider']
+    return Result(choice.get('message', {}).get('content') or '', provider, model,
                   r.get('model', model),
                   u.get('prompt_tokens', 0), u.get('completion_tokens', 0), latency,
-                  choice.get('finish_reason', ''), extra={'temperature': temp, **meta})
+                  choice.get('finish_reason', ''), extra=extra)
 
 
 def _accepts_schema(fn):
@@ -420,6 +471,9 @@ def call(prompt, system=None, images=(), role='main', max_tokens=16000, cache_di
         res = _gemini(name, system, prompt, images, max_tokens, schema=send)
     elif provider == 'openai':
         res = _openai(name, system, prompt, images, max_tokens, schema=send)
+    elif provider == 'openrouter':
+        res = _openai(name, system, prompt, images, max_tokens, base=OPENROUTER_BASE, schema=send,
+                      provider='openrouter')
     elif provider == 'ollama':
         res = _openai(name, system, prompt, images, max_tokens,
                       base=ollama_base() + '/v1', auth=False,
@@ -427,7 +481,7 @@ def call(prompt, system=None, images=(), role='main', max_tokens=16000, cache_di
     elif provider == 'mock':
         res = _mock(name, system, prompt, images, max_tokens, mock, schema=schema)
     else:
-        raise LLMError(f'unknown provider {provider!r}; use anthropic, gemini, openai, ollama or mock')
+        raise LLMError(f'unknown provider {provider!r}; use anthropic, gemini, openai, openrouter, ollama or mock')
     if schema is not None:
         res.extra['structured_output'] = True
     if path:
@@ -447,7 +501,90 @@ def describe():
     return ' · '.join(out)
 
 
+def selftest():
+    """No network, no real key: the OpenRouter route, reasoning-token extraction and unchanged cache keys."""
+    import tempfile
+    global _post
+    real_post, saved = _post, {k: os.environ.get(k) for k in
+                               ('OPENAI_API_KEY', 'OPENROUTER_API_KEY', 'OPENAI_BASE_URL', 'HOMODYNE_MODEL',
+                                'HOMODYNE_TEMPERATURE', 'HOMODYNE_EFFORT', 'HOMODYNE_THINKING_BUDGET',
+                                'HOMODYNE_HTTP_TIMEOUT')}
+    seen = []
+
+    def fake(url, payload, headers, timeout=180, meta=None):
+        seen.append((url, payload, headers))
+        usage = {'prompt_tokens': 11, 'completion_tokens': 40, 'completion_tokens_details': {'reasoning_tokens': 31}}
+        if 'openrouter' in url:
+            usage['cost'] = 0.00042
+        return {'choices': [{'message': {'content': '{"choice": 2}'}, 'finish_reason': 'stop'}], 'usage': usage,
+                'model': payload['model'] + '-served', **({'provider': 'Example'} if 'openrouter' in url else {})}
+    try:
+        for k in saved:
+            os.environ.pop(k, None)
+        os.environ['OPENAI_API_KEY'], os.environ['OPENROUTER_API_KEY'] = 'sk-test-openai-000', 'sk-or-test-000000'
+        _post = fake
+        r = call('q', system='s', model='openrouter:vendor/model-a', max_tokens=64)
+        url, payload, headers = seen[-1]
+        assert url == OPENROUTER_BASE + '/chat/completions', url
+        assert headers == {'Authorization': 'Bearer sk-or-test-000000'}, 'OpenRouter must use OPENROUTER_API_KEY'
+        assert payload['max_tokens'] == 64 and 'max_completion_tokens' not in payload
+        assert r.provider == 'openrouter' and r.model_served == 'vendor/model-a-served'
+        assert (r.input_tokens, r.output_tokens) == (11, 40)
+        assert r.extra['reasoning_tokens'] == 31 and r.extra['cost_usd'] == 0.00042
+        assert r.extra['upstream_provider'] == 'Example'
+        r = call('q', system='s', model='openai:gpt-x', max_tokens=64)
+        url, payload, headers = seen[-1]
+        assert url == 'https://api.openai.com/v1/chat/completions' and payload['max_completion_tokens'] == 64
+        assert headers == {'Authorization': 'Bearer sk-test-openai-000'} and r.provider == 'openai'
+        assert r.extra['reasoning_tokens'] == 31 and 'cost_usd' not in r.extra
+        assert reasoning_tokens({}) is None and reasoning_tokens({'reasoning_tokens': 5}) == 5
+        assert reasoning_tokens({'completion_tokens_details': {'reasoning_tokens': None}}) is None
+        # cache keys of existing calls must not move (hashes recorded with the previous llm.py, 2026-11-27)
+        for schema, want in ((None, '23171b2b5e3032b5a286be506027a6f60c34294b3eb044316d362424ffeb3bdd'),
+                             ({'type': 'object'}, '7413aa32132bb8ca08563707bb18dcf30c8555836aeeaf7c4cb69e3795777314')):
+            with tempfile.TemporaryDirectory() as d:
+                call('hi', system='s', model='openai:gpt-x', cache_dir=d, schema=schema, max_tokens=50)
+                got = [f[:-5] for f in os.listdir(d)]
+                assert got == [want], f'cache key changed: {got}'
+                n = len(seen)
+                assert call('hi', system='s', model='openai:gpt-x', cache_dir=d, schema=schema, max_tokens=50).cached
+                assert len(seen) == n, 'a cached call must not reach the network'
+        real_open = urllib.request.urlopen
+        urllib.request.urlopen = lambda req, timeout=None: (_ for _ in ()).throw(TimeoutError('timed out'))
+        _post = real_post
+        try:                                # a read timeout becomes LLMError (urllib does not wrap it)
+            call('slow', system='s', model='openai:gpt-x', max_tokens=64)
+            raise AssertionError('timeout must raise LLMError')
+        except LLMError as e:
+            assert 'HOMODYNE_HTTP_TIMEOUT' in str(e)
+        finally:
+            urllib.request.urlopen, _post = real_open, fake
+        assert 'sk-or-test-000000' in secrets()
+        try:                                # openrouter is never chosen on its own
+            assert resolve()[0] != 'openrouter'
+        except LLMError:
+            pass
+        os.environ.pop('OPENROUTER_API_KEY')
+        if not _file_keys().get('OPENROUTER_API_KEY'):
+            try:
+                call('q', model='openrouter:vendor/model-a')
+                raise AssertionError('missing key must raise LLMError')
+            except LLMError as e:
+                assert 'OPENROUTER_API_KEY' in str(e)
+    finally:
+        _post = real_post
+        for k, v in saved.items():
+            if v is None:
+                os.environ.pop(k, None)
+            else:
+                os.environ[k] = v
+    print('llm.py selftest ok (openrouter route, reasoning tokens, cost, cache keys unchanged)')
+    return 0
+
+
 def main():
+    if len(sys.argv) >= 2 and sys.argv[1] in ('selftest', '--selftest'):
+        return selftest()
     if len(sys.argv) < 2 or sys.argv[1] not in ('check', 'which'):
         print(__doc__)
         return 0

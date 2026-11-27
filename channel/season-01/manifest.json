@@ -1,7 +1,9 @@
 [
   {"hmd": "HMD-002", "format": "Benchmark Lab · E01", "path": "parts/02-benchmarking/e01-is-a-higher-score-better", "title": "چطور با همان جواب‌ها، برندهٔ AI عوض می‌شود؟", "next": "HMD-003"},
   {"hmd": "HMD-003", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-003-wildfire-from-space", "title": "می‌شود آتش جنگل را وقتی هنوز کوچک است پیدا کرد؟", "next": "HMD-004"},
-  {"hmd": "HMD-004", "format": "Benchmark Lab · E02", "path": "parts/02-benchmarking/e02-which-benchmark-answers-your-question", "title": "مدل اول جدول، برای تو هم بهترین است؟", "next": "HMD-005"},
+  {"hmd": "HMD-004", "format": "Benchmark Lab · E02", "path": "parts/02-benchmarking/e02-which-benchmark-answers-your-question", "title": "مدل اول جدول، برای تو هم بهترین است؟", "next": "HMD-S01"},
+  {"hmd": "HMD-S01", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s01-riemann-and-ai", "title": "هوش مصنوعی به سخت‌ترین مسئلهٔ ریاضی رسید؟", "next": "HMD-K01"},
+  {"hmd": "HMD-K01", "format": "Benchmark Lab", "path": "parts/03-standalone/hmd-k01-ai-takes-konkur", "title": "AI کنکور بدهد، کدام دانشگاه قبول می‌شود؟", "next": "HMD-005"},
   {"hmd": "HMD-005", "format": "Benchmark Lab", "path": "parts/03-standalone/hmd-005-persian-tokens", "title": "چرا نوشتن فارسی برای بعضی AIها توکن بیشتری می‌برد؟", "next": "HMD-006"},
   {"hmd": "HMD-006", "format": "Benchmark Lab · E03", "path": "parts/02-benchmarking/e03-what-exactly-are-we-measuring", "title": "وقتی می‌گویند AI کمتر خطا می‌کند، چه چیزی را نمی‌گویند؟", "next": "HMD-007"},
   {"hmd": "HMD-007", "format": "AI in Production", "path": "parts/03-standalone/hmd-007-prompt-injection", "title": "می‌شود با یک متن، دستیار AI را از کارش منحرف کرد؟", "next": "HMD-008"},

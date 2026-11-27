@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-008-deep-dive
 hmd: HMD-008
 kind: deep-dive
-date: 2027-01-08
+date: 2027-01-22
 tags: ["answer key", "label errors", "audit", "Wilson interval", "reproducibility"]
 sources:
   - title: "Gema et al. (2024): Are We Done with MMLU?, arXiv 2406.04127"

@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-005-companion
 hmd: HMD-005
 kind: companion
-date: 2026-12-18
+date: 2027-01-01
 tags: ["tokens", "tokenizer", "Persian", "language models", "ZWNJ", "BPE"]
 sources:
   - title: "Petrov, La Malfa, Torr, Bibi · Language Model Tokenizers Introduce Unfairness Between Languages (NeurIPS 2023)"

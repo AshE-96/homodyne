@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-016-deep-dive
 hmd: HMD-016
 kind: deep-dive
-date: 2027-03-12
+date: 2027-03-26
 tags: ["abstention", "risk-coverage", "preregistration", "bootstrap", "Wilson interval", "SHA-256", "reproducibility"]
 sources:
   - title: "Kirichenko, Ibrahim, Chaudhuri, Bell (2025). AbstentionBench. arXiv 2506.09038 v1"

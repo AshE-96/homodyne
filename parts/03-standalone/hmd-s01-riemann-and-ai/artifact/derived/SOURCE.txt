@@ -1,0 +1,21 @@
+HMD-S01 · derived data. Everything here is computed by our own code; nothing is downloaded.
+
+zeta-data.json — made by `python3 -I artifact/zeta_live.py --rebuild` (zeta_core.py, Python 3.11 standard library), 27 Nov 2026.
+  zeros   ordinates gamma of the first 500 nontrivial zeros 1/2 + i*gamma of the Riemann zeta function
+          (sign changes of Hardy's Z(t) on a 0.05 grid, refined by bisection to 1e-11).
+          #1 = 14.134725142, #2 = 21.022039639, #500 = 811.184359.
+  z       Hardy's Z(t) on t = 0, 0.025, ..., 300 (4 decimals)
+  theta   Riemann–Siegel theta(t) on the same grid (4 decimals)
+Method  zeta(s): Euler–Maclaurin summation, n = |t|/2 + 20 terms plus 12 Bernoulli corrections.
+        theta(t) = Im logGamma(1/4 + it/2) - (t/2) log pi, logGamma by shift + Stirling series.
+Checks  (artifact/zeta_live.py --selftest, 27 Nov 2026, all ok)
+        zeros #1–#5 equal the published values (Odlyzko's tables / LMFDB) to 1e-9;
+        29 zeros with 0 < t <= 100, as the Riemann–von Mangoldt formula predicts (theta(100)/pi + 1 = 29.002);
+        independent cross-check with mpmath 1.3.0: zeta relative error < 1e-12 at 5 points up to t = 811,
+        zeros within 5e-10 of mpmath.zetazero, mpmath.nzeros(811.18436) = 500 (no zero missed);
+        pi(10^6) = 78498 (OEIS A006880); explicit formula with 500 zeros at x = 100.5 gives 93.885 vs psi = 94.045.
+What this does NOT show: that all zeros are on the line. Z(t) only finds zeros ON the line; that the first 500 are all
+of them is the mpmath.nzeros check (an argument-principle count), and far beyond that the published computation of
+Platt & Trudgian (arXiv 2004.09765): every zero up to height 3*10^12 is on the line.
+
+The proportion timeline inside the page (zeta_live.py, TIMELINE) is copied from the papers; see ../../sources.md.

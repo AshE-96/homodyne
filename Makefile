@@ -45,6 +45,12 @@ selftest:
 	$(PY) parts/03-standalone/hmd-009-maps-eta/artifact/nyc_eta.py --selftest > /dev/null
 	$(PY) parts/03-standalone/hmd-009-maps-eta/artifact/make_figures.py --selftest > /dev/null
 	$(PY) parts/02-benchmarking/e05-how-do-you-penalise-a-bluff/artifact/penalty_threshold.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-s01-riemann-and-ai/artifact/zeta_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) tools/llm.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/konkur_prep.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/konkur_run.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/rank_estimate.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/konkur_live.py --selftest > /dev/null
 	HOMODYNE_MODEL=mock:echo $(PY) tools/llm.py which > /dev/null
 	$(PY) parts/05-season-02/hmd-011-solar-storm-forecast/artifact/storm_replay.py --selftest > /dev/null
 	$(PY) parts/05-season-02/hmd-013-fake-review-detector/artifact/review_lab.py --selftest > /dev/null

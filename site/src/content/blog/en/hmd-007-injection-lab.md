@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-007-deep-dive
 hmd: HMD-007
 kind: deep-dive
-date: 2027-01-01
+date: 2027-01-15
 tags: ["prompt injection", "spotlighting", "least privilege", "LLM security evaluation", "indirect prompt injection"]
 sources:
   - title: "Anthropic: Mitigating the risk of prompt injections in browser use (24 Nov 2025)"

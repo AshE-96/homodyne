@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-g01-deep-dive
 hmd: HMD-G01
 kind: deep-dive
-date: 2027-01-29
+date: 2027-02-12
 tags: ["فروریزی مدل", "model collapse", "رانش ژنتیکی", "Wright–Fisher", "دادهٔ مصنوعی", "شبیه‌سازی"]
 sources:
   - title: "Shumailov et al. (2024). AI models collapse when trained on recursively generated data. Nature 631, 755–759"

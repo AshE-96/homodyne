@@ -1,0 +1,12 @@
+{
+ "_about": "Published کارنامه-style rows (rank + subject percents). VERY LOW CONFIDENCE: undated private-consultancy pages that do not name a source; the Sharif rows also list general subjects that left the exam in 1402, so they are probably pre-1402 data under a new year label. Used only to place a model's percents next to published examples and to give a coarse rank RANGE, never a point rank. Percents copied as printed; column order of S11b inferred by the page layout.",
+ "tajrobi": [
+  {"label_fa": "کارنامهٔ منتشرشده برای پزشکی تهران · منطقه ۳", "label_en": "published row for Tehran medicine · region 3", "program_fa": "پزشکی دانشگاه تهران", "region": 3, "rank_region": 46, "rank_national": 200, "percents": {"bio": 64, "chem": 64.8, "phys": 87.8, "math": 75.59}, "year_label": "1404–1405 (as labelled)", "source": "S11a", "confidence": "very low"},
+  {"label_fa": "کارنامهٔ منتشرشده برای پزشکی تهران · منطقه ۱", "label_en": "published row for Tehran medicine · region 1", "program_fa": "پزشکی دانشگاه تهران", "region": 1, "rank_region": 180, "rank_national": 456, "percents": {"bio": 61.4, "chem": 59.09, "phys": 54.5, "math": 51.2, "geo": 93.4}, "year_label": "1404–1405 (as labelled)", "source": "S11a", "confidence": "very low"},
+  {"label_fa": "رتبهٔ یک کشوری (گزارش رسانه‌ای)", "label_en": "national rank 1 (media report)", "program_fa": null, "region": null, "rank_region": null, "rank_national": 1, "percents": {"bio": 97.04, "phys": 96.67, "chem": 96.2}, "year_label": "1404", "source": "S12", "confidence": "low"}
+ ],
+ "riazi": [
+  {"label_fa": "کارنامهٔ منتشرشده برای کامپیوتر شریف · منطقه ۱", "label_en": "published row for Sharif computer eng. · region 1", "program_fa": "مهندسی کامپیوتر شریف", "region": 1, "rank_region": 47, "rank_national": 77, "percents": {"math": 70.84, "phys": 88.58, "chem": 64.45}, "year_label": "1404–1405 (as labelled; likely older)", "source": "S11b", "confidence": "very low"},
+  {"label_fa": "کارنامهٔ منتشرشده برای کامپیوتر شریف · منطقه ۳", "label_en": "published row for Sharif computer eng. · region 3", "program_fa": "مهندسی کامپیوتر شریف", "region": 3, "rank_region": 47, "rank_national": 829, "percents": {"math": 53, "phys": 73, "chem": 48}, "year_label": "1404–1405 (as labelled; likely older)", "source": "S11b", "confidence": "very low"}
+ ]
+}

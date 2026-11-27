@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-012-companion
 hmd: HMD-012
 kind: companion
-date: 2027-02-12
+date: 2027-02-26
 tags: ["benchmarks", "sample size", "statistical power", "paired comparison", "preregistration", "LLM evaluation"]
 sources:
   - title: "Miller (2024). Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. arXiv 2411.00640"

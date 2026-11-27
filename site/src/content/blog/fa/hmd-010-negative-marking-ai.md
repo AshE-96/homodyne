@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-010-companion
 hmd: HMD-010
 kind: companion
-date: 2027-01-22
+date: 2027-02-05
 tags: ["نمرهٔ منفی", "توهم هوش مصنوعی", "کالیبراسیون", "بنچمارک", "کنکور"]
 sources:
   - title: "Kalai, Nachum, Vempala, Zhang (2025). Why Language Models Hallucinate. arXiv 2509.04664 v1"

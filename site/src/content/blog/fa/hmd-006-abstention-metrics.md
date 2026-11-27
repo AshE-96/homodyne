@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-006-deep-dive
 hmd: HMD-006
 kind: deep-dive
-date: 2026-12-25
+date: 2027-01-08
 tags: ["نرخ خطا", "خودداری", "توهم", "روش سنجش", "بازتولید"]
 sources:
   - title: "OpenAI (سپتامبر ۲۰۲۵): Why language models hallucinate"

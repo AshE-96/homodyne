@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-008-companion
 hmd: HMD-008
 kind: companion
-date: 2027-01-08
+date: 2027-01-22
 tags: ["جواب‌نامه", "خطای برچسب", "بنچمارک", "ممیزی", "MMLU"]
 sources:
   - title: "Gema و همکاران (۲۰۲۴): Are We Done with MMLU?، arXiv 2406.04127"

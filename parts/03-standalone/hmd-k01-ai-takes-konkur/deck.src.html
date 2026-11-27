@@ -1,0 +1,174 @@
+<!-- HMD-K01 · deck source. Build: python3 scripts/build-decks.py --only hmd-k01  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 7–12 and 14 carry NOT RUN YET until konkur_run.py report has run; replace each «—» with the report's number. -->
+
+<style>
+.lanes{display:flex;flex-direction:column;gap:14px;width:1500px}
+.lanes div{display:grid;grid-template-columns:260px 160px 1fr 220px;gap:24px;align-items:center;border:1px solid var(--line-night);border-radius:8px;padding:14px 22px;font-size:26px}
+.lanes div b{font-size:30px}.lanes div i{font-style:normal;color:var(--muted-night)}
+.lanes div.hi{border-color:var(--amber)}
+</style>
+
+<section class="cover">
+<h1><t-fa>AI کنکور بدهد، کدام <em>دانشگاه</em> قبول می‌شود؟</t-fa><t-en>If AI sat Iran's Konkur, which <em>university</em> would it get into?</t-en></h1>
+<p class="promise"><t-fa>پنج مدل، کنکور تجربی و ریاضی ۱۴۰۳ تا ۱۴۰۵، با قانون خود کنکور؛ درصد، زمان، خرج و یک کارنامهٔ تخمینی.</t-fa><t-en>Five models, the Konkur in experimental sciences and maths, 1403 to 1405, under the Konkur's own rule; percent, time, cost and an estimated report card.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<h1 class="xl"><t-fa>ChatGPT <em>پزشکی تهران</em> قبول می‌شود؟</t-fa><t-en>Can ChatGPT get into <em>Tehran medicine</em>?</t-en></h1>
+<div class="tokens"><i>Gemini</i><i>Claude</i><i>GPT</i><i><t-fa>مدل باز ۱</t-fa><t-en>Open model 1</t-en></i><i><t-fa>مدل باز ۲</t-fa><t-en>Open model 2</t-en></i></div>
+<p class="caption"><t-fa>پنج مدل، هم‌زمان، سر جلسهٔ کنکور ۱۴۰۳، ۱۴۰۴ و ۱۴۰۵. اول حدس بزن.</t-fa><t-en>Five models, at the same moment, sitting the Konkur of 1403, 1404 and 1405. Guess first.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b></p>
+<aside class="notes"><t-fa><b>هوک</b><p>[B-ROLL CUE] پنج ترمینال، بعد تابلوی «آماده». Grab / Promise / Stakes؛ کات روی «من محمدم…».</p></t-fa><t-en><b>Hook</b><p>[B-ROLL CUE] Five terminals, then the board at "ready". Grab / Promise / Stakes; cut on "I'm Mohammad…".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="49">
+<p class="kicker"><t-fa>ریاضی سخت آره؛ کنکور چی؟</t-fa><t-en>Hard maths, yes. And the Konkur?</t-en></p>
+<div class="source"><q><t-fa>رتبهٔ حدود ۵۰۰ از حدود ۱۴۰٬۰۰۰ داوطلب گروه ریاضی</t-fa><t-en>A rank of about 500 out of about 140,000 maths-group candidates</t-en></q><cite><t-fa>ادعای مقالهٔ IRUEX دربارهٔ GPT-4o · COLING 2025 · ۸۶۸ سؤال کنکور ریاضی</t-fa><t-en>The IRUEX paper's claim about GPT-4o · COLING 2025 · 868 Konkur maths questions</t-en></cite></div>
+<div class="cards"><div class="off"><b><t-fa>سؤال‌های شکل‌دار</t-fa><t-en>Questions with figures</t-en></b><t-fa>کنار گذاشته شدند</t-fa><t-en>were left out</t-en></div><div class="off"><b><t-fa>سال‌ها</t-fa><t-en>Years</t-en></b><t-fa>پیش از تاریخ برش مدل‌ها</t-fa><t-en>before the models' cutoffs</t-en></div></div>
+<footer><t-fa>R06 · aclanthology.org/2025.coling-main.434</t-fa><t-en>R06 · aclanthology.org/2025.coling-main.434</t-en></footer>
+<aside class="notes"><t-fa><b>مقالهٔ IRUEX</b><p>[UNEXPECTED STAT] «ادعای مقاله» را بلند بگو؛ مقاله نگفته رتبه مال کدام سال است.</p></t-fa><t-en><b>The IRUEX paper</b><p>[UNEXPECTED STAT] Say "the paper's claim" out loud; the paper does not say which year the rank refers to.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="97">
+<p class="kicker"><t-fa>قانون بازی</t-fa><t-en>The rules</t-en></p>
+<div class="cols">
+<div><span><t-fa>درست</t-fa><t-en>Right</t-en></span><b class="word"><t-fa>مثبت ۳</t-fa><t-en>+3</t-en></b></div>
+<div><span><t-fa>غلط</t-fa><t-en>Wrong</t-en></span><b class="word"><t-fa>منفی ۱</t-fa><t-en>−1</t-en></b></div>
+<div><span><t-fa>سفید</t-fa><t-en>Blank</t-en></span><b class="word"><t-fa>صفر</t-fa><t-en>0</t-en></b></div>
+<div class="hi"><span><t-fa>نمرهٔ نهایی ۱۴۰۵</t-fa><t-en>1405 final score</t-en></span><b class="word"><t-fa>۶۰٪ سوابق</t-fa><t-en>60% school records</t-en></b><p><t-fa>۴۰٪ آزمون</t-fa><t-en>40% exam</t-en></p></div>
+</div>
+<p class="sub"><t-fa>درصد هر درس:</t-fa><t-en>Percent per subject:</t-en> <bdi dir="ltr">(3 × right − wrong) ÷ (3 × n) × 100</bdi> <t-fa>· از منفی ۳۳ تا ۱۰۰</t-fa><t-en>· from −33 to 100</t-en></p>
+<footer><t-fa>قاعدهٔ رایج کنکور (متن رسمی پیدا نشد) · سهم سوابق: مهر، ۲۴ دی ۱۴۰۴ (R03)</t-fa><t-en>Common Konkur rule (no official text found) · school-records share: Mehr, 14 Jan 2026 (R03)</t-en></footer>
+<aside class="notes"><t-fa><b>قانون بازی</b><p>[GRAPHIC] سه کارت، فرمول، بعد کارت کهربایی ۶۰٪. «مدل‌های ما مدرسه نرفتن» حلقهٔ باز تا قاب ۱۲.</p></t-fa><t-en><b>The rules</b><p>[GRAPHIC] Three cards, the formula, then the amber 60% card. "Our models never went to school" stays open until beat 12.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="148">
+<p class="kicker"><t-fa>چیدن جلسه</t-fa><t-en>Setting up the hall</t-en></p>
+<div class="steps">
+<div><b><t-fa>یک دستور</t-fa><t-en>One prompt</t-en></b><t-fa>فارسی، قانون منفی، سفید مجاز</t-fa><t-en>Persian, the negative-marking rule, blanks allowed</t-en></div>
+<div><b><t-fa>یک سؤال در هر درخواست</t-fa><t-en>One question per call</t-en></b><t-fa>شکل‌ها به‌صورت عکس</t-fa><t-en>figures sent as images</t-en></div>
+<div><b><t-fa>جواب</t-fa><t-en>Answer</t-en></b><bdi dir="ltr">{"choice": 1–4 | null}</bdi></div>
+<div class="hi"><b><t-fa>شروع هم‌زمان</t-fa><t-en>Same start</t-en></b><t-fa>هر پنج مدل، یک لحظه</t-fa><t-en>all five, one instant</t-en></div>
+</div>
+<p class="caption"><t-fa>قواعد پیش از اولین اجرای پولی قفل شد: <bdi dir="ltr">artifact/protocol.md</bdi>.</t-fa><t-en>The rules were locked before the first paid run: artifact/protocol.md.</t-en></p>
+<footer><t-fa>شناسهٔ دقیق مدل‌ها روز اجرا در models.json</t-fa><t-en>Exact model IDs are written into models.json on run day</t-en></footer>
+<aside class="notes"><t-fa><b>چیدن جلسه</b><p>[B-ROLL CUE] ترمینال konkur_run.py plan و protocol.md. «ChatGPT اسم اپه؛ مدلِ پشتش رو امتحان می‌کنیم.»</p></t-fa><t-en><b>Setting up</b><p>[B-ROLL CUE] Terminal: konkur_run.py plan and protocol.md. "ChatGPT is the app's name; we test the model behind it."</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="207">
+<p class="kicker"><t-fa>چرا ۱۴۰۵؟</t-fa><t-en>Why 1405?</t-en></p>
+<div class="steps">
+<div class="off"><b><t-fa>کنکور ۱۴۰۳</t-fa><t-en>Konkur 1403</t-en></b><t-fa>۲۰۲۴ · شاید دیده‌اند</t-fa><t-en>2024 · maybe seen</t-en></div>
+<div class="off"><b><t-fa>کنکور ۱۴۰۴</t-fa><t-en>Konkur 1404</t-en></b><t-fa>۲۰۲۵ · شاید دیده‌اند</t-fa><t-en>2025 · maybe seen</t-en></div>
+<div class="hi"><b><t-fa>کنکور ۱۴۰۵</t-fa><t-en>Konkur 1405</t-en></b><t-fa>۲۹ و ۳۰ مرداد، اوت ۲۰۲۶ · احتمالاً بعد از تاریخ برش بیشتر مدل‌ها</t-fa><t-en>29–30 Mordad, 20–21 August 2026 · probably after most models' training cutoffs</t-en></div>
+</div>
+<p class="caption"><t-fa>اگر درصد ۱۴۰۵ بریزد، سرنخ آلودگی داده است؛ نه اثبات.</t-fa><t-en>If the 1405 percent drops, that is a hint of data contamination; not proof.</t-en></p>
+<p class="tag"><t-fa>تاریخ برش هر مدل: از صفحهٔ رسمی خودش، روز اجرا (R10)</t-fa><t-en>Each model's cutoff: from its own official page, on run day (R10)</t-en></p>
+<aside class="notes"><t-fa><b>آلودگی داده</b><p>[GRAPHIC] خط زمان؛ پنج نشانهٔ تاریخ برش روز اجرا اضافه شود.</p></t-fa><t-en><b>Contamination</b><p>[GRAPHIC] Timeline; add the five cutoff markers on run day.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-6" data-start="259">
+<p class="kicker"><t-fa>حدس بزن</t-fa><t-en>Guess</t-en></p>
+<div class="cards"><div><b><t-fa>اول تمام می‌کند؟</t-fa><t-en>Finishes first?</t-en></b></div><div><b><t-fa>بیشترین درصد؟</t-fa><t-en>Highest percent?</t-en></b></div><div class="hi"><b><t-fa>همان مدل؟</t-fa><t-en>The same model?</t-en></b></div><div><b><t-fa>بیشترین سفید؟</t-fa><t-en>Most blanks?</t-en></b></div></div>
+<p class="caption"><t-fa>جوابت را پیش از دیدن، در کامنت بنویس.</t-fa><t-en>Write your answer in the comments before you see it.</t-en></p>
+<aside class="notes"><t-fa><b>حدس + CTA میانی</b><p>[CAMERA CHANGE] نمای نزدیک.</p></t-fa><t-en><b>Guess + mid CTA</b><p>[CAMERA CHANGE] Close shot.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="293">
+<p class="kicker"><t-fa>زنگ جلسه · تابلوی زنده</t-fa><t-en>The bell · the live board</t-en></p>
+<div class="lanes">
+<div class="hi"><b>Gemini</b><span>—</span><i><t-fa>۱۴۰۳ · گروه تجربی · زیست · سؤال —</t-fa><t-en>1403 · experimental · biology · Q —</t-en></i><i><t-fa>توکن — · $ —</t-fa><t-en>tokens — · $ —</t-en></i></div>
+<div><b>Claude</b><span>—</span><i>…</i><i>…</i></div>
+<div><b>GPT</b><span>—</span><i>…</i><i>…</i></div>
+<div><b><t-fa>مدل باز ۱</t-fa><t-en>Open model 1</t-en></b><span>—</span><i>…</i><i>…</i></div>
+<div><b><t-fa>مدل باز ۲</t-fa><t-en>Open model 2</t-en></b><span>—</span><i>…</i><i>…</i></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>ضبط واقعی: konkur_live.py؛ هر بازپخش تند برچسب سرعت دارد</t-fa><t-en>Real footage: konkur_live.py; every sped-up replay is labelled "×N"</t-en></p>
+<aside class="notes"><t-fa><b>تابلو</b><p>[SOUND EFFECT] زنگ. [B-ROLL CUE] ضبط تابلو به‌جای این قاب. نسخهٔ MOCK ضبط نهایی نمی‌شود.</p></t-fa><t-en><b>The board</b><p>[SOUND EFFECT] Bell. [B-ROLL CUE] Board footage replaces this frame. The MOCK version is never used in the final cut.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="346">
+<p class="kicker"><t-fa>چند درصد زدند؟</t-fa><t-en>What did they score?</t-en></p>
+<div class="bars">
+<div><span>Gemini</span><i style="--v:0"></i><span>—</span></div>
+<div><span>Claude</span><i style="--v:0"></i><span>—</span></div>
+<div><span>GPT</span><i style="--v:0"></i><span>—</span></div>
+<div><span><t-fa>مدل باز ۱</t-fa><t-en>Open model 1</t-en></span><i style="--v:0"></i><span>—</span></div>
+<div><span><t-fa>مدل باز ۲</t-fa><t-en>Open model 2</t-en></span><i style="--v:0"></i><span>—</span></div>
+</div>
+<p class="caption"><t-fa>درصد کل با منفی یک‌سوم و تعداد سفیدها؛ فاصلهٔ کمتر از بازهٔ اطمینان برنده ندارد.</t-fa><t-en>Overall percent with the one-third penalty, and the number of blanks; a gap smaller than the confidence interval has no winner.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>عددها از results/&lt;run&gt;/report.md</t-fa><t-en>numbers from results/&lt;run&gt;/report.md</t-en></p>
+<aside class="notes"><t-fa><b>نمره</b><p>[GRAPHIC] جملهٔ «[قاب ۸]» از spoken-fa.txt.</p></t-fa><t-en><b>Scores</b><p>[GRAPHIC] The "[beat 8]" line from spoken-fa.txt.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="400">
+<p class="kicker"><t-fa>کی زودتر تمام کرد؟</t-fa><t-en>Who finished first?</t-en></p>
+<table class="t"><tr><th><t-fa>ترتیب</t-fa><t-en>Order</t-en></th><th><t-fa>مدل</t-fa><t-en>Model</t-en></th><th><t-fa>زمان کل</t-fa><t-en>Total time</t-en></th><th><t-fa>میانهٔ ثانیه در هر سؤال</t-fa><t-en>Median seconds per question</t-en></th></tr>
+<tr class="hi"><td><t-fa>۱</t-fa><t-en>1</t-en></td><td>—</td><td>—</td><td>—</td></tr><tr><td><t-fa>۲</t-fa><t-en>2</t-en></td><td>—</td><td>—</td><td>—</td></tr><tr><td><t-fa>۳</t-fa><t-en>3</t-en></td><td>—</td><td>—</td><td>—</td></tr><tr><td><t-fa>۴</t-fa><t-en>4</t-en></td><td>—</td><td>—</td><td>—</td></tr><tr><td><t-fa>۵</t-fa><t-en>5</t-en></td><td>—</td><td>—</td><td>—</td></tr></table>
+<p class="caption"><t-fa>سرعت، سرعتِ سرویس در همان ساعت است؛ نه هوش مدل.</t-fa><t-en>Speed is the service's speed at that hour; not the model's intelligence.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b></p>
+<aside class="notes"><t-fa><b>سرعت</b><p>[UNEXPECTED STAT] جملهٔ «[قاب ۹]»؛ شاخهٔ درست را بخوان.</p></t-fa><t-en><b>Speed</b><p>[UNEXPECTED STAT] The "[beat 9]" line; read the branch that applies.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="447">
+<p class="kicker"><t-fa>۱۴۰۵ منهای ۱۴۰۳ و ۱۴۰۴</t-fa><t-en>1405 minus 1403 and 1404</t-en></p>
+<div class="cards">
+<div><b><t-fa>همه با هم افت</t-fa><t-en>All drop together</t-en></b><t-fa>احتمالاً ۱۴۰۵ سخت‌تر بوده</t-fa><t-en>1405 was probably harder</t-en></div>
+<div class="hi"><b><t-fa>فقط بعضی</t-fa><t-en>Only some drop</t-en></b><t-fa>سرنخ آلودگی، نه اثبات</t-fa><t-en>a hint of contamination, not proof</t-en></div>
+<div><b><t-fa>هیچ‌کس</t-fa><t-en>No one drops</t-en></b><t-fa>حفظ‌کردن کل ماجرا نبوده</t-fa><t-en>memorisation was not the whole story</t-en></div>
+</div>
+<p class="caption"><t-fa>اگر بازهٔ ۹۵٪ از منفی تا مثبت برود، با این تعداد سؤال فرقی نمی‌شود گفت.</t-fa><t-en>If the 95% interval runs from negative to positive, no difference can be claimed with this many questions.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b></p>
+<aside class="notes"><t-fa><b>بازگشت هوک</b><p>[CAMERA CHANGE] «یه جای این حساب می‌لنگه». [GRAPHIC] نمودار نقطه و بازه به‌جای کارت‌ها بعد از اجرا.</p></t-fa><t-en><b>Re-hook</b><p>[CAMERA CHANGE] "Something in this sum is off". [GRAPHIC] The dot-and-interval chart replaces the cards after the run.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="511">
+<p class="kicker"><t-fa>توکن و دلار</t-fa><t-en>Tokens and dollars</t-en></p>
+<div class="cols">
+<div><span><t-fa>حرف‌های ورودی</t-fa><t-en>Input characters</t-en></span><b class="word"><t-fa>یکسان</t-fa><t-en>identical</t-en></b><p><t-fa>برای هر پنج مدل</t-fa><t-en>for all five models</t-en></p></div>
+<div class="hi"><span><t-fa>توکن در هر هزار حرف</t-fa><t-en>Tokens per 1000 characters</t-en></span><b class="word">—</b><p><t-fa>هر مدل تکه‌بندی خودش</t-fa><t-en>each model its own tokenizer</t-en></p></div>
+<div><span><t-fa>دلار کل</t-fa><t-en>Total dollars</t-en></span><b class="word">—</b><p><t-fa>با قیمت روز اجرا</t-fa><t-en>at run-day prices</t-en></p></div>
+</div>
+<p class="caption"><t-fa>توکن بین مدل‌ها هم‌واحد نیست؛ توکن‌های فکر پول دارند ولی دیده نمی‌شوند.</t-fa><t-en>Tokens are not the same unit across models; thinking tokens cost money but are not shown.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b></p>
+<aside class="notes"><t-fa><b>خرج</b><p>[GRAPHIC] شاخهٔ الف/ب بر اساس نسبت بیشترین به کمترین «توکن در هزار حرف».</p></t-fa><t-en><b>Cost</b><p>[GRAPHIC] Branch A/B depending on the max-to-min ratio of tokens per 1000 characters.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="566">
+<p class="kicker"><t-fa>کارنامه · تخمین</t-fa><t-en>Report card · estimate</t-en></p>
+<div class="cards">
+<div class="hi"><b><t-fa>بازهٔ رتبه</t-fa><t-en>Rank range</t-en></b><t-fa>فقط اگر سوابق تحصیلی نزدیک کامل باشد</t-fa><t-en>only if school records were near full marks</t-en></div>
+<div><b><t-fa>معدل متوسط</t-fa><t-en>Average grades</t-en></b><t-fa>بازه‌ای نمی‌شود گفت</t-fa><t-en>no range can be given</t-en></div>
+<div class="off"><b><t-fa>قبولی</t-fa><t-en>Admission</t-en></b><t-fa>ادعا نمی‌شود</t-fa><t-en>not claimed</t-en></div>
+</div>
+<p class="caption"><t-fa>کنکور تجربی ۱۴۰۵: <em>۴۵۱٬۵۲۲</em> داوطلب ثبت‌نامی. جدول رسمی درصد به رتبه پیدا نشد؛ مقایسه فقط با چند کارنامهٔ منتشرشدهٔ بی‌تاریخ.</t-fa><t-en>Konkur 1405, experimental sciences: <em>451,522</em> registered candidates. No official percent-to-rank table was found; we compare only with a few undated published report cards.</t-en></p>
+<p class="tag"><b><t-fa>تخمین</t-fa><t-en>ESTIMATE</t-en></b> <b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>tables/SOURCE.txt</t-fa><t-en>tables/SOURCE.txt</t-en></p>
+<footer><t-fa>شمار داوطلبان: جام‌جم، ۲۹ مرداد ۱۴۰۵، به نقل از رئیس سازمان سنجش (R02)</t-fa><t-en>Candidate count: Jam-e Jam, 20 Aug 2026, quoting the head of Sanjesh (R02)</t-en></footer>
+<aside class="notes"><t-fa><b>کارنامه</b><p>[B-ROLL CUE] کارت‌های konkur_live.py (?cards).</p></t-fa><t-en><b>Report card</b><p>[B-ROLL CUE] The konkur_live.py cards (?cards).</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="623">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary"><div><b><t-fa>نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>درصد، زمان و خرجِ این پنج مدل، با این دستور، در یک روز</t-fa><t-en>The percent, time and cost of these five models, with this prompt, on one day</t-en></div><div class="no"><b><t-fa>نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>قبولی، رتبهٔ قطعی، همان نتیجه در روز دیگر</t-fa><t-en>Admission, a definite rank, the same result on another day</t-en></div></div>
+<p class="caption"><t-fa>سؤال‌ها را ما دو بار جداگانه تایپ و مقایسه کردیم؛ خطای تایپ صفر نیست.</t-fa><t-en>We typed the questions twice, separately, and compared; typing errors are not zero.</t-en></p>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] نمای ثابت.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] Locked-off shot.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="662">
+<p class="kicker"><t-fa>جواب کوتاه · تمرین</t-fa><t-en>Short answer · exercise</t-en></p>
+<div class="steps">
+<div><b><t-fa>قبلاً دیده بوده؟</t-fa><t-en>Seen it before?</t-en></b></div>
+<div><b><t-fa>با همان قانون نمره گرفته؟</t-fa><t-en>Same scoring rule?</t-en></b></div>
+<div class="hi"><b><t-fa>رتبه نسبت به چه کسی؟</t-fa><t-en>Rank among whom?</t-en></b></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>جواب کوتاه با عدد اجرای واقعی</t-fa><t-en>the short answer comes with the real run's numbers</t-en></p>
+<aside class="notes"><t-fa><b>جواب</b><p>[GRAPHIC] شاخهٔ الف یا ب قاب ۱۴ متن.</p></t-fa><t-en><b>Answer</b><p>[GRAPHIC] Branch A or B of script beat 14.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="694">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1><t-fa>چرا یکی از مدل‌ها برای فارسی <em>چند برابر</em> توکن سوزاند؟</t-fa><t-en>Why did one model burn <em>several times</em> more tokens on Persian?</t-en></h1>
+<p class="tag"><t-fa>شاخهٔ ب، اگر فاصله کم بود: «یک متن فارسی یکسان؛ چرا هر مدل عدد دیگری می‌شمرد؟»</t-fa><t-en>Branch B, if the gap was small: "One identical Persian text; why does each model count a different number?"</t-en></p>
+<aside class="notes"><t-fa><b>تیزر HMD-005</b><p>[SOUND EFFECT] تایپ؛ جمله‌ای که به توکن خرد می‌شود. تیتر شاخهٔ الف فقط اگر نسبت دست‌کم ۲ بود.</p></t-fa><t-en><b>HMD-005 teaser</b><p>[SOUND EFFECT] Typing; a sentence breaking into tokens. Branch A headline only if the ratio was at least 2.</p></t-en></aside>
+</section>

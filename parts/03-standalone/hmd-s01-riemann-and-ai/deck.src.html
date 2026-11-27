@@ -1,0 +1,211 @@
+<!-- HMD-S01 · deck source. Build: python3 scripts/build-decks.py --only hmd-s01  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Charts are drawn by us from published numbers (sources.md); no third-party images. -->
+
+<style>
+/* HMD-S01: critical strip (beat 6) and quasi-RH bands (beat 11) */
+.chart.strip, .chart.bands{max-width:1500px;margin-inline:auto}
+.chart.strip .s{fill:#E7E3DA}.chart.strip .l{stroke:#E8A33D;stroke-width:5}
+.chart.strip .z{fill:#E8A33D}.chart.strip .tz{fill:#6E6A63}.chart.strip .ax{stroke:#8F8C84;stroke-width:2}
+.chart text{font-size:28px}.chart .sm{font-size:24px;fill:#6E6A63}
+.chart.bands .s{fill:#ECE8DF}.chart.bands .b12{fill:#CFC9BD}.chart.bands .b8{fill:#A9A296}.chart.bands .l{stroke:#E8A33D;stroke-width:6}
+.ladder>div{font-size:26px}
+.ladder>div b{font-size:28px}
+</style>
+
+<section class="cover">
+<h1><t-fa>هوش مصنوعی به <em>سخت‌ترین</em> مسئلهٔ ریاضی رسید؟</t-fa><t-en>Did AI just reach the <em>hardest</em> problem in mathematics?</t-en></h1>
+<p class="promise"><t-fa>عددهای اول را از صفرهای زتا می‌سازیم؛ بعد می‌پرسیم ۶۷٫۲٪ یعنی چه، و چه کسی بررسی‌اش کرده.</t-fa><t-en>We build the primes from the zeros of zeta, then ask what 67.2% means and who checked it.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>تابستان ۲۰۲۶</t-fa><t-en>Summer 2026</t-en></p>
+<div class="source"><q><t-fa>«یک تلاش واقعی روی فرضیهٔ ریمان بکن.»</t-fa><t-en>"Take a real stab at the Riemann hypothesis."</t-en></q><cite><t-fa>پیام یک کارمند غیرریاضی‌دانِ Anthropic به یک مدل پژوهشیِ منتشرنشدهٔ Claude · به نقل از anthropic.com/research/riemann-zeta · ۱۰ اوت ۲۰۲۶</t-fa><t-en>A non-mathematician at Anthropic, to an unreleased research version of Claude · as reported at anthropic.com/research/riemann-zeta · 10 Aug 2026</t-en></cite></div>
+<p class="tag"><t-fa>۶۵۰ ایده امتحان شد؛ هیچ‌کدام جواب نداد · حدود یک روز و نیم کار</t-fa><t-en>650 ideas tried; none worked · about a day and a half of work</t-en></p>
+<footer><t-fa>R01 · Anthropic · ۱۰ اوت ۲۰۲۶</t-fa><t-en>R01 · Anthropic · 10 Aug 2026</t-en></footer>
+<aside class="notes"><t-fa><b>«یه تلاش واقعی بکن»</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» نام مدل را نگو؛ اعلام نشده. عدد ۶۷٫۲ را اینجا لو نده.</p><p>در یک جمله: یک جمله به یک مدل، ۶۵۰ ایدهٔ شکست‌خورده، و عددی که دهه‌ها کند حرکت کرده بود.</p></t-fa><t-en><b>"Take a real stab"</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. Do not name the model; it was not announced. Do not reveal 67.2 here.</p><p>In one line: one sentence to a model, 650 failed ideas, and a number that had moved slowly for decades.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>یک خبر، دو تیتر</t-fa><t-en>One story, two headlines</t-en></p>
+<div class="cards">
+<div><b>TechCrunch · <t-fa>۱۱ اوت ۲۰۲۶</t-fa><t-en>11 Aug 2026</t-en></b><t-fa>«یک مدل منتشرنشدهٔ Anthropic روی یکی از بزرگ‌ترین مسئله‌های حل‌نشدهٔ ریاضی <em>پیشرفت کرد</em>.»</t-fa><t-en>"An unreleased Anthropic model <em>made progress</em> on one of math's biggest unsolved problems."</t-en></div>
+<div class="hi"><b>Scientific American · <t-fa>۱۲ اوت ۲۰۲۶</t-fa><t-en>12 Aug 2026</t-en></b><t-fa>«نه، هوش مصنوعی سخت‌ترین مسئلهٔ ریاضی را <em>حل نکرد</em>.»</t-fa><t-en>"No, AI didn't just <em>solve</em> the thorniest problem in math."</t-en></div>
+</div>
+<p class="caption"><t-fa>هر دو درست‌اند. فرقشان کار این قسمت است.</t-fa><t-en>Both are right. The difference is what this episode is about.</t-en></p>
+<footer><t-fa>R04 · R03 · ترجمهٔ هومودین</t-fa><t-en>R04 · R03</t-en></footer>
+<aside class="notes"><t-fa><b>دو تیتر، یک خبر</b><p>[B-ROLL CUE] متن تیترها را خودمان تایپ کرده‌ایم؛ اسکرین‌شات سایت نه. پل از HMD-004: «یه نتیجه رو کی بررسی کرده؟»</p><p>در یک جمله: «پیشرفت کرد» و «حل نکرد» هر دو درست‌اند؛ فهم فرقشان کار این قسمت است.</p></t-fa><t-en><b>Two headlines, one story</b><p>[B-ROLL CUE] We typed the headlines ourselves; no site screenshots. Bridge from HMD-004: "who checked a result?"</p><p>In one line: "made progress" and "did not solve" are both true; understanding the difference is this episode's job.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="85">
+<p class="kicker"><t-fa>پلکان عددهای اول</t-fa><t-en>The prime staircase</t-en></p>
+<h1><t-fa>از دور یک خط صاف، از نزدیک <em>دندانه‌دار</em></t-fa><t-en>A straight line from afar, <em>jagged</em> up close</t-en></h1>
+<div class="tokens mono" dir="ltr"><i class="off">1</i><i class="hi">2</i><i class="hi">3</i><i class="off">4</i><i class="hi">5</i><i class="off">6</i><i class="hi">7</i><i class="off">8</i><i class="off">9</i><i class="off">10</i><i class="hi">11</i><i class="off">12</i><i class="hi">13</i><i class="off">14</i><i class="off">15</i><i class="off">16</i><i class="hi">17</i><i class="off">18</i><i class="hi">19</i><i class="off">20</i><i class="off">21</i><i class="off">22</i><i class="hi">23</i><i class="off">24</i><i class="off">25</i><i class="off">26</i><i class="off">27</i><i class="off">28</i><i class="hi">29</i><i class="off">30</i></div>
+<p class="caption"><t-fa>هر عدد اول یک پله؛ در دمو قد هر پله لگاریتم همان عدد است، و توان‌های اول (۴، ۸، ۹…) پلهٔ کوچکی دارند.</t-fa><t-en>Each prime is a step; in the demo each step's height is the log of that prime, and prime powers (4, 8, 9…) get a small step.</t-en></p>
+<p class="tag"><t-fa>دمو: artifact/zeta_live.html · نمای ۱ · بدون صفر</t-fa><t-en>Demo: artifact/zeta_live.html · view 1 · no zeros</t-en></p>
+<footer><t-fa>π(۳۰) = ۱۰</t-fa><t-en>π(30) = 10</t-en></footer>
+<aside class="notes"><t-fa><b>پلکان عددهای اول</b><p>[GRAPHIC] بعد از این قاب به ضبط صفحهٔ دمو برو: <code>?view=a&amp;k=0&amp;x=30</code>، بعد X برای <code>x ≤ 100</code>.</p><p>در یک جمله: عددهای اول از دور منظم و از نزدیک نامنظم‌اند؛ اندازهٔ این بی‌نظمی سؤال اصلی است.</p></t-fa><t-en><b>The prime staircase</b><p>[GRAPHIC] After this frame cut to the demo recording: ?view=a&amp;k=0&amp;x=30, then X for x ≤ 100.</p><p>In one line: primes look regular from afar and irregular up close; the size of that irregularity is the real question.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="140">
+<p class="kicker"><t-fa>ماشین زتا</t-fa><t-en>The zeta machine</t-en></p>
+<h1 class="formula">ζ(s) = 1 + 1/2ˢ + 1/3ˢ + … = ∏ₚ 1/(1 − p⁻ˢ)</h1>
+<div class="cols">
+<div><span><t-fa>اویلر، ۱۷۳۷</t-fa><t-en>Euler, 1737</t-en></span><b class="word"><t-fa>همهٔ اول‌ها</t-fa><t-en>All primes</t-en></b><p><t-fa>همان جمع را می‌شود فقط با عددهای اول نوشت.</t-fa><t-en>The same sum can be written with primes alone.</t-en></p></div>
+<div class="hi"><span><t-fa>ریمان، ۱۸۵۹</t-fa><t-en>Riemann, 1859</t-en></span><b class="word"><t-fa>صفرها</t-fa><t-en>Zeros</t-en></b><p><t-fa>ورودی مختلط؛ جاهایی که خروجی صفر می‌شود، از جای اول‌ها خبر می‌دهند.</t-fa><t-en>Complex inputs; the places where the output is zero tell where the primes are.</t-en></p></div>
+</div>
+<footer><t-fa>Edwards، Riemann's Zeta Function (۱۹۷۴) · study-fa.md §۲</t-fa><t-en>Edwards, Riemann's Zeta Function (1974) · study-fa.md §2</t-en></footer>
+<aside class="notes"><t-fa><b>ماشین زتا و صفرهایش</b><p>[GRAPHIC] فرمول بالا فقط برای <code>Re(s) &gt; 1</code> همگراست؛ صفرهای جالب جایی‌اند که تابع با «ادامهٔ تحلیلی» تعریف می‌شود. روی دوربین وارد این جزئیات نشو.</p><p>در یک جمله: تابع زتا از همهٔ عددهای اول ساخته شده و صفرهایش دربارهٔ آن‌ها حرف می‌زنند.</p></t-fa><t-en><b>The zeta machine and its zeros</b><p>[GRAPHIC] The formula above converges only for Re(s) > 1; the interesting zeros live where the function is defined by analytic continuation. Do not go into this on camera.</p><p>In one line: the zeta function is built from all the primes, and its zeros speak about them.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="190">
+<p class="kicker"><t-fa>فرمول صریح · دموی زنده</t-fa><t-en>The explicit formula · live demo</t-en></p>
+<h1 class="formula">ψ(x) = x − Σ<sub>ρ</sub> x<sup>ρ</sup>/ρ − log 2π − ½ log(1 − x⁻²)</h1>
+<div class="bars">
+<div><span><t-fa>بدون صفر</t-fa><t-en>No zeros</t-en></span><i style="--v:100"></i><span><t-fa>۴٫۶۲</t-fa><t-en>4.62</t-en></span></div>
+<div><span><t-fa>۱۰ صفر</t-fa><t-en>10 zeros</t-en></span><i style="--v:37.5"></i><span><t-fa>۱٫۷۳</t-fa><t-en>1.73</t-en></span></div>
+<div><span><t-fa>۱۰۰ صفر</t-fa><t-en>100 zeros</t-en></span><i style="--v:20.9"></i><span><t-fa>۰٫۹۶</t-fa><t-en>0.96</t-en></span></div>
+<div class="hi"><span><t-fa>۵۰۰ صفر</t-fa><t-en>500 zeros</t-en></span><i style="--v:3.5"></i><span><t-fa>۰٫۱۶</t-fa><t-en>0.16</t-en></span></div>
+</div>
+<p class="tag"><t-fa>فاصلهٔ فرمول تا پلکان واقعی در x = ۱۰۰٫۵ (ψ = ۹۴٫۰۴۵) · حساب ما · zeta_live.py --selftest</t-fa><t-en>Gap between the formula and the real staircase at x = 100.5 (ψ = 94.045) · our computation · zeta_live.py --selftest</t-en></p>
+<footer><t-fa>ریمان ۱۸۵۹، فون مانگولت ۱۸۹۵ · اجرای HMD-S01</t-fa><t-en>Riemann 1859, von Mangoldt 1895 · HMD-S01 run</t-en></footer>
+<aside class="notes"><t-fa><b>عددهای اول از روی صفرها + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. بعد [B-ROLL CUE] نمای ۱ دمو: → سه بار، ↑ دو بار (۱۲ صفر)، Space تا حدود ۲۰۰. «هر صفر یه موجه» یعنی هر صفر همراه قرینه‌اش. پیش از «دوازده تا» مکث برای حدس.</p><p>در یک جمله: با جمع موج صفرهای زتا، پلکان عددهای اول دوباره ساخته می‌شود.</p></t-fa><t-en><b>Primes from zeros + soft CTA</b><p>[MID-CTA] Soft CTA to camera first. Then [B-ROLL CUE] demo view 1: → three times, ↑ twice (12 zeros), Space to about 200. "Each zero is a wave" means each zero with its mirror image. Pause for the guess before "twelve".</p><p>In one line: adding up the waves of the zeta zeros rebuilds the prime staircase.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="260">
+<p class="kicker"><t-fa>خود فرضیه</t-fa><t-en>The hypothesis itself</t-en></p>
+<h1><t-fa>همهٔ صفرهای نابدیهی روی <em>خط بحرانی</em>؟</t-fa><t-en>Every nontrivial zero on the <em>critical line</em>?</t-en></h1>
+<div dir="ltr"><svg class="chart strip" viewBox="0 0 1600 540" role="img"><title><t-fa>نوار بحرانی، خط ½ و ده صفر نخست</t-fa><t-en>The critical strip, the line ½ and the first ten zeros</t-en></title>
+<rect class="s" x="1100" y="20" width="200" height="450"/>
+<line class="ax" x1="80" y1="470" x2="1540" y2="470"/>
+<line class="l" x1="1200" y1="20" x2="1200" y2="470"/>
+<circle class="z" cx="1200" cy="342.8" r="11"/><circle class="z" cx="1200" cy="280.8" r="11"/><circle class="z" cx="1200" cy="244.9" r="11"/><circle class="z" cx="1200" cy="196.2" r="11"/><circle class="z" cx="1200" cy="173.6" r="11"/><circle class="z" cx="1200" cy="131.7" r="11"/><circle class="z" cx="1200" cy="101.7" r="11"/><circle class="z" cx="1200" cy="80.1" r="11"/><circle class="z" cx="1200" cy="37.9" r="11"/><circle class="z" cx="1200" cy="22.0" r="11"/>
+<circle class="tz" cx="700" cy="470" r="11"/><circle class="tz" cx="300" cy="470" r="11"/>
+<text x="300" y="512" text-anchor="middle">−4</text><text x="700" y="512" text-anchor="middle">−2</text><text x="1100" y="512" text-anchor="middle">0</text><text x="1200" y="512" text-anchor="middle">½</text><text x="1300" y="512" text-anchor="middle">1</text>
+<text x="1225" y="351">14.13…</text><text x="1225" y="289">21.02…</text><text x="1225" y="253">25.01…</text>
+<text class="sm" x="1330" y="440"><t-fa>نوار بحرانی</t-fa><t-en>critical strip</t-en></text>
+<text class="sm" x="500" y="440" text-anchor="middle"><t-fa>صفرهای بدیهی</t-fa><t-en>trivial zeros</t-en></text>
+<text class="sm" x="1080" y="60" text-anchor="end"><t-fa>ارتفاع t ↑</t-fa><t-en>height t ↑</t-en></text>
+</svg></div>
+<p class="tag"><t-fa>۱۰ تریلیون صفر نخست بررسی شده و همه روی خط‌اند (Clay) · ۲۹ صفر تا ارتفاع ۱۰۰، همان که فرمول شمارش می‌گوید (حساب ما) · این‌ها اثبات نیستند</t-fa><t-en>The first 10 trillion zeros have been checked and all lie on the line (Clay) · 29 zeros up to height 100, as the counting formula says (our computation) · none of this is a proof</t-en></p>
+<footer><t-fa>R16 · R17 · رسم ما از عددهای شناخته‌شده</t-fa><t-en>R16 · R17 · drawn by us from known values</t-en></footer>
+<aside class="notes"><t-fa><b>خط بحرانی و خود فرضیه</b><p>[B-ROLL CUE] بعد از این قاب: نمای ۲ دمو (<code>?view=b&amp;T=50</code>)، ↑ برای T = ۱۰۰؛ روی «۲۹» و <code>formula 29.00</code> مکث. «رادیکال» را بدون فرمول بگو.</p><p>در یک جمله: فرضیهٔ ریمان یعنی همهٔ صفرها روی خط بحرانی‌اند؛ ده تریلیون نمونه هست، اثبات نیست.</p></t-fa><t-en><b>The critical line and the hypothesis</b><p>[B-ROLL CUE] After this frame: demo view 2 (?view=b&amp;T=50), ↑ for T = 100; pause on "29" and "formula 29.00". Say "square root" without a formula.</p><p>In one line: the Riemann hypothesis says every zero is on the critical line; ten trillion examples exist, a proof does not.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="330">
+<p class="kicker"><t-fa>دست‌کم چند درصد روی خط‌اند؟</t-fa><t-en>At least what share is on the line?</t-en></p>
+<div class="bars tight">
+<div><span><t-fa>۱۹۱۴ · هاردی</t-fa><t-en>1914 · Hardy</t-en></span><i style="--v:0"></i><span><t-fa>∞ ولی ۰٪</t-fa><t-en>∞ but 0%</t-en></span></div>
+<div><span><t-fa>۱۹۴۲ · سلبرگ</t-fa><t-en>1942 · Selberg</t-en></span><i style="--v:1"></i><span><t-fa>بالای ۰٪</t-fa><t-en>above 0%</t-en></span></div>
+<div><span><t-fa>۱۹۷۴ · لوینسون</t-fa><t-en>1974 · Levinson</t-en></span><i style="--v:49.6"></i><span><t-fa>بالای ⅓</t-fa><t-en>above ⅓</t-en></span></div>
+<div><span><t-fa>۱۹۸۹ · کانری</t-fa><t-en>1989 · Conrey</t-en></span><i style="--v:60.8"></i><span><t-fa>۴۰٫۸۸٪</t-fa><t-en>40.88%</t-en></span></div>
+<div><span><t-fa>۲۰۱۱ · بوی، کانری، یانگ</t-fa><t-en>2011 · Bui, Conrey, Young</t-en></span><i style="--v:61.0"></i><span><t-fa>۴۱٫۰۵٪</t-fa><t-en>41.05%</t-en></span></div>
+<div class="hi"><span><t-fa>۲۰۲۰ · پرت و همکاران</t-fa><t-en>2020 · Pratt et al.</t-en></span><i style="--v:62.0"></i><span><t-fa>۴۱٫۷٪</t-fa><t-en>41.7%</t-en></span></div>
+</div>
+<p class="tag"><t-fa>«حد پایین»: بقیه اثبات‌نشده‌اند، نه بیرون از خط · میله‌ها نسبت به ۶۷٫۲٪ · کران‌ها از متن خود مقاله‌ها؛ Anthropic رکورد ۲۰۲۰ را ۴۱٫۶٪ (گردشدهٔ ۵/۱۲) نوشته است</t-fa><t-en>"Lower bound": the rest are unproven, not off the line · bars scaled to 67.2% · bounds from the papers themselves; Anthropic writes the 2020 record as 41.6% (5/12 rounded down)</t-en></p>
+<footer><t-fa>R10–R15</t-fa><t-en>R10–R15</t-en></footer>
+<aside class="notes"><t-fa><b>دست‌کم چند درصد؟</b><p>[GRAPHIC] نمای ۳ دمو: → از ۱۹۱۴ تا ۲۰۲۰. «یه گروه چهارنفره» = پرت، روبلز، زهارسکو، زایندلر (<code>κ &gt; 0.417293</code>). «حدود هشت واحد درصد» = از ۳۳٫۳ تا ۴۱٫۷.</p><p>در یک جمله: سهم اثبات‌شدهٔ صفرهای روی خط در نزدیک پنجاه سال از یک‌سوم به حدود ۴۲٪ رسید.</p></t-fa><t-en><b>At least what share?</b><p>[GRAPHIC] Demo view 3: → from 1914 to 2020. "A group of four" = Pratt, Robles, Zaharescu, Zeindler (<code>κ &gt; 0.417293</code>). "About eight percentage points" = from 33.3 to 41.7.</p><p>In one line: in nearly fifty years the proven share of zeros on the line rose from a third to about 42%.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-8" data-start="385">
+<p class="kicker"><t-fa>اوت ۲۰۲۶</t-fa><t-en>August 2026</t-en></p>
+<div class="cols">
+<div><span><t-fa>رکورد ۲۰۲۰</t-fa><t-en>2020 record</t-en></span><b><t-fa>۴۱٫۷٪</t-fa><t-en>41.7%</t-en></b><p><t-fa>نزدیک پنجاه سال کار با یک روش</t-fa><t-en>nearly fifty years of one method</t-en></p></div>
+<div><span><t-fa>مونتگومری ۱۹۷۳</t-fa><t-en>Montgomery 1973</t-en></span><b><t-fa>⅔</t-fa><t-en>⅔</t-en></b><p><t-fa>فقط اگر فرضیهٔ ریمان درست باشد</t-fa><t-en>only if the Riemann hypothesis is true</t-en></p></div>
+<div class="hi"><span><t-fa>Claude · اوت ۲۰۲۶</t-fa><t-en>Claude · Aug 2026</t-en></span><b><t-fa>۶۷٫۲٪</t-fa><t-en>67.2%</t-en></b><p><t-fa>همان ⅔، بدون شرط؛ با پنجرهٔ بهتر ۰٫۶۷۲۵</t-fa><t-en>the same ⅔, unconditional; 0.6725 with a better window</t-en></p></div>
+</div>
+<p class="tag"><t-fa>دو جلسه · حدود ۳۱ میلیون توکن خروجی · حدود ۶۰ زیرعامل · حدود یک روز و نیم · ۶۵۰ ایدهٔ ناموفق · مدل منتشرنشده و بی‌نام</t-fa><t-en>Two sessions · about 31 million output tokens · about 60 subagents · about a day and a half · 650 failed ideas · unreleased, unnamed model</t-en></p>
+<footer><t-fa>R01 · R02 (arXiv 2608.13637)</t-fa><t-en>R01 · R02 (arXiv 2608.13637)</t-en></footer>
+<aside class="notes"><t-fa><b>اوت ۲۰۲۶: ۶۷٫۲٪</b><p>[UNEXPECTED STAT] نمای ۳ دمو روی ۲۰۲۰، سؤال حدسی، بعد → دو بار. «ترفند جبر ماتریس‌ها» = لم رتبه–اثر و اینرسی سیلوستر روی فرم هرمیتی وایل (study §۱۰٫۴). خود مقاله: «هیچ میراکننده‌ای به کار نرفته».</p><p>در یک جمله: در اوت ۲۰۲۶ یک مدل منتشرنشدهٔ Claude، با راهی تازه، حد پایین را به ۶۷٫۲٪ رساند.</p></t-fa><t-en><b>August 2026: 67.2%</b><p>[UNEXPECTED STAT] Demo view 3 on 2020, the guess, then → twice. "A trick from matrix algebra" = the rank–trace lemma and Sylvester's inertia on Weil's Hermitian form (study §10.4). The paper itself: "no mollifier is used".</p><p>In one line: in August 2026 an unreleased Claude model, by a new route, raised the lower bound to 67.2%.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-9" data-start="445">
+<p class="kicker"><t-fa>هوک دوم</t-fa><t-en>Second hook</t-en></p>
+<h1><t-fa>این عدد را <em>چه کسی</em> بررسی کرده؟</t-fa><t-en><em>Who</em> checked this number?</t-en></h1>
+<div class="steps ladder">
+<div><b><t-fa>۱ · خود مدل</t-fa><t-en>1 · The model</t-en></b><t-fa>زیرعامل‌ها بازبینی و مثال نقض؛ مستقل نیست</t-fa><t-en>Subagents reviewed and hunted counterexamples; not independent</t-en></div>
+<div><b><t-fa>۲ · آلپوگه و فورمن</t-fa><t-en>2 · Alpöge, Furman</t-en></b><t-fa>دو ریاضی‌دان Anthropic؛ مسئولیت خطا با آن‌ها</t-fa><t-en>Two Anthropic mathematicians; they take responsibility for errors</t-en></div>
+<div><b><t-fa>۳ · Lean</t-fa><t-en>3 · Lean</t-en></b><t-fa>هر قدم با نرم‌افزار؛ فقط سه اصل استاندارد</t-fa><t-en>Every step machine-checked; only the three standard axioms</t-en></div>
+<div><b><t-fa>۴ · کانری و گلدستون</t-fa><t-en>4 · Conrey, Goldston</t-en></b><t-fa>خواندند و نظر دادند؛ حکم علنی ندیدیم</t-fa><t-en>Read it and commented; we found no public verdict</t-en></div>
+<div><b><t-fa>۵ · لامزوری</t-fa><t-en>5 · Lamzouri</t-en></b><t-fa>اثباتی تازه با روشی دیگر، ۲ سپتامبر</t-fa><t-en>A new proof by a different method, 2 September</t-en></div>
+<div class="hi"><b><t-fa>۶ · داوری مجله</t-fa><t-en>6 · Journal review</t-en></b><t-fa>تا جایی که گشتیم: هنوز نه</t-fa><t-en>As far as we found: not yet</t-en></div>
+</div>
+<footer><t-fa>R01 · R02 · R08 (arXiv 2609.02882)</t-fa><t-en>R01 · R02 · R08 (arXiv 2609.02882)</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: کی بررسیش کرده؟</b><p>[RE-HOOK] [CAMERA CHANGE] نمای نزدیک‌تر. پله‌ها یکی‌یکی. پلهٔ ۴: R01 می‌گوید «examined the paper on short notice»؛ «تأیید کردند» نگو.</p><p>در یک جمله: عدد ۶۷٫۲٪ را مدل، دو ریاضی‌دان داخلی، Lean و یک اثبات بیرونی پشتیبانی می‌کنند؛ داوری مجله هنوز نه.</p></t-fa><t-en><b>Second hook: who checked it?</b><p>[RE-HOOK] [CAMERA CHANGE] Closer shot. Steps one by one. Step 4: R01 says "examined the paper on short notice"; do not say "approved".</p><p>In one line: the model, two in-house mathematicians, Lean and an outside proof support 67.2%; journal review, not yet.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="505">
+<p class="kicker"><t-fa>وارسی صوری</t-fa><t-en>Formal verification</t-en></p>
+<div class="code sm"><span class="c">-- the statement Lean checked (paper, Appendix A; repo anthropics/zeta-23-lean)</span>
+theorem two_thirds_on_critical_line :
+  ∀ ε &gt; 0, ∃ T₀ : ℝ, ∀ T ≥ T₀,
+    (2/3 − ε) * (Ncount T (2*T) : ℝ) ≤ N0star T (2*T)
+<span class="c">-- #print axioms: propext, Classical.choice, Quot.sound   (no sorry)</span>
+
+<span class="c">-- and the hypothesis itself, stated but not proved:</span>
+theorem riemann_hypothesis_attempt : RiemannHypothesis := by
+  <span class="o">sorry</span>   <span class="c">-- warning: declaration uses 'sorry'</span></div>
+<p class="caption"><t-fa>Lean قدم‌ها را تضمین می‌کند؛ اینکه گزاره همان حرف مقاله باشد را آدم باید بخواند.</t-fa><t-en>Lean guarantees the steps; whether the statement says what the paper says, a person has to read.</t-en></p>
+<footer><t-fa>R02 پیوست A · R19 · artifact/lean/Moment.lean</t-fa><t-en>R02 Appendix A · R19 · artifact/lean/Moment.lean</t-en></footer>
+<aside class="notes"><t-fa><b>Lean چه چیزی را تضمین می‌کند</b><p>[B-ROLL CUE] اگر Lean نصب شد (prep-fa.md)، هشدار sorry را زنده نشان بده؛ وگرنه همین کارت. خط اول گزارهٔ واقعی مقاله است؛ دومی مثال ما.</p><p>در یک جمله: Lean درستی قدم‌ها را تضمین می‌کند؛ اینکه ادعا همان ادعای درست باشد را آدم‌ها باید بخوانند.</p></t-fa><t-en><b>What Lean guarantees</b><p>[B-ROLL CUE] If Lean is installed (prep-fa.md), show the sorry warning live; otherwise use this card. The first block is the paper's real statement; the second is our example.</p><p>In one line: Lean guarantees the steps are right; whether the claim is the right claim is for people to read.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="555">
+<p class="kicker"><t-fa>اکتبر ۲۰۲۶ · OpenAI</t-fa><t-en>October 2026 · OpenAI</t-en></p>
+<h1><t-fa>«شبه‌ریمان»: هیچ صفری بیرون از نوار <em>⅛ تا ⅞</em> نیست</t-fa><t-en>"Quasi-RH": no zero outside the strip <em>⅛ to ⅞</em></t-en></h1>
+<div dir="ltr"><svg class="chart bands" viewBox="0 0 1600 260" role="img"><title><t-fa>نوار بحرانی و دو نوار ادعاشده</t-fa><t-en>The critical strip and the two claimed strips</t-en></title>
+<rect class="s" x="200" y="40" width="1200" height="150"/>
+<rect class="b12" x="300" y="40" width="1000" height="150"/>
+<rect class="b8" x="350" y="40" width="900" height="150"/>
+<line class="l" x1="800" y1="30" x2="800" y2="200"/>
+<text x="200" y="28" text-anchor="middle">0</text><text x="1400" y="28" text-anchor="middle">1</text>
+<text x="300" y="28" text-anchor="middle">1/12</text><text x="1300" y="28" text-anchor="middle">11/12</text>
+<text x="350" y="232" text-anchor="middle">1/8</text><text x="1250" y="232" text-anchor="middle">7/8</text><text x="800" y="232" text-anchor="middle">½</text>
+</svg></div>
+<p class="tag"><t-fa>نسخهٔ ۱ (۳۰ سپتامبر): ⅛ تا ⅞، ۱۹۹ صفحه، <b>وارسی‌شده در Lean</b> · نسخهٔ ۲ (۵ اکتبر): ۱/۱۲ تا ۱۱/۱۲، ۴۹ صفحه، <b>بدون Lean</b>، ادعای ضعیف‌تر · فرضیهٔ اصلی: نوار باید تا خط ½ باریک شود</t-fa><t-en>Version 1 (30 Sep): ⅛ to ⅞, 199 pages, <b>verified in Lean</b> · version 2 (5 Oct): 1/12 to 11/12, 49 pages, <b>no Lean</b>, a weaker claim · the hypothesis itself: the strip must shrink to the line ½</t-en></p>
+<p class="caption"><t-fa>لیچمن: «مهم‌ترین دستاورد AI در ریاضی». رادزیویل: نوشتار «افتضاح». سارنک: هنوز «قضیه» نه.</t-fa><t-en>Lichtman: "the most significant AI-for-math achievement". Radziwiłł: "horribly written". Sarnak: not "a Theorem" until fully checked.</t-en></p>
+<footer><t-fa>R05 · Quanta · ۱۹ اکتبر ۲۰۲۶ · رسم ما</t-fa><t-en>R05 · Quanta · 19 Oct 2026 · drawn by us</t-en></footer>
+<aside class="notes"><t-fa><b>OpenAI و «شبه‌ریمان»</b><p>[GRAPHIC] دام: ۱۱/۱۲ پهن‌تر است، پس ضعیف‌تر؛ قوی‌ترِ وارسی‌شده ⅞ است. «با فاصلهٔ زیاد» بخشی از نقل لیچمن است. نقل سارنک غیرمستقیم است (Quanta).</p><p>در یک جمله: OpenAI ادعا کرد صفرها از نوار ⅛ تا ⅞ بیرون نمی‌روند؛ نسخهٔ بلند وارسی صوری شده، ولی ریاضی‌دان‌ها هنوز می‌خوانند.</p></t-fa><t-en><b>OpenAI and "quasi-RH"</b><p>[GRAPHIC] Trap: 11/12 is wider, so weaker; the stronger, verified one is 7/8. "By quite a margin" is part of Lichtman's quote. Sarnak is paraphrased by Quanta.</p><p>In one line: OpenAI claimed no zero leaves the strip ⅛ to ⅞; the long version is formally verified, but mathematicians are still reading.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="615">
+<p class="kicker"><t-fa>همان بسته، همان هفته</t-fa><t-en>Same release, same week</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>۶ اکتبر · دست‌نوشته</t-fa><t-en>6 Oct · manuscripts</t-en></span><b><t-fa>۷۲۲</t-fa><t-en>722</t-en></b><p><t-fa>یک‌جا در گیت‌هاب (Retraction Watch، Quanta)</t-fa><t-en>all at once on GitHub (Retraction Watch, Quanta)</t-en></p></div>
+<div><span><t-fa>«نتیجه» در Quanta</t-fa><t-en>"results" in Quanta</t-en></span><b><t-fa>۳۷۷</t-fa><t-en>377</t-en></b><p><t-fa>لید همان مقاله</t-fa><t-en>the same article's lede</t-en></p></div>
+<div><span><t-fa>مسئله / خانواده</t-fa><t-en>problems / families</t-en></span><b><t-fa>۳۷۲</t-fa><t-en>372</t-en></b><p><t-fa>Retraction Watch</t-fa><t-en>Retraction Watch</t-en></p></div>
+</div>
+<p class="tag"><t-fa>۷ اکتبر: ۳ دست‌نوشته پس گرفته شد به‌خاطر یک <b>خطای علامت</b> (هندسهٔ جبری، نه زتا) · ۱۴ اصلاح · امروز README: ۷۳۰ دست‌نوشته در ۳۷۵ خانواده، حدود ۴۲٪ نتیجه‌های اصلی صوری‌شده</t-fa><t-en>7 Oct: 3 manuscripts withdrawn over a <b>sign error</b> (algebraic geometry, not zeta) · 14 revised · today's README: 730 manuscripts in 375 families, about 42% of top-line results formalised</t-en></p>
+<footer><t-fa>R06 · R05 · R07</t-fa><t-en>R06 · R05 · R07</t-en></footer>
+<aside class="notes"><t-fa><b>۷۲۲ دست‌نوشته و یک خطای علامت</b><p>[SOUND EFFECT] «تیک» روی «یه روز بعد». مقاله‌های پس‌گرفته دربارهٔ کلاس‌های وایل، K3 و حدس هاج بودند؛ به شبه‌ریمان نچسبان. خطا را به گفتهٔ خود OpenAI در بازبینی داخلی پیدا کردند.</p><p>در یک جمله: حجم زیاد بدون وارسی کامل یعنی خطای بیشتر؛ و اول باید پرسید چه چیزی شمرده شده.</p></t-fa><t-en><b>722 manuscripts and a sign error</b><p>[SOUND EFFECT] A "tick" on "a day later". The withdrawn papers were about Weil classes, K3 surfaces and the Hodge conjecture; do not tie them to quasi-RH. OpenAI says it found the error in an internal audit.</p><p>In one line: volume without full verification means more errors; and first ask what was counted.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="660">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>سهم اثبات‌شدهٔ صفرهای روی خط از حدود ۴۱٫۷٪ به ۶۷٫۲٪ رسید، با وارسی Lean و یک اثبات انسانی مستقل · OpenAI نوار ⅛ تا ⅞ را ادعا کرد و نسخهٔ بلندش در Lean وارسی شده · فرمول صریح با ۵۰۰ صفرِ حساب‌شده کار می‌کند</t-fa><t-en>The proven share of zeros on the line rose from about 41.7% to 67.2%, checked in Lean and re-proved independently by a human · OpenAI claimed the strip ⅛ to ⅞, and the long version is verified in Lean · the explicit formula works with 500 computed zeros</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که فرضیهٔ ریمان حل شده یا نزدیک است · که صفری بیرون از خط هست · که روش Claude به فرضیه می‌رسد (برای تابع‌هایی که فرضیه برایشان غلط است هم کار می‌کند) · داوری مجله · که دموی ما چیزی را ثابت کرده</t-fa><t-en>That the Riemann hypothesis is solved or close · that any zero is off the line · that Claude's method can reach the hypothesis (it also works for functions where the hypothesis fails) · journal review · that our demo proved anything</t-en></div>
+</div>
+<p class="tag"><t-fa>پیش‌چاپ اکتبر ۲۰۲۶ (arXiv 2610.08965): ۶۷٫۳۵٪، داوری‌نشده · حتی ۱۰۰٪ هم فرضیه را ثابت نمی‌کرد</t-fa><t-en>October 2026 preprint (arXiv 2610.08965): 67.35%, not refereed · even 100% would not prove the hypothesis</t-en></p>
+<footer><t-fa>R02 §۱٫۴ · R09</t-fa><t-en>R02 §1.4 · R09</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. جملهٔ کلیدی از بخش ۱٫۴ مقالهٔ R02: ورودی‌ها برای توابع داونپورت–هایلبرون و اپشتاین هم برقرارند، که مشابه RH برایشان غلط است.</p><p>در یک جمله: این قسمت دربارهٔ یک کران پایین و یک نوار است، نه اثبات فرضیهٔ ریمان.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. Key line from §1.4 of R02: the inputs also hold for the Davenport–Heilbronn and Epstein zeta functions, for which the analogue of RH is false.</p><p>In one line: this episode is about a lower bound and a strip, not a proof of the Riemann hypothesis.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="705">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>نه به خود فرضیه؛ ولی <em>یک قدم واقعی</em></t-fa><t-en>Not the hypothesis itself, but <em>a real step</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>سؤال ۱</t-fa><t-en>Question 1</t-en></b><t-fa>این عدد دقیقاً چه چیزی را می‌شمرد؟</t-fa><t-en>What exactly does this number count?</t-en></div>
+<div class="hi"><b><t-fa>سؤال ۲</t-fa><t-en>Question 2</t-en></b><t-fa>غیر از خود سازنده، چه کسی بررسی‌اش کرده؟</t-fa><t-en>Besides its maker, who checked it?</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S01</t-fa><t-en>Answer · HMD-S01</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت کوتاه به پلکان با ۲۰۰ صفر. تمرین: تیتر بعدی دربارهٔ «کشف AI» را با همین دو سؤال بخوان.</p><p>در یک جمله: یک قدم واقعی، نه حل مسئله؛ همیشه بپرس عدد چه می‌شمرد و چه کسی بررسی‌اش کرده.</p></t-fa><t-en><b>The answer</b><p>A short return to the staircase with 200 zeros. Exercise: read the next "AI discovery" headline with these two questions.</p><p>In one line: a real step, not a solution; always ask what the number counts and who checked it.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="740">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>ریاضیِ سخت، آری. <em>کنکور</em> چه؟</t-fa><t-en>Hard maths, yes. And the <em>Konkur</em>?</t-en></h1>
+<p class="caption"><t-fa>پنج مدل سر جلسهٔ کنکور: سرعت، توکن، نمره، و دانشگاهی که شاید قبول شوند.</t-fa><t-en>Five models sit the Konkur: speed, tokens, score, and the university they might get into.</t-en></p>
+<footer><t-fa>HMD-K01</t-fa><t-en>HMD-K01</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: کنکور</b><p>[SOUND EFFECT] زنگ جلسهٔ امتحان. End screen از ثانیهٔ ۱۰. نتیجهٔ K01 را پیش‌بینی نکن.</p><p>در یک جمله: بعد از ریاضی پژوهشی، نوبت آزمونی است که هر ایرانی می‌شناسد: کنکور.</p></t-fa><t-en><b>Next: the Konkur</b><p>[SOUND EFFECT] An exam bell. End screen from second 10. Do not predict K01's result.</p><p>In one line: after research maths, the exam every Iranian knows: the Konkur.</p></t-en></aside>
+</section>
