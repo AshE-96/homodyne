@@ -1,0 +1,36 @@
+crosscheck-2026-11-26.csv / .json — Persian ÷ English token ratios, computed by Homodyne (our own
+computation on real public data). One row per tokenizer: median ratio on our 50 pairs, median and
+IQR on FLORES-200 devtest, whole-corpus ratio, and token counts for OpenAI's GPT-4o example sentence.
+
+1. FLORES-200 (NLLB Team, Meta AI) — devtest split, pes_Arab (Western Persian) and eng_Latn,
+   1,012 sentence pairs; FLORES-200 = 3,001 sentences from 842 web articles, professionally
+   translated (README "Composition" and repo title, checked 26 Nov 2026).
+   Licence: CC BY-SA 4.0 (https://github.com/facebookresearch/flores, README "Licenses").
+   Credit: "FLORES-200, NLLB Team (Meta AI), CC BY-SA 4.0".
+     https://dl.fbaipublicfiles.com/nllb/flores200_dataset.tar.gz   (25,585,843 bytes)
+     sha256 b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6
+   Downloaded 26 Nov 2026 without login into artifact/data/flores200/ (git-ignored).
+   Text counted exactly as published (it uses Latin digits and almost only Persian ی/ک).
+   Nothing from FLORES is committed except line 1, quoted in token-view.html with credit.
+
+2. OpenAI, "Hello GPT-4o", 13 May 2024, section "Language tokenization":
+     https://openai.com/index/hello-gpt-4o/   (fetched 26 Nov 2026)
+   OpenAI states: "Persian 1.9x fewer tokens (from 61 to 32)". The Persian example sentence and its
+   English line were copied from that page into crosscheck.py (GPT4O_FA / GPT4O_EN); only counted here.
+
+3. Tokenizers: the nine pinned in count_tokens.py, plus (Hugging Face, ungated, no login):
+     Qwen/Qwen3.5-9B                    @ c202236235762e1c871ad0ccb60c8ee5ba337b9a  tokenizer.json sha256 5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42  (Apache-2.0)
+     universitytehran/PersianMind-v1.0  @ af603eeb074138e2a613fbc95d89f018afbd3041  tokenizer.json sha256 add5ca15f72824c65d84025377ab32a53096095bafe8dcd55ce0871b8af1f91e  (model CC BY-NC-SA 4.0; files used locally only, not redistributed)
+     openai/gpt-oss-20b                 @ 6cee5e81ee83917806bbde320786a8fb61efebee  tokenizer.json sha256 0614fe83cadab421296e664e1f48f4261fa8fef6e03e63bb75c20f38e37d07d3  (Apache-2.0; control — identical counts to o200k_base)
+
+Exact commands (from the episode folder's artifact/, Python 3.11.7, tiktoken 0.9.0, transformers 4.49.0):
+  env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY HF_HUB_OFFLINE=1 \
+    python3 -I crosscheck.py --flores data/flores200/flores200_dataset.tar.gz --offline --date 2026-11-26
+  env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY HF_HUB_OFFLINE=1 \
+    python3 -I token_view.py --offline --date 2026-11-26          # writes token-view.html
+  (first run without --offline / HF_HUB_OFFLINE to download the three extra tokenizers)
+
+Cross-check against the primary source: Petrov et al. (NeurIPS 2023, arXiv 2305.15425 v2, Appendix C
+table, row "Western Persian", FLORES-200) report premiums GPT-2 5.32, cl100k_base 3.28, LLaMA 3.98.
+Our whole-corpus FLORES devtest ratios: gpt2 5.25, cl100k_base 3.26, Llama-2 3.96 (LLaMA and Llama-2
+share one 32k tokenizer). Close but not identical; their exact split/averaging may differ.

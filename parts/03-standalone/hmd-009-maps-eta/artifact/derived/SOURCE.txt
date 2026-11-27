@@ -1,0 +1,38 @@
+Derived files for HMD-009 (Midtown Manhattan -> JFK Airport, yellow taxi, March-April 2026).
+
+midtown_jfk_trips.csv  one row per kept trip: pickup time, trip minutes, and two live "neighbour" signals
+                       measured at that pickup time (median mph and count of other taxi trips that ENDED in the
+                       15 minutes before it: started in Midtown going elsewhere / ended at JFK coming from elsewhere).
+hourly_profile.csv     weekday departure hour -> trips, 10th percentile, median, 90th percentile of trip minutes.
+results.json           output of `python3 nyc_eta.py race --json` (default split 2026-04-13).
+
+Source: NYC Taxi & Limousine Commission (TLC), TLC Trip Record Data, Yellow Taxi Trip Records (PARQUET).
+  Page: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+  https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2026-03.parquet
+    sha256 d7af794a7ac06cbbb5afb4d1df9e86d84f2e878584de708ff2ffca4bd7d234d9  (67,891,249 bytes)
+  https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2026-04.parquet
+    sha256 e03b82d5722a6b21d4fbce011afd8837495202c0b5db77ff0d8d15dd80834ba8  (64,818,115 bytes)
+  https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv
+    sha256 1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed
+  https://d37ci6vzurychx.cloudfront.net/misc/taxi_zones.zip   (zone shapefile, used for media/beat07 map)
+    sha256 f6d711917bb4340f8f644d5366c51665489eb2d426dd1a4a55677721ae5adf17
+Downloaded 26 Nov 2026, no key needed. Raw files live in artifact/cache/tlc/ (git-ignored).
+Field meanings (TLC data dictionary, 18 Mar 2025): tpep_pickup/dropoff_datetime = "when the meter was
+engaged/disengaged"; PULocationID/DOLocationID = TLC Taxi Zone where the meter was engaged/disengaged;
+trip_distance = miles reported by the taximeter.
+Licence / terms: public data published by the City of New York (NYC Open Data Law: public data sets are made
+available without restrictions on use; the City may ask users to identify the source). TLC: "makes no
+representations as to the accuracy of these data". Credit line: "Data: NYC Taxi & Limousine Commission (TLC)".
+
+Zones: Midtown = TLC zones 161 Midtown Center, 162 Midtown East, 163 Midtown North, 164 Midtown South,
+230 Times Sq/Theatre District. JFK = zone 132 JFK Airport.
+Cleaning (ours): pickups 2026-03-01 .. 2026-04-30; route trips kept if 12-25 miles and 10-180 minutes
+(11,809 of 12,159 Midtown -> JFK records). Neighbour trips: 0.5-30 mi / 2-120 min (from Midtown) and
+0.5-40 mi / 2-150 min (to JFK).
+
+Exact processing (run from the repo root):
+  python3 -I parts/03-standalone/hmd-009-maps-eta/artifact/nyc_eta.py build \
+      --raw parts/03-standalone/hmd-009-maps-eta/artifact/cache/tlc --out parts/03-standalone/hmd-009-maps-eta/artifact/derived
+  python3 -I parts/03-standalone/hmd-009-maps-eta/artifact/nyc_eta.py race --json
+(build needs the installed duckdb Python module, used here at 1.5.5; race is standard library only.)
+Every predictor, error and percentile in these files is Homodyne's own computation on the TLC records.

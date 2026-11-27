@@ -1,0 +1,54 @@
+{
+ "rows": 2338,
+ "rows_without_valid_date": 0,
+ "latest_decision_date_in_file": "2026-11-20",
+ "earliest_decision_date_in_file": "2023-04-14",
+ "by_party_top": [
+  [
+   "Pro Se Litigant",
+   1338
+  ],
+  [
+   "Lawyer",
+   922
+  ],
+  [
+   "Judge",
+   27
+  ],
+  [
+   "Expert",
+   18
+  ]
+ ],
+ "by_country_top": [
+  [
+   "USA",
+   1583
+  ],
+  [
+   "Canada",
+   252
+  ],
+  [
+   "Australia",
+   113
+  ],
+  [
+   "UK",
+   91
+  ],
+  [
+   "Israel",
+   60
+  ]
+ ],
+ "alleged_only_yes": 26,
+ "case_id_1": {
+  "Case Name": "Mata v. Avianca, Inc",
+  "Court": "S.D. New York",
+  "Date": "2023-06-22",
+  "AI Tool": "ChatGPT",
+  "Monetary Penalty": "5000 USD"
+ }
+}

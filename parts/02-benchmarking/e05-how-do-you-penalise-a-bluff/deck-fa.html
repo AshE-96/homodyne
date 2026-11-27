@@ -176,6 +176,16 @@ nav .keys{color:#8F8C84}
 .progress{position:fixed;bottom:40px;left:0;height:3px;background:var(--amber);z-index:10}
 html[dir="rtl"] .progress{left:auto;right:0}
 .hide-chrome nav,.hide-chrome .progress{display:none}
+/* episode */
+.hook{display:grid;grid-template-columns:580px 1fr;gap:64px;align-items:center;max-width:1664px}
+.hook .photo{margin:0}
+.hook .photo img{display:block;width:580px;height:auto;border-radius:4px}
+.hook .photo figcaption{margin-top:10px;font-size:20px;line-height:1.35;color:var(--muted-night)}
+.hook .tokens{flex-wrap:wrap}
+table.t td.w{color:var(--amber-ink);font-weight:700}
+table.t td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+table.t.flip th,table.t.flip td{padding:12px 26px}
+.cols .real{border-top-color:var(--amber)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hmd-mark" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#111214"/><path d="M159.00,267.14 L159.35,263.38 L159.71,259.60 L160.06,255.83 L160.42,252.05 L160.77,248.27 L161.12,244.49 L161.48,240.71 L161.83,241.09 L162.18,241.73 L162.54,242.36 L162.89,243.00 L163.25,243.63 L163.60,244.27 L163.95,244.90 L164.31,245.85 L164.66,246.84 L165.02,247.83 L165.37,248.82 L165.72,249.81 L166.08,250.80 L166.43,251.79 L166.78,249.11 L167.14,245.64 L167.49,242.17 L167.85,238.71 L168.20,235.24 L168.55,231.78 L168.91,228.32 L169.26,229.48 L169.62,232.07 L169.97,234.66 L170.32,237.25 L170.68,239.85 L171.03,242.44 L171.38,245.05 L171.74,245.22 L172.09,244.38 L172.45,243.55 L172.80,242.72 L173.15,241.89 L173.51,241.07 L173.86,240.25 L174.21,239.95 L174.57,239.92 L174.92,239.89 L175.28,239.88 L175.63,239.86 L175.98,239.86 L176.34,239.86 L176.69,238.20 L177.05,235.38 L177.40,232.57 L177.75,229.76 L178.11,226.96 L178.46,224.16 L178.81,221.38 L179.17,221.01 L179.52,222.79 L179.88,224.58 L180.23,226.38 L180.58,228.18 L180.94,229.99 L181.29,231.81 L181.65,231.97 L182.00,230.27 L182.35,228.57 L182.71,226.88 L183.06,225.19 L183.41,223.52 L183.77,221.85 L184.12,220.99 L184.48,221.31 L184.83,221.64 L185.18,221.97 L185.54,222.31 L185.89,222.65 L186.25,223.00 L186.60,223.06 L186.95,222.60 L187.31,222.14 L187.66,221.68 L188.01,221.23 L188.37,220.79 L188.72,220.35 L189.08,220.05 L189.43,220.11 L189.78,220.16 L190.14,220.23 L190.49,220.29 L190.84,220.36 L191.20,220.44 L191.55,220.97 L191.91,222.95 L192.26,224.93 L192.61,226.92 L192.97,228.91 L193.32,230.91 L193.68,232.90 L194.03,234.47 L194.38,234.03 L194.74,233.61 L195.09,233.19 L195.44,232.77 L195.80,232.37 L196.15,231.98 L196.51,231.54 L196.86,230.68 L197.21,229.83 L197.57,228.99 L197.92,228.16 L198.28,227.35 L198.63,226.55 L198.98,225.80 L199.34,225.62 L199.69,225.45 L200.04,225.29 L200.40,225.13 L200.75,224.99 L201.11,224.85 L201.46,224.73 L201.81,228.84 L202.17,232.90 L202.52,236.92 L202.88,240.89 L203.23,244.81 L203.58,248.67 L203.94,252.47 L204.29,252.10 L204.64,251.47 L205.00,250.85 L205.35,250.25 L205.71,249.65 L206.06,249.06 L206.41,248.47 L206.77,247.61 L207.12,246.72 L207.48,245.84 L207.83,244.99 L208.18,244.15 L208.54,243.33 L208.89,242.53 L209.24,240.71 L209.60,238.72 L209.95,236.78 L210.31,234.89 L210.66,233.06 L211.01,231.27 L211.37,229.54 L211.72,230.54 L212.07,232.32 L212.43,234.06 L212.78,235.76 L213.14,237.42 L213.49,239.04 L213.84,240.61 L214.20,241.05 L214.55,241.03 L214.91,241.02 L215.26,241.02 L215.61,241.02 L215.97,241.03 L216.32,241.04 L216.67,241.81 L217.03,242.97 L217.38,244.09 L217.74,245.17 L218.09,246.22 L218.44,247.22 L218.80,248.20 L219.15,248.40 L219.51,248.10 L219.86,247.82 L220.21,247.55 L220.57,247.30 L220.92,247.07 L221.27,246.86 L221.63,247.37 L221.98,248.47 L222.34,249.51 L222.69,250.51 L223.04,251.47 L223.40,252.38 L223.75,253.24 L224.11,253.85 L224.46,254.20 L224.81,254.54 L225.17,254.86 L225.52,255.16 L225.87,255.44 L226.23,255.70 L226.58,255.66 L226.94,255.24 L227.29,254.84 L227.64,254.47 L228.00,254.14 L228.35,253.83 L228.71,253.55 L229.06,253.45 L229.41,253.63 L229.77,253.80 L230.12,253.96 L230.47,254.12 L230.83,254.27 L231.18,254.41 L231.54,254.36 L231.89,253.91 L232.24,253.52 L232.60,253.18 L232.95,252.89 L233.31,252.64 L233.66,252.45 L234.01,252.44 L234.37,252.85 L234.72,253.24 L235.07,253.60 L235.43,253.93 L235.78,254.22 L236.14,254.49 L236.49,254.73 L236.84,254.92 L237.20,255.09 L237.55,255.24 L237.90,255.37 L238.26,255.49 L238.61,255.59 L238.97,255.68 L239.32,255.76 L239.67,255.83 L240.03,255.88 L240.38,255.92 L240.74,255.96 L241.09,255.98 L241.44,255.99 L241.80,255.97 L242.15,255.96 L242.50,255.97 L242.86,255.98 L243.21,255.99 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M159.00,282.42 L159.35,278.63 L159.71,274.84 L160.06,271.05 L160.42,267.25 L160.77,263.46 L161.12,259.66 L161.48,255.85 L161.83,259.86 L162.18,264.34 L162.54,268.83 L162.89,273.30 L163.25,277.76 L163.60,282.22 L163.95,286.66 L164.31,285.59 L164.66,283.76 L165.02,281.92 L165.37,280.07 L165.72,278.21 L166.08,276.33 L166.43,274.44 L166.78,275.67 L167.14,277.55 L167.49,279.41 L167.85,281.26 L168.20,283.10 L168.55,284.91 L168.91,286.72 L169.26,287.27 L169.62,287.44 L169.97,287.58 L170.32,287.71 L170.68,287.83 L171.03,287.92 L171.38,288.00 L171.74,286.83 L172.09,285.11 L172.45,283.39 L172.80,281.64 L173.15,279.89 L173.51,278.12 L173.86,276.33 L174.21,277.06 L174.57,279.15 L174.92,281.22 L175.28,283.29 L175.63,285.35 L175.98,287.39 L176.34,289.43 L176.69,291.51 L177.05,293.64 L177.40,295.75 L177.75,297.86 L178.11,299.96 L178.46,302.06 L178.81,304.15 L179.17,304.34 L179.52,302.84 L179.88,301.34 L180.23,299.84 L180.58,298.34 L180.94,296.84 L181.29,295.35 L181.65,293.12 L182.00,290.07 L182.35,287.02 L182.71,283.98 L183.06,280.94 L183.41,277.92 L183.77,274.90 L184.12,273.64 L184.48,274.89 L184.83,276.16 L185.18,277.43 L185.54,278.72 L185.89,280.02 L186.25,281.33 L186.60,281.08 L186.95,277.95 L187.31,274.83 L187.66,271.73 L188.01,268.65 L188.37,265.58 L188.72,262.52 L189.08,260.67 L189.43,261.69 L189.78,262.73 L190.14,263.79 L190.49,264.86 L190.84,265.94 L191.20,267.05 L191.55,267.51 L191.91,265.84 L192.26,264.20 L192.61,262.56 L192.97,260.95 L193.32,259.35 L193.68,257.76 L194.03,257.04 L194.38,260.31 L194.74,263.58 L195.09,266.86 L195.44,270.15 L195.80,273.43 L196.15,276.70 L196.51,279.45 L196.86,278.30 L197.21,277.16 L197.57,276.03 L197.92,274.90 L198.28,273.79 L198.63,272.68 L198.98,271.66 L199.34,271.73 L199.69,271.80 L200.04,271.87 L200.40,271.94 L200.75,272.01 L201.11,272.07 L201.46,272.12 L201.81,269.02 L202.17,265.94 L202.52,262.90 L202.88,259.90 L203.23,256.93 L203.58,254.00 L203.94,251.10 L204.29,252.62 L204.64,254.37 L205.00,256.08 L205.35,257.76 L205.71,259.41 L206.06,261.01 L206.41,262.57 L206.77,264.37 L207.12,266.17 L207.48,267.91 L207.83,269.60 L208.18,271.24 L208.54,272.83 L208.89,274.37 L209.24,273.09 L209.60,271.23 L209.95,269.40 L210.31,267.60 L210.66,265.83 L211.01,264.08 L211.37,262.37 L211.72,262.10 L212.07,262.26 L212.43,262.40 L212.78,262.52 L213.14,262.62 L213.49,262.71 L213.84,262.78 L214.20,263.24 L214.55,263.85 L214.91,264.42 L215.26,264.96 L215.61,265.46 L215.97,265.94 L216.32,266.38 L216.67,267.82 L217.03,269.75 L217.38,271.58 L217.74,273.33 L218.09,274.99 L218.44,276.57 L218.80,278.06 L219.15,277.84 L219.51,276.49 L219.86,275.18 L220.21,273.91 L220.57,272.67 L220.92,271.47 L221.27,270.31 L221.63,268.49 L221.98,266.12 L222.34,263.86 L222.69,261.71 L223.04,259.67 L223.40,257.73 L223.75,255.89 L224.11,255.37 L224.46,256.21 L224.81,257.00 L225.17,257.74 L225.52,258.44 L225.87,259.09 L226.23,259.70 L226.58,259.86 L226.94,259.46 L227.29,259.09 L227.64,258.73 L228.00,258.40 L228.35,258.09 L228.71,257.80 L229.06,257.67 L229.41,257.77 L229.77,257.86 L230.12,257.94 L230.47,258.02 L230.83,258.08 L231.18,258.13 L231.54,258.07 L231.89,257.80 L232.24,257.55 L232.60,257.32 L232.95,257.11 L233.31,256.92 L233.66,256.75 L234.01,256.69 L234.37,256.93 L234.72,257.14 L235.07,257.31 L235.43,257.45 L235.78,257.56 L236.14,257.63 L236.49,257.61 L236.84,257.27 L237.20,256.97 L237.55,256.71 L237.90,256.50 L238.26,256.31 L238.61,256.16 L238.97,256.07 L239.32,256.16 L239.67,256.22 L240.03,256.25 L240.38,256.27 L240.74,256.27 L241.09,256.25 L241.44,256.22 L241.80,256.14 L242.15,256.09 L242.50,256.05 L242.86,256.02 L243.21,256.01 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -185,7 +195,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="stage">
 <section class="frame night cover" id="cover" aria-label="کاور">
 <div class="top"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="hmd"><bdi dir="ltr">HMD-010</bdi></span></div>
-<main><div class="fit"><p class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</p><h1>نمرهٔ منفی می‌تواند <bdi dir="ltr">AI</bdi> را <em>محتاط‌تر</em> کند؟</h1><p class="promise">نمرهٔ منفی یک «خط سکوت» می‌کشد؛ ولی <bdi dir="ltr">AI</bdi> فقط وقتی محتاط‌تر می‌شود که قانون را بشنود و اطمینانش صادق باشد.</p></div></main>
+<main><div class="fit"><p class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</p><h1>نمرهٔ منفی می‌تواند <bdi dir="ltr">AI</bdi> را <em>محتاط‌تر</em> کند؟</h1><p class="promise">نمرهٔ منفی یک «آستانهٔ جواب» می‌سازد؛ ولی <bdi dir="ltr">AI</bdi> فقط وقتی محتاط‌تر می‌شود که قانون را بشنود و اطمینانش صادق باشد.</p></div></main>
 <svg class="wave" aria-hidden="true"></svg>
 <div class="bottom"><span>متن، منبع‌ها و کد این قسمت:</span><span class="site"><bdi dir="ltr">homodyne.m2gh.ir</bdi></span></div>
 <aside class="notes"><b>کاور</b><p>بعد از هوک و «من محمدم، اینجا هومودینه» دو تا سه ثانیه روی این قاب بمان، بعد → برای قاب ۱.</p></aside>
@@ -195,14 +205,17 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <h1>سؤال ۱۳۷. دو گزینه مانده. <em>بزنی یا رها کنی؟</em></h1>
+<div class="hook">
+<figure class="photo"><img src="media/beat01_konkur1405_isfahan_pencil_mehr_CC-BY-4.0.jpg" alt=""><figcaption>کنکور ۱۴۰۵، اصفهان، ۲۹ مرداد <span class="sep">·</span> عکس: خدیجه نادری، خبرگزاری مهر <span class="sep">·</span> <bdi dir="ltr">CC BY 4.0</bdi> <span class="sep">·</span> اطلاعات شخصی محو شده</figcaption></figure>
 <div class="tokens"><i class="off">۱</i><i>۲</i><i class="off">۳</i><i>۴</i></div>
-<p class="caption">داوطلب کنکور و <bdi dir="ltr">AI</bdi>، هر دو، هر بار بین «جواب» و «نمی‌دانم» انتخاب می‌کنند.</p>
+</div>
+<p class="caption">کنکور ۱۴۰۵: <em>۱٬۰۷۰٬۲۴۱</em> متقاضی. هر کدام، سر هر سؤال، بین «جواب» و «نمی‌دانم».</p>
 </div></main>
-<footer>پاسخ‌برگ بازسازی‌شده <span class="sep">·</span> بدون سند رسمی</footer>
-<aside class="notes"><b>سؤال ۱۳۷</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] نمای خیلی نزدیک از پاسخ‌برگ چهارگزینه‌ای بازسازی‌شده؛ دو گزینه خط‌خورده، مداد بالای دو گزینهٔ دیگر می‌لرزد؛ صدای تیک‌تاک ساعت. بدون لوگو یا سند واقعی. کات روی «من محمدم…».</p><p>هم داوطلب کنکور و هم <bdi dir="ltr">AI</bdi>، هر بار بین «جواب» و «نمی‌دونم» انتخاب می‌کنن.</p></aside>
+<footer>شمار متقاضیان: معاون آزمون‌های سازمان سنجش، همشهری‌آنلاین، ۲۶ مرداد ۱۴۰۵</footer>
+<aside class="notes"><b>سؤال ۱۳۷</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] عکس واقعی کنکور ۱۴۰۵ (مداد بالای پاسخ‌برگ؛ بعد چهرهٔ مردد، <bdi dir="ltr">media/beat01_…hesitation</bdi>). نمای «دو گزینه خط‌خورده» را با پاسخ‌برگ بازسازی‌شدهٔ خودت بگیر، بدون لوگو یا سند رسمی؛ صدای تیک‌تاک ساعت. کات روی «من محمدم…».</p><p>هم داوطلب کنکور و هم <bdi dir="ltr">AI</bdi>، هر بار بین «جواب» و «نمی‌دونم» انتخاب می‌کنن.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-2" data-start="47" aria-label="قاب ۲">
+<section class="frame paper" id="beat-2" data-start="54" aria-label="قاب ۲">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">قانون کنکور <span class="sep">·</span> اول حدس بزن</p>
@@ -212,12 +225,13 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div><span>سفید</span><b class="word">صفر</b></div>
 </div>
 <p class="sub">حدس کور بین چهار گزینه: <bdi dir="ltr">¼ × 3 − ¾ × 1 = <em>0</em></bdi></p>
+<p class="caption">یک گزینه را رد کردی و بین سه تا می‌زنی: سود یا ضرر؟</p>
 </div></main>
-<footer>قاعدهٔ رایج کنکور <span class="sep">·</span> راهنماهای کارنامهٔ ۱۴۰۵ و <bdi dir="ltr">Zoomit</bdi> (منبع ثانویه)</footer>
-<aside class="notes"><b>قانون کنکور</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] سه کارت امتیاز؛ زیرش سؤال حدسی بزرگ با شمارش معکوس ۳ ثانیه. برچسب کوچک: <bdi dir="ltr">Konkur · +3 / −1 (common rule)</bdi>.</p><p>با قاعدهٔ سه به یک، حدسِ کاملاً کور به‌طور میانگین نه سود داره نه ضرر.</p></aside>
+<footer>قاعدهٔ رایج کنکور <span class="sep">·</span> <bdi dir="ltr">Zoomit</bdi> (منبع ثانویه) <span class="sep">·</span> حدس کور = ۰: قسمت «چطور با همان جواب‌ها، برندهٔ <bdi dir="ltr">AI</bdi> عوض می‌شود؟»</footer>
+<aside class="notes"><b>قانون کنکور</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] سه کارت امتیاز؛ زیرش یادآوری «حدس کور = ۰» از قسمت «چطور با همان جواب‌ها…»، بعد سؤال حدسی «یک گزینه رد شد: سود یا ضرر؟» با شمارش معکوس ۳ ثانیه. برچسب کوچک: <bdi dir="ltr">Konkur · +3 / −1 (common rule)</bdi>.</p><p>با قاعدهٔ سه به یک، حدسِ کاملاً کور صفر می‌ارزه؛ سؤال امروز حدسِ نیمه‌آگاهه.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-3" data-start="96" aria-label="قاب ۳">
+<section class="frame paper" id="beat-3" data-start="94" aria-label="قاب ۳">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">صفر، یک‌نهم، یک‌سوم</p>
@@ -228,15 +242,16 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <span class="o">   two options eliminated, 2 left   P= 1/2  expected value =   1/3 of a right answer (+0.333)</span>
    -> this penalty makes BLIND guessing worth zero on average; it does not forbid informed guessing</div>
 <p class="tag">به واحد یک جواب درست <span class="sep">·</span> میانگین است، نه تضمین <span class="sep">·</span> فقط اگر پنجاه‌پنجاهِ تو واقعاً پنجاه‌پنجاه باشد</p>
+<p class="caption">«نامهٔ آموزش عالی»، زمستان ۱۳۸۷: ترسِ نمرهٔ منفی ممکن است نگذارد داوطلب توانایی واقعی‌اش را نشان دهد.</p>
 </div></main>
-<footer><bdi dir="ltr">artifact/penalty_threshold.py</bdi> <span class="sep">·</span> <bdi dir="ltr">seed 5</bdi> <span class="sep">·</span> ساختگی</footer>
+<footer><bdi dir="ltr">artifact/penalty_threshold.py</bdi> <span class="sep">·</span> بخش ۲ <span class="sep">·</span> حساب دقیق</footer>
 <aside class="notes"><b>صفر، یک‌نهم، یک‌سوم</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] خروجی بخش ۲ از <bdi dir="ltr">penalty_threshold.py</bdi>؛ سه ردیف با کسرهای دقیق؛ ردیف «دو گزینه» کهربایی. بازگشت کوتاه به تصویر مداد قاب ۱.</p><p>نمرهٔ منفی کنکور حدس کور رو صفر می‌کنه، ولی حدسِ آگاهانه رو هنوز سودمند نگه می‌داره.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="159" aria-label="قاب ۴">
+<section class="frame paper" id="beat-4" data-start="162" aria-label="قاب ۴">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">خط سکوت</p>
+<p class="kicker">آستانهٔ جواب</p>
 <h1>فقط وقتی جواب بده که احتمال درست‌بودن از <em><bdi dir="ltr">k/(k+1)</bdi></em> بیشتر است</h1>
 <div class="bars">
 <div><span><bdi dir="ltr">k = 0</bdi></span><i style="--v:0"></i><span>۰٪</span></div>
@@ -247,14 +262,14 @@ html[dir="rtl"] .progress{left:auto;right:0}
 </div>
 </div></main>
 <footer>قانون نمره: درست مثبت ۱ <span class="sep">·</span> «نمی‌دانم» صفر <span class="sep">·</span> غلط منفی <bdi dir="ltr">k</bdi></footer>
-<aside class="notes"><b>خط سکوت</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] جدول بخش ۱ اسکریپت، پنج ردیف از <bdi dir="ltr">k = 0 → 0%</bdi> تا <bdi dir="ltr">k = 9 → 90%</bdi>؛ ردیف <bdi dir="ltr">k = 3</bdi> کهربایی. یک خط افقی «<bdi dir="ltr">silence line</bdi>» روی محور احتمال که با <bdi dir="ltr">k</bdi> بالا می‌رود.</p><p>با جریمهٔ <bdi dir="ltr">k</bdi>، فقط وقتی جواب بده که احتمال درست‌بودنت از <bdi dir="ltr">k</bdi> تقسیم بر <bdi dir="ltr">k</bdi> به‌علاوهٔ یک بیشتره.</p></aside>
+<aside class="notes"><b>آستانهٔ جواب</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] جدول بخش ۱ اسکریپت، پنج ردیف از <bdi dir="ltr">k = 0 → 0%</bdi> تا <bdi dir="ltr">k = 9 → 90%</bdi>؛ ردیف <bdi dir="ltr">k = 3</bdi> کهربایی. یک خط افقی «<bdi dir="ltr">answer threshold</bdi>» روی محور احتمال که با <bdi dir="ltr">k</bdi> بالا می‌رود.</p><p>با جریمهٔ <bdi dir="ltr">k</bdi>، فقط وقتی جواب بده که احتمال درست‌بودنت از <bdi dir="ltr">k</bdi> تقسیم بر <bdi dir="ltr">k</bdi> به‌علاوهٔ یک بیشتره.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="218" aria-label="قاب ۵">
+<section class="frame paper" id="beat-5" data-start="224" aria-label="قاب ۵">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">چرا <bdi dir="ltr">AI</bdi> حدس می‌زند</p>
-<h1>بیشتر امتحان‌های <bdi dir="ltr">AI</bdi>: درست ۱ <span class="sep">·</span> غلط ۰ <span class="sep">·</span> «نمی‌دانم» ۰ ← خط سکوت <em>صفر</em></h1>
+<h1>بیشتر امتحان‌های <bdi dir="ltr">AI</bdi>: درست ۱ <span class="sep">·</span> غلط ۰ <span class="sep">·</span> «نمی‌دانم» ۰ ← آستانهٔ جواب <em>صفر</em></h1>
 <div class="cards">
 <div><b>تشبیه مقاله</b>مثل دانش‌آموز سر سؤال سخت، مدل‌ها در عدم‌قطعیت حدس می‌زنند.</div>
 <div><b>آزمون‌های جریمه‌دار، به نقل مقاله</b><bdi dir="ltr">JEE</bdi> <span class="sep">·</span> <bdi dir="ltr">NEET</bdi> <span class="sep">·</span> <bdi dir="ltr">GATE</bdi> <span class="sep">·</span> <bdi dir="ltr">AMC</bdi> <span class="sep">·</span> <bdi dir="ltr">SAT / AP / GRE</bdi> (سال‌های قبل)</div>
@@ -263,36 +278,39 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">اگر بازکردن قانون‌های امتحان <bdi dir="ltr">AI</bdi> به کارت می‌آید، هومودین هر هفته یکی را باز می‌کند.</p>
 </div></main>
 <footer><bdi dir="ltr">R01</bdi> <span class="sep">·</span> <bdi dir="ltr">Kalai</bdi>، <bdi dir="ltr">Nachum</bdi>، <bdi dir="ltr">Vempala</bdi>، <bdi dir="ltr">Zhang</bdi> <span class="sep">·</span> <bdi dir="ltr">Why Language Models Hallucinate</bdi> <span class="sep">·</span> ۲۰۲۵</footer>
-<aside class="notes"><b>چرا <bdi dir="ltr">AI</bdi> حدس می‌زند</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] کات به نمای نزدیک برای <bdi dir="ltr">CTA</bdi>. بعد [<bdi dir="ltr">GRAPHIC</bdi>] کارت منبع <bdi dir="ltr">R01 (Kalai</bdi> و همکاران، سپتامبر ۲۰۲۵) با نقل کوتاه دربارهٔ دانش‌آموز و حدس، و فهرست آزمون‌های جریمه‌داری که خود مقاله نام برده: <bdi dir="ltr">JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years)</bdi>.</p><p>وقتی امتحان <bdi dir="ltr">AI</bdi> نمرهٔ منفی نداره، خط سکوت صفره و حدس‌زدن همیشه می‌صرفه.</p></aside>
+<aside class="notes"><b>چرا <bdi dir="ltr">AI</bdi> حدس می‌زند</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] کات به نمای نزدیک برای <bdi dir="ltr">CTA</bdi>. بعد [<bdi dir="ltr">GRAPHIC</bdi>] کارت منبع <bdi dir="ltr">R01 (Kalai</bdi> و همکاران، سپتامبر ۲۰۲۵) با نقل کوتاه دربارهٔ دانش‌آموز و حدس، و فهرست آزمون‌های جریمه‌داری که خود مقاله نام برده: <bdi dir="ltr">JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years)</bdi>.</p><p>وقتی امتحان <bdi dir="ltr">AI</bdi> نمرهٔ منفی نداره، آستانهٔ جواب صفره و حدس‌زدن همیشه می‌صرفه.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="292" aria-label="قاب ۶">
+<section class="frame paper" id="beat-6" data-start="274" aria-label="قاب ۶">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">یک غلط در خود مقاله</p>
 <div class="source"><q><bdi dir="ltr">“t = 0.75 (penalty <em>2</em>)”</bdi></q><cite><bdi dir="ltr">Kalai</bdi> و همکاران <span class="sep">·</span> <bdi dir="ltr">arXiv 2509.04664v1</bdi>، ۴ سپتامبر ۲۰۲۵ <span class="sep">·</span> بخش ۴٫۲ <span class="sep">·</span> ولی فرمول خودشان <bdi dir="ltr">t/(1−t)</bdi> می‌دهد <bdi dir="ltr">0.75 / 0.25 = 3</bdi></cite></div>
-<p class="caption">جواب‌نامه‌ها هم غلط دارند؛ جلسهٔ قبل (<bdi dir="ltr">HMD-008</bdi>) یادت هست؟</p>
+<p class="caption">قسمت «چطور با همان جواب‌ها، برندهٔ <bdi dir="ltr">AI</bdi> عوض می‌شود؟»: برای ۷۵٪، جریمه ۳ <span class="sep">·</span> جواب‌نامه‌ها هم غلط دارند؛ قسمت «اگر جواب‌نامه غلط باشد، کدام <bdi dir="ltr">AI</bdi> می‌بازد؟» یادت هست؟</p>
 </div></main>
 <footer><bdi dir="ltr">arXiv 2509.04664v1</bdi> <span class="sep">·</span> بخش ۴٫۲</footer>
-<aside class="notes"><b>یک غلط در خود مقاله</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] اسکرین‌شات کوتاه از بخش ۴٫۲ نسخهٔ <bdi dir="ltr">v1</bdi> مقاله (<bdi dir="ltr">arXiv 2509.04664v1</bdi>)؛ عدد ۲ کهربایی؛ کنارش محاسبهٔ <bdi dir="ltr">0.75 / 0.25 = 3</bdi>. [<bdi dir="ltr">SOUND EFFECT</bdi>] صدای «تیک» تصحیح.</p><p>مثال عددی مقاله با فرمول خودش جور نیست؛ ایده درسته، ولی عدد رو خودت حساب کن.</p></aside>
+<aside class="notes"><b>یک غلط در خود مقاله</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] تصویر واقعی همان بند: <bdi dir="ltr">media/beat06_kalai2025_sec4-2_penalty2_CC-BY-4.0.jpg</bdi> (بخش ۴٫۲، <bdi dir="ltr">arXiv 2509.04664v1</bdi>، <bdi dir="ltr">CC BY 4.0</bdi>)؛ عدد ۲ کهربایی؛ کنارش محاسبهٔ <bdi dir="ltr">0.75 / 0.25 = 3</bdi>. [<bdi dir="ltr">SOUND EFFECT</bdi>] صدای «تیک» تصحیح.</p><p>مثال عددی مقاله با فرمول خودش جور نیست؛ ایده درسته، ولی عدد رو خودت حساب کن.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="356" aria-label="قاب ۷">
+<section class="frame paper" id="beat-7" data-start="331" aria-label="قاب ۷">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">نمره‌دادن دوباره ≠ رفتار تازه</p>
-<div class="cols">
-<div><span>نمره‌دادن دوباره</span><b class="word">همان جواب‌ها</b><p>قانون تازه ← عدد تازه. مدل کاری نکرده.</p></div>
-<div class="hi"><span>دستور تازه <span class="sep">·</span> اجرا نشده</span><b class="word">دستور تازه</b><p>جواب‌های تازه ← شاید رفتار تازه</p></div>
-</div>
-<div class="code sm"><span class="c">$ python3 tools/bluff_lab.py score tools/bluff-demo.csv --condition t75        # excerpt</span>
-  "plain_note": "plain is RESCORED at k=3 for comparison; its prompt did not state the penalty.",</div>
+<p class="kicker">نمره‌دادن دوباره <span class="sep">·</span> دادهٔ واقعی</p>
+<h1>همان جواب‌ها، چهار قانون: <em>بالای جدول</em> مدام عوض می‌شود</h1>
+<table class="t flip">
+<tr><th>مدل</th><th>درست</th><th>بی‌جریمه <bdi dir="ltr">k = 0</bdi></th><th>کنکور <bdi dir="ltr">k = 1/3</bdi></th><th>قانون خود آزمون <bdi dir="ltr">k = 1</bdi></th><th><bdi dir="ltr">k = 3</bdi></th></tr>
+<tr><td><bdi dir="ltr">GPT-5 (high)</bdi></td><td class="num">۳۹٪</td><td class="num w">۳۹</td><td class="num">۲۲٫۵</td><td class="num">منفی ۱۱</td><td class="num">منفی ۱۰۹</td></tr>
+<tr><td><bdi dir="ltr">Grok 4</bdi></td><td class="num">۳۹٪</td><td class="num w">۳۹</td><td class="num w">۲۶٫۰</td><td class="num">۱</td><td class="num">منفی ۷۸</td></tr>
+<tr><td><bdi dir="ltr">Claude 4.1 Opus</bdi></td><td class="num">۳۶٪</td><td class="num">۳۶</td><td class="num w">۲۵٫۸</td><td class="num w">۴٫۸</td><td class="num">منفی ۵۶</td></tr>
+<tr><td><bdi dir="ltr">Claude 4.5 Haiku</bdi></td><td class="num">۱۶٪</td><td class="num">۱۶</td><td class="num">۸٫۷</td><td class="num">منفی ۶</td><td class="num w">منفی ۴۹٫۵</td></tr>
+</table>
+<p class="tag"><b>واقعی <span class="sep">·</span> حساب ما</b>امتیاز در هر ۱۰۰ سؤال؛ سکوتِ کامل = صفر <span class="sep">·</span> ستون <bdi dir="ltr">k = 1</bdi> عدد چاپ‌شدهٔ مقاله؛ بقیه حساب ما روی عددهای گردشده <span class="sep">·</span> کهربایی = بالای ستون؛ دو کهربایی = هم‌اول در حد گردکردن <span class="sep">·</span> با <bdi dir="ltr">k = 3</bdi> هر چهار زیر صفر <span class="sep">·</span> هیچ مدلی دوباره اجرا نشد</p>
 </div></main>
-<footer><bdi dir="ltr">tools/bluff_lab.py</bdi> <span class="sep">·</span> <bdi dir="ltr">tools/bluff-demo.csv</bdi> (ساختگی)</footer>
-<aside class="notes"><b>نمره‌دادن دوباره ≠ رفتار تازه</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] دو ستون: «نمره‌دادن دوباره: همان جواب‌ها، قانون تازه» و «دستور تازه: دستور تازه، جواب‌های تازه»؛ ستون دوم کهربایی با برچسب <bdi dir="ltr">NOT RUN YET</bdi>. زیرش خروجی واقعی <bdi dir="ltr">bluff_lab.py score tools/bluff-demo.csv --condition t75</bdi> و سطر <bdi dir="ltr">plain_note</bdi>.</p><p>نمره‌دادن دوباره خط‌کش رو عوض می‌کنه؛ فقط اجرای تازه نشون می‌ده رفتار عوض شده یا نه.</p></aside>
+<footer><bdi dir="ltr">R08</bdi> <span class="sep">·</span> <bdi dir="ltr">AA-Omniscience</bdi>، <bdi dir="ltr">arXiv 2511.13029</bdi>، نوامبر ۲۰۲۵، <bdi dir="ltr">CC BY 4.0</bdi> <span class="sep">·</span> <bdi dir="ltr">artifact/penalty_threshold.py</bdi> بخش ۵</footer>
+<aside class="notes"><b>همان جواب‌ها، چهار قانون</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] جدول را ستون‌به‌ستون با هر جمله روشن کن؛ [<bdi dir="ltr">SOUND EFFECT</bdi>] «تیک» هر بار که برنده عوض می‌شود. نام مدل‌ها را فارسی بخوان: جی‌پی‌تی پنج، گراک چهار، کلود اوپوس، کلود هایکو. بگو حساب مال توست و عددها گرد شده‌اند. اجرای زنده: <bdi dir="ltr">python3 artifact/penalty_threshold.py</bdi> (بخش ۵).</p><p>با همان جواب‌ها، فقط با عوض‌کردن جریمه، برندهٔ جدول عوض می‌شه؛ رفتار رو فقط اجرای تازه نشون می‌ده.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="424" aria-label="قاب ۸">
+<section class="frame paper" id="beat-8" data-start="431" aria-label="قاب ۸">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">پاسخ‌دهندهٔ کالیبره <span class="sep">·</span> <bdi dir="ltr">k = 3</bdi> <span class="sep">·</span> اول حدس بزن</p>
@@ -303,31 +321,31 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="tag"><b>ساختگی</b>۱٬۰۰۰ سؤال ساختگی <span class="sep">·</span> پاسخ‌دهنده‌های شبیه‌سازی‌شده، نه مدل زبانی</p>
 </div></main>
 <footer><bdi dir="ltr">artifact/penalty_threshold.py</bdi> <span class="sep">·</span> بخش ۴ <span class="sep">·</span> <bdi dir="ltr">seed 5</bdi></footer>
-<aside class="notes"><b>پاسخ‌دهندهٔ صادق</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحه از اجرای <bdi dir="ltr">python3 artifact/penalty_threshold.py</bdi>؛ بخش ۴. برچسب ثابت <bdi dir="ltr">ILLUSTRATIVE · simulated answerers, not language models</bdi>.</p><p>اگه اطمینان صادق باشه، رعایت خط سکوت با جریمهٔ بالا امتیاز رو از منفی به مثبت می‌بره.</p></aside>
+<aside class="notes"><b>پاسخ‌دهندهٔ صادق</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحه از اجرای <bdi dir="ltr">python3 artifact/penalty_threshold.py</bdi>؛ بخش ۴. برچسب ثابت <bdi dir="ltr">ILLUSTRATIVE · simulated answerers, not language models</bdi>.</p><p>اگه اطمینان صادق باشه، رعایت آستانهٔ جواب با جریمهٔ بالا امتیاز رو از منفی به مثبت می‌بره.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="504" aria-label="قاب ۹">
+<section class="frame paper" id="beat-9" data-start="497" aria-label="قاب ۹">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">همان قانون، <bdi dir="ltr">k = 3</bdi></p>
+<p class="kicker">بیش‌ازحد مطمئن</p>
 <div class="cols">
-<div><span>کالیبره</span><b>مثبت ۰٫۱۳</b><p>به ۲۹٪ جواب می‌دهد <span class="sep">·</span> ۱۴٪ جواب‌ها غلط</p></div>
-<div class="hi"><span>بیش‌ازحد مطمئن (۲۵ واحد درصد بیشتر)</span><b>منفی ۰٫۰۵</b><p>به ۵۹٪ جواب می‌دهد <span class="sep">·</span> ۲۷٪ جواب‌ها غلط</p></div>
+<div><span>شبیه‌سازی <span class="sep">·</span> بیش‌ازحد مطمئن <span class="sep">·</span> <bdi dir="ltr">k = 3</bdi></span><b>منفی ۰٫۰۵</b><p>صادق: مثبت ۰٫۱۳ <span class="sep">·</span> همان قانون، اطمینانِ باد‌کرده</p></div>
+<div class="hi"><span>واقعی <span class="sep">·</span> یک دستورِ یکسان برای همه</span><b>۸۱٪ در برابر ۲۶٪</b><p>از سؤال‌هایی که درست جواب نداد، چند درصد را غلط جواب داد: <bdi dir="ltr">GPT-5 (high)</bdi> در برابر <bdi dir="ltr">Claude 4.5 Haiku</bdi></p></div>
 </div>
-<p class="sub">قانون سر جایش است؛ <em>قطب‌نما</em> خراب است.</p>
-<p class="tag"><b>ساختگی</b>پاسخ‌دهنده‌های شبیه‌سازی‌شده، نه مدل زبانی</p>
+<p class="tag"><b>ساختگی</b>شبیه‌سازی، نه مدل زبانی <b>واقعی</b><bdi dir="ltr">AA-Omniscience</bdi>؛ حالتِ بی‌دستور گزارش نشده</p>
+<p class="sub">دستور آزمون: <bdi dir="ltr">“it is better that you say this than get the wrong answer.”</bdi> قانون سر جایش است؛ <em>قطب‌نما</em> را از بیرون نمی‌بینیم.</p>
 </div></main>
-<footer><bdi dir="ltr">artifact/penalty_threshold.py</bdi> <span class="sep">·</span> بخش ۳ <span class="sep">·</span> <bdi dir="ltr">seed 5</bdi></footer>
-<aside class="notes"><b>بیش‌ازحد مطمئن</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] نمای نزدیک رو به دوربین برای جملهٔ <bdi dir="ltr">re-hook</bdi>؛ بعد [<bdi dir="ltr">GRAPHIC</bdi>] دو ستون از بخش ۳ اسکریپت در <bdi dir="ltr">k = 3</bdi>: <bdi dir="ltr">calibrated 0.130 · cover 29% · risk 14%</bdi> و <bdi dir="ltr">overconfident −0.054 · cover 59% · risk 27%</bdi>؛ ستون دوم کهربایی. <bdi dir="ltr">ILLUSTRATIVE</bdi>.</p><p>خط سکوت فقط برای کسی کار می‌کنه که اطمینانش با واقعیت جور باشه.</p></aside>
+<footer><bdi dir="ltr">penalty_threshold.py</bdi> بخش ۳ <span class="sep">·</span> <bdi dir="ltr">seed 5</bdi> (ساختگی) <span class="sep">·</span> <bdi dir="ltr">R08 AA-Omniscience</bdi>، بخش ۳٫۱ و پیوست <bdi dir="ltr">A.1</bdi>، <bdi dir="ltr">CC BY 4.0</bdi></footer>
+<aside class="notes"><b>بیش‌ازحد مطمئن</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] نمای نزدیک برای جملهٔ <bdi dir="ltr">re-hook</bdi>؛ بعد ستون راست (ساختگی). با «این فقط توی کد نیست» ستون چپ (واقعی) و <bdi dir="ltr">B-roll</bdi>: فقط برش دستور واقعی، <bdi dir="ltr">media/beat09_aa-omniscience_prompt-A1</bdi>، با اعتبار روی تصویر (شکل ۷ را <bdi dir="ltr">HMD-006</bdi> نشان داده؛ اینجا تکرار نشود). جملهٔ «نمی‌دونیم بدون اون جمله چی می‌شد» را حتماً بگو.</p><p>آستانهٔ جواب فقط کسی رو به امتیاز مثبت می‌رسونه که اطمینانش با واقعیت جور باشه؛ مدل‌های واقعی با یه دستور یکسان، رفتارهای خیلی متفاوتی دارن.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="568" aria-label="قاب ۱۰">
+<section class="frame paper" id="beat-10" data-start="576" aria-label="قاب ۱۰">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">سؤال واقعی</p>
 <h1>یک مدل واقعی قانون را <em>می‌شنود</em>؟</h1>
 <div class="steps">
-<div><b><bdi dir="ltr">plain</bdi></b>هیچ قانونی گفته نمی‌شود</div>
+<div><b><bdi dir="ltr">plain</bdi></b>هیچ قانونی گفته نمی‌شود؛ همان حالتی که <bdi dir="ltr">AA-Omniscience</bdi> گزارش نکرد</div>
 <div><b><bdi dir="ltr">t50</bdi></b>غلط = منفی ۱</div>
 <div><b><bdi dir="ltr">t75</bdi></b>غلط = منفی ۳</div>
 <div><b><bdi dir="ltr">t90</bdi></b>غلط = منفی ۹</div>
@@ -339,7 +357,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>سؤال واقعی</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] کات به نمای مدیوم. روی دک چهار کارت شرط؛ زیرشان سه سنجه: <bdi dir="ltr">coverage · risk · score</bdi> و قاعدهٔ ازپیش‌نوشته.</p><p>فقط یه اجرای تازه با چند دستور نشون می‌ده مدل قانون رو می‌شنوه یا نه.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="633" aria-label="قاب ۱۱">
+<section class="frame paper" id="beat-11" data-start="630" aria-label="قاب ۱۱">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">آزمایشی که هنوز اجرا نشده</p>
@@ -355,7 +373,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>آزمایشی که هنوز اجرا نشده</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] کارت <bdi dir="ltr">NOT RUN YET</bdi> و سه نتیجهٔ ممکن، هر سه هم‌وزن؛ هیچ عددی روی صفحه نیست. از بیننده بخواه حدسش را کامنت کند.</p><p>آزمایش طراحی شده ولی هنوز اجرا نشده؛ معنای هر سه نتیجهٔ ممکن از قبل روشن است.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-12" data-start="680" aria-label="قاب ۱۲">
+<section class="frame paper" id="beat-12" data-start="669" aria-label="قاب ۱۲">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker"><bdi dir="ltr">k</bdi> را چه کسی تعیین می‌کند؟</p>
@@ -363,28 +381,28 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="cards">
 <div><b>بازی حدس اسم فیلم</b>غلط = یک خنده ← <bdi dir="ltr">k</bdi> کوچک</div>
 <div class="hi"><b>قانون مرجوعی فروشگاه</b>غلط = دردسر واقعی ← <bdi dir="ltr">k</bdi> بزرگ‌تر</div>
-<div><b><bdi dir="ltr">AA-Omniscience</bdi></b>شاخص منفی ۱۰۰ تا ۱۰۰ <span class="sep">·</span> صفر = به همان اندازه درست که غلط (عملاً <bdi dir="ltr">k = 1</bdi>)</div>
+<div><b><bdi dir="ltr">AA-Omniscience</bdi></b><bdi dir="ltr">k = 1</bdi> <span class="sep">·</span> سکوت کامل ← رتبهٔ چهارم از ۳۶ <span class="sep">·</span> پیشنهاد خودشان: شاید منفی ۰٫۵</div>
 <div><b>«نمی‌دانم»</b>همیشه مجانی نیست (ارجاع به پشتیبانی)</div>
 </div>
 </div></main>
 <footer><bdi dir="ltr">R08</bdi> <span class="sep">·</span> <bdi dir="ltr">AA-Omniscience</bdi> <span class="sep">·</span> <bdi dir="ltr">arXiv 2511.13029</bdi> <span class="sep">·</span> نوامبر ۲۰۲۵</footer>
-<aside class="notes"><b><bdi dir="ltr">k</bdi> را چه کسی تعیین می‌کند؟</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] سه تصویر کوتاه: بازی حدس اسم فیلم با دوستان، رسید خرید و قانون مرجوعی، و (فقط نماد) یک داروخانهٔ عمومی بدون توصیهٔ پزشکی. کارت کوچک: <bdi dir="ltr">AA-Omniscience (R08): score 0 = as many right as wrong → k = 1</bdi>.</p><p><bdi dir="ltr">k</bdi> یه انتخاب محصوله، نه یه عدد جهانی.</p></aside>
+<aside class="notes"><b><bdi dir="ltr">k</bdi> را چه کسی تعیین می‌کند؟</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] سه تصویر کوتاه: بازی حدس اسم فیلم با دوستان، رسید خرید و قانون مرجوعی، و (فقط نماد) یک داروخانهٔ عمومی بدون توصیهٔ پزشکی. کارت <bdi dir="ltr">AA-Omniscience</bdi>: <bdi dir="ltr">k = 1</bdi>؛ مدلی که به هیچ سؤالی جواب ندهد چهارم از ۳۶ می‌شود؛ نویسنده‌ها پیشنهاد کرده‌اند شاید نسخهٔ بعد منفی ۰٫۵ باشد.</p><p><bdi dir="ltr">k</bdi> یه انتخاب محصوله، نه یه عدد جهانی.</p></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="738" aria-label="قاب ۱۳">
+<section class="frame night" id="beat-13" data-start="725" aria-label="قاب ۱۳">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">مرز ادعا</p>
 <div class="boundary">
-<div><b>این قسمت نشان می‌دهد</b>با قانون مثبت ۱، صفر، منفی <bdi dir="ltr">k</bdi>، خط سکوت <bdi dir="ltr">k/(k+1)</bdi> است. قاعدهٔ رایج کنکور حدس کور را صفر می‌کند. در شبیه‌سازی، این قانون فقط به اطمینانِ صادق کمک می‌کند.</div>
-<div class="no"><b>این قسمت نشان نمی‌دهد</b>اینکه مدل‌های امروزی کالیبره‌اند یا نه <span class="sep">·</span> پاسخ‌دهنده‌های ما مدل زبانی نبودند <span class="sep">·</span> نمره‌دادن دوباره به جواب‌های قدیمی جای اجرای تازه را نمی‌گیرد</div>
+<div><b>این قسمت نشان می‌دهد</b>با قانون مثبت ۱، صفر، منفی <bdi dir="ltr">k</bdi>، آستانهٔ جواب <bdi dir="ltr">k/(k+1)</bdi> است. قاعدهٔ رایج کنکور حدس کور را صفر می‌کند. با عددهای واقعی، فقط عوض‌کردن جریمه برنده را عوض کرد. در شبیه‌سازی، این قانون فقط به اطمینانِ صادق کمک می‌کند.</div>
+<div class="no"><b>این قسمت نشان نمی‌دهد</b>اینکه مدل‌های امروزی کالیبره‌اند یا نه <span class="sep">·</span> پاسخ‌دهنده‌های ما مدل زبانی نبودند <span class="sep">·</span> آن چهار مدل مال یک آزمون و یک زمان‌اند، نه رتبهٔ امروز <span class="sep">·</span> نمره‌دادن دوباره به جواب‌های قدیمی جای اجرای تازه را نمی‌گیرد</div>
 </div>
 </div></main>
 <footer>مرز ادعای <bdi dir="ltr">HMD-010</bdi></footer>
-<aside class="notes"><b>مرز ادعا</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] نمای ثابت؛ کارت مرز ادعا.</p><p>حساب و شبیه‌سازی رو نشون دادیم؛ رفتار مدل واقعی فقط از اجرا میاد.</p></aside>
+<aside class="notes"><b>مرز ادعا</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] نمای ثابت؛ کارت مرز ادعا.</p><p>حساب، دادهٔ منتشرشده و شبیه‌سازی رو نشون دادیم؛ رفتار مدل واقعی فقط از اجرا میاد.</p></aside>
 </section>
 
-<section class="frame night" id="beat-14" data-start="776" aria-label="قاب ۱۴">
+<section class="frame night" id="beat-14" data-start="760" aria-label="قاب ۱۴">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">جواب</p>
@@ -392,10 +410,10 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="sub">تمرین: «اگر کمتر از ۹۰٪ مطمئنی، بگو نمی‌دانم.» بعد یکی از جواب‌هایش را خودت چک کن.</p>
 </div></main>
 <footer>جواب <span class="sep">·</span> <bdi dir="ltr">HMD-010</bdi></footer>
-<aside class="notes"><b>جواب</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] برگشت به پاسخ‌برگ قاب ۱؛ این بار با خط افقی «<bdi dir="ltr">silence line</bdi>» روی آن. کارت تمرین. بگو اجرای واقعی، با هر نتیجه‌ای، جدا منتشر می‌شود.</p><p>نمرهٔ منفی محتاط‌تر می‌کنه، فقط اگه مدل گوش بده و اطمینانش صادق باشه.</p></aside>
+<aside class="notes"><b>جواب</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] برگشت به پاسخ‌برگ قاب ۱؛ این بار با خط افقی «<bdi dir="ltr">answer threshold</bdi>» روی آن. کارت تمرین.</p><p>نمرهٔ منفی محتاط‌تر می‌کنه، فقط اگه مدل گوش بده و اطمینانش صادق باشه.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-15" data-start="829" aria-label="قاب ۱۵">
+<section class="frame paper" id="beat-15" data-start="798" aria-label="قاب ۱۵">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۵</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">قسمت بعد <span class="sep">·</span> <bdi dir="ltr">HMD-011</bdi></p>

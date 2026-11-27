@@ -17,13 +17,13 @@ If you cannot fill **Evidence**, you are not ready to pick a model.
 
 | Famous evidence | Why it does not answer the shop decision |
 |---|---|
-| A vote-based leaderboard | Measures which answer people preferred; length and style move votes (LMSYS style-control analysis, Aug 2024). |
+| A vote-based leaderboard | Measures which answer people preferred; length and style move votes (LMSYS style-control analysis, Aug 2024), and the version ranked may not be the one you can use (Llama 4 on LMArena, Apr 2025). |
 | Agent / tool-use benchmarks | Measure finishing actions in an environment; this assistant only answers. |
 | Reasoning benchmarks | A high score says nothing about abstaining when unsure. |
 
 ## Try the selection tool — and watch the wording
 
-From the repository root (no network, no model calls):
+From the root of the M2Lab repository (`~/Documents/M2Lab`; `m2bench` is not in the Homodyne repository). No network, no model calls:
 
 ```bash
 python3 -m m2bench families \
@@ -48,4 +48,4 @@ For *Life*, check the date and any audit or retraction. Example: SWE-bench Verif
 OpenAI in Feb 2026 after an audit of 138 failing problems (at least 59.4% with flawed tests); its
 suggested successor's recommendation was retracted in Jul 2026. Lifecycle states are dated claims.
 
-Outputs shown above were checked on 2 Nov 2026.
+Outputs shown above were re-checked on 26 Nov 2026.

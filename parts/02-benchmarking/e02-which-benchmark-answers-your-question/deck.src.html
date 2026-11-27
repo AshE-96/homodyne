@@ -1,5 +1,22 @@
 <!-- HMD-004 · deck source. Build: make decks  →  deck-fa.html + deck-en.html
-     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks. -->
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Beat 5 chart: numbers from artifact/derived/epoch_profile.csv (Epoch AI, CC BY 4.0). x = 560 + 10 × score. -->
+
+<style>
+.chart.profile{max-height:500px}
+.chart.profile text{font-size:30px}
+.chart.profile .lab{font-size:31px;font-weight:700}
+.chart.profile .sm{font-size:23px;fill:var(--muted)}
+.chart.profile .grid{stroke:#CFCAC0;stroke-width:2}
+.chart.profile .link{stroke:#B9B4AA;stroke-width:6}
+.chart.profile .ed{stroke:#16181B;stroke-width:4}
+.chart.profile .eh{stroke:#E8A33D;stroke-width:4}
+.chart.profile .d{fill:#16181B}
+.chart.profile .h{fill:#E8A33D}
+.chart.profile .hr{fill:none;stroke:#E8A33D;stroke-width:7}
+.chart.profile .vh{fill:#975C08;font-weight:700}
+.chart.profile .vd{font-weight:700}
+</style>
 
 <section class="cover">
 <h1><t-fa>مدل اول جدول، برای <em>تو</em> هم بهترین است؟</t-fa><t-en>Is the top model on the leaderboard the best one for <em>you</em>?</t-en></h1>
@@ -25,40 +42,68 @@
 <div><b><t-fa>کار ۳</t-fa><t-en>Job 3</t-en></b><t-fa>عوض‌کردن یک رزرو با یک ابزار</t-fa><t-en>Change a booking with a tool</t-en></div>
 <div class="hi"><b><t-fa>سؤال</t-fa><t-en>Question</t-en></b><t-fa>جدولی که با رأی آدم‌ها ساخته می‌شود، کدام را امتحان می‌کند؟</t-fa><t-en>Which one does a leaderboard built on people's votes test?</t-en></div>
 </div>
-<footer><t-fa>مثال آموزشی</t-fa><t-en>Teaching example</t-en></footer>
-<aside class="notes"><t-fa><b>قهرمان آشپزی</b><p>پل از HMD-003. پرسش حدسی؛ جوابش آخر قاب ۳.</p><p>اول بودن در یک مسابقه، اول بودن در کار تو نیست.</p></t-fa><t-en><b>Cooking champion</b><p>Bridge from HMD-003. A guessing question; the answer comes at the end of beat 3.</p><p>Being first in a contest is not being first at your job.</p></t-en></aside>
+<footer><t-fa>مثال آموزشی · B-roll: media/beat02_cooking_contest_PD.jpg (مالکیت عمومی)</t-fa><t-en>Teaching example · B-roll: media/beat02_cooking_contest_PD.jpg (public domain)</t-en></footer>
+<aside class="notes"><t-fa><b>قهرمان آشپزی</b><p>پل از HMD-003. عکس مسابقهٔ آشپزی در تدوین. پرسش حدسی؛ جوابش آخر قاب ۳.</p><p>اول بودن در یک مسابقه، اول بودن در کار تو نیست.</p></t-fa><t-en><b>Cooking champion</b><p>Bridge from HMD-003. Cooking-contest photo added in the edit. A guessing question; the answer comes at the end of beat 3.</p><p>Being first in a contest is not being first at your job.</p></t-en></aside>
 </section>
 
 <section class="frame paper" id="beat-3" data-start="96">
 <p class="kicker"><t-fa>جدول رأی چه می‌شمارد؟</t-fa><t-en>What does a vote count?</t-en></p>
 <h1><t-fa>پسندیده <em>≠</em> درست</t-fa><t-en>Preferred <em>≠</em> correct</t-en></h1>
 <div class="cols">
-<div class="hi"><span><t-fa>جواب ۱</t-fa><t-en>Answer 1</t-en></span><b class="word"><t-fa>بلند و مطمئن</t-fa><t-en>Long, confident</t-en></b><p><t-fa>تیتر، فهرست، لحن گرم؛ و مهلت مرجوعی غلط.</t-fa><t-en>Headings, bullets, a warm tone; and the wrong return window.</t-en></p></div>
-<div><span><t-fa>جواب ۲</t-fa><t-en>Answer 2</t-en></span><b class="word"><t-fa>کوتاه و ساده</t-fa><t-en>Short, plain</t-en></b><p><t-fa>«هفت روز، پوشیده‌نشده، با رسید.» درست.</t-fa><t-en>"Seven days, unworn, with a receipt." Correct.</t-en></p></div>
+<div class="hi"><span><t-fa>GPT-4o-mini · رتبهٔ کلی</t-fa><t-en>GPT-4o-mini · overall rank</t-en></span><b><t-fa>۶ ← ۱۱</t-fa><t-en>6 → 11</t-en></b><p><t-fa>وقتی اثر طول و قالب‌بندی از رأی‌ها کنار رفت</t-fa><t-en>Once length and markdown effects were taken out of the votes</t-en></p></div>
+<div><span><t-fa>Claude 3 Opus · رتبهٔ کلی</t-fa><t-en>Claude 3 Opus · overall rank</t-en></span><b><t-fa>۱۶ ← ۱۰</t-fa><t-en>16 → 10</t-en></b><p><t-fa>همان رأی‌ها، همان سؤال‌ها</t-fa><t-en>The same votes, the same questions</t-en></p></div>
 </div>
-<p class="sub"><t-fa>کنترل سبک: GPT-4o-mini از ۶ به ۱۱ · Claude 3 Opus از ۱۶ به ۱۰</t-fa><t-en>Style control: GPT-4o-mini 6 → 11 · Claude 3 Opus 16 → 10</t-en></p>
-<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>دو جواب آموزشی · LMSYS، ۲۹ اوت ۲۰۲۴: طول، مهم‌ترین عامل سبک؛ «تحلیل ما هنوز مشاهده‌ای است»</t-fa><t-en>Two teaching answers · LMSYS, 29 Aug 2024: length, the dominant style factor; "our analysis is still observational"</t-en></p>
-<footer><t-fa>Chatbot Arena (امروز LMArena) · کنترل سبک</t-fa><t-en>Chatbot Arena (now LMArena) · style control</t-en></footer>
-<aside class="notes"><t-fa><b>جدول رأی چه می‌شمارد؟</b><p>بپرس «کدام را دوست داری؟». جواب حدس قاب ۲ را بده.</p><p>رأی ترجیح یک چیز واقعی را می‌سنجد، ولی آن چیز درستی نیست.</p></t-fa><t-en><b>What does a vote count?</b><p>Ask "which one do you like?". Give the answer to the beat 2 guess.</p><p>A preference vote measures something real, but that thing is not correctness.</p></t-en></aside>
+<p class="tag"><t-fa>پست LMSYS در ۲۹ اوت ۲۰۲۴ · برای این دو مدل، قالب‌بندی بیش از طول رتبه را جابه‌جا کرد · «تحلیل ما هنوز مشاهده‌ای است» · رتبه‌های همان تحلیل، نه رتبهٔ امروز</t-fa><t-en>LMSYS, 29 Aug 2024 · for these two models, markdown moved the rank more than length · "our analysis is still observational" · ranks from that analysis, not today's</t-en></p>
+<footer><t-fa>Chatbot Arena · بعدها LMArena و امروز Arena · lmsys.org/blog/2024-08-28-style-control</t-fa><t-en>Chatbot Arena (later LMArena, now Arena) · lmsys.org/blog/2024-08-28-style-control</t-en></footer>
+<aside class="notes"><t-fa><b>جدول رأی چه می‌شمارد؟</b><p>نام مدل‌ها فقط روی صفحه؛ در گفتار «مدل کوچیک OpenAI» و «یه مدل Anthropic». جواب حدس قاب ۲ را آخر قاب بده.</p><p>رأی ترجیح یک چیز واقعی را می‌سنجد، ولی آن چیز درستی نیست.</p></t-fa><t-en><b>What does a vote count?</b><p>Model names on screen only; spoken as "OpenAI's small model" and "an Anthropic model". Give the answer to the beat 2 guess at the end.</p><p>A preference vote measures something real, but that thing is not correctness.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="170">
-<p class="kicker"><t-fa>کارنامه، نه رتبه</t-fa><t-en>A report card, not a rank</t-en></p>
+<section class="frame paper" id="beat-4" data-start="171">
+<p class="kicker"><t-fa>آوریل ۲۰۲۵ · Llama 4 Maverick</t-fa><t-en>April 2025 · Llama 4 Maverick</t-en></p>
+<h1><t-fa>«اول جدول» مال <em>کدام نسخه</em> است؟</t-fa><t-en>Whose version is <em>#1</em>?</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>نسخهٔ آزمایشی گفت‌وگو · اعلام Meta، ۵ آوریل</t-fa><t-en>Experimental chat version · Meta's claim, 5 Apr</t-en></span><b><t-fa>۱۴۱۷</t-fa><t-en>1417</t-en></b><p><t-fa>به گفتهٔ LMArena، «سفارشی برای ترجیح آدم‌ها»</t-fa><t-en>Per LMArena, "customized … to optimize for human preference"</t-en></p></div>
+<div><span><t-fa>نسخهٔ عمومی · بایگانی LMArena، ۹ آوریل</t-fa><t-en>Public release · LMArena archive, 9 Apr</t-en></span><b><t-fa>۱۲۷۳</t-fa><t-en>1273</t-en></b><p><t-fa>رتبهٔ ۳۵ از ۱۸۲ در بایگانی امروز</t-fa><t-en>Rank 35 of 182 in today's archive</t-en></p></div>
+</div>
+<p class="tag"><t-fa>بیانیهٔ LMArena در ۸ آوریل ۲۰۲۵: «متا باید روشن‌تر می‌گفت…» · قانون‌های جدول به‌روز شد · بایگانی امروز مدل‌های حذف‌شده را ندارد، پس رتبهٔ بایگانی ممکن است با رتبهٔ همان روز فرق کند</t-fa><t-en>LMArena, 8 Apr 2025: "Meta should have made it clearer…"; leaderboard policies updated · today's archive omits removed models, so an archived rank can differ from the rank shown that day</t-en></p>
+<footer><t-fa>ai.meta.com/blog/llama-4-multimodal-intelligence · huggingface.co/datasets/lmarena-ai/leaderboard-dataset (CC BY 4.0)</t-fa><t-en>ai.meta.com/blog/llama-4-multimodal-intelligence · huggingface.co/datasets/lmarena-ai/leaderboard-dataset (CC BY 4.0)</t-en></footer>
+<aside class="notes"><t-fa><b>عدد صدر جدول، مال کدام نسخه؟ · [MID-CTA]</b><p>هرگز «تقلب» نگو؛ فقط همان که LMArena نوشت. ۱۴۱۷ ادعای Meta است. پایان قاب: CTA نرم.</p><p>عدد صدر جدول همیشه مال مدلی نیست که به دست تو می‌رسد.</p></t-fa><t-en><b>Whose number is at the top? · [MID-CTA]</b><p>Never say "cheating"; only what LMArena wrote. 1417 is Meta's claim. End of beat: soft CTA.</p><p>The number at the top is not always the model that reaches you.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="229">
+<p class="kicker"><t-fa>کارنامه، نه رتبه · دادهٔ واقعی</t-fa><t-en>A report card, not a rank · real data</t-en></p>
 <h1><t-fa>مدل یک <em>کارنامه</em> دارد، نه یک رتبه.</t-fa><t-en>A model has a <em>profile</em>, not a rank.</t-en></h1>
-<div class="bars tight">
-<div><span><t-fa>X · دانش</t-fa><t-en>X · knowledge</t-en></span><i style="--v:80"></i><span><t-fa>۸۰</t-fa><t-en>80</t-en></span></div>
-<div><span><t-fa>Y · دانش</t-fa><t-en>Y · knowledge</t-en></span><i style="--v:65"></i><span><t-fa>۶۵</t-fa><t-en>65</t-en></span></div>
-<div><span><t-fa>X · پیروی از سند</t-fa><t-en>X · grounded</t-en></span><i style="--v:55"></i><span><t-fa>۵۵</t-fa><t-en>55</t-en></span></div>
-<div class="hi"><span><t-fa>Y · پیروی از سند</t-fa><t-en>Y · grounded</t-en></span><i style="--v:78"></i><span><t-fa>۷۸</t-fa><t-en>78</t-en></span></div>
-<div><span><t-fa>X · کار با ابزار</t-fa><t-en>X · tool use</t-en></span><i style="--v:70"></i><span><t-fa>۷۰</t-fa><t-en>70</t-en></span></div>
-<div><span><t-fa>Y · کار با ابزار</t-fa><t-en>Y · tool use</t-en></span><i style="--v:60"></i><span><t-fa>۶۰</t-fa><t-en>60</t-en></span></div>
-</div>
-<p class="tag"><b><t-fa>ساختگی</t-fa><t-en>ILLUSTRATIVE</t-en></b><t-fa>نمره‌های آموزشی · یک رتبهٔ کلی پنهان می‌کند وزن‌ها را چه کسی انتخاب کرده</t-fa><t-en>Teaching scores · one overall rank hides who chose the weights</t-en></p>
-<footer><t-fa>مثل کارنامهٔ کنکور: اول درصد درس‌ها، بعد یک رتبه</t-fa><t-en>Like a Konkur report card: subject percentages first, then one rank</t-en></footer>
-<aside class="notes"><t-fa><b>کارنامه، نه رتبه</b><p>تمثیل کارنامهٔ کنکور. پایان قاب: CTA نرم.</p><p>مدل یک کارنامه دارد، نه یک رتبه؛ وزن ستون‌ها را باید کار تو تعیین کند.</p></t-fa><t-en><b>A report card, not a rank</b><p>The Konkur report card analogy. End of beat: soft CTA.</p><p>A model has a report card, not a rank; your job should set the weight of each column.</p></t-en></aside>
+<div dir="ltr"><svg class="chart profile" viewBox="0 0 1600 470" role="img"><title><t-fa>دو مدل در چهار آزمون Epoch AI</t-fa><t-en>Two models on four Epoch AI benchmarks</t-en></title>
+<circle class="d" cx="580" cy="22" r="13"/><text x="604" y="33" class="vd">DeepSeek V4 Pro (max)</text>
+<circle class="h" cx="1060" cy="22" r="13"/><text x="1084" y="33" class="vh">Claude Haiku 5.5 (max)</text>
+<g class="grid"><line x1="560" y1="62" x2="560" y2="420"/><line x1="810" y1="62" x2="810" y2="420"/><line x1="1060" y1="62" x2="1060" y2="420"/><line x1="1310" y1="62" x2="1310" y2="420"/><line x1="1560" y1="62" x2="1560" y2="420"/></g>
+<g class="sm" text-anchor="middle"><text x="560" y="456"><t-fa>۰</t-fa><t-en>0</t-en></text><text x="810" y="456"><t-fa>۲۵</t-fa><t-en>25</t-en></text><text x="1060" y="456"><t-fa>۵۰</t-fa><t-en>50</t-en></text><text x="1310" y="456"><t-fa>۷۵</t-fa><t-en>75</t-en></text><text x="1560" y="456"><t-fa>۱۰۰</t-fa><t-en>100</t-en></text></g>
+<text x="0" y="112" class="lab"><t-fa>علمی، سؤال متخصص‌ها</t-fa><t-en>Science, expert-written</t-en></text><text x="0" y="144" class="sm">GPQA Diamond</text>
+<line class="ed" x1="1439" y1="128" x2="1473" y2="128"/><line class="eh" x1="1436" y1="128" x2="1476" y2="128"/>
+<circle class="hr" cx="1456" cy="128" r="21"/><circle class="d" cx="1456" cy="128" r="12"/>
+<text x="1456" y="94" text-anchor="middle" class="vd"><t-fa>۸۹٫۶ = ۸۹٫۶</t-fa><t-en>89.6 = 89.6</t-en></text>
+<text x="0" y="200" class="lab"><t-fa>واقعیت‌های کوتاه</t-fa><t-en>Short facts</t-en></text><text x="0" y="232" class="sm">SimpleQA Verified</text>
+<line class="link" x1="798" y1="216" x2="1030" y2="216"/>
+<line class="eh" x1="785" y1="216" x2="811" y2="216"/><line class="ed" x1="1014" y1="216" x2="1046" y2="216"/>
+<circle class="h" cx="798" cy="216" r="16"/><circle class="d" cx="1030" cy="216" r="16"/>
+<text x="798" y="186" text-anchor="middle" class="vh"><t-fa>۲۳٫۸</t-fa><t-en>23.8</t-en></text><text x="1030" y="186" text-anchor="middle" class="vd"><t-fa>۴۷٫۰</t-fa><t-en>47.0</t-en></text>
+<text x="0" y="288" class="lab"><t-fa>ریاضی پژوهشی</t-fa><t-en>Research maths</t-en></text><text x="0" y="320" class="sm">FrontierMath 1–3 (v2)</text>
+<line class="link" x1="1013" y1="304" x2="1311" y2="304"/>
+<line class="ed" x1="983" y1="304" x2="1043" y2="304"/><line class="eh" x1="1285" y1="304" x2="1337" y2="304"/>
+<circle class="d" cx="1013" cy="304" r="16"/><circle class="h" cx="1311" cy="304" r="16"/>
+<text x="1013" y="274" text-anchor="middle" class="vd"><t-fa>۴۵٫۳</t-fa><t-en>45.3</t-en></text><text x="1311" y="274" text-anchor="middle" class="vh"><t-fa>۷۵٫۱</t-fa><t-en>75.1</t-en></text>
+<text x="0" y="376" class="lab"><t-fa>معمای شطرنج</t-fa><t-en>Chess puzzles</t-en></text><text x="0" y="408" class="sm">Epoch Chess Puzzles</text>
+<line class="link" x1="750" y1="392" x2="1110" y2="392"/>
+<line class="ed" x1="711" y1="392" x2="789" y2="392"/><line class="eh" x1="1060" y1="392" x2="1160" y2="392"/>
+<circle class="d" cx="750" cy="392" r="16"/><circle class="h" cx="1110" cy="392" r="16"/>
+<text x="750" y="362" text-anchor="middle" class="vd"><t-fa>۱۹٫۰</t-fa><t-en>19.0</t-en></text><text x="1110" y="362" text-anchor="middle" class="vh"><t-fa>۵۵٫۰</t-fa><t-en>55.0</t-en></text>
+</svg></div>
+<p class="tag"><t-fa>داده: Epoch AI · دریافت ۲۶ نوامبر ۲۰۲۶ · CC BY 4.0 · خط کوتاه = ±۱ خطای معیار · انتخاب جفت و شمارش کار ماست: ۱۸۸ جفت از ۲٬۴۸۵ جفتِ ۷۱ مدل بین واقعیت‌های کوتاه و ریاضی پژوهشی جابه‌جا می‌شوند (هر طرف بیش از ۳ خطای معیار)</t-fa><t-en>Epoch AI, fetched 26 Nov 2026, CC BY 4.0 · whiskers = ±1 standard error · pair choice and count are ours: 188 of 2,485 pairs of 71 models swap places between short facts and research maths (over 3 standard errors each way)</t-en></p>
+<footer><t-fa>epoch.ai/benchmarks · artifact/derived/epoch_profile.csv · مثل کارنامهٔ کنکور</t-fa><t-en>epoch.ai/benchmarks · artifact/derived/epoch_profile.csv · like a Konkur report card</t-en></footer>
+<aside class="notes"><t-fa><b>کارنامه، نه رتبه</b><p>تمثیل کارنامهٔ کنکور. اول به ردیف بالا اشاره کن: دو نقطه روی هم. بعد سه ردیف پایین. در گفتار فقط «دیپ‌سیک» و «آنتروپیک».</p><p>مدل یک کارنامه دارد، نه یک رتبه؛ وزن ستون‌ها را باید کار تو تعیین کند.</p></t-fa><t-en><b>A report card, not a rank</b><p>The Konkur report card analogy. Point at the top row first: two dots on top of each other. Then the three rows below. Spoken: only "DeepSeek" and "Anthropic".</p><p>A model has a report card, not a rank; your job should set the weight of each column.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="237">
+<section class="frame paper" id="beat-6" data-start="296">
 <p class="kicker"><t-fa>از خطا شروع کن</t-fa><t-en>Start from the failure</t-en></p>
 <div class="steps">
 <div><b><t-fa>تصمیم</t-fa><t-en>Decision</t-en></b><t-fa>کدام مدل به سؤال مشتری‌های فروشگاه ما جواب بدهد؟</t-fa><t-en>Which model answers our shop's customers?</t-en></div>
@@ -67,11 +112,11 @@
 <div><b><t-fa>خانواده</t-fa><t-en>Family</t-en></b><t-fa>…آخر از همه بیرون می‌آید.</t-fa><t-en>…comes out last.</t-en></div>
 </div>
 <p class="caption"><t-fa>نیمهٔ مفید زنجیره، حذف‌هاست: کدام جدول مشهور به سؤال تو جواب نمی‌دهد؟</t-fa><t-en>The useful half of the chain is what it rules out: which famous leaderboard does not answer your question?</t-en></p>
-<footer><t-fa>framework/00-landscape/benchmark-families.yaml · قاعدهٔ انتخاب</t-fa><t-en>framework/00-landscape/benchmark-families.yaml · selection rule</t-en></footer>
+<footer><t-fa>M2Lab · framework/00-landscape/benchmark-families.yaml · قاعدهٔ انتخاب</t-fa><t-en>M2Lab · framework/00-landscape/benchmark-families.yaml · selection rule</t-en></footer>
 <aside class="notes"><t-fa><b>زنجیره</b><p>مثال فروشگاه از HMD-002.</p><p>خانواده از ته زنجیره بیرون می‌آید، نه از سرش.</p></t-fa><t-en><b>The chain</b><p>The shop example from HMD-002.</p><p>The family comes out of the end of the chain, not the start.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="290">
+<section class="frame paper" id="beat-7" data-start="348">
 <p class="kicker"><t-fa>ابزار خودم اشتباه پیشنهاد داد</t-fa><t-en>My own tool got it wrong</t-en></p>
 <div class="code"><span class="c">$ python3 -m m2bench families \
     --decision "customer support bot for my online shop" \
@@ -82,12 +127,12 @@
     required evidence Task success and failure modes in a live environment.
 <span class="o">    families          agents_tool_use, safety_security, robustness</span>
     NOT               knowledge, reasoning</div>
-<p class="tag"><t-fa>خروجی واقعی، گزیده (۲ نوامبر ۲۰۲۶) · ربات ما فقط جواب می‌دهد؛ کاری انجام نمی‌دهد</t-fa><t-en>Real output, excerpt (2 Nov 2026) · our bot only answers; it does not act</t-en></p>
+<p class="tag"><t-fa>خروجی واقعی، گزیده (دوباره اجرا: ۲۶ نوامبر ۲۰۲۶، از ریشهٔ مخزن M2Lab) · ربات ما فقط جواب می‌دهد؛ کاری انجام نمی‌دهد</t-fa><t-en>Real output, excerpt (re-run 26 Nov 2026 from the M2Lab repository root) · our bot only answers; it does not act</t-en></p>
 <footer><t-fa>m2bench families · عمداً بر پایهٔ واژه‌ها</t-fa><t-en>m2bench families · keyword-based by design</t-en></footer>
 <aside class="notes"><t-fa><b>ابزار خودم اشتباه کرد</b><p>پیش از نشان دادن families بپرس «حدس بزن چه پیشنهاد می‌دهد؟».</p><p>حتی یک ابزار انتخاب، اگر بد خوانده شود، تو را به آزمون نادرست می‌فرستد.</p></t-fa><t-en><b>My own tool got it wrong</b><p>Before showing families, ask "guess what it suggests?".</p><p>Even a selection tool, if read badly, sends you to the wrong test.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="344">
+<section class="frame paper" id="beat-8" data-start="401">
 <p class="kicker"><t-fa>همان نیاز، کلمه‌های دیگر</t-fa><t-en>Same need, different words</t-en></p>
 <div class="code sm"><span class="c">$ python3 -m m2bench families \
     --decision "question answering assistant for my online shop" \
@@ -97,12 +142,12 @@
     NOT               human_preference, reasoning, agents_tool_use
     why not           Preference votes reward length and confident style — the behaviour under test. ...
     built as          bluff-v1</div>
-<p class="tag"><t-fa>خروجی واقعی، گزیده (۲ نوامبر ۲۰۲۶) · ابزار واژه‌های بلندتر از ۴ حرف را با مثال‌های آماده تطبیق می‌دهد</t-fa><t-en>Real output, excerpt (2 Nov 2026) · the tool matches words longer than 4 letters against worked examples</t-en></p>
+<p class="tag"><t-fa>خروجی واقعی، گزیده (دوباره اجرا: ۲۶ نوامبر ۲۰۲۶) · ابزار واژه‌های بلندتر از ۴ حرف را با مثال‌های آماده تطبیق می‌دهد</t-fa><t-en>Real output, excerpt (re-run 26 Nov 2026) · the tool matches words longer than 4 letters against worked examples</t-en></p>
 <footer>m2bench/families.py · select()</footer>
 <aside class="notes"><t-fa><b>همان نیاز، کلمه‌های دیگر</b><p>پژواک HMD-002: همان جواب‌ها، قانون دیگر. سطر «why not» در خروجی واقعی ادامه دارد؛ «...» یعنی بریده شده.</p><p>کیفیت شاهد از کیفیت نوشتن تصمیم و خطا شروع می‌شود.</p></t-fa><t-en><b>Same need, different words</b><p>Echo of HMD-002: same answers, different rule. The "why not" line continues in the real output; "..." marks the cut.</p><p>The quality of the evidence starts with how well you write the decision and the failure.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="403">
+<section class="frame paper" id="beat-9" data-start="459">
 <p class="kicker"><t-fa>نقطه‌های کور را یاد بگیر، نه اسم‌ها را</t-fa><t-en>Learn the blind spots, not the names</t-en></p>
 <div class="cards">
 <div><b><t-fa>توانایی · کدنویسی</t-fa><t-en>Capability · coding</t-en></b><t-fa>تست‌های ناقص، باگ واقعی را نمی‌بینند.</t-fa><t-en>Incomplete tests miss real bugs.</t-en></div>
@@ -112,30 +157,31 @@
 </div>
 <p class="tag"><t-fa>۱۶ خانواده · ۴ گروه · دو محور: ثابت ↔ زنده، جواب مرجع ↔ آدم، داور یا نتیجه · ابزار جهت‌یابی، نه طبقه‌بندی رسمی</t-fa><t-en>16 families · 4 groups · two axes: static ↔ live, reference answer ↔ human, judge or outcome · a navigation aid, not a formal taxonomy</t-en></p>
 <footer>artifact/landscape-card.md · m2bench families --map</footer>
-<aside class="notes"><t-fa><b>نقشه و نقطه‌های کور</b><p>نام‌ها را حفظ نکن؛ ستون نقطهٔ کور.</p><p>خانواده‌ای که نقطهٔ کورش را نمی‌دانی، دقیقاً از همان طرف گمراهت می‌کند.</p></t-fa><t-en><b>The map and the blind spots</b><p>Don't memorise the names; the blind-spot column.</p><p>A family whose blind spot you don't know misleads you from exactly that side.</p></t-en></aside>
+<aside class="notes"><t-fa><b>نقشه و نقطه‌های کور</b><p>نام‌ها را حفظ نکن؛ ستون نقطهٔ کور. دو محور فقط یک جمله؛ جزئیات در کارت همراه.</p><p>خانواده‌ای که نقطهٔ کورش را نمی‌دانی، دقیقاً از همان طرف گمراهت می‌کند.</p></t-fa><t-en><b>The map and the blind spots</b><p>Don't memorise the names; the blind-spot column. The two axes get one sentence; details are on the companion card.</p><p>A family whose blind spot you don't know misleads you from exactly that side.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="481">
+<section class="frame paper" id="beat-10" data-start="526">
 <p class="kicker"><t-fa>ولی این آزمون هنوز زنده است؟</t-fa><t-en>But is this test still alive?</t-en></p>
-<div class="stat"><b><t-fa>دست‌کم ۵۹٫۴٪</t-fa><t-en>≥ 59.4%</t-en></b><span><t-fa>از ۱۳۸ مسئلهٔ بازبینی‌شدهٔ SWE-bench Verified تست معیوب داشتند · OpenAI، ۲۳ فوریهٔ ۲۰۲۶</t-fa><t-en>of 138 audited SWE-bench Verified problems had flawed tests · OpenAI, 23 Feb 2026</t-en></span></div>
+<div class="stat"><b><t-fa>دست‌کم ۵۹٫۴٪</t-fa><t-en>≥ 59.4%</t-en></b><span><t-fa>از ۱۳۸ مسئلهٔ بازبینی‌شدهٔ SWE-bench Verified ایراد در تست یا صورت مسئله داشتند؛ بیشترش تستی که راه‌حل درست را رد می‌کرد · OpenAI، ۲۳ فوریهٔ ۲۰۲۶</t-fa><t-en>of 138 audited SWE-bench Verified problems had flawed tests or problem statements, mostly tests that rejected correct solutions · OpenAI, 23 Feb 2026</t-en></span></div>
 <p class="tag"><t-fa>این ۱۳۸ مسئله همان‌هایی بودند که مدل مدام در آن‌ها شکست می‌خورد؛ نمونهٔ تصادفی کل مجموعه نیستند · نشانه‌های آلودگی هم گزارش شد</t-fa><t-en>The 138 were problems the model kept failing; not a random sample of the whole set · signs of contamination were also reported</t-en></p>
 <footer>R03 · openai.com/index/why-we-no-longer-evaluate-swe-bench-verified</footer>
 <aside class="notes"><t-fa><b>[RE-HOOK]</b><p>یک ثانیه سکوت؛ قبل از عدد بپرس «چند درصد؟»</p><p>آزمونی که خراب شده یا لو رفته هنوز عدد می‌دهد؛ فقط آن عدد دیگر همان معنی را ندارد.</p></t-fa><t-en><b>[RE-HOOK]</b><p>One second of silence; before the number, ask "what percentage?"</p><p>A broken or leaked test still produces a number; that number just no longer means the same thing.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="537">
+<section class="frame paper" id="beat-11" data-start="585">
 <p class="kicker"><t-fa>جانشین هم ممیزی می‌خواهد</t-fa><t-en>A successor needs an audit too</t-en></p>
 <div class="steps">
-<div><b><t-fa>فوریهٔ ۲۰۲۶</t-fa><t-en>Feb 2026</t-en></b><t-fa>گزارش Verified متوقف شد؛ اشاره به SWE-bench Pro</t-fa><t-en>Stop reporting Verified; point to SWE-bench Pro</t-en></div>
+<div><b><t-fa>فوریهٔ ۲۰۲۶</t-fa><t-en>Feb 2026</t-en></b><t-fa>گزارش Verified متوقف شد؛ اشاره به <span style="white-space:nowrap">SWE-bench Pro</span></t-fa><t-en>Stop reporting Verified; point to <span style="white-space:nowrap">SWE-bench Pro</span></t-en></div>
 <div class="hi"><b><t-fa>۸ ژوئیهٔ ۲۰۲۶</t-fa><t-en>8 Jul 2026</t-en></b><t-fa>توصیه به Pro پس گرفته شد · حدود ۳۰٪ مسئله‌ها خراب برآورد شدند</t-fa><t-en>Pro recommendation retracted · about 30% of tasks estimated broken</t-en></div>
+<div><b><t-fa>اشباع، با دادهٔ واقعی</t-fa><t-en>Saturation, in real data</t-en></b><t-fa>OTIS Mock AIME: ۱۶ از ۶۵ مدلِ منتشرشده از ژوئیهٔ ۲۰۲۶ نمرهٔ کامل گرفتند</t-fa><t-en>OTIS Mock AIME: 16 of 65 models released since Jul 2026 scored 100%</t-en></div>
 </div>
 <p class="caption"><t-fa>شش وضعیت عمر: تازه · جداکننده · در حال اشباع · اشباع‌شده · <em>آسیب‌دیده</em> · بازنشسته</t-fa><t-en>Six lifecycle states: fresh · discriminating · saturating · saturated · <em>compromised</em> · retired</t-en></p>
-<p class="tag"><t-fa>وضعیت‌ها تاریخ دارند (تا ۲۹ سپتامبر ۲۰۲۶) و ترتیب اجباری ندارند · اشباع‌شده ≠ آسیب‌دیده</t-fa><t-en>The states are dated (as of 29 Sep 2026) and need not form a line · saturated ≠ compromised</t-en></p>
-<footer>R03 · R04 · m2bench families --lifecycle</footer>
-<aside class="notes"><t-fa><b>جانشین هم ممیزی می‌خواهد</b><p>فقط دو تاریخ را بگو؛ شش وضعیت روی صفحه.</p><p>هر آزمون تاریخ مصرف دارد؛ کنار نمره، تاریخ و اصلاحیه‌ها را هم بخوان.</p></t-fa><t-en><b>A successor needs an audit too</b><p>Say only the two dates; the six states stay on screen.</p><p>Every test has a use-by date; next to the score, read the date and the corrections too.</p></t-en></aside>
+<p class="tag"><t-fa>وضعیت‌ها تاریخ دارند (تا ۲۹ سپتامبر ۲۰۲۶) و ترتیب اجباری ندارند · اشباع‌شده ≠ آسیب‌دیده · شمارش اشباع کار ماست، از دادهٔ Epoch AI (CC BY 4.0)</t-fa><t-en>The states are dated (as of 29 Sep 2026) and need not form a line · saturated ≠ compromised · saturation count from Epoch AI data (CC BY 4.0), ours</t-en></p>
+<footer>R03 · R04 · artifact/derived/epoch_summary.json · m2bench families --lifecycle</footer>
+<aside class="notes"><t-fa><b>جانشین هم ممیزی می‌خواهد</b><p>فقط دو تاریخ را بگو؛ شش وضعیت روی صفحه. اشباع را با کارت سوم نشان بده.</p><p>هر آزمون تاریخ مصرف دارد؛ کنار نمره، تاریخ و اصلاحیه‌ها را هم بخوان.</p></t-fa><t-en><b>A successor needs an audit too</b><p>Say only the two dates; the six states stay on screen. Show saturation with the third card.</p><p>Every test has a use-by date; next to the score, read the date and the corrections too.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="603">
+<section class="frame paper" id="beat-12" data-start="652">
 <p class="kicker"><t-fa>هر آزمون را با پنج سؤال باز کن</t-fa><t-en>Open any benchmark with five questions</t-en></p>
 <h1><t-fa>SimpleQA در <em>پنج سؤال</em></t-fa><t-en>SimpleQA in <em>five questions</em></t-en></h1>
 <div class="cards">
@@ -145,21 +191,21 @@
 <div><b><t-fa>۴ · نقطهٔ کور</t-fa><t-en>4 · Blind spot</t-en></b><t-fa>جواب بلند، خلاصه، جواب از روی سند</t-fa><t-en>Long answers, summaries, answering from a document</t-en></div>
 <div class="hi"><b><t-fa>۵ · عمر</t-fa><t-en>5 · Life</t-en></b><t-fa>نسخهٔ اصلاح‌شده: SimpleQA Verified، ۱٬۰۰۰ پرسش</t-fa><t-en>Revised as SimpleQA Verified, 1,000 prompts</t-en></div>
 </div>
-<footer><t-fa>R05 · SimpleQA Verified (arXiv 2509.07968) · artifact/landscape-card.md</t-fa><t-en>R05 · SimpleQA Verified (arXiv 2509.07968) · artifact/landscape-card.md</t-en></footer>
-<aside class="notes"><t-fa><b>پنج سؤال</b><p>کارت ۳ را به قسمت اول وصل کن.</p><p>ادعا، کار، متریک، نقطهٔ کور، عمر؛ پنج سؤال برای هر آزمون.</p></t-fa><t-en><b>Five questions</b><p>Connect card 3 to the first episode.</p><p>Claim, task, metric, blind spot, life: five questions for any test.</p></t-en></aside>
+<footer><t-fa>R05 · SimpleQA Verified (arXiv 2509.07968) · همان آزمون قاب ۵ · artifact/landscape-card.md</t-fa><t-en>R05 · SimpleQA Verified (arXiv 2509.07968) · the same test as beat 5 · artifact/landscape-card.md</t-en></footer>
+<aside class="notes"><t-fa><b>پنج سؤال</b><p>کارت ۳ را به قسمت اول وصل کن؛ کارت ۵ را به کارنامهٔ قاب ۵.</p><p>ادعا، کار، متریک، نقطهٔ کور، عمر؛ پنج سؤال برای هر آزمون.</p></t-fa><t-en><b>Five questions</b><p>Connect card 3 to the first episode; card 5 to the beat 5 report card.</p><p>Claim, task, metric, blind spot, life: five questions for any test.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-12" data-start="657">
+<section class="frame paper" id="beat-13" data-start="707">
 <p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
 <div class="boundary">
-<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>رتبه به چیزی که شمرده می‌شود بسته است · یک آزمون مرجع می‌تواند خراب شود و کنار برود · نوشتن تصمیم و خطا، شاهدی را که می‌گیری عوض می‌کند.</t-fa><t-en>A rank depends on what is counted · a reference benchmark can break and be retired · how you write the decision and the failure changes the evidence you get.</t-en></div>
-<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که جدول رأی آدم‌ها بی‌فایده است · کدام مدل امروز بهترین است · یک طبقه‌بندی رسمی (خانواده‌ها نقشهٔ ما هستند) · خط زمانی ثابت برای عمر آزمون · ابزاری که به جای تو تصمیم بگیرد.</t-fa><t-en>That preference leaderboards are useless · which model is best today · a formal taxonomy (the families are our map) · a fixed lifecycle timeline · a tool that decides for you.</t-en></div>
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>رتبه به چیزی که شمرده می‌شود بسته است · یک نمرهٔ یکسان می‌تواند دو کارنامهٔ متفاوت را پنهان کند · یک آزمون مرجع می‌تواند خراب شود و کنار برود · نوشتن تصمیم و خطا، شاهدی را که می‌گیری عوض می‌کند.</t-fa><t-en>A rank depends on what is counted · one equal score can hide two different profiles · a reference benchmark can break and be retired · how you write the decision and the failure changes the evidence you get.</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که جدول رأی آدم‌ها بی‌فایده است · کدام مدل امروز بهترین است (دو مدل قاب ۵ هم نه) · یک طبقه‌بندی رسمی (خانواده‌ها نقشهٔ ما هستند) · خط زمانی ثابت برای عمر آزمون · ابزاری که به جای تو تصمیم بگیرد.</t-fa><t-en>That preference leaderboards are useless · which model is best today (nor which of the two in beat 5) · a formal taxonomy (the families are our map) · a fixed lifecycle timeline · a tool that decides for you.</t-en></div>
 </div>
-<footer>R03 · R04 · R05 · LMSYS 2024</footer>
+<footer>R03 · R04 · R05 · LMSYS 2024 · Meta 2025 · LMArena · Epoch AI</footer>
 <aside class="notes"><t-fa><b>مرز ادعا</b><p>کمتر از ۴۰ ثانیه.</p><p>نقشه برای جهت‌یابی است، نه حکم.</p></t-fa><t-en><b>Claim boundary</b><p>Under 40 seconds.</p><p>The map is for finding your way, not a verdict.</p></t-en></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="694">
+<section class="frame night" id="beat-14" data-start="743">
 <p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
 <h1><t-fa>اول برای تو، فقط اگر خطای پرهزینهٔ <em>تو</em> را بسنجد.</t-fa><t-en>#1 for you only if it measures <em>your</em> costly failure.</t-en></h1>
 <div class="cards">
@@ -173,7 +219,7 @@
 <aside class="notes"><t-fa><b>جواب</b><p>«جواب کوتاه: …» آرام.</p><p>از خطای پرهزینه به شاهد برس، و از شاهد به آزمون.</p></t-fa><t-en><b>The answer</b><p>"The short answer: …" slowly.</p><p>Go from the costly failure to the evidence, and from the evidence to the test.</p></t-en></aside>
 </section>
 
-<section class="frame paper" id="beat-14" data-start="738">
+<section class="frame paper" id="beat-15" data-start="788">
 <p class="kicker"><t-fa>قسمت بعد · HMD-005</t-fa><t-en>Next · HMD-005</t-en></p>
 <h1><t-fa>یک جمله، انگلیسی و فارسی: <em>تکه‌ها را بشمار.</em></t-fa><t-en>Same sentence, English and Persian: <em>count the pieces.</em></t-en></h1>
 <div class="tokens" dir="ltr"><i>The</i><i>model</i><i>reads</i><i>this</i></div>

@@ -1,0 +1,21 @@
+{
+  "dataset": "AA-Omniscience (Jackson, Keating, Cameron, Hill-Smith; Artificial Analysis), arXiv 2511.13029v1, 17 Nov 2025",
+  "status": "REAL published numbers, transcribed by hand; every value is rounded as printed",
+  "licence": "CC BY 4.0 (arXiv licence of the paper)",
+  "unit": "percent of all questions",
+  "kind": "accuracy+hallucination_rate",
+  "definitions": "accuracy = c/(c+p+i+a); hallucination_rate = i/(p+i+a); Omniscience Index = 100*(c-i)/(c+p+i+a), i.e. right +1, wrong -1, abstain 0 (paper sec. 2.4)",
+  "native_k": 1,
+  "native_metric": "Omniscience Index",
+  "prompt_note": "Every model got the same system prompt (Appendix A.1): '... it is better that you say this than get the wrong answer.' No numeric penalty was stated and no no-instruction baseline is reported.",
+  "rows": [
+    {"model": "GPT-5 (high)", "accuracy": 39, "hallucination_rate": 81, "published_index": -11,
+     "where": "accuracy and hallucination rate: sec. 3.1 text; index: Figure 1 bar label (integer)"},
+    {"model": "Grok 4", "accuracy": 39, "hallucination_rate": 64, "published_index": 1,
+     "where": "accuracy and hallucination rate: sec. 3.1 text; index: Figure 1 bar label (integer)"},
+    {"model": "Claude 4.1 Opus", "accuracy": 36, "hallucination_rate": 48, "published_index": 4.8,
+     "where": "accuracy and index: abstract and sec. 3.1 text; hallucination rate: Figure 7 bar label"},
+    {"model": "Claude 4.5 Haiku", "accuracy": 16, "hallucination_rate": 26, "published_index": -6,
+     "where": "accuracy and hallucination rate: sec. 3.1 text; index: Figure 1 bar label (integer)"}
+  ]
+}

@@ -176,6 +176,16 @@ nav .keys{color:#8F8C84}
 .progress{position:fixed;bottom:40px;left:0;height:3px;background:var(--amber);z-index:10}
 html[dir="rtl"] .progress{left:auto;right:0}
 .hide-chrome nav,.hide-chrome .progress{display:none}
+/* episode */
+.hook{display:grid;grid-template-columns:580px 1fr;gap:64px;align-items:center;max-width:1664px}
+.hook .photo{margin:0}
+.hook .photo img{display:block;width:580px;height:auto;border-radius:4px}
+.hook .photo figcaption{margin-top:10px;font-size:20px;line-height:1.35;color:var(--muted-night)}
+.hook .tokens{flex-wrap:wrap}
+table.t td.w{color:var(--amber-ink);font-weight:700}
+table.t td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+table.t.flip th,table.t.flip td{padding:12px 26px}
+.cols .real{border-top-color:var(--amber)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hmd-mark" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#111214"/><path d="M159.00,267.14 L159.35,263.38 L159.71,259.60 L160.06,255.83 L160.42,252.05 L160.77,248.27 L161.12,244.49 L161.48,240.71 L161.83,241.09 L162.18,241.73 L162.54,242.36 L162.89,243.00 L163.25,243.63 L163.60,244.27 L163.95,244.90 L164.31,245.85 L164.66,246.84 L165.02,247.83 L165.37,248.82 L165.72,249.81 L166.08,250.80 L166.43,251.79 L166.78,249.11 L167.14,245.64 L167.49,242.17 L167.85,238.71 L168.20,235.24 L168.55,231.78 L168.91,228.32 L169.26,229.48 L169.62,232.07 L169.97,234.66 L170.32,237.25 L170.68,239.85 L171.03,242.44 L171.38,245.05 L171.74,245.22 L172.09,244.38 L172.45,243.55 L172.80,242.72 L173.15,241.89 L173.51,241.07 L173.86,240.25 L174.21,239.95 L174.57,239.92 L174.92,239.89 L175.28,239.88 L175.63,239.86 L175.98,239.86 L176.34,239.86 L176.69,238.20 L177.05,235.38 L177.40,232.57 L177.75,229.76 L178.11,226.96 L178.46,224.16 L178.81,221.38 L179.17,221.01 L179.52,222.79 L179.88,224.58 L180.23,226.38 L180.58,228.18 L180.94,229.99 L181.29,231.81 L181.65,231.97 L182.00,230.27 L182.35,228.57 L182.71,226.88 L183.06,225.19 L183.41,223.52 L183.77,221.85 L184.12,220.99 L184.48,221.31 L184.83,221.64 L185.18,221.97 L185.54,222.31 L185.89,222.65 L186.25,223.00 L186.60,223.06 L186.95,222.60 L187.31,222.14 L187.66,221.68 L188.01,221.23 L188.37,220.79 L188.72,220.35 L189.08,220.05 L189.43,220.11 L189.78,220.16 L190.14,220.23 L190.49,220.29 L190.84,220.36 L191.20,220.44 L191.55,220.97 L191.91,222.95 L192.26,224.93 L192.61,226.92 L192.97,228.91 L193.32,230.91 L193.68,232.90 L194.03,234.47 L194.38,234.03 L194.74,233.61 L195.09,233.19 L195.44,232.77 L195.80,232.37 L196.15,231.98 L196.51,231.54 L196.86,230.68 L197.21,229.83 L197.57,228.99 L197.92,228.16 L198.28,227.35 L198.63,226.55 L198.98,225.80 L199.34,225.62 L199.69,225.45 L200.04,225.29 L200.40,225.13 L200.75,224.99 L201.11,224.85 L201.46,224.73 L201.81,228.84 L202.17,232.90 L202.52,236.92 L202.88,240.89 L203.23,244.81 L203.58,248.67 L203.94,252.47 L204.29,252.10 L204.64,251.47 L205.00,250.85 L205.35,250.25 L205.71,249.65 L206.06,249.06 L206.41,248.47 L206.77,247.61 L207.12,246.72 L207.48,245.84 L207.83,244.99 L208.18,244.15 L208.54,243.33 L208.89,242.53 L209.24,240.71 L209.60,238.72 L209.95,236.78 L210.31,234.89 L210.66,233.06 L211.01,231.27 L211.37,229.54 L211.72,230.54 L212.07,232.32 L212.43,234.06 L212.78,235.76 L213.14,237.42 L213.49,239.04 L213.84,240.61 L214.20,241.05 L214.55,241.03 L214.91,241.02 L215.26,241.02 L215.61,241.02 L215.97,241.03 L216.32,241.04 L216.67,241.81 L217.03,242.97 L217.38,244.09 L217.74,245.17 L218.09,246.22 L218.44,247.22 L218.80,248.20 L219.15,248.40 L219.51,248.10 L219.86,247.82 L220.21,247.55 L220.57,247.30 L220.92,247.07 L221.27,246.86 L221.63,247.37 L221.98,248.47 L222.34,249.51 L222.69,250.51 L223.04,251.47 L223.40,252.38 L223.75,253.24 L224.11,253.85 L224.46,254.20 L224.81,254.54 L225.17,254.86 L225.52,255.16 L225.87,255.44 L226.23,255.70 L226.58,255.66 L226.94,255.24 L227.29,254.84 L227.64,254.47 L228.00,254.14 L228.35,253.83 L228.71,253.55 L229.06,253.45 L229.41,253.63 L229.77,253.80 L230.12,253.96 L230.47,254.12 L230.83,254.27 L231.18,254.41 L231.54,254.36 L231.89,253.91 L232.24,253.52 L232.60,253.18 L232.95,252.89 L233.31,252.64 L233.66,252.45 L234.01,252.44 L234.37,252.85 L234.72,253.24 L235.07,253.60 L235.43,253.93 L235.78,254.22 L236.14,254.49 L236.49,254.73 L236.84,254.92 L237.20,255.09 L237.55,255.24 L237.90,255.37 L238.26,255.49 L238.61,255.59 L238.97,255.68 L239.32,255.76 L239.67,255.83 L240.03,255.88 L240.38,255.92 L240.74,255.96 L241.09,255.98 L241.44,255.99 L241.80,255.97 L242.15,255.96 L242.50,255.97 L242.86,255.98 L243.21,255.99 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M159.00,282.42 L159.35,278.63 L159.71,274.84 L160.06,271.05 L160.42,267.25 L160.77,263.46 L161.12,259.66 L161.48,255.85 L161.83,259.86 L162.18,264.34 L162.54,268.83 L162.89,273.30 L163.25,277.76 L163.60,282.22 L163.95,286.66 L164.31,285.59 L164.66,283.76 L165.02,281.92 L165.37,280.07 L165.72,278.21 L166.08,276.33 L166.43,274.44 L166.78,275.67 L167.14,277.55 L167.49,279.41 L167.85,281.26 L168.20,283.10 L168.55,284.91 L168.91,286.72 L169.26,287.27 L169.62,287.44 L169.97,287.58 L170.32,287.71 L170.68,287.83 L171.03,287.92 L171.38,288.00 L171.74,286.83 L172.09,285.11 L172.45,283.39 L172.80,281.64 L173.15,279.89 L173.51,278.12 L173.86,276.33 L174.21,277.06 L174.57,279.15 L174.92,281.22 L175.28,283.29 L175.63,285.35 L175.98,287.39 L176.34,289.43 L176.69,291.51 L177.05,293.64 L177.40,295.75 L177.75,297.86 L178.11,299.96 L178.46,302.06 L178.81,304.15 L179.17,304.34 L179.52,302.84 L179.88,301.34 L180.23,299.84 L180.58,298.34 L180.94,296.84 L181.29,295.35 L181.65,293.12 L182.00,290.07 L182.35,287.02 L182.71,283.98 L183.06,280.94 L183.41,277.92 L183.77,274.90 L184.12,273.64 L184.48,274.89 L184.83,276.16 L185.18,277.43 L185.54,278.72 L185.89,280.02 L186.25,281.33 L186.60,281.08 L186.95,277.95 L187.31,274.83 L187.66,271.73 L188.01,268.65 L188.37,265.58 L188.72,262.52 L189.08,260.67 L189.43,261.69 L189.78,262.73 L190.14,263.79 L190.49,264.86 L190.84,265.94 L191.20,267.05 L191.55,267.51 L191.91,265.84 L192.26,264.20 L192.61,262.56 L192.97,260.95 L193.32,259.35 L193.68,257.76 L194.03,257.04 L194.38,260.31 L194.74,263.58 L195.09,266.86 L195.44,270.15 L195.80,273.43 L196.15,276.70 L196.51,279.45 L196.86,278.30 L197.21,277.16 L197.57,276.03 L197.92,274.90 L198.28,273.79 L198.63,272.68 L198.98,271.66 L199.34,271.73 L199.69,271.80 L200.04,271.87 L200.40,271.94 L200.75,272.01 L201.11,272.07 L201.46,272.12 L201.81,269.02 L202.17,265.94 L202.52,262.90 L202.88,259.90 L203.23,256.93 L203.58,254.00 L203.94,251.10 L204.29,252.62 L204.64,254.37 L205.00,256.08 L205.35,257.76 L205.71,259.41 L206.06,261.01 L206.41,262.57 L206.77,264.37 L207.12,266.17 L207.48,267.91 L207.83,269.60 L208.18,271.24 L208.54,272.83 L208.89,274.37 L209.24,273.09 L209.60,271.23 L209.95,269.40 L210.31,267.60 L210.66,265.83 L211.01,264.08 L211.37,262.37 L211.72,262.10 L212.07,262.26 L212.43,262.40 L212.78,262.52 L213.14,262.62 L213.49,262.71 L213.84,262.78 L214.20,263.24 L214.55,263.85 L214.91,264.42 L215.26,264.96 L215.61,265.46 L215.97,265.94 L216.32,266.38 L216.67,267.82 L217.03,269.75 L217.38,271.58 L217.74,273.33 L218.09,274.99 L218.44,276.57 L218.80,278.06 L219.15,277.84 L219.51,276.49 L219.86,275.18 L220.21,273.91 L220.57,272.67 L220.92,271.47 L221.27,270.31 L221.63,268.49 L221.98,266.12 L222.34,263.86 L222.69,261.71 L223.04,259.67 L223.40,257.73 L223.75,255.89 L224.11,255.37 L224.46,256.21 L224.81,257.00 L225.17,257.74 L225.52,258.44 L225.87,259.09 L226.23,259.70 L226.58,259.86 L226.94,259.46 L227.29,259.09 L227.64,258.73 L228.00,258.40 L228.35,258.09 L228.71,257.80 L229.06,257.67 L229.41,257.77 L229.77,257.86 L230.12,257.94 L230.47,258.02 L230.83,258.08 L231.18,258.13 L231.54,258.07 L231.89,257.80 L232.24,257.55 L232.60,257.32 L232.95,257.11 L233.31,256.92 L233.66,256.75 L234.01,256.69 L234.37,256.93 L234.72,257.14 L235.07,257.31 L235.43,257.45 L235.78,257.56 L236.14,257.63 L236.49,257.61 L236.84,257.27 L237.20,256.97 L237.55,256.71 L237.90,256.50 L238.26,256.31 L238.61,256.16 L238.97,256.07 L239.32,256.16 L239.67,256.22 L240.03,256.25 L240.38,256.27 L240.74,256.27 L241.09,256.25 L241.44,256.22 L241.80,256.14 L242.15,256.09 L242.50,256.05 L242.86,256.02 L243.21,256.01 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -185,7 +195,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="stage">
 <section class="frame night cover" id="cover" aria-label="Cover">
 <div class="top"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="hmd">HMD-010</span></div>
-<main><div class="fit"><p class="series">Benchmark Lab · E05</p><h1>Can negative marking make an AI more <em>careful</em>?</h1><p class="promise">Negative marking draws a "silence line"; but an AI only gets more careful if it hears the rule and its confidence is honest.</p></div></main>
+<main><div class="fit"><p class="series">Benchmark Lab · E05</p><h1>Can negative marking make an AI more <em>careful</em>?</h1><p class="promise">Negative marking sets an "answer threshold"; but an AI only gets more careful if it hears the rule and its confidence is honest.</p></div></main>
 <svg class="wave" aria-hidden="true"></svg>
 <div class="bottom"><span>Script, sources and code for this episode:</span><span class="site">homodyne.m2gh.ir</span></div>
 <aside class="notes"><b>Cover</b><p>Hold for two or three seconds after the hook and the channel intro, then → for beat 1.</p></aside>
@@ -195,14 +205,17 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <h1>Question 137. Two options left. <em>Answer or skip?</em></h1>
+<div class="hook">
+<figure class="photo"><img src="media/beat01_konkur1405_isfahan_pencil_mehr_CC-BY-4.0.jpg" alt=""><figcaption>Konkur 2026 (1405), Isfahan, 20 Aug · Photo: Khadijeh Naderi, Mehr News Agency · CC BY 4.0 · personal details blurred</figcaption></figure>
 <div class="tokens"><i class="off">1</i><i>2</i><i class="off">3</i><i>4</i></div>
-<p class="caption">A Konkur candidate and an AI both choose, every time, between "answer" and "I don't know".</p>
+</div>
+<p class="caption">Konkur 1405: <em>1,070,241</em> applicants. Each one, on every question, between "answer" and "I don't know".</p>
 </div></main>
-<footer>Reconstructed answer sheet · no official document</footer>
-<aside class="notes"><b>Question 137</b><p>[B-ROLL CUE] Extreme close-up of a reconstructed four-choice answer sheet; two options crossed out, the pencil hovering over the other two; a ticking clock. No logo or real document. Cut on "I'm Mohammad…".</p><p>Both a Konkur candidate and an AI choose, every time, between "answer" and "I don't know".</p></aside>
+<footer>Applicant count: Sanjesh deputy for examinations, Hamshahri Online, 17 Aug 2026</footer>
+<aside class="notes"><b>Question 137</b><p>[B-ROLL CUE] Real Konkur 1405 photo (pencil over the answer sheet; then a hesitating face, media/beat01_…hesitation). Film the "two options crossed out" close-up yourself on a reconstructed sheet, with no logo or official document; a ticking clock. Cut on "I'm Mohammad…".</p><p>Both a Konkur candidate and an AI choose, every time, between "answer" and "I don't know".</p></aside>
 </section>
 
-<section class="frame paper" id="beat-2" data-start="47" aria-label="Beat 2">
+<section class="frame paper" id="beat-2" data-start="54" aria-label="Beat 2">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The Konkur rule · guess first</p>
@@ -212,12 +225,13 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div><span>Blank</span><b class="word">0</b></div>
 </div>
 <p class="sub">A blind guess among four options: <bdi dir="ltr">¼ × 3 − ¾ × 1 = <em>0</em></bdi></p>
+<p class="caption">You ruled out one option and pick among three: gain or loss?</p>
 </div></main>
-<footer>Common Konkur rule · 1405 result-sheet guides and Zoomit (secondary source)</footer>
-<aside class="notes"><b>The Konkur rule</b><p>[GRAPHIC] Three score cards; below them a big guess question with a 3-second countdown. Small label: Konkur · +3 / −1 (common rule).</p><p>Under the three-to-one rule, a completely blind guess neither gains nor loses on average.</p></aside>
+<footer>Common Konkur rule · Zoomit (secondary source) · blind guess = 0: episode "How do the same answers change the AI winner?"</footer>
+<aside class="notes"><b>The Konkur rule</b><p>[GRAPHIC] Three score cards; below them the "blind guess = 0" reminder from "How do the same answers change the AI winner?", then the guess question "one option ruled out: gain or loss?" with a 3-second countdown. Small label: Konkur · +3 / −1 (common rule).</p><p>Under the three-to-one rule, a completely blind guess is worth zero; today's question is the half-informed guess.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-3" data-start="96" aria-label="Beat 3">
+<section class="frame paper" id="beat-3" data-start="94" aria-label="Beat 3">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Zero, one-ninth, one-third</p>
@@ -228,15 +242,16 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <span class="o">   two options eliminated, 2 left   P= 1/2  expected value =   1/3 of a right answer (+0.333)</span>
    -> this penalty makes BLIND guessing worth zero on average; it does not forbid informed guessing</div>
 <p class="tag">In units of one right answer · an average, not a guarantee · only if your 50–50 really is 50–50</p>
+<p class="caption"><i>Nameh-ye Amoozesh-e Aali</i> (Higher Education Letter), winter 2009: fear of negative marking may stop a candidate from showing their real ability.</p>
 </div></main>
-<footer>artifact/penalty_threshold.py · seed 5 · ILLUSTRATIVE</footer>
+<footer>artifact/penalty_threshold.py · section 2 · exact arithmetic</footer>
 <aside class="notes"><b>Zero, one-ninth, one-third</b><p>[UNEXPECTED STAT] Section 2 of penalty_threshold.py's output; three rows with exact fractions; the "two options" row in amber. A short return to the pencil shot from beat 1.</p><p>Konkur negative marking makes a blind guess worth zero, but still keeps an informed guess worthwhile.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="159" aria-label="Beat 4">
+<section class="frame paper" id="beat-4" data-start="162" aria-label="Beat 4">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">The silence line</p>
+<p class="kicker">The answer threshold</p>
 <h1>Answer only if the chance of being right is above <em>k/(k+1)</em></h1>
 <div class="bars">
 <div><span>k = 0</span><i style="--v:0"></i><span>0%</span></div>
@@ -247,14 +262,14 @@ html[dir="rtl"] .progress{left:auto;right:0}
 </div>
 </div></main>
 <footer>Scoring rule: right +1 · "I don't know" 0 · wrong −k</footer>
-<aside class="notes"><b>The silence line</b><p>[GRAPHIC] The table from section 1 of the script, five rows from k = 0 → 0% to k = 9 → 90%; the k = 3 row in amber. A horizontal "silence line" on the probability axis that rises with k.</p><p>With a penalty of k, answer only if your chance of being right is above k divided by k+1.</p></aside>
+<aside class="notes"><b>The answer threshold</b><p>[GRAPHIC] The table from section 1 of the script, five rows from k = 0 → 0% to k = 9 → 90%; the k = 3 row in amber. A horizontal "answer threshold" line on the probability axis that rises with k.</p><p>With a penalty of k, answer only if your chance of being right is above k divided by k+1.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="218" aria-label="Beat 5">
+<section class="frame paper" id="beat-5" data-start="224" aria-label="Beat 5">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Why AI guesses</p>
-<h1>Most AI tests: right 1 · wrong 0 · "I don't know" 0 → silence line <em>zero</em></h1>
+<h1>Most AI tests: right 1 · wrong 0 · "I don't know" 0 → answer threshold <em>zero</em></h1>
 <div class="cards">
 <div><b>The paper's analogy</b>Like students on hard exam questions, models guess when uncertain.</div>
 <div><b>Exams with penalties, as the paper lists</b>JEE · NEET · GATE · AMC · SAT / AP / GRE (earlier years)</div>
@@ -263,36 +278,39 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">If unpacking the rules behind AI tests is useful to you, Homodyne unpacks one every week.</p>
 </div></main>
 <footer>R01 · Kalai, Nachum, Vempala, Zhang · Why Language Models Hallucinate · 2025</footer>
-<aside class="notes"><b>Why AI guesses</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [GRAPHIC] the R01 source card (Kalai et al., Sep 2025) with a short quote about the student and guessing, and the list of penalised exams the paper itself names: JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years).</p><p>When an AI test has no negative marking, the silence line is zero and guessing always pays.</p></aside>
+<aside class="notes"><b>Why AI guesses</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [GRAPHIC] the R01 source card (Kalai et al., Sep 2025) with a short quote about the student and guessing, and the list of penalised exams the paper itself names: JEE · NEET · GATE · AMC · SAT/AP/GRE (earlier years).</p><p>When an AI test has no negative marking, the answer threshold is zero and guessing always pays.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="292" aria-label="Beat 6">
+<section class="frame paper" id="beat-6" data-start="274" aria-label="Beat 6">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">A mistake in the paper itself</p>
 <div class="source"><q><bdi dir="ltr">“t = 0.75 (penalty <em>2</em>)”</bdi></q><cite>Kalai et al. · arXiv 2509.04664v1, 4 Sep 2025 · section 4.2 · but their own formula t/(1−t) gives 0.75 / 0.25 = 3</cite></div>
-<p class="caption">Answer keys have mistakes too; remember the last session (HMD-008)?</p>
+<p class="caption">"How do the same answers change the AI winner?": for 75%, the penalty is 3 · Answer keys have mistakes too; remember "If the answer key is wrong, which AI loses?"</p>
 </div></main>
 <footer>arXiv 2509.04664v1 · section 4.2</footer>
-<aside class="notes"><b>A mistake in the paper itself</b><p>[UNEXPECTED STAT] A short screenshot of section 4.2 of the paper's v1 (arXiv 2509.04664v1); the number 2 in amber; next to it the calculation 0.75 / 0.25 = 3. [SOUND EFFECT] A correction "tick".</p><p>The paper's worked example does not match its own formula; the idea is right, but do the arithmetic yourself.</p></aside>
+<aside class="notes"><b>A mistake in the paper itself</b><p>[UNEXPECTED STAT] The real paragraph: media/beat06_kalai2025_sec4-2_penalty2_CC-BY-4.0.jpg (section 4.2, arXiv 2509.04664v1, CC BY 4.0); the number 2 in amber; next to it the calculation 0.75 / 0.25 = 3. [SOUND EFFECT] A correction "tick".</p><p>The paper's worked example does not match its own formula; the idea is right, but do the arithmetic yourself.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="356" aria-label="Beat 7">
+<section class="frame paper" id="beat-7" data-start="331" aria-label="Beat 7">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Rescoring ≠ new behaviour</p>
-<div class="cols">
-<div><span>Rescore</span><b class="word">Same answers</b><p>New rule → new number. The model did nothing.</p></div>
-<div class="hi"><span>Instruct · not run yet</span><b class="word">New prompt</b><p>Fresh answers → maybe new behaviour</p></div>
-</div>
-<div class="code sm"><span class="c">$ python3 tools/bluff_lab.py score tools/bluff-demo.csv --condition t75        # excerpt</span>
-  "plain_note": "plain is RESCORED at k=3 for comparison; its prompt did not state the penalty.",</div>
+<p class="kicker">Rescoring · real data</p>
+<h1>Same answers, four rules: <em>the top keeps changing</em></h1>
+<table class="t flip">
+<tr><th>Model</th><th>Right</th><th>No penalty, k = 0</th><th>Konkur, k = 1/3</th><th>The test's own rule, k = 1</th><th><bdi dir="ltr">k = 3</bdi></th></tr>
+<tr><td>GPT-5 (high)</td><td class="num">39%</td><td class="num w">39</td><td class="num">22.5</td><td class="num">−11</td><td class="num">−109</td></tr>
+<tr><td>Grok 4</td><td class="num">39%</td><td class="num w">39</td><td class="num w">26.0</td><td class="num">1</td><td class="num">−78</td></tr>
+<tr><td>Claude 4.1 Opus</td><td class="num">36%</td><td class="num">36</td><td class="num w">25.8</td><td class="num w">4.8</td><td class="num">−56</td></tr>
+<tr><td>Claude 4.5 Haiku</td><td class="num">16%</td><td class="num">16</td><td class="num">8.7</td><td class="num">−6</td><td class="num w">−49.5</td></tr>
+</table>
+<p class="tag"><b>REAL · our arithmetic</b>Points per 100 questions; silence on everything = 0 · the k = 1 column is the paper's printed index; the rest is our arithmetic on rounded numbers · amber = top of the column; two ambers = tied within rounding · at k = 3 all four are below zero · no model was re-run</p>
 </div></main>
-<footer>tools/bluff_lab.py · tools/bluff-demo.csv (ILLUSTRATIVE)</footer>
-<aside class="notes"><b>Rescoring ≠ new behaviour</b><p>[GRAPHIC] Two columns: "Rescore: same answers, new rule" and "Instruct: new prompt, new answers"; the second column in amber with the NOT RUN YET label. Below, the real output of bluff_lab.py score tools/bluff-demo.csv --condition t75 and the plain_note line.</p><p>Rescoring changes the ruler; only a fresh run shows whether the behaviour changed.</p></aside>
+<footer>R08 · AA-Omniscience, arXiv 2511.13029, Nov 2025, CC BY 4.0 · artifact/penalty_threshold.py section 5</footer>
+<aside class="notes"><b>Same answers, four rules</b><p>[GRAPHIC] Light the table column by column with each sentence; [SOUND EFFECT] a "tick" each time the winner changes. Read the model names in Persian: GPT-5, Grok 4, Claude Opus, Claude Haiku. Say the arithmetic is yours and the numbers are rounded. Live run: python3 artifact/penalty_threshold.py (section 5).</p><p>With the same answers, only changing the penalty changes the table's winner; only a fresh run shows behaviour.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="424" aria-label="Beat 8">
+<section class="frame paper" id="beat-8" data-start="431" aria-label="Beat 8">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Calibrated answerer · k = 3 · guess first</p>
@@ -303,31 +321,31 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="tag"><b>ILLUSTRATIVE</b>1,000 made-up questions · simulated answerers, not language models</p>
 </div></main>
 <footer>artifact/penalty_threshold.py · section 4 · seed 5</footer>
-<aside class="notes"><b>The honest answerer</b><p>[B-ROLL CUE] Screen recording of python3 artifact/penalty_threshold.py; section 4. Fixed label ILLUSTRATIVE · simulated answerers, not language models.</p><p>If the confidence is honest, respecting the silence line under a high penalty takes the score from negative to positive.</p></aside>
+<aside class="notes"><b>The honest answerer</b><p>[B-ROLL CUE] Screen recording of python3 artifact/penalty_threshold.py; section 4. Fixed label ILLUSTRATIVE · simulated answerers, not language models.</p><p>If the confidence is honest, respecting the answer threshold under a high penalty takes the score from negative to positive.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="504" aria-label="Beat 9">
+<section class="frame paper" id="beat-9" data-start="497" aria-label="Beat 9">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Same rule, k = 3</p>
+<p class="kicker">Overconfident</p>
 <div class="cols">
-<div><span>Calibrated</span><b>+0.13</b><p>Answers 29% · 14% of answers wrong</p></div>
-<div class="hi"><span>Overconfident (+25 percentage points)</span><b>−0.05</b><p>Answers 59% · 27% of answers wrong</p></div>
+<div><span>Simulation · overconfident · k = 3</span><b>−0.05</b><p>Honest: +0.13 · same rule, inflated confidence</p></div>
+<div class="hi"><span>Real · one identical instruction for all</span><b>81% vs 26%</b><p>Of the questions it did not answer correctly, the share it answered wrongly: GPT-5 (high) vs Claude 4.5 Haiku</p></div>
 </div>
-<p class="sub">The rule is fine; the <em>compass</em> is broken.</p>
-<p class="tag"><b>ILLUSTRATIVE</b>Simulated answerers, not language models</p>
+<p class="tag"><b>ILLUSTRATIVE</b>simulation, not language models <b>REAL</b>AA-Omniscience; no no-instruction condition reported</p>
+<p class="sub">The test's instruction: “it is better that you say this than get the wrong answer.” The rule is fine; we cannot see the <em>compass</em> from outside.</p>
 </div></main>
-<footer>artifact/penalty_threshold.py · section 3 · seed 5</footer>
-<aside class="notes"><b>Overconfident</b><p>[CAMERA CHANGE] Close-up to camera for the re-hook line; then [GRAPHIC] two columns from section 3 of the script at k = 3: calibrated 0.130 · cover 29% · risk 14% and overconfident −0.054 · cover 59% · risk 27%; the second column in amber. ILLUSTRATIVE.</p><p>The silence line only works for someone whose confidence matches reality.</p></aside>
+<footer>penalty_threshold.py section 3 · seed 5 (ILLUSTRATIVE) · R08 AA-Omniscience, section 3.1 and appendix A.1, CC BY 4.0</footer>
+<aside class="notes"><b>Overconfident</b><p>[CAMERA CHANGE] Close-up for the re-hook line; then the simulated column. On "and this isn't only in code", the real column and B-roll: only the crop of the real instruction, media/beat09_aa-omniscience_prompt-A1, credited on screen (figure 7 was shown in HMD-006; do not repeat it). Always say the line "we don't know what would happen without that sentence".</p><p>The answer threshold only brings someone to a positive score if their confidence matches reality; real models behave very differently under one identical instruction.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="568" aria-label="Beat 10">
+<section class="frame paper" id="beat-10" data-start="576" aria-label="Beat 10">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The real question</p>
 <h1>Does a real model <em>listen</em> to the rule?</h1>
 <div class="steps">
-<div><b>plain</b>No rule stated</div>
+<div><b>plain</b>No rule stated; the condition AA-Omniscience did not report</div>
 <div><b>t50</b>Wrong = −1</div>
 <div><b>t75</b>Wrong = −3</div>
 <div><b>t90</b>Wrong = −9</div>
@@ -339,7 +357,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>The real question</b><p>[CAMERA CHANGE] Cut to a medium shot. On the deck, four condition cards; below them three measures: coverage · risk · score, and the rule written in advance.</p><p>Only a fresh run with several prompts shows whether the model hears the rule.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="633" aria-label="Beat 11">
+<section class="frame paper" id="beat-11" data-start="630" aria-label="Beat 11">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">An experiment not run yet</p>
@@ -355,7 +373,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>An experiment not run yet</b><p>[GRAPHIC] The NOT RUN YET card and three possible outcomes, all three with equal weight; no numbers on screen. Ask viewers to post their guess in the comments.</p><p>The experiment is designed but not run yet; what each of the three possible outcomes means is clear in advance.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-12" data-start="680" aria-label="Beat 12">
+<section class="frame paper" id="beat-12" data-start="669" aria-label="Beat 12">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Who sets k?</p>
@@ -363,28 +381,28 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="cards">
 <div><b>Guess-the-movie game</b>Wrong = a laugh → small k</div>
 <div class="hi"><b>Store return policy</b>Wrong = a real problem → larger k</div>
-<div><b>AA-Omniscience</b>Index −100 to 100 · 0 = as many right as wrong (in effect k = 1)</div>
+<div><b>AA-Omniscience</b>k = 1 · total silence → 4th of 36 · their own suggestion: maybe −0.5</div>
 <div><b>"I don't know"</b>Is not always free (hand-off to support)</div>
 </div>
 </div></main>
 <footer>R08 · AA-Omniscience · arXiv 2511.13029 · Nov 2025</footer>
-<aside class="notes"><b>Who sets k?</b><p>[B-ROLL CUE] Three short shots: a guess-the-movie game with friends, a shop receipt and its return policy, and (as a symbol only) a generic pharmacy, with no medical advice. Small card: AA-Omniscience (R08): score 0 = as many right as wrong → k = 1.</p><p>k is a product choice, not a universal number.</p></aside>
+<aside class="notes"><b>Who sets k?</b><p>[B-ROLL CUE] Three short shots: a guess-the-movie game with friends, a shop receipt and its return policy, and (as a symbol only) a generic pharmacy, with no medical advice. AA-Omniscience card: k = 1; a model that answers nothing would rank 4th of 36; the authors suggest the next version might use −0.5.</p><p>k is a product choice, not a universal number.</p></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="738" aria-label="Beat 13">
+<section class="frame night" id="beat-13" data-start="725" aria-label="Beat 13">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Claim boundary</p>
 <div class="boundary">
-<div><b>This shows</b>With +1 / 0 / −k, the silence line is k/(k+1). The common Konkur rule makes a blind guess worth zero. In simulation, the rule only helps an honest confidence.</div>
-<div class="no"><b>This does not show</b>Whether today's models are calibrated · our answerers were not language models · rescoring old answers never replaces a fresh run</div>
+<div><b>This shows</b>With +1 / 0 / −k, the answer threshold is k/(k+1). The common Konkur rule makes a blind guess worth zero. With real numbers, only changing the penalty changed the winner. In simulation, the rule only helps an honest confidence.</div>
+<div class="no"><b>This does not show</b>Whether today's models are calibrated · our answerers were not language models · those four models belong to one test at one time, not today's ranking · rescoring old answers never replaces a fresh run</div>
 </div>
 </div></main>
 <footer>HMD-010 claim boundary</footer>
-<aside class="notes"><b>Claim boundary</b><p>[CAMERA CHANGE] A static shot; the claim-boundary card.</p><p>We showed the arithmetic and the simulation; a real model's behaviour only comes from a run.</p></aside>
+<aside class="notes"><b>Claim boundary</b><p>[CAMERA CHANGE] A static shot; the claim-boundary card.</p><p>We showed the arithmetic, the published data and the simulation; a real model's behaviour only comes from a run.</p></aside>
 </section>
 
-<section class="frame night" id="beat-14" data-start="776" aria-label="Beat 14">
+<section class="frame night" id="beat-14" data-start="760" aria-label="Beat 14">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The answer</p>
@@ -392,10 +410,10 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="sub">Try it: "If you are less than 90% sure, say I don't know." Then check one of its answers yourself.</p>
 </div></main>
 <footer>Answer · HMD-010</footer>
-<aside class="notes"><b>The answer</b><p>[GRAPHIC] Back to the answer sheet from beat 1, this time with the horizontal "silence line" across it. The exercise card. Say the real run will be published separately, whatever the result.</p><p>Negative marking makes it more careful, but only if the model listens and its confidence is honest.</p></aside>
+<aside class="notes"><b>The answer</b><p>[GRAPHIC] Back to the answer sheet from beat 1, this time with the horizontal "answer threshold" line across it. The exercise card.</p><p>Negative marking makes it more careful, but only if the model listens and its confidence is honest.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-15" data-start="829" aria-label="Beat 15">
+<section class="frame paper" id="beat-15" data-start="798" aria-label="Beat 15">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E05</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Next · HMD-011</p>

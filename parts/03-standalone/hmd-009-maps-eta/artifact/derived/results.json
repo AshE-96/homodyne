@@ -1,0 +1,97 @@
+{
+  "status": "REAL data: NYC TLC yellow-taxi trips, Mar-Apr 2026, Midtown -> JFK. Predictors and errors are Homodyne's own computation, not Google's.",
+  "split": "train: trips that started 2026-03-01 .. 2026-04-12; test: 2026-04-13 .. 2026-04-30",
+  "train_trips": 8164,
+  "test_trips": 3645,
+  "mean_test_trip_min": 63.1,
+  "constant_min": 54.2,
+  "mae_min": {
+    "const": 16.08,
+    "hist": 9.96,
+    "live": 10.53,
+    "nbr": 8.39
+  },
+  "mae_weekday_13_18_min": {
+    "const": 24.68,
+    "hist": 12.52,
+    "live": 12.12,
+    "nbr": 9.85
+  },
+  "n_weekday_13_18": 1339,
+  "mean_signed_error_min": {
+    "const": -8.9,
+    "hist": -7.1,
+    "live": -3.8,
+    "nbr": -3.1
+  },
+  "share_too_short": {
+    "const": 0.676,
+    "hist": 0.726,
+    "live": 0.627,
+    "nbr": 0.59
+  },
+  "share_off_by_more_than_15min": {
+    "const": 0.46,
+    "hist": 0.223,
+    "live": 0.248,
+    "nbr": 0.154
+  },
+  "neighbour_weights": {
+    "f_live": 0.424,
+    "f_out": 0.147,
+    "f_in": 0.187
+  },
+  "live_now_fallbacks_in_test": 586,
+  "signed_error_by_window_min": {
+    "14:00-15:59": {
+      "trips": 599,
+      "hist": -11.7,
+      "live": -12.0,
+      "nbr": -6.8,
+      "typical_trip": {
+        "depart": "Mon 20 Apr 2026 15:17",
+        "actual": 78.9,
+        "const": 54.2,
+        "hist": 69.4,
+        "live": 67.8,
+        "nbr": 69.8
+      }
+    },
+    "18:00-19:59": {
+      "trips": 168,
+      "hist": -6.6,
+      "live": 20.0,
+      "nbr": -0.9,
+      "typical_trip": {
+        "depart": "Wed 29 Apr 2026 18:11",
+        "actual": 62.5,
+        "const": 54.2,
+        "hist": 58.0,
+        "live": 83.7,
+        "nbr": 62.3
+      }
+    }
+  },
+  "live_now_mean_signed_error_by_weekday_hour": {
+    "3": -1.6,
+    "4": -3.4,
+    "5": -8.8,
+    "6": -7.5,
+    "7": -7.9,
+    "8": -10.1,
+    "9": 1.0,
+    "10": 6.2,
+    "11": -0.4,
+    "12": -5.5,
+    "13": -7.9,
+    "14": -11.4,
+    "15": -12.8,
+    "16": -6.0,
+    "17": 6.3,
+    "18": 20.2,
+    "19": 19.7,
+    "20": 1.7,
+    "21": -8.3,
+    "22": -5.3
+  }
+}

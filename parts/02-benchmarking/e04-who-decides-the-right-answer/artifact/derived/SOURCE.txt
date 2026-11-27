@@ -1,0 +1,25 @@
+mmlu_redux_subject_counts.csv — per subject: how many of the 100 re-checked questions got each MMLU-Redux error_type.
+mmlu_redux_wrong_key_items.json — all 106 questions labelled wrong_groundtruth (official MMLU key is wrong), with the
+  original question, choices, MMLU key, the annotators' suggested answer, source and note, unchanged.
+mmlu_redux_raw_sha256.txt — sha256 of each of the 57 raw files used (sha256 of this manifest:
+  5d2d52b09bb732a2871521a10cf89daa2ed5ddf5efc6a851d266c1cd4a572c5b).
+
+Source: MMLU-Redux 2.0, Hugging Face dataset edinburgh-dawg/mmlu-redux-2.0, revision
+  372ea425445d51e1ba1188c56e5e893f8138621f (last modified 2025-02-25)
+  https://huggingface.co/datasets/edinburgh-dawg/mmlu-redux-2.0
+  files: <subject>/data-00000-of-00001.arrow for all 57 subjects, from
+  https://huggingface.co/datasets/edinburgh-dawg/mmlu-redux-2.0/resolve/372ea425445d51e1ba1188c56e5e893f8138621f/<subject>/data-00000-of-00001.arrow
+  e.g. virology sha256 0582accdff6d056143441c1a1170876f51b09098cbca31cbd0b9ecbca5210c53
+Licence: CC BY 4.0 (dataset card). Questions, choices and keys come from MMLU (cais/mmlu, MIT licence, Hendrycks et al. 2021).
+Credit: Gema et al. 2024, "Are We Done with MMLU?", arXiv 2406.04127 (NAACL 2025).
+Downloaded 26 Nov 2026 without any key or login. Raw files (2.8 MB) live in artifact/data/mmlu-redux-2.0/ (git-ignored).
+
+Processing (pyarrow 19.0.0, Python 3.11, run from a directory outside the episode):
+  python3 -I artifact/mmlu_redux_audit.py --build artifact/data/mmlu-redux-2.0
+Report (stdlib only, offline):
+  python3 artifact/mmlu_redux_audit.py
+Every count, share and interval the report prints is our computation on this data, except block 6,
+which copies numbers from Gema et al. Table 2 and Northcutt et al. Table 1 (transcribed, not recomputed).
+Result sha256 (26 Nov 2026):
+  571acf8bb12743d4d89deddb87fdef747c18ebc3da40895f532d767ecf09ee83  mmlu_redux_subject_counts.csv
+  d59f9265a714436370335ef561d15ee7ecb27a3efab27daad28e7e2ed91de7c3  mmlu_redux_wrong_key_items.json

@@ -1,0 +1,3 @@
+# raw downloads (PDFs, HTML) stay local; only derived/ is committed
+data/
+__pycache__/

@@ -1,0 +1,2 @@
+# raw downloads (large, untrusted) stay local; derived/ holds the small committed results
+data/

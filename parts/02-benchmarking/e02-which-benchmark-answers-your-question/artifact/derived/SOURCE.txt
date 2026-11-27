@@ -1,0 +1,37 @@
+HMD-004 · derived real data. Everything here is produced by artifact/real_data.py (stdlib; pyarrow only
+for the LMArena step). Raw downloads live in artifact/data/ (git-ignored). Fetched 26 Nov 2026.
+
+1) epoch_profile.csv, epoch_summary.json  (beats 5 and 11)
+   Source: Epoch AI, "Capabilities & benchmarking" (Benchmarking Hub), LLM benchmark data ZIP.
+     https://epoch.ai/data/benchmark_data.zip   (linked from https://epoch.ai/benchmarks/use-this-data#downloads,
+     ZIP "updated Nov. 26, 2026")
+     sha256 7e1d9a43048cdf77cb475ab8e3af7bff589d346943d744db94e93a8334fcfb44  (2,330,012 bytes)
+   Licence: CC BY 4.0. "Epoch AI's data is free to use, distribute, and reproduce provided the source and
+     authors are credited." Benchmark questions belong to their creators.
+   Credit: Epoch AI, 'Capabilities & benchmarking'. Published online at epoch.ai. Retrieved from
+     'https://epoch.ai/benchmarks/use-this-data' [online resource]. Accessed 26 Nov 2026.
+   Files read inside the ZIP: gpqa_diamond.csv, simpleqa_verified.csv, frontiermath_tiers_1_3_v2.csv,
+     chess_puzzles.csv, otis_mock_aime_2024_2025.csv (columns: Model version, mean_score, stderr,
+     Release date, Organization). Scores are Epoch's own runs with Epoch's settings.
+   Command (from the episode folder):
+     env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY \
+       python3 -I artifact/real_data.py epoch artifact/data/epoch_2026-11-26/benchmark_data.zip
+   Ours, not Epoch's: the pair-selection rule, the count of 188 passing pairs, the z-scores, and the
+     OTIS Mock AIME saturation count (models with mean_score == 1.0; released on/after 2026-07-01).
+
+2) lmarena_maverick_2025-04.json  (beat 4)
+   Source: LMArena, "Arena Leaderboard Dataset" (historical leaderboard snapshots), subset `text`, split `full`.
+     https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset/resolve/main/text/full-00000-of-00001.parquet
+     dataset commit 4e9c2f140324df03c630a1fe91aaeacfb241f1ca (lastModified 2026-11-26T04:03:02Z)
+     sha256 4d5ca00c891376ad8bd1ee8edbef52cce794c508f53ccefcead5e7aad79d1300  (66,119,360 bytes)
+     (also downloaded for cross-checks, not used on screen: text_style_control/full-00000-of-00001.parquet,
+      sha256 efde8cddb5f5bdbfae3e1a94dbcda43355db5963a0a81fdc938b115a8bd45247)
+   Licence: CC BY 4.0 (dataset card).
+   Credit: LMArena (arena.ai), Arena Leaderboard Dataset, Hugging Face, CC BY 4.0.
+   Command (from the episode folder):
+     env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY \
+       python3 -I artifact/real_data.py lmarena artifact/data/lmarena_2026-11-26/text-full.parquet
+   Caveat: the archive is the leaderboard as LMArena publishes it today. Models removed later (for example
+     the experimental Llama 4 variant: 0 rows in the whole archive) are absent, so archived ranks can differ
+     from the ranks shown on the day. The 1417 score for the experimental version is Meta's own claim
+     (ai.meta.com/blog/llama-4-multimodal-intelligence, 5 Apr 2025), not from this archive.

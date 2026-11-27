@@ -1,0 +1,38 @@
+HMD-006 · derived real data. Every file here is a copy or a plain count of a public source; nothing is modelled.
+Raw downloads live in artifact/data/ (git-ignored). Downloaded 26 Nov 2026 with curl, no key, no login.
+Processing (from the episode folder, standard library only):
+  python3 -I artifact/real_data.py vectara   artifact/data/vectara-2026-11-26/README.md      artifact/derived
+  python3 -I artifact/real_data.py charlotin artifact/data/charlotin-2026-11-26/download.csv artifact/derived
+  python3 -I artifact/real_data.py --selftest
+
+1) vectara_leaderboard_2026-11-24.csv — all 117 rows of the Vectara Hallucination Leaderboard table (HHEM-2.3),
+   "Last updated on November 24, 2026". Columns copied as published (hallucination rate = 100 − factual consistency;
+   answer rate = share of documents the model agreed to summarise). Rank = row order in the README.
+   Source: https://raw.githubusercontent.com/vectara/hallucination-leaderboard/main/README.md
+     (repository https://github.com/vectara/hallucination-leaderboard, last push 2026-11-24T20:57:35Z)
+     sha256 f3c34cb22abea91da3650c49c3b9349a12d0cff416867475817aae62a3576b4d
+   Licence: Apache License 2.0 (LICENSE in the same repository, sha256 c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4).
+   Credit: Vectara Hallucination Leaderboard, https://github.com/vectara/hallucination-leaderboard
+
+2) same_model_two_definitions.csv — two Vectara rows joined with the only per-model AA-Omniscience
+   hallucination rates printed in the TEXT of arXiv 2511.13029 v1 (section 3.1; checked 26 Nov 2026):
+     GPT-5 (high) 81%   ("hallucination rates of 64% and 81%", Grok 4 and GPT-5 (high))
+     Claude 4.5 Haiku 26%  ("16% accuracy but a 26% hallucination rate")
+   Our join, our labelling. Limit: AA does not print the model snapshot; Vectara's row is
+   openai/gpt-5-high-2025-08-07. We say "one model, one name", not "the identical snapshot".
+   Source: https://arxiv.org/abs/2511.13029 (HTML: https://arxiv.org/html/2511.13029). Quoted as facts with citation.
+
+3) charlotin_cases_by_quarter.csv, charlotin_summary.json — counts of the AI Hallucination Cases Database CSV
+   by calendar quarter of the decision date ("Date" column). Our count. The last quarter is partial.
+   The site's own page said "2338 cases identified so far", "Last updated: 25 November 2026"; the CSV has 2338 rows.
+   Source: https://www.damiencharlotin.com/hallucinations/hallucinations/download.csv
+     (linked as "download" on https://www.damiencharlotin.com/hallucinations/)
+     sha256 04555084fd2d5500d7a8fea1875b452762dd77f1a6d692cd292bfd6023fd3abb
+   Licence: CC BY 4.0 (stated on the page). robots.txt allows "/" for general agents (Content-Signal ai-train=no; this
+   use is a one-off count for a chart, not training).
+   Credit: AI Hallucination Cases Database, Damien Charlotin, https://www.damiencharlotin.com/hallucinations/ (CC BY 4.0)
+   Scope (site's own words, paraphrased): legal decisions where a court or tribunal explicitly found or implied that a
+   party relied on hallucinated content; it does not track all fake citations or all AI use in filings; work in progress.
+   So the count is a numerator without a denominator: it is not an error rate.
+
+Not derived here but used on screen: Mata v. Avianca opinion (public domain), see ../../media/CREDITS.md.

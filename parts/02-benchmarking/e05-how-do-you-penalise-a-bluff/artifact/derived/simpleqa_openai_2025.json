@@ -1,0 +1,14 @@
+{
+  "dataset": "SimpleQA table in OpenAI, 'Why language models hallucinate' (blog, 5 Sep 2025), taken from the GPT-5 system card",
+  "status": "REAL published numbers; rounded as printed",
+  "licence": "facts quoted with attribution; the page itself is not redistributed",
+  "unit": "percent of all questions",
+  "kind": "accuracy+error",
+  "native_k": 0,
+  "native_metric": "accuracy",
+  "prompt_note": "Not stated on the page whether the models were told any penalty.",
+  "rows": [
+    {"model": "gpt-5-thinking-mini", "accuracy": 22, "error": 26, "abstain": 52, "where": "blog table"},
+    {"model": "OpenAI o4-mini", "accuracy": 24, "error": 75, "abstain": 1, "where": "blog table"}
+  ]
+}

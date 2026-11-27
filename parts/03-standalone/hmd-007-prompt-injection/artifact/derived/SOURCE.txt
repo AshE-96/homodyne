@@ -1,0 +1,26 @@
+cve-2025-32711.json — the public record of EchoLeak (CVE-2025-32711, Microsoft 365 Copilot), fields copied verbatim
+from three official records. Nothing is computed; cve_record.py only picks fields. Used on the beat 4 card.
+
+Sources (all fetched 26 Nov 2026, no key needed):
+  NVD (NIST) CVE API 2.0
+    https://services.nvd.nist.gov/rest/json/cves/2.0?cveId=CVE-2025-32711
+    sha256 7f9ecba4cfb949c78a8224d84a49e4df3880ec14bd8981593c1601328fe1af10  (the response carries a timestamp, so a re-fetch hashes differently)
+    Human page: https://nvd.nist.gov/vuln/detail/CVE-2025-32711
+  MSRC Security Update Guide API, vulnerability
+    https://api.msrc.microsoft.com/sug/v2.0/en-US/vulnerability?%24filter=cveNumber%20eq%20%27CVE-2025-32711%27
+    sha256 1156d9a9cf55e8e84ba2203b928c02db27ff12ad2f866c80f4b485a05c5a75eb
+  MSRC Security Update Guide API, acknowledgement
+    https://api.msrc.microsoft.com/sug/v2.0/en-US/acknowledgement?%24filter=cveNumber%20eq%20%27CVE-2025-32711%27
+    sha256 8251198a5b446f4b9282d698c8cf50c0145633c210851143797d96670fa15e11
+    Human page: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2025-32711
+
+Licence / terms: NVD data is a US Government work (public domain in the US); the description text is the CNA's
+(Microsoft's) one-line record. The MSRC fields are short factual records, quoted with attribution.
+Credit on screen: "NVD · MSRC, CVE-2025-32711".
+
+Raw files live in artifact/data/cve-2025-32711/ (git-ignored). Exact processing command, from artifact/:
+  python3 -I cve_record.py --nvd data/cve-2025-32711/nvd/nvd.json \
+      --msrc data/cve-2025-32711/msrc-vuln/vulnerability.json \
+      --ack data/cve-2025-32711/msrc-ack/acknowledgement.json --out derived/cve-2025-32711.json
+Re-download, from artifact/:
+  curl -sS -o data/cve-2025-32711/nvd/nvd.json "<NVD URL above>"   (and likewise for the two MSRC URLs)

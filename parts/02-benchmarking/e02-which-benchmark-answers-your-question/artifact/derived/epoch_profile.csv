@@ -1,0 +1,9 @@
+benchmark,model_version,organization,release_date,mean_score_pct,stderr_pct,models_on_benchmark
+gpqa_diamond,deepseek-v4-pro_max,DeepSeek,2026-04-24,89.6,1.7,344
+gpqa_diamond,claude-haiku-5-5_max,Anthropic,2026-10-07,89.6,2.0,344
+simpleqa_verified,deepseek-v4-pro_max,DeepSeek,2026-04-24,47.0,1.6,108
+simpleqa_verified,claude-haiku-5-5_max,Anthropic,2026-10-07,23.8,1.3,108
+frontiermath_tiers_1_3_v2,deepseek-v4-pro_max,DeepSeek,2026-04-24,45.3,3.0,129
+frontiermath_tiers_1_3_v2,claude-haiku-5-5_max,Anthropic,2026-10-07,75.1,2.6,129
+chess_puzzles,deepseek-v4-pro_max,DeepSeek,2026-04-24,19.0,3.9,170
+chess_puzzles,claude-haiku-5-5_max,Anthropic,2026-10-07,55.0,5.0,170

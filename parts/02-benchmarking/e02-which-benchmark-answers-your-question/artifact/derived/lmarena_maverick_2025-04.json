@@ -1,0 +1,156 @@
+{
+  "category": "overall",
+  "experimental_maverick_rows_in_whole_archive": 0,
+  "snapshots": [
+    {
+      "date": "2025-04-05",
+      "models_listed": 181,
+      "top_model": "chatgpt-4o-latest-20250326",
+      "top_rating": 1409.8
+    },
+    {
+      "date": "2025-04-08",
+      "models_listed": 181,
+      "top_model": "chatgpt-4o-latest-20250326",
+      "top_rating": 1409.8
+    },
+    {
+      "date": "2025-04-09",
+      "models_listed": 182,
+      "top_model": "chatgpt-4o-latest-20250326",
+      "top_rating": 1406.0
+    },
+    {
+      "date": "2025-04-16",
+      "models_listed": 183,
+      "top_model": "chatgpt-4o-latest-20250326",
+      "top_rating": 1406.5
+    },
+    {
+      "date": "2025-04-23",
+      "models_listed": 187,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1418.1
+    },
+    {
+      "date": "2025-05-05",
+      "models_listed": 191,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1411.1
+    },
+    {
+      "date": "2025-05-06",
+      "models_listed": 191,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1411.0
+    },
+    {
+      "date": "2025-05-11",
+      "models_listed": 192,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1413.1
+    },
+    {
+      "date": "2025-05-19",
+      "models_listed": 196,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1409.1
+    },
+    {
+      "date": "2025-05-20",
+      "models_listed": 197,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1409.1
+    },
+    {
+      "date": "2025-05-22",
+      "models_listed": 199,
+      "top_model": "o3-2025-04-16",
+      "top_rating": 1409.3
+    }
+  ],
+  "maverick": [
+    {
+      "date": "2025-04-09",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1272.7,
+      "rating_lower": 1261.0,
+      "rating_upper": 1282.5,
+      "rank": 35,
+      "models_listed": 182
+    },
+    {
+      "date": "2025-04-16",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1271.4,
+      "rating_lower": 1263.6,
+      "rating_upper": 1278.7,
+      "rank": 38,
+      "models_listed": 183
+    },
+    {
+      "date": "2025-04-23",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1270.8,
+      "rating_lower": 1263.5,
+      "rating_upper": 1277.2,
+      "rank": 43,
+      "models_listed": 187
+    },
+    {
+      "date": "2025-05-05",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1269.8,
+      "rating_lower": 1264.5,
+      "rating_upper": 1275.7,
+      "rank": 46,
+      "models_listed": 191
+    },
+    {
+      "date": "2025-05-06",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1269.1,
+      "rating_lower": 1262.5,
+      "rating_upper": 1274.3,
+      "rank": 46,
+      "models_listed": 191
+    },
+    {
+      "date": "2025-05-11",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1269.8,
+      "rating_lower": 1264.0,
+      "rating_upper": 1275.5,
+      "rank": 47,
+      "models_listed": 192
+    },
+    {
+      "date": "2025-05-19",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1266.4,
+      "rating_lower": 1258.9,
+      "rating_upper": 1272.2,
+      "rank": 50,
+      "models_listed": 196
+    },
+    {
+      "date": "2025-05-20",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1266.4,
+      "rating_lower": 1258.9,
+      "rating_upper": 1272.2,
+      "rank": 51,
+      "models_listed": 197
+    },
+    {
+      "date": "2025-05-22",
+      "model": "llama-4-maverick-17b-128e-instruct",
+      "rating": 1266.4,
+      "rating_lower": 1260.3,
+      "rating_upper": 1270.7,
+      "rank": 52,
+      "models_listed": 199
+    }
+  ],
+  "note": "The archive is the leaderboard as LMArena publishes it today; models removed later are absent from old snapshots, so archived ranks can differ from ranks shown on the day."
+}

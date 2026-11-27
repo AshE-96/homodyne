@@ -43,3 +43,5 @@ SOFTWARE.
 ## Third-party material
 
 Quoted figures, tables and datasets belong to their owners and are cited in each episode's `sources.md`. Their licences apply, not this one.
+
+The FLORES-200 devtest sentence (line 1, Persian and English; NLLB Team, Meta AI) in `parts/03-standalone/hmd-005-persian-tokens/artifact/token_view.py` and `token-view.html`, and its token split, are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); they are not covered by MIT or CC BY-NC-SA.

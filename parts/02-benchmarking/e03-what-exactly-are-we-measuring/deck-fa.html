@@ -176,6 +176,28 @@ nav .keys{color:#8F8C84}
 .progress{position:fixed;bottom:40px;left:0;height:3px;background:var(--amber);z-index:10}
 html[dir="rtl"] .progress{left:auto;right:0}
 .hide-chrome nav,.hide-chrome .progress{display:none}
+/* episode */
+.evidence{display:grid;grid-template-columns:740px 1fr;gap:56px;align-items:center}
+.evidence figure{margin:0;display:flex;flex-direction:column;gap:14px}
+.evidence img{display:block;width:100%;height:auto;border:2px solid var(--line);border-radius:4px;background:#fff}
+.evidence figcaption{font-size:24px;line-height:1.45;color:var(--muted)}
+.cards.stack{grid-template-columns:1fr;gap:20px}
+.cards.stack>div{padding:22px 28px}
+h1.mid{font-size:60px}
+.cards.compact>div{padding:20px 24px;font-size:28px}
+.cards.compact>div b{font-size:24px;margin-bottom:8px}
+.aafig{margin:0;display:flex;flex-direction:column;gap:10px}
+.aafig img{display:block;width:1180px;max-width:100%;height:auto;border-radius:4px}
+.aafig figcaption{font-size:22px;line-height:1.4;color:var(--muted)}
+.cols.compact{gap:72px}
+.cols.compact>div{padding-top:18px}
+.cols.compact b{font-size:64px;margin:8px 0}
+.cols.compact p{font-size:26px}
+.cols.compact>div>span{font-size:24px}
+.chart.cases{height:250px;width:auto;max-width:100%}
+.chart.cases rect{fill:var(--ink)}
+.chart.cases rect.pk{fill:var(--amber)}
+.chart.cases rect.last{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:8 6}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hmd-mark" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#111214"/><path d="M159.00,267.14 L159.35,263.38 L159.71,259.60 L160.06,255.83 L160.42,252.05 L160.77,248.27 L161.12,244.49 L161.48,240.71 L161.83,241.09 L162.18,241.73 L162.54,242.36 L162.89,243.00 L163.25,243.63 L163.60,244.27 L163.95,244.90 L164.31,245.85 L164.66,246.84 L165.02,247.83 L165.37,248.82 L165.72,249.81 L166.08,250.80 L166.43,251.79 L166.78,249.11 L167.14,245.64 L167.49,242.17 L167.85,238.71 L168.20,235.24 L168.55,231.78 L168.91,228.32 L169.26,229.48 L169.62,232.07 L169.97,234.66 L170.32,237.25 L170.68,239.85 L171.03,242.44 L171.38,245.05 L171.74,245.22 L172.09,244.38 L172.45,243.55 L172.80,242.72 L173.15,241.89 L173.51,241.07 L173.86,240.25 L174.21,239.95 L174.57,239.92 L174.92,239.89 L175.28,239.88 L175.63,239.86 L175.98,239.86 L176.34,239.86 L176.69,238.20 L177.05,235.38 L177.40,232.57 L177.75,229.76 L178.11,226.96 L178.46,224.16 L178.81,221.38 L179.17,221.01 L179.52,222.79 L179.88,224.58 L180.23,226.38 L180.58,228.18 L180.94,229.99 L181.29,231.81 L181.65,231.97 L182.00,230.27 L182.35,228.57 L182.71,226.88 L183.06,225.19 L183.41,223.52 L183.77,221.85 L184.12,220.99 L184.48,221.31 L184.83,221.64 L185.18,221.97 L185.54,222.31 L185.89,222.65 L186.25,223.00 L186.60,223.06 L186.95,222.60 L187.31,222.14 L187.66,221.68 L188.01,221.23 L188.37,220.79 L188.72,220.35 L189.08,220.05 L189.43,220.11 L189.78,220.16 L190.14,220.23 L190.49,220.29 L190.84,220.36 L191.20,220.44 L191.55,220.97 L191.91,222.95 L192.26,224.93 L192.61,226.92 L192.97,228.91 L193.32,230.91 L193.68,232.90 L194.03,234.47 L194.38,234.03 L194.74,233.61 L195.09,233.19 L195.44,232.77 L195.80,232.37 L196.15,231.98 L196.51,231.54 L196.86,230.68 L197.21,229.83 L197.57,228.99 L197.92,228.16 L198.28,227.35 L198.63,226.55 L198.98,225.80 L199.34,225.62 L199.69,225.45 L200.04,225.29 L200.40,225.13 L200.75,224.99 L201.11,224.85 L201.46,224.73 L201.81,228.84 L202.17,232.90 L202.52,236.92 L202.88,240.89 L203.23,244.81 L203.58,248.67 L203.94,252.47 L204.29,252.10 L204.64,251.47 L205.00,250.85 L205.35,250.25 L205.71,249.65 L206.06,249.06 L206.41,248.47 L206.77,247.61 L207.12,246.72 L207.48,245.84 L207.83,244.99 L208.18,244.15 L208.54,243.33 L208.89,242.53 L209.24,240.71 L209.60,238.72 L209.95,236.78 L210.31,234.89 L210.66,233.06 L211.01,231.27 L211.37,229.54 L211.72,230.54 L212.07,232.32 L212.43,234.06 L212.78,235.76 L213.14,237.42 L213.49,239.04 L213.84,240.61 L214.20,241.05 L214.55,241.03 L214.91,241.02 L215.26,241.02 L215.61,241.02 L215.97,241.03 L216.32,241.04 L216.67,241.81 L217.03,242.97 L217.38,244.09 L217.74,245.17 L218.09,246.22 L218.44,247.22 L218.80,248.20 L219.15,248.40 L219.51,248.10 L219.86,247.82 L220.21,247.55 L220.57,247.30 L220.92,247.07 L221.27,246.86 L221.63,247.37 L221.98,248.47 L222.34,249.51 L222.69,250.51 L223.04,251.47 L223.40,252.38 L223.75,253.24 L224.11,253.85 L224.46,254.20 L224.81,254.54 L225.17,254.86 L225.52,255.16 L225.87,255.44 L226.23,255.70 L226.58,255.66 L226.94,255.24 L227.29,254.84 L227.64,254.47 L228.00,254.14 L228.35,253.83 L228.71,253.55 L229.06,253.45 L229.41,253.63 L229.77,253.80 L230.12,253.96 L230.47,254.12 L230.83,254.27 L231.18,254.41 L231.54,254.36 L231.89,253.91 L232.24,253.52 L232.60,253.18 L232.95,252.89 L233.31,252.64 L233.66,252.45 L234.01,252.44 L234.37,252.85 L234.72,253.24 L235.07,253.60 L235.43,253.93 L235.78,254.22 L236.14,254.49 L236.49,254.73 L236.84,254.92 L237.20,255.09 L237.55,255.24 L237.90,255.37 L238.26,255.49 L238.61,255.59 L238.97,255.68 L239.32,255.76 L239.67,255.83 L240.03,255.88 L240.38,255.92 L240.74,255.96 L241.09,255.98 L241.44,255.99 L241.80,255.97 L242.15,255.96 L242.50,255.97 L242.86,255.98 L243.21,255.99 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M159.00,282.42 L159.35,278.63 L159.71,274.84 L160.06,271.05 L160.42,267.25 L160.77,263.46 L161.12,259.66 L161.48,255.85 L161.83,259.86 L162.18,264.34 L162.54,268.83 L162.89,273.30 L163.25,277.76 L163.60,282.22 L163.95,286.66 L164.31,285.59 L164.66,283.76 L165.02,281.92 L165.37,280.07 L165.72,278.21 L166.08,276.33 L166.43,274.44 L166.78,275.67 L167.14,277.55 L167.49,279.41 L167.85,281.26 L168.20,283.10 L168.55,284.91 L168.91,286.72 L169.26,287.27 L169.62,287.44 L169.97,287.58 L170.32,287.71 L170.68,287.83 L171.03,287.92 L171.38,288.00 L171.74,286.83 L172.09,285.11 L172.45,283.39 L172.80,281.64 L173.15,279.89 L173.51,278.12 L173.86,276.33 L174.21,277.06 L174.57,279.15 L174.92,281.22 L175.28,283.29 L175.63,285.35 L175.98,287.39 L176.34,289.43 L176.69,291.51 L177.05,293.64 L177.40,295.75 L177.75,297.86 L178.11,299.96 L178.46,302.06 L178.81,304.15 L179.17,304.34 L179.52,302.84 L179.88,301.34 L180.23,299.84 L180.58,298.34 L180.94,296.84 L181.29,295.35 L181.65,293.12 L182.00,290.07 L182.35,287.02 L182.71,283.98 L183.06,280.94 L183.41,277.92 L183.77,274.90 L184.12,273.64 L184.48,274.89 L184.83,276.16 L185.18,277.43 L185.54,278.72 L185.89,280.02 L186.25,281.33 L186.60,281.08 L186.95,277.95 L187.31,274.83 L187.66,271.73 L188.01,268.65 L188.37,265.58 L188.72,262.52 L189.08,260.67 L189.43,261.69 L189.78,262.73 L190.14,263.79 L190.49,264.86 L190.84,265.94 L191.20,267.05 L191.55,267.51 L191.91,265.84 L192.26,264.20 L192.61,262.56 L192.97,260.95 L193.32,259.35 L193.68,257.76 L194.03,257.04 L194.38,260.31 L194.74,263.58 L195.09,266.86 L195.44,270.15 L195.80,273.43 L196.15,276.70 L196.51,279.45 L196.86,278.30 L197.21,277.16 L197.57,276.03 L197.92,274.90 L198.28,273.79 L198.63,272.68 L198.98,271.66 L199.34,271.73 L199.69,271.80 L200.04,271.87 L200.40,271.94 L200.75,272.01 L201.11,272.07 L201.46,272.12 L201.81,269.02 L202.17,265.94 L202.52,262.90 L202.88,259.90 L203.23,256.93 L203.58,254.00 L203.94,251.10 L204.29,252.62 L204.64,254.37 L205.00,256.08 L205.35,257.76 L205.71,259.41 L206.06,261.01 L206.41,262.57 L206.77,264.37 L207.12,266.17 L207.48,267.91 L207.83,269.60 L208.18,271.24 L208.54,272.83 L208.89,274.37 L209.24,273.09 L209.60,271.23 L209.95,269.40 L210.31,267.60 L210.66,265.83 L211.01,264.08 L211.37,262.37 L211.72,262.10 L212.07,262.26 L212.43,262.40 L212.78,262.52 L213.14,262.62 L213.49,262.71 L213.84,262.78 L214.20,263.24 L214.55,263.85 L214.91,264.42 L215.26,264.96 L215.61,265.46 L215.97,265.94 L216.32,266.38 L216.67,267.82 L217.03,269.75 L217.38,271.58 L217.74,273.33 L218.09,274.99 L218.44,276.57 L218.80,278.06 L219.15,277.84 L219.51,276.49 L219.86,275.18 L220.21,273.91 L220.57,272.67 L220.92,271.47 L221.27,270.31 L221.63,268.49 L221.98,266.12 L222.34,263.86 L222.69,261.71 L223.04,259.67 L223.40,257.73 L223.75,255.89 L224.11,255.37 L224.46,256.21 L224.81,257.00 L225.17,257.74 L225.52,258.44 L225.87,259.09 L226.23,259.70 L226.58,259.86 L226.94,259.46 L227.29,259.09 L227.64,258.73 L228.00,258.40 L228.35,258.09 L228.71,257.80 L229.06,257.67 L229.41,257.77 L229.77,257.86 L230.12,257.94 L230.47,258.02 L230.83,258.08 L231.18,258.13 L231.54,258.07 L231.89,257.80 L232.24,257.55 L232.60,257.32 L232.95,257.11 L233.31,256.92 L233.66,256.75 L234.01,256.69 L234.37,256.93 L234.72,257.14 L235.07,257.31 L235.43,257.45 L235.78,257.56 L236.14,257.63 L236.49,257.61 L236.84,257.27 L237.20,256.97 L237.55,256.71 L237.90,256.50 L238.26,256.31 L238.61,256.16 L238.97,256.07 L239.32,256.16 L239.67,256.22 L240.03,256.25 L240.38,256.27 L240.74,256.27 L241.09,256.25 L241.44,256.22 L241.80,256.14 L242.15,256.09 L242.50,256.05 L242.86,256.02 L243.21,256.01 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -197,27 +219,30 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <h1>کم‌خطاترین دستیار دنیا فقط یک جمله بلد است: <em>«نمی‌دانم.»</em></h1>
 <div class="cols">
 <div><span>خطا</span><b>۰٪</b></div>
-<div class="hi"><span>جواب به‌دردبخور</span><b>۰٪</b></div>
+<div><span>جواب به‌دردبخور</span><b>۰٪</b></div>
+<div class="hi"><span>رتبه در یک آزمون واقعی</span><b>چهارم<small> از ۳۶</small></b></div>
 </div>
 </div></main>
-<footer>هومودین <span class="sep">·</span> آزمایش ذهنی</footer>
-<aside class="notes"><b>کم‌خطاترین دستیار دنیا</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] شروع روی چهره، بدون موسیقی. <bdi dir="ltr">Grab</bdi> ← <bdi dir="ltr">Promise</bdi> ← <bdi dir="ltr">Stakes</bdi> ← <bdi dir="ltr">sting</bdi>.</p><p>در یک جمله: صفر خطا می‌تواند یعنی صفر کمک.</p></aside>
+<footer><span>هومودین <span class="sep">·</span> آزمایش ذهنی <span class="sep">·</span> رتبه: <bdi dir="ltr">R08 AA-Omniscience</bdi>، بخش ۲٫۴٫۱ (نوامبر ۲۰۲۵)</span></footer>
+<aside class="notes"><b>کم‌خطاترین دستیار دنیا</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] شروع روی چهره، بدون موسیقی. <bdi dir="ltr">Grab</bdi> ← <bdi dir="ltr">Promise</bdi> ← <bdi dir="ltr">Stakes</bdi> ← <bdi dir="ltr">sting</bdi>. «چهارم از ۳۶» حلقهٔ باز است؛ در قاب ۸ باز می‌شود.</p><p>در یک جمله: صفر خطا می‌تواند یعنی صفر کمک.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-2" data-start="45" aria-label="قاب ۲">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">تیتر چه چیزی را نمی‌گوید؟</p>
-<h1>هر جواب یکی از این <em>سه</em> است</h1>
-<div class="cards">
+<p class="kicker">توهم یعنی جواب غلطِ <em>مطمئن</em> <span class="sep">·</span> دادگاه نیویورک، ۲۰۲۳</p>
+<div class="evidence">
+<figure><img src="media/beat02_mata_chatgpt_appendixB_court-exhibit.jpg" alt=""><figcaption>پیوست <bdi dir="ltr">B</bdi> رأی دادگاه: «این پرونده واقعی است؟» ← «بله». شش رأیی که وکیل‌ها تحویل دادند وجود نداشت؛ جریمه: روی هم ۵۰۰۰ دلار.</figcaption></figure>
+<div class="cards stack">
 <div><b>درست</b>جواب درست.</div>
 <div class="hi"><b>غلط</b>با اطمینان و نادرست؛ همان «توهم».</div>
 <div><b>«نمی‌دانم»</b>کنار می‌کشد.</div>
 </div>
+</div>
 <p class="caption">هر نرخ خطا این سه را به یک شکل خاص تقسیم کرده.</p>
 </div></main>
-<footer>هومودین</footer>
-<aside class="notes"><b>سه نوع جواب</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] فید تیترهای ساختگی «سه برابر کمتر توهم». تا آخر این ویدیو: صورت/مخرج + «با چه خریده‌اند».</p><p>در یک جمله: هر نرخ خطا سه نوع جواب را به یک شکل خاص تقسیم کرده.</p></aside>
+<footer><span><bdi dir="ltr">Mata v. Avianca</bdi>، پروندهٔ <bdi dir="ltr">22-cv-1461 (PKC)</bdi>، دادگاه فدرال ناحیهٔ جنوبی نیویورک <span class="sep">·</span> رأی تحریم، ۲۲ ژوئن ۲۰۲۳، پیوست <bdi dir="ltr">B</bdi> (ضمیمه در پروندهٔ عمومی دادگاه)</span></footer>
+<aside class="notes"><b>توهم در دادگاه؛ سه نوع جواب</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] تیتر ساختگی چند ثانیه؛ بعد <bdi dir="ltr">media/beat02_mata_order_page1_PD.jpg</bdi> و <bdi dir="ltr">media/beat02_mata_fake_opinion_appendixA_court-exhibit.jpg</bdi>؛ بعد این قاب. پل: «اون تیتر دقیقاً چی رو شمرده؟»</p><p>در یک جمله: توهم یعنی جواب غلطِ مطمئن؛ و هر نرخ خطا سه نوع جواب را به یک شکل خاص تقسیم کرده.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-3" data-start="100" aria-label="قاب ۳">
@@ -228,11 +253,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i class="hi">✗</i><i class="hi">✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div>
 <p class="tag"><b>ساختگی</b>کارت‌های آموزشی خودساخته</p>
 </div></main>
-<footer>دادهٔ آموزشی ساختگی</footer>
+<footer><span>دادهٔ آموزشی ساختگی</span></footer>
 <aside class="notes"><b>ده کارت</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] ده کارت. مکث دوثانیه‌ای برای حدس بیننده.</p><p>در یک جمله: یک دسته جواب، و هنوز معلوم نیست «نرخ خطا» یعنی کدام عدد.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="160" aria-label="قاب ۴">
+<section class="frame paper" id="beat-4" data-start="150" aria-label="قاب ۴">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">یک دسته کارت، سه عدد درست</p>
@@ -244,11 +269,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">چندتا، از چندتا؟</p>
 <p class="tag"><b>ساختگی</b>همان ده کارت</p>
 </div></main>
-<footer>دادهٔ آموزشی ساختگی <span class="sep">·</span> کسر سوم طبق تعریف <bdi dir="ltr">AA-Omniscience (R08)</bdi></footer>
+<footer><span>دادهٔ آموزشی ساختگی <span class="sep">·</span> کسر سوم طبق تعریف <bdi dir="ltr">AA-Omniscience (R08)</bdi></span></footer>
 <aside class="notes"><b>یک دسته کارت، سه عدد درست</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] کسرها یکی‌یکی؛ زیر هر کسر کارت‌های داخل مخرج روشن شوند.</p><p>در یک جمله: نرخ خطا بدون مخرجش فقط یک عدد بی‌صاحب است.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="220" aria-label="قاب ۵">
+<section class="frame paper" id="beat-5" data-start="205" aria-label="قاب ۵">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">جدول واقعی <span class="sep">·</span> اول حدس بزن</p>
@@ -259,11 +284,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="hi"><span>«نمی‌دانم»</span><b>۵۲٪<small> در برابر ۱٪</small></b><p>ستونی که تیترها نمی‌گویند</p></div>
 </div>
 </div></main>
-<footer><bdi dir="ltr">R01</bdi> <span class="sep">·</span> <bdi dir="ltr">OpenAI</bdi>، <bdi dir="ltr">Why Language Models Hallucinate</bdi> <span class="sep">·</span> سپتامبر ۲۰۲۵</footer>
+<footer><span><bdi dir="ltr">R01</bdi> <span class="sep">·</span> <bdi dir="ltr">OpenAI</bdi>، <bdi dir="ltr">Why Language Models Hallucinate</bdi> <span class="sep">·</span> سپتامبر ۲۰۲۵</span></footer>
 <aside class="notes"><b>جدول واقعی و ستونی که دیده نمی‌شود</b><p>[<bdi dir="ltr">MID-CTA</bdi>] اول <bdi dir="ltr">CTA</bdi> نرم. [<bdi dir="ltr">GRAPHIC</bdi>] فقط ستون خطا؛ حدس؛ بعد دقت و <bdi dir="ltr">abstention</bdi>.</p><p>در یک جمله: بخش بزرگی از «خطای کمتر» این جدول، از «نمی‌دانم» بیشتر آمده.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="285" aria-label="قاب ۶">
+<section class="frame paper" id="beat-6" data-start="270" aria-label="قاب ۶">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">همان جدول، با مخرج دیگر</p>
@@ -275,11 +300,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">دوز دارو: «نمی‌دانم» بهتر از جواب غلطِ مطمئن است <span class="sep">·</span> اسم کافه: حدس بد ضرر چندانی ندارد.</p>
 <p class="tag">حساب ما روی عددهای <bdi dir="ltr">R01</bdi>: <bdi dir="ltr">26 ÷ (22 + 26) ≈ 54%</bdi> <span class="sep">·</span> <bdi dir="ltr">75 ÷ (24 + 75) ≈ 76%</bdi></p>
 </div></main>
-<footer>حساب ما روی عددهای <bdi dir="ltr">R01</bdi> <span class="sep">·</span> <bdi dir="ltr">SimpleQA</bdi> عمداً سؤال‌های سخت دارد</footer>
+<footer><span>حساب ما روی عددهای <bdi dir="ltr">R01</bdi> <span class="sep">·</span> <bdi dir="ltr">SimpleQA</bdi> عمداً سؤال‌های سخت دارد</span></footer>
 <aside class="notes"><b>همان جدول، با مخرج دیگر</b><p>[<bdi dir="ltr">UNEXPECTED STAT</bdi>] برچسب «حساب ما روی عددهای <bdi dir="ltr">R01</bdi>». <bdi dir="ltr">SimpleQA</bdi> عمداً سؤال‌های سخت دارد. نکتهٔ <bdi dir="ltr">Kalai</bdi>: نمره‌دهی فقط-درست حدس را تشویق می‌کند؛ کنکور بی‌نمرهٔ منفی.</p><p>در یک جمله: کدام مدل بهتر است، به هزینهٔ یک جواب غلط در کار تو بستگی دارد.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="350" aria-label="قاب ۷">
+<section class="frame paper" id="beat-7" data-start="330" aria-label="قاب ۷">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">چهار عدد کنار هم: دقت <span class="sep">·</span> سهم پاسخ <span class="sep">·</span> خطر <span class="sep">·</span> امتیاز</p>
@@ -301,40 +326,41 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption"><bdi dir="ltr">A</bdi> = همان ده کارت: ۵ درست، ۲ غلط، ۳ «نمی‌دانم» <span class="sep">·</span> <bdi dir="ltr">B</bdi>: ۴ درست، ۱ غلط، ۵ «نمی‌دانم» <span class="sep">·</span> امتیاز: درست ۱، «نمی‌دانم» صفر، غلط منفی ۳</p>
 <p class="tag"><b>ساختگی</b>گزیده‌ای از خروجی واقعی دستور (۲ نوامبر ۲۰۲۶)؛ «...» یعنی سطرهای حذف‌شده</p>
 </div></main>
-<footer><bdi dir="ltr">tools/bluff_lab.py</bdi> <span class="sep">·</span> <bdi dir="ltr">tools/bluff-demo.csv</bdi> <span class="sep">·</span> دادهٔ آموزشی ساختگی</footer>
+<footer><span><bdi dir="ltr">tools/bluff_lab.py</bdi> <span class="sep">·</span> <bdi dir="ltr">tools/bluff-demo.csv</bdi> <span class="sep">·</span> دادهٔ آموزشی ساختگی</span></footer>
 <aside class="notes"><b>چهار عدد کنار هم</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحهٔ اجرای واقعی؛ فقط چهار عدد بزرگ‌نمایی. «برنده عوض شد» با زوم.</p><p>در یک جمله: هر کدام از چهار عدد به یک سؤال متفاوت جواب می‌دهد.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="415" aria-label="قاب ۸">
+<section class="frame paper" id="beat-8" data-start="390" aria-label="قاب ۸">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">دستیار ساکت و خط سکوت</p>
-<div class="cols">
-<div class="hi"><span>خطر «همیشه نمی‌دانم»</span><b>۰ ÷ ۰</b><p>تعریف‌نشده؛ نه ۰٪</p></div>
-<div><span>امتیاز با جریمه</span><b>۰</b><p>خط سکوت</p></div>
+<figure class="aafig"><img src="media/beat08_aa_omniscience_index_fig1_CC-BY-4.0.jpg" alt=""><figcaption>شکل ۱ مقالهٔ <bdi dir="ltr">AA-Omniscience</bdi>: امتیاز با جریمهٔ مدل‌ها؛ خط‌چین = ۰ = دستیار همیشه ساکت (گزیده‌ای از مدل‌ها، همان‌طور که منتشر شده).</figcaption></figure>
+<div class="cols compact">
+<div><span>خطر «همیشه نمی‌دانم»</span><b>۰ ÷ ۰</b><p>تعریف‌نشده؛ نه ۰٪. امتیاز با جریمه: ۰، یعنی خط سکوت.</p></div>
+<div class="hi"><span><bdi dir="ltr">AA-Omniscience</bdi> <span class="sep">·</span> دستیار همیشه ساکت</span><b>چهارم<small> از ۳۶</small></b><p>فقط ۳ مدل بالای خط سکوت بودند.</p></div>
 <div><span><bdi dir="ltr">AbstentionBench</bdi> <span class="sep">·</span> ۲۰ مدل <span class="sep">·</span> ۲۰ مجموعه</span><b>۲۴٪<small> کمتر</small></b><p>گفتن «نمی‌دانم» پس از آموزش استدلالی (میانگین)</p></div>
 </div>
 </div></main>
-<footer><bdi dir="ltr">R09</bdi> <span class="sep">·</span> <bdi dir="ltr">AbstentionBench</bdi> <span class="sep">·</span> <bdi dir="ltr">Kirichenko</bdi> و همکاران ۲۰۲۵</footer>
-<aside class="notes"><b>دستیار ساکت و خط سکوت</b><p>[<bdi dir="ltr">SOUND EFFECT</bdi>] یک ثانیه سکوت کامل.</p><p>در یک جمله: سکوت مرجع است، نه هدف؛ و «صفر خطا» بدون سهم پاسخ گمراه‌کننده است.</p></aside>
+<footer><span><bdi dir="ltr">R08</bdi> <span class="sep">·</span> <bdi dir="ltr">AA-Omniscience</bdi>، <bdi dir="ltr">Artificial Analysis</bdi>، <bdi dir="ltr">arXiv 2511.13029</bdi>، بخش ۲٫۴٫۱ و ۳٫۱ و شکل ۱ (نوامبر ۲۰۲۵؛ <bdi dir="ltr">CC BY 4.0</bdi>؛ جریمهٔ هر غلط = ۱) <span class="sep">·</span> <bdi dir="ltr">R09</bdi> <span class="sep">·</span> <bdi dir="ltr">AbstentionBench</bdi>، <bdi dir="ltr">Kirichenko</bdi> و همکاران ۲۰۲۵</span></footer>
+<aside class="notes"><b>دستیار ساکت و خط سکوت</b><p>[<bdi dir="ltr">SOUND EFFECT</bdi>] یک ثانیه سکوت کامل. بعد «چهارم از ۳۶»: خود سازنده‌های <bdi dir="ltr">AA</bdi> این را نوشته‌اند.</p><p>در یک جمله: سکوت مرجع است، نه هدف؛ و «صفر خطا» بدون سهم پاسخ گمراه‌کننده است.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="470" aria-label="قاب ۹">
+<section class="frame paper" id="beat-9" data-start="445" aria-label="قاب ۹">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">هوک دوم</p>
-<h1>هر دو اسمشان «نرخ <em>توهم</em>» است</h1>
+<p class="kicker">هوک دوم <span class="sep">·</span> یک مدل، دو جدول</p>
+<h1>یک مدل، <bdi dir="ltr">GPT-5 (high)</bdi>؛ هر دو عدد اسمشان «نرخ <em>توهم</em>» است</h1>
 <div class="cols">
-<div><span><bdi dir="ltr">Vectara</bdi> <span class="sep">·</span> کمترین عدد جدول</span><b>۱٫۸٪</b><p>خلاصهٔ یک متن داده‌شده. نرخ = ۱۰۰ منهای درصد سازگاری با متن.</p></div>
-<div class="hi"><span><bdi dir="ltr">AA-Omniscience</bdi> <span class="sep">·</span> <bdi dir="ltr">GPT-5 (high)</bdi></span><b>۸۱٪</b><p>جواب از حافظه، بدون متن. نرخ = غلط ÷ (غلط + ناقص + «نمی‌دانم»).</p></div>
+<div><span><bdi dir="ltr">Vectara</bdi> <span class="sep">·</span> ۲۴ نوامبر ۲۰۲۶</span><b>۱۵٫۱٪</b><p>خلاصهٔ یک متن داده‌شده. نرخ = ۱۰۰ منهای درصد سازگاری با متن.</p></div>
+<div class="hi"><span><bdi dir="ltr">AA-Omniscience</bdi> <span class="sep">·</span> نوامبر ۲۰۲۵</span><b>۸۱٪</b><p>جواب از حافظه، بدون متن. نرخ = غلط ÷ (غلط + ناقص + «نمی‌دانم»).</p></div>
 </div>
-<p class="tag">کار متفاوت <span class="sep">·</span> فرمول متفاوت <span class="sep">·</span> مدل متفاوت ← قابل‌مقایسه نیستند</p>
+<p class="tag">همین الگو برای <bdi dir="ltr">Claude 4.5 Haiku</bdi>: ۹٫۸٪ در <bdi dir="ltr">Vectara</bdi>، ۲۶٪ در <bdi dir="ltr">AA</bdi> <span class="sep">·</span> کار متفاوت، فرمول متفاوت ← دو عدد قابل‌مقایسه نیستند</p>
 </div></main>
-<footer>جدول <bdi dir="ltr">Vectara (HHEM-2.3</bdi>، به‌روز ۲۲ اکتبر ۲۰۲۶) <span class="sep">·</span> <bdi dir="ltr">R08 AA-Omniscience</bdi> (نوامبر ۲۰۲۵)</footer>
-<aside class="notes"><b>هوک دوم: ۱٫۸٪ یا ۸۱٪؟</b><p>[<bdi dir="ltr">RE-HOOK] [CAMERA CHANGE</bdi>] اول دو عدد، مکث، حدس؛ بعد کار و فرمول زیر هر کدام.</p><p>در یک جمله: دو «نرخ توهم» می‌توانند دو کار، دو فرمول و دو مدل متفاوت باشند.</p></aside>
+<footer><span>جدول <bdi dir="ltr">Vectara (HHEM-2.3)</bdi>، ردیف <bdi dir="ltr">gpt-5-high-2025-08-07</bdi>، به‌روز ۲۴ نوامبر ۲۰۲۶ <span class="sep">·</span> <bdi dir="ltr">R08 AA-Omniscience</bdi> بخش ۳٫۱ (تاریخ نسخهٔ مدل را چاپ نکرده) <span class="sep">·</span> <bdi dir="ltr">artifact/derived</bdi></span></footer>
+<aside class="notes"><b>هوک دوم: یک مدل، ۱۵٪ یا ۸۱٪؟</b><p>[<bdi dir="ltr">RE-HOOK] [CAMERA CHANGE</bdi>] اول نام مدل و دو عدد، مکث، «کدومش درسته؟»؛ بعد کار و فرمول زیر هر کدام. <bdi dir="ltr">B-roll: media/beat09_aa_hallucination_rate_fig7_CC-BY-4.0.jpg</bdi> (شکل ۷ <bdi dir="ltr">AA</bdi>، ستون <bdi dir="ltr">GPT-5 (high)</bdi> = ۸۱٪) با اعتبار روی تصویر. نگو «دقیقاً همان نسخه»؛ بگو «یه مدل با یه اسم».</p><p>در یک جمله: یک مدل می‌تواند دو «نرخ توهم» بسیار متفاوت داشته باشد، چون کار و فرمول فرق دارند.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="535" aria-label="قاب ۱۰">
+<section class="frame paper" id="beat-10" data-start="500" aria-label="قاب ۱۰">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">چیزی که می‌خواهیم، چیزی که می‌شماریم</p>
@@ -344,43 +370,45 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div><b>شاخص جانشین</b>چیزی که می‌شماریم: غلط ÷ جواب‌ها، در سؤال‌های کوتاه.</div>
 <div class="hi"><b>چه نمی‌بیند</b>سهم «نمی‌دانم» <span class="sep">·</span> جواب‌های بلند <span class="sep">·</span> فارسی <span class="sep">·</span> تاریخ.</div>
 </div>
+<p class="tag">خود <bdi dir="ltr">Vectara</bdi>: خلاصه‌ای که متن را عیناً کپی کند، صفر توهم می‌گیرد <span class="sep">·</span> «توصیه نمی‌کنیم این را به‌تنهایی معیار بگیرید.»</p>
 <p class="tag">دماسنج ≠ سلامتی <span class="sep">·</span> ۴۴۵ بنچمارک مدل زبانی <span class="sep">·</span> ۲۹ داور متخصص <span class="sep">·</span> ۸ توصیه</p>
 </div></main>
-<footer><bdi dir="ltr">R02</bdi> <span class="sep">·</span> <bdi dir="ltr">Bean</bdi> و همکاران <span class="sep">·</span> <bdi dir="ltr">Measuring what Matters</bdi> <span class="sep">·</span> <bdi dir="ltr">NeurIPS 2025</bdi></footer>
+<footer><span><bdi dir="ltr">R02</bdi> <span class="sep">·</span> <bdi dir="ltr">Bean</bdi> و همکاران <span class="sep">·</span> <bdi dir="ltr">Measuring what Matters</bdi> <span class="sep">·</span> <bdi dir="ltr">NeurIPS 2025</bdi> <span class="sep">·</span> <bdi dir="ltr">FAQ</bdi> در <bdi dir="ltr">README</bdi> گیت‌هاب <bdi dir="ltr">Vectara</bdi> (۲۶ نوامبر ۲۰۲۶)</span></footer>
 <aside class="notes"><b>چیزی که می‌خواهیم، چیزی که می‌شماریم</b><p>[<bdi dir="ltr">GRAPHIC</bdi>] دماسنج و سه ستون. اصطلاح «سازه» فقط بعد از مثال.</p><p>در یک جمله: هر عدد خطا جانشین چیزی است که واقعاً می‌خواهیم؛ باید بدانیم چه چیزی را نمی‌بیند.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="595" aria-label="قاب ۱۱">
+<section class="frame paper" id="beat-11" data-start="555" aria-label="قاب ۱۱">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">ابزار این قسمت</p>
-<h1>کارت سازه: برای هر ادعای «<em>کمتر خطا</em>» پرش کن</h1>
-<div class="cards">
-<div><b>۱ <span class="sep">·</span> چه می‌خواهیم</b>جوابی که بشود به آن تکیه کرد.</div>
-<div><b>۲ <span class="sep">·</span> چه شمردند</b>جواب غلط در سؤال‌های کوتاه، بدون متن کمکی.</div>
-<div class="hi"><b>۳ <span class="sep">·</span> صورت و مخرج</b>غلط ÷ همه؟ ÷ جواب‌ها؟ ÷ نادرست‌ها؟</div>
-<div><b>۴ <span class="sep">·</span> چه نمی‌بیند</b>سهم «نمی‌دانم» <span class="sep">·</span> جواب‌های بلند <span class="sep">·</span> فارسی.</div>
+<p class="kicker">ابزار این قسمت <span class="sep">·</span> کارت سازه روی یک عدد واقعی</p>
+<h1 class="mid">۲۳۳۸ پرونده در دادگاه‌ها: این <em>نرخ خطا</em>ست؟</h1>
+<div dir="ltr"><svg class="chart cases" viewBox="0 0 1664 300" role="img"><title>شمار پرونده‌ها در هر فصل، از ۲۰۲۳ تا ۲۰۲۶</title><line x1="0" y1="250" x2="1664" y2="250" stroke="#B9B4AA"/><rect x="14.0" y="247.1" width="82.9" height="2.9"/><text x="55.5" y="237.1" text-anchor="middle" font-size="28" font-weight="700">6</text><text x="14.0" y="290" font-size="26">2023</text><rect x="124.9" y="248.6" width="82.9" height="1.4"/><rect x="235.9" y="246.7" width="82.9" height="3.3"/><rect x="346.8" y="245.2" width="82.9" height="4.8"/><text x="346.8" y="290" font-size="26">2024</text><rect x="457.7" y="246.7" width="82.9" height="3.3"/><rect x="568.7" y="241.0" width="82.9" height="9.0"/><rect x="679.6" y="238.1" width="82.9" height="11.9"/><rect x="790.5" y="222.9" width="82.9" height="27.1"/><text x="790.5" y="290" font-size="26">2025</text><rect x="901.5" y="189.7" width="82.9" height="60.3"/><text x="942.9" y="179.7" text-anchor="middle" font-size="28" font-weight="700">127</text><rect x="1012.4" y="120.8" width="82.9" height="129.2"/><rect x="1123.3" y="54.7" width="82.9" height="195.3"/><text x="1164.8" y="44.7" text-anchor="middle" font-size="28" font-weight="700">411</text><rect class="pk" x="1234.3" y="30.0" width="82.9" height="220.0"/><text x="1275.7" y="20.0" text-anchor="middle" font-size="28" font-weight="700">463</text><text x="1234.3" y="290" font-size="26">2026</text><rect x="1345.2" y="42.8" width="82.9" height="207.2"/><rect x="1456.1" y="70.9" width="82.9" height="179.1"/><rect class="last" x="1567.1" y="193.9" width="82.9" height="56.1"/><text x="1608.5" y="183.9" text-anchor="middle" font-size="28" font-weight="700">118*</text></svg></div>
+<div class="cards compact">
+<div><b>۱ <span class="sep">·</span> چه می‌خواهیم</b><bdi dir="ltr">AI</bdi> در کار حقوقی چقدر چیز ساختگی تحویل می‌دهد؟</div>
+<div><b>۲ <span class="sep">·</span> چه شمردند</b>رأی‌هایی که دادگاه در آن محتوای ساختگی دید و این پژوهشگر پیدا کرد.</div>
+<div class="hi"><b>۳ <span class="sep">·</span> صورت و مخرج</b>صورت داریم؛ مخرج نداریم.</div>
+<div><b>۴ <span class="sep">·</span> چه نمی‌بیند</b>هر چیز ساختگی که کسی نگرفت.</div>
 </div>
 <p class="tag"><b>اجرا نشده</b>طرح <bdi dir="ltr">Bluff</bdi> هم با همین کارت شروع شد <span class="sep">·</span> فقط رفتار جواب‌دادن را می‌سنجد، نه صداقت را</p>
 </div></main>
-<footer><bdi dir="ltr">artifact/construct-card.md</bdi></footer>
-<aside class="notes"><b>کارت سازه</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] پرکردن زندهٔ کارت روی یک تیتر.</p><p>در یک جمله: چهار خط کافی است تا یک ادعای خطا را از تیتر به تعریف برگردانی.</p></aside>
+<footer><span><bdi dir="ltr">AI Hallucination Cases Database</bdi>، <bdi dir="ltr">Damien Charlotin</bdi>، <bdi dir="ltr">CC BY 4.0</bdi> <span class="sep">·</span> ۲۳۳۸ پرونده، به‌روز ۲۵ نوامبر ۲۰۲۶ <span class="sep">·</span> ستون‌ها: شمارش ما بر اساس فصلِ تاریخ رأی در <bdi dir="ltr">CSV</bdi> همان سایت (۲۶ نوامبر ۲۰۲۶)؛ * فصل آخر ناقص</span></footer>
+<aside class="notes"><b>کارت سازه روی یک عدد واقعی</b><p>[<bdi dir="ltr">B-ROLL CUE</bdi>] ضبط صفحهٔ شارلوتن که خودت باز می‌کنی (عدد <bdi dir="ltr">cases identified</bdi> و <bdi dir="ltr">Last updated</bdi>)؛ بعد این قاب. پروندهٔ <bdi dir="ltr">Mata</bdi> ردیف شمارهٔ ۱ (<bdi dir="ltr">case_id</bdi>) است. ستون‌ها شمارش ما از <bdi dir="ltr">CSV</bdi> هستند، نه نمودار خود سایت.</p><p>در یک جمله: چهار خط کارت نشان می‌دهد شمار پرونده‌ها، بدون مخرج، نرخ خطا نیست.</p></aside>
 </section>
 
-<section class="frame night" id="beat-12" data-start="655" aria-label="قاب ۱۲">
+<section class="frame night" id="beat-12" data-start="620" aria-label="قاب ۱۲">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">مرز ادعا</p>
 <div class="boundary">
 <div><b>این قسمت نشان می‌دهد</b>هر نرخ خطا چطور ساخته می‌شود؛ و اینکه «خطای کمتر» را می‌شود با «نمی‌دانم» بیشتر خرید.</div>
-<div class="no"><b>این قسمت نشان نمی‌دهد</b>کدام مدل بهتر است <span class="sep">·</span> که <bdi dir="ltr">Vectara</bdi> یا <bdi dir="ltr">AA</bdi> آزمون بدی‌اند <span class="sep">·</span> که مدل چه چیزی را «می‌داند» <span class="sep">·</span> رتبه‌های امروز. ده کارت و مدل‌های <bdi dir="ltr">A</bdi> و <bdi dir="ltr">B</bdi> ساختگی‌اند.</div>
+<div class="no"><b>این قسمت نشان نمی‌دهد</b>کدام مدل بهتر است <span class="sep">·</span> که <bdi dir="ltr">Vectara</bdi> یا <bdi dir="ltr">AA</bdi> آزمون بدی‌اند <span class="sep">·</span> که مدل چه چیزی را «می‌داند» <span class="sep">·</span> رتبه‌های امروز <span class="sep">·</span> خطای مدل‌های امروز از روی پروندهٔ ۲۰۲۳. ده کارت و مدل‌های <bdi dir="ltr">A</bdi> و <bdi dir="ltr">B</bdi> ساختگی‌اند.</div>
 </div>
 </div></main>
-<footer>مرز ادعای <bdi dir="ltr">HMD-006</bdi></footer>
+<footer><span>مرز ادعای <bdi dir="ltr">HMD-006</bdi></span></footer>
 <aside class="notes"><b>مرز ادعا</b><p>[<bdi dir="ltr">CAMERA CHANGE</bdi>] بدون موسیقی.</p><p>در یک جمله: این قسمت خواندن عدد را یاد می‌دهد، نه رتبه‌بندی مدل‌ها را.</p></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="700" aria-label="قاب ۱۳">
+<section class="frame night" id="beat-13" data-start="670" aria-label="قاب ۱۳">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">جواب</p>
@@ -388,11 +416,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✗</i><i>✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div>
 <p class="caption">پس: «کمتر خطا» معمولاً نمی‌گوید از چندتا، و به قیمت چند «نمی‌دانم».</p>
 </div></main>
-<footer>هومودین</footer>
+<footer><span>هومودین</span></footer>
 <aside class="notes"><b>جواب</b><p>جواب صریح با «پس». تمرین: جلوی هر درصد خطا دو سؤال.</p><p>در یک جمله: هر درصد خطا را با صورت، مخرج و سهم «نمی‌دانم» بخوان.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-14" data-start="740" aria-label="قاب ۱۴">
+<section class="frame paper" id="beat-14" data-start="710" aria-label="قاب ۱۴">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">هومودین</span><span class="series">آزمایشگاه بنچمارک <span class="sep">·</span> جلسهٔ ۳</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">قسمت بعد <span class="sep">·</span> <bdi dir="ltr">HMD-007</bdi></p>
@@ -403,7 +431,7 @@ Total: 12,400,000 IRR   Due: 30 Aban
 <span class="o">[خطی که برای دستیار نوشته شده، نه برای تو]</span></div>
 <p class="tag"><b>ساختگی</b>فاکتور ساختگی</p>
 </div></main>
-<footer>قسمت بعد: <bdi dir="ltr">HMD-007</bdi> <span class="sep">·</span> <bdi dir="ltr">OWASP LLM01</bdi></footer>
+<footer><span>قسمت بعد: <bdi dir="ltr">HMD-007</bdi> <span class="sep">·</span> <bdi dir="ltr">OWASP LLM01</bdi></span></footer>
 <aside class="notes"><b>قسمت بعد</b><p>[<bdi dir="ltr">SOUND EFFECT</bdi>] فاکتور ساختگی؛ خط آخر محو و بعد کهربایی. <bdi dir="ltr">End screen</bdi> به <bdi dir="ltr">HMD-007</bdi>.</p><p>در یک جمله: بعد از خطای خود مدل، نوبت سندی است که عمداً مدل را گمراه می‌کند.</p></aside>
 </section>
 </div>

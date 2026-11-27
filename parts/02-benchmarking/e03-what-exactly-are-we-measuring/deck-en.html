@@ -176,6 +176,28 @@ nav .keys{color:#8F8C84}
 .progress{position:fixed;bottom:40px;left:0;height:3px;background:var(--amber);z-index:10}
 html[dir="rtl"] .progress{left:auto;right:0}
 .hide-chrome nav,.hide-chrome .progress{display:none}
+/* episode */
+.evidence{display:grid;grid-template-columns:740px 1fr;gap:56px;align-items:center}
+.evidence figure{margin:0;display:flex;flex-direction:column;gap:14px}
+.evidence img{display:block;width:100%;height:auto;border:2px solid var(--line);border-radius:4px;background:#fff}
+.evidence figcaption{font-size:24px;line-height:1.45;color:var(--muted)}
+.cards.stack{grid-template-columns:1fr;gap:20px}
+.cards.stack>div{padding:22px 28px}
+h1.mid{font-size:60px}
+.cards.compact>div{padding:20px 24px;font-size:28px}
+.cards.compact>div b{font-size:24px;margin-bottom:8px}
+.aafig{margin:0;display:flex;flex-direction:column;gap:10px}
+.aafig img{display:block;width:1180px;max-width:100%;height:auto;border-radius:4px}
+.aafig figcaption{font-size:22px;line-height:1.4;color:var(--muted)}
+.cols.compact{gap:72px}
+.cols.compact>div{padding-top:18px}
+.cols.compact b{font-size:64px;margin:8px 0}
+.cols.compact p{font-size:26px}
+.cols.compact>div>span{font-size:24px}
+.chart.cases{height:250px;width:auto;max-width:100%}
+.chart.cases rect{fill:var(--ink)}
+.chart.cases rect.pk{fill:var(--amber)}
+.chart.cases rect.last{fill:none;stroke:var(--ink);stroke-width:3;stroke-dasharray:8 6}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hmd-mark" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#111214"/><path d="M159.00,267.14 L159.35,263.38 L159.71,259.60 L160.06,255.83 L160.42,252.05 L160.77,248.27 L161.12,244.49 L161.48,240.71 L161.83,241.09 L162.18,241.73 L162.54,242.36 L162.89,243.00 L163.25,243.63 L163.60,244.27 L163.95,244.90 L164.31,245.85 L164.66,246.84 L165.02,247.83 L165.37,248.82 L165.72,249.81 L166.08,250.80 L166.43,251.79 L166.78,249.11 L167.14,245.64 L167.49,242.17 L167.85,238.71 L168.20,235.24 L168.55,231.78 L168.91,228.32 L169.26,229.48 L169.62,232.07 L169.97,234.66 L170.32,237.25 L170.68,239.85 L171.03,242.44 L171.38,245.05 L171.74,245.22 L172.09,244.38 L172.45,243.55 L172.80,242.72 L173.15,241.89 L173.51,241.07 L173.86,240.25 L174.21,239.95 L174.57,239.92 L174.92,239.89 L175.28,239.88 L175.63,239.86 L175.98,239.86 L176.34,239.86 L176.69,238.20 L177.05,235.38 L177.40,232.57 L177.75,229.76 L178.11,226.96 L178.46,224.16 L178.81,221.38 L179.17,221.01 L179.52,222.79 L179.88,224.58 L180.23,226.38 L180.58,228.18 L180.94,229.99 L181.29,231.81 L181.65,231.97 L182.00,230.27 L182.35,228.57 L182.71,226.88 L183.06,225.19 L183.41,223.52 L183.77,221.85 L184.12,220.99 L184.48,221.31 L184.83,221.64 L185.18,221.97 L185.54,222.31 L185.89,222.65 L186.25,223.00 L186.60,223.06 L186.95,222.60 L187.31,222.14 L187.66,221.68 L188.01,221.23 L188.37,220.79 L188.72,220.35 L189.08,220.05 L189.43,220.11 L189.78,220.16 L190.14,220.23 L190.49,220.29 L190.84,220.36 L191.20,220.44 L191.55,220.97 L191.91,222.95 L192.26,224.93 L192.61,226.92 L192.97,228.91 L193.32,230.91 L193.68,232.90 L194.03,234.47 L194.38,234.03 L194.74,233.61 L195.09,233.19 L195.44,232.77 L195.80,232.37 L196.15,231.98 L196.51,231.54 L196.86,230.68 L197.21,229.83 L197.57,228.99 L197.92,228.16 L198.28,227.35 L198.63,226.55 L198.98,225.80 L199.34,225.62 L199.69,225.45 L200.04,225.29 L200.40,225.13 L200.75,224.99 L201.11,224.85 L201.46,224.73 L201.81,228.84 L202.17,232.90 L202.52,236.92 L202.88,240.89 L203.23,244.81 L203.58,248.67 L203.94,252.47 L204.29,252.10 L204.64,251.47 L205.00,250.85 L205.35,250.25 L205.71,249.65 L206.06,249.06 L206.41,248.47 L206.77,247.61 L207.12,246.72 L207.48,245.84 L207.83,244.99 L208.18,244.15 L208.54,243.33 L208.89,242.53 L209.24,240.71 L209.60,238.72 L209.95,236.78 L210.31,234.89 L210.66,233.06 L211.01,231.27 L211.37,229.54 L211.72,230.54 L212.07,232.32 L212.43,234.06 L212.78,235.76 L213.14,237.42 L213.49,239.04 L213.84,240.61 L214.20,241.05 L214.55,241.03 L214.91,241.02 L215.26,241.02 L215.61,241.02 L215.97,241.03 L216.32,241.04 L216.67,241.81 L217.03,242.97 L217.38,244.09 L217.74,245.17 L218.09,246.22 L218.44,247.22 L218.80,248.20 L219.15,248.40 L219.51,248.10 L219.86,247.82 L220.21,247.55 L220.57,247.30 L220.92,247.07 L221.27,246.86 L221.63,247.37 L221.98,248.47 L222.34,249.51 L222.69,250.51 L223.04,251.47 L223.40,252.38 L223.75,253.24 L224.11,253.85 L224.46,254.20 L224.81,254.54 L225.17,254.86 L225.52,255.16 L225.87,255.44 L226.23,255.70 L226.58,255.66 L226.94,255.24 L227.29,254.84 L227.64,254.47 L228.00,254.14 L228.35,253.83 L228.71,253.55 L229.06,253.45 L229.41,253.63 L229.77,253.80 L230.12,253.96 L230.47,254.12 L230.83,254.27 L231.18,254.41 L231.54,254.36 L231.89,253.91 L232.24,253.52 L232.60,253.18 L232.95,252.89 L233.31,252.64 L233.66,252.45 L234.01,252.44 L234.37,252.85 L234.72,253.24 L235.07,253.60 L235.43,253.93 L235.78,254.22 L236.14,254.49 L236.49,254.73 L236.84,254.92 L237.20,255.09 L237.55,255.24 L237.90,255.37 L238.26,255.49 L238.61,255.59 L238.97,255.68 L239.32,255.76 L239.67,255.83 L240.03,255.88 L240.38,255.92 L240.74,255.96 L241.09,255.98 L241.44,255.99 L241.80,255.97 L242.15,255.96 L242.50,255.97 L242.86,255.98 L243.21,255.99 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M159.00,282.42 L159.35,278.63 L159.71,274.84 L160.06,271.05 L160.42,267.25 L160.77,263.46 L161.12,259.66 L161.48,255.85 L161.83,259.86 L162.18,264.34 L162.54,268.83 L162.89,273.30 L163.25,277.76 L163.60,282.22 L163.95,286.66 L164.31,285.59 L164.66,283.76 L165.02,281.92 L165.37,280.07 L165.72,278.21 L166.08,276.33 L166.43,274.44 L166.78,275.67 L167.14,277.55 L167.49,279.41 L167.85,281.26 L168.20,283.10 L168.55,284.91 L168.91,286.72 L169.26,287.27 L169.62,287.44 L169.97,287.58 L170.32,287.71 L170.68,287.83 L171.03,287.92 L171.38,288.00 L171.74,286.83 L172.09,285.11 L172.45,283.39 L172.80,281.64 L173.15,279.89 L173.51,278.12 L173.86,276.33 L174.21,277.06 L174.57,279.15 L174.92,281.22 L175.28,283.29 L175.63,285.35 L175.98,287.39 L176.34,289.43 L176.69,291.51 L177.05,293.64 L177.40,295.75 L177.75,297.86 L178.11,299.96 L178.46,302.06 L178.81,304.15 L179.17,304.34 L179.52,302.84 L179.88,301.34 L180.23,299.84 L180.58,298.34 L180.94,296.84 L181.29,295.35 L181.65,293.12 L182.00,290.07 L182.35,287.02 L182.71,283.98 L183.06,280.94 L183.41,277.92 L183.77,274.90 L184.12,273.64 L184.48,274.89 L184.83,276.16 L185.18,277.43 L185.54,278.72 L185.89,280.02 L186.25,281.33 L186.60,281.08 L186.95,277.95 L187.31,274.83 L187.66,271.73 L188.01,268.65 L188.37,265.58 L188.72,262.52 L189.08,260.67 L189.43,261.69 L189.78,262.73 L190.14,263.79 L190.49,264.86 L190.84,265.94 L191.20,267.05 L191.55,267.51 L191.91,265.84 L192.26,264.20 L192.61,262.56 L192.97,260.95 L193.32,259.35 L193.68,257.76 L194.03,257.04 L194.38,260.31 L194.74,263.58 L195.09,266.86 L195.44,270.15 L195.80,273.43 L196.15,276.70 L196.51,279.45 L196.86,278.30 L197.21,277.16 L197.57,276.03 L197.92,274.90 L198.28,273.79 L198.63,272.68 L198.98,271.66 L199.34,271.73 L199.69,271.80 L200.04,271.87 L200.40,271.94 L200.75,272.01 L201.11,272.07 L201.46,272.12 L201.81,269.02 L202.17,265.94 L202.52,262.90 L202.88,259.90 L203.23,256.93 L203.58,254.00 L203.94,251.10 L204.29,252.62 L204.64,254.37 L205.00,256.08 L205.35,257.76 L205.71,259.41 L206.06,261.01 L206.41,262.57 L206.77,264.37 L207.12,266.17 L207.48,267.91 L207.83,269.60 L208.18,271.24 L208.54,272.83 L208.89,274.37 L209.24,273.09 L209.60,271.23 L209.95,269.40 L210.31,267.60 L210.66,265.83 L211.01,264.08 L211.37,262.37 L211.72,262.10 L212.07,262.26 L212.43,262.40 L212.78,262.52 L213.14,262.62 L213.49,262.71 L213.84,262.78 L214.20,263.24 L214.55,263.85 L214.91,264.42 L215.26,264.96 L215.61,265.46 L215.97,265.94 L216.32,266.38 L216.67,267.82 L217.03,269.75 L217.38,271.58 L217.74,273.33 L218.09,274.99 L218.44,276.57 L218.80,278.06 L219.15,277.84 L219.51,276.49 L219.86,275.18 L220.21,273.91 L220.57,272.67 L220.92,271.47 L221.27,270.31 L221.63,268.49 L221.98,266.12 L222.34,263.86 L222.69,261.71 L223.04,259.67 L223.40,257.73 L223.75,255.89 L224.11,255.37 L224.46,256.21 L224.81,257.00 L225.17,257.74 L225.52,258.44 L225.87,259.09 L226.23,259.70 L226.58,259.86 L226.94,259.46 L227.29,259.09 L227.64,258.73 L228.00,258.40 L228.35,258.09 L228.71,257.80 L229.06,257.67 L229.41,257.77 L229.77,257.86 L230.12,257.94 L230.47,258.02 L230.83,258.08 L231.18,258.13 L231.54,258.07 L231.89,257.80 L232.24,257.55 L232.60,257.32 L232.95,257.11 L233.31,256.92 L233.66,256.75 L234.01,256.69 L234.37,256.93 L234.72,257.14 L235.07,257.31 L235.43,257.45 L235.78,257.56 L236.14,257.63 L236.49,257.61 L236.84,257.27 L237.20,256.97 L237.55,256.71 L237.90,256.50 L238.26,256.31 L238.61,256.16 L238.97,256.07 L239.32,256.16 L239.67,256.22 L240.03,256.25 L240.38,256.27 L240.74,256.27 L241.09,256.25 L241.44,256.22 L241.80,256.14 L242.15,256.09 L242.50,256.05 L242.86,256.02 L243.21,256.01 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -197,27 +219,30 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <h1>The world's lowest-error assistant knows only one line: <em>"I don't know."</em></h1>
 <div class="cols">
 <div><span>Errors</span><b>0<small>%</small></b></div>
-<div class="hi"><span>Useful answers</span><b>0<small>%</small></b></div>
+<div><span>Useful answers</span><b>0<small>%</small></b></div>
+<div class="hi"><span>Rank in a real test</span><b>4th<small> of 36</small></b></div>
 </div>
 </div></main>
-<footer>Homodyne · thought experiment</footer>
-<aside class="notes"><b>The world's lowest-error assistant</b><p>[CAMERA CHANGE] Open on the face, no music. Grab → Promise → Stakes → sting.</p><p>In one line: zero errors can mean zero help.</p></aside>
+<footer><span>Homodyne · thought experiment · rank: R08 AA-Omniscience, section 2.4.1 (Nov 2025)</span></footer>
+<aside class="notes"><b>The world's lowest-error assistant</b><p>[CAMERA CHANGE] Open on the face, no music. Grab → Promise → Stakes → sting. "4th of 36" is an open loop; it pays off in beat 8.</p><p>In one line: zero errors can mean zero help.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-2" data-start="45" aria-label="Beat 2">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">What the headline leaves out</p>
-<h1>Every answer is one of <em>three</em></h1>
-<div class="cards">
+<p class="kicker">A hallucination is a <em>confident</em> wrong answer · a New York court, 2023</p>
+<div class="evidence">
+<figure><img src="media/beat02_mata_chatgpt_appendixB_court-exhibit.jpg" alt=""><figcaption>Appendix B of the court's order: "Is varghese a real case" → "Yes". The six opinions the lawyers filed did not exist; penalty: $5,000, jointly.</figcaption></figure>
+<div class="cards stack">
 <div><b>Correct</b>The right answer.</div>
 <div class="hi"><b>Wrong</b>Confident and false: a "hallucination".</div>
 <div><b>"I don't know"</b>It abstains.</div>
 </div>
+</div>
 <p class="caption">Every error rate divides these three in one particular way.</p>
 </div></main>
-<footer>Homodyne</footer>
-<aside class="notes"><b>Three kinds of answer</b><p>[B-ROLL CUE] A feed of made-up "three times fewer hallucinations" headlines. By the end of this video: numerator/denominator + "what it was bought with".</p><p>In one line: every error rate divides the three kinds of answer in one particular way.</p></aside>
+<footer><span>Mata v. Avianca, 22-cv-1461 (PKC), S.D.N.Y. · Opinion and Order on Sanctions, 22 June 2023, Appendix B (exhibit in the public court record)</span></footer>
+<aside class="notes"><b>A hallucination in court; three kinds of answer</b><p>[B-ROLL CUE] The made-up headline for a few seconds; then media/beat02_mata_order_page1_PD.jpg and media/beat02_mata_fake_opinion_appendixA_court-exhibit.jpg; then this frame. Bridge: "so what exactly did that headline count?"</p><p>In one line: a hallucination is a confident wrong answer, and every error rate divides the three kinds of answer in one particular way.</p></aside>
 </section>
 
 <section class="frame paper" id="beat-3" data-start="100" aria-label="Beat 3">
@@ -228,11 +253,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i class="hi">✗</i><i class="hi">✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div>
 <p class="tag"><b>ILLUSTRATIVE</b>Made-up teaching cards</p>
 </div></main>
-<footer>Illustrative teaching data</footer>
+<footer><span>Illustrative teaching data</span></footer>
 <aside class="notes"><b>Ten cards</b><p>[GRAPHIC] Ten cards. A two-second pause for the viewer's guess.</p><p>In one line: one batch of answers, and it is still unclear which number "error rate" means.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="160" aria-label="Beat 4">
+<section class="frame paper" id="beat-4" data-start="150" aria-label="Beat 4">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">One batch of cards, three correct numbers</p>
@@ -244,11 +269,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">How many, out of how many?</p>
 <p class="tag"><b>ILLUSTRATIVE</b>The same ten cards</p>
 </div></main>
-<footer>Illustrative teaching data · the third fraction as defined in AA-Omniscience (R08)</footer>
+<footer><span>Illustrative teaching data · the third fraction as defined in AA-Omniscience (R08)</span></footer>
 <aside class="notes"><b>One batch of cards, three correct numbers</b><p>[UNEXPECTED STAT] The fractions one by one; under each, light up the cards in its denominator.</p><p>In one line: an error rate without its denominator is just an orphan number.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="220" aria-label="Beat 5">
+<section class="frame paper" id="beat-5" data-start="205" aria-label="Beat 5">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">A real table · guess first</p>
@@ -259,11 +284,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="hi"><span>"I don't know"</span><b>52%<small> vs 1%</small></b><p>The column headlines skip</p></div>
 </div>
 </div></main>
-<footer>R01 · OpenAI, Why Language Models Hallucinate · Sep 2025</footer>
+<footer><span>R01 · OpenAI, Why Language Models Hallucinate · Sep 2025</span></footer>
 <aside class="notes"><b>A real table and the column nobody sees</b><p>[MID-CTA] Soft CTA first. [GRAPHIC] Error column only; guess; then accuracy and abstention.</p><p>In one line: much of this table's "fewer errors" comes from more "I don't know".</p></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="285" aria-label="Beat 6">
+<section class="frame paper" id="beat-6" data-start="270" aria-label="Beat 6">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Same table, another denominator</p>
@@ -275,11 +300,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">Drug dose: "I don't know" beats a confident wrong answer · café names: a bad guess costs little.</p>
 <p class="tag">Our arithmetic on R01's numbers: <bdi dir="ltr">26 ÷ (22 + 26) ≈ 54%</bdi> · <bdi dir="ltr">75 ÷ (24 + 75) ≈ 76%</bdi></p>
 </div></main>
-<footer>Our arithmetic on R01's numbers · SimpleQA has deliberately hard questions</footer>
+<footer><span>Our arithmetic on R01's numbers · SimpleQA has deliberately hard questions</span></footer>
 <aside class="notes"><b>Same table, another denominator</b><p>[UNEXPECTED STAT] Label "our arithmetic on R01's numbers". SimpleQA has deliberately hard questions. Kalai's point: scoring only correct answers encourages guessing; a Konkur with no negative marking.</p><p>In one line: which model is better depends on what a wrong answer costs in your work.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="350" aria-label="Beat 7">
+<section class="frame paper" id="beat-7" data-start="330" aria-label="Beat 7">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Four numbers side by side: accuracy · coverage · risk · score</p>
@@ -301,40 +326,41 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">A = the same ten cards: 5 correct, 2 wrong, 3 "I don't know" · B: 4 correct, 1 wrong, 5 "I don't know" · score: correct 1, "I don't know" 0, wrong −3</p>
 <p class="tag"><b>ILLUSTRATIVE</b>Excerpt of the command's real output (2 Nov 2026); "..." marks lines left out</p>
 </div></main>
-<footer>tools/bluff_lab.py · tools/bluff-demo.csv · illustrative teaching data</footer>
+<footer><span>tools/bluff_lab.py · tools/bluff-demo.csv · illustrative teaching data</span></footer>
 <aside class="notes"><b>Four numbers side by side</b><p>[B-ROLL CUE] Screen recording of the real run; zoom in on the four numbers only. "The winner flipped" with a zoom.</p><p>In one line: each of the four numbers answers a different question.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="415" aria-label="Beat 8">
+<section class="frame paper" id="beat-8" data-start="390" aria-label="Beat 8">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The silent assistant and the line of silence</p>
-<div class="cols">
-<div class="hi"><span>Risk of "always I don't know"</span><b>0 ÷ 0</b><p>Undefined; not 0%</p></div>
-<div><span>Penalised score</span><b>0</b><p>The line of silence</p></div>
+<figure class="aafig"><img src="media/beat08_aa_omniscience_index_fig1_CC-BY-4.0.jpg" alt=""><figcaption>Figure 1 of the AA-Omniscience paper: models' penalised score; dashed line = 0 = the always-silent assistant (a selection of models, as published).</figcaption></figure>
+<div class="cols compact">
+<div><span>Risk of "always I don't know"</span><b>0 ÷ 0</b><p>Undefined; not 0%. Penalised score: 0, the line of silence.</p></div>
+<div class="hi"><span>AA-Omniscience · an always-silent assistant</span><b>4th<small> of 36</small></b><p>Only 3 models scored above the line of silence.</p></div>
 <div><span>AbstentionBench · 20 models · 20 datasets</span><b>−24<small>%</small></b><p>Saying "I don't know" after reasoning fine-tuning (average)</p></div>
 </div>
 </div></main>
-<footer>R09 · AbstentionBench · Kirichenko et al. 2025</footer>
-<aside class="notes"><b>The silent assistant and the line of silence</b><p>[SOUND EFFECT] One second of complete silence.</p><p>In one line: silence is a baseline, not a goal; and "zero errors" without the answer share is misleading.</p></aside>
+<footer><span>R08 · AA-Omniscience, Artificial Analysis, arXiv 2511.13029, sections 2.4.1 and 3.1 and Figure 1 (Nov 2025; CC BY 4.0; penalty per wrong answer = 1) · R09 · AbstentionBench, Kirichenko et al. 2025</span></footer>
+<aside class="notes"><b>The silent assistant and the line of silence</b><p>[SOUND EFFECT] One second of complete silence. Then "4th of 36": the AA authors wrote this themselves.</p><p>In one line: silence is a baseline, not a goal; and "zero errors" without the answer share is misleading.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="470" aria-label="Beat 9">
+<section class="frame paper" id="beat-9" data-start="445" aria-label="Beat 9">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Second hook</p>
-<h1>Both are called "<em>hallucination</em> rate"</h1>
+<p class="kicker">Second hook · one model, two tables</p>
+<h1>One model, GPT-5 (high); both numbers are called "<em>hallucination</em> rate"</h1>
 <div class="cols">
-<div><span>Vectara · lowest listed</span><b>1.8<small>%</small></b><p>Summarise a given document. Rate = 100 minus % consistent with it.</p></div>
-<div class="hi"><span>AA-Omniscience · GPT-5 (high)</span><b>81<small>%</small></b><p>Answer from memory, no document. Rate = wrong ÷ (wrong + partial + "I don't know").</p></div>
+<div><span>Vectara · 24 Nov 2026</span><b>15.1<small>%</small></b><p>Summarise a given document. Rate = 100 minus % consistent with it.</p></div>
+<div class="hi"><span>AA-Omniscience · Nov 2025</span><b>81<small>%</small></b><p>Answer from memory, no document. Rate = wrong ÷ (wrong + partial + "I don't know").</p></div>
 </div>
-<p class="tag">Different task · different formula · different model → not comparable</p>
+<p class="tag">Same pattern for Claude 4.5 Haiku: 9.8% on Vectara, 26% on AA · different task, different formula → not comparable</p>
 </div></main>
-<footer>Vectara leaderboard (HHEM-2.3, updated 22 Oct 2026) · R08 AA-Omniscience (Nov 2025)</footer>
-<aside class="notes"><b>Second hook: 1.8% or 81%?</b><p>[RE-HOOK] [CAMERA CHANGE] The two numbers first, pause, guess; then the task and formula under each.</p><p>In one line: two "hallucination rates" can be two different tasks, formulas and models.</p></aside>
+<footer><span>Vectara leaderboard (HHEM-2.3), row gpt-5-high-2025-08-07, updated 24 Nov 2026 · R08 AA-Omniscience section 3.1 (model snapshot date not printed) · artifact/derived</span></footer>
+<aside class="notes"><b>Second hook: one model, 15% or 81%?</b><p>[RE-HOOK] [CAMERA CHANGE] First the model name and the two numbers, pause, "which one is right?"; then the task and formula under each. B-roll: media/beat09_aa_hallucination_rate_fig7_CC-BY-4.0.jpg (AA Figure 7, GPT-5 (high) bar = 81%) with on-screen credit. Don't say "exactly the same snapshot"; say "one model, one name".</p><p>In one line: one model can get two very different "hallucination rates", because the task and the formula differ.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="535" aria-label="Beat 10">
+<section class="frame paper" id="beat-10" data-start="500" aria-label="Beat 10">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">What we want, what we count</p>
@@ -344,43 +370,45 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div><b>Proxy</b>What we count: wrong ÷ answered, on short questions.</div>
 <div class="hi"><b>What it misses</b>The "I don't know" share · long answers · Persian · the date.</div>
 </div>
+<p class="tag">Vectara itself: a summary that copies the text verbatim scores zero hallucination · “we do not recommend using this as a standalone metric.”</p>
 <p class="tag">Thermometer ≠ health · 445 LLM benchmarks · 29 expert reviewers · 8 recommendations</p>
 </div></main>
-<footer>R02 · Bean et al. · Measuring what Matters · NeurIPS 2025</footer>
+<footer><span>R02 · Bean et al. · Measuring what Matters · NeurIPS 2025 · FAQ in Vectara's GitHub README (26 Nov 2026)</span></footer>
 <aside class="notes"><b>What we want, what we count</b><p>[GRAPHIC] The thermometer and three columns. Use the term "construct" only after the example.</p><p>In one line: every error number stands in for what we really want; we need to know what it does not see.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="595" aria-label="Beat 11">
+<section class="frame paper" id="beat-11" data-start="555" aria-label="Beat 11">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">This episode's tool</p>
-<h1>Construct card: fill it in for any "<em>fewer errors</em>" claim</h1>
-<div class="cards">
-<div><b>1 · What we want</b>An answer you can lean on.</div>
-<div><b>2 · What was counted</b>Wrong answers on short questions, no supporting text.</div>
-<div class="hi"><b>3 · Numerator and denominator</b>Wrong ÷ all? ÷ answered? ÷ not correct?</div>
-<div><b>4 · What it misses</b>The "I don't know" share · long answers · Persian.</div>
+<p class="kicker">This episode's tool · the construct card on a real number</p>
+<h1 class="mid">2,338 court cases: is this an <em>error rate</em>?</h1>
+<div dir="ltr"><svg class="chart cases" viewBox="0 0 1664 300" role="img"><title>Cases per quarter, 2023 to 2026</title><line x1="0" y1="250" x2="1664" y2="250" stroke="#B9B4AA"/><rect x="14.0" y="247.1" width="82.9" height="2.9"/><text x="55.5" y="237.1" text-anchor="middle" font-size="28" font-weight="700">6</text><text x="14.0" y="290" font-size="26">2023</text><rect x="124.9" y="248.6" width="82.9" height="1.4"/><rect x="235.9" y="246.7" width="82.9" height="3.3"/><rect x="346.8" y="245.2" width="82.9" height="4.8"/><text x="346.8" y="290" font-size="26">2024</text><rect x="457.7" y="246.7" width="82.9" height="3.3"/><rect x="568.7" y="241.0" width="82.9" height="9.0"/><rect x="679.6" y="238.1" width="82.9" height="11.9"/><rect x="790.5" y="222.9" width="82.9" height="27.1"/><text x="790.5" y="290" font-size="26">2025</text><rect x="901.5" y="189.7" width="82.9" height="60.3"/><text x="942.9" y="179.7" text-anchor="middle" font-size="28" font-weight="700">127</text><rect x="1012.4" y="120.8" width="82.9" height="129.2"/><rect x="1123.3" y="54.7" width="82.9" height="195.3"/><text x="1164.8" y="44.7" text-anchor="middle" font-size="28" font-weight="700">411</text><rect class="pk" x="1234.3" y="30.0" width="82.9" height="220.0"/><text x="1275.7" y="20.0" text-anchor="middle" font-size="28" font-weight="700">463</text><text x="1234.3" y="290" font-size="26">2026</text><rect x="1345.2" y="42.8" width="82.9" height="207.2"/><rect x="1456.1" y="70.9" width="82.9" height="179.1"/><rect class="last" x="1567.1" y="193.9" width="82.9" height="56.1"/><text x="1608.5" y="183.9" text-anchor="middle" font-size="28" font-weight="700">118*</text></svg></div>
+<div class="cards compact">
+<div><b>1 · What we want</b>How often AI hands over made-up material in legal work.</div>
+<div><b>2 · What was counted</b>Decisions where a court met made-up content, and this researcher found them.</div>
+<div class="hi"><b>3 · Numerator and denominator</b>A numerator, but no denominator.</div>
+<div><b>4 · What it misses</b>Anything made up that nobody caught.</div>
 </div>
 <p class="tag"><b>NOT RUN YET</b>The Bluff design also starts from this card · it measures answering behaviour, not honesty</p>
 </div></main>
-<footer>artifact/construct-card.md</footer>
-<aside class="notes"><b>The construct card</b><p>[B-ROLL CUE] Fill in the card live for one headline.</p><p>In one line: four lines are enough to turn an error claim from a headline back into a definition.</p></aside>
+<footer><span>AI Hallucination Cases Database, Damien Charlotin, CC BY 4.0 · 2,338 cases, updated 25 Nov 2026 · bars: our count by quarter of decision from the site's CSV (26 Nov 2026); * last quarter partial</span></footer>
+<aside class="notes"><b>The construct card on a real number</b><p>[B-ROLL CUE] A screen recording of Charlotin's page that you open yourself (the cases-identified count and Last updated); then this frame. Mata is the row with case_id = 1. The bars are our count from the CSV, not the site's own chart.</p><p>In one line: four lines of the card show that a case count, with no denominator, is not an error rate.</p></aside>
 </section>
 
-<section class="frame night" id="beat-12" data-start="655" aria-label="Beat 12">
+<section class="frame night" id="beat-12" data-start="620" aria-label="Beat 12">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Claim boundary</p>
 <div class="boundary">
 <div><b>This shows</b>How each error rate is built; and that "fewer errors" can be bought with more "I don't know".</div>
-<div class="no"><b>This does not show</b>Which model is better · that Vectara or AA are bad tests · what a model "knows" · today's rankings. The ten cards and models A and B are illustrative.</div>
+<div class="no"><b>This does not show</b>Which model is better · that Vectara or AA are bad tests · what a model "knows" · today's rankings · today's models' error from a 2023 case. The ten cards and models A and B are illustrative.</div>
 </div>
 </div></main>
-<footer>HMD-006 claim boundary</footer>
+<footer><span>HMD-006 claim boundary</span></footer>
 <aside class="notes"><b>Claim boundary</b><p>[CAMERA CHANGE] No music.</p><p>In one line: this episode teaches how to read a number, not how to rank models.</p></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="700" aria-label="Beat 13">
+<section class="frame night" id="beat-13" data-start="670" aria-label="Beat 13">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The answer</p>
@@ -388,11 +416,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="tokens"><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✗</i><i>✗</i><i class="off">?</i><i class="off">?</i><i class="off">?</i></div>
 <p class="caption">So: "fewer errors" usually doesn't say out of how many, or at the price of how many "I don't know"s.</p>
 </div></main>
-<footer>Homodyne</footer>
+<footer><span>Homodyne</span></footer>
 <aside class="notes"><b>The answer</b><p>A plain answer starting with "So". Exercise: two questions in front of every error percentage.</p><p>In one line: read every error percentage with its numerator, denominator and "I don't know" share.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-14" data-start="740" aria-label="Beat 14">
+<section class="frame paper" id="beat-14" data-start="710" aria-label="Beat 14">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Benchmark Lab · E03</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Next · HMD-007</p>
@@ -403,7 +431,7 @@ Total: 12,400,000 IRR   Due: 30 Aban
 <span class="o">[a line written for the assistant, not for you]</span></div>
 <p class="tag"><b>ILLUSTRATIVE</b>A made-up invoice</p>
 </div></main>
-<footer>Next: HMD-007 · OWASP LLM01</footer>
+<footer><span>Next: HMD-007 · OWASP LLM01</span></footer>
 <aside class="notes"><b>Next episode</b><p>[SOUND EFFECT] A made-up invoice; the last line fades, then turns amber. End screen to HMD-007.</p><p>In one line: after the model's own errors, a document that deliberately misleads the model.</p></aside>
 </section>
 </div>

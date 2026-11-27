@@ -1,0 +1,363 @@
+{
+ "date": "2026-11-26",
+ "python": "3.11.7",
+ "n_pairs": 50,
+ "flores": {
+  "file": "flores200_dataset.tar.gz",
+  "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6",
+  "members": {
+   "fa": "flores200_dataset/devtest/pes_Arab.devtest",
+   "en": "flores200_dataset/devtest/eng_Latn.devtest"
+  },
+  "n_sentences": 1012
+ },
+ "gpt4o_sentence": {
+  "fa": "سلام، اسم من جی پی تی-۴او است. من یک نوع جدیدی از مدل زبانی هستم، از ملاقات شما خوشبختم!",
+  "en": "Hello, my name is GPT-4o. I'm a new type of language model, it's nice to meet you!",
+  "openai_claim": {
+   "from": 61,
+   "to": 32,
+   "factor": 1.9
+  },
+  "source": "https://openai.com/index/hello-gpt-4o/"
+ },
+ "skipped": [],
+ "tokenizers": [
+  {
+   "label": "PersianMind",
+   "version": "universitytehran/PersianMind-v1.0@af603eeb0741 · transformers 4.49.0",
+   "vocab": 41510,
+   "note": "Llama-2 tokenizer + 10k Persian BPE tokens (arXiv 2401.06466 §3.1)",
+   "pairs": {
+    "n": 50,
+    "median": 1.1088235294117648,
+    "p25": 1.0,
+    "p75": 1.2463235294117647,
+    "corpus_ratio": 1.0980861244019138,
+    "fa_tokens": 918,
+    "en_tokens": 836,
+    "share_fa_more": 0.64
+   },
+   "gpt4o_fa": 29,
+   "gpt4o_en": 29,
+   "flores": {
+    "n": 1012,
+    "median": 1.1342342342342342,
+    "p25": 1.0,
+    "p75": 1.2815896739130435,
+    "corpus_ratio": 1.1479411575769256,
+    "fa_tokens": 35740,
+    "en_tokens": 31134,
+    "share_fa_more": 0.7401185770750988
+   }
+  },
+  {
+   "label": "Gemma-3",
+   "version": "unsloth/gemma-3-1b-it@5b11413a10db · transformers 4.49.0",
+   "vocab": 262145,
+   "note": "262k SentencePiece; mirror",
+   "pairs": {
+    "n": 50,
+    "median": 1.2142857142857142,
+    "p25": 1.0535714285714286,
+    "p75": 1.3777472527472527,
+    "corpus_ratio": 1.1925545571245186,
+    "fa_tokens": 929,
+    "en_tokens": 779,
+    "share_fa_more": 0.76
+   },
+   "gpt4o_fa": 32,
+   "gpt4o_en": 28,
+   "flores": {
+    "n": 1012,
+    "median": 1.4615384615384615,
+    "p25": 1.2901103565365024,
+    "p75": 1.6363636363636365,
+    "corpus_ratio": 1.456959504315114,
+    "fa_tokens": 39504,
+    "en_tokens": 27114,
+    "share_fa_more": 0.9772727272727273
+   }
+  },
+  {
+   "label": "Mistral-Nemo",
+   "version": "mistralai/Mistral-Nemo-Instruct-2407@04d8a90549d2 · transformers 4.49.0",
+   "vocab": 131072,
+   "note": "131k BPE (Tekken)",
+   "pairs": {
+    "n": 50,
+    "median": 1.292857142857143,
+    "p25": 1.1456043956043955,
+    "p75": 1.4532967032967032,
+    "corpus_ratio": 1.2853437094682232,
+    "fa_tokens": 991,
+    "en_tokens": 771,
+    "share_fa_more": 0.96
+   },
+   "gpt4o_fa": 33,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 1.4444444444444444,
+    "p25": 1.2748774509803922,
+    "p75": 1.6092995169082127,
+    "corpus_ratio": 1.4380637510331693,
+    "fa_tokens": 40017,
+    "en_tokens": 27827,
+    "share_fa_more": 0.9703557312252964
+   }
+  },
+  {
+   "label": "Llama-3.2",
+   "version": "unsloth/Llama-3.2-1B-Instruct@5a8abab4a5d6 · transformers 4.49.0",
+   "vocab": 128256,
+   "note": "128k BPE; mirror",
+   "pairs": {
+    "n": 50,
+    "median": 1.3904761904761904,
+    "p25": 1.1941964285714286,
+    "p75": 1.4615384615384615,
+    "corpus_ratio": 1.3543956043956045,
+    "fa_tokens": 986,
+    "en_tokens": 728,
+    "share_fa_more": 0.98
+   },
+   "gpt4o_fa": 35,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 1.5161290322580645,
+    "p25": 1.3461538461538463,
+    "p75": 1.7,
+    "corpus_ratio": 1.5222479849839903,
+    "fa_tokens": 41361,
+    "en_tokens": 27171,
+    "share_fa_more": 0.9881422924901185
+   }
+  },
+  {
+   "label": "o200k_base",
+   "version": "tiktoken 0.9.0",
+   "vocab": 200019,
+   "note": "tiktoken map: gpt-4o, o1, o3",
+   "pairs": {
+    "n": 50,
+    "median": 1.3923076923076922,
+    "p25": 1.2319004524886878,
+    "p75": 1.5,
+    "corpus_ratio": 1.3820224719101124,
+    "fa_tokens": 984,
+    "en_tokens": 712,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 32,
+   "gpt4o_en": 24,
+   "flores": {
+    "n": 1012,
+    "median": 1.5238095238095237,
+    "p25": 1.3474080267558528,
+    "p75": 1.7083333333333333,
+    "corpus_ratio": 1.5300115357421948,
+    "fa_tokens": 41116,
+    "en_tokens": 26873,
+    "share_fa_more": 0.9891304347826086
+   }
+  },
+  {
+   "label": "gpt-oss",
+   "version": "openai/gpt-oss-20b@6cee5e81ee83 · transformers 4.49.0",
+   "vocab": 200019,
+   "note": "OpenAI open-weight, o200k family; control",
+   "pairs": {
+    "n": 50,
+    "median": 1.3923076923076922,
+    "p25": 1.2319004524886878,
+    "p75": 1.5,
+    "corpus_ratio": 1.3820224719101124,
+    "fa_tokens": 984,
+    "en_tokens": 712,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 32,
+   "gpt4o_en": 24,
+   "flores": {
+    "n": 1012,
+    "median": 1.5238095238095237,
+    "p25": 1.3474080267558528,
+    "p75": 1.7083333333333333,
+    "corpus_ratio": 1.5300115357421948,
+    "fa_tokens": 41116,
+    "en_tokens": 26873,
+    "share_fa_more": 0.9891304347826086
+   }
+  },
+  {
+   "label": "Qwen3.5",
+   "version": "Qwen/Qwen3.5-9B@c20223623576 · transformers 4.49.0",
+   "vocab": 248077,
+   "note": "next generation after Qwen3; Apache-2.0",
+   "pairs": {
+    "n": 50,
+    "median": 1.5,
+    "p25": 1.3097165991902835,
+    "p75": 1.661764705882353,
+    "corpus_ratio": 1.4817232375979112,
+    "fa_tokens": 1135,
+    "en_tokens": 766,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 35,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 1.5931712962962963,
+    "p25": 1.4,
+    "p75": 1.7857142857142858,
+    "corpus_ratio": 1.5934253541590992,
+    "fa_tokens": 43867,
+    "en_tokens": 27530,
+    "share_fa_more": 0.9891304347826086
+   }
+  },
+  {
+   "label": "DeepSeek-V3",
+   "version": "deepseek-ai/DeepSeek-V3@e815299b0bcb · transformers 4.49.0",
+   "vocab": 128815,
+   "note": "128k BPE",
+   "pairs": {
+    "n": 50,
+    "median": 1.6306818181818183,
+    "p25": 1.4308035714285714,
+    "p75": 1.8511904761904763,
+    "corpus_ratio": 1.6443228454172367,
+    "fa_tokens": 1202,
+    "en_tokens": 731,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 38,
+   "gpt4o_en": 26,
+   "flores": {
+    "n": 1012,
+    "median": 1.7857142857142858,
+    "p25": 1.566304347826087,
+    "p75": 2.0,
+    "corpus_ratio": 1.7877297437224955,
+    "fa_tokens": 48342,
+    "en_tokens": 27041,
+    "share_fa_more": 0.9950592885375494
+   }
+  },
+  {
+   "label": "Qwen3",
+   "version": "Qwen/Qwen3-8B@b968826d9c46 · transformers 4.49.0",
+   "vocab": 151669,
+   "note": "151k BPE",
+   "pairs": {
+    "n": 50,
+    "median": 2.2967032967032965,
+    "p25": 1.8960526315789472,
+    "p75": 2.592857142857143,
+    "corpus_ratio": 2.18668407310705,
+    "fa_tokens": 1675,
+    "en_tokens": 766,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 47,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 2.5714285714285716,
+    "p25": 2.2847985347985347,
+    "p75": 2.941993464052288,
+    "corpus_ratio": 2.5771333405742007,
+    "fa_tokens": 71183,
+    "en_tokens": 27621,
+    "share_fa_more": 1.0
+   }
+  },
+  {
+   "label": "cl100k_base",
+   "version": "tiktoken 0.9.0",
+   "vocab": 100277,
+   "note": "tiktoken map: gpt-4, gpt-3.5-turbo",
+   "pairs": {
+    "n": 50,
+    "median": 2.916083916083916,
+    "p25": 2.5903361344537816,
+    "p75": 3.3181818181818183,
+    "corpus_ratio": 2.809065934065934,
+    "fa_tokens": 2045,
+    "en_tokens": 728,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 63,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 3.260064412238325,
+    "p25": 2.882002801120448,
+    "p75": 3.6875,
+    "corpus_ratio": 3.25630932234567,
+    "fa_tokens": 88513,
+    "en_tokens": 27182,
+    "share_fa_more": 1.0
+   }
+  },
+  {
+   "label": "Llama-2",
+   "version": "NousResearch/Llama-2-7b-hf@8efe6c9b9365 · transformers 4.49.0",
+   "vocab": 32000,
+   "note": "32k SentencePiece; mirror",
+   "pairs": {
+    "n": 50,
+    "median": 3.4230769230769234,
+    "p25": 2.896139705882353,
+    "p75": 3.8700980392156863,
+    "corpus_ratio": 3.278708133971292,
+    "fa_tokens": 2741,
+    "en_tokens": 836,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 90,
+   "gpt4o_en": 29,
+   "flores": {
+    "n": 1012,
+    "median": 3.9714285714285715,
+    "p25": 3.5,
+    "p75": 4.518888888888888,
+    "corpus_ratio": 3.961199974304619,
+    "fa_tokens": 123328,
+    "en_tokens": 31134,
+    "share_fa_more": 1.0
+   }
+  },
+  {
+   "label": "gpt2 (r50k)",
+   "version": "tiktoken 0.9.0",
+   "vocab": 50257,
+   "note": "GPT-2 era, historical baseline",
+   "pairs": {
+    "n": 50,
+    "median": 4.607692307692307,
+    "p25": 4.0,
+    "p75": 5.324999999999999,
+    "corpus_ratio": 4.3283173734610125,
+    "fa_tokens": 3164,
+    "en_tokens": 731,
+    "share_fa_more": 1.0
+   },
+   "gpt4o_fa": 98,
+   "gpt4o_en": 27,
+   "flores": {
+    "n": 1012,
+    "median": 5.25,
+    "p25": 4.684210526315789,
+    "p75": 5.938419117647059,
+    "corpus_ratio": 5.250887442685993,
+    "fa_tokens": 142005,
+    "en_tokens": 27044,
+    "share_fa_more": 1.0
+   }
+  }
+ ]
+}

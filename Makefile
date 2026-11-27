@@ -35,6 +35,16 @@ selftest:
 	$(PY) parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you/artifact/mislead_lab.py --selftest > /dev/null
 	$(PY) parts/02-benchmarking/e08-which-model-knows-when-to-abstain/artifact/abstain_report.py --selftest > /dev/null
 	$(PY) parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result/artifact/recompute_check.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e02-which-benchmark-answers-your-question/artifact/real_data.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-005-persian-tokens/artifact/crosscheck.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-005-persian-tokens/artifact/token_view.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e03-what-exactly-are-we-measuring/artifact/real_data.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-007-prompt-injection/artifact/cve_record.py --selftest > /dev/null
+	env -u OLLAMA_HOST $(PY) parts/03-standalone/hmd-007-prompt-injection/artifact/ollama_adapter.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e04-who-decides-the-right-answer/artifact/mmlu_redux_audit.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-009-maps-eta/artifact/nyc_eta.py --selftest > /dev/null
+	$(PY) parts/03-standalone/hmd-009-maps-eta/artifact/make_figures.py --selftest > /dev/null
+	$(PY) parts/02-benchmarking/e05-how-do-you-penalise-a-bluff/artifact/penalty_threshold.py --selftest > /dev/null
 	HOMODYNE_MODEL=mock:echo $(PY) tools/llm.py which > /dev/null
 	$(PY) parts/05-season-02/hmd-011-solar-storm-forecast/artifact/storm_replay.py --selftest > /dev/null
 	$(PY) parts/05-season-02/hmd-013-fake-review-detector/artifact/review_lab.py --selftest > /dev/null

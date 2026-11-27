@@ -186,6 +186,24 @@ html[dir="rtl"] .progress{left:auto;right:0}
 .chart.road circle.jam{fill:#C9C4B8}
 .chart.road text{font-size:26px;font-weight:700}
 .chart.road text.end{font-size:24px;font-weight:400;fill:var(--muted)}
+/* real photos and the real-data figures (beats 1, 7, 13) */
+.duo{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.duo.even{grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.photo{display:block;margin:0;max-width:100%}
+.photo img{display:block;height:520px;width:auto;max-width:100%;border-radius:4px}
+.photo.strip img{height:300px;width:100%;object-fit:cover}
+.photo.map img{height:400px;width:auto;max-width:100%;border:1px solid var(--line)}
+.photo figcaption{margin-top:10px;font-size:20px;line-height:1.35;color:var(--muted)}
+.night .photo figcaption{color:var(--muted-night)}
+.duo .cols{flex-direction:column;gap:36px}
+.chart.hours{max-width:900px}
+.chart.hours .grid{stroke:var(--line);stroke-width:2}
+.chart.hours .band{fill:var(--amber);opacity:.28}
+.chart.hours .med{fill:none;stroke:var(--ink);stroke-width:6;stroke-linejoin:round}
+.chart.hours .dot{fill:var(--amber);stroke:var(--ink);stroke-width:3}
+.chart.hours .ax{font-size:26px;fill:var(--muted)}
+.figcap{margin:8px 0 0;font-size:26px;line-height:1.4;color:var(--muted)}
+.figcap b{color:var(--ink)}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="hmd-mark" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#111214"/><path d="M159.00,267.14 L159.35,263.38 L159.71,259.60 L160.06,255.83 L160.42,252.05 L160.77,248.27 L161.12,244.49 L161.48,240.71 L161.83,241.09 L162.18,241.73 L162.54,242.36 L162.89,243.00 L163.25,243.63 L163.60,244.27 L163.95,244.90 L164.31,245.85 L164.66,246.84 L165.02,247.83 L165.37,248.82 L165.72,249.81 L166.08,250.80 L166.43,251.79 L166.78,249.11 L167.14,245.64 L167.49,242.17 L167.85,238.71 L168.20,235.24 L168.55,231.78 L168.91,228.32 L169.26,229.48 L169.62,232.07 L169.97,234.66 L170.32,237.25 L170.68,239.85 L171.03,242.44 L171.38,245.05 L171.74,245.22 L172.09,244.38 L172.45,243.55 L172.80,242.72 L173.15,241.89 L173.51,241.07 L173.86,240.25 L174.21,239.95 L174.57,239.92 L174.92,239.89 L175.28,239.88 L175.63,239.86 L175.98,239.86 L176.34,239.86 L176.69,238.20 L177.05,235.38 L177.40,232.57 L177.75,229.76 L178.11,226.96 L178.46,224.16 L178.81,221.38 L179.17,221.01 L179.52,222.79 L179.88,224.58 L180.23,226.38 L180.58,228.18 L180.94,229.99 L181.29,231.81 L181.65,231.97 L182.00,230.27 L182.35,228.57 L182.71,226.88 L183.06,225.19 L183.41,223.52 L183.77,221.85 L184.12,220.99 L184.48,221.31 L184.83,221.64 L185.18,221.97 L185.54,222.31 L185.89,222.65 L186.25,223.00 L186.60,223.06 L186.95,222.60 L187.31,222.14 L187.66,221.68 L188.01,221.23 L188.37,220.79 L188.72,220.35 L189.08,220.05 L189.43,220.11 L189.78,220.16 L190.14,220.23 L190.49,220.29 L190.84,220.36 L191.20,220.44 L191.55,220.97 L191.91,222.95 L192.26,224.93 L192.61,226.92 L192.97,228.91 L193.32,230.91 L193.68,232.90 L194.03,234.47 L194.38,234.03 L194.74,233.61 L195.09,233.19 L195.44,232.77 L195.80,232.37 L196.15,231.98 L196.51,231.54 L196.86,230.68 L197.21,229.83 L197.57,228.99 L197.92,228.16 L198.28,227.35 L198.63,226.55 L198.98,225.80 L199.34,225.62 L199.69,225.45 L200.04,225.29 L200.40,225.13 L200.75,224.99 L201.11,224.85 L201.46,224.73 L201.81,228.84 L202.17,232.90 L202.52,236.92 L202.88,240.89 L203.23,244.81 L203.58,248.67 L203.94,252.47 L204.29,252.10 L204.64,251.47 L205.00,250.85 L205.35,250.25 L205.71,249.65 L206.06,249.06 L206.41,248.47 L206.77,247.61 L207.12,246.72 L207.48,245.84 L207.83,244.99 L208.18,244.15 L208.54,243.33 L208.89,242.53 L209.24,240.71 L209.60,238.72 L209.95,236.78 L210.31,234.89 L210.66,233.06 L211.01,231.27 L211.37,229.54 L211.72,230.54 L212.07,232.32 L212.43,234.06 L212.78,235.76 L213.14,237.42 L213.49,239.04 L213.84,240.61 L214.20,241.05 L214.55,241.03 L214.91,241.02 L215.26,241.02 L215.61,241.02 L215.97,241.03 L216.32,241.04 L216.67,241.81 L217.03,242.97 L217.38,244.09 L217.74,245.17 L218.09,246.22 L218.44,247.22 L218.80,248.20 L219.15,248.40 L219.51,248.10 L219.86,247.82 L220.21,247.55 L220.57,247.30 L220.92,247.07 L221.27,246.86 L221.63,247.37 L221.98,248.47 L222.34,249.51 L222.69,250.51 L223.04,251.47 L223.40,252.38 L223.75,253.24 L224.11,253.85 L224.46,254.20 L224.81,254.54 L225.17,254.86 L225.52,255.16 L225.87,255.44 L226.23,255.70 L226.58,255.66 L226.94,255.24 L227.29,254.84 L227.64,254.47 L228.00,254.14 L228.35,253.83 L228.71,253.55 L229.06,253.45 L229.41,253.63 L229.77,253.80 L230.12,253.96 L230.47,254.12 L230.83,254.27 L231.18,254.41 L231.54,254.36 L231.89,253.91 L232.24,253.52 L232.60,253.18 L232.95,252.89 L233.31,252.64 L233.66,252.45 L234.01,252.44 L234.37,252.85 L234.72,253.24 L235.07,253.60 L235.43,253.93 L235.78,254.22 L236.14,254.49 L236.49,254.73 L236.84,254.92 L237.20,255.09 L237.55,255.24 L237.90,255.37 L238.26,255.49 L238.61,255.59 L238.97,255.68 L239.32,255.76 L239.67,255.83 L240.03,255.88 L240.38,255.92 L240.74,255.96 L241.09,255.98 L241.44,255.99 L241.80,255.97 L242.15,255.96 L242.50,255.97 L242.86,255.98 L243.21,255.99 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
 <path d="M159.00,282.42 L159.35,278.63 L159.71,274.84 L160.06,271.05 L160.42,267.25 L160.77,263.46 L161.12,259.66 L161.48,255.85 L161.83,259.86 L162.18,264.34 L162.54,268.83 L162.89,273.30 L163.25,277.76 L163.60,282.22 L163.95,286.66 L164.31,285.59 L164.66,283.76 L165.02,281.92 L165.37,280.07 L165.72,278.21 L166.08,276.33 L166.43,274.44 L166.78,275.67 L167.14,277.55 L167.49,279.41 L167.85,281.26 L168.20,283.10 L168.55,284.91 L168.91,286.72 L169.26,287.27 L169.62,287.44 L169.97,287.58 L170.32,287.71 L170.68,287.83 L171.03,287.92 L171.38,288.00 L171.74,286.83 L172.09,285.11 L172.45,283.39 L172.80,281.64 L173.15,279.89 L173.51,278.12 L173.86,276.33 L174.21,277.06 L174.57,279.15 L174.92,281.22 L175.28,283.29 L175.63,285.35 L175.98,287.39 L176.34,289.43 L176.69,291.51 L177.05,293.64 L177.40,295.75 L177.75,297.86 L178.11,299.96 L178.46,302.06 L178.81,304.15 L179.17,304.34 L179.52,302.84 L179.88,301.34 L180.23,299.84 L180.58,298.34 L180.94,296.84 L181.29,295.35 L181.65,293.12 L182.00,290.07 L182.35,287.02 L182.71,283.98 L183.06,280.94 L183.41,277.92 L183.77,274.90 L184.12,273.64 L184.48,274.89 L184.83,276.16 L185.18,277.43 L185.54,278.72 L185.89,280.02 L186.25,281.33 L186.60,281.08 L186.95,277.95 L187.31,274.83 L187.66,271.73 L188.01,268.65 L188.37,265.58 L188.72,262.52 L189.08,260.67 L189.43,261.69 L189.78,262.73 L190.14,263.79 L190.49,264.86 L190.84,265.94 L191.20,267.05 L191.55,267.51 L191.91,265.84 L192.26,264.20 L192.61,262.56 L192.97,260.95 L193.32,259.35 L193.68,257.76 L194.03,257.04 L194.38,260.31 L194.74,263.58 L195.09,266.86 L195.44,270.15 L195.80,273.43 L196.15,276.70 L196.51,279.45 L196.86,278.30 L197.21,277.16 L197.57,276.03 L197.92,274.90 L198.28,273.79 L198.63,272.68 L198.98,271.66 L199.34,271.73 L199.69,271.80 L200.04,271.87 L200.40,271.94 L200.75,272.01 L201.11,272.07 L201.46,272.12 L201.81,269.02 L202.17,265.94 L202.52,262.90 L202.88,259.90 L203.23,256.93 L203.58,254.00 L203.94,251.10 L204.29,252.62 L204.64,254.37 L205.00,256.08 L205.35,257.76 L205.71,259.41 L206.06,261.01 L206.41,262.57 L206.77,264.37 L207.12,266.17 L207.48,267.91 L207.83,269.60 L208.18,271.24 L208.54,272.83 L208.89,274.37 L209.24,273.09 L209.60,271.23 L209.95,269.40 L210.31,267.60 L210.66,265.83 L211.01,264.08 L211.37,262.37 L211.72,262.10 L212.07,262.26 L212.43,262.40 L212.78,262.52 L213.14,262.62 L213.49,262.71 L213.84,262.78 L214.20,263.24 L214.55,263.85 L214.91,264.42 L215.26,264.96 L215.61,265.46 L215.97,265.94 L216.32,266.38 L216.67,267.82 L217.03,269.75 L217.38,271.58 L217.74,273.33 L218.09,274.99 L218.44,276.57 L218.80,278.06 L219.15,277.84 L219.51,276.49 L219.86,275.18 L220.21,273.91 L220.57,272.67 L220.92,271.47 L221.27,270.31 L221.63,268.49 L221.98,266.12 L222.34,263.86 L222.69,261.71 L223.04,259.67 L223.40,257.73 L223.75,255.89 L224.11,255.37 L224.46,256.21 L224.81,257.00 L225.17,257.74 L225.52,258.44 L225.87,259.09 L226.23,259.70 L226.58,259.86 L226.94,259.46 L227.29,259.09 L227.64,258.73 L228.00,258.40 L228.35,258.09 L228.71,257.80 L229.06,257.67 L229.41,257.77 L229.77,257.86 L230.12,257.94 L230.47,258.02 L230.83,258.08 L231.18,258.13 L231.54,258.07 L231.89,257.80 L232.24,257.55 L232.60,257.32 L232.95,257.11 L233.31,256.92 L233.66,256.75 L234.01,256.69 L234.37,256.93 L234.72,257.14 L235.07,257.31 L235.43,257.45 L235.78,257.56 L236.14,257.63 L236.49,257.61 L236.84,257.27 L237.20,256.97 L237.55,256.71 L237.90,256.50 L238.26,256.31 L238.61,256.16 L238.97,256.07 L239.32,256.16 L239.67,256.22 L240.03,256.25 L240.38,256.27 L240.74,256.27 L241.09,256.25 L241.44,256.22 L241.80,256.14 L242.15,256.09 L242.50,256.05 L242.86,256.02 L243.21,256.01 L243.57,256.00 L243.92,256.00" fill="none" stroke="#F2F0EB" stroke-opacity="0.65" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="butt"/>
@@ -195,7 +213,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <div class="stage">
 <section class="frame night cover" id="cover" aria-label="Cover">
 <div class="top"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="hmd">HMD-009</span></div>
-<main><div class="fit"><p class="series">Algorithm X-Ray</p><h1>How does Google Maps know <em>when</em> you will arrive?</h1><p class="promise">From DeepMind's description to a toy city: four ways to predict arrival time, in one race.</p></div></main>
+<main><div class="fit"><p class="series">Algorithm X-Ray</p><h1>How does Google Maps know <em>when</em> you will arrive?</h1><p class="promise">From DeepMind's description to thousands of real New York taxi trips: four ways to predict arrival time, in one race.</p></div></main>
 <svg class="wave" aria-hidden="true"></svg>
 <div class="bottom"><span>Script, sources and code for this episode:</span><span class="site">homodyne.m2gh.ir</span></div>
 <aside class="notes"><b>Cover</b><p>Hold for two or three seconds after the hook and the channel intro, then → for beat 1.</p></aside>
@@ -205,16 +223,19 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <h1>Your ETA is a forecast of traffic that <em>doesn't exist yet</em>.</h1>
+<div class="duo">
+<figure class="photo"><img src="media/beat01_tehran_traffic_ninara_CC-BY-2.0.jpg" alt="Traffic under elevated roads in Tehran"><figcaption>Photo: Ninara · CC BY 2.0 · faces and plates blurred</figcaption></figure>
 <div class="cols">
 <div><span>Now · 07:30</span><b class="word">Clear</b><p>The street in front of you</p></div>
 <div class="hi"><span>In 10 minutes</span><b class="word">A queue?</b><p>The junction you will reach</p></div>
 </div>
+</div>
 </div></main>
-<footer>Scene: generic city commute · no app data</footer>
-<aside class="notes"><b>Traffic that has not arrived yet</b><p>[B-ROLL CUE] A morning dashboard shot on a city highway (generic footage or our own, no readable plates); a phone on the dashboard showing 22 min. Then a simple animation: the street ahead of the car green, the next junction grey with a "+10 min" label. Cut on "I'm Mohammad…".</p><p>In one line: arrival time is a forecast of the future, not a snapshot of now.</p></aside>
+<footer>Photo: traffic under Tehran's elevated roads, 18 May 2024 · Wikimedia Commons · no app data</footer>
+<aside class="notes"><b>Traffic that has not arrived yet</b><p>[B-ROLL CUE] A real photo of Tehran traffic (Ninara, CC BY 2.0, faces and plates blurred by us; media/CREDITS.md). Then a simple animation: the street ahead of the car green, the next junction grey with a "+10 min" label. Cut on "I'm Mohammad…".</p><p>In one line: arrival time is a forecast of the future, not a snapshot of now.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-2" data-start="49" aria-label="Beat 2">
+<section class="frame paper" id="beat-2" data-start="41" aria-label="Beat 2">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">One number, one decision</p>
@@ -230,7 +251,7 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>One number, one decision</b><p>[CAMERA CHANGE] Medium shot of the narrator. Three everyday-situation cards on the deck: exam at 8 · ride-hail · meeting at 9. No app logos.</p><p>In one line: the ETA is a number we make decisions on every day, so it is worth knowing where it comes from.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-3" data-start="108" aria-label="Beat 3">
+<section class="frame paper" id="beat-3" data-start="87" aria-label="Beat 3">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Guess first</p>
@@ -242,22 +263,22 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <aside class="notes"><b>The source</b><p>[UNEXPECTED STAT] Question first: "Guess: how much better did the new model get?" Pause three seconds. Then the source card (DeepMind blog, 3 Sep 2020) with "over 97% of trips accurate (before)", "up to 50%" and the list of cities: Berlin · Jakarta · São Paulo · Sydney · Tokyo · Washington D.C.</p><p>In one line: Google reports that a new model made ETAs up to fifty percent more accurate in some cities.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-4" data-start="185" aria-label="Beat 4">
+<section class="frame paper" id="beat-4" data-start="154" aria-label="Beat 4">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">History and now</p>
 <h1>Two ingredients: history and <em>now</em>.</h1>
 <div class="cols">
 <div><span>Ingredient 1 · History</span><b class="word">Mon 8:00</b><p>What a normal day looks like</p></div>
-<div class="hi"><span>Ingredient 2 · Live</span><b class="word">Right now</b><p>…but you reach segment 6 in 15 minutes</p></div>
+<div class="hi"><span>Ingredient 2 · Live: aggregate location data</span><b class="word">99 phones in a handcart</b><p>Berlin, 2020: Simon Weckert pulled 99 second-hand phones down the street, and in Google Maps a green street turned red.</p></div>
 </div>
-<p class="tag">DeepMind: live data does not show the traffic 10, 20 or even 50 minutes into a drive</p>
+<p class="tag">…but you reach segment 6 in 15 minutes · DeepMind: live data does not show the traffic 10, 20 or even 50 minutes into a drive</p>
 </div></main>
-<footer>R15 · DeepMind blog, 3 Sep 2020</footer>
-<aside class="notes"><b>History and now</b><p>[GRAPHIC] Two columns. Left: the average Monday traffic curve from 6 to 10 a.m. (ILLUSTRATIVE). Right: a live speed bar for this moment. Under the right column, an amber line: "but you arrive in 15 min".</p><p>In one line: history knows a normal day, now knows today; neither knows the future on its own.</p></aside>
+<footer>R15 · DeepMind blog, 3 Sep 2020 · Google Maps 101, 3 Sep 2020 · simonweckert.com, Google Maps Hacks</footer>
+<aside class="notes"><b>History and now</b><p>[GRAPHIC] Two columns. The second lights up on the Weckert line. Weckert's photos and video carry no free licence (CREDITS.md, "not downloaded"); use only this text card unless you have permission. Bottom line: "but you arrive in 15 min".</p><p>In one line: history knows a normal day, now knows today; neither knows the future on its own.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-5" data-start="252" aria-label="Beat 5">
+<section class="frame paper" id="beat-5" data-start="218" aria-label="Beat 5">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Ingredient 3: neighbours</p>
@@ -266,11 +287,11 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="sub">The queue grows from the bottleneck toward you. R4 in ten minutes is written in R5 and R6 now.</p>
 <p class="caption">If this kind of opening up of everyday algorithms is useful to you, Homodyne opens one every week.</p>
 </div></main>
-<footer>Traffic physics, illustrated</footer>
-<aside class="notes"><b>The traffic wave</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [B-ROLL CUE] an aerial shot (licensed archive or animation) of a queue stretching back from an exit; on the deck: red bars that move one segment further back every few seconds.</p><p>In one line: a street's future is written in its neighbours' present.</p></aside>
+<footer>Traffic physics · an illustration, not data</footer>
+<aside class="notes"><b>The traffic wave</b><p>[CAMERA CHANGE] Cut to a close-up for the CTA. Then [B-ROLL CUE] an aerial shot (our own footage or licensed archive; none yet) of a queue stretching back from an exit; on the deck: red bars that move one segment further back every few seconds.</p><p>In one line: a street's future is written in its neighbours' present.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-6" data-start="319" aria-label="Beat 6">
+<section class="frame paper" id="beat-6" data-start="271" aria-label="Beat 6">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Graph and messages</p>
@@ -288,110 +309,131 @@ html[dir="rtl"] .progress{left:auto;right:0}
 <p class="caption">Message passing: round one from the neighbours, round two from the neighbours' neighbours.</p>
 <p class="tag">Supersegment (DeepMind's term): adjacent segments that share significant traffic volume</p>
 </div></main>
-<footer>R15 · DeepMind blog, 3 Sep 2020 · supersegments</footer>
+<footer>R15 · DeepMind blog, 3 Sep 2020 · supersegments · graph: an illustration</footer>
 <aside class="notes"><b>Graph and messages</b><p>[GRAPHIC] Graph animation: 8 route circles (R1 to R8) + 4 side streets + bottleneck D. Round one: each circle receives a "message" from its direct neighbours (amber arrows). Round two: from the neighbours' neighbours. Below: DeepMind's definition of a supersegment.</p><p>In one line: a graph neural network teaches every road segment to get news from its neighbours.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-7" data-start="394" aria-label="Beat 7">
+<section class="frame paper" id="beat-7" data-start="346" aria-label="Beat 7">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Our small map</p>
-<h1>Toy city: 12 km route · 8 segments · 4 side streets</h1>
-<div dir="ltr"><svg class="chart road" viewBox="0 0 1300 320" role="img" aria-label="Toy road graph: 8 route segments, 4 side streets, a bottleneck">
-<line x1="80" y1="200" x2="220" y2="200"/><line x1="220" y1="200" x2="360" y2="200"/><line x1="360" y1="200" x2="500" y2="200"/><line x1="500" y1="200" x2="640" y2="200"/><line x1="640" y1="200" x2="780" y2="200"/><line x1="780" y1="200" x2="920" y2="200"/><line x1="920" y1="200" x2="1060" y2="200"/><line x1="1060" y1="200" x2="1240" y2="200"/>
-<line x1="360" y1="78" x2="360" y2="200"/><line x1="640" y1="78" x2="640" y2="200"/><line x1="920" y1="78" x2="920" y2="200"/><line x1="1060" y1="78" x2="1060" y2="200"/>
-<circle cx="80" cy="200" r="26"/><circle cx="220" cy="200" r="26"/><circle cx="360" cy="200" r="26"/><circle cx="500" cy="200" r="26"/><circle cx="640" cy="200" r="26"/><circle class="jam" cx="780" cy="200" r="26"/><circle class="jam" cx="920" cy="200" r="26"/><circle class="jam" cx="1060" cy="200" r="26"/><circle class="jam" cx="1240" cy="200" r="26"/>
-<circle cx="360" cy="60" r="18"/><circle cx="640" cy="60" r="18"/><circle cx="920" cy="60" r="18"/><circle cx="1060" cy="60" r="18"/>
-<text x="80" y="264" text-anchor="middle">R1</text><text x="220" y="264" text-anchor="middle">R2</text><text x="360" y="264" text-anchor="middle">R3</text><text x="500" y="264" text-anchor="middle">R4</text><text x="640" y="264" text-anchor="middle">R5</text><text x="780" y="264" text-anchor="middle">R6</text><text x="920" y="264" text-anchor="middle">R7</text><text x="1060" y="264" text-anchor="middle">R8</text><text x="1240" y="264" text-anchor="middle">D</text>
-<text x="388" y="69">S3</text><text x="668" y="69">S5</text><text x="948" y="69">S7</text><text x="1088" y="69">S8</text>
-<text class="end" x="54" y="310">Home</text><text class="end" x="1270" y="310" text-anchor="end">Office, bottleneck</text>
-</svg></div>
-<p class="caption">60 synthetic workdays: days 1 to 45 train, days 46 to 60 test; no model sees the future.</p>
-<p class="tag"><b>ILLUSTRATIVE</b>Synthetic traffic · not Google data · not Tehran data</p>
+<p class="kicker">Real data · New York · Mar–Apr 2026</p>
+<h1>11,809 NYC taxi trips: Midtown → JFK</h1>
+<div class="duo even">
+<figure class="photo map"><img src="media/beat07_nyc_taxi_zones_midtown_jfk.png" alt="NYC TLC taxi zones; Midtown and JFK Airport in amber"><figcaption>TLC taxi zones; amber: Midtown (5 zones) and JFK Airport</figcaption></figure>
+<div>
+<div dir="ltr">
+<svg class="chart hours" viewBox="0 0 1300 420" role="img" aria-label="Midtown to JFK taxi trip minutes by weekday departure hour">
+<line class="grid" x1="90" y1="360" x2="1270" y2="360"/><text class="ax" x="76" y="369" text-anchor="end">0</text>
+<line class="grid" x1="90" y1="258" x2="1270" y2="258"/><text class="ax" x="76" y="267" text-anchor="end">30</text>
+<line class="grid" x1="90" y1="156" x2="1270" y2="156"/><text class="ax" x="76" y="165" text-anchor="end">60</text>
+<line class="grid" x1="90" y1="54" x2="1270" y2="54"/><text class="ax" x="76" y="63" text-anchor="end">90</text>
+<polygon class="band" points="90,235 149,237 208,213 267,176 326,167 385,130 444,110 503,108 562,117 621,116 680,108 739,82 798,62 857,34 916,36 975,53 1034,107 1093,158 1152,178 1211,167 1270,151 1270,243 1211,238 1152,240 1093,233 1034,213 975,172 916,162 857,176 798,180 739,186 680,193 621,207 562,204 503,200 444,210 385,222 326,238 267,247 208,268 149,270 90,270"/>
+<polyline class="med" points="90,258 149,255 208,247 267,222 326,209 385,182 444,165 503,156 562,166 621,166 680,154 739,141 798,121 857,108 916,93 975,112 1034,163 1093,200 1152,216 1211,212 1270,210"/>
+<text class="ax" x="90" y="402" text-anchor="middle">02</text>
+<text class="ax" x="208" y="402" text-anchor="middle">04</text>
+<text class="ax" x="326" y="402" text-anchor="middle">06</text>
+<text class="ax" x="444" y="402" text-anchor="middle">08</text>
+<text class="ax" x="562" y="402" text-anchor="middle">10</text>
+<text class="ax" x="680" y="402" text-anchor="middle">12</text>
+<text class="ax" x="798" y="402" text-anchor="middle">14</text>
+<text class="ax" x="916" y="402" text-anchor="middle">16</text>
+<text class="ax" x="1034" y="402" text-anchor="middle">18</text>
+<text class="ax" x="1152" y="402" text-anchor="middle">20</text>
+<text class="ax" x="1270" y="402" text-anchor="middle">22</text>
+<circle class="dot" cx="149" cy="255" r="10"/>
+<circle class="dot" cx="916" cy="93" r="10"/>
+</svg>
+</div>
+<p class="figcap">Weekday trip minutes by departure hour: line = median, band = 10th to 90th percentile · <b>3 a.m. ≈ 31 · 4 p.m. ≈ 78.5</b></p>
+</div>
+</div>
+<p class="tag"><b>TIME SPLIT</b>Train: 1 Mar to 12 Apr (8,164 trips) · Test: 13 to 30 Apr (3,645 trips)</p>
 </div></main>
-<footer>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic</footer>
-<aside class="notes"><b>Our small map</b><p>[B-ROLL CUE] Screen recording of opening artifact/eta_toy.py and the graph map coming up on the deck. A large, fixed ILLUSTRATIVE label: synthetic traffic, not Google data, not Tehran data. A 60-day timeline: the first 45 days train, the last 15 days test (amber).</p><p>In one line: we built a synthetic city whose traffic spreads backwards, and split training and testing by time.</p></aside>
+<footer>Data: NYC TLC Yellow Taxi Trip Records, Mar–Apr 2026 (downloaded 26 Nov 2026); filtered and aggregated by Homodyne · map: Homodyne</footer>
+<aside class="notes"><b>One real route in New York</b><p>[B-ROLL CUE] The taxi-zone map (our rendering of the official TLC shapefile). On "3 a.m." and "4 p.m." point at the two amber dots on the chart. The bottom strip on "the exam rule". Keep the source line on screen.</p><p>In one line: one route takes from half an hour to nearly eighty minutes depending on the hour; and we split training and testing by time.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-8" data-start="464" aria-label="Beat 8">
+<section class="frame paper" id="beat-8" data-start="415" aria-label="Beat 8">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Guess the ranking</p>
 <h1>Four predictors, one exam</h1>
 <div class="cards">
-<div><b>1 · Constant</b>One average speed for the whole route</div>
-<div><b>2 · Historical</b>Each segment's average at this time on earlier days</div>
-<div><b>3 · Live-now</b>Freeze the speeds at departure for the whole trip</div>
-<div class="hi"><b>4 · Neighbour-aware</b>History + a learned correction from its own and its neighbours' live state (2 rounds)</div>
+<div><b>1 · Constant</b>One number for every hour: 54.2 min</div>
+<div><b>2 · History</b>Median of earlier trips in the same half hour (weekdays and weekends apart)</div>
+<div><b>3 · Live-now</b>Same-route trips that reached JFK in the last 30 minutes</div>
+<div class="hi"><b>4 · Neighbours</b>History + a correction from the route itself and two neighbours in the last 15 minutes: taxis from Midtown that finished a trip, taxis that reached JFK</div>
 </div>
-<p class="tag"><b>ILLUSTRATIVE</b>The correction is learned from the 45 training days only</p>
+<p class="tag">Each method knows only what is known at departure · correction weights from training trips only</p>
 </div></main>
-<footer>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic</footer>
-<aside class="notes"><b>Four predictors</b><p>[CAMERA CHANGE] Close-up of the narrator on "guess". Four cards on the deck, one line each; the fourth card is amber. A 3-second countdown for the guess.</p><p>In one line: constant speed, history, now, and neighbours; four predictors, one exam.</p></aside>
+<footer>Data: NYC TLC Yellow Taxi Trip Records, Mar–Apr 2026 (downloaded 26 Nov 2026); filtered and aggregated by Homodyne</footer>
+<aside class="notes"><b>Four predictors</b><p>[CAMERA CHANGE] Close-up of the narrator on "guess". Four cards, one line each; the fourth card is amber. A 3-second countdown for the guess.</p><p>In one line: constant, history, now, and neighbours; four predictors, one exam on real trips.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-9" data-start="526" aria-label="Beat 9">
+<section class="frame paper" id="beat-9" data-start="482" aria-label="Beat 9">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Mean absolute error, in minutes</p>
+<p class="kicker">Mean absolute error, in minutes · 3,645 real test trips</p>
 <div class="bars">
-<div><span>Constant</span><i style="--v:100"></i><span>3.43</span></div>
-<div><span>Historical</span><i style="--v:50"></i><span>1.72</span></div>
-<div><span>Live-now</span><i style="--v:33"></i><span>1.13</span></div>
-<div class="hi"><span>Neighbour-aware</span><i style="--v:16"></i><span>0.56</span></div>
+<div><span>Constant</span><i style="--v:100"></i><span>16.1</span></div>
+<div><span>History</span><i style="--v:62"></i><span>10.0</span></div>
+<div><span>Live-now</span><i style="--v:65"></i><span>10.5</span></div>
+<div class="hi"><span>Neighbours</span><i style="--v:52"></i><span>8.4</span></div>
 </div>
-<p class="tag"><b>ILLUSTRATIVE</b>Rush 07:15 to 08:45: 3.16 · 2.44 · 1.84 · 0.85 · neighbour-aware best in 20 of 20 extra seeds</p>
+<p class="sub">Ablation: history 10.0 · + own-route live 8.7 · + two neighbours 8.6 · all three 8.4 → most of the gain is history plus fresh news; the two kinds of news overlap</p>
+<p class="tag">Weekday afternoons, 13 to 18: 24.7 · 12.5 · 12.1 · 9.9 · neighbours best in 6 of 6 runs (3 split days × 2 directions; all from the same two months, not independent) · history beat live-now in 5 of 6</p>
 </div></main>
-<footer>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic · 555 test trips · mean trip 15.8 min</footer>
-<aside class="notes"><b>The result</b><p>[CAMERA CHANGE] Close-up of the narrator for the re-hook line; then a recording of the real run of python3 artifact/eta_toy.py; then the bar chart on the deck. [SOUND EFFECT] A short sound as the last bar appears. [UNEXPECTED STAT] The card "20 of 20 extra seeds: neighbour-aware best". ILLUSTRATIVE label.</p><p>In one line: in our synthetic city, listening to the neighbours halved the error.</p></aside>
+<footer>Data: NYC TLC Yellow Taxi Trip Records, Mar–Apr 2026 (downloaded 26 Nov 2026); filtered and aggregated by Homodyne · mean test trip 63.1 min</footer>
+<aside class="notes"><b>The result</b><p>[CAMERA CHANGE] Close-up of the narrator for the re-hook line; then a recording of the real run of python3 artifact/nyc_eta.py race; then the bar chart. [SOUND EFFECT] A short sound on the last bar. [UNEXPECTED STAT] "6 of 6 runs: neighbours best". On the line "most of this gain…" light the ablation line (python3 artifact/nyc_eta.py race --ablation).</p><p>In one line: on real trips, combining history with fresh news, from the route itself and from the neighbours, cut the error by about a sixth; "now" on its own was even worse than history.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-10" data-start="614" aria-label="Beat 10">
+<section class="frame paper" id="beat-10" data-start="566" aria-label="Beat 10">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
-<p class="kicker">Two mornings, two mistakes</p>
+<p class="kicker">Two afternoons, two mistakes · live-now on weekday test trips</p>
 <div class="cols">
-<div><span>07:45 · Jam building</span><b>24.0 <small>min actual</small></b><p>Live-now 18.1 · historical 21.1 · neighbour-aware 20.6 · constant 16.6</p></div>
-<div class="hi"><span>08:30 · Jam clearing</span><b>22.6 <small>min actual</small></b><p>Live-now 29.9 (worse than constant at 16.6) · neighbour-aware 24.8</p></div>
+<div><span>14:00 to 16:00 · Jam building</span><b>12 <small>min too short</small></b><p>Mean of 599 trips · history 11.7 short · neighbours 6.8 short</p></div>
+<div class="hi"><span>18:00 to 20:00 · Jam clearing</span><b>20 <small>min too long</small></b><p>Mean of 168 trips · sample trip, Wed 29 Apr 18:11: actual 62.5 · live-now 83.7 · constant 54.2 · neighbours 62.3</p></div>
 </div>
-<p class="tag"><b>ILLUSTRATIVE</b>"Now" goes wrong in both directions</p>
+<p class="tag">"Now" is one step behind: too short, then too long · sample trip = the one whose live-now error is closest to that window's median</p>
 </div></main>
-<footer>artifact/eta_toy.py · seed 2026 · ILLUSTRATIVE synthetic traffic · test days 54 and 60</footer>
-<aside class="notes"><b>Two mornings, two mistakes</b><p>[CAMERA CHANGE] Cut to a medium shot. Then [GRAPHIC] two cards side by side: 7:45 (jam building) and 8:30 (jam clearing); the "actual" number in amber. ILLUSTRATIVE.</p><p>In one line: "now" sometimes misses the traffic ahead and sometimes sees traffic that is already gone.</p></aside>
+<footer>Data: NYC TLC Yellow Taxi Trip Records, Mar–Apr 2026 (downloaded 26 Nov 2026); filtered and aggregated by Homodyne</footer>
+<aside class="notes"><b>Two afternoons, two mistakes</b><p>[CAMERA CHANGE] Cut to a medium shot. Then [GRAPHIC] two cards: 2 to 4 p.m. (jam building) and 6 to 8 p.m. (jam clearing); the 29 April sample trip under the second card.</p><p>In one line: "now" sometimes misses the traffic ahead and sometimes sees traffic that is already gone.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-11" data-start="702" aria-label="Beat 11">
+<section class="frame paper" id="beat-11" data-start="650" aria-label="Beat 11">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Healthy scepticism</p>
-<h1>We built a world where neighbours matter. Of course they <em>won</em>.</h1>
+<h1>Real trips, simple methods: what this race can and <em>cannot</em> tell.</h1>
 <div class="cols">
-<div><span>Our toy</span><p>Shows why the idea can work</p></div>
-<div class="hi"><span>The real system</span><p>Measured on real trips · GNNs are sensitive to the training curriculum · MetaGradients adapt the learning rate</p></div>
+<div><span>Our race</span><p>One route, one city, two months · "neighbours" = two groups of taxis, not a street map · history ran short on 73% of test trips (late April was heavier)</p></div>
+<div class="hi"><span>The real system</span><p>Measured on their own real trips · GNNs are sensitive to the training curriculum · MetaGradients adapt the learning rate</p></div>
 </div>
 </div></main>
-<footer>R15 · DeepMind blog, 3 Sep 2020</footer>
-<aside class="notes"><b>Healthy scepticism</b><p>[CAMERA CHANGE] A still close shot, calm tone. Two columns on the deck: our toy / the real system; under the second column: GNN sensitivity to the training curriculum and MetaGradients to adapt the learning rate (DeepMind).</p><p>In one line: the toy shows the mechanism; the real number comes from measuring real trips.</p></aside>
+<footer>R15 · DeepMind blog, 3 Sep 2020 · Data: NYC TLC Yellow Taxi Trip Records, Mar–Apr 2026 (downloaded 26 Nov 2026); filtered and aggregated by Homodyne</footer>
+<aside class="notes"><b>Healthy scepticism</b><p>[CAMERA CHANGE] A still close shot, calm tone. Two columns: our race / the real system.</p><p>In one line: our race shows the mechanism on real data; only Google's own measurement shows how well Google's system works.</p></aside>
 </section>
 
-<section class="frame night" id="beat-12" data-start="764" aria-label="Beat 12">
+<section class="frame night" id="beat-12" data-start="706" aria-label="Beat 12">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Claim boundary</p>
 <div class="boundary">
-<div><b>This shows</b>An ETA is a forecast. Live speed alone can mislead in both directions. In a synthetic world, information from the neighbours cut the error.</div>
-<div class="no"><b>This does not show</b>How Google Maps works today (the description is from 2020) · anything about Tehran traffic · the "half the error" number outside our toy</div>
+<div><b>This shows</b>An ETA is a forecast. On real New York taxi trips, "live-now" (just-arrived trips) alone misled in both directions. Combining history with fresh news, even with a simple method, cut the error.</div>
+<div class="no"><b>This does not show</b>How Google Maps works today (the description is from 2020) · that the neighbours' news, apart from the route's own, carries a large share · anything about Tehran traffic · the race numbers outside this route and these two months, or for any real app</div>
 </div>
 </div></main>
 <footer>HMD-009 claim boundary</footer>
-<aside class="notes"><b>Claim boundary</b><p>[GRAPHIC] The claim-boundary card on the deck; music low.</p><p>In one line: we showed the mechanism, not the real performance of a particular app or a particular city.</p></aside>
+<aside class="notes"><b>Claim boundary</b><p>[GRAPHIC] The claim-boundary card on the deck; music low.</p><p>In one line: we showed the mechanism on real data for one route, not the real performance of a particular app or a particular city.</p></aside>
 </section>
 
-<section class="frame night" id="beat-13" data-start="805" aria-label="Beat 13">
+<section class="frame night" id="beat-13" data-start="752" aria-label="Beat 13">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">The answer</p>
 <h1>ETA = history + live + <em>neighbours</em> → a forecast</h1>
+<figure class="photo strip"><img src="media/beat13_tehran_highway_night_rezvani_CC-BY-3.0.jpg" alt="A Tehran highway at night, light trails"><figcaption>Photo: Behrooz Rezvani · CC BY 3.0 · Wikimedia Commons</figcaption></figure>
 <div class="steps">
 <div><b>Days 1 to 5</b>When you leave, note the app's ETA</div>
 <div><b>On arrival</b>Note the real time</div>
@@ -399,10 +441,10 @@ html[dir="rtl"] .progress{left:auto;right:0}
 </div>
 </div></main>
 <footer>Answer · HMD-009</footer>
-<aside class="notes"><b>The answer</b><p>[B-ROLL CUE] Back to the same dashboard shot from beat 1; this time three small labels on the image: history · live · neighbours. The five-day exercise card.</p><p>In one line: the ETA combines history, now and the neighbours, and it is still a forecast.</p></aside>
+<aside class="notes"><b>The answer</b><p>[B-ROLL CUE] A night photo of a Tehran highway (Behrooz Rezvani, CC BY 3.0); three small labels on the image: history · live · neighbours. The five-day exercise card.</p><p>In one line: the ETA combines history, now and the neighbours, and it is still a forecast.</p></aside>
 </section>
 
-<section class="frame paper" id="beat-14" data-start="853" aria-label="Beat 14">
+<section class="frame paper" id="beat-14" data-start="793" aria-label="Beat 14">
 <header class="chrome"><svg class="mark" aria-hidden="true"><use href="#hmd-mark"/></svg><span class="brand">Homodyne</span><span class="series">Algorithm X-Ray</span><span class="count"></span></header>
 <main><div class="fit">
 <p class="kicker">Next · HMD-010</p>

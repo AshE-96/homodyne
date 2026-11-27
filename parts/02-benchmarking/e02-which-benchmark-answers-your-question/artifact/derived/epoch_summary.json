@@ -1,0 +1,29 @@
+{
+  "rule": "ordered pairs (A,B) on GPQA Diamond + SimpleQA Verified + FrontierMath Tiers 1-3 v2 (score and stderr present): A ahead on SimpleQA Verified by > 3 combined SE and B ahead on FrontierMath by > 3; pick the closest GPQA Diamond scores. Ours, not Epoch's.",
+  "models_with_all_three": 71,
+  "unordered_pairs": 2485,
+  "pairs_passing_rule": 188,
+  "selected": {
+    "A": "deepseek-v4-pro_max",
+    "B": "claude-haiku-5-5_max"
+  },
+  "gap_A_minus_B_points": {
+    "gpqa_diamond": 0.0,
+    "simpleqa_verified": 23.2,
+    "frontiermath_tiers_1_3_v2": -29.8,
+    "chess_puzzles": -36.0
+  },
+  "z_A_minus_B": {
+    "simpleqa_verified": 11.2,
+    "frontiermath_tiers_1_3_v2": -7.6,
+    "chess_puzzles": -5.7
+  },
+  "saturation": {
+    "benchmark": "otis_mock_aime_2024_2025",
+    "models": 322,
+    "perfect": 19,
+    "released_since": "2026-07-01",
+    "models_since": 65,
+    "perfect_since": 16
+  }
+}
