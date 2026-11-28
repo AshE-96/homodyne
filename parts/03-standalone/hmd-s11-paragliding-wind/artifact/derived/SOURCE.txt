@@ -1,0 +1,63 @@
+HMD-S11 · derived data. Only point values decoded by our own code and a few airport reports; no raw GRIB is kept.
+
+eval-2025-04.json  (forecast vs observation, 1–30 April 2025; 60 cases)
+  sha256 1ce090a93ce3ef4f096cb236457e2c506e7ebc4e7529325cc525a584dd310403
+  made by  python3 -I artifact/wind_eval.py --start 2025-04-01 --days 30   on 28 Nov 2026 (~18 min), then --restat
+  runs     ECMWF IFS 0.25° oper and AIFS Single 0.25°, 00Z run of day D-1, steps 30 and 36 h (valid 06Z and 12Z of day D)
+           https://storage.googleapis.com/ecmwf-open-data/<YYYYMMDD>/00z/{ifs,aifs-single}/0p25/oper/<YYYYMMDD>000000-<step>h-oper-fc.grib2
+           (cloud mirror of ECMWF open data; the AWS mirror ecmwf-forecasts.s3.eu-central-1.amazonaws.com holds the same files
+           but answered 503 SlowDown to most requests on 28 Nov 2026; data.ecmwf.int keeps only the last few days)
+  fields   10u, 10v, 2t, 2d (both models); 10fg = 10 m wind gust (IFS only; AIFS has no gust field). In these files 10fg is
+           the maximum over the last 1 hour before the step (GRIB2 template 4.8, length 1 h at steps 30 and 36; 6 h at step 150)
+  points   Tehran Mehrabad OIII 35.6857 N 51.3036 E (IEM station metadata); Shahran takeoff 35.8076 N 51.2851 E
+  obs      METAR OIII from the Iowa Environmental Mesonet ASOS/METAR archive (mesonet.agron.iastate.edu/cgi-bin/request/asos.py),
+           31 Mar – 1 May 2025: mean wind = report within 20 min of the valid time; peak = highest gust (or mean wind when no
+           gust group) in the 3 h before
+  method   bilinear interpolation from the four 0.25° grid points (CCSDS-packed GRIB2 decoded by grib2_point.py, copied
+           from HMD-S06); wind speed from u, v; bias / MAE / RMSE; lag-1 autocorrelation and effective sample size
+           n(1-r)/(1+r) (negative r treated as 0; consecutive cases are 6 or 18 h apart); |IFS error| - |AIFS error| with
+           sd/sqrt(n_eff), n_eff from the lag-1 autocorrelation of that difference series itself (r = 0.22, n_eff 38): 0.17 ± 0.41
+           km/h (one standard error). Restat 28 Nov 2026 after review (before: n_eff borrowed from the IFS error series, ± 0.38)
+
+case-2025-04-17.json  (one afternoon in detail)
+  sha256 d839bad2ec361783609cfdf11da9795197248f3093d850161ee05efbc1e55c4f
+  made by  python3 -I artifact/wind_eval.py --case 2025-04-17
+  content  METAR OIII 06–15Z on 17 Apr 2025 (raw text), IFS 10 m wind, 10fg and mucape from the 16 Apr 00Z run (steps 30–39)
+           and the 17 Apr 00Z run (steps 6–15), AIFS 10 m wind at the 6-hourly steps
+
+latest.json / replay-2026-11-28.json  (the "tomorrow" view used for rehearsal: forecast for 29 Nov 2026, Tehran)
+  sha256 3ec4806c13531addab58eacf53367959cb9e4270eea3b3f288e057a018c13099   (identical on 28 Nov 2026; latest.json is overwritten by every live run)
+  made by  python3 -I artifact/wind_live.py   on 28 Nov 2026, 14:06 UTC
+  runs     ECMWF IFS 0.25° 2026-11-28 00Z, steps 0, 27–39 (3-hourly); AIFS Single 0.25° 00Z, steps 0, 24–42 (6-hourly)
+             https://data.ecmwf.int/forecasts/20261128/00z/{ifs,aifs-single}/0p25/oper/...
+           NOAA GFS 0.25° 2026-11-28 06Z, f021–f033 hourly, NOMADS grib filter, subregion 35–36.5 N, 50.5–52 E
+             https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl  (HGT TMP UGRD VGRD RH at 900–500 hPa; 2 m T and dew point,
+             10 m wind, surface GUST, CAPE, HPBL, SHTFL, PRES, HGT)
+  fields   ECMWF: 10u 10v 10fg 2t 2d sp mucape z(step 0) and gh t u v r|q at 1000 925 850 700 600 500 hPa
+  metar    IEM: 0 OIII reports in the 72 h before 28 Nov 2026 14:06 UTC; aviationweather.gov api/data/metar OIII,OIIE: HTTP 204
+  method   model ground = z / g at step 0 (IFS, AIFS) or surface HGT (GFS); wind at the real takeoff height = u, v interpolated
+           in height between the model's 10 m point and the pressure levels at least 50 m above its ground; gust at the takeoff =
+           that wind + (model gust - model 10 m wind); thermal top by the dry-parcel method (none when the first level is more
+           than 800 m above the model ground); cloud base = ground + 125 m x (T - Td); w* = (g/T * H/(rho cp) * BL depth)^(1/3)
+           from GFS SHTFL and HPBL
+
+Places
+  Shahran takeoff 35.8076 N, 51.2851 E: FlyAPPI take-off 16923 "Shahran (Peak)" and OpenStreetMap node 10207682763
+  (35.80701, 51.28557, "سایت پرواز گلایدر شهران", © OpenStreetMap contributors, ODbL); height 2,325 m from SRTM 30 m via
+  api.opentopodata.org (public domain). Terrain falls away to the E, SE, S, W and NW: several takeoffs are possible; the club
+  decides. [VERIFY with the club]
+  Mehrabad OIII field elevation 1,208 m (3,962 ft, aviation references); SRTM 90 m at the IEM point: 1,183 m.
+
+Licences
+  ECMWF open data: CC BY 4.0. Attribution: "© ECMWF, CC BY 4.0; processed by Homodyne" (point interpolation, unit conversion,
+  height interpolation). NOAA/NWS: public domain (weather.gov/disclaimer). IEM: "in the public domain ... may be used freely by
+  anyone for any lawful purpose" (mesonet.agron.iastate.edu/disclaimer.php); METAR text is an official aviation report.
+  These derived numbers may be redistributed with that attribution.
+
+Checks (python3 -I artifact/wind_live.py --selftest, keys unset, no network, all ok)
+  mph/kt/m-s conversions and the USHPA lines; u/v <-> speed/direction round trip; head/crosswind; gust factor and spread;
+  height interpolation with levels below the model ground dropped; time interpolation; dry-parcel thermal top, inversion and
+  "too coarse" cases; cloud base; Deardorff w*; indicator cases (inside, no, tailwind, missing inputs); bias/MAE/RMSE;
+  effective n; GRIB2 template 5.0 on a synthetic field; the saved evaluation recomputes from its own pairs.
+  (The CCSDS / template 5.42 decoder is HMD-S06's and is round-trip tested in HMD-S06's selftest.)
+What this does NOT show: how the forecast does on the hill itself. No wind has been measured at the takeoff yet ([RUN]).

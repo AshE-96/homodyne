@@ -1,0 +1,13 @@
+HMD-S07 · SYNTHETIC fixture. Nothing here is real traffic data.
+
+SYNTHETIC_chalus_hourly.csv — made by `python3 -I artifact/chalus_fixture.py` (seed 1405), 28 Nov 2026 (7 Azar 1405).
+  sha256 30c1a19631d6669a…  ·  35,088 rows = 731 days (1 Esfand 1403 … 30 Bahman 1405 = 19 Feb 2025 … 19 Feb 2027) × 24 h × 2 directions
+  columns  date (Gregorian) · jalali · hour · dir (N = Karaj→Chalus, S = Chalus→Karaj) · count (veh/h) · speed (km/h)
+           · closed (1 = simulated police one-way) · synthetic (always 1)
+  first line of the file: "# SYNTHETIC FIXTURE … NOT real 141.ir data"; chalus_prep.py refuses it as input,
+  and chalus_live.py draws a MOCK watermark on every view built from it.
+What is real   the calendar: Jalali dates (computed) and official holidays (artifact/holidays.csv, [VERIFY]).
+What is made up every count, speed, queue, capacity (1,300 veh/h per lane), free speed (72 km/h) and closure.
+Purpose        rehearsal of the live page, the selftest, and showing the METHOD on camera with the watermark visible.
+               Never quote a number from it as a finding about the Chalus road.
+Licence        our own work; CC BY 4.0 like the rest of the episode's code and data.

@@ -1,0 +1,223 @@
+<!-- HMD-S07 · deck source. Build: python3 scripts/build-decks.py --only hmd-s07  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 3, 5, 6, 9, 10 and 12 carry NOT RUN YET until the owner's 141.ir data has been run through artifact/chalus_live.py;
+     replace each «—» with artifact/data/results-real.json. No number from the SYNTHETIC fixture ever goes on this deck.
+     Maps and charts are drawn by us; no third-party images. -->
+
+<style>
+/* HMD-S07: road schematic (3), ring (4), empty heatmap (5), race table (9), horizon chart (11), window bars (12) */
+.chart.road,.chart.ring,.chart.hz,.chart.heat,.chart.win{max-width:1560px;margin-inline:auto}
+.chart text{font-size:28px}.chart .sm{font-size:23px;fill:#6E6A63}
+.night .chart text{fill:#E7E3DA}.night .chart .sm{fill:#A9A296}
+.chart .rd{fill:none;stroke:#8F8C84;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}
+.chart .cnt{fill:#E8A33D}.chart .tun{fill:#3A3B3F}.chart .town{fill:#E7E3DA;stroke:#6E6A63;stroke-width:3}
+.chart .car{fill:#A9A296}.chart .jam{fill:#E8A33D}.chart .circ{fill:none;stroke:#3A3B3F;stroke-width:3;stroke-dasharray:6 8}
+.chart .cell{fill:#2A2B2F}.chart .hatch{fill:url(#hx)}.chart .ax{stroke:#8F8C84;stroke-width:2}
+.chart .ha{stroke:#A9A296;stroke-width:5;fill:none}.chart .ar{stroke:#6E6A63;stroke-width:4;fill:none;stroke-dasharray:10 8}
+.chart .dc{stroke:#E8A33D;stroke-width:6;fill:none}.chart .dot{fill:#E8A33D}.chart .dg{fill:#A9A296}
+.chart .bar{fill:#3A3B3F}.chart .bar.hi{fill:none;stroke:#E8A33D;stroke-width:5}
+table.race{border-collapse:collapse;font-size:30px;width:1500px;font-variant-numeric:tabular-nums}
+table.race th,table.race td{padding:12px 20px;border-bottom:2px solid var(--line-night,#3A3B3F);text-align:start}
+table.race th{font-size:24px;font-weight:400;color:var(--muted-night,#A9A296)}
+table.race td.n{text-align:center;color:var(--muted-night,#A9A296)}
+table.race tr.hi td:first-child{color:var(--amber,#E8A33D)}
+</style>
+
+<section class="cover">
+<h1><t-fa>چالوس کی <em>خلوت</em> است؟</t-fa><t-en>When is the Chalus road <em>actually empty</em>?</t-en></h1>
+<p class="promise"><t-fa>دادهٔ ترددشمار رسمی، چهار پیش‌بین، نوروزی که هیچ مدلی ندیده، و ابزاری برای انتخاب ساعت حرکت.</t-fa><t-en>Official traffic-counter data, four forecasters, a Nowruz no model has seen, and a tool to pick when to leave.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>جمعه ۲۰ شهریور ۱۴۰۵ · پل زنگوله</t-fa><t-en>Friday 20 Shahrivar 1405 (11 Sep 2026) · Pol-e Zangooleh</t-en></p>
+<div class="steps">
+<div><b>14:00</b><t-fa>ورود به مسیر چالوس از ابتدای آزادراه تهران–شمال ممنوع</t-fa><t-en>No entry to the Chalus road from the start of the Tehran–North freeway</t-en></div>
+<div class="hi"><b>15:00</b><t-fa>از پل زنگوله تا دهانهٔ شمالی تونل البرز، رو به چالوس: <em>کاملاً بسته</em></t-fa><t-en>Pol-e Zangooleh to the north portal of the Alborz tunnel, toward Chalus: <em>fully closed</em></t-en></div>
+<div><b>16:00</b><t-fa>از مرزن‌آباد رو به تهران یک‌طرفه</t-fa><t-en>One-way from Marzanabad toward Tehran</t-en></div>
+<div><b>24:00</b><t-fa>پایان طرح؛ دوباره دوطرفه</t-fa><t-en>Plan ends; two-way again</t-en></div>
+</div>
+<p class="caption"><t-fa>روی کاغذ، خلوت‌ترین ساعت هفته. <strong>خلوت نیست؛ بسته است.</strong></t-fa><t-en>On paper, the quietest hour of the week. <strong>It is not quiet; it is closed.</strong></t-en></p>
+<footer><t-fa>R05 · پلیس راه مازندران به نقل ایرنا · آفتاب‌نیوز ۱۷ شهریور ۱۴۰۵</t-fa><t-en>R05 · Mazandaran traffic police via IRNA · Aftab News, 8 Sep 2026</t-en></footer>
+<aside class="notes"><t-fa><b>جمعه، ساعت سه، پل زنگوله</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» جملهٔ ترددشمار شرطی است («اگه یه ترددشمار وسط همین تیکه باشه»)؛ نگو «ترددشمار صفر نشان داد».</p><p>در یک جمله: ساعتی که ترددشمار تقریباً هیچ ماشینی نمی‌شمرد ممکن است بسته‌ترین ساعت هفته باشد، نه خلوت‌ترین.</p></t-fa><t-en><b>Friday, 3 pm, Pol-e Zangooleh</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. The counter line is conditional ("if a counter sits in this stretch"); do not say "the counter showed zero".</p><p>In one line: the hour a counter sees almost no cars may be the most closed hour of the week, not the quietest.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>همان سؤال، افق دیگر</t-fa><t-en>Same question, another horizon</t-en></p>
+<div class="cards">
+<div><b><t-fa>HMD-009 · مسیریاب</t-fa><t-en>HMD-009 · route planner</t-en></b><t-fa>«نیم ساعت دیگه، این خیابون؟» خبرِ ترافیکِ الان خیلی کمک می‌کند.</t-fa><t-en>"This street, in 30 minutes?" Live traffic helps a lot.</t-en></div>
+<div class="hi"><b><t-fa>HMD-S07 · جاده</t-fa><t-en>HMD-S07 · the road</t-en></b><t-fa>«پنجشنبهٔ آینده، ساعت شش صبح؟» خبرِ الان به کاری نمی‌آید؛ <em>فقط تقویم</em> داریم.</t-fa><t-en>"Next Thursday, 6 am?" Live traffic is useless; <em>all we have is the calendar</em>.</t-en></div>
+</div>
+<footer><t-fa>HMD-009 · HMD-S06</t-fa><t-en>HMD-009 · HMD-S06</t-en></footer>
+<aside class="notes"><t-fa><b>از دماوند تا چالوس</b><p>[B-ROLL CUE] پل از S06 («پیش‌بینی‌ای که با آن سفر برنامه می‌ریزی») و یادآوری HMD-009 بی‌تکرار محتوایش (گراف و همسایه‌ها را دوباره توضیح نده).</p><p>در یک جمله: این بار پیش‌بینی چند روز جلوتر است، پس به‌جای خبرِ الان باید از تقویم کمک گرفت.</p></t-fa><t-en><b>From Damavand to Chalus</b><p>[B-ROLL CUE] Bridge from S06 ("a forecast you plan a trip on") and a nod to HMD-009 without repeating it (no graphs or neighbours again).</p><p>In one line: this forecast is days ahead, so the calendar replaces live traffic.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="90">
+<p class="kicker"><t-fa>منبع · ترددشمارهای جادهٔ ۵۹</t-fa><t-en>Source · counters on Road 59</t-en></p>
+<div dir="ltr"><svg class="chart road" viewBox="0 0 1560 380" role="img"><title><t-fa>طرح سادهٔ جادهٔ کرج–چالوس با جای تقریبی ترددشمارها</t-fa><t-en>Schematic of the Karaj–Chalus road with approximate counter places</t-en></title>
+<polyline class="rd" points="80,300 330,270 560,190 760,120 900,110 1060,170 1260,210 1480,90"/>
+<rect class="tun" x="870" y="88" width="70" height="44" rx="6"/>
+<circle class="town" cx="80" cy="300" r="16"/><circle class="town" cx="1480" cy="90" r="16"/><circle class="town" cx="1260" cy="210" r="12"/><circle class="town" cx="560" cy="190" r="10"/>
+<circle class="cnt" cx="200" cy="285" r="13"/><circle class="cnt" cx="700" cy="140" r="13"/><circle class="cnt" cx="990" cy="140" r="13"/><circle class="cnt" cx="1200" cy="200" r="13"/>
+<text x="80" y="350" text-anchor="middle"><t-fa>کرج</t-fa><t-en>Karaj</t-en></text>
+<text x="560" y="240" text-anchor="middle"><t-fa>پل زنگوله</t-fa><t-en>Pol-e Zangooleh</t-en></text>
+<text x="905" y="70" text-anchor="middle"><t-fa>تونل کندوان</t-fa><t-en>Kandovan tunnel</t-en></text>
+<text x="1260" y="260" text-anchor="middle"><t-fa>مرزن‌آباد</t-fa><t-en>Marzanabad</t-en></text>
+<text x="1480" y="140" text-anchor="middle"><t-fa>چالوس</t-fa><t-en>Chalus</t-en></text>
+<text class="sm" x="80" y="40"><t-fa>● ترددشمار (جای تقریبی؛ کدها از ۱۴۱) · حدود ۱۶۰ کیلومتر · طرح، نه نقشه</t-fa><t-en>● counter (approximate place; codes from 141) · about 160 km · schematic, not a map</t-en></text>
+</svg></div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>دادهٔ ساعتیِ هر جهت · پشت ورود · دانلود محمد: — ماه، — ترددشمار · دقت میانگین «حدود ۹۰٪» به گفتهٔ خود سامانه [VERIFY]</t-fa><t-en>Hourly data per direction · behind a login · owner's download: — months, — counters · mean accuracy "about 90%" per the site itself [VERIFY]</t-en></p>
+<footer><t-fa>R01 · <span class="ltr">141.ir</span> · R10 (طول جاده) · R03 (حلقه‌های زیر آسفالت)</t-fa><t-en>R01 · <span class="ltr">141.ir</span> · R10 (road length) · R03 (loop detectors)</t-en></footer>
+<aside class="notes"><t-fa><b>منبع: ترددشمارهای ۱۴۱</b><p>[GRAPHIC] صفحهٔ ورود ۱۴۱ را فقط بی‌اطلاعات شخصی ضبط کن. «آخر هر ماه» و «حدود ۹۰٪» از متن صفحه است که ۱۳ آبان ۱۴۰۵ خوانده شد؛ بعد از ورود دوباره بخوان.</p><p>در یک جمله: دادهٔ ساعتیِ هر جهت از ترددشمارهای رسمی می‌آید؛ پشت ورود است و خودش خطا دارد.</p></t-fa><t-en><b>Source: the 141 counters</b><p>[GRAPHIC] Record the 141 login page only without personal data. "End of each month" and "about 90%" are from the page text read on 4 Nov 2026; re-read after logging in.</p><p>In one line: hourly per-direction data from the official counters; behind a login, and imperfect.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-4" data-start="147">
+<p class="kicker"><t-fa>شمار کم یعنی خلوت؟</t-fa><t-en>Few cars counted means quiet?</t-en></p>
+<div class="cols">
+<div><span><t-fa>شمار کم + سرعت زیاد</t-fa><t-en>few cars + high speed</t-en></span><b class="word"><t-fa>جادهٔ خالی</t-fa><t-en>Empty road</t-en></b></div>
+<div class="hi"><span><t-fa>شمار کم + سرعت کم</t-fa><t-en>few cars + low speed</t-en></span><b class="word"><t-fa>صف</t-fa><t-en>A queue</t-en></b></div>
+<div><span><t-fa>شمار ≈ صفر + جادهٔ بسته</t-fa><t-en>≈ zero + road closed</t-en></span><b class="word"><t-fa>سانسور</t-fa><t-en>Censored</t-en></b></div>
+</div>
+<div dir="ltr"><svg class="chart ring" viewBox="0 0 1560 300" role="img"><title><t-fa>۲۲ خودرو روی دایره، یک گره</t-fa><t-en>22 cars on a ring, one jam</t-en></title>
+<circle class="circ" cx="780" cy="150" r="120"/>
+<g id="cars"><circle class="car" cx="900" cy="150" r="11"/><circle class="car" cx="891" cy="195" r="11"/><circle class="car" cx="865" cy="235" r="11"/><circle class="car" cx="826" cy="261" r="11"/><circle class="car" cx="780" cy="270" r="11"/><circle class="car" cx="734" cy="261" r="11"/><circle class="car" cx="695" cy="235" r="11"/><circle class="car" cx="669" cy="195" r="11"/><circle class="car" cx="660" cy="150" r="11"/><circle class="car" cx="669" cy="105" r="11"/><circle class="car" cx="695" cy="65" r="11"/><circle class="car" cx="734" cy="39" r="11"/><circle class="car" cx="780" cy="30" r="11"/><circle class="car" cx="826" cy="39" r="11"/>
+<circle class="jam" cx="855" cy="57" r="11"/><circle class="jam" cx="868" cy="68" r="11"/><circle class="jam" cx="879" cy="81" r="11"/><circle class="jam" cx="888" cy="95" r="11"/><circle class="jam" cx="895" cy="110" r="11"/><circle class="jam" cx="899" cy="124" r="11"/><circle class="jam" cx="901" cy="137" r="11"/><circle class="jam" cx="846" cy="49" r="11"/></g>
+<text class="sm" x="1000" y="140"><t-fa>۲۲ خودرو · ۲۳۰ متر · حدود ۳۰ km/h</t-fa><t-en>22 cars · 230 m · about 30 km/h</t-en></text>
+<text class="sm" x="1000" y="180"><t-fa>بی‌هیچ مانعی، یک گره که عقب می‌رود</t-fa><t-en>no obstacle; a jam that travels backwards</t-en></text>
+</svg></div>
+<footer><t-fa>R08 · Sugiyama و همکاران، New J. Phys. ۲۰۰۸ · رسم ما</t-fa><t-en>R08 · Sugiyama et al., New J. Phys. 2008 · drawn by us</t-en></footer>
+<aside class="notes"><t-fa><b>شمار کم یعنی خلوت؟</b><p>[B-ROLL CUE] تعریف این قسمت: خلوت = باز و سریع. آزمایش در ناگویا بود؛ «ژاپنی» کافی است. ویدیوی خود آزمایش را بی‌اجازه نشان نده.</p><p>در یک جمله: شمار کم هم در جادهٔ خالی دیده می‌شود هم در راه‌بندان؛ خلوت یعنی باز و سریع.</p></t-fa><t-en><b>Few cars means quiet?</b><p>[B-ROLL CUE] This episode's definition: quiet = open and fast. The experiment was in Nagoya; "Japanese" is enough. Do not show the experiment's video without permission.</p><p>In one line: a low count happens on an empty road and in a jam; quiet means open and fast.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="195">
+<p class="kicker"><t-fa>هفتهٔ معمولی · دمو، نمای ۱</t-fa><t-en>An ordinary week · demo, view 1</t-en></p>
+<div dir="ltr"><svg class="chart heat" viewBox="0 0 1560 400" role="img"><title><t-fa>نقشهٔ حرارتی خالی: روز هفته × ساعت</t-fa><t-en>Empty heatmap: weekday × hour</t-en></title>
+<defs><pattern id="hx" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="12" height="12" fill="#2A2B2F"/><line x1="0" y1="0" x2="0" y2="12" stroke="#8F8C84" stroke-width="4"/></pattern></defs>
+<g><rect class="cell" x="182" y="22" width="51" height="44"/><rect class="cell" x="237" y="22" width="51" height="44"/><rect class="cell" x="292" y="22" width="51" height="44"/><rect class="cell" x="347" y="22" width="51" height="44"/><rect class="cell" x="402" y="22" width="51" height="44"/><rect class="cell" x="457" y="22" width="51" height="44"/><rect class="cell" x="512" y="22" width="51" height="44"/><rect class="cell" x="567" y="22" width="51" height="44"/><rect class="cell" x="622" y="22" width="51" height="44"/><rect class="cell" x="677" y="22" width="51" height="44"/><rect class="cell" x="732" y="22" width="51" height="44"/><rect class="cell" x="787" y="22" width="51" height="44"/><rect class="cell" x="842" y="22" width="51" height="44"/><rect class="cell" x="897" y="22" width="51" height="44"/><rect class="cell" x="952" y="22" width="51" height="44"/><rect class="cell" x="1007" y="22" width="51" height="44"/><rect class="cell" x="1062" y="22" width="51" height="44"/><rect class="cell" x="1117" y="22" width="51" height="44"/><rect class="cell" x="1172" y="22" width="51" height="44"/><rect class="cell" x="1227" y="22" width="51" height="44"/><rect class="cell" x="1282" y="22" width="51" height="44"/><rect class="cell" x="1337" y="22" width="51" height="44"/><rect class="cell" x="1392" y="22" width="51" height="44"/><rect class="cell" x="1447" y="22" width="51" height="44"/><rect class="cell" x="182" y="70" width="51" height="44"/><rect class="cell" x="237" y="70" width="51" height="44"/><rect class="cell" x="292" y="70" width="51" height="44"/><rect class="cell" x="347" y="70" width="51" height="44"/><rect class="cell" x="402" y="70" width="51" height="44"/><rect class="cell" x="457" y="70" width="51" height="44"/><rect class="cell" x="512" y="70" width="51" height="44"/><rect class="cell" x="567" y="70" width="51" height="44"/><rect class="cell" x="622" y="70" width="51" height="44"/><rect class="cell" x="677" y="70" width="51" height="44"/><rect class="cell" x="732" y="70" width="51" height="44"/><rect class="cell" x="787" y="70" width="51" height="44"/><rect class="cell" x="842" y="70" width="51" height="44"/><rect class="cell" x="897" y="70" width="51" height="44"/><rect class="cell" x="952" y="70" width="51" height="44"/><rect class="cell" x="1007" y="70" width="51" height="44"/><rect class="cell" x="1062" y="70" width="51" height="44"/><rect class="cell" x="1117" y="70" width="51" height="44"/><rect class="cell" x="1172" y="70" width="51" height="44"/><rect class="cell" x="1227" y="70" width="51" height="44"/><rect class="cell" x="1282" y="70" width="51" height="44"/><rect class="cell" x="1337" y="70" width="51" height="44"/><rect class="cell" x="1392" y="70" width="51" height="44"/><rect class="cell" x="1447" y="70" width="51" height="44"/><rect class="cell" x="182" y="118" width="51" height="44"/><rect class="cell" x="237" y="118" width="51" height="44"/><rect class="cell" x="292" y="118" width="51" height="44"/><rect class="cell" x="347" y="118" width="51" height="44"/><rect class="cell" x="402" y="118" width="51" height="44"/><rect class="cell" x="457" y="118" width="51" height="44"/><rect class="cell" x="512" y="118" width="51" height="44"/><rect class="cell" x="567" y="118" width="51" height="44"/><rect class="cell" x="622" y="118" width="51" height="44"/><rect class="cell" x="677" y="118" width="51" height="44"/><rect class="cell" x="732" y="118" width="51" height="44"/><rect class="cell" x="787" y="118" width="51" height="44"/><rect class="cell" x="842" y="118" width="51" height="44"/><rect class="cell" x="897" y="118" width="51" height="44"/><rect class="cell" x="952" y="118" width="51" height="44"/><rect class="cell" x="1007" y="118" width="51" height="44"/><rect class="cell" x="1062" y="118" width="51" height="44"/><rect class="cell" x="1117" y="118" width="51" height="44"/><rect class="cell" x="1172" y="118" width="51" height="44"/><rect class="cell" x="1227" y="118" width="51" height="44"/><rect class="cell" x="1282" y="118" width="51" height="44"/><rect class="cell" x="1337" y="118" width="51" height="44"/><rect class="cell" x="1392" y="118" width="51" height="44"/><rect class="cell" x="1447" y="118" width="51" height="44"/><rect class="cell" x="182" y="166" width="51" height="44"/><rect class="cell" x="237" y="166" width="51" height="44"/><rect class="cell" x="292" y="166" width="51" height="44"/><rect class="cell" x="347" y="166" width="51" height="44"/><rect class="cell" x="402" y="166" width="51" height="44"/><rect class="cell" x="457" y="166" width="51" height="44"/><rect class="cell" x="512" y="166" width="51" height="44"/><rect class="cell" x="567" y="166" width="51" height="44"/><rect class="cell" x="622" y="166" width="51" height="44"/><rect class="cell" x="677" y="166" width="51" height="44"/><rect class="cell" x="732" y="166" width="51" height="44"/><rect class="cell" x="787" y="166" width="51" height="44"/><rect class="cell" x="842" y="166" width="51" height="44"/><rect class="cell" x="897" y="166" width="51" height="44"/><rect class="cell" x="952" y="166" width="51" height="44"/><rect class="cell" x="1007" y="166" width="51" height="44"/><rect class="cell" x="1062" y="166" width="51" height="44"/><rect class="cell" x="1117" y="166" width="51" height="44"/><rect class="cell" x="1172" y="166" width="51" height="44"/><rect class="cell" x="1227" y="166" width="51" height="44"/><rect class="cell" x="1282" y="166" width="51" height="44"/><rect class="cell" x="1337" y="166" width="51" height="44"/><rect class="cell" x="1392" y="166" width="51" height="44"/><rect class="cell" x="1447" y="166" width="51" height="44"/><rect class="cell" x="182" y="214" width="51" height="44"/><rect class="cell" x="237" y="214" width="51" height="44"/><rect class="cell" x="292" y="214" width="51" height="44"/><rect class="cell" x="347" y="214" width="51" height="44"/><rect class="cell" x="402" y="214" width="51" height="44"/><rect class="cell" x="457" y="214" width="51" height="44"/><rect class="cell" x="512" y="214" width="51" height="44"/><rect class="cell" x="567" y="214" width="51" height="44"/><rect class="cell" x="622" y="214" width="51" height="44"/><rect class="cell" x="677" y="214" width="51" height="44"/><rect class="cell" x="732" y="214" width="51" height="44"/><rect class="cell" x="787" y="214" width="51" height="44"/><rect class="cell" x="842" y="214" width="51" height="44"/><rect class="cell" x="897" y="214" width="51" height="44"/><rect class="cell" x="952" y="214" width="51" height="44"/><rect class="cell" x="1007" y="214" width="51" height="44"/><rect class="cell" x="1062" y="214" width="51" height="44"/><rect class="cell" x="1117" y="214" width="51" height="44"/><rect class="cell" x="1172" y="214" width="51" height="44"/><rect class="cell" x="1227" y="214" width="51" height="44"/><rect class="cell" x="1282" y="214" width="51" height="44"/><rect class="cell" x="1337" y="214" width="51" height="44"/><rect class="cell" x="1392" y="214" width="51" height="44"/><rect class="cell" x="1447" y="214" width="51" height="44"/><rect class="cell" x="182" y="262" width="51" height="44"/><rect class="cell" x="237" y="262" width="51" height="44"/><rect class="cell" x="292" y="262" width="51" height="44"/><rect class="cell" x="347" y="262" width="51" height="44"/><rect class="cell" x="402" y="262" width="51" height="44"/><rect class="cell" x="457" y="262" width="51" height="44"/><rect class="cell" x="512" y="262" width="51" height="44"/><rect class="cell" x="567" y="262" width="51" height="44"/><rect class="cell" x="622" y="262" width="51" height="44"/><rect class="cell" x="677" y="262" width="51" height="44"/><rect class="cell" x="732" y="262" width="51" height="44"/><rect class="cell" x="787" y="262" width="51" height="44"/><rect class="cell" x="842" y="262" width="51" height="44"/><rect class="cell" x="897" y="262" width="51" height="44"/><rect class="cell" x="952" y="262" width="51" height="44"/><rect class="cell" x="1007" y="262" width="51" height="44"/><rect class="cell" x="1062" y="262" width="51" height="44"/><rect class="cell" x="1117" y="262" width="51" height="44"/><rect class="cell" x="1172" y="262" width="51" height="44"/><rect class="cell" x="1227" y="262" width="51" height="44"/><rect class="cell" x="1282" y="262" width="51" height="44"/><rect class="cell" x="1337" y="262" width="51" height="44"/><rect class="cell" x="1392" y="262" width="51" height="44"/><rect class="cell" x="1447" y="262" width="51" height="44"/><rect class="cell" x="182" y="310" width="51" height="44"/><rect class="cell" x="237" y="310" width="51" height="44"/><rect class="cell" x="292" y="310" width="51" height="44"/><rect class="cell" x="347" y="310" width="51" height="44"/><rect class="cell" x="402" y="310" width="51" height="44"/><rect class="cell" x="457" y="310" width="51" height="44"/><rect class="cell" x="512" y="310" width="51" height="44"/><rect class="cell" x="567" y="310" width="51" height="44"/><rect class="cell" x="622" y="310" width="51" height="44"/><rect class="cell" x="677" y="310" width="51" height="44"/><rect class="cell" x="732" y="310" width="51" height="44"/><rect class="cell" x="787" y="310" width="51" height="44"/><rect class="cell" x="842" y="310" width="51" height="44"/><rect class="cell" x="897" y="310" width="51" height="44"/><rect class="cell" x="952" y="310" width="51" height="44"/><rect class="cell" x="1007" y="310" width="51" height="44"/><rect class="cell" x="1062" y="310" width="51" height="44"/><rect class="cell" x="1117" y="310" width="51" height="44"/><rect class="cell" x="1172" y="310" width="51" height="44"/><rect class="cell" x="1227" y="310" width="51" height="44"/><rect class="cell" x="1282" y="310" width="51" height="44"/><rect class="cell" x="1337" y="310" width="51" height="44"/><rect class="cell" x="1392" y="310" width="51" height="44"/><rect class="cell" x="1447" y="310" width="51" height="44"/></g><text class="sm" x="166" y="52" text-anchor="end"><t-fa>شنبه</t-fa><t-en>Sat</t-en></text><text class="sm" x="166" y="100" text-anchor="end"><t-fa>یکشنبه</t-fa><t-en>Sun</t-en></text><text class="sm" x="166" y="148" text-anchor="end"><t-fa>دوشنبه</t-fa><t-en>Mon</t-en></text><text class="sm" x="166" y="196" text-anchor="end"><t-fa>سه‌شنبه</t-fa><t-en>Tue</t-en></text><text class="sm" x="166" y="244" text-anchor="end"><t-fa>چهارشنبه</t-fa><t-en>Wed</t-en></text><text class="sm" x="166" y="292" text-anchor="end"><t-fa>پنجشنبه</t-fa><t-en>Thu</t-en></text><text class="sm" x="166" y="340" text-anchor="end"><t-fa>جمعه</t-fa><t-en>Fri</t-en></text>
+<text class="sm" x="180" y="390"><t-fa>۰۰ ← ساعت → ۲۳ · ردیف‌ها: شنبه تا جمعه · رنگ: سرعت میانه</t-fa><t-en>00 ← hour → 23 · rows: Saturday to Friday · colour: median speed</t-en></text>
+</svg></div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>رنگ‌ها از دادهٔ واقعی ۱۴۱ · کندترین ساعت رفت: — · کندترین ساعت برگشت: —</t-fa><t-en>Colours from the real 141 data · slowest hour out: — · slowest hour back: —</t-en></p>
+<footer><t-fa>artifact/chalus_live.py · نمای ۱</t-fa><t-en>artifact/chalus_live.py · view 1</t-en></footer>
+<aside class="notes"><t-fa><b>هفتهٔ معمولی + CTA</b><p>[MID-CTA] اول CTA رو به دوربین. بعد ضبط <code>chalus_live_real.html?view=a</code>؛ M برای شمار و برگشت. صفحهٔ ساختگی (واترمارک MOCK) فقط برای تمرین.</p><p>در یک جمله: نقشهٔ حرارتی هفتهٔ معمولی نشان می‌دهد کدام ساعتِ کدام روز، در هر جهت، کند است.</p></t-fa><t-en><b>An ordinary week + CTA</b><p>[MID-CTA] CTA to camera first. Then record chalus_live_real.html?view=a; M toggles counts. The synthetic page (MOCK watermark) is for rehearsal only.</p><p>In one line: the ordinary-week heatmap shows which hour of which day is slow in each direction.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="248">
+<p class="kicker"><t-fa>تعطیلی هفته را به هم می‌ریزد · نمای ۲</t-fa><t-en>Holidays break the week · view 2</t-en></p>
+<div class="cards">
+<div><b><t-fa>روز چندمِ تعطیلی؟</t-fa><t-en>Which day of the break?</t-en></b><t-fa>شب تعطیلی · روز اول · وسط · روز آخر · فردای تعطیلی · روز ۱ تا ۱۴ نوروز</t-fa><t-en>eve · first day · middle · last day · day after · Nowruz day 1 to 14</t-en></div>
+<div class="hi"><b><t-fa>تقویم قمری جابه‌جا می‌شود</t-fa><t-en>The lunar calendar moves</t-en></b><t-fa>نوروز ۱۴۰۵: عید فطر <em>همان روز</em> · نوروز ۱۴۰۶: عید فطر حدود ۱۹ اسفند، حدود ۱۱ روز زودتر [VERIFY]</t-fa><t-en>Nowruz 1405: Eid al-Fitr <em>the same day</em> · Nowruz 1406: Eid al-Fitr about 10 Mar, about 11 days earlier [VERIFY]</t-en></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>نوروز ۱۴۰۵ روی نمای ۲: —</t-fa><t-en>Nowruz 1405 on view 2: —</t-en></p>
+<footer><t-fa>R11 · artifact/holidays.csv · تقویم رسمی برای تأیید</t-fa><t-en>R11 · artifact/holidays.csv · official calendar to confirm</t-en></footer>
+<aside class="notes"><t-fa><b>تعطیلی هفته را به هم می‌ریزد</b><p>[GRAPHIC] نمای ۲ دمو. تاریخ‌های قمری از timeanddate است و «پیش‌بینی»؛ با تقویم مؤسسهٔ ژئوفیزیک تطبیق بده. «حدود یازده روز در سال» = سال قمری حدود ۳۵۴ روز.</p><p>در یک جمله: تعطیلی چند نوع روز است و تعطیلی‌های قمری هر سال جابه‌جا می‌شوند؛ پس هیچ دو نوروزی یکی نیست.</p></t-fa><t-en><b>Holidays break the week</b><p>[GRAPHIC] Demo view 2. Lunar dates are from timeanddate and "tentative"; check against the Institute of Geophysics calendar. "About eleven days a year" = a lunar year of about 354 days.</p><p>In one line: a holiday is several kinds of day, and lunar holidays move every year; no two Nowruz periods are alike.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="296">
+<p class="kicker"><t-fa>جادهٔ بسته خلوت نیست</t-fa><t-en>A closed road is not a quiet road</t-en></p>
+<div class="cards">
+<div><b><t-fa>۲۶ اردیبهشت ۱۴۰۵ · از ۱۷</t-fa><t-en>16 May 2026 · from 17:00</t-en></b><t-fa>یک‌طرفه از مرزن‌آباد رو به تهران و کرج · «تا تخلیهٔ بار ترافیکی»</t-fa><t-en>One-way from Marzanabad toward Tehran and Karaj · "until the traffic clears"</t-en></div>
+<div><b><t-fa>۱۰ شهریور ۱۴۰۵ · از ۱۲</t-fa><t-en>1 Sep 2026 · from 12:00</t-en></b><t-fa>شمال به جنوب محدود، جنوب به شمال یک‌طرفه · «تا تخلیهٔ بار ترافیکی»</t-fa><t-en>North-to-south restricted, south-to-north one-way · "until the backlog clears"</t-en></div>
+<div class="hi"><b><t-fa>در دادهٔ ما</t-fa><t-en>In our data</t-en></b><t-fa>ساعتِ بسته = <em>سانسورشده</em>: هاشور، بی‌امتیاز، و «چند بار قبلاً بسته بوده» جدا</t-fa><t-en>A closed hour = <em>censored</em>: hatched, never scored, and "how often it was closed before" shown apart</t-en></div>
+</div>
+<footer><t-fa>R06 · R07 · خبرگزاری مهر · R03 (متغیر «یک‌طرفه» در مقالهٔ ۲۰۲۳)</t-fa><t-en>R06 · R07 · Mehr News · R03 (a "one-way" variable in the 2023 paper)</t-en></footer>
+<aside class="notes"><t-fa><b>جادهٔ بسته خلوت نیست</b><p>[UNEXPECTED STAT] هر دو جهت ممکن است. اطلاعیه‌ها معمولاً همان روزند. نگو «مدل می‌داند پلیس کی می‌بندد».</p><p>در یک جمله: صفرِ ساعتِ بسته عدد سانسورشده است؛ کنارش می‌گذاریم و احتمالِ بسته‌بودن را جدا نشان می‌دهیم.</p></t-fa><t-en><b>A closed road is not quiet</b><p>[UNEXPECTED STAT] Either direction can be closed. Notices usually come the same day. Never say "the model knows when police will close it".</p><p>In one line: the zero of a closed hour is censored; we set it aside and show the chance of closure separately.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="344">
+<p class="kicker"><t-fa>چهار پیش‌بین · حدس بزن</t-fa><t-en>Four forecasters · guess</t-en></p>
+<div class="steps">
+<div><b><t-fa>۱ · هفتهٔ پیش</t-fa><t-en>1 · Last week</t-en></b><t-fa>همان ساعت، آخرین هفتهٔ پیش از روزهای آزمون (خط پایه)</t-fa><t-en>Same hour, the last week before the test days (the baseline)</t-en></div>
+<div><b><t-fa>۲ · میانهٔ ۴ هفته</t-fa><t-en>2 · 4-week median</t-en></b><t-fa>همان ساعت و همان روز هفته، چهار هفتهٔ آخرِ پیش از آزمون</t-fa><t-en>Same hour and weekday over the last four weeks before the test</t-en></div>
+<div><b><t-fa>۳ · جدول تقویمی</t-fa><t-en>3 · Calendar profile</t-en></b><t-fa>میانهٔ هر نوع روز × ساعت × جهت، با پرچم تعطیلی</t-fa><t-en>Median per day type × hour × direction, with a holiday flag</t-en></div>
+<div class="hi"><b><t-fa>۴ · درخت‌های تقویت‌شده</t-fa><t-en>4 · Boosted trees</t-en></b><t-fa>یادگیری ماشین، فقط با ویژگی‌های تقویم</t-fa><t-en>Machine learning on calendar features only</t-en></div>
+</div>
+<p class="caption"><t-fa>هر مدل فقط با دادهٔ <strong>پیش از</strong> روزهای آزمون ساخته شده. امتیاز مهارت = چند درصد خطای کمتر از «هفتهٔ پیش».</t-fa><t-en>Each model is built only from data <strong>before</strong> the test days. Skill = how much smaller its error is than "last week".</t-en></p>
+<footer><t-fa>artifact/chalus_core.py · study-fa.md فصل ۶</t-fa><t-en>artifact/chalus_core.py · study-fa.md ch. 6</t-en></footer>
+<aside class="notes"><t-fa><b>چهار پیش‌بین</b><p>[CAMERA CHANGE] کارت‌ها یکی‌یکی. «درخت‌های تقویت‌شده»: ۱۵۰ درخت به عمق ۵، ضریب ۰٫۱؛ ویژگی‌ها: ساعت، جهت، روز هفته، تعطیل، طول تعطیلی، روز چندم، شب تعطیلی، فردای تعطیلی، روز نوروز، فصل. هیچ دادهٔ همان روز.</p><p>در یک جمله: سه پیش‌بین ساده و یک مدل یادگیری ماشین، همه فقط با تقویم و گذشته، و همه بی‌خبر از روزهای آزمون.</p></t-fa><t-en><b>Four forecasters</b><p>[CAMERA CHANGE] Cards one by one. "Boosted trees": 150 trees of depth 5, learning rate 0.1; features: hour, direction, weekday, off, break length, position, eve, day after, Nowruz day, season. Nothing from the day itself.</p><p>In one line: three simple forecasters and one ML model, all using only the calendar and the past, none seeing the test days.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="404">
+<p class="kicker"><t-fa>نوروزی که هیچ مدلی ندید · ۲۵ اسفند ۱۴۰۴ تا ۱۵ فروردین ۱۴۰۵</t-fa><t-en>The Nowruz no model saw · 16 Mar – 4 Apr 2026</t-en></p>
+<table class="race">
+<tr><th><t-fa>پیش‌بین</t-fa><t-en>Forecaster</t-en></th><th><t-fa>خطا، ماشین در ساعت</t-fa><t-en>Error, cars per hour</t-en></th><th><t-fa>مهارت نسبت به هفتهٔ پیش</t-fa><t-en>Skill vs last week</t-en></th><th><t-fa>اوج در ±۲ ساعت (رفت، برگشت)</t-fa><t-en>Peak within ±2 h (out, back)</t-en></th></tr>
+<tr><td><t-fa>هفتهٔ پیش</t-fa><t-en>Last week</t-en></td><td class="n">—</td><td class="n">0%</td><td class="n">—</td></tr>
+<tr><td><t-fa>میانهٔ ۴ هفته</t-fa><t-en>4-week median</t-en></td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+<tr><td><t-fa>جدول تقویمی</t-fa><t-en>Calendar profile</t-en></td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+<tr class="hi"><td><t-fa>درخت‌های تقویت‌شده</t-fa><t-en>Boosted trees</t-en></td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+</table>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>از artifact/data/results-real.json · ساعت‌های بسته امتیاز نمی‌گیرند</t-fa><t-en>From artifact/data/results-real.json · closed hours are not scored</t-en></p>
+<footer><t-fa>اجرای HMD-S07 روی دادهٔ ۱۴۱ · نمای ۳</t-fa><t-en>HMD-S07 run on 141 data · view 3</t-en></footer>
+<aside class="notes"><t-fa><b>RE-HOOK: نوروزی که هیچ مدلی ندید</b><p>[SOUND EFFECT] «تیک» با ظاهرشدن جدول. فقط شاخه‌ای از متن را بخوان که با نتیجه می‌خواند. دومین آزمون (۱۸۲ روز آخر) در نمای ۳ هست؛ اگر جا شد، یک جمله.</p><p>در یک جمله: روی نوروزِ کنارگذاشته، مدل‌هایی که تقویم را می‌فهمند از «هفتهٔ پیش» جلو می‌زنند؛ اندازهٔ برتری [RUN].</p></t-fa><t-en><b>RE-HOOK: the Nowruz no model saw</b><p>[SOUND EFFECT] A "tick" as the table appears. Read only the branch of the script that matches the result. The second test (last 182 days) is in view 3; one sentence if time allows.</p><p>In one line: on the held-out Nowruz, calendar-aware models beat "last week"; by how much is [RUN].</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="462">
+<p class="kicker"><t-fa>سخت‌ترین چیز: راه‌بندان</t-fa><t-en>The hard part: the jam</t-en></p>
+<div class="bars">
+<div><span><t-fa>دقت کلی · ۲۰۲۱</t-fa><t-en>Overall accuracy · 2021</t-en></span><i style="--v:80.03"></i><span><t-fa>۸۰٫۰۳٪</t-fa><t-en>80.03%</t-en></span></div>
+<div class="hi"><span><t-fa>حالت سنگین · ۲۰۲۱</t-fa><t-en>Heavy state · 2021</t-en></span><i style="--v:58.5"></i><span><t-fa>۵۸٫۵٪</t-fa><t-en>58.5%</t-en></span></div>
+<div><span><t-fa>ساعت‌های سنگینِ گرفته‌شده · ما</t-fa><t-en>Heavy hours caught · ours</t-en></span><i style="--v:0"></i><span>—</span></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>۲۰۲۱: دقت متوازنِ بهترین مدل ترکیبی برای حالت C روی کرج–چالوس · حالت‌های ما: A ≥ ۶۰، C &lt; ۳۰ کیلومتر بر ساعت، نه تعریف مقاله</t-fa><t-en>2021: the best ensemble's balanced accuracy for state C on Karaj–Chalus · our states: A ≥ 60, C &lt; 30 km/h, not the paper's definition</t-en></p>
+<footer><t-fa>R02 · Rasaizadi و همکاران، J. Adv. Transportation ۲۰۲۱</t-fa><t-en>R02 · Rasaizadi et al., J. Adv. Transportation 2021</t-en></footer>
+<aside class="notes"><t-fa><b>سخت‌ترین چیز: راه‌بندان</b><p>[UNEXPECTED STAT] ۸۰٫۰۳ «دقت» مدل OL است؛ ۵۸٫۵ «بالاترین دقت متوازنِ» همان مدل برای حالت C. عدد ما با عدد مقاله مقایسهٔ مستقیم نیست (تعریف حالت‌ها، بازه و ترددشمار فرق دارد).</p><p>در یک جمله: پیش‌بینیِ ساعتِ معمولی آسان‌تر است؛ ساعت‌های راه‌بندان سخت‌ترین بخش‌اند، هم در مقالهٔ ۲۰۲۱ هم در کار ما.</p></t-fa><t-en><b>The hard part: the jam</b><p>[UNEXPECTED STAT] 80.03 is the OL model's accuracy; 58.5 is that model's highest balanced accuracy for state C. Our number is not directly comparable (state definitions, period and counter differ).</p><p>In one line: ordinary hours are easier; jam hours are the hardest part, in the 2021 paper and in ours.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-11" data-start="518">
+<p class="kicker"><t-fa>مدل عمیق هم از تقویم نمی‌گذرد</t-fa><t-en>Even a deep model does not escape the calendar</t-en></p>
+<div dir="ltr"><svg class="chart hz" viewBox="0 0 1560 470" role="img"><title><t-fa>خطای سه روش در سه افق، METR-LA</t-fa><t-en>Error of three methods at three horizons, METR-LA</t-en></title>
+<line class="ax" x1="160" y1="400" x2="1300" y2="400"/><line class="ax" x1="160" y1="40" x2="160" y2="400"/>
+<polyline class="ha" points="300,183.7 760,183.7 1220,183.7"/>
+<polyline class="ar" points="300,192.5 760,132.2 1220,41.2"/>
+<polyline class="dc" points="300,256.0 760,236.2 1220,212.8"/>
+<circle class="dg" cx="300" cy="183.7" r="9"/><circle class="dg" cx="760" cy="183.7" r="9"/><circle class="dg" cx="1220" cy="183.7" r="9"/>
+<circle class="dot" cx="300" cy="256.0" r="9"/><circle class="dot" cx="760" cy="236.2" r="9"/><circle class="dot" cx="1220" cy="212.8" r="9"/>
+<text x="300" y="440" text-anchor="middle"><t-fa>۱۵ دقیقه</t-fa><t-en>15 min</t-en></text><text x="760" y="440" text-anchor="middle"><t-fa>۳۰ دقیقه</t-fa><t-en>30 min</t-en></text><text x="1220" y="440" text-anchor="middle"><t-fa>۱ ساعت</t-fa><t-en>1 hour</t-en></text>
+<text x="1240" y="175.7">4.16</text><text x="1240" y="51.2">6.90</text><text x="1240" y="242.8">3.60</text>
+<text class="sm" x="1330" y="183.7"><t-fa>میانگین تاریخی</t-fa><t-en>historical avg</t-en></text>
+<text class="sm" x="1330" y="51.2">ARIMA</text>
+<text class="sm" x="1330" y="242.8">DCRNN</text>
+<text class="sm" x="150" y="30" text-anchor="end"><t-fa>خطا ↑</t-fa><t-en>error ↑</t-en></text>
+</svg></div>
+<p class="tag"><t-fa>میانگین خطای مطلق، مایل بر ساعت · ARIMA: ۳٫۹۹ ← ۵٫۱۵ ← ۶٫۹۰ · DCRNN: ۲٫۷۷ ← ۳٫۱۵ ← ۳٫۶۰ · میانگین تاریخی در هر افق ۴٫۱۶</t-fa><t-en>Mean absolute error, mph · ARIMA: 3.99 → 5.15 → 6.90 · DCRNN: 2.77 → 3.15 → 3.60 · historical average 4.16 at every horizon</t-en></p>
+<footer><t-fa>R09 · Li و همکاران، ICLR ۲۰۱۸، جدول ۱ · رسم ما</t-fa><t-en>R09 · Li et al., ICLR 2018, Table 1 · drawn by us</t-en></footer>
+<aside class="notes"><t-fa><b>مدل عمیق هم از تقویم نمی‌گذرد</b><p>[GRAPHIC] METR-LA = حسگرهای بزرگراه‌های لس‌آنجلس. در گفتار واحد نگو. مرز: این مقاله دربارهٔ چند دقیقه تا یک ساعت است؛ برای چند روز جلوتر فقط استدلال می‌کنیم، نه اندازه‌گیری.</p><p>در یک جمله: هرچه افق دورتر شود، تقویم مهم‌تر می‌شود؛ حتی در جدولِ یک مدل عمیق، میانگینِ تاریخی خط پایهٔ سختی است.</p></t-fa><t-en><b>Even a deep model does not escape the calendar</b><p>[GRAPHIC] METR-LA = Los Angeles highway sensors. Do not say units aloud. Boundary: this paper covers minutes to an hour; for days ahead we only argue, we do not measure.</p><p>In one line: the further the horizon, the more the calendar matters; even in a deep model's table, the historical average is a hard baseline.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="562">
+<p class="kicker"><t-fa>کی راه بیفتم؟ · نوروز ۱۴۰۶ · نمای ۴</t-fa><t-en>When to leave? · Nowruz 1406 · view 4</t-en></p>
+<div class="cols">
+<div><span><t-fa>رفت · ۲۸ اسفند ۱۴۰۵ (۱۹ مارس ۲۰۲۷)</t-fa><t-en>Out · 28 Esfand 1405 (19 Mar 2027)</t-en></span><b>—</b><p><t-fa>سه ساعتِ پیشنهادی</t-fa><t-en>three suggested hours</t-en></p></div>
+<div class="hi"><span><t-fa>برگشت · ۱۳ فروردین ۱۴۰۶ (جمعه، ۲ آوریل ۲۰۲۷)</t-fa><t-en>Back · 13 Farvardin 1406 (Friday, 2 Apr 2027)</t-en></span><b>—</b><p><t-fa>سه ساعتِ پیشنهادی</t-fa><t-en>three suggested hours</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b><t-fa>ساعتی که از جلوی ترددشمار رد می‌شوی، نه ساعتِ راه‌افتادن · ساعتِ اغلب‌بسته انتخاب نمی‌شود · پیش‌بینیِ ثبت‌شده: اوجِ ۴ روز شلوغ، نمره بعد از عید</t-fa><t-en>The hour you pass the counter, not the hour you leave home · often-closed hours are never picked · pre-registered: the peak of 4 busy days, scored after Nowruz</t-en></p>
+<footer><t-fa>artifact/chalus_live.py · نمای ۴</t-fa><t-en>artifact/chalus_live.py · view 4</t-en></footer>
+<aside class="notes"><t-fa><b>کی راه بیفتم؟</b><p>[B-ROLL CUE] <code>?view=d&amp;date=1405/12/28&amp;dir=N</code>، بعد → تا ۱۴۰۶/۰۱/۱۳ و D. پیش‌بینیِ ثبت‌شده را در کامنت سنجاق‌شده و پست Community با تاریخ بگذار (package-fa.md).</p><p>در یک جمله: ابزار برای هر روزِ نوروز سه ساعتِ بازتر و سریع‌تر را نشان می‌دهد و ساعت‌های پرخطرِ بسته‌شدن را کنار می‌گذارد.</p></t-fa><t-en><b>When to leave?</b><p>[B-ROLL CUE] ?view=d&amp;date=1405/12/28&amp;dir=N, then → to 1406/01/13 and D. Post the pre-registered forecast, dated, in the pinned comment and a Community post (package-fa.md).</p><p>In one line: for each Nowruz day the tool shows the three most open, fastest hours and leaves out hours likely to be closed.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="615">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>الگوی ساعت × روز در یک ترددشمار رسمی · اینکه هر پیش‌بین روی روزهای ندیده چقدر خطا کرد · اینکه ساعت‌های راه‌بندان سخت‌ترین‌اند · ساعت‌های پیشنهادی با احتمال بسته‌بودن</t-fa><t-en>The hour × day pattern at one official counter · how wrong each forecaster was on unseen days · that jam hours are the hardest · suggested hours with the chance of closure</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>زمانِ رسیدن از خانه تا مقصد · تصمیم پلیس برای بستن جاده · برف، تصادف یا اتفاقِ بی‌سابقه · جاده‌های دیگر · اینکه ساعتِ پیشنهادی اگر همه انتخابش کنند خلوت می‌ماند · توصیهٔ ایمنی</t-fa><t-en>Door-to-door travel time · the police's closure decision · snow, crashes or anything unprecedented · other roads · that a suggested hour stays quiet if everyone picks it · safety advice</t-en></div>
+</div>
+<footer><t-fa>R01 · R02 · R05–R07</t-fa><t-en>R01 · R02 · R05–R07</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بی‌موسیقی. دقت داده «حدود ۹۰٪» به گفتهٔ خود سامانه [VERIFY].</p><p>در یک جمله: یک نقطه، یک جاده، دو سال؛ نه زمانِ کل سفر، نه پیش‌بینیِ تصمیمِ پلیس.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. Data accuracy "about 90%" per the site itself [VERIFY].</p><p>In one line: one point, one road, two years; not the whole trip, not the police's decision.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="661">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>خلوت یعنی <em>باز و سریع</em>؛ کلیدش تقویم است</t-fa><t-en>Quiet means <em>open and fast</em>; the key is the calendar</t-en></h1>
+<div class="cards">
+<div><b><t-fa>سؤال ۱</t-fa><t-en>Question 1</t-en></b><t-fa>جاده آن ساعت باز بود؟</t-fa><t-en>Was the road open at that hour?</t-en></div>
+<div class="hi"><b><t-fa>سؤال ۲</t-fa><t-en>Question 2</t-en></b><t-fa>روزِ چندمِ تعطیلی است؟</t-fa><t-en>Which day of the break is it?</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S07</t-fa><t-en>Answer · HMD-S07</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>جملهٔ [RUN] دربارهٔ برنده را از نتیجهٔ واقعی بساز؛ اگر ساده برد، همین را بگو.</p><p>در یک جمله: خلوت یعنی باز و سریع، و برای چند روز جلوتر، کلیدش تقویم است.</p></t-fa><t-en><b>The answer</b><p>Write the [RUN] sentence about the winner from the real result; if the simple one won, say so.</p><p>In one line: quiet means open and fast, and for days ahead the key is the calendar.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="698">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>کی راه بیفتم که <em>به‌موقع</em> برسم؟</t-fa><t-en>When should I leave to arrive <em>on time</em>?</t-en></h1>
+<p class="caption"><t-fa>ساعتِ خلوت هنوز ساعتِ رسیدن نیست. میانگینِ زمان سفر کافی است؟</t-fa><t-en>A quiet hour is not yet an arrival time. Is the average travel time enough?</t-en></p>
+<footer><t-fa>HMD-S08 · شب عید</t-fa><t-en>HMD-S08 · Nowruz eve</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: کی راه بیفتم که به‌موقع برسم؟</b><p>[SOUND EFFECT] بستن در ماشین. End screen از ثانیهٔ ۱۰. هیچ عددی از S08 نگو.</p><p>در یک جمله: از «کی جاده خلوت است» به «کی راه بیفتم که دیر نرسم».</p></t-fa><t-en><b>Next: when should I leave to arrive on time?</b><p>[SOUND EFFECT] A car door closing. End screen from second 10. No numbers from S08.</p><p>In one line: from "when is the road quiet" to "when do I leave so I am not late".</p></t-en></aside>
+</section>

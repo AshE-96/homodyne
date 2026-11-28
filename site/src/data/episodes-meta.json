@@ -104,6 +104,20 @@
    "summary": "Why forecast models disagree about a 5,610-metre summit, how to correct them to the real peak, and a design for a summit weather service for climbers."
   }
  },
+ "HMD-S07": {
+  "slug": "hmd-s07",
+  "en": {
+   "title": "When is the Chalus road actually empty?",
+   "summary": "An hour-by-hour forecast for Iran's most famous weekend road, built from its own traffic counters: weekdays, holidays and Nowruz, a transparent baseline against a small model, and why the jam is the hardest part to predict."
+  }
+ },
+ "HMD-S08": {
+  "slug": "hmd-s08",
+  "en": {
+   "title": "When should I leave to arrive on time?",
+   "summary": "Why the average travel time is the wrong number for a deadline: skewed trip times, leaving at a high percentile, the cost of being late against early, and a backtest of how often each rule would have made you late."
+  }
+ },
  "HMD-010": {
   "slug": "hmd-010",
   "en": {
@@ -125,6 +139,13 @@
    "summary": "Today's models often place an ordinary photo to the city, sometimes to the street, even with the metadata stripped. Hiding clues helps, but not enough."
   }
  },
+ "HMD-S11": {
+  "slug": "hmd-s11",
+  "en": {
+   "title": "Is tomorrow's wind right for paragliding?",
+   "summary": "What a paraglider pilot needs from a forecast near Tehran, why mountain winds and thermals are hard for weather models, and how forecasts compare with what was actually observed."
+  }
+ },
  "HMD-012": {
   "slug": "hmd-012",
   "en": {
@@ -139,6 +160,13 @@
    "summary": "A correct table can still mislead through what it chooses to show: subsets, aggregation and selective reporting. How to check before you believe it."
   }
  },
+ "HMD-S09": {
+  "slug": "hmd-s09",
+  "en": {
+   "title": "The ARC puzzle: people solve it — can AI still not?",
+   "summary": "Colour-grid puzzles most people solve in seconds, which stumped strong models for years. You play the same puzzles, see how a model reads a grid as text, and find out what the newest models now score — and at what cost."
+  }
+ },
  "HMD-016": {
   "slug": "hmd-016",
   "en": {
@@ -151,6 +179,13 @@
   "en": {
    "title": "Where did this AI score come from? Check it yourself",
    "summary": "A refutable result ships the files a reader needs to recompute it. Recompute vs rerun, versions, checksums and a public correction log."
+  }
+ },
+ "HMD-S10": {
+  "slug": "hmd-s10",
+  "en": {
+   "title": "Erdős problems: did AI discover new maths or find old answers?",
+   "summary": "Headlines said AI solved Erdős problems. Some solutions were genuinely new; some were forgotten answers already in the literature. What 'new' means in mathematics, checked against the public problem database."
   }
  },
  "HMD-011": {

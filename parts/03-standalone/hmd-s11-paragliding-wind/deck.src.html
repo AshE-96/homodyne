@@ -1,0 +1,215 @@
+<!-- HMD-S11 · deck source. Build: python3 scripts/build-decks.py --only hmd-s11  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Numbers: artifact/derived/eval-2025-04.json, case-2025-04-17.json, replay-2026-11-28.json and sources.md. No third-party images. -->
+
+<style>
+/* HMD-S11: terrain profile (beat 3), gust trace (beat 4), indicator grid (beat 12) */
+.chart.terrain,.chart.gust{max-width:1600px;margin-inline:auto}
+.chart text{font-size:28px}.chart .sm{font-size:24px;fill:#6E6A63}
+.chart .real{fill:none;stroke:#16181B;stroke-width:5}.chart .model{fill:#CFC9BD;opacity:.85}
+.chart .amb{fill:#E8A33D}.chart .ambl{stroke:#E8A33D;stroke-width:5;fill:none}.chart .bl{stroke:#3C6E9E;stroke-width:4;fill:none}
+.chart .mean{stroke:#16181B;stroke-width:4;stroke-dasharray:14 10}
+.night .chart .real{stroke:#F3F1EC}.night .chart text{fill:#C9C5BC}
+.igrid{display:grid;grid-template-columns:160px repeat(13,1fr);gap:6px;max-width:1700px;font-size:22px}
+.igrid i{font-style:normal;height:56px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:#3A3B3F;color:#F3F1EC}
+.igrid i.a{background:#E8A33D;color:#16181B}.igrid i.r{background:#D2543F;color:#fff}.igrid i.n{background:none;color:#6E6A63}
+.igrid b{display:flex;align-items:center;font-size:24px}.igrid em{font-style:normal;font-size:18px;color:#8F8C84;text-align:center}
+.metar{font-family:ui-monospace,Menlo,monospace;font-size:30px;letter-spacing:.02em}
+.metar mark{background:#E8A33D;color:#16181B;padding:0 .2em}
+</style>
+
+<section class="cover">
+<h1><t-fa>فردا برای پاراگلایدر باد مناسب است؟</t-fa><t-en>Is tomorrow's wind right for paragliding?</t-en></h1>
+<p class="promise"><t-fa>پیش‌بینی «فردا» را یک ماه با بادِ اندازه‌گیری‌شده سنجیدیم، و دیدیم کدام عددش به کار سکوی پرواز می‌آید.</t-fa><t-en>We checked a month of "tomorrow" forecasts against measured wind, and found which numbers matter at a takeoff.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>پنجشنبه ۲۸ فروردین ۱۴۰۴ · ساعت ۱۵:۳۰ تهران · فرودگاه مهرآباد</t-fa><t-en>Thursday 17 April 2025 · 15:30 Tehran · Mehrabad airport</t-en></p>
+<div class="cols">
+<div><span><t-fa>پیش‌بینی روز قبل (ECMWF IFS)</t-fa><t-en>forecast from the day before (ECMWF IFS)</t-en></span><b><t-fa>۱٫۵</t-fa><t-en>1.5</t-en><small>km/h</small></b></div>
+<div class="hi"><span><t-fa>اندازه‌گیری فرودگاه (METAR)</t-fa><t-en>measured at the airport (METAR)</t-en></span><b><t-fa>۴۴</t-fa><t-en>44</t-en><small>km/h</small></b><p><t-fa>۲۴ گره</t-fa><t-en>24 knots</t-en></p></div>
+</div>
+<p class="metar" dir="ltr">OIII 171200Z <mark>27024KT</mark> 7000 FEW035 <mark>FEW040CB</mark> SCT090 BKN180 17/M05 Q1015 TEMPO 27034KT 3000 SA/DU</p>
+<footer><t-fa>S01 · بایگانی ECMWF · S03 · IEM · case-2025-04-17.json</t-fa><t-en>S01 (ECMWF archive) · S03 (IEM) · case-2025-04-17.json</t-en></footer>
+<aside class="notes"><t-fa><b>پنجشنبه، ساعت سه و نیم</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» CB = ابر کومولونیمبوس (طوفانی). گردوخاک (SA/DU) فقط در بخش TEMPO است، یعنی پیش‌بینی روند، نه مشاهده. هیچ ادعایی دربارهٔ پرواز یا حادثه در آن روز نکن.</p><p>در یک جمله: یک بعدازظهر بهار، پیش‌بینی روز قبل ۱٫۵ کیلومتر بر ساعت بود و فرودگاه ۴۴ اندازه گرفت.</p></t-fa><t-en><b>Thursday, half past three</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. CB = cumulonimbus. Dust (SA/DU) appears only in the TEMPO trend group, i.e. forecast, not observed. Make no claim about flying or accidents that day.</p><p>In one line: one spring afternoon the day-before forecast said 1.5 km/h and the airport measured 44.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="50">
+<p class="kicker"><t-fa>از خورشید تا سکوی پرواز</t-fa><t-en>From the sun to the takeoff</t-en></p>
+<div class="cards">
+<div><b><t-fa>باد سکو</t-fa><t-en>wind at takeoff</t-en></b><t-fa>چقدر؟</t-fa><t-en>how strong?</t-en></div>
+<div><b><t-fa>جهت</t-fa><t-en>direction</t-en></b><t-fa>از روبه‌رو یا از پهلو؟</t-fa><t-en>head-on or across?</t-en></div>
+<div><b><t-fa>تندباد</t-fa><t-en>gusts</t-en></b><t-fa>ضربه‌های چندثانیه‌ای</t-fa><t-en>the few-second hits</t-en></div>
+<div><b><t-fa>گرمیک</t-fa><t-en>thermals</t-en></b><t-fa>تا کجا بالا می‌رود؟</t-fa><t-en>how high do they go?</t-en></div>
+<div><b><t-fa>پایهٔ ابر</t-fa><t-en>cloud base</t-en></b><t-fa>سقف پرواز</t-fa><t-en>the ceiling</t-en></div>
+<div class="hi"><b><t-fa>طوفان</t-fa><t-en>storms</t-en></b><t-fa>بعدازظهر چه می‌شود؟</t-fa><t-en>what about the afternoon?</t-en></div>
+</div>
+<p class="caption"><t-fa>قسمت قبل: طوفان خورشیدی. امروز: <strong>دو کیلومتر بالای تهران</strong>، جایی که یک بال پارچه‌ای بلند می‌شود.</t-fa><t-en>Last episode: solar storms. Today: <strong>two kilometres above Tehran</strong>, where a fabric wing takes off.</t-en></p>
+<footer><t-fa>پل از HMD-011</t-fa><t-en>Bridge from HMD-011</t-en></footer>
+<aside class="notes"><t-fa><b>از خورشید تا سکوی پرواز</b><p>[B-ROLL CUE] نمای بادنمای سکو فقط با اجازهٔ باشگاه و بی‌چهره (prep-fa.md §۵).</p><p>در یک جمله: خلبان شش سؤال دارد؛ این قسمت می‌گوید مدل هواشناسی هر کدام را چقدر خوب جواب می‌دهد.</p></t-fa><t-en><b>From the sun to the takeoff</b><p>[B-ROLL CUE] Takeoff windsock only with the club's permission and without faces (prep-fa.md §5).</p><p>In one line: a pilot has six questions; this episode says how well a weather model answers each.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="95">
+<p class="kicker"><t-fa>تپه‌ای که مدل کوتاه‌تر می‌بیند</t-fa><t-en>The hill the model sees lower</t-en></p>
+<div dir="ltr"><svg class="chart terrain" viewBox="0 0 1600 520" role="img"><title><t-fa>نیم‌رخ: تپهٔ شهران ۲٬۳۲۵ متر و زمین مدل ۱٬۸۳۷؛ مهرآباد ۱٬۲۰۸ و زمین مدل ۱٬۴۴۳</t-fa><t-en>Profile: Shahran hill 2,325 m vs model ground 1,837 m; Mehrabad 1,208 m vs model ground 1,443 m</t-en></title>
+<polygon class="model" points="60,500 60,265 700,265 700,345 1540,345 1540,500"/>
+<polyline class="real" points="60,330 300,250 420,90 540,250 760,400 1540,400"/>
+<circle class="amb" cx="420" cy="90" r="14"/><text x="445" y="80">2,325 m</text>
+<text x="80" y="470">IFS ground 1,837 m</text>
+<text x="1000" y="385" class="sm">IFS 1,443 m</text>
+<text x="1000" y="445">Mehrabad 1,208 m</text>
+<text class="sm" x="600" y="170"><t-fa>شهران</t-fa><t-en>Shahran</t-en></text>
+</svg></div>
+<p class="tag"><t-fa>زمین مدل زیر سکو: IFS ۱٬۸۳۷ · AIFS ۱٬۸۹۴ · GFS ۱٬۸۴۸ متر · زیر مهرآباد: ۱٬۴۴۳ · ۱٬۵۶۰ · ۱٬۴۵۵ متر</t-fa><t-en>Model ground under the takeoff: IFS 1,837 · AIFS 1,894 · GFS 1,848 m · under Mehrabad: 1,443 · 1,560 · 1,455 m</t-en></p>
+<p class="caption"><t-fa>هر خانهٔ ۰٫۲۵ درجه یک ارتفاع دارد: <strong>تپه پایین می‌آید و دشت بالا می‌رود</strong>.</t-fa><t-en>A 0.25° box has one height: <strong>the hill comes down and the plain goes up</strong>.</t-en></p>
+<footer><t-fa>S01 · S02 · ارتفاع سکو از SRTM، S13 [VERIFY] · طرح شماتیک، مقیاس افقی واقعی نیست</t-fa><t-en>S01 · S02 · takeoff height from SRTM (S13) [VERIFY] · schematic, not to horizontal scale</t-en></footer>
+<aside class="notes"><t-fa><b>تپه‌ای که مدل کوتاه‌تر می‌بیند</b><p>[GRAPHIC] پیوند به HMD-S06 (دماوند). ارتفاع زمین مدل از ژئوپتانسیل سطح در گام ۰ (اجرای ۲۸ نوامبر ۲۰۲۶). ارتفاع فرودگاه ۱٬۲۰۸ متر (۳٬۹۶۲ پا)؛ SRTM در همان نقطه ۱٬۱۸۳.</p><p>در یک جمله: در شبکهٔ ۲۵ کیلومتری، تپهٔ سکو حدود ۵۰۰ متر کوتاه‌تر و دشت فرودگاه حدود ۲۵۰ متر بلندتر از واقعیت است.</p></t-fa><t-en><b>The hill the model sees lower</b><p>[GRAPHIC] Link to HMD-S06 (Damavand). Model ground from surface geopotential at step 0 (run of 28 Nov 2026). Airport elevation 1,208 m (3,962 ft); SRTM at the same point 1,183.</p><p>In one line: on a 25 km grid the takeoff hill is about 500 m too low and the airport plain about 250 m too high.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="150">
+<p class="kicker"><t-fa>باد میانگین و تندباد</t-fa><t-en>Mean wind and gusts</t-en></p>
+<div dir="ltr"><svg class="chart gust" viewBox="0 0 1600 360" role="img"><title><t-fa>نمونهٔ آموزشی: باد ثانیه‌به‌ثانیه، میانگین ده دقیقه و تندباد سه‌ثانیه‌ای</t-fa><t-en>Illustrative: second-by-second wind, the 10-minute mean and a 3-second gust</t-en></title>
+<polyline class="bl" points="40,230 120,210 200,250 280,190 360,220 440,160 520,240 600,200 680,230 760,120 840,210 920,250 1000,190 1080,220 1160,170 1240,240 1320,200 1400,230 1480,210 1560,220"/>
+<line class="mean" x1="40" x2="1560" y1="210" y2="210"/>
+<circle class="amb" cx="760" cy="120" r="12"/><text x="780" y="110"><t-fa>تندباد</t-fa><t-en>gust</t-en></text>
+<text x="40" y="330" class="sm">ILLUSTRATIVE</text><text x="1560" y="200" text-anchor="end"><t-fa>میانگین ۱۰ دقیقه</t-fa><t-en>10-min mean</t-en></text>
+</svg></div>
+<div class="cols">
+<div><span><t-fa>ضریب تندباد</t-fa><t-en>gust factor</t-en></span><b class="word"><t-fa>۱۵ ÷ ۱۰ = ۱٫۵</t-fa><t-en>15 ÷ 10 = 1.5</t-en></b></div>
+<div class="hi"><span><t-fa>USHPA، خلبان مبتدی</t-fa><t-en>USHPA, novice pilot</t-en></span><b class="word"><t-fa>باد تا ۱۹ · تندباد تا ۲۴ km/h</t-fa><t-en>wind ≤ 19 · gusts ≤ 24 km/h</t-en></b><p><t-fa>۱۲ و ۱۵ مایل بر ساعت</t-fa><t-en>12 and 15 mph</t-en></p></div>
+</div>
+<footer><t-fa>S20 · USHPA SOP 12-02، سپتامبر ۲۰۲۳ · S22 · METAR: میانگین ۱۰ دقیقه، تندباد فقط اگر دست‌کم ۱۰ گره بالاتر</t-fa><t-en>S20 (USHPA SOP 12-02, Sept 2023) · S22 (METAR: 10-min mean; gust only if ≥ 10 kt above)</t-en></footer>
+<aside class="notes"><t-fa><b>باد میانگین و تندباد</b><p>[GRAPHIC] منحنی آموزشی است (ILLUSTRATIVE). USHPA برای خلبان مبتدی «نرخ تندباد» ۵ مایل در ۵ ثانیه هم دارد؛ این با «تندباد منهای میانگین» یکی نیست. آستانهٔ خلبان متوسط: ۱۵ و ۱۸ مایل (۲۴ و ۲۹ km/h).</p><p>در یک جمله: خلبان هم باد میانگین را می‌خواهد هم تندباد را؛ راهنما برای هر دو سقف دارد، برای باد واقعی لحظهٔ پرواز.</p></t-fa><t-en><b>Mean wind and gusts</b><p>[GRAPHIC] The trace is illustrative. USHPA also gives a novice "gust rate" of 5 mph in 5 s, which is not the same as gust minus mean. Intermediate: 15 and 18 mph (24 and 29 km/h).</p><p>In one line: a pilot needs both the mean and the gust; the guidance caps both, for the real wind at launch.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="210">
+<p class="kicker"><t-fa>روز تمرین · ساعت ۸:۳۰ تهران · GFS · سکوی شهران</t-fa><t-en>Rehearsal day · 08:30 Tehran · GFS · Shahran takeoff</t-en></p>
+<div class="cols">
+<div><span><t-fa>باد ۱۰ متری روی زمین مدل (عدد اپ)</t-fa><t-en>10 m wind on the model ground (the app's number)</t-en></span><b><t-fa>۰٫۸</t-fa><t-en>0.8</t-en><small>km/h</small></b></div>
+<div class="hi"><span><t-fa>باد هوای آزاد در ۲٬۳۲۵ متر</t-fa><t-en>free-air wind at 2,325 m</t-en></span><b><t-fa>۱۰٫۶</t-fa><t-en>10.6</t-en><small>km/h</small></b></div>
+</div>
+<p class="tag"><t-fa>دمو: artifact/wind_live.html · نمای ۱ · پیش‌بینی برای ۹ آذر ۱۴۰۵</t-fa><t-en>Demo: artifact/wind_live.html · view 1 · forecast for 29 Nov 2026</t-en></p>
+<p class="caption"><t-fa>نزدیک زمین اصطکاک باد را می‌گیرد؛ <strong>سکوی واقعی از این لایه بیرون زده</strong>.</t-fa><t-en>Near the ground friction holds the wind back; <strong>the real takeoff sticks out of that layer</strong>.</t-en></p>
+<footer><t-fa>S04 · NOAA GFS، اجرای 06Z روز ۲۸ نوامبر ۲۰۲۶ · replay-2026-11-28.json · پردازش هومودین</t-fa><t-en>S04 (NOAA GFS 06Z run, 28 Nov 2026) · replay-2026-11-28.json · processed by Homodyne</t-en></footer>
+<aside class="notes"><t-fa><b>عدد اپ و باد سکو + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. بعد [B-ROLL CUE] <code>wind_live.html?view=1&amp;t=2</code>؛ خط‌چین آبی = ۱۰ متری GFS، خط پررنگ = سکو. پیش از گفتن عدد مکث برای حدس. روز ضبط عدد زنده جایگزین می‌شود.</p><p>در یک جمله: روز تمرین، عدد ده‌متری مدل کمتر از ۱ و باد ارتفاع سکو حدود ۱۱ کیلومتر بر ساعت بود.</p></t-fa><t-en><b>The app's number vs the takeoff wind + soft CTA</b><p>[MID-CTA] CTA to camera first. Then [B-ROLL CUE] wind_live.html?view=1&amp;t=2; dashed blue = GFS 10 m, solid = takeoff. Pause for a guess. On the day the live number replaces this.</p><p>In one line: on the rehearsal day the model's 10 m wind was under 1 and the takeoff-height wind about 11 km/h.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="280">
+<p class="kicker"><t-fa>باد با ارتفاع عوض می‌شود · چینش باد</t-fa><t-en>Wind changes with height · wind shear</t-en></p>
+<div class="bars">
+<div><span><t-fa>ECMWF (دادهٔ باز): اولین سطح بالای زمین مدل</t-fa><t-en>ECMWF open data: first level above the model ground</t-en></span><i style="--v:100"></i><span><t-fa>≈ ۱٬۳۰۰ متر</t-fa><t-en>≈ 1,300 m</t-en></span></div>
+<div class="hi"><span><t-fa>GFS: فاصلهٔ سطح‌ها</t-fa><t-en>GFS: level spacing</t-en></span><i style="--v:40"></i><span><t-fa>≈ ۵۰۰ متر</t-fa><t-en>≈ 500 m</t-en></span></div>
+</div>
+<p class="caption"><t-fa>هودوگراف: نوک فلش باد در هر ارتفاع. <strong>خط کوتاه یعنی چینش کم؛ پیچ و دوری یعنی چینش زیاد.</strong></t-fa><t-en>Hodograph: the tip of the wind arrow at each height. <strong>A short line means little shear; turns and reach mean a lot.</strong></t-en></p>
+<p class="tag"><t-fa>دمو: نمای ۲ · M مدل بعدی</t-fa><t-en>Demo: view 2 · M next model</t-en></p>
+<footer><t-fa>S01 · سطح‌های فشار دادهٔ باز: ۱۰۰۰، ۹۲۵، ۸۵۰، ۷۰۰… · S04 · GFS</t-fa><t-en>S01 (open-data levels: 1000, 925, 850, 700…) · S04 (GFS)</t-en></footer>
+<aside class="notes"><t-fa><b>باد با ارتفاع</b><p>[B-ROLL CUE] <code>?view=2&amp;t=8</code>. روی تهران ۹۲۵ و ۸۵۰ هکتوپاسکال زیر زمین مدل‌اند؛ پس اولین سطح ۷۰۰ است (حدود ۳٬۱۰۰ متر). «هر ۵۰ هکتوپاسکال ≈ ۵۰۰ متر» تقریب است.</p><p>در یک جمله: باد با ارتفاع عوض می‌شود؛ در دادهٔ باز اروپایی اولین سطح بالای زمین مدل حدود ۱٬۳۰۰ متر بالاتر است.</p></t-fa><t-en><b>Wind by height</b><p>[B-ROLL CUE] ?view=2&amp;t=8. Over Tehran 925 and 850 hPa lie below the model ground, so the first level is 700 hPa (about 3,100 m). "50 hPa ≈ 500 m" is approximate.</p><p>In one line: wind changes with height; in ECMWF open data the first level above the model ground is about 1,300 m up.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="335">
+<p class="kicker"><t-fa>لایهٔ مرزی و گرمیک · روز تمرین ۱۴:۳۰ · GFS</t-fa><t-en>Boundary layer and thermals · rehearsal day 14:30 · GFS</t-en></p>
+<div class="cols">
+<div><span><t-fa>سقف گرمیک (حباب خشک)</t-fa><t-en>thermal top (dry parcel)</t-en></span><b><t-fa>۲٬۶۶۳</t-fa><t-en>2,663</t-en><small>m</small></b><p><t-fa>حدود ۳۴۰ متر بالای سکو</t-fa><t-en>about 340 m above takeoff</t-en></p></div>
+<div><span><t-fa>پایهٔ ابر: (T − Td) × ۱۲۵ متر</t-fa><t-en>cloud base: (T − Td) × 125 m</t-en></span><b><t-fa>۴٬۰۹۶</t-fa><t-en>4,096</t-en><small>m</small></b></div>
+<div class="hi"><span><t-fa>w* (قدرت گرمیک، تقریبی)</t-fa><t-en>w* (thermal strength, rough)</t-en></span><b><t-fa>۱٫۳</t-fa><t-en>1.3</t-en><small>m/s</small></b><p><t-fa>لایهٔ مرزی GFS: ۲٬۸۰۳ م</t-fa><t-en>GFS boundary layer: 2,803 m</t-en></p></div>
+</div>
+<p class="caption"><t-fa>حباب گرم هر هزار متر حدود ۱۰ درجه سرد می‌شود؛ <strong>هر جا هم‌دمای هوا شد، می‌ایستد</strong>.</t-fa><t-en>A rising bubble cools about 10 degrees per km; <strong>it stops where it matches the air around it</strong>.</t-en></p>
+<footer><t-fa>S04 · S24 Stull · S25 Deardorff · replay-2026-11-28.json</t-fa><t-en>S04 · S24 (Stull) · S25 (Deardorff) · replay-2026-11-28.json</t-en></footer>
+<aside class="notes"><t-fa><b>لایهٔ مرزی و گرمیک</b><p>[GRAPHIC] <code>?view=3&amp;t=8</code>. پایهٔ ابر از ارتفاع زمین مدل حساب می‌شود. w* فقط از GFS (شار گرمای سطح و عمق لایهٔ مرزی). در IFS صفحه «levels too coarse» می‌گوید: نکتهٔ درس است، نه خرابی.</p><p>در یک جمله: گرمای ظهر لایهٔ مرزی را بالا می‌برد و باد بالا را پایین می‌آورد؛ سقف گرمیک و پایهٔ ابر از نیم‌رخ دمای مدل تخمین زده می‌شوند.</p></t-fa><t-en><b>Boundary layer and thermals</b><p>[GRAPHIC] ?view=3&amp;t=8. Cloud base counts from the model ground. w* only from GFS (surface heat flux and boundary-layer depth). For IFS the page says "levels too coarse": a lesson, not a bug.</p><p>In one line: midday heating deepens the boundary layer and mixes the upper wind down; thermal top and cloud base come from the model's temperature profile.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="395">
+<p class="kicker"><t-fa>بادهایی که شبکه نمی‌بیند</t-fa><t-en>Winds the grid cannot see</t-en></p>
+<div class="cards">
+<div><b><t-fa>باد شیب</t-fa><t-en>slope wind</t-en></b><t-fa>روز بالا، شب پایین</t-fa><t-en>up by day, down at night</t-en></div>
+<div><b><t-fa>باد دره</t-fa><t-en>valley wind</t-en></b><t-fa>صبح یک جهت، عصر جهت دیگر</t-fa><t-en>one way in the morning, the other in the evening</t-en></div>
+<div><b><t-fa>گرداب پشت ستیغ</t-fa><t-en>lee rotor</t-en></b><t-fa>هوا مثل آب پشت سنگ</t-fa><t-en>air like water behind a rock</t-en></div>
+<div><b><t-fa>فون</t-fa><t-en>foehn</t-en></b><t-fa>باد گرم و خشکِ پایین‌رو</t-fa><t-en>warm, dry wind pouring down</t-en></div>
+<div class="hi"><b><t-fa>باد بیرون‌زده از ابر طوفانی</t-fa><t-en>storm outflow</t-en></b><t-fa>ناگهانی‌ترین</t-fa><t-en>the most sudden</t-en></div>
+</div>
+<p class="caption"><t-fa>همه از یک خانهٔ ۲۵ کیلومتری کوچک‌ترند؛ <strong>مدل فقط اثر میانگینشان را می‌بیند، اگر ببیند</strong>.</t-fa><t-en>All smaller than one 25 km box; <strong>the model sees only their average effect, if at all</strong>.</t-en></p>
+<footer><t-fa>S23 · Whiteman، هواشناسی کوهستان</t-fa><t-en>S23 (Whiteman, Mountain Meteorology)</t-en></footer>
+<aside class="notes"><t-fa><b>بادهایی که شبکه نمی‌بیند</b><p>[B-ROLL CUE] چهار طرح ساده که خودمان می‌کشیم. هیچ ادعای «فون تهران» با عدد نکن؛ نمونهٔ محلی نداریم [VERIFY].</p><p>در یک جمله: باد شیب، باد دره، گرداب پشت ستیغ، فون و باد بیرون‌زده از ابر طوفانی همه کوچک‌تر از یک خانهٔ شبکه‌اند.</p></t-fa><t-en><b>Winds the grid cannot see</b><p>[B-ROLL CUE] Simple drawings of our own. No numeric claims about a "Tehran foehn"; we have no local case [VERIFY].</p><p>In one line: slope and valley winds, lee rotors, foehn and storm outflow are all smaller than one grid box.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="450">
+<p class="kicker"><t-fa>پیش‌بینی «فردا» چقدر درست است؟</t-fa><t-en>How good is "tomorrow's" forecast?</t-en></p>
+<h1><t-fa>یک ماه · روزی دو بار · <em>پیش‌بینی روز قبل</em> در برابر مهرآباد</t-fa><t-en>One month · twice a day · <em>the day-before forecast</em> against Mehrabad</t-en></h1>
+<div class="steps">
+<div><b><t-fa>آوریل ۲۰۲۵</t-fa><t-en>April 2025</t-en></b><t-fa>فروردین و اردیبهشت ۱۴۰۴</t-fa><t-en>start of the flying season</t-en></div>
+<div><b><t-fa>۰۹:۳۰ و ۱۵:۳۰</t-fa><t-en>09:30 and 15:30</t-en></b><t-fa>ساعت تهران</t-fa><t-en>Tehran time</t-en></div>
+<div class="hi"><b>IFS · AIFS</b><t-fa>مدل فیزیکی و مدل هوش مصنوعی ECMWF</t-fa><t-en>ECMWF's physics model and AI model</t-en></div>
+</div>
+<p class="caption"><t-fa>حدس بزن: مدل‌ها باد را <strong>بیشتر</strong> از واقعیت می‌گویند یا <strong>کمتر</strong>؟</t-fa><t-en>Guess: do the models say <strong>more</strong> wind than measured, or <strong>less</strong>?</t-en></p>
+<footer><t-fa>S01 · آینهٔ ابری بایگانی ECMWF · S03 · IEM · eval-2025-04.json</t-fa><t-en>S01 (cloud mirror of the ECMWF archive) · S03 (IEM) · eval-2025-04.json</t-en></footer>
+<aside class="notes"><t-fa><b>RE-HOOK</b><p>[CAMERA CHANGE] جملهٔ اول رو به دوربین. بعد نمای ۴ دمو بدون خطوط مدل. «روی تپه بادسنج عمومی پیدا نکردیم»، نه «وجود ندارد».</p><p>در یک جمله: پیش‌بینی روز قبلِ دو مدل اروپایی را یک ماه، روزی دو بار، با باد مهرآباد مقایسه کردیم.</p></t-fa><t-en><b>RE-HOOK</b><p>[CAMERA CHANGE] First line to camera. Then demo view 4 without the model lines. "We found no public anemometer on the hill", not "there is none".</p><p>In one line: we compared both ECMWF models' day-before forecasts with Mehrabad's wind, twice a day for a month.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="500">
+<p class="kicker"><t-fa>۳۰ روز × ۲ ساعت · مهرآباد · km/h</t-fa><t-en>30 days × 2 times · Mehrabad · km/h</t-en></p>
+<div class="bars tight">
+<div class="hi"><span><t-fa>میانگین باد اندازه‌گیری‌شده</t-fa><t-en>mean measured wind</t-en></span><i style="--v:100"></i><span><t-fa>۱۶٫۲</t-fa><t-en>16.2</t-en></span></div>
+<div><span><t-fa>میانگین پیش‌بینی IFS</t-fa><t-en>mean IFS forecast</t-en></span><i style="--v:51.9"></i><span><t-fa>۸٫۴</t-fa><t-en>8.4</t-en></span></div>
+<div><span><t-fa>میانگین پیش‌بینی AIFS</t-fa><t-en>mean AIFS forecast</t-en></span><i style="--v:49.4"></i><span><t-fa>۸٫۰</t-fa><t-en>8.0</t-en></span></div>
+</div>
+<table class="t"><tr><th></th><th>IFS</th><th>AIFS</th></tr>
+<tr><td><t-fa>خطای میانگین مطلق</t-fa><t-en>mean absolute error</t-en></td><td>8.5</td><td>8.4</td></tr>
+<tr><td><t-fa>جهت: میانهٔ خطا · بیش از ۴۵°</t-fa><t-en>direction: median error · over 45°</t-en></td><td>22° · 14/49</td><td>31° · 15/49</td></tr>
+<tr><td><t-fa>دفعات ۱۹ km/h و بیشتر، خط خلبان مبتدی</t-fa><t-en>times ≥ 19 km/h (novice line)</t-en></td><td colspan="2"><t-fa>مشاهده ۱۸ · هر مدل ۱</t-fa><t-en>observed 18 · each model 1</t-en></td></tr></table>
+<footer><t-fa>eval-2025-04.json · فرق خطای مطلق دو مدل: ۰٫۱۷ ± ۰٫۴۱ km/h (یک خطای معیار)</t-fa><t-en>eval-2025-04.json · |IFS error| − |AIFS error| = 0.17 ± 0.41 km/h (1 s.e.)</t-en></footer>
+<aside class="notes"><t-fa><b>یک ماه، شصت مقایسه</b><p>[UNEXPECTED STAT] <code>?view=4</code>. خطای جهت فقط وقتی باد مشاهده ≥ ۵ گره (۴۹ مورد). «تقریباً نصف» = ۸٫۴ از ۱۶٫۲. فرق اندازهٔ خطای دو مدل در حد عدم‌قطعیت آماری‌مان است؛ نگو «AI بهتر/بدتر». (همبستگی با مشاهده: IFS ۰٫۱۶، AIFS ۰٫۴۷؛ بیشتر از یک روز؛ در متن نیست.)</p><p>در یک جمله: در یک ماه، هر دو مدل باد مهرآباد را حدود نصف دیدند و جهتشان از هر سه‌چهار مورد یکی بیش از ۴۵ درجه خطا داشت.</p></t-fa><t-en><b>One month, sixty comparisons</b><p>[UNEXPECTED STAT] ?view=4. Direction error only when the observed wind is ≥ 5 kt (49 cases). "About half" = 8.4 of 16.2. The difference in error size is within our statistical uncertainty; do not say "AI is better/worse". (Correlation with observations: IFS 0.16, AIFS 0.47, driven largely by one day; not in the script.)</p><p>In one line: over a month both models saw Mehrabad's wind at about half, and about one direction in three or four was off by more than 45°.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="555">
+<p class="kicker"><t-fa>تندباد و ابری که مدل ندید</t-fa><t-en>Gusts, and the cloud the model missed</t-en></p>
+<div class="cols">
+<div><span><t-fa>تندباد IFS بیشتر از اوج مشاهده</t-fa><t-en>IFS gust above the observed peak</t-en></span><b><t-fa>۵۶ از ۶۰</t-fa><t-en>56 of 60</t-en></b><p><t-fa>ولی METAR فقط ۱ بار تندباد گزارش کرد</t-fa><t-en>but METAR reported a gust only once</t-en></p></div>
+<div class="hi"><span><t-fa>۲۸ فروردین، ۱۵:۳۰ · IFS روز قبل</t-fa><t-en>17 Apr, 15:30 · IFS day before</t-en></span><b class="word"><t-fa>باد ۱٫۵ · تندباد ۲۸ · CAPE ۰</t-fa><t-en>wind 1.5 · gust 28 · CAPE 0</t-en></b><p><t-fa>همان صبح: ۷٫۹ km/h · مشاهده: ۴۴</t-fa><t-en>same morning: 7.9 km/h · measured: 44</t-en></p></div>
+</div>
+<p class="caption"><t-fa>انرژی همرفت (CAPE) سوخت ابر طوفانی است؛ <strong>آن روز مدل بالای فرودگاه سوختی ندید</strong>، و باد تند را چند ساعت دیرتر آورد.</t-fa><t-en>Convective energy (CAPE) is a storm cloud's fuel; <strong>that day the model saw none over the airport</strong>, and brought the strong wind hours late.</t-en></p>
+<footer><t-fa>eval-2025-04.json · case-2025-04-17.json · CAPE: مقدار most-unstable در IFS</t-fa><t-en>eval-2025-04.json · case-2025-04-17.json · CAPE: IFS most-unstable value</t-en></footer>
+<aside class="notes"><t-fa><b>تندباد و ابری که مدل ندید</b><p>[GRAPHIC] تندباد مدل (۱۰fg، بیشینه در یک ساعت پیش از گام؛ از بخش ۴ GRIB2 وارسی شد) با «اوج» ما مقایسه شده که بیشتر باد میانگین است، چون METAR تندباد کوچک را نمی‌نویسد. پس «مدل تندباد را زیاد می‌گوید» نتیجه نگیر.</p><p>در یک جمله: روز ۲۸ فروردین، مدل در نقطهٔ فرودگاه نه سوخت ابر طوفانی دید نه باد ۴۴ کیلومتری را؛ باد را چند ساعت دیرتر و ضعیف‌تر آورد، و پیش‌بینی همان صبح هم بهتر نبود.</p></t-fa><t-en><b>Gusts and the missed cloud</b><p>[GRAPHIC] The model gust (10fg, maximum over the hour before the step; checked in GRIB2 section 4) is compared with our "peak", which is mostly the mean wind because METAR omits small gusts. Do not conclude "the model overdoes gusts".</p><p>In one line: on 17 April the model, at the airport point, saw neither storm-cloud fuel nor the 44 km/h wind; it brought the wind hours late and weaker, and the same-morning run did no better.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="595">
+<p class="kicker"><t-fa>نشانگر · روز تمرین · GFS ساعتی · دو جهت شیب</t-fa><t-en>Indicator · rehearsal day · GFS hourly · two slope directions</t-en></p>
+<div class="igrid" dir="ltr">
+<b><t-fa>رو به جنوب</t-fa><t-en>facing S</t-en></b><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i class="r">no</i><i>inside</i>
+<b><t-fa>رو به غرب</t-fa><t-en>facing W</t-en></b><i>inside</i><i>inside</i><i>inside</i><i>inside</i><i>inside</i><i class="a">wait</i><i class="a">wait</i><i class="a">wait</i><i class="a">wait</i><i class="a">wait</i><i>inside</i><i>inside</i><i>inside</i>
+<span></span><em>06:30</em><em>07:30</em><em>08:30</em><em>09:30</em><em>10:30</em><em>11:30</em><em>12:30</em><em>13:30</em><em>14:30</em><em>15:30</em><em>16:30</em><em>17:30</em><em>18:30</em>
+</div>
+<p class="caption"><t-fa>باد غربی بود: برای شیب جنوبی «نه» (باد از پهلو)، برای شیب غربی «در محدوده» و ظهر «صبر» (گرمیک). <strong>«در محدوده» یعنی «برو با مربی حرف بزن»، نه «بپر».</strong></t-fa><t-en>The wind was westerly: "no" for a south slope (crosswind), "inside" for a west slope and "wait" at midday (thermals). <strong>"Inside" means "go and talk to your instructor", not "jump".</strong></t-en></p>
+<footer><t-fa>آستانه‌ها: S20 · USHPA، و انتخاب تحریریه · replay-2026-11-28.json · جهت سکو را باشگاه می‌گوید [VERIFY]</t-fa><t-en>Thresholds: S20 (USHPA) and editorial · replay-2026-11-28.json · the club says which slope [VERIFY]</t-en></footer>
+<aside class="notes"><t-fa><b>نشانگر</b><p>[B-ROLL CUE] <code>?view=5&amp;t=8</code>، بعد نمای ۱ و F برای جهت. ستاره = دادهٔ ناقص (AIFS تندباد و CAPE ندارد). ساعت ۱۸:۳۰ «در محدوده» است چون باد زیر ۵ km/h بود و جهت حساب نمی‌شود.</p><p>در یک جمله: نشانگر هر ساعت را «در محدوده»، «صبر» یا «نه» می‌گذارد؛ «در محدوده» یعنی گفت‌وگو با مربی، نه اجازهٔ پرواز.</p></t-fa><t-en><b>Indicator</b><p>[B-ROLL CUE] ?view=5&amp;t=8, then view 1 and F for the slope direction. Asterisk = missing input (AIFS has no gust or CAPE). 18:30 is "inside" because the wind was under 5 km/h and direction does not count.</p><p>In one line: the indicator marks each hour inside, wait or no; "inside" means a talk with the instructor, not permission to fly.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="645">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>عدد ده‌متری اپ مال ارتفاع سکو نیست · در یک ماه، پیش‌بینی روز قبل باد مهرآباد را حدود نصف دید · یک ابر طوفانی از چشم مدل در رفت</t-fa><t-en>The app's 10 m number is not the takeoff-height wind · over a month the day-before forecast saw Mehrabad's wind at about half · one storm cloud slipped past the model</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>کِی پرواز امن است · خطای پیش‌بینی روی خود تپه (هنوز نسنجیدیم) · همهٔ فصل‌ها و همهٔ سکوها · جای مربی، باشگاه و هشدار رسمی</t-fa><t-en>When flying is safe · forecast error on the hill itself (not measured yet) · all seasons and all sites · a replacement for the instructor, the club and official warnings</t-en></div>
+</div>
+<footer><t-fa>study-fa.md · «بگو / نگو» · [RUN] بادسنج روی سکو</t-fa><t-en>study-fa.md · "say / don't say" · [RUN] anemometer at the takeoff</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بی‌موسیقی. «امن» فقط در جملهٔ نفی.</p><p>در یک جمله: این قسمت خطای پیش‌بینی را در فرودگاه نشان می‌دهد؛ نمی‌گوید کِی پرواز امن است و جای مربی و هشدار رسمی را نمی‌گیرد.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. "Safe" only in the negative sentence.</p><p>In one line: this shows forecast error at the airport; it does not say when flying is safe and does not replace the instructor or official warnings.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="685">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>پیش‌بینی فردا <em>روند</em> را می‌گوید، نه باد دقیق سکو را</t-fa><t-en>Tomorrow's forecast gives the <em>trend</em>, not the exact wind on the takeoff</t-en></h1>
+<div class="steps">
+<div class="hi"><b>1</b><t-fa>عدد را به ارتفاع سکو ببر</t-fa><t-en>take the number to the takeoff height</t-en></div>
+<div><b>2</b><t-fa>تندباد و گرمیک را کنار باد میانگین بخوان</t-fa><t-en>read gusts and thermals next to the mean wind</t-en></div>
+<div><b>3</b><t-fa>صبح روی سکو، با آسمان و بادنما بسنج</t-fa><t-en>on the hill, check it against the sky and the windsock</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: عدد اپ را یک بار با بادنمای واقعی مقایسه کن.</t-fa><t-en>Exercise: compare the app's number with a real windsock once.</t-en></p>
+<footer><t-fa>تصمیم با مربی و باشگاه است</t-fa><t-en>The decision is the instructor's and the club's</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت کوتاه به نمای ۱ دمو.</p><p>در یک جمله: پیش‌بینی فردا روند را می‌گوید، نه باد دقیق سکو را؛ عدد را به ارتفاع سکو ببر، تندباد و گرمیک را بخوان، و با آسمان بسنج.</p></t-fa><t-en><b>The answer</b><p>Brief return to demo view 1.</p><p>In one line: tomorrow's forecast gives the trend, not the exact takeoff wind; move it to takeoff height, read gusts and thermals, and check against the sky.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="720">
+<p class="kicker"><t-fa>قسمت بعد · HMD-012</t-fa><t-en>Next · HMD-012</t-en></p>
+<h1><t-fa>چند سؤال لازم است تا <em>به نمرهٔ یک مدل</em> اعتماد کنی؟</t-fa><t-en>How many questions before you can <em>trust a model's score</em>?</t-en></h1>
+<p class="caption"><t-fa>ما چند روز لازم داشتیم تا فرق دو پیش‌بینی را باور کنیم؟ همین سؤال، این بار برای امتحان هوش مصنوعی.</t-fa><t-en>How many days did we need to believe a difference between two forecasts? The same question, this time for an AI test.</t-en></p>
+<footer><t-fa>قسمت بعد · HMD-012</t-fa><t-en>Next · HMD-012</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] صدای ورق زدن برگهٔ امتحان؛ دسته‌ای برگه که روی هم جمع می‌شود، بی‌عدد. End screen به HMD-012 از ثانیهٔ ۱۰. هیچ عددی از قسمت بعد نگو.</p><p>در یک جمله: از «چند روز تا اعتماد به پیش‌بینی» به «چند سؤال تا اعتماد به نمرهٔ مدل».</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] Exam pages turning; a stack of question sheets, no numbers. End screen to HMD-012 from second 10. Quote no number from the next episode.</p><p>In one line: from "how many days to trust a forecast" to "how many questions to trust a model's score".</p></t-en></aside>
+</section>

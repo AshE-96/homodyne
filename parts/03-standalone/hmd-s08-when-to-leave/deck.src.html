@@ -1,0 +1,280 @@
+<!-- HMD-S08 · deck source. Build: python3 scripts/build-decks.py --only hmd-s08  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Charts (beats 4, 6, 11) are printed by artifact/deck_figures.py from artifact/derived/weekday_trips.csv; no third-party images.
+     Every number: artifact/derived/episode_numbers.json (python3 -I artifact/leave_live.py --report) or sources.md. -->
+
+<style>
+/* HMD-S08: histogram (beat 4), fan chart (beat 6), weekly medians (beat 11) */
+.chart.hist,.chart.fan,.chart.weeks{max-width:1500px;margin-inline:auto;display:block}
+.chart text{font-size:28px;fill:var(--muted)}
+.chart .sm{font-size:24px}
+.chart.hist .bar{fill:#B9B3A7}.chart.hist .late{fill:#C8553D}
+.chart.hist .ax{stroke:#8F8C84;stroke-width:2}
+.chart.hist .med{stroke:var(--ink);stroke-width:6}.chart.hist .left{stroke:#3D7DB8;stroke-width:6;stroke-dasharray:14 8}.chart.hist .p95{stroke:var(--amber);stroke-width:6}
+.chart.fan .grid{stroke:var(--line-night);stroke-width:2}
+.chart.fan text{fill:var(--muted-night)}
+.chart.fan .p50{fill:none;stroke:var(--paper);stroke-width:5}.chart.fan .p95{fill:none;stroke:var(--amber);stroke-width:6}
+.chart.fan .pt{fill:var(--amber);stroke:var(--night);stroke-width:4}
+.chart.weeks .train{fill:#B9B3A7}.chart.weeks .quiet{fill:#DDD8CE;stroke:#8F8C84;stroke-width:2;stroke-dasharray:8 6}.chart.weeks .test{fill:var(--amber)}
+.chart.weeks text{fill:var(--ink)}.chart.weeks .sm{fill:var(--muted)}
+.key{display:flex;gap:36px;justify-content:center;font-size:24px;color:var(--muted);margin-top:6px}
+.key i{display:inline-block;width:34px;height:8px;vertical-align:middle;margin-inline-end:10px}
+.night .key{color:var(--muted-night)}
+table.t td.n{text-align:end}
+table.t tr.hi td{font-weight:700}
+.formula.sm{font-size:44px}
+</style>
+
+<section class="cover">
+<h1><t-fa>کی راه بیفتم که <em>به‌موقع</em> برسم؟</t-fa><t-en>When should I leave to arrive <em>on time</em>?</t-en></h1>
+<p class="promise"><t-fa>با ۳۰٬۷۵۰ سفر واقعی تاکسی، یک ماشین‌حساب «رسیدن تا» می‌سازیم و روی روزهایی که ندیده امتحانش می‌کنیم.</t-fa><t-en>With 30,750 real taxi trips we build an "arrive by" calculator, then test it on days it has never seen.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>رسیدن تا ۱۸:۰۰</t-fa><t-en>Arrive by 18:00</t-en></p>
+<h1 class="xl"><t-fa>میانگین: حدود ۷۵ دقیقه. پس ۱۶:۴۵ راه بیفت؟</t-fa><t-en>Average trip: about 75 min. So leave at 16:45?</t-en></h1>
+<div class="cols">
+<div><span><t-fa>روزهای گذشته</t-fa><t-en>Past days</t-en></span><b><t-fa>۵۲٫۱٪</t-fa><t-en>52.1%</t-en></b><p><t-fa>به‌موقع رسید: تقریباً شیر یا خط</t-fa><t-en>arrived on time: about a coin toss</t-en></p></div>
+<div class="hi"><span><t-fa>روزهای ندیده (۱۳ تا ۳۰ آوریل)</t-fa><t-en>Unseen days (13–30 April)</t-en></span><b><t-fa>۷۲٫۷٪</t-fa><t-en>72.7%</t-en></b><p><t-fa>دیر رسید</t-fa><t-en>arrived late</t-en></p></div>
+</div>
+<footer><t-fa>میدتاون ← JFK · تاکسی زرد نیویورک، روزهای کاری مارس–آوریل ۲۰۲۶ · حساب هومودین</t-fa><t-en>Midtown → JFK · NYC yellow taxi, weekdays Mar–Apr 2026 · Homodyne's computation</t-en></footer>
+<aside class="notes"><t-fa><b>میانگین درست، تصمیم غلط</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» «نصف وقت‌ها» = ۵۲٫۱٪ به‌موقع در روزهای آموزش؛ «نزدیک سه‌چهارم» = ۷۲٫۷٪ دیر در بک‌تست (۷۷ سفر). عدد ۱۶:۲۰ را اینجا لو نده.</p><p>در یک جمله: حساب «میانگین + ساعت حرکت» درست است، ولی تصمیمِ ساخته‌شده با آن نصف وقت‌ها دیر می‌رساند.</p></t-fa><t-en><b>Right average, wrong decision</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. "Half the time" = 52.1% on time on training days; "nearly three quarters" = 72.7% late in the backtest (77 trips). Do not reveal 16:20 here.</p><p>In one line: "average + departure time" is correct arithmetic, but the decision it makes is late half the time.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>از چالوس تا فرودگاه</t-fa><t-en>From the Chalus road to the airport</t-en></p>
+<div class="cards">
+<div class="off"><b><t-fa>هفتهٔ پیش · HMD-S07</t-fa><t-en>Last week · HMD-S07</t-en></b><t-fa>جاده کی خلوت است؟</t-fa><t-en>When is the road empty?</t-en></div>
+<div class="hi"><b><t-fa>این هفته</t-fa><t-en>This week</t-en></b><t-fa>ساعت رسیدن قطعی است؛ کی راه بیفتم؟</t-fa><t-en>The arrival time is fixed; when must I leave?</t-en></div>
+</div>
+<p class="caption"><t-fa>اپ‌های مسیریابی گزینهٔ «رسیدن تا» دارند. حساب پشتش چیست؟</t-fa><t-en>Navigation apps have an "arrive by" option. What is the arithmetic behind it?</t-en></p>
+<footer><t-fa>ضبط صفحهٔ گوشی خودمان · prep-fa.md §۵</t-fa><t-en>Our own phone screen recording · prep-fa.md §5</t-en></footer>
+<aside class="notes"><t-fa><b>از چالوس تا فرودگاه</b><p>[B-ROLL CUE] نمای کوتاه جادهٔ چالوس از HMD-S07، بعد صفحهٔ «Arrive by» روی گوشی خودت (نشانی خانه نه). هیچ عددی از S07 نگو.</p><p>در یک جمله: وقتی ساعت رسیدن قطعی است، تنها تصمیم ما ساعت حرکت است، و حساب پشتش را باید شناخت.</p></t-fa><t-en><b>From the Chalus road to the airport</b><p>[B-ROLL CUE] A short shot of the Chalus road from HMD-S07, then the "Arrive by" screen on your own phone (no home address). Quote no numbers from S07.</p><p>In one line: when the arrival time is fixed, the only decision is when to leave, and we should know the arithmetic behind it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="85">
+<p class="kicker"><t-fa>دادهٔ واقعی</t-fa><t-en>Real data</t-en></p>
+<h1><t-fa>۳۰٬۷۵۰ سفر روز کاری · ۴ مسیر · <em>یک مسیر، یک ساعت، صدها زمان</em></t-fa><t-en>30,750 weekday trips · 4 routes · <em>one route, one hour, hundreds of times</em></t-en></h1>
+<table class="t">
+<tr><th><t-fa>مسیر</t-fa><t-en>Route</t-en></th><th><t-fa>سفر</t-fa><t-en>Trips</t-en></th></tr>
+<tr class="hi"><td><t-fa>میدتاون ← فرودگاه JFK</t-fa><t-en>Midtown → JFK Airport</t-en></td><td class="n"><t-fa>۸٬۵۰۹</t-fa><t-en>8,509</t-en></td></tr>
+<tr><td><t-fa>میدتاون ← فرودگاه لاگواردیا</t-fa><t-en>Midtown → LaGuardia Airport</t-en></td><td class="n"><t-fa>۱۵٬۰۵۴</t-fa><t-en>15,054</t-en></td></tr>
+<tr><td><t-fa>میدتاون ← فرودگاه نیوآرک</t-fa><t-en>Midtown → Newark Airport</t-en></td><td class="n"><t-fa>۳٬۴۳۷</t-fa><t-en>3,437</t-en></td></tr>
+<tr><td><t-fa>آپر ایست ساید ← محلهٔ مالی (مسیر اداری)</t-fa><t-en>Upper East Side → Financial District (commute)</t-en></td><td class="n"><t-fa>۳٬۷۵۰</t-fa><t-en>3,750</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>هر سفر: کی کنتور روشن شد («راه افتادن») و چند دقیقه طول کشید · ۲ مارس تا ۳۰ آوریل ۲۰۲۶ · فقط روزهای کاری</t-fa><t-en>Each trip: when the meter started ("leaving") and how many minutes it ran · 2 March – 30 April 2026 · weekdays only</t-en></p>
+<footer><t-fa>Data: NYC TLC Yellow Taxi Trip Records · پالایش و حساب هومودین · artifact/derived/SOURCE.txt</t-fa><t-en>Data: NYC TLC Yellow Taxi Trip Records · filtered and computed by Homodyne · artifact/derived/SOURCE.txt</t-en></footer>
+<aside class="notes"><t-fa><b>سی‌هزار سفر واقعی</b><p>[GRAPHIC] همان دادهٔ HMD-009؛ سطرهای JFK دقیقاً سطرهای روز کاری فایل HMD-009 است (selftest). ۲۳۴ سفر = آن‌هایی که در روزهای آموزش بین ۱۶:۳۰ و ۱۷:۰۰ راه افتادند.</p><p>در یک جمله: یک مسیر در یک ساعت، یک زمان ندارد؛ یک توزیع دارد.</p></t-fa><t-en><b>Thirty thousand real trips</b><p>[GRAPHIC] The same data as HMD-009; the JFK rows are exactly HMD-009's weekday rows (selftest). 234 trips = those that left between 16:30 and 17:00 on training days.</p><p>In one line: a route at a given hour has no single time; it has a distribution.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="140">
+<p class="kicker"><t-fa>حرکت ۱۶:۴۵ · ۲۳۴ سفر · مهلت ۱۸:۰۰</t-fa><t-en>Leaving 16:45 · 234 trips · deadline 18:00</t-en></p>
+<div dir="ltr"><svg class="chart hist" viewBox="0 0 1600 460" role="img">
+<rect class="bar" x="62.0" y="400.0" width="37.7" height="0.0"/>
+<rect class="bar" x="103.7" y="376.9" width="37.7" height="23.1"/>
+<rect class="bar" x="145.3" y="330.6" width="37.7" height="69.4"/>
+<rect class="bar" x="187.0" y="353.8" width="37.7" height="46.2"/>
+<rect class="bar" x="228.7" y="215.0" width="37.7" height="185.0"/>
+<rect class="bar" x="270.3" y="215.0" width="37.7" height="185.0"/>
+<rect class="bar" x="312.0" y="99.4" width="37.7" height="300.6"/>
+<rect class="bar" x="353.7" y="168.8" width="37.7" height="231.2"/>
+<rect class="bar" x="395.3" y="53.1" width="37.7" height="346.9"/>
+<rect class="bar" x="437.0" y="284.4" width="37.7" height="115.6"/>
+<rect class="bar" x="478.7" y="53.1" width="37.7" height="346.9"/>
+<rect class="bar" x="520.3" y="122.5" width="37.7" height="277.5"/>
+<rect class="bar" x="562.0" y="122.5" width="37.7" height="277.5"/>
+<rect class="bar" x="603.7" y="30.0" width="37.7" height="370.0"/>
+<rect class="late" x="645.3" y="30.0" width="37.7" height="370.0"/>
+<rect class="late" x="687.0" y="215.0" width="37.7" height="185.0"/>
+<rect class="late" x="728.7" y="76.2" width="37.7" height="323.8"/>
+<rect class="late" x="770.3" y="99.4" width="37.7" height="300.6"/>
+<rect class="late" x="812.0" y="99.4" width="37.7" height="300.6"/>
+<rect class="late" x="853.7" y="99.4" width="37.7" height="300.6"/>
+<rect class="late" x="895.3" y="330.6" width="37.7" height="69.4"/>
+<rect class="late" x="937.0" y="215.0" width="37.7" height="185.0"/>
+<rect class="late" x="978.7" y="238.1" width="37.7" height="161.9"/>
+<rect class="late" x="1020.3" y="215.0" width="37.7" height="185.0"/>
+<rect class="late" x="1062.0" y="284.4" width="37.7" height="115.6"/>
+<rect class="late" x="1103.7" y="330.6" width="37.7" height="69.4"/>
+<rect class="late" x="1145.3" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1187.0" y="376.9" width="37.7" height="23.1"/>
+<rect class="late" x="1228.7" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1270.3" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1312.0" y="376.9" width="37.7" height="23.1"/>
+<rect class="late" x="1353.7" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1395.3" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1437.0" y="376.9" width="37.7" height="23.1"/>
+<rect class="late" x="1478.7" y="400.0" width="37.7" height="0.0"/>
+<rect class="late" x="1520.3" y="400.0" width="37.7" height="0.0"/>
+<line class="ax" x1="60" y1="400" x2="1560" y2="400"/>
+<text x="60" y="440" text-anchor="middle">40</text>
+<text x="227" y="440" text-anchor="middle">50</text>
+<text x="393" y="440" text-anchor="middle">60</text>
+<text x="560" y="440" text-anchor="middle">70</text>
+<text x="727" y="440" text-anchor="middle">80</text>
+<text x="893" y="440" text-anchor="middle">90</text>
+<text x="1060" y="440" text-anchor="middle">100</text>
+<text x="1227" y="440" text-anchor="middle">110</text>
+<text x="1393" y="440" text-anchor="middle">120</text>
+<text x="1560" y="440" text-anchor="middle">130</text>
+<line class="med" x1="629.2" y1="20" x2="629.2" y2="400"/>
+<line class="left" x1="643.3" y1="20" x2="643.3" y2="400"/>
+<line class="p95" x1="1055.0" y1="20" x2="1055.0" y2="400"/>
+</svg></div>
+<div class="key"><span><i style="background:var(--ink)"></i><t-fa>میانه ۷۴٫۲ (میانگین ۷۴٫۸)</t-fa><t-en>median 74.2 (mean 74.8)</t-en></span><span><i style="background:#3D7DB8"></i><t-fa>۷۵ دقیقه وقت داری</t-fa><t-en>75 minutes left</t-en></span><span><i style="background:var(--amber)"></i><t-fa>صدک ۹۵: ۹۹٫۷</t-fa><t-en>95th percentile: 99.7</t-en></span><span><i style="background:#C8553D"></i><t-fa>دیر</t-fa><t-en>late</t-en></span></div>
+<p class="caption"><t-fa>با فاصلهٔ «میانگین» راه بیفتی، فقط <strong>۵۲٫۱٪</strong> این سفرها به‌موقع رسیدند.</t-fa><t-en>Leave with only the average to spare and just <strong>52.1%</strong> of these trips made it.</t-en></p>
+<footer><t-fa>صدک ۵: ۵۲٫۱ دقیقه · محور: دقیقه · deck_figures.py</t-fa><t-en>5th percentile: 52.1 min · axis: minutes · deck_figures.py</t-en></footer>
+<aside class="notes"><t-fa><b>میانگین یعنی شیر یا خط</b><p>[GRAPHIC] «پنج درصد زیر ۵۲ دقیقه، پنج درصد بالای حدود صد». میانه و میانگین تقریباً یکی‌اند؛ دم بلند راست را اغراق نکن (دادهٔ این پنجره تقریباً متقارن است).</p><p>در یک جمله: راه افتادن با فاصلهٔ «میانگین» تا مهلت، تقریباً شیر یا خط است.</p></t-fa><t-en><b>The average is a coin toss</b><p>[GRAPHIC] "Five percent under 52 minutes, five percent over about 100". Median and mean are almost equal; do not oversell a long right tail (this window is nearly symmetric).</p><p>In one line: leaving with the average to spare is roughly a coin toss.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="190">
+<p class="kicker"><t-fa>صدک، نه میانگین · دموی زنده</t-fa><t-en>A percentile, not the average · live demo</t-en></p>
+<div class="bars">
+<div><span><t-fa>اطمینان ۵۰٪</t-fa><t-en>50% confidence</t-en></span><i style="--v:75"></i><span><t-fa>۱۶:۴۵</t-fa><t-en>16:45</t-en></span></div>
+<div><span><t-fa>اطمینان ۹۰٪</t-fa><t-en>90% confidence</t-en></span><i style="--v:95"></i><span><t-fa>۱۶:۲۵</t-fa><t-en>16:25</t-en></span></div>
+<div class="hi"><span><t-fa>اطمینان ۹۵٪</t-fa><t-en>95% confidence</t-en></span><i style="--v:100"></i><span><t-fa>۱۶:۲۰</t-fa><t-en>16:20</t-en></span></div>
+</div>
+<p class="tag"><t-fa>«صدک ۹۵» = زمانی که ۹۵ تا از هر ۱۰۰ سفر از آن کوتاه‌تر بوده‌اند · حرکت ۱۶:۲۰: ۹۶٫۸٪ سفرهای گذشته به‌موقع · میانگین می‌گوید ۱۶:۴۵</t-fa><t-en>"95th percentile" = the time that 95 of every 100 trips came in under · leaving 16:20: 96.8% of past trips on time · the average says 16:45</t-en></p>
+<footer><t-fa><code>leave_live.html?route=jfk&amp;deadline=18:00&amp;conf=50</code> · میله = زمان سفر تا ۱۸:۰۰</t-fa><t-en>artifact/leave_live.html?route=jfk&amp;deadline=18:00&amp;conf=50 · bar = time on the road until 18:00</t-en></footer>
+<aside class="notes"><t-fa><b>صدک ۹۵ + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. بعد [B-ROLL CUE] دمو با <code>conf=50</code>؛ ↑ تا ۹۰ و ۹۵. قاعده: دیرترین ساعت حرکت روی شبکهٔ ۵ دقیقه‌ای که «ساعت حرکت + صدک ۹۵ سفرهای همان ساعت» از ۱۸:۰۰ نگذرد.</p><p>در یک جمله: برای ۹۵٪ اطمینان، صدک ۹۵ را برمی‌داریم، نه میانگین؛ اینجا یعنی ۲۵ دقیقه زودتر.</p></t-fa><t-en><b>95th percentile + soft CTA</b><p>[MID-CTA] Soft CTA to camera first. Then [B-ROLL CUE] demo at conf=50; ↑ to 90 and 95. Rule: the latest departure on a 5-minute grid for which "departure + 95th percentile of trips leaving then" is not after 18:00.</p><p>In one line: for 95% confidence take the 95th percentile, not the mean; here that means 25 minutes earlier.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-6" data-start="245">
+<p class="kicker"><t-fa>ساعت حرکت، توزیع را عوض می‌کند</t-fa><t-en>The departure time changes the distribution</t-en></p>
+<div dir="ltr"><svg class="chart fan" viewBox="0 0 1600 470" role="img">
+<line class="grid" x1="90" y1="352" x2="1560" y2="352"/><text x="78" y="362" text-anchor="end">40</text>
+<line class="grid" x1="90" y1="258" x2="1560" y2="258"/><text x="78" y="266" text-anchor="end">60</text>
+<line class="grid" x1="90" y1="162" x2="1560" y2="162"/><text x="78" y="172" text-anchor="end">80</text>
+<line class="grid" x1="90" y1="68" x2="1560" y2="68"/><text x="78" y="76" text-anchor="end">100</text>
+<text x="90" y="444" text-anchor="middle">12:00</text>
+<text x="274" y="444" text-anchor="middle">13:00</text>
+<text x="458" y="444" text-anchor="middle">14:00</text>
+<text x="641" y="444" text-anchor="middle">15:00</text>
+<text x="825" y="444" text-anchor="middle">16:00</text>
+<text x="1009" y="444" text-anchor="middle">17:00</text>
+<text x="1192" y="444" text-anchor="middle">18:00</text>
+<text x="1376" y="444" text-anchor="middle">19:00</text>
+<text x="1560" y="444" text-anchor="middle">20:00</text>
+<path class="p95" d="M90.0,176.8 L105.3,167.1 L120.6,170.7 L135.9,174.7 L151.2,173.2 L166.6,176.7 L181.9,176.4 L197.2,186.8 L212.5,189.4 L227.8,176.5 L243.1,175.7 L258.4,172.0 L273.8,169.3 L289.1,159.0 L304.4,149.1 L319.7,149.1 L335.0,131.6 L350.3,124.5 L365.6,130.7 L380.9,133.3 L396.2,120.2 L411.6,117.8 L426.9,130.7 L442.2,126.0 L457.5,120.7 L472.8,121.9 L488.1,111.7 L503.4,124.5 L518.8,124.5 L534.1,111.8 L549.4,112.6 L564.7,103.7 L580.0,110.7 L595.3,108.8 L610.6,109.7 L625.9,108.1 L641.2,113.5 L656.6,111.9 L671.9,111.8 L687.2,106.8 L702.5,106.7 L717.8,101.0 L733.1,100.3 L748.4,100.3 L763.8,100.0 L779.1,99.6 L794.4,101.1 L809.7,96.0 L825.0,101.6 L840.3,102.5 L855.6,102.0 L870.9,101.7 L886.2,88.8 L901.6,83.8 L916.9,70.5 L932.2,68.9 L947.5,68.5 L962.8,68.9 L978.1,70.5 L993.4,71.3 L1008.8,71.3 L1024.1,72.0 L1039.4,83.0 L1054.7,87.1 L1070.0,71.1 L1085.3,87.6 L1100.6,100.4 L1115.9,109.4 L1131.2,111.2 L1146.6,118.5 L1161.9,134.0 L1177.2,131.2 L1192.5,135.5 L1207.8,135.4 L1223.1,142.7 L1238.4,163.9 L1253.8,171.6 L1269.1,184.0 L1284.4,207.6 L1299.7,190.8 L1315.0,199.6 L1330.3,209.5 L1345.6,209.6 L1360.9,212.1 L1376.2,212.6 L1391.6,229.1 L1406.9,243.8 L1422.2,246.6 L1437.5,246.0 L1452.8,258.2 L1468.1,251.9 L1483.4,249.9 L1498.8,254.7 L1514.1,269.0 L1529.4,269.0 L1544.7,268.7 L1560.0,269.7"/><path class="p50" d="M90.0,264.9 L105.3,263.9 L120.6,262.5 L135.9,260.6 L151.2,259.9 L166.6,261.8 L181.9,263.2 L197.2,264.1 L212.5,263.2 L227.8,260.4 L243.1,260.8 L258.4,260.6 L273.8,259.4 L289.1,256.1 L304.4,256.3 L319.7,259.2 L335.0,255.4 L350.3,252.3 L365.6,252.3 L380.9,245.6 L396.2,239.5 L411.6,238.5 L426.9,233.8 L442.2,233.5 L457.5,227.6 L472.8,226.4 L488.1,222.8 L503.4,221.9 L518.8,222.3 L534.1,222.3 L549.4,220.0 L564.7,220.0 L580.0,219.5 L595.3,219.5 L610.6,216.2 L625.9,216.4 L641.2,214.0 L656.6,213.8 L671.9,216.2 L687.2,212.6 L702.5,212.8 L717.8,209.0 L733.1,208.6 L748.4,209.0 L763.8,206.2 L779.1,204.8 L794.4,202.9 L809.7,201.0 L825.0,198.1 L840.3,195.8 L855.6,195.8 L870.9,195.8 L886.2,192.9 L901.6,190.3 L916.9,191.7 L932.2,193.8 L947.5,191.0 L962.8,190.3 L978.1,193.4 L993.4,192.0 L1008.8,191.0 L1024.1,191.5 L1039.4,194.8 L1054.7,196.7 L1070.0,197.7 L1085.3,197.7 L1100.6,206.2 L1115.9,206.2 L1131.2,216.2 L1146.6,221.6 L1161.9,236.6 L1177.2,245.1 L1192.5,253.2 L1207.8,260.1 L1223.1,262.2 L1238.4,266.8 L1253.8,273.6 L1269.1,276.0 L1284.4,284.1 L1299.7,290.3 L1315.0,293.1 L1330.3,295.5 L1345.6,300.5 L1360.9,306.0 L1376.2,311.2 L1391.6,314.5 L1406.9,314.5 L1422.2,314.3 L1437.5,314.7 L1452.8,318.8 L1468.1,322.1 L1483.4,322.6 L1498.8,324.5 L1514.1,328.5 L1529.4,330.2 L1544.7,334.5 L1560.0,342.5"/>
+<circle class="pt" cx="825.0" cy="101.6" r="10"/>
+<circle class="pt" cx="916.9" cy="70.5" r="10"/>
+<circle class="pt" cx="1100.6" cy="100.4" r="10"/>
+<circle class="pt" cx="1284.4" cy="207.6" r="10"/>
+</svg></div>
+<div class="key"><span><i style="background:var(--paper)"></i><t-fa>میانه</t-fa><t-en>median</t-en></span><span><i style="background:var(--amber)"></i><t-fa>صدک ۹۵ (دقیقه، بر حسب ساعت حرکت)</t-fa><t-en>95th percentile (minutes, by departure time)</t-en></span></div>
+<p class="tag"><t-fa>حرکت ۱۶:۰۰ ← رسیدن تا ۱۷:۳۳ · حرکت ۱۶:۳۰ ← تا ۱۸:۰۹ (۳۰ دقیقه دیرتر، ۳۶ دقیقه دیرتر) · حرکت ۱۷:۳۰ ← ۱۹:۰۳ · حرکت ۱۸:۳۰ ← ۱۹:۴۰ (یک ساعت دیرتر، ۳۷ دقیقه دیرتر)</t-fa><t-en>Leave 16:00 → there by 17:33 · leave 16:30 → by 18:09 (30 min later, 36 min later) · leave 17:30 → 19:03 · leave 18:30 → 19:40 (an hour later, 37 min later)</t-en></p>
+<footer><t-fa>میدتاون ← JFK · روزهای آموزش · هر نقطه: سفرهای ±۱۵ دقیقه · deck_figures.py</t-fa><t-en>Midtown → JFK · training days · each point: trips within ±15 min · deck_figures.py</t-en></footer>
+<aside class="notes"><t-fa><b>دیرتر راه بیفتی، راه هم طولانی‌تره</b><p>[GRAPHIC] چهار نقطهٔ کهربایی = ۱۶:۰۰، ۱۶:۳۰، ۱۷:۳۰، ۱۸:۳۰. میانهٔ ساعت ۱۳:۰۰ = ۵۹٫۶ («حدود شصت»).</p><p>در یک جمله: هر ساعت حرکت توزیع خودش را دارد؛ نمی‌شود یک عدد را از مهلت کم کرد.</p></t-fa><t-en><b>Leave later, and the trip gets longer too</b><p>[GRAPHIC] The four amber dots = 16:00, 16:30, 17:30, 18:30. Median at 13:00 = 59.6 ("about sixty").</p><p>In one line: each departure time has its own distribution; you cannot subtract one number from the deadline.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="305">
+<p class="kicker"><t-fa>FHWA · قابلیت اطمینان زمان سفر</t-fa><t-en>FHWA · travel time reliability</t-en></p>
+<h1 class="formula sm"><t-fa>شاخص بافر = (صدک ۹۵ − میانگین) ÷ میانگین</t-fa><t-en>Buffer index = (95th percentile − mean) ÷ mean</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>شاخص بافر · حرکت ۱۶:۴۵</t-fa><t-en>Buffer index · leaving 16:45</t-en></span><b><t-fa>۰٫۳۳</t-fa><t-en>0.33</t-en></b><p><t-fa>یک‌سوم میانگین را اضافه کن</t-fa><t-en>add a third of the average</t-en></p></div>
+<div><span><t-fa>شاخص زمان برنامه‌ریزی</t-fa><t-en>Planning time index</t-en></span><b><t-fa>۲٫۹۱</t-fa><t-en>2.91</t-en></b><p><t-fa>صدک ۹۵ ÷ زمان جادهٔ خلوت (۳۴٫۳ دقیقه*)</t-fa><t-en>95th percentile ÷ light-traffic time (34.3 min*)</t-en></p></div>
+</div>
+<p class="tag"><t-fa>* FHWA زمان «جریان آزاد» را تعریف عددی نکرده؛ جانشین ما: سریع‌ترین ۵٪ همهٔ سفرهای این مسیر در روزهای آموزش</t-fa><t-en>* FHWA gives no numeric definition of "free-flow" time; our stand-in: the fastest 5% of all training trips on this route</t-en></p>
+<footer><t-fa>FHWA، Travel Time Reliability: Making It There On Time, All The Time، دسامبر ۲۰۰۵</t-fa><t-en>FHWA, Travel Time Reliability: Making It There On Time, All The Time, December 2005</t-en></footer>
+<aside class="notes"><t-fa><b>شاخص بافر</b><p>[UNEXPECTED STAT] مثال خود FHWA: میانگین ۲۰ دقیقه و بافر ۴۰٪ ← ۲۸ دقیقه وقت بگذار. «سه برابر یه شب خلوت» = ۲٫۹۱ با جانشین ما.</p><p>در یک جمله: شاخص بافر می‌گوید چقدر روی میانگین بگذاری؛ این‌جا حدود یک‌سوم.</p></t-fa><t-en><b>Buffer index</b><p>[UNEXPECTED STAT] FHWA's own example: a 20-minute average and a 40% buffer → allow 28 minutes. "Three times a quiet night" = 2.91 with our stand-in.</p><p>In one line: the buffer index says how much to add to the average; here about a third.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="355">
+<p class="kicker"><t-fa>کدام صدک؟</t-fa><t-en>Which percentile?</t-en></p>
+<h1 class="formula sm"><t-fa>q = هزینهٔ هر دقیقه دیر ÷ (هزینهٔ دیر + هزینهٔ زود)</t-fa><t-en>q = cost of a late minute ÷ (late cost + early cost)</t-en></h1>
+<table class="t">
+<tr><th><t-fa>دیر : زود</t-fa><t-en>Late : early</t-en></th><th><t-fa>صدک</t-fa><t-en>Percentile</t-en></th><th><t-fa>حرکت برای ۱۸:۰۰ (JFK)</t-fa><t-en>Leave for 18:00 (JFK)</t-en></th></tr>
+<tr><td><t-fa>۱ : ۱ (قهوه با دوست)</t-fa><t-en>1 : 1 (coffee with a friend)</t-en></td><td class="n"><t-fa>۵۰٪ = میانه</t-fa><t-en>50% = median</t-en></td><td class="n"><t-fa>۱۶:۴۵</t-fa><t-en>16:45</t-en></td></tr>
+<tr><td><t-fa>۹ : ۱</t-fa><t-en>9 : 1</t-en></td><td class="n"><t-fa>۹۰٪</t-fa><t-en>90%</t-en></td><td class="n"><t-fa>۱۶:۲۵</t-fa><t-en>16:25</t-en></td></tr>
+<tr class="hi"><td><t-fa>۱۹ : ۱</t-fa><t-en>19 : 1</t-en></td><td class="n"><t-fa>۹۵٪</t-fa><t-en>95%</t-en></td><td class="n"><t-fa>۱۶:۲۰</t-fa><t-en>16:20</t-en></td></tr>
+</table>
+<p class="caption"><t-fa>صدک را <strong>قیمت دیر رسیدن</strong> انتخاب می‌کند، نه سلیقه.</t-fa><t-en>The <strong>price of being late</strong> picks the percentile, not taste.</t-en></p>
+<footer><t-fa>مسئلهٔ روزنامه‌فروش (کسر بحرانی) · برای هزینهٔ خطیِ هر دقیقه · وارسی عددی: leave_live.py --selftest</t-fa><t-en>Newsvendor problem (critical fractile) · for a linear per-minute cost · checked numerically: leave_live.py --selftest</t-en></footer>
+<aside class="notes"><t-fa><b>قیمت دیر و زود</b><p>[GRAPHIC] در دمو کلید C نسبت را ۱:۱ ← ۳:۱ ← ۹:۱ ← ۱۹:۱ ← ۴۹:۱ می‌چرخاند. selftest نشان می‌دهد کمینهٔ هزینهٔ تجربی روی خود سفرهای ۱۶:۴۵ همان صدک q است. جریمهٔ یکجا (جاماندن از پرواز) فرمول دیگری دارد: study-fa.md فصل ۴.</p><p>در یک جمله: صدک بهینه = هزینهٔ دیر ÷ (هزینهٔ دیر + هزینهٔ زود)؛ با هزینهٔ برابر همان میانه است.</p></t-fa><t-en><b>The price of late and early</b><p>[GRAPHIC] In the demo, C cycles the ratio 1:1 → 3:1 → 9:1 → 19:1 → 49:1. The selftest shows the empirical cost minimum on the 16:45 trips is the q-quantile. A lump-sum penalty (missing a flight) has a different formula: study-fa.md chapter 4.</p><p>In one line: best percentile = late cost ÷ (late + early cost); with equal costs it is the median.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="415">
+<p class="kicker"><t-fa>هوک دوم · امتحان روی روزهای ندیده</t-fa><t-en>Second hook · a test on unseen days</t-en></p>
+<h1><t-fa>آموزش: ۳۰ روز کاری تا ۱۰ آوریل · آزمون: <em>۱۴ روز</em>، ۱۳ تا ۳۰ آوریل</t-fa><t-en>Trained on 30 weekdays to 10 April · tested on <em>14 days</em>, 13–30 April</t-en></h1>
+<div class="cols">
+<div><span><t-fa>اعتماد به میانگین · حرکت ۱۶:۴۵</t-fa><t-en>Trust the average · leave 16:45</t-en></span><b><t-fa>۷۲٫۷٪</t-fa><t-en>72.7%</t-en></b><p><t-fa>دیر · ۷۷ سفر · هر ۱۴ روز دست‌کم یک سفر دیر</t-fa><t-en>late · 77 trips · a late trip on all 14 days</t-en></p></div>
+<div class="hi"><span><t-fa>اطمینان ۹۵٪ · حرکت ۱۶:۲۰</t-fa><t-en>95% confidence · leave 16:20</t-en></span><b><t-fa>۸٫۳٪</t-fa><t-en>8.3%</t-en></b><p><t-fa>دیر · ۱۰۸ سفر · ۵ روز از ۱۴ روز</t-fa><t-en>late · 108 trips · on 5 of 14 days</t-en></p></div>
+</div>
+<p class="tag"><t-fa>هر روز آزمون: سفرهایی که واقعاً تا ۱۰ دقیقه دور از ساعت پیشنهادی راه افتادند جای «تو» را می‌گیرند</t-fa><t-en>Each test day: real trips that left within 10 minutes of the advised time stand in for "you"</t-en></p>
+<footer><t-fa><code>leave_live.py --ask jfk 18:00 95</code> · کلید B در دمو</t-fa><t-en>leave_live.py --ask jfk 18:00 95 · key B in the demo</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: روزهای ندیده</b><p>[RE-HOOK] [CAMERA CHANGE] پیش از عدد، مکث برای حدس. ۸٫۳٪ = ۹ از ۱۰۸. «تقلب» یعنی سنجیدن قاعده روی همان داده‌ای که از آن ساخته شده.</p><p>در یک جمله: روی روزهای کنارگذاشته، قاعدهٔ میانگین حدود ۷۳٪ و قاعدهٔ ۹۵٪ حدود ۸٪ دیر رساند.</p></t-fa><t-en><b>Second hook: unseen days</b><p>[RE-HOOK] [CAMERA CHANGE] Pause for a guess before the number. 8.3% = 9 of 108. "Cheating" means scoring a rule on the data it was built from.</p><p>In one line: on held-out days the average rule was late about 73% of the time, the 95% rule about 8%.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="475">
+<p class="kicker"><t-fa>۳۱ مهلت (۷:۰۰ تا ۲۲:۰۰، هر نیم ساعت) × ۴ مسیر · روزهای آزمون</t-fa><t-en>31 deadlines (07:00–22:00, every half hour) × 4 routes · test days</t-en></p>
+<table class="t">
+<tr><th><t-fa>مسیر</t-fa><t-en>Route</t-en></th><th><t-fa>قاعدهٔ ۹۵٪: دیر</t-fa><t-en>95% rule: late</t-en></th><th><t-fa>قاعدهٔ میانگین: دیر</t-fa><t-en>Average rule: late</t-en></th></tr>
+<tr><td><t-fa>میدتاون ← لاگواردیا</t-fa><t-en>Midtown → LaGuardia</t-en></td><td class="n"><t-fa>۳٫۷٪</t-fa><t-en>3.7%</t-en></td><td class="n"><t-fa>۳۲٫۸٪</t-fa><t-en>32.8%</t-en></td></tr>
+<tr><td><t-fa>میدتاون ← نیوآرک</t-fa><t-en>Midtown → Newark</t-en></td><td class="n"><t-fa>۵٫۱٪</t-fa><t-en>5.1%</t-en></td><td class="n"><t-fa>۳۳٫۱٪</t-fa><t-en>33.1%</t-en></td></tr>
+<tr><td><t-fa>آپر ایست ساید ← محلهٔ مالی</t-fa><t-en>Upper East Side → Financial District</t-en></td><td class="n"><t-fa>۶٫۱٪</t-fa><t-en>6.1%</t-en></td><td class="n"><t-fa>۳۵٫۹٪</t-fa><t-en>35.9%</t-en></td></tr>
+<tr class="hi"><td><t-fa>میدتاون ← JFK</t-fa><t-en>Midtown → JFK</t-en></td><td class="n"><t-fa>۱۱٫۰٪</t-fa><t-en>11.0%</t-en></td><td class="n"><t-fa>۶۴٫۹٪</t-fa><t-en>64.9%</t-en></td></tr>
+</table>
+<p class="caption"><t-fa>قول: ۵٪ دیر. سه مسیر نزدیک قول ماندند؛ <strong>JFK حدود ۸۹٪ به‌موقع</strong> بود، نه ۹۵٪.</t-fa><t-en>Promise: 5% late. Three routes stayed close; <strong>JFK was about 89% on time</strong>, not 95%.</t-en></p>
+<footer><t-fa>leave_live.py --report · cal_late_95 · cal_late_mean · سهم سفرها، روی همهٔ مهلت‌ها با هم</t-fa><t-en>leave_live.py --report · cal_late_95 · cal_late_mean · share of trips, pooled over all deadlines</t-en></footer>
+<aside class="notes"><t-fa><b>چهار مسیر، سی‌ویک مهلت</b><p>[GRAPHIC] قاعدهٔ میانگین زیر ۵۰٪ است چون روی شبکهٔ ۵ دقیقه‌ای به سمت زودتر گرد می‌شود (و پنجره‌های کم‌سفر رد می‌شوند) و توزیع کمی چوله است؛ این را فقط اگر پرسیدند بگو. سفرها برای مهلت‌های نزدیک هم‌پوشانی دارند؛ «۳۱ آزمایش مستقل» نگو.</p><p>در یک جمله: صدک ۹۵ در سه مسیر به قولش نزدیک ماند؛ در مسیر JFK روی آوریل فقط حدود ۸۹٪ به‌موقع بود.</p></t-fa><t-en><b>Four routes, thirty-one deadlines</b><p>[GRAPHIC] The average rule is below 50% because the 5-minute grid rounds towards earlier (and thin windows are skipped) and the distribution is slightly right-skewed; say so only if asked. Trips overlap between nearby deadlines; do not say "31 independent tests".</p><p>In one line: the 95th percentile kept its promise on three routes; on the JFK route in April it was only about 89% on time.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="525">
+<p class="kicker"><t-fa>گذشته، آینده نیست · JFK، حرکت ۱۵:۰۰ تا ۱۸:۰۰، میانهٔ هفتگی (دقیقه)</t-fa><t-en>The past is not the future · JFK, leaving 15:00–18:00, weekly median (min)</t-en></p>
+<div dir="ltr"><svg class="chart weeks" viewBox="0 0 1600 420" role="img">
+<rect class="train" x="54" y="59" width="141" height="281"/><text x="124" y="45" text-anchor="middle">79.1</text><text class="sm" x="124" y="380" text-anchor="middle">02 Mar</text>
+<rect class="train" x="223" y="58" width="141" height="282"/><text x="293" y="44" text-anchor="middle">79.4</text><text class="sm" x="293" y="380" text-anchor="middle">09 Mar</text>
+<rect class="train" x="392" y="74" width="141" height="266"/><text x="462" y="60" text-anchor="middle">74.9</text><text class="sm" x="462" y="380" text-anchor="middle">16 Mar</text>
+<rect class="train" x="561" y="88" width="141" height="252"/><text x="631" y="74" text-anchor="middle">70.8</text><text class="sm" x="631" y="380" text-anchor="middle">23 Mar</text>
+<rect class="quiet" x="730" y="115" width="141" height="225"/><text x="800" y="101" text-anchor="middle">63.3</text><text class="sm" x="800" y="380" text-anchor="middle">30 Mar</text>
+<rect class="quiet" x="898" y="140" width="141" height="200"/><text x="969" y="126" text-anchor="middle">56.2</text><text class="sm" x="969" y="380" text-anchor="middle">06 Apr</text>
+<rect class="test" x="1067" y="35" width="141" height="305"/><text x="1138" y="21" text-anchor="middle">85.9</text><text class="sm" x="1138" y="380" text-anchor="middle">13 Apr</text>
+<rect class="test" x="1236" y="49" width="141" height="291"/><text x="1307" y="35" text-anchor="middle">81.9</text><text class="sm" x="1307" y="380" text-anchor="middle">20 Apr</text>
+<rect class="test" x="1405" y="58" width="141" height="282"/><text x="1476" y="44" text-anchor="middle">79.2</text><text class="sm" x="1476" y="380" text-anchor="middle">27 Apr</text>
+</svg></div>
+<div class="key"><span><i style="background:#B9B3A7"></i><t-fa>هفته‌های آموزش</t-fa><t-en>training weeks</t-en></span><span><i style="background:#DDD8CE;outline:2px dashed #8F8C84"></i><t-fa>دو هفتهٔ خلوت (تعطیلی بهارهٔ مدرسه‌ها ۲ تا ۱۰ آوریل)</t-fa><t-en>two quiet weeks (school spring recess 2–10 April)</t-en></span><span><i style="background:var(--amber)"></i><t-fa>هفته‌های آزمون</t-fa><t-en>test weeks</t-en></span></div>
+<p class="tag"><t-fa>میانهٔ همهٔ آموزش ۷۱٫۲ ← آزمون ۸۳٫۲ · بی آن روزهای تعطیل، دیرِ قاعدهٔ ۹۵٪ فقط از ۱۱٫۰٪ به ۱۰٫۳٪ رسید: علت را ثابت نکرده‌ایم</t-fa><t-en>Median, all training 71.2 → test 83.2 · without the recess days the 95% rule's late share only fell from 11.0% to 10.3%: we have not proved the cause</t-en></p>
+<footer><t-fa>تقویم مدرسه‌های دولتی نیویورک ۲۰۲۵–۲۶ · deck_figures.py</t-fa><t-en>NYC Public Schools 2025–26 calendar · deck_figures.py</t-en></footer>
+<aside class="notes"><t-fa><b>گذشته، آینده نیست</b><p>[B-ROLL CUE] برچسب زیر هر میله = دوشنبهٔ آن هفته. هفتهٔ ۳۰ مارس فقط از پنج‌شنبه تعطیلی دارد. «تعطیلی مدرسه علت است» نگو؛ «هم‌زمان بود» بگو.</p><p>در یک جمله: صدک از گذشته می‌آید؛ اگر دنیا عوض شود، اطمینانش هم کم می‌شود.</p></t-fa><t-en><b>The past is not the future</b><p>[B-ROLL CUE] Label under each bar = that week's Monday. The week of 30 March has recess only from Thursday. Do not say "the school break is the cause"; say "it coincided".</p><p>In one line: a percentile comes from the past; if the world changes, its confidence drops.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="570">
+<p class="kicker"><t-fa>گوگل چه منتشر کرده</t-fa><t-en>What Google has published</t-en></p>
+<div class="cards">
+<div><b><t-fa>راهنمای Google Maps</t-fa><t-en>Google Maps Help</t-en></b><t-fa>برآورد «بر پایهٔ ترافیک… برای زمان سفرِ برنامه‌ریزی‌شده» است.</t-fa><t-en>The estimate "is based on traffic and transit schedules for the planned travel time."</t-en></div>
+<div class="hi"><b><t-fa>Routes API · TrafficModel</t-fa><t-en>Routes API · TrafficModel</t-en></b><t-fa>PESSIMISTIC: «در بیشتر روزها» از زمان واقعی بلندتر · OPTIMISTIC: «در بیشتر روزها» کوتاه‌تر</t-fa><t-en>PESSIMISTIC: "longer than the actual travel time on most days" · OPTIMISTIC: "shorter … on most days"</t-en></div>
+<div><b><t-fa>بلاگ Google Cloud · ۱۰ نوامبر ۲۰۱۵</t-fa><t-en>Google Cloud blog · 10 Nov 2015</t-en></b><t-fa>تحویل بار ← بدبینانه · ترموستات خانه ← خوش‌بینانه</t-fa><t-en>Scheduling deliveries → pessimistic · a home thermostat → optimistic</t-en></div>
+</div>
+<p class="caption"><t-fa>گوگل نگفته «بیشتر روزها» یعنی <strong>کدام صدک</strong>.</t-fa><t-en>Google has not said which <strong>percentile</strong> "most days" means.</t-en></p>
+<footer><t-fa><code>support.google.com/maps/answer/6291839 · developers.google.com/maps/documentation/routes · cloud.googleblog.com</code> (۲۸ نوامبر ۲۰۲۶ بازبینی شد)</t-fa><t-en>support.google.com/maps/answer/6291839 · developers.google.com/maps/documentation/routes · cloud.googleblog.com (checked 28 Nov 2026)</t-en></footer>
+<aside class="notes"><t-fa><b>گوگل چی گفته، چی نگفته</b><p>[GRAPHIC] بازهٔ «typically X–Y min» در اپ را در هیچ مستند رسمی پیدا نکردیم؛ اگر روی گوشی دیدی، نشانش بده ولی معنایش را حدس نزن. TrafficModel فقط برای DRIVE و TRAFFIC_AWARE_OPTIMAL است.</p><p>در یک جمله: گوگل منتشر کرده که برآورد بدبینانه و خوش‌بینانه دارد، ولی نگفته کدام صدک است.</p></t-fa><t-en><b>What Google said, and did not</b><p>[GRAPHIC] We found no official document for the app's "typically X–Y min" range; if your phone shows it, show it, but do not guess what it means. TrafficModel applies only to DRIVE with TRAFFIC_AWARE_OPTIMAL.</p><p>In one line: Google has published that it has pessimistic and optimistic estimates, not which percentile they are.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="620">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>روی ۳۰٬۷۵۰ سفر تاکسی نیویورک، راه افتادن با فاصلهٔ «میانگین» تقریباً شیر یا خط بود · صدک ۹۵ِ همان ساعت حرکت روی روزهای ندیده در سه مسیر نزدیک قولش ماند · صدک بهینه از نسبت هزینهٔ دیر و زود می‌آید</t-fa><t-en>On 30,750 NYC taxi trips, leaving with the average to spare was close to a coin toss · the 95th percentile for that departure time stayed near its promise on unseen days on three routes · the best percentile follows from the late-to-early cost ratio</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>تهران یا هر شهر دیگر · زمان انتظار تاکسی، پیاده‌روی و بازرسی فرودگاه · عدد یا الگوریتم Google Maps · که «۹۵٪» برای فردا تضمین است (JFK: حدود ۸۹٪) · هزینهٔ یکجای جاماندن از پرواز (فرمول دیگری دارد)</t-fa><t-en>Tehran or any other city · waiting for a cab, walking, airport security · Google Maps' numbers or algorithm · that "95%" is a guarantee for tomorrow (JFK: about 89%) · a lump-sum cost such as missing a flight (different formula)</t-en></div>
+</div>
+<footer><t-fa>artifact/derived/SOURCE.txt · study-fa.md</t-fa><t-en>artifact/derived/SOURCE.txt · study-fa.md</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. «زمان کنتور» = از روشن تا خاموش شدن کنتور، طبق فرهنگ دادهٔ TLC.</p><p>در یک جمله: حساب خودمان روی تاکسی نیویورک در دو ماه است؛ نه تهران، نه گوگل، و نه تضمین آینده.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. "Meter time" = meter on to meter off, per the TLC data dictionary.</p><p>In one line: our own computation on NYC taxis over two months; not Tehran, not Google, not a guarantee about the future.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="660">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>صدک را از <em>قیمت دیر رسیدن</em> انتخاب کن، نه از میانگین</t-fa><t-en>Pick the percentile from <em>the cost of being late</em>, not from the average</t-en></h1>
+<div class="cards">
+<div><b><t-fa>تمرین این هفته</t-fa><t-en>This week's exercise</t-en></b><t-fa>هر دقیقه دیر رسیدن، چند برابرِ یک دقیقه زود رسیدن بد است؟</t-fa><t-en>How many times worse is a late minute than an early one?</t-en></div>
+<div class="hi"><b><t-fa>بعد</t-fa><t-en>Then</t-en></b><t-fa>q = دیر ÷ (دیر + زود) · و اگر این هفته عادی نیست، باز هم زودتر</t-fa><t-en>q = late ÷ (late + early) · and if this week is not a normal week, earlier still</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S08</t-fa><t-en>Answer · HMD-S08</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت کوتاه به دمو با C روی ۹:۱. توصیهٔ ایمنی یا «حتماً می‌رسی» نگو.</p><p>در یک جمله: صدک را از قیمت دیر رسیدن انتخاب کن، نه از میانگین.</p></t-fa><t-en><b>The answer</b><p>A short return to the demo with C on 9:1. No safety advice and no "you will definitely make it".</p><p>In one line: choose the percentile from the cost of being late, not from the average.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="695">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>جواب غلط، یا <em>«نمی‌دانم»</em>؟</t-fa><t-en>A wrong answer, or <em>"I don't know"</em>?</t-en></h1>
+<p class="caption"><t-fa>اگر جواب غلط نمرهٔ منفی داشته باشد، هوش مصنوعی محتاط‌تر می‌شود؟</t-fa><t-en>If a wrong answer costs marks, does AI become more cautious?</t-en></p>
+<footer><t-fa>HMD-010</t-fa><t-en>HMD-010</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: نمرهٔ منفی</b><p>[SOUND EFFECT] ورق خوردن پاسخ‌نامه. End screen از ثانیهٔ ۱۰. هیچ عدد یا نتیجه‌ای از HMD-010 نگو.</p><p>در یک جمله: هزینهٔ دیر رسیدن در برابر زود رسیدن، همان هزینهٔ جواب غلط در برابر «نمی‌دانم» است.</p></t-fa><t-en><b>Next: negative marking</b><p>[SOUND EFFECT] An answer sheet turning. End screen from second 10. No numbers or results from HMD-010.</p><p>In one line: the cost of arriving late versus early is the cost of a wrong answer versus "I don't know".</p></t-en></aside>
+</section>

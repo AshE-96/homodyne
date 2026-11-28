@@ -1,0 +1,8 @@
+# HMD-S07 · police one-way plans on the Karaj–Chalus road, from public announcements (Mehr News / IRNA).
+# date = Gregorian day the plan starts · from_hour..to_hour (to_hour exclusive; 24 = midnight) · closed_dir = direction shut (N or S).
+# The counter only sees a closure if it sits inside the closed stretch: check each counter's place against the announced points.
+# Announcements usually say "until the traffic clears": the end hour is then a guess and marked [VERIFY]. Add one row per plan.
+date,jalali,from_hour,to_hour,closed_dir,stretch,source,note
+2026-09-11,1405/06/20,15,24,N,"Pol-e Zangooleh to the north portal of the Alborz (Kandovan) tunnel, toward Chalus; Marzanabad→Tehran one-way from 16","https://aftabnews.ir/fa/news/1064952 (17 Shahrivar 1405, Mazandaran traffic police via IRNA)","entry from the Tehran–North freeway banned from 14; plan ends at 24"
+2026-05-16,1405/02/26,17,24,N,"Chalus road one-way from Marzanabad toward Tehran and Karaj","https://www.mehrnews.com/news/6831568 (26 Ordibehesht 1405, head of FARAJA traffic police)","end: until the traffic clears [VERIFY]"
+2026-09-01,1405/06/10,12,24,S,"north-to-south from Marzanabad toward Tehran restricted; south-to-north managed one-way","https://www.mehrnews.com/news/6934166 (10 Shahrivar 1405, head of FARAJA traffic police)","end: until the backlog clears [VERIFY]"

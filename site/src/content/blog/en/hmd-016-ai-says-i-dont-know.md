@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-016-companion
 hmd: HMD-016
 kind: companion
-date: 2027-04-30
+date: 2027-05-28
 tags: ["abstention", "I don't know", "risk-coverage", "preregistration", "benchmarks", "AI hallucination"]
 sources:
   - title: "Kirichenko, Ibrahim, Chaudhuri, Bell (2025). AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions. arXiv 2506.09038 v1"

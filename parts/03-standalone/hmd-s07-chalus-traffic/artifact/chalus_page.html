@@ -1,0 +1,226 @@
+<!doctype html>
+<!-- HMD-S07 · live page template for artifact/chalus_live.py (which fills in __DATA__ and __FONTS__). Do not open this file directly. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne HMD-S07 · Chalus road, hour by hour</title>
+<style>
+@font-face{font-family:"Vazirmatn";font-weight:400;src:url("__FONTS__vazirmatn-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-weight:700;src:url("__FONTS__vazirmatn-arabic-700-normal.woff2") format("woff2")}
+:root{--bg:#111214;--ink:#F3F1EC;--muted:#8D8A84;--dim:#3A3B3F;--amber:#E8A33D;--line:#26272B;--red:#C8553D;--green:#5FA777}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:18px/1.4 "Inter","Helvetica Neue",Arial,"Vazirmatn",sans-serif;overflow:hidden}
+header{display:flex;align-items:baseline;gap:24px;padding:16px 32px 0}
+header .brand{font-weight:700;letter-spacing:.02em}
+header .tabs{display:flex;gap:8px;margin-left:auto}
+header .tabs button{background:none;border:1px solid var(--dim);color:var(--muted);font:inherit;font-size:15px;padding:4px 12px;border-radius:4px;cursor:pointer}
+header .tabs button.on{border-color:var(--amber);color:var(--amber)}
+#banner{display:none;margin:8px 32px 0;padding:6px 14px;border:2px solid var(--red);color:#F6C9BE;font-weight:700;font-size:16px;border-radius:4px}
+body.mock #banner{display:block}
+#wm{display:none;position:fixed;inset:0;pointer-events:none;z-index:9;overflow:hidden}
+body.mock #wm{display:block}
+#wm div{position:absolute;left:-20%;width:140%;text-align:center;transform:rotate(-18deg);font:700 92px/1 Arial,sans-serif;color:rgba(200,85,61,.13);letter-spacing:.08em;white-space:nowrap}
+.view{display:none;position:absolute;inset:104px 0 0 0;padding:4px 32px 18px}
+body:not(.mock) .view{inset:66px 0 0 0}
+.view.on{display:block}
+h1{font-size:32px;margin:2px 0 0;font-weight:700}
+h1 em{font-style:normal;color:var(--amber)}
+.fa{direction:rtl;font-family:"Vazirmatn",sans-serif;color:var(--muted);font-size:19px;margin:2px 0 0;text-align:left}
+.fa bdi{direction:ltr}
+canvas{display:block;width:100%}
+.legend{display:flex;flex-wrap:wrap;gap:22px;font-size:15px;color:var(--muted);margin-top:6px;align-items:center}
+.legend i{display:inline-block;width:22px;height:12px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.note{color:var(--muted);font-size:14px;margin-top:6px}
+.big{position:absolute;right:40px;top:6px;text-align:right}
+.big b{display:block;font-size:52px;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums}
+.big span{color:var(--muted);font-size:16px}
+table.race{border-collapse:collapse;margin-top:12px;font-size:17px;font-variant-numeric:tabular-nums}
+table.race th,table.race td{padding:5px 14px;border-bottom:1px solid var(--line);text-align:right}
+table.race th:first-child,table.race td:first-child{text-align:left}
+table.race th{color:var(--muted);font-weight:400;font-size:14px}
+table.race td.best{color:var(--amber);font-weight:700}
+.split{display:flex;gap:28px;align-items:flex-start}
+.split>div{flex:1}
+.notrun{color:var(--muted);border:1px dashed var(--dim);padding:10px 14px;margin-top:10px;font-size:15px}
+body.clean header .tabs,body.clean .keys{visibility:hidden}
+.keys{position:absolute;bottom:6px;right:32px;color:var(--dim);font-size:12px;z-index:10}
+</style></head><body>
+<div id="wm"><div style="top:18%">SYNTHETIC · MOCK DATA</div><div style="top:48%">NOT REAL 141 DATA</div><div style="top:78%">SYNTHETIC · MOCK DATA</div></div>
+<header><span class="brand">Homodyne · HMD-S07</span><span style="color:var(--muted)">Karaj–Chalus road (Road 59), one counter, hour by hour</span>
+<span class="tabs"><button data-v="a">1 · ordinary week</button><button data-v="b">2 · holidays</button><button data-v="c">3 · the race</button><button data-v="d">4 · when to leave</button></span></header>
+<div id="banner">SYNTHETIC FIXTURE — invented traffic for rehearsal; the calendar is real, the numbers are not. Real results: NOT RUN YET (needs the owner's 141.ir download).</div>
+
+<section class="view" id="a">
+<h1>When is the road <em>quiet</em>? An ordinary week</h1>
+<p class="fa">هفتهٔ معمولی: هر خانه = یک ساعت از یک روز هفته؛ رنگ = سرعت میانه در ترددشمار</p>
+<div class="split"><div><canvas id="ha1" height="330"></canvas></div><div><canvas id="ha2" height="330"></canvas></div></div>
+<div class="legend" id="lega"></div>
+<p class="note" id="nota"></p>
+</section>
+
+<section class="view" id="b">
+<h1>Holidays break the week: <em>eve, first day, last day, Nowruz</em></h1>
+<p class="fa">روزهای تعطیل روی هفتهٔ معمولی: شب تعطیلی، روز اول، روز آخر، و هر روز نوروز</p>
+<div class="split"><div><canvas id="hb1" height="600"></canvas></div><div><canvas id="hb2" height="600"></canvas></div></div>
+<div class="legend" id="legb"></div>
+</section>
+
+<section class="view" id="c">
+<h1>The race on days the models <em>never saw</em></h1>
+<p class="fa">مسابقه روی روزهایی که هیچ مدلی ندیده: هر مدل فقط با دادهٔ پیش از آن روزها ساخته شده</p>
+<div class="big"><b id="cday"></b><span id="cdir"></span></div>
+<canvas id="cc" height="330"></canvas>
+<div class="legend" id="legc"></div>
+<div id="ctab"></div>
+</section>
+
+<section class="view" id="d">
+<h1>When to leave: <em>Nowruz 1406</em> forecast</h1>
+<p class="fa">کی راه بیفتم؟ پیش‌بینی ساعت‌به‌ساعت، برای ساعتی که از جلوی ترددشمار رد می‌شوی</p>
+<div class="big"><b id="dbest"></b><span id="ddate"></span></div>
+<canvas id="cd" height="420"></canvas>
+<div class="legend" id="legd"></div>
+<p class="note" id="notd"></p>
+</section>
+<div class="keys">1–4 views · ← → day · D direction · M speed/count · H hide controls</div>
+
+<script>
+const DATA = __DATA__;
+const M = DATA.meta, Q = new URLSearchParams(location.search);
+if (M.synthetic) document.body.classList.add('mock');
+const S = {view: Q.get('view') || 'a', metric: Q.get('metric') || 'speed', dir: Q.get('dir') || 'N', day: +(Q.get('day') || 0), pick: 0};
+if (Q.get('date')) S.pick = Math.max(0, DATA.pick.findIndex(p => p.jalali === Q.get('date') || p.date === Q.get('date')));
+const MODELS = ['last_week', 'median_4wk', 'profile', 'boosted'];
+const MCOL = {last_week: '#8D8A84', median_4wk: '#B9B3A6', profile: '#7FA7C9', boosted: '#E8A33D'};
+const FA = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const hh = h => String(h).padStart(2, '0') + ':00';
+
+function speedColor(v) {
+  if (v == null) return '#26272B';
+  const stops = [[10, [200, 85, 61]], [M.thresholds.C, [232, 163, 61]], [M.thresholds.A, [150, 170, 100]], [75, [95, 167, 119]]];
+  for (let i = 1; i < stops.length; i++) if (v <= stops[i][0]) {
+    const [a, ca] = stops[i - 1], [b, cb] = stops[i], t = Math.max(0, Math.min(1, (v - a) / (b - a)));
+    return 'rgb(' + ca.map((c, k) => Math.round(c + (cb[k] - c) * t)).join(',') + ')';
+  }
+  return 'rgb(95,167,119)';
+}
+function countColor(v, max) {
+  if (v == null) return '#26272B';
+  const t = Math.min(1, v / max), c = [[38, 39, 43], [232, 163, 61]];
+  return 'rgb(' + c[0].map((x, k) => Math.round(x + (c[1][k] - x) * Math.sqrt(t))).join(',') + ')';
+}
+function setup(cv) {
+  const r = devicePixelRatio || 1, w = cv.clientWidth, h = +cv.getAttribute('height');
+  cv.width = w * r; cv.height = h * r; cv.style.height = h + 'px';
+  const g = cv.getContext('2d'); g.setTransform(r, 0, 0, r, 0, 0); g.clearRect(0, 0, w, h);
+  g.font = '14px Inter, Arial, Vazirmatn, sans-serif'; return [g, w, h];
+}
+function hatch(g, x, y, w, h) {
+  g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip(); g.strokeStyle = 'rgba(243,241,236,.55)'; g.lineWidth = 1.2;
+  for (let k = -h; k < w; k += 7) { g.beginPath(); g.moveTo(x + k, y + h); g.lineTo(x + k + h, y); g.stroke(); }
+  g.restore();
+}
+function heatmap(cv, rows, title) {   // rows: [{label, cells: {speed, count, closed, n}}]
+  const [g, w, h] = setup(cv), L = 160, T = 34, B = 24, cw = (w - L - 8) / 24, ch = (h - T - B) / rows.length;
+  g.fillStyle = '#F3F1EC'; g.font = '700 17px Inter, Arial, sans-serif'; g.fillText(title, L, 20); g.font = '13px Inter, Arial, Vazirmatn, sans-serif';
+  const max = Math.max(1, ...rows.flatMap(r => r.cells ? r.cells.count.filter(v => v != null) : []));
+  rows.forEach((r, i) => {
+    g.fillStyle = '#8D8A84'; g.textAlign = 'right'; g.fillText(r.label, L - 8, T + i * ch + ch / 2 + 4); g.textAlign = 'left';
+    for (let k = 0; k < 24; k++) {
+      const x = L + k * cw, y = T + i * ch, c = r.cells;
+      g.fillStyle = !c ? '#1A1B1E' : S.metric === 'speed' ? speedColor(c.speed[k]) : countColor(c.count[k], max);
+      g.fillRect(x + 1, y + 1, cw - 2, ch - 2);
+      if (c && c.closed[k] >= 0.2) hatch(g, x + 1, y + 1, cw - 2, ch - 2);
+      if (c && c.closed[k] >= 0.5) { g.fillStyle = '#111214'; g.font = '700 13px Arial'; g.textAlign = 'center'; g.fillText('×', x + cw / 2, y + ch / 2 + 5); g.textAlign = 'left'; g.font = '13px Inter, Arial, Vazirmatn, sans-serif'; }
+    }
+  });
+  g.fillStyle = '#8D8A84'; g.textAlign = 'center';
+  for (let k = 0; k < 24; k += 3) g.fillText(String(k).padStart(2, '0'), L + k * cw + cw / 2, h - 6);
+  g.textAlign = 'left';
+}
+function legendHeat(el) {
+  el.innerHTML = S.metric === 'speed'
+    ? `<span><i style="background:${speedColor(70)}"></i>free (A, ≥ ${M.thresholds.A} km/h)</span><span><i style="background:${speedColor(45)}"></i>slow (B)</span><span><i style="background:${speedColor(15)}"></i>heavy (C, &lt; ${M.thresholds.C} km/h)</span><span><i style="background:repeating-linear-gradient(135deg,#8D8A84 0 3px,#26272B 3px 7px)"></i>closed by police in ≥ 20% of such hours (not quiet!) · × ≥ 50%</span><span>M: show car counts</span>`
+    : `<span><i style="background:${countColor(0, 1)}"></i>few cars</span><span><i style="background:${countColor(1, 1)}"></i>many cars per hour</span><span><i style="background:repeating-linear-gradient(135deg,#8D8A84 0 3px,#26272B 3px 7px)"></i>closed by police (a low count is NOT a quiet road)</span><span>M: show speed</span>`;
+}
+function viewA() {
+  const rows = x => M.weekdays_en.map((d, i) => ({label: d + ' · ' + M.weekdays_fa[i], cells: (DATA.ordinary['dow' + i] || {})[x]}));
+  heatmap(document.getElementById('ha1'), rows('N'), 'N · ' + M.dir_label.N);
+  heatmap(document.getElementById('ha2'), rows('S'), 'S · ' + M.dir_label.S);
+  legendHeat(document.getElementById('lega'));
+  document.getElementById('nota').textContent = `Ordinary weeks only (holidays and Nowruz removed; Fridays kept). Median of ${M.first} … ${M.last} (${M.first_j} … ${M.last_j}). One counter: a point on the road, not your whole trip.`;
+}
+const SKL = {'eve': 'eve of a holiday', 'blk-first': 'first day off', 'blk-mid': 'middle day off', 'blk-last': 'last day off', 'after': 'day after'};
+function viewB() {
+  const lab = k => SKL[k] || ('Nowruz ' + (k.slice(2) === '+0' ? 'day 1 (Farvardin 1)' : (+k.slice(2) < 0 ? k.slice(2) + ' (Esfand)' : 'day ' + (+k.slice(2) + 1))));
+  const rows = x => [{label: 'ordinary Wed', cells: (DATA.ordinary.dow4 || {})[x]}, {label: 'ordinary Fri', cells: (DATA.ordinary.dow6 || {})[x]}]
+    .concat(DATA.special_keys.map(k => ({label: lab(k), cells: (DATA.special[k] || {})[x]})));
+  heatmap(document.getElementById('hb1'), rows('N'), 'N · toward Chalus');
+  heatmap(document.getElementById('hb2'), rows('S'), 'S · toward Karaj');
+  legendHeat(document.getElementById('legb'));
+}
+function foldNowruz() { return DATA.report.find(f => f.fold.startsWith('nowruz')); }
+function viewC() {
+  const f = foldNowruz(), cv = document.getElementById('cc');
+  if (!f) { setup(cv); document.getElementById('ctab').innerHTML = '<p class="notrun">Not enough data for a Nowruz fold (needs the previous Nowruz inside the data).</p>'; return; }
+  const days = Object.keys(f.series[S.dir]).sort(); S.day = (S.day + days.length) % days.length;
+  const d = days[S.day], s = f.series[S.dir][d];
+  const [g, w, h] = setup(cv), L = 60, T = 16, B = 28, x = k => L + k * (w - L - 20) / 23;
+  const max = Math.max(100, ...MODELS.concat(['actual']).flatMap(m => s[m].filter(v => v != null)));
+  const y = v => T + (h - T - B) * (1 - v / max);
+  s.closed.forEach((c, k) => { if (c) { g.fillStyle = 'rgba(58,59,63,.6)'; g.fillRect(x(k) - 10, T, 20, h - T - B); hatch(g, x(k) - 10, T, 20, h - T - B); } });
+  g.strokeStyle = '#26272B'; g.fillStyle = '#8D8A84';
+  for (let v = 0; v <= max; v += Math.ceil(max / 5 / 100) * 100) { g.beginPath(); g.moveTo(L, y(v)); g.lineTo(w - 20, y(v)); g.stroke(); g.fillText(v, 8, y(v) + 4); }
+  for (let k = 0; k < 24; k += 3) g.fillText(hh(k), x(k) - 18, h - 8);
+  const line = (vals, col, wd) => { g.strokeStyle = col; g.lineWidth = wd; g.beginPath(); let on = false;
+    vals.forEach((v, k) => { if (v == null) { on = false; return; } on ? g.lineTo(x(k), y(v)) : g.moveTo(x(k), y(v)); on = true; }); g.stroke(); };
+  MODELS.forEach(m => line(s[m], MCOL[m], m === 'boosted' ? 3 : 2));
+  line(s.actual, '#F3F1EC', 3.5);
+  const j = M.weekdays_en[(new Date(d + 'T12:00').getDay() + 1) % 7];
+  document.getElementById('cday').textContent = (s.jalali || '') + ' · ' + d;
+  document.getElementById('cdir').textContent = `${j} · ${S.dir} · ${M.dir_label[S.dir]} · cars per hour`;
+  document.getElementById('legc').innerHTML = `<span><i style="background:#F3F1EC"></i>actual (counter)</span>` + MODELS.map(m => `<span><i style="background:${MCOL[m]}"></i>${M.model_label[m]}</span>`).join('') + `<span><i style="background:repeating-linear-gradient(135deg,#8D8A84 0 3px,#26272B 3px 7px)"></i>closed by police: not scored</span>`;
+  const best = (fold, key, low) => { const v = MODELS.map(m => fold.models[m][key]).filter(v => v != null); return low ? Math.min(...v) : Math.max(...v); };
+  let t = '<table class="race"><tr><th>held-out days</th><th>model</th><th>error, cars/h (MAE)</th><th>skill vs last week</th><th>speed error, km/h</th><th>heavy hours caught (C)</th><th>peaks within ±2 h (N, S)</th></tr>';
+  DATA.report.forEach(fold => MODELS.forEach((m, i) => { const r = fold.models[m], pk = fold.peak_hour_error ? fold.peak_hour_error[m] : null;
+    t += `<tr><td>${i ? '' : fold.label + ' · ' + fold.n_scored_hours + ' h'}</td><td style="color:${MCOL[m]}">${M.model_label[m]}</td>` +
+      `<td class="${r.mae_count === best(fold, 'mae_count', true) ? 'best' : ''}">${r.mae_count}</td><td>${r.skill_vs_last_week >= 0 ? '+' : ''}${Math.round(r.skill_vs_last_week * 100)}%</td>` +
+      `<td>${r.mae_speed}</td><td>${r.recall_C == null ? '–' : Math.round(r.recall_C * 100) + '% of ' + r.n_C}</td><td>${pk ? pk.N.within_2h + '/4, ' + pk.S.within_2h + '/4' : ''}</td></tr>`; }));
+  document.getElementById('ctab').innerHTML = t + '</table>' + (M.synthetic ? '<p class="notrun">SYNTHETIC: these numbers rehearse the method only. Real race: NOT RUN YET.</p>' : '');
+}
+function viewD() {
+  S.pick = (S.pick + DATA.pick.length) % DATA.pick.length;
+  const p = DATA.pick[S.pick], z = p.dirs[S.dir], [g, w, h] = setup(document.getElementById('cd'));
+  const L = 60, T = 20, B = 34, bw = (w - L - 20) / 24, y = v => T + (h - T - B) * (1 - v / 80);
+  g.strokeStyle = '#26272B'; g.fillStyle = '#8D8A84';
+  [0, 20, 40, 60, 80].forEach(v => { g.beginPath(); g.moveTo(L, y(v)); g.lineTo(w - 20, y(v)); g.stroke(); g.fillText(v + ' km/h', 2, y(v) + 4); });
+  z.hours.forEach((r, k) => {
+    const x = L + k * bw + 3, v = r.speed == null ? 0 : r.speed;
+    g.fillStyle = speedColor(r.speed); g.fillRect(x, y(v), bw - 6, y(0) - y(v));
+    if (r.p_closed >= 0.2) { g.fillStyle = 'rgba(17,18,20,.55)'; g.fillRect(x, T, bw - 6, y(0) - T); hatch(g, x, T, bw - 6, y(0) - T);
+      g.fillStyle = '#F3F1EC'; g.fillText(Math.round(r.p_closed * 100) + '%', x, T + 14); }
+    if (z.best.includes(r.hour)) { g.strokeStyle = '#E8A33D'; g.lineWidth = 3; g.strokeRect(x - 2, y(v) - 2, bw - 2, y(0) - y(v) + 4); }
+    g.fillStyle = '#8D8A84'; if (k % 2 === 0) g.fillText(String(k).padStart(2, '0'), x + 2, h - 12);
+  });
+  const dow = M.weekdays_en[p.dow];
+  document.getElementById('dbest').textContent = z.best.length ? z.best.map(hh).join(' · ') : 'no open hour';
+  document.getElementById('ddate').innerHTML = `${p.jalali} · ${p.date} · ${dow}${p.holiday ? ' · ' + p.holiday : ''} · ${S.dir}: ${M.dir_label[S.dir]}`;
+  document.getElementById('legd').innerHTML = `<span><i style="background:${speedColor(70)}"></i>forecast: free</span><span><i style="background:${speedColor(45)}"></i>slow</span><span><i style="background:${speedColor(15)}"></i>heavy</span><span><i style="background:repeating-linear-gradient(135deg,#8D8A84 0 3px,#26272B 3px 7px)"></i>% = how often police closed this slot before</span><span><i style="background:none;outline:3px solid #E8A33D"></i>best three hours to pass the counter (05–22)</span>`;
+  document.getElementById('notd').textContent = `Boosted trees (calendar only) for speed; P(closed) from the calendar profile. Trained on ${M.first_j} … ${M.last_j}. ` +
+    `The hour you pass ONE counter, not door-to-door; check the police announcement on the day.` + (M.synthetic ? ' SYNTHETIC — rehearsal only.' : '');
+}
+const VIEWS = {a: viewA, b: viewB, c: viewC, d: viewD};
+function show(v) { S.view = v; document.querySelectorAll('.view').forEach(e => e.classList.toggle('on', e.id === v));
+  document.querySelectorAll('header .tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === v)); VIEWS[v](); }
+document.querySelectorAll('header .tabs button').forEach(b => b.onclick = () => show(b.dataset.v));
+addEventListener('keydown', e => {
+  const k = e.key;
+  if ('1234'.includes(k)) show('abcd'['1234'.indexOf(k)]);
+  else if (k === 'ArrowRight' || k === 'ArrowLeft') { const s = k === 'ArrowRight' ? 1 : -1; if (S.view === 'c') S.day += s; else S.pick += s; VIEWS[S.view](); }
+  else if (k === 'd' || k === 'D') { S.dir = S.dir === 'N' ? 'S' : 'N'; VIEWS[S.view](); }
+  else if (k === 'm' || k === 'M') { S.metric = S.metric === 'speed' ? 'count' : 'speed'; VIEWS[S.view](); }
+  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+});
+addEventListener('resize', () => VIEWS[S.view]());
+document.fonts.ready.then(() => show(S.view));
+show(S.view);
+</script>
+</body></html>

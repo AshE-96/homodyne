@@ -1,0 +1,39 @@
+HMD-S08 · derived data. Built 28 Nov 2026 from the same raw files HMD-009 uses; nothing here needs a key.
+
+weekday_trips.csv  one row per kept weekday (Mon-Fri) yellow-taxi trip, pickups 2026-03-02 .. 2026-04-30, on four routes:
+  route  jfk  = Midtown (TLC zones 161 Midtown Center, 162 Midtown East, 163 Midtown North, 164 Midtown South,
+                230 Times Sq/Theatre District) -> 132 JFK Airport             12-25 miles, 10-180 min   8,509 of 8,786 kept
+         lga  = Midtown -> 138 LaGuardia Airport                               6-18 miles,  5-150 min  15,054 of 15,524 kept
+         ewr  = Midtown -> 1 Newark Airport (EWR)                              12-30 miles, 10-180 min  3,437 of 3,522 kept
+         fidi = 236/237 Upper East Side North/South -> 87/88 Financial District North/South, 261 World Trade Center,
+                13 Battery Park City, 12 Battery Park                          4-12 miles,  5-120 min   3,750 of 4,026 kept
+  date   pickup date (YYYY-MM-DD)
+  dep    pickup clock time in whole minutes after midnight (meter engaged = "when you leave")
+  min    trip minutes, meter engaged -> disengaged, one decimal
+  30,750 rows · sha256 ad11a755f177f30fd90ec02d07bffae3b2d2ba3e64eb821e4e211fdda9b96550
+  The jfk rows are exactly the weekday rows of HMD-009's derived/midtown_jfk_trips.csv (same filter; checked by --selftest).
+
+episode_numbers.json  output of `python3 -I artifact/leave_live.py --report`: every number the script and deck use.
+
+Source: NYC Taxi & Limousine Commission (TLC), TLC Trip Record Data, Yellow Taxi Trip Records (PARQUET).
+  Page: https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+  https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2026-03.parquet
+    sha256 d7af794a7ac06cbbb5afb4d1df9e86d84f2e878584de708ff2ffca4bd7d234d9  (67,891,249 bytes)
+  https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2026-04.parquet
+    sha256 e03b82d5722a6b21d4fbce011afd8837495202c0b5db77ff0d8d15dd80834ba8  (64,818,115 bytes)
+  https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv   (zone names)
+    sha256 1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed
+  Downloaded 26 Nov 2026 for HMD-009 (no key); the hashes above were re-checked on 28 Nov 2026.
+  Field meanings (TLC data dictionary, 18 Mar 2025): tpep_pickup/dropoff_datetime = "when the meter was
+  engaged/disengaged"; PULocationID/DOLocationID = TLC Taxi Zone; trip_distance = taximeter miles.
+Licence / terms: public data published by the City of New York (NYC Open Data Law: public data sets are made available
+  without restrictions on use; the City may ask users to identify the source). TLC "makes no representations as to the
+  accuracy of these data". Credit line: "Data: NYC Taxi & Limousine Commission (TLC), Yellow Taxi Trip Records,
+  Mar-Apr 2026; filtered and computed by Homodyne."
+
+Exact processing (run from the episode folder; needs duckdb, used at 1.5.5):
+  python3 -I artifact/leave_build.py --raw ../hmd-009-maps-eta/artifact/cache/tlc     (or --raw artifact/cache/tlc)
+  python3 -I artifact/leave_live.py --report
+Split: train = weekdays 2026-03-02 .. 2026-04-10 (30 days), test = 2026-04-13 .. 2026-04-30 (14 days), as in HMD-009.
+Every percentile, departure time and backtest in this episode is Homodyne's own computation on these records,
+not Google's. Taxi meter time excludes waiting for a cab, walking, check-in and security.

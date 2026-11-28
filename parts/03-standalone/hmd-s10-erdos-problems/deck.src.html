@@ -1,0 +1,205 @@
+<!-- HMD-S10 · deck source. Build: python3 scripts/build-decks.py --only hmd-s10  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Charts are drawn by us (artifact/erdos_core.py, seed 7 for frame 11); no third-party images. -->
+
+<style>
+/* HMD-S10: squares of Erdős #1026 (beat 11) */
+.chart.sq{max-width:1500px;margin-inline:auto}
+.chart.sq .box{fill:none;stroke:#8F8C84;stroke-width:3;stroke-dasharray:10 8}
+.chart.sq .q{fill:#E7E3DA;stroke:#F3F1EC;stroke-width:3}
+.chart.sq .q.h{fill:#E8A33D}
+.chart text{font-size:38px;fill:#3A3B3F}.chart .sm{font-size:30px;fill:#6E6A63}
+</style>
+
+<section class="cover">
+<h1><t-fa>مسئله‌های اردوش: AI ریاضی تازه <em>کشف</em> کرد یا پیدا کرد؟</t-fa><t-en>Erdős problems: did AI <em>discover</em> new maths or find old answers?</t-en></h1>
+<p class="promise"><t-fa>سه معنی «AI حلش کرد»، یک بازی سکه که خودش مسئلهٔ اردوش است، و دفتری که هر ادعا را ثبت کرد.</t-fa><t-en>Three meanings of "AI solved it", a coin game that is itself an Erdős problem, and the ledger that recorded every claim.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>صبح کریسمس ۲۰۲۵</t-fa><t-en>Christmas morning 2025</t-en></p>
+<div class="source"><q><t-fa>«نخستین بار که یک مدل زبانی، کاملاً خودکار، یک مسئلهٔ اردوش را حل کرد.»</t-fa><t-en>"The first case of an LLM fully autonomously resolving an Erdős problem."</t-en></q><cite><t-fa>پست اثبات مسئلهٔ #۳۳۳ در erdosproblems.com · به نقل از Quanta · ۳ اوت ۲۰۲۶</t-fa><t-en>Post of a proof of problem #333 on erdosproblems.com · as reported by Quanta · 3 Aug 2026</t-en></cite></div>
+<p class="tag"><t-fa>چند ساعت بعد: همین مسئله را اردوش و نیومن در <b>۱۹۷۷</b> حل کرده بودند</t-fa><t-en>A few hours later: Erdős and Newman had solved the same problem in <b>1977</b></t-en></p>
+<footer><t-fa>R08 · R04</t-fa><t-en>R08 · R04</t-en></footer>
+<aside class="notes"><t-fa><b>صبح کریسمس</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» نام نویسندهٔ پست را نگو. ویکی (R04) این را در بخش <bdi dir="ltr">1(b)</bdi> گذاشته: AI حل کرد، مقاله بعداً پیدا شد.</p><p>در یک جمله: یک ادعای «اولین حل خودکار» در چند ساعت به مقاله‌ای از ۱۹۷۷ رسید؛ سؤال این قسمت همین است: کشف یا پیدا کردن؟</p></t-fa><t-en><b>Christmas morning</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. Do not name the poster. The wiki (R04) files this under 1(b): AI solved it, the paper turned up afterwards.</p><p>In one line: a "first autonomous solution" claim led within hours to a 1977 paper; this episode's question: discovered or found?</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>خودت بررسی کن، دوباره</t-fa><t-en>Check it yourself, again</t-en></p>
+<div class="cards">
+<div><b><t-fa>قسمت قبل</t-fa><t-en>Last episode</t-en></b><t-fa>یک نمرهٔ منتشرشده را از روی فایل‌ها دوباره حساب کردیم.</t-fa><t-en>We recomputed a published score from the files.</t-en></div>
+<div class="hi"><b><t-fa>امروز</t-fa><t-en>Today</t-en></b><t-fa>ادعای «AI یک مسئلهٔ اردوش را حل کرد». در ریاضی، «تازه» یعنی چه؟</t-fa><t-en>The claim "AI solved an Erdős problem". In mathematics, what does "new" mean?</t-en></div>
+</div>
+<p class="caption"><t-fa>تا آخر این قسمت: سه سؤال برای هر تیتر از این جنس.</t-fa><t-en>By the end: three questions for any headline of this kind.</t-en></p>
+<footer><t-fa>پل از HMD-018</t-fa><t-en>Bridge from HMD-018</t-en></footer>
+<aside class="notes"><t-fa><b>از نمره تا اثبات</b><p>[B-ROLL CUE] برگشت کوتاه به تصویر پایان HMD-018. سه تیتر «AI solved…» با سه رنگ.</p><p>در یک جمله: همان «خودت بررسی کن»ِ قسمت قبل، این بار روی ادعای حل مسئله‌های اردوش.</p></t-fa><t-en><b>From a score to a proof</b><p>[B-ROLL CUE] A short return to the closing image of HMD-018. Three "AI solved…" headlines in three colours.</p><p>In one line: last episode's "check it yourself", now applied to claims about Erdős problems.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="87">
+<p class="kicker"><t-fa>پل اردوش</t-fa><t-en>Paul Erdős</t-en></p>
+<div class="cols">
+<div><span><t-fa>بوداپست ۱۹۱۳ – ورشو ۱۹۹۶</t-fa><t-en>Budapest 1913 – Warsaw 1996</t-en></span><b class="word"><t-fa>بی‌خانه</t-fa><t-en>No fixed home</t-en></b><p><t-fa>از دانشگاهی به دانشگاه دیگر، از خانهٔ همکاری به خانهٔ همکار دیگر</t-fa><t-en>from one university to the next, from one colleague's home to another's</t-en></p></div>
+<div><span><t-fa>مقاله</t-fa><t-en>Papers</t-en></span><b><t-fa>+۱۵۰۰</t-fa><t-en>1,500+</t-en></b><p><t-fa>به نقل MacTutor از سوگ‌نامهٔ New York Times</t-fa><t-en>MacTutor, citing the New York Times obituary</t-en></p></div>
+<div class="hi"><span><t-fa>جایزهٔ نقدی مسئله‌ها</t-fa><t-en>Cash prizes on problems</t-en></span><b class="word"><t-fa>۱۰ تا ۱۰٬۰۰۰ دلار</t-fa><t-en>$10 to $10,000</t-en></b><p><t-fa>طبق مقدارهای ثبت‌شده در پایگاه داده</t-fa><t-en>as recorded in the database</t-en></p></div>
+</div>
+<footer><t-fa>R07 · R01</t-fa><t-en>R07 · R01</t-en></footer>
+<aside class="notes"><t-fa><b>خود اردوش</b><p>[GRAPHIC] بدون عکس (media/CREDITS.md). «با صدها همکار» عمومی است؛ عدد دقیق همکارها را نگو.</p><p>در یک جمله: اردوش بیش از ۱۵۰۰ مقاله نوشت و صدها سؤال باز، گاهی با جایزهٔ نقدی، از خودش به جا گذاشت.</p></t-fa><t-en><b>Erdős himself</b><p>[GRAPHIC] No photo (media/CREDITS.md). "With hundreds of collaborators" is general; do not give an exact count.</p><p>In one line: Erdős wrote more than 1,500 papers and left hundreds of open questions, some with cash prizes.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-4" data-start="129">
+<p class="kicker"><t-fa>دفتر مسئله‌ها</t-fa><t-en>The problem ledger</t-en></p>
+<div class="cols">
+<div><span><t-fa>مسئله در پایگاه دادهٔ باز</t-fa><t-en>problems in the open database</t-en></span><b><t-fa>۱٬۲۲۱</t-fa><t-en>1,221</t-en></b><p><t-fa>نگه‌دارنده‌ها: Thomas Bloom و Terence Tao</t-fa><t-en>maintained by Thomas Bloom and Terence Tao</t-en></p></div>
+<div class="hi"><span><t-fa>کاملاً باز</t-fa><t-en>completely open</t-en></span><b><t-fa>۵۷۰</t-fa><t-en>570</t-en></b><p><t-fa>«باز» = نگه‌دارنده‌ها راه‌حلی سراغ ندارند</t-fa><t-en>"open" = no solution known to the maintainers</t-en></p></div>
+<div><span><t-fa>با جایزهٔ نقدی</t-fa><t-en>with a cash prize</t-en></span><b><t-fa>۱۱۴</t-fa><t-en>114</t-en></b><p><t-fa>حل‌شده یا نه</t-fa><t-en>solved or not</t-en></p></div>
+</div>
+<p class="tag"><t-fa>دمو: artifact/erdos_live.html · نمای ۱ · داده: github.com/teorth/erdosproblems، commit 706c140، ۲۴ نوامبر ۲۰۲۶ (Apache-2.0)</t-fa><t-en>Demo: artifact/erdos_live.html · view 1 · data: github.com/teorth/erdosproblems, commit 706c140, 24 Nov 2026 (Apache-2.0)</t-en></p>
+<footer><t-fa>R01 · R08 (سایت از اوایل ۲۰۲۳)</t-fa><t-en>R01 · R08 (site since early 2023)</t-en></footer>
+<aside class="notes"><t-fa><b>دفتر مسئله‌ها</b><p>[B-ROLL CUE] نمای ۱ دمو؛ روی چهارخانه‌های کهربایی مکث. خود سایت ۱٬۲۱۷ مسئله را در سپتامبر ۲۰۲۶ گزارش می‌کرد؛ عدد ما از نسخهٔ باز گیت‌هاب است.</p><p>در یک جمله: پایگاه دادهٔ مسئله‌های اردوش ۱٬۲۲۱ مسئله دارد و ۵۷۰ تایش کاملاً باز ثبت شده است.</p></t-fa><t-en><b>The problem ledger</b><p>[B-ROLL CUE] Demo view 1; hold on the amber cells. The site itself reported 1,217 problems in September 2026; our figure is from the open GitHub copy.</p><p>In one line: the Erdős problems database has 1,221 problems, 570 of them recorded as completely open.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="175">
+<p class="kicker"><t-fa>اکتبر ۲۰۲۵</t-fa><t-en>October 2025</t-en></p>
+<div class="cards">
+<div class="off"><b><t-fa>Kevin Weil (OpenAI) · پاک شد</t-fa><t-en>Kevin Weil (OpenAI) · deleted</t-en></b><t-fa>«GPT-5 برای ۱۰ (!) مسئلهٔ حل‌نشدهٔ اردوش راه‌حل پیدا کرد و روی ۱۱ تای دیگر پیشرفت کرد.»</t-fa><t-en>"GPT-5 found solutions to 10 (!) previously unsolved Erdős problems and made progress on 11 others."</t-en></div>
+<div class="hi"><b>Thomas Bloom</b><t-fa>«تحریف شدید.» «باز» یعنی «من شخصاً مقاله‌ای سراغ ندارم که حلش کرده باشد».</t-fa><t-en>"A dramatic misrepresentation." "Open" means "I personally am unaware of a paper which solves it".</t-en></div>
+<div><b>Demis Hassabis</b><t-fa>«این خجالت‌آور است.»</t-fa><t-en>"This is embarrassing."</t-en></div>
+</div>
+<footer><t-fa>R05 · TechCrunch · ۱۹ اکتبر ۲۰۲۵ · متن را خودمان تایپ کرده‌ایم</t-fa><t-en>R05 · TechCrunch · 19 Oct 2025 · text typed by us</t-en></footer>
+<aside class="notes"><t-fa><b>اکتبر ۲۰۲۵ + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. [SOUND EFFECT] روی «پاک شد». تاریخ دقیق خود پیام را نمی‌دانیم؛ «اواسط اکتبر».</p><p>در یک جمله: ادعای «ده مسئلهٔ حل‌نشده» در اکتبر ۲۰۲۵ پس گرفته شد؛ مدل جواب‌ها را در مقاله‌های قدیمی پیدا کرده بود.</p></t-fa><t-en><b>October 2025 + soft CTA</b><p>[MID-CTA] Soft CTA to camera first. [SOUND EFFECT] on "deleted". We do not know the post's exact date; say "mid-October".</p><p>In one line: the "ten unsolved problems" claim of October 2025 was withdrawn; the model had found the answers in old papers.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-6" data-start="225">
+<p class="kicker"><t-fa>ویکی، بخش <bdi dir="ltr">2(a)</bdi>: «جست‌وجوی منابع»</t-fa><t-en>Wiki, section 2(a): "Literature search"</t-en></p>
+<h1><t-fa>پیدا کرد، <em>نساخت</em></t-fa><t-en>Found, <em>not made</em></t-en></h1>
+<div class="bars">
+<div class="hi"><span><t-fa>راه‌حل کامل پیدا شد</t-fa><t-en>Full solution found</t-en></span><i style="--v:100"></i><span><t-fa>۱۰</t-fa><t-en>10</t-en></span></div>
+<div><span><t-fa>نتیجهٔ ناقص پیدا شد</t-fa><t-en>Partial results found</t-en></span><i style="--v:100"></i><span><t-fa>۱۰</t-fa><t-en>10</t-en></span></div>
+</div>
+<p class="tag"><t-fa>ردیف‌های GPT-5 با تاریخ ۱۱ تا ۲۰ اکتبر ۲۰۲۵ · شمارش ما از ویکی (ثابت از ۳۰ ژوئن ۲۰۲۶) · Bubeck (OpenAI): «می‌دانم جست‌وجو در مقاله‌ها چقدر سخت است»</t-fa><t-en>GPT-5 rows dated 11–20 Oct 2025 · our count from the wiki (frozen since 30 Jun 2026) · Bubeck (OpenAI): "I know how hard it is to search the literature"</t-en></p>
+<footer><t-fa>R04 · R05 · erdos_live.py --selftest</t-fa><t-en>R04 · R05 · erdos_live.py --selftest</t-en></footer>
+<aside class="notes"><t-fa><b>پیدا کرد، نساخت</b><p>[B-ROLL CUE] نمای ۲ دمو (<code>?view=b&amp;sec=2a</code>)، → روی نقطه‌های اکتبر. «تیر ۱۴۰۵» = ۳۰ ژوئن ۲۰۲۶. ویکی ناقص است؛ «همهٔ کمک‌ها» نگو.</p><p>در یک جمله: در اکتبر ۲۰۲۵، ده راه‌حل کامل پیدا شد، نه ساخته؛ مفید بود، ولی کشف نبود.</p></t-fa><t-en><b>Found, not made</b><p>[B-ROLL CUE] Demo view 2 (?view=b&amp;sec=2a), → over the October dots. The wiki is incomplete; do not say "every contribution".</p><p>In one line: in October 2025 ten full solutions were found, not made; useful, but not discovery.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="283">
+<p class="kicker"><t-fa>«AI حلش کرد» یعنی…</t-fa><t-en>"AI solved it" means…</t-en></p>
+<div class="cards">
+<div><b><t-fa>۱ · پیدا کرد</t-fa><t-en>1 · Found it</t-en></b><t-fa>راه‌حلی که آدم‌ها قبلاً داشتند و فراموش شده بود</t-fa><t-en>a solution people already had, then forgot</t-en></div>
+<div><b><t-fa>۲ · گوشهٔ دست‌نخورده</t-fa><t-en>2 · An unvisited corner</t-en></b><t-fa>حل‌نشده، چون کسی سراغش نرفته بود: «گمنامی، نه سختی»</t-fa><t-en>unsolved because nobody had looked: "obscurity rather than difficulty"</t-en></div>
+<div class="hi"><b><t-fa>۳ · سخت واقعی</t-fa><t-en>3 · Genuinely hard</t-en></b><t-fa>آدم‌های زیادی رویش کار کرده بودند و نتوانسته بودند · کمیاب</t-fa><t-en>many people had tried and failed · rare</t-en></div>
+</div>
+<p class="tag"><t-fa>Google DeepMind، ژانویهٔ ۲۰۲۶: ۷۰۰ مسئلهٔ «باز» بررسی شد ← ۱۳ حل ← ۸ تا قبلاً در مقاله‌ها · حالت قاطی: AI حل می‌کند، مقاله بعداً پیدا می‌شود (ویکی <bdi dir="ltr">1(b)</bdi>)</t-fa><t-en>Google DeepMind, January 2026: 700 "open" problems checked → 13 solved → 8 already in the literature · the mixed case: AI solves it, a paper turns up later (wiki 1(b))</t-en></p>
+<footer><t-fa>R13 (arXiv 2601.22401) · R04</t-fa><t-en>R13 (arXiv 2601.22401) · R04</t-en></footer>
+<aside class="notes"><t-fa><b>سه معنی «حل کرد»</b><p>[GRAPHIC] نقل «obscurity rather than difficulty» از چکیدهٔ R13 است و در هشدار ۵ ویکی هم آمده. ۵ تای دیگر «ظاهراً تازه» بودند؛ اگر پرسیدند، study §۳.</p><p>در یک جمله: «حل کرد» یعنی یا پیدا کرد، یا یک گوشهٔ فراموش‌شده را حل کرد، یا یک مسئلهٔ واقعاً سخت را؛ این سه هم‌وزن نیستند.</p></t-fa><t-en><b>Three meanings of "solved"</b><p>[GRAPHIC] "Obscurity rather than difficulty" is from the R13 abstract and also in wiki disclaimer 5. The other 5 were "seemingly novel"; if asked, study §3.</p><p>In one line: "solved" means found it, or solved a forgotten corner, or solved something truly hard; these do not weigh the same.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="338">
+<p class="kicker"><t-fa>مسئلهٔ اردوش #۱۰۲۶</t-fa><t-en>Erdős problem #1026</t-en></p>
+<h1><t-fa>آلیس ۹ کپه می‌چیند؛ باب یک ردیف <em>یکنوا</em> برمی‌دارد</t-fa><t-en>Alice lays out 9 piles; Bob takes a <em>monotone</em> run</t-en></h1>
+<div class="tokens mono" dir="ltr"><i class="off">11.9</i><i class="off">6.4</i><i class="hi">22.2</i><i class="off">3.9</i><i class="hi">18.6</i><i class="off">13.2</i><i class="off">3.4</i><i class="hi">17.7</i><i class="hi">2.8</i></div>
+<p class="caption"><t-fa>باب کپه‌ها را به همان ترتیب برمی‌دارد، فقط رو به بالا یا فقط رو به پایین. باب همیشه دست‌کم چه سهمی می‌برد؟</t-fa><t-en>Bob takes piles in their order, only rising or only falling. What share can Bob always get?</t-en></p>
+<p class="tag"><t-fa>نمونه: درصد سکه‌ها در هر کپه (گرد شده)؛ ردیف رو به پایین باب کهربایی: ۶۱٫۳٪</t-fa><t-en>Example: percent of the coins in each pile (rounded); Bob's falling run in amber: 61.3%</t-en></p>
+<footer><t-fa>R09 · R10 (صورت دقیق در formal-conjectures)</t-fa><t-en>R09 · R10 (exact statement in formal-conjectures)</t-en></footer>
+<aside class="notes"><t-fa><b>بازی سکه‌ها</b><p>[CAMERA CHANGE] اگر سکهٔ واقعی داری، نُه کپه روی میز. عددهای این قاب همان تقسیم قاب ۱۱ است (seed 7). صورت دقیق: k² عدد مثبت متمایز با جمع ۱ (R10). قبل از جواب، مکث برای حدس.</p><p>در یک جمله: مسئلهٔ ۱۰۲۶: آلیس سکه‌ها را در ۹ کپه می‌چیند و باب یک ردیف یکنوا برمی‌دارد؛ باب دست‌کم چقدر می‌برد؟</p></t-fa><t-en><b>The coin game</b><p>[CAMERA CHANGE] If you have real coins, nine piles on the table. The numbers here are the split used in frame 11 (seed 7). Exact statement: k² distinct positive reals summing to 1 (R10). Pause for the guess.</p><p>In one line: problem 1026: Alice lays the coins out in 9 piles and Bob takes a monotone run; how much does Bob always get?</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="380">
+<p class="kicker"><t-fa>بهترین تقسیم آلیس</t-fa><t-en>Alice's best split</t-en></p>
+<div class="tokens mono" dir="ltr"><i class="hi">3</i><i>2</i><i>1</i><i class="off">·</i><i class="hi">6</i><i>5</i><i>4</i><i class="off">·</i><i class="hi">9</i><i>8</i><i>7</i></div>
+<p class="caption"><t-fa>کپه‌ها تقریباً هم‌اندازه‌اند؛ این عددها فقط ترتیب اندازه‌اند. رو به بالا: یک کپه از هر دسته. رو به پایین: فقط درون یک دسته. پس باب حدود <b>⅓</b> می‌برد؛ با k² کپه حدود <bdi dir="ltr">1/k</bdi>.</t-fa><t-en>The piles are nearly equal; these numbers only give their size order. Rising: one pile per block. Falling: within one block. So Bob gets about <b>⅓</b>; with k² piles about 1/k.</t-en></p>
+<p class="tag"><t-fa>دمو: نمای ۳، کلید A · k = ۳: سهم باب ۳۳٫۷٪ در دمو (اختلاف کوچک، اندازه‌ها کمی متفاوت‌اند تا تمایز بمانند)</t-fa><t-en>Demo: view 3, key A · k = 3: Bob's share 33.7% in the demo (a small excess, the sizes differ slightly so that they stay distinct)</t-en></p>
+<footer><t-fa>R09 (ساخت Cambie) · erdos_live.py --selftest</t-fa><t-en>R09 (Cambie's construction) · erdos_live.py --selftest</t-en></footer>
+<aside class="notes"><t-fa><b>بهترین تقسیم آلیس</b><p>[B-ROLL CUE] نمای ۳ دمو: R دو بار، بعد A، بعد → برای k = ۴. سهم تصادفی را عدد نگو.</p><p>در یک جمله: با تقسیم هوشمندانهٔ آلیس، باب از ۹ کپه فقط حدود یک‌سوم می‌برد؛ سؤال این است که آلیس بهتر از این هم می‌تواند؟</p></t-fa><t-en><b>Alice's best split</b><p>[B-ROLL CUE] Demo view 3: R twice, then A, then → for k = 4. Do not read out the random share.</p><p>In one line: with Alice's clever split Bob gets only about a third of 9 piles; can Alice do even better?</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="430">
+<p class="kicker"><t-fa>هوک دوم</t-fa><t-en>Second hook</t-en></p>
+<h1><t-fa>کشف یا <em>پیدا کردن</em>؟</t-fa><t-en>Discovered, or <em>found</em>?</t-en></h1>
+<div class="steps">
+<div><b><t-fa>۱۹۵۹ · Seidenberg</t-fa><t-en>1959 · Seidenberg</t-en></b><t-fa>اثبات کوتاه قضیهٔ اردوش–سکرش (۱۹۳۵) با برچسب‌گذاری</t-fa><t-en>a short labelling proof of the Erdős–Szekeres theorem (1935)</t-en></div>
+<div><b><t-fa>۲۰۱۶ · Tidor، Wang، Yang</t-fa><t-en>2016 · Tidor, Wang, Yang</t-en></b><t-fa>همین نتیجه، در مقاله‌ای دربارهٔ موضوعی دیگر</t-fa><t-en>the same result, in a paper on another topic</t-en></div>
+<div><b><t-fa>۷ دسامبر ۲۰۲۵ · Aristotle</t-fa><t-en>7 Dec 2025 · Aristotle</t-en></b><t-fa>اثبات «باب همیشه ≥ <bdi dir="ltr">1/k</bdi>» در Lean، خودکار</t-fa><t-en>a Lean proof that "Bob always gets ≥ 1/k", autonomous</t-en></div>
+<div class="hi"><b><t-fa>۸ دسامبر ۲۰۲۵ · Google Scholar</t-fa><t-en>8 Dec 2025 · Google Scholar</t-en></b><t-fa>مقالهٔ ۲۰۱۶ پیدا شد؛ ابزارهای deep research پیدایش نکرده بودند</t-fa><t-en>the 2016 paper turns up; deep-research tools had missed it</t-en></div>
+</div>
+<p class="caption"><t-fa>Tao: اثبات AI «معلوم شد چندان تازه نبود». ویکی: بخش <bdi dir="ltr">1(b)</bdi>، «AI در کنار مقاله‌ها».</t-fa><t-en>Tao: the AI proof "turned out to not be particularly novel". Wiki: section 1(b), "AI alongside literature".</t-en></p>
+<footer><t-fa>R09 · R10 · R04</t-fa><t-en>R09 · R10 · R04</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: کشف یا پیدا کردن؟</b><p>[RE-HOOK] [UNEXPECTED STAT] پله‌ها یکی‌یکی. «قسمت ریمان» = HMD-S01 (Lean). ویکی صریحاً می‌گوید از بودن مقاله در دادهٔ آموزش نمی‌شود نتیجه گرفت که AI از آن استفاده کرده.</p><p>در یک جمله: هوش مصنوعی اثبات کامل و وارسی‌شده نوشت، ولی همان نتیجه از ۲۰۱۶ در مقاله‌ای بود؛ یعنی کمی از هر دو.</p></t-fa><t-en><b>Second hook: discovered or found?</b><p>[RE-HOOK] [UNEXPECTED STAT] Steps one by one. "The Riemann episode" = HMD-S01 (Lean). The wiki says explicitly that a paper being in training data does not show the AI used it.</p><p>In one line: AI wrote a complete, machine-checked proof, but the same result had been in a 2016 paper; a bit of both.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="480">
+<p class="kicker"><t-fa>ایدهٔ اثبات</t-fa><t-en>The idea of the proof</t-en></p>
+<div dir="ltr"><svg class="chart sq" viewBox="0 0 1500 640" role="img"><title><t-fa>نُه مربع، یکی برای هر کپه، بدون هم‌پوشانی در جعبهٔ A × B</t-fa><t-en>Nine squares, one per pile, not overlapping, in the A × B box</t-en></title>
+<rect class="box" x="40" y="20" width="390.5" height="560.0"/>
+<rect class="q" x="40.0" y="471.6" width="108.4" height="108.4"/>
+<rect class="q" x="40.0" y="413.4" width="58.2" height="58.2"/>
+<rect class="q h" x="148.4" y="376.8" width="203.2" height="203.2"/>
+<rect class="q" x="40.0" y="341.3" width="35.5" height="35.5"/>
+<rect class="q h" x="148.4" y="207.0" width="169.8" height="169.8"/>
+<rect class="q" x="148.4" y="86.5" width="120.5" height="120.5"/>
+<rect class="q" x="40.0" y="55.1" width="31.3" height="31.3"/>
+<rect class="q h" x="268.9" y="45.4" width="161.6" height="161.6"/>
+<rect class="q h" x="40.0" y="20.0" width="25.4" height="25.4"/>
+<text x="520" y="90"><t-fa>کپهٔ i ← مربعی به ضلع xᵢ در (Aᵢ − xᵢ , Bᵢ − xᵢ)</t-fa><t-en>pile i → a square of side xᵢ at (Aᵢ − xᵢ , Bᵢ − xᵢ)</t-en></text>
+<text class="sm" x="520" y="140"><t-fa>Aᵢ، Bᵢ: بهترین جمع رو به بالا / رو به پایین که به کپهٔ i ختم می‌شود</t-fa><t-en>Aᵢ, Bᵢ: best rising / falling sum ending at pile i</t-en></text>
+<text x="520" y="250"><t-fa>هیچ دو مربعی روی هم نمی‌افتند</t-fa><t-en>no two squares overlap</t-en></text>
+<text x="520" y="330">Σ xᵢ² ≤ A · B</text>
+<text x="520" y="410">1 = (Σ xᵢ)² ≤ k² Σ xᵢ² ≤ k² A B</text>
+<text x="520" y="490">⇒ max(A, B) ≥ 1/k</text>
+<text class="sm" x="40" y="620"><t-fa>جعبه: A = ۴۲٫۷٪ × B = ۶۱٫۳٪</t-fa><t-en>box: A = 42.7% × B = 61.3%</t-en></text>
+</svg></div>
+<footer><t-fa>R09، نابرابری Tao · R17، Seidenberg · رسم ما با erdos_core.py</t-fa><t-en>R09 (Tao's inequality) · R17 (Seidenberg) · drawn by us, erdos_core.py</t-en></footer>
+<aside class="notes"><t-fa><b>مربع‌هایی که روی هم نمی‌افتند</b><p>[B-ROLL CUE] نمای ۳ دمو، کلید S؛ روی یک کپه کلیک. «یه نابرابری قدیمی» = کوشی–شوارتز؛ نامش را نگو. اثبات کامل: study §۵. مربع‌های کهربایی = ردیف رو به پایین باب (۶۱٪).</p><p>در یک جمله: هر کپه یک مربع است، مربع‌ها روی هم نمی‌افتند، و از همین مساحت‌ها سهم تضمینی باب درمی‌آید.</p></t-fa><t-en><b>Squares that never overlap</b><p>[B-ROLL CUE] Demo view 3, key S; click a pile. "An old inequality" = Cauchy–Schwarz; do not name it on camera. Full proof: study §5. Amber squares = Bob's falling run (61%).</p><p>In one line: each pile is a square, the squares never overlap, and Bob's guaranteed share follows from the areas.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="534">
+<p class="kicker"><t-fa>۲۰ مه ۲۰۲۶ · واقعاً تازه</t-fa><t-en>20 May 2026 · genuinely new</t-en></p>
+<div class="cols">
+<div><span><t-fa>سؤال</t-fa><t-en>The question</t-en></span><b class="word"><t-fa>فاصلهٔ ۱</t-fa><t-en>Distance 1</t-en></b><p><t-fa>n نقطه روی صفحه؛ چند جفت دقیقاً به فاصلهٔ ۱؟</t-fa><t-en>n points in the plane; how many pairs exactly 1 apart?</t-en></p></div>
+<div><span><t-fa>حدس اردوش (۱۹۴۶)</t-fa><t-en>Erdős's conjecture (1946)</t-en></span><b class="word"><bdi dir="ltr">n<sup>1+o(1)</sup></bdi></b><p><t-fa>چیدمان‌های شبکه‌ای تقریباً بهترین‌اند</t-fa><t-en>grid-like layouts are about the best</t-en></p></div>
+<div class="hi"><span><t-fa>مدل داخلی OpenAI</t-fa><t-en>OpenAI internal model</t-en></span><b class="word"><bdi dir="ltr">≥ n<sup>1+δ</sup></bdi></b><p><t-fa>حدس رد شد · بهبود Sawin: <bdi dir="ltr">δ = 0.014</bdi></t-fa><t-en>conjecture disproved · Sawin's refinement: δ = 0.014</t-en></p></div>
+</div>
+<p class="tag"><t-fa>ریاضی‌دان‌های بیرونی اثبات را وارسی کردند؛ ۹ نفر، از جمله Bloom و Gowers، نسخهٔ کوتاه و وارسی‌شده را در مقالهٔ همراه نوشتند · Gowers: «نقطهٔ عطفی در ریاضیِ AI» · چند هفته بعد آدم‌ها کران را بهتر کردند</t-fa><t-en>outside mathematicians checked it; 9 of them, including Bloom and Gowers, wrote a short "human-verified version" in a companion paper · Gowers: "a milestone in AI mathematics" · within weeks people improved the bound</t-en></p>
+<footer><t-fa>R14 · R15 (arXiv 2605.20695) · R08</t-fa><t-en>R14 · R15 (arXiv 2605.20695) · R08</t-en></footer>
+<aside class="notes"><t-fa><b>واقعاً تازه: فاصلهٔ واحد</b><p>[GRAPHIC] سال ۱۹۴۶ فقط روی صفحه (R14)؛ در گفتار نیست. «به‌طور اساسی بیشتر» = توانی بیشتر، نه فقط ضریب. R15 می‌گوید ایده‌ها در نگاه به عقب به نظریهٔ اعداد جبری قدیمی می‌رسند؛ اگر پرسیدند، study §۷.</p><p>در یک جمله: در مه ۲۰۲۶ یک مدل OpenAI حدس فاصلهٔ واحد را رد کرد و ریاضی‌دان‌های بیرونی آن را وارسی کردند (نُه نفرشان مقالهٔ همراه نوشتند)؛ این از نوع سوم بود.</p></t-fa><t-en><b>Genuinely new: unit distances</b><p>[GRAPHIC] The year 1946 is on screen only (R14), not spoken. "Substantially more" = a larger power, not just a constant. R15 says the ideas trace back, in hindsight, to older algebraic number theory; if asked, study §7.</p><p>In one line: in May 2026 an OpenAI model disproved the unit distance conjecture and outside mathematicians checked it (nine of them wrote the companion paper); this was the third kind.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="585">
+<p class="kicker"><t-fa>وضعیت کی عوض می‌شود؟</t-fa><t-en>When does a status change?</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>«باز، با Lean»</t-fa><t-en>"open (Lean)"</t-en></span><b><t-fa>۷</t-fa><t-en>7</t-en></b><p><t-fa>اثبات کامپیوتری وصل است؛ هنوز هیچ آدمی آن را هضم نکرده، پس رسماً باز</t-fa><t-en>a machine-checked proof is linked; no human has digested it yet, so officially open</t-en></p></div>
+<div><span><t-fa>۶ اکتبر ۲۰۲۶</t-fa><t-en>6 Oct 2026</t-en></span><b class="word"><t-fa>بی‌جدول</t-fa><t-en>No scoreboard</t-en></b><p><t-fa>سایت دیگر وضعیت و شمار حل‌شده‌ها را نشان نمی‌دهد؛ «سؤال باز، نه جدول امتیاز»</t-fa><t-en>the site no longer shows statuses or a solved count; "open questions, not a scoreboard"</t-en></p></div>
+<div><span>robots.txt</span><b class="word"><t-fa>نخوان</t-fa><t-en>Do not read</t-en></b><p><t-fa>سایت از ایجنت‌های AI خواسته صفحه‌هایش را نخوانند؛ دموی ما فقط نسخهٔ باز گیت‌هاب را می‌خواند</t-fa><t-en>the site asks AI agents not to read its pages; our demo reads only the open GitHub copy</t-en></p></div>
+</div>
+<footer><t-fa>R01 · R02 · R03 [VERIFY]</t-fa><t-en>R01 · R02 · R03 [VERIFY]</t-en></footer>
+<aside class="notes"><t-fa><b>وضعیت کی عوض می‌شود</b><p>[B-ROLL CUE] نمای ۱ دمو: هفت چیپ «open (Lean)»، بعد خط‌چین ۶ اکتبر. داده حذف نشده؛ فقط از صفحهٔ اول برداشته شده. عبارت «سؤال باز، نه جدول امتیاز» از مخزن R01 است؛ پست خود سایت را محمد باید در مرورگر بخواند.</p><p>در یک جمله: وضعیت «حل‌شده» را آدم‌ها عوض می‌کنند، حتی وقتی اثبات کامپیوتری هست؛ و سایت دیگر جدول امتیاز نشان نمی‌دهد.</p></t-fa><t-en><b>When a status changes</b><p>[B-ROLL CUE] Demo view 1: the seven "open (Lean)" chips, then the 6 October dashed line. No data was deleted, only taken off the front page. The phrase "open questions, not a scoreboard" is the R01 repository's wording; Mohammad must read the site's own post in a browser.</p><p>In one line: people change a status to "solved", even when a machine proof exists; and the site no longer shows a scoreboard.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-14" data-start="632">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>«AI حلش کرد» سه معنی متفاوت دارد · اکتبر ۲۰۲۵ پیدا کردن بود، نه ساختن · در #۱۰۲۶ اثبات AI درست و وارسی‌شده بود، ولی نتیجه از ۲۰۱۶ در مقاله‌ای بود · حدس فاصلهٔ واحد را یک مدل رد کرد و ریاضی‌دان‌های بیرونی وارسی کردند</t-fa><t-en>"AI solved it" has three different meanings · October 2025 was finding, not making · in #1026 the AI proof was correct and machine-checked, but the result had been in a 2016 paper · a model disproved the unit distance conjecture and outside mathematicians checked it</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که AI چیز تازه کشف نمی‌کند · که هر حلی که بعداً در مقاله‌ای پیدا شد «کپی» بوده · نرخ موفقیت AI (شکست‌ها گزارش نمی‌شوند؛ سختی‌ها بسیار متفاوت است) · که «باز» یعنی «هیچ‌کس حلش نکرده» · که دموی ما چیزی را حل کرده</t-fa><t-en>That AI never discovers anything new · that every solution later found in a paper was "copied" · an AI success rate (failures go unreported; difficulty varies hugely) · that "open" means "nobody has solved it" · that our demo solved anything</t-en></div>
+</div>
+<footer><t-fa>R04 (هشدارهای ۱، ۲، ۳، ۵) · R13</t-fa><t-en>R04 (disclaimers 1, 2, 3, 5) · R13</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی.</p><p>در یک جمله: این قسمت سه معنی «حل کرد» را از هم جدا می‌کند؛ نه AI را کوچک می‌کند، نه شمارش‌ها را نرخ موفقیت می‌داند.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music.</p><p>In one line: this episode separates three meanings of "solved"; it neither belittles AI nor treats the counts as success rates.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="673">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>هر دو: گاهی <em>پیدا</em>، گاهی کشف</t-fa><t-en>Both: sometimes <em>found</em>, sometimes discovered</t-en></h1>
+<div class="cards">
+<div><b><t-fa>سؤال ۱</t-fa><t-en>Question 1</t-en></b><t-fa>قبلاً در مقاله‌ها بوده؟</t-fa><t-en>Was it already in the literature?</t-en></div>
+<div><b><t-fa>سؤال ۲</t-fa><t-en>Question 2</t-en></b><t-fa>سخت بوده، یا فقط کسی سراغش نرفته بود؟</t-fa><t-en>Was it hard, or just unvisited?</t-en></div>
+<div class="hi"><b><t-fa>سؤال ۳</t-fa><t-en>Question 3</t-en></b><t-fa>غیر از سازنده، چه کسی بررسی‌اش کرده؟</t-fa><t-en>Who checked it, besides its maker?</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S10</t-fa><t-en>Answer · HMD-S10</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>تمرین: یک مسئلهٔ «باز» از فهرست بردار و فقط بگرد ببین کسی قبلاً رویش کار کرده یا نه.</p><p>در یک جمله: هوش مصنوعی هم پیدا می‌کند و هم گاهی کشف می‌کند؛ با سه سؤال می‌شود فهمید کدام.</p></t-fa><t-en><b>The answer</b><p>Exercise: pick an "open" problem from the list and just search whether anyone has worked on it before.</p><p>In one line: AI both finds and sometimes discovers; three questions tell you which.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-16" data-start="704">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>مقاله را به یک ایجنت AI دادیم؛ آزمایشش را <em>تکرار</em> می‌کند؟</t-fa><t-en>We gave a paper to an AI agent. Can it <em>repeat</em> the experiment?</t-en></h1>
+<p class="caption"><t-fa>اثبات را می‌شود خط به خط چک کرد. آزمایش را چه؟</t-fa><t-en>A proof can be checked line by line. What about an experiment?</t-en></p>
+<footer><t-fa>HMD-019</t-fa><t-en>HMD-019</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: ایجنت و مقاله</b><p>[SOUND EFFECT] باز شدن پوشه. End screen از ثانیهٔ ۱۰. هیچ عددی از HMD-019 نگو.</p><p>در یک جمله: بعد از اثبات‌ها، نوبت آزمایش است: آیا یک ایجنت AI می‌تواند آزمایش یک مقاله را تکرار کند؟</p></t-fa><t-en><b>Next: the agent and the paper</b><p>[SOUND EFFECT] A folder opening. End screen from second 10. Give no numbers from HMD-019.</p><p>In one line: after proofs, experiments: can an AI agent repeat a paper's experiment?</p></t-en></aside>
+</section>

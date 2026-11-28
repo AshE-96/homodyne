@@ -1,0 +1,15 @@
+# HMD-S07 · which 141 counters to download, and their direction. Fill `code` from the counter list on 141.ir/otf-data
+# after logging in ([VERIFY]: every code is 6 digits, one per direction of each counter, per the 141 page as read on 13 Aban 1405).
+# dir: N = Karaj → Chalus (south to north), S = Chalus → Karaj (north to south). chalus_prep.py uses only rows with code AND dir.
+# The candidate places are our suggestion from the map; pick the counters 141 actually lists on the Karaj–Chalus axis (Road 59).
+# Sherafat et al. (arXiv 2301.02731, Fig. 5) used a detector on the Chalus→Tehran side "just after the Kandovan tunnel".
+# Its Data Availability Statement names the 2018 detectors 183120 and 183170 ("opposite directions at the same station"):
+# a lead to look for in the 141 list, NOT verified as 141 codes, and which code is which direction is not stated [VERIFY].
+# Fill one place first (one code per direction); several places need chalus_prep.py --only CODE,CODE, one run per place.
+code,dir,place,why,verified
+,N,"Karaj end of Road 59 (first counter after Karaj, toward Chalus)","demand leaving Tehran/Karaj before the mountains",no
+,S,"Karaj end of Road 59 (same counter, toward Karaj)","the return as it arrives",no
+,N,"south of the Kandovan tunnel (Pol-e Zangooleh / Gachsar area), toward Chalus","the bottleneck where police close the northbound road",no
+,S,"north of the Kandovan tunnel, toward Tehran","the counter the 2023 paper used",no
+,N,"Marzanabad area, toward Chalus","after the mountain section",no
+,S,"Marzanabad area, toward Karaj","where the southbound one-way plan starts",no

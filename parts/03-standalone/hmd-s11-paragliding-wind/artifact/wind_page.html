@@ -1,0 +1,243 @@
+<!doctype html>
+<!-- HMD-S11 · live demo page. Template for artifact/wind_live.py (which fills in __DATA__). Do not open this file directly. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne HMD-S11 · Takeoff wind</title>
+<style>
+@font-face{font-family:"Vazirmatn";font-weight:400;src:url("../../../../brand/fonts/vazirmatn-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-weight:700;src:url("../../../../brand/fonts/vazirmatn-arabic-700-normal.woff2") format("woff2")}
+:root{--bg:#111214;--ink:#F3F1EC;--muted:#8D8A84;--dim:#3A3B3F;--amber:#E8A33D;--red:#D2543F;--line:#26272B;--blue:#6FA8DC;--green:#9BC48A}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:17px/1.4 "Inter","Helvetica Neue",Arial,"Vazirmatn",sans-serif;overflow:hidden}
+header{display:flex;align-items:baseline;gap:18px;padding:16px 28px 0}
+header .brand{font-weight:700} header .run{color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:8px;margin-left:auto}
+.tabs button,.pill{background:none;border:1px solid var(--dim);color:var(--muted);font:inherit;font-size:14px;padding:4px 11px;border-radius:4px;cursor:pointer}
+.tabs button.on,.pill.on{border-color:var(--amber);color:var(--amber)}
+.view{display:none;position:absolute;inset:58px 0 34px 0;padding:6px 28px}
+.view.on{display:block}
+h1{font-size:30px;margin:2px 0 0;font-weight:700} h1 em{font-style:normal;color:var(--amber)}
+.fa{direction:rtl;font-family:"Vazirmatn",sans-serif;color:var(--muted);font-size:17px;margin:0;text-align:left}
+svg text{fill:var(--muted);font-size:13px;font-family:inherit}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:14px;color:var(--muted);margin-top:2px}
+.legend i{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:6px}
+table{border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+td,th{padding:3px 10px;border-bottom:1px solid var(--line);text-align:right} th{color:var(--muted);font-weight:400}
+td:first-child,th:first-child{text-align:left}
+.lv0{color:var(--ink)} .lv1{color:var(--amber)} .lv2{color:var(--red);font-weight:700}
+.split{display:flex;gap:30px;margin-top:6px} .split>svg{flex:none}
+.panel{flex:0 0 470px;font-size:15px}
+.panel .row{margin:0 0 10px} .panel .row b{display:block;font-size:26px;font-variant-numeric:tabular-nums} .panel .row span{color:var(--muted);font-size:14px}
+.grid{display:grid;gap:3px;margin-top:8px;font-size:13px}
+.grid div{height:36px;display:flex;align-items:center;justify-content:center;border-radius:3px;background:var(--line);color:var(--muted)}
+.grid .lab{justify-content:flex-start;background:none;color:var(--ink);padding-left:2px}
+.grid .h{background:none;height:26px;font-size:12px}
+.grid .c0{background:#2B2D31;color:var(--ink)} .grid .c1{background:var(--amber);color:#111} .grid .c2{background:var(--red);color:#fff}
+.grid .none{background:none;color:var(--dim)} .grid .cur{outline:2px solid var(--ink)}
+.disc{position:absolute;left:28px;right:28px;bottom:6px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:20px}
+.disc .fa{font-size:14px}
+.box{border:1px solid var(--dim);border-radius:6px;padding:9px 14px;margin-top:8px;font-size:15px}
+.flag{display:inline-block;min-width:60px;text-align:center;border-radius:3px;padding:1px 6px;margin:2px 4px 2px 0;background:#2B2D31;font-size:13px}
+.flag.l1{background:var(--amber);color:#111}.flag.l2{background:var(--red);color:#fff}.flag.lnull{background:none;border:1px dashed var(--dim);color:var(--muted)}
+.warn{color:var(--amber)} .face{display:inline-flex;gap:4px;margin-left:10px}
+body.clean .tabs,body.clean .keys,body.clean .face{visibility:hidden}
+.keys{position:absolute;top:50px;right:28px;color:var(--dim);font-size:12px}
+</style></head><body>
+<header><span class="brand">Homodyne · HMD-S11</span><span id="site" style="color:var(--ink)"></span><span class="run" id="run"></span>
+<span class="tabs"><button data-v="1">1 · takeoff window</button><button data-v="2">2 · wind by height</button><button data-v="3">3 · thermals</button><button data-v="4">4 · forecast vs observed</button><button data-v="5">5 · indicator logic</button></span></header>
+<div class="keys">1–5 views · ← → hour · F slope direction · H hide</div>
+
+<section class="view" id="v1">
+<h1>Tomorrow at the takeoff: <em>the wind the pilot meets</em></h1>
+<p class="fa">باد هوای آزاد در ارتفاع واقعی سکو، تندباد، جهت؛ و برچسب «در محدوده / صبر / نه» برای هر ساعت</p>
+<div id="c1"></div><div class="legend" id="leg1"></div><div class="grid" id="grid1"></div><div class="box" id="note1"></div>
+</section>
+
+<section class="view" id="v2">
+<h1>Wind <em>by height</em> and the hodograph</h1>
+<p class="fa">باد از زمین مدل تا ۳ کیلومتر بالای سکو؛ چینش باد یعنی تغییر سرعت یا جهت با ارتفاع</p>
+<div class="split"><svg id="prof" width="760" height="600"></svg><svg id="hodo" width="500" height="520"></svg><div class="panel" id="p2" style="flex:1 1 300px"></div></div>
+</section>
+
+<section class="view" id="v3">
+<h1>The boundary layer: <em>how high do thermals go?</em></h1>
+<p class="fa">هوای گرم سطح زمین تا کجا بالا می‌رود؛ پایهٔ ابر از فاصلهٔ دما و نقطهٔ شبنم؛ و انرژی همرفت</p>
+<div class="split"><svg id="skew" width="800" height="600"></svg><div class="panel" id="p3"></div></div>
+</section>
+
+<section class="view" id="v4">
+<h1>Yesterday's forecast vs <em>what the airport measured</em></h1>
+<p class="fa">پیش‌بینی «فردا» در برابر METAR مهرآباد، فروردین و اردیبهشت ۱۴۰۴ (آوریل ۲۰۲۵)</p>
+<div id="c4"></div><div class="legend" id="leg4"></div><div class="split" style="margin-top:4px"><div id="t4"></div><div id="m4" style="flex:1"></div></div>
+</section>
+
+<section class="view" id="v5">
+<h1>The indicator, <em>in full</em> · not a safety tool</h1>
+<p class="fa">آستانه‌ها از راهنمای خلبان مبتدی و متوسط USHPA یا انتخاب تحریریه‌اند؛ «در محدوده» یعنی «برو با مربی حرف بزن»، نه «بپر»</p>
+<div class="split"><div style="flex:1.1" id="rules"></div><div style="flex:1" id="fired"></div></div>
+</section>
+<div class="disc"><span id="src"></span><span class="fa">ابزار آموزشی است، نه سرویس هواشناسی پرواز. «امن» نمی‌گوید. تصمیم با مربی، باشگاه و هشدارهای رسمی است.</span></div>
+
+<script>
+const D = __DATA__;
+const COL = {gfs:'#6FA8DC', ifs:'#F3F1EC', aifs:'#E8A33D'}, NAME = {gfs:'GFS', ifs:'IFS', aifs:'AIFS'};
+const KEYS = ['gfs','ifs','aifs'].filter(k => D.models[k] && D.models[k].hours.length);
+const HOURS = [...new Set(KEYS.flatMap(k => D.models[k].hours.map(h => h.valid)))].sort();
+const FACES = [0,45,90,135,180,225,270,315], FNAME = ['N','NE','E','SE','S','SW','W','NW'];
+const q = new URLSearchParams(location.search);
+let view = q.get('view') || '1', ti = +(q.get('t') || Math.min(6, HOURS.length - 1)), facing = +(q.get('facing') || D.facing), model = q.get('model') || KEYS[0];
+const $ = id => document.getElementById(id), pad = n => String(n).padStart(2, '0');
+const fmt = (x, d=0) => x == null ? '—' : (Math.round(x * 10 ** d) / 10 ** d).toFixed(d);
+const TH = D.thresholds, LABC = {inside:0, wait:1, no:2};
+function teh(v){ const t = new Date(new Date(v.replace('Z', ':00Z')).getTime() + 3.5 * 3600e3); return pad(t.getUTCHours()) + ':' + pad(t.getUTCMinutes()); }
+const hr = (k, v) => D.models[k] && D.models[k].hours.find(h => h.valid === v);
+const ind = h => h.indicator[String(facing)];
+const near = (k, v) => { const hs = D.models[k] ? D.models[k].hours : []; let b = null;
+  for (const h of hs) if (!b || Math.abs(Date.parse(h.valid.replace('Z', ':00Z')) - Date.parse(v.replace('Z', ':00Z'))) < Math.abs(Date.parse(b.valid.replace('Z', ':00Z')) - Date.parse(v.replace('Z', ':00Z')))) b = h; return b; };
+function arrow(x, y, dir, len, col){ const a = (dir + 180) * Math.PI / 180, dx = Math.sin(a) * len / 2, dy = -Math.cos(a) * len / 2;
+  return `<line x1="${x-dx}" y1="${y-dy}" x2="${x+dx}" y2="${y+dy}" stroke="${col}" stroke-width="2.5" marker-end="url(#ah)"/>`; }
+const DEFS = '<defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0L10,5L0,10z" fill="#8D8A84"/></marker></defs>';
+
+function v1(){
+  const W = 1860, H = 380, L = 50, R = 20, T = 10, B = 50, hi = 40, x = i => L + (i + .5) * (W - L - R) / HOURS.length, y = v => T + (hi - Math.min(hi, v)) * (H - T - B) / hi;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%">${DEFS}`;
+  s += `<rect x="${L}" y="${y(hi)}" width="${W-L-R}" height="${y(TH.wind.red)-y(hi)}" fill="#D2543F" opacity=".13"/><rect x="${L}" y="${y(TH.wind.red)}" width="${W-L-R}" height="${y(TH.wind.amber)-y(TH.wind.red)}" fill="#E8A33D" opacity=".13"/>`;
+  for (let v = 0; v <= hi; v += 10) s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#26272B"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  s += `<text x="${W-R}" y="${y(TH.wind.amber)-4}" text-anchor="end" style="fill:#E8A33D">${TH.wind.amber} km/h · USHPA novice base wind (12 mph)</text><text x="${W-R}" y="${y(TH.wind.red)-4}" text-anchor="end" style="fill:#D2543F">${TH.wind.red} · intermediate (15 mph)</text>`;
+  HOURS.forEach((t, i) => s += `<text x="${x(i)}" y="${H-28}" text-anchor="middle" style="fill:${i === ti ? '#F3F1EC' : '#8D8A84'}">${teh(t)}</text>`);
+  s += `<line x1="${x(ti)}" x2="${x(ti)}" y1="${T}" y2="${H-B}" stroke="#8D8A84"/>`;
+  for (const k of KEYS){
+    const P = HOURS.map((t, i) => { const h = hr(k, t); return h && h.takeoff ? [x(i), y(h.takeoff.speed), h] : null; }).filter(Boolean);
+    s += `<polyline fill="none" stroke="${COL[k]}" stroke-width="3" points="${P.map(p => p[0] + ',' + p[1]).join(' ')}"/>` + P.map(p => `<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="${COL[k]}"/>`).join('');
+    P.forEach(p => { if (p[2].gust_takeoff != null) s += `<path d="M${p[0]-6},${y(p[2].gust_takeoff)+5}l6,-10l6,10z" fill="none" stroke="${COL[k]}" stroke-width="1.6"/>`; });
+    if (k === 'gfs') s += `<polyline fill="none" stroke="#6FA8DC" stroke-width="1.6" stroke-dasharray="5 6" points="${HOURS.map((t, i) => { const h = hr(k, t); return h && h.w10 ? x(i) + ',' + y(h.w10.speed) : null; }).filter(Boolean).join(' ')}"/>`;
+  }
+  HOURS.forEach((t, i) => { const h = hr('gfs', t) || hr('ifs', t); if (h && h.takeoff) s += arrow(x(i), H - 10, h.takeoff.dir, 22, '#8D8A84'); });
+  $('c1').innerHTML = s + '</svg>';
+  $('leg1').innerHTML = KEYS.map(k => `<span><i style="background:${COL[k]}"></i>${D.models[k].label} · run ${D.models[k].run} · model ground ${fmt(D.models[k].zg)} m</span>`).join('')
+    + `<span>△ gust (model spread carried up) · <span style="color:#6FA8DC">- - GFS 10 m wind on its own ground</span> · arrows: wind direction at takeoff (GFS)</span>`;
+  let g = `<div class="lab h">slope faces <b>${FNAME[FACES.indexOf(facing)]}</b> (F)</div>` + HOURS.map(t => `<div class="h">${teh(t)}</div>`).join('');
+  for (const k of KEYS) g += `<div class="lab" style="color:${COL[k]}">${NAME[k]}</div>` + HOURS.map((t, i) => { const h = hr(k, t);
+    if (!h) return `<div class="none ${i === ti ? 'cur' : ''}">·</div>`; const r = ind(h);
+    return `<div class="c${r.worst} ${i === ti ? 'cur' : ''}">${r.label}${r.missing.length ? '*' : ''}</div>`; }).join('');
+  $('grid1').style.gridTemplateColumns = `220px repeat(${HOURS.length}, 1fr)`; $('grid1').innerHTML = g;
+  const h = hr(model, HOURS[ti]) || hr('gfs', HOURS[ti]);
+  $('note1').innerHTML = `<b>${D.site.name_en}</b>, real height ${D.site.z} m [VERIFY with the club] · Tomorrow in Tehran: ${D.target} · `
+    + (h ? `${teh(h.valid)}: takeoff ${fmt(h.takeoff && h.takeoff.speed)} km/h from ${fmt(h.takeoff && h.takeoff.dir)}° · the model's own 10 m wind ${fmt(h.w10 && h.w10.speed)} km/h · ` : '')
+    + `* = some inputs missing (AIFS has no gust or CAPE). <span class="warn">"inside" is not "go".</span>`;
+}
+
+function v2(){
+  const h = near(model, HOURS[ti]); if (!h) { $('p2').innerHTML = 'no step for this model at this hour'; $('prof').innerHTML = ''; $('hodo').innerHTML = ''; return; }
+  const W = 760, H = 600, L = 70, B = 40, zlo = 1000, zhi = 6000, xs = v => L + v * (W - L - 20) / 80, yz = z => H - B - (z - zlo) * (H - B - 10) / (zhi - zlo);
+  let s = DEFS;
+  for (let z = 1000; z <= 6000; z += 500) s += `<line x1="${L}" x2="${W-20}" y1="${yz(z)}" y2="${yz(z)}" stroke="#1C1D20"/><text x="${L-8}" y="${yz(z)+4}" text-anchor="end">${z} m</text>`;
+  for (let v = 0; v <= 80; v += 20) s += `<text x="${xs(v)}" y="${H-14}" text-anchor="middle">${v} km/h</text>`;
+  s += `<rect x="${L}" y="${yz(h.zg)}" width="${W-L-20}" height="${yz(zlo)-yz(h.zg)}" fill="#3A3B3F" opacity=".7"/><text x="${L+8}" y="${yz(h.zg)+18}" style="fill:#F3F1EC">${NAME[model]} ground ${h.zg} m</text>`;
+  s += `<line x1="${L}" x2="${W-20}" y1="${yz(D.site.z)}" y2="${yz(D.site.z)}" stroke="#E8A33D" stroke-width="2"/><text x="${W-24}" y="${yz(D.site.z)-6}" text-anchor="end" style="fill:#E8A33D">real takeoff ${D.site.z} m</text>`;
+  s += `<line x1="${L}" x2="${W-20}" y1="${yz(D.site.z+1000)}" y2="${yz(D.site.z+1000)}" stroke="#8D8A84" stroke-dasharray="6 6"/><text x="${W-24}" y="${yz(D.site.z+1000)-6}" text-anchor="end">takeoff + 1,000 m</text>`;
+  for (const k of KEYS){ const hh = near(k, h.valid); if (!hh || hh.valid !== h.valid) continue; const P = hh.profile.filter(p => p.gh <= zhi);
+    s += `<polyline fill="none" stroke="${COL[k]}" stroke-width="${k === model ? 3.5 : 1.6}" opacity="${k === model ? 1 : .55}" points="${P.map(p => xs(p.speed) + ',' + yz(p.gh)).join(' ')}"/>`;
+    if (k === model) P.forEach(p => s += `<circle cx="${xs(p.speed)}" cy="${yz(p.gh)}" r="5" fill="${COL[k]}"/><text x="${xs(p.speed)+10}" y="${yz(p.gh)+4}">${p.p === '10m' ? '10 m' : p.p + ' hPa'}</text>` + arrow(W - 50, yz(p.gh), p.dir, 26, COL[k])); }
+  $('prof').innerHTML = s;
+  const C = 255, sc = 4.0; let o = DEFS + `<circle cx="${C}" cy="${C}" r="${20*sc}" fill="none" stroke="#26272B"/><circle cx="${C}" cy="${C}" r="${40*sc}" fill="none" stroke="#26272B"/><circle cx="${C}" cy="${C}" r="${60*sc}" fill="none" stroke="#26272B"/>`
+    + `<line x1="10" x2="500" y1="${C}" y2="${C}" stroke="#26272B"/><line y1="10" y2="510" x1="${C}" x2="${C}" stroke="#26272B"/><text x="${C+20*sc+4}" y="${C-4}">20</text><text x="${C+40*sc+4}" y="${C-4}">40</text><text x="${C+6}" y="22">N (wind towards)</text>`;
+  const P = h.profile.filter(p => p.gh <= D.site.z + 3000);
+  o += `<polyline fill="none" stroke="${COL[model]}" stroke-width="3" points="${P.map(p => (C + p.u * sc) + ',' + (C - p.v * sc)).join(' ')}"/>`;
+  P.forEach(p => o += `<circle cx="${C + p.u * sc}" cy="${C - p.v * sc}" r="5" fill="${COL[model]}"/><text x="${C + p.u * sc + 8}" y="${C - p.v * sc - 6}">${p.gh} m</text>`);
+  $('hodo').innerHTML = o + `<text x="10" y="515">hodograph: tip of the wind vector at each height (km/h)</text>`;
+  const r = ind(h);
+  $('p2').innerHTML = `<div style="color:var(--muted)">${D.models[model].label} · ${teh(h.valid)} Tehran · M: next model</div>`
+    + `<div class="row"><b>${fmt(h.takeoff && h.takeoff.speed)} km/h</b><span>at the takeoff, from ${fmt(h.takeoff && h.takeoff.dir)}° (interpolated ${h.takeoff ? h.takeoff.how : ''})</span></div>`
+    + `<div class="row"><b>${fmt(h.aloft && h.aloft.speed)} km/h</b><span>1,000 m above the takeoff, from ${fmt(h.aloft && h.aloft.dir)}°</span></div>`
+    + `<div class="row"><b class="lv${r.checks.shear.level}">${fmt(h.shear && h.shear.vector)} km/h · ${fmt(h.shear && h.shear.turn)}°</b><span>shear: vector change and turn of direction over that 1,000 m</span></div>`
+    + `<div class="box">ECMWF open data: 1000, 925, 850, 700 hPa… Here 925 and 850 hPa lie <b>below</b> the model ground, so the first level above it is 700 hPa, about 1,300 m up. GFS has a level every 50 hPa. Slope and valley winds live below both.</div>`;
+}
+
+function v3(){
+  const h = near(model, HOURS[ti]); if (!h) { $('p3').innerHTML = 'no step for this model at this hour'; $('skew').innerHTML = ''; return; }
+  const W = 800, H = 600, L = 70, B = 40, zlo = 1000, zhi = 6000, tlo = -30, thi = 35, xt = t => L + (t - tlo) * (W - L - 20) / (thi - tlo), yz = z => H - B - (z - zlo) * (H - B - 10) / (zhi - zlo);
+  let s = '';
+  for (let z = 1000; z <= 6000; z += 500) s += `<line x1="${L}" x2="${W-20}" y1="${yz(z)}" y2="${yz(z)}" stroke="#1C1D20"/><text x="${L-8}" y="${yz(z)+4}" text-anchor="end">${z} m</text>`;
+  for (let t = -30; t <= 30; t += 10) s += `<text x="${xt(t)}" y="${H-14}" text-anchor="middle">${t} °C</text>`;
+  s += `<rect x="${L}" y="${yz(h.zg)}" width="${W-L-20}" height="${yz(zlo)-yz(h.zg)}" fill="#3A3B3F" opacity=".7"/><text x="${L+8}" y="${yz(h.zg)+18}" style="fill:#F3F1EC">${NAME[model]} ground ${h.zg} m</text>`;
+  s += `<line x1="${L}" x2="${W-20}" y1="${yz(D.site.z)}" y2="${yz(D.site.z)}" stroke="#E8A33D" stroke-width="2"/><text x="${W-24}" y="${yz(D.site.z)-6}" text-anchor="end" style="fill:#E8A33D">real takeoff ${D.site.z} m</text>`;
+  const P = h.profile.filter(p => p.t != null && p.gh <= zhi);
+  s += `<polyline fill="none" stroke="#F3F1EC" stroke-width="3" points="${P.map(p => xt(p.t) + ',' + yz(p.gh)).join(' ')}"/>`;
+  P.forEach(p => s += `<circle cx="${xt(p.t)}" cy="${yz(p.gh)}" r="4" fill="#F3F1EC"/>`);
+  if (h.t2 != null){ const z0 = h.zg + 2, z1 = Math.min(zhi, z0 + 4000); s += `<line x1="${xt(h.t2)}" y1="${yz(z0)}" x2="${xt(h.t2 - 9.8 * (z1 - z0) / 1000)}" y2="${yz(z1)}" stroke="#E8A33D" stroke-width="2" stroke-dasharray="8 6"/><text x="${xt(h.t2)+8}" y="${yz(z0)-8}" style="fill:#E8A33D">dry thermal from ${fmt(h.t2,1)} °C (−9.8 K/km)</text>`;
+    if (h.td2 != null) s += `<circle cx="${xt(h.td2)}" cy="${yz(z0)}" r="6" fill="#6FA8DC"/><text x="${xt(h.td2)-8}" y="${yz(z0)-8}" text-anchor="end" style="fill:#6FA8DC">dew point ${fmt(h.td2,1)}</text>`; }
+  const hl = (z, c, t) => z == null ? '' : `<line x1="${L}" x2="${W-20}" y1="${yz(z)}" y2="${yz(z)}" stroke="${c}" stroke-width="2.5"/><text x="${L+8}" y="${yz(z)-6}" style="fill:${c}">${t} ${Math.round(z)} m</text>`;
+  s += hl(h.thermal_top, '#E8A33D', 'thermal top (dry parcel)') + hl(h.cloudbase, '#6FA8DC', 'cloud base (T − Td) × 125 m') + hl(h.hpbl, '#9BC48A', 'GFS boundary-layer height');
+  $('skew').innerHTML = s;
+  const r = ind(h), lv = k => `lv${r.checks[k].level == null ? 0 : r.checks[k].level}`;
+  $('p3').innerHTML = `<div style="color:var(--muted)">${D.models[model].label} · ${teh(h.valid)} Tehran · M: next model</div>`
+    + `<div class="row"><b>${h.thermal_top == null ? 'levels too coarse' : fmt(h.thermal_top - D.site.z) + ' m'}</b><span>${h.thermal_top == null ? 'no pressure level within 800 m above the model ground: the thermal top cannot be read from this model' : 'thermal top above the takeoff (negative: thermals stay below it)'}</span></div>`
+    + `<div class="row"><b>${fmt(h.cloudbase)} m</b><span>cumulus base if thermals reach it: ${fmt(h.t2,1)} − (${fmt(h.td2,1)}) = ${fmt(h.t2 - h.td2,1)} K × 125 m above the model ground</span></div>`
+    + `<div class="row"><b class="${lv('thermal')}">${h.w_star == null ? '—' : fmt(h.w_star,1) + ' m/s'}</b><span>w* (Deardorff), GFS only: from surface heat flux ${fmt(h.shf)} W/m² and boundary-layer depth. Novice limit 200 fpm ≈ 1.0 m/s, intermediate 500 fpm ≈ 2.5 m/s (a rough proxy)</span></div>`
+    + `<div class="row"><b class="${lv('cape')}">${fmt(h.cape)} J/kg</b><span>CAPE: energy for towering clouds and storms (IFS: most-unstable CAPE; AIFS has none)</span></div>`;
+}
+
+function v4(){
+  const E = D.eval; if (!E) { $('c4').innerHTML = '<div class="box">no evaluation file: run python3 -I artifact/wind_eval.py</div>'; return; }
+  const P = E.pairs, W = 1860, H = 330, L = 50, R = 20, T = 10, B = 40, hi = 60, x = i => L + (i + .5) * (W - L - R) / P.length, y = v => T + (hi - Math.min(hi, v)) * (H - T - B) / hi;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  for (let v = 0; v <= hi; v += 10) s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#26272B"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}</text>`;
+  P.forEach((p, i) => { if (p.valid.slice(11, 13) === '06') s += `<text x="${x(i)+8}" y="${H-14}" text-anchor="middle">${+p.valid.slice(8, 10)}</text>`; });
+  P.forEach((p, i) => { if (p.valid === '2025-04-17T12:00Z') s += `<rect x="${x(i)-14}" y="${T}" width="28" height="${H-T-B}" fill="#D2543F" opacity=".16"/><text x="${x(i)+18}" y="${T+14}" style="fill:#D2543F">17 Apr 15:30 · CB, dust in TEMPO</text>`; });
+  for (const [k, c] of [['ifs', '#F3F1EC'], ['aifs', '#E8A33D']]) s += `<polyline fill="none" stroke="${c}" stroke-width="2" opacity=".85" points="${P.map((p, i) => p[k] && p[k].wind != null ? x(i) + ',' + y(p[k].wind) : null).filter(Boolean).join(' ')}"/>`;
+  s += P.map((p, i) => p.obs.wind == null ? '' : `<circle cx="${x(i)}" cy="${y(p.obs.wind)}" r="6" fill="#6FA8DC"/>`).join('');
+  s += P.map((p, i) => p.obs.peak == null ? '' : `<path d="M${x(i)-5},${y(p.obs.peak)+4}l5,-9l5,9z" fill="none" stroke="#6FA8DC"/>`).join('');
+  $('c4').innerHTML = s + '</svg>';
+  $('leg4').innerHTML = `<span><i style="background:#6FA8DC"></i>● METAR OIII mean wind · △ highest METAR wind/gust in the 3 h before</span><span><i style="background:#F3F1EC"></i>IFS 10 m, run of the day before</span><span><i style="background:#E8A33D"></i>AIFS 10 m, same run</span><span>days of April 2025 · each day 09:30 and 15:30 Tehran</span>`;
+  const st = E.stats.all, a = st.ifs.wind, b = st.aifs.wind, d = st.ifs_minus_aifs_abs_error;
+  $('t4').innerHTML = `<table><tr><th>${E.days} days × 2 times at OIII</th><th>IFS</th><th>AIFS</th></tr>
+    <tr><td>cases (independent, roughly)</td><td>${a.n} (${fmt(a.n_eff)})</td><td>${b.n} (${fmt(b.n_eff)})</td></tr>
+    <tr><td>mean observed wind</td><td colspan="2" style="text-align:center">${fmt(st.obs.mean_wind,1)} km/h</td></tr>
+    <tr><td>bias (forecast − observed)</td><td>${fmt(a.bias,1)}</td><td>${fmt(b.bias,1)}</td></tr>
+    <tr><td>mean absolute error</td><td>${fmt(a.mae,1)}</td><td>${fmt(b.mae,1)}</td></tr>
+    <tr><td>direction: median error · cases &gt; 45°</td><td>${st.ifs.dir.median}° · ${st.ifs.dir.over_45}/${st.ifs.dir.n}</td><td>${st.aifs.dir.median}° · ${st.aifs.dir.over_45}/${st.aifs.dir.n}</td></tr>
+    <tr><td>times ≥ ${st.over_novice_line.line} km/h (novice line): observed ${st.over_novice_line.obs}</td><td>${st.over_novice_line.ifs}</td><td>${st.over_novice_line.aifs}</td></tr>
+    <tr><td>gust: IFS 10fg − observed peak</td><td>${fmt(st.ifs.gust.bias,1)}</td><td>no gust field</td></tr>
+    <tr><td>|IFS error| − |AIFS error|</td><td colspan="2" style="text-align:center">${d ? fmt(d.mean,2) + ' ± ' + fmt(d.se,2) + ' km/h' : '—'}</td></tr></table>`;
+  const m = D.metar || {}, c = D.case;
+  $('m4').innerHTML = `<div class="box"><b>Live METAR for Tehran today</b> (checked ${m.checked || '—'}): IEM archive ${m.iem_n_72h == null ? '—' : m.iem_n_72h} reports in 72 h · aviationweather.gov HTTP ${m.awc_status == null ? '—' : m.awc_status}${m.awc_status === 204 ? ' (empty)' : ''}. The last OIII report in the IEM archive on 28 Nov 2026 was 14 Nov 2026.</div>`
+    + (c ? `<div class="box"><b>17 April 2025, 15:30 Tehran.</b> METAR: <code>${(c.metar.find(o => o.valid.endsWith('12:00Z')) || {}).metar || ''}</code><br>IFS of the day before: ${c.runs.day_before.steps['12:00Z'].ifs_wind} km/h, gust ${c.runs.day_before.steps['12:00Z'].ifs_gust}, CAPE ${c.runs.day_before.steps['12:00Z'].ifs_cape} · same-morning run: ${c.runs.same_morning.steps['12:00Z'].ifs_wind} km/h</div>` : '')
+    + `<div class="box" style="color:var(--muted)">The airport is flat and 1,100 m below the takeoff. This measures the model at an instrumented place, not at the hill.</div>`;
+}
+
+function v5(){
+  const rows = Object.entries(TH).map(([k, t]) => `<tr><td>${t.en}</td><td class="lv1">${t.amber} ${t.unit}</td><td class="lv2">${t.red} ${t.unit}</td><td style="text-align:left;color:var(--muted);font-size:12px">${t.src}</td></tr>`).join('');
+  $('rules').innerHTML = `<table><tr><th>check (at the real takeoff height)</th><th>wait</th><th>no</th><th style="text-align:left">where the line comes from</th></tr>${rows}</table>
+  <div class="box">1 · Wind at the takeoff = the model's free-air wind at ${D.site.z} m (u and v interpolated in height from the model's 10 m wind and pressure levels).<br>
+  2 · Gust at the takeoff = that wind + (model gust − model 10 m wind). Direction counts only above 5 km/h; a tailwind over 5 km/h is "no".<br>
+  3 · Each check → inside / wait / no. The hour takes its <b>worst</b> check. A missing input is listed (*), never counted as fine.<br>
+  4 · USHPA SOP 12-02 (Sept 2023) is a US association's guidance for its novice and intermediate pilots, written for measured wind on the hill, not for model output.</div>`;
+  const t = HOURS[ti];
+  $('fired').innerHTML = `<div style="margin-bottom:6px">${teh(t)} Tehran · slope faces ${FNAME[FACES.indexOf(facing)]} (F to change)</div>` + KEYS.map(k => { const h = hr(k, t); if (!h) return `<div style="margin:6px 0;color:var(--dim)">${NAME[k]}: no step at this hour</div>`;
+    const r = ind(h); return `<div style="margin:8px 0"><span style="color:${COL[k]};display:inline-block;width:60px">${NAME[k]}</span><b class="lv${r.worst}">${r.label}</b><br>`
+      + Object.entries(r.checks).map(([c, v]) => `<span class="flag l${v.level}">${c} ${fmt(v.value)}</span>`).join('') + (r.reasons.length ? `<div style="color:var(--muted);font-size:13px">${r.reasons.join(' · ')}</div>` : '') + '</div>'; }).join('')
+    + `<div class="box warn">Green here means the forecast numbers sit inside textbook lines. It does not mean the air is safe. Ask the club and the instructor on the hill, and check the official warnings.</div>`;
+}
+
+function draw(){
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === 'v' + view));
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === view));
+  $('site').textContent = D.site.name_en + ' · ' + D.site.z + ' m';
+  $('run').textContent = 'built ' + D.made + ' · times in Tehran (UTC+3:30)';
+  $('src').textContent = 'Data: ECMWF open data (CC BY 4.0), processed by Homodyne · NOAA GFS (public domain) · METAR via Iowa Environmental Mesonet';
+  ({'1': v1, '2': v2, '3': v3, '4': v4, '5': v5})[view]();
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { view = b.dataset.v; draw(); });
+addEventListener('keydown', e => {
+  const k = e.key;
+  if ('12345'.includes(k) && k.length === 1) view = k;
+  else if (k === 'ArrowRight') ti = Math.min(HOURS.length - 1, ti + 1);
+  else if (k === 'ArrowLeft') ti = Math.max(0, ti - 1);
+  else if (k === 'f' || k === 'F') facing = FACES[(FACES.indexOf(facing) + 1) % 8];
+  else if (k === 'm' || k === 'M') model = KEYS[(KEYS.indexOf(model) + 1) % KEYS.length];
+  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+  else return;
+  e.preventDefault(); draw();
+});
+draw();
+</script></body></html>

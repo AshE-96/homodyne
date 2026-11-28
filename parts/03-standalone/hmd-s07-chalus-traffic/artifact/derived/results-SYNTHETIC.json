@@ -1,0 +1,265 @@
+{
+ "meta": {
+  "synthetic": true,
+  "source": "SYNTHETIC_chalus_hourly.csv",
+  "first": "2025-02-19",
+  "last": "2027-02-19",
+  "first_j": "1403/12/01",
+  "last_j": "1405/11/30",
+  "n_hours": 35088,
+  "n_closed": 369,
+  "anomalies": 0,
+  "thresholds": {
+   "A": 60.0,
+   "C": 30.0
+  },
+  "seconds": 27.8,
+  "built": "2026-11-28 21:39",
+  "dir_label": {
+   "N": "Karaj → Chalus (south to north)",
+   "S": "Chalus → Karaj (north to south)"
+  },
+  "model_label": {
+   "last_week": "same hour last week",
+   "median_4wk": "median of last 4 weeks",
+   "profile": "calendar profile + holiday flag",
+   "boosted": "boosted trees (calendar ML)"
+  },
+  "weekdays_fa": [
+   "شنبه",
+   "یکشنبه",
+   "دوشنبه",
+   "سه‌شنبه",
+   "چهارشنبه",
+   "پنجشنبه",
+   "جمعه"
+  ],
+  "weekdays_en": [
+   "Sat",
+   "Sun",
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri"
+  ]
+ },
+ "report": [
+  {
+   "fold": "nowruz_1405",
+   "label": "Nowruz 1405 (held out)",
+   "start": "2026-03-16",
+   "end": "2026-04-04",
+   "n_train_days": 390,
+   "n_test_hours": 930,
+   "models": {
+    "last_week": {
+     "mae_count": 183.9,
+     "mae_speed": 6.4,
+     "recall_C": 0.0,
+     "n_C": 30,
+     "balanced_acc": 0.331,
+     "skill_vs_last_week": 0.0
+    },
+    "median_4wk": {
+     "mae_count": 180.5,
+     "mae_speed": 5.9,
+     "recall_C": 0.0,
+     "n_C": 30,
+     "balanced_acc": 0.338,
+     "skill_vs_last_week": 0.018
+    },
+    "profile": {
+     "mae_count": 159.7,
+     "mae_speed": 7.3,
+     "recall_C": 0.033,
+     "n_C": 30,
+     "balanced_acc": 0.407,
+     "skill_vs_last_week": 0.132
+    },
+    "boosted": {
+     "mae_count": 86.1,
+     "mae_speed": 4.4,
+     "recall_C": 0.4,
+     "n_C": 30,
+     "balanced_acc": 0.626,
+     "skill_vs_last_week": 0.532
+    }
+   },
+   "n_scored_hours": 903,
+   "peak_hour_error": {
+    "last_week": {
+     "N": {
+      "days": [
+       "2026-03-19",
+       "2026-03-22",
+       "2026-03-20",
+       "2026-03-31"
+      ],
+      "errors": [
+       0,
+       0,
+       2,
+       3
+      ],
+      "within_2h": 3
+     },
+     "S": {
+      "days": [
+       "2026-04-03",
+       "2026-03-27",
+       "2026-04-04",
+       "2026-04-02"
+      ],
+      "errors": [
+       3,
+       3,
+       18,
+       1
+      ],
+      "within_2h": 1
+     }
+    },
+    "median_4wk": {
+     "N": {
+      "days": [
+       "2026-03-19",
+       "2026-03-22",
+       "2026-03-20",
+       "2026-03-31"
+      ],
+      "errors": [
+       1,
+       0,
+       0,
+       1
+      ],
+      "within_2h": 4
+     },
+     "S": {
+      "days": [
+       "2026-04-03",
+       "2026-03-27",
+       "2026-04-04",
+       "2026-04-02"
+      ],
+      "errors": [
+       3,
+       3,
+       18,
+       1
+      ],
+      "within_2h": 1
+     }
+    },
+    "profile": {
+     "N": {
+      "days": [
+       "2026-03-19",
+       "2026-03-22",
+       "2026-03-20",
+       "2026-03-31"
+      ],
+      "errors": [
+       7,
+       7,
+       4,
+       1
+      ],
+      "within_2h": 1
+     },
+     "S": {
+      "days": [
+       "2026-04-03",
+       "2026-03-27",
+       "2026-04-04",
+       "2026-04-02"
+      ],
+      "errors": [
+       3,
+       4,
+       17,
+       2
+      ],
+      "within_2h": 1
+     }
+    },
+    "boosted": {
+     "N": {
+      "days": [
+       "2026-03-19",
+       "2026-03-22",
+       "2026-03-20",
+       "2026-03-31"
+      ],
+      "errors": [
+       2,
+       0,
+       0,
+       0
+      ],
+      "within_2h": 4
+     },
+     "S": {
+      "days": [
+       "2026-04-03",
+       "2026-03-27",
+       "2026-04-04",
+       "2026-04-02"
+      ],
+      "errors": [
+       4,
+       3,
+       17,
+       2
+      ],
+      "within_2h": 1
+     }
+    }
+   }
+  },
+  {
+   "fold": "last_6_months",
+   "label": "last 182 days (held out)",
+   "start": "2026-08-22",
+   "end": "2027-02-19",
+   "n_train_days": 549,
+   "n_test_hours": 8569,
+   "models": {
+    "last_week": {
+     "mae_count": 112.3,
+     "mae_speed": 4.8,
+     "recall_C": 1.0,
+     "n_C": 72,
+     "balanced_acc": 0.681,
+     "skill_vs_last_week": 0.0
+    },
+    "median_4wk": {
+     "mae_count": 114.4,
+     "mae_speed": 4.0,
+     "recall_C": 1.0,
+     "n_C": 72,
+     "balanced_acc": 0.679,
+     "skill_vs_last_week": -0.019
+    },
+    "profile": {
+     "mae_count": 31.4,
+     "mae_speed": 3.1,
+     "recall_C": 0.708,
+     "n_C": 72,
+     "balanced_acc": 0.834,
+     "skill_vs_last_week": 0.72
+    },
+    "boosted": {
+     "mae_count": 30.2,
+     "mae_speed": 3.0,
+     "recall_C": 0.306,
+     "n_C": 72,
+     "balanced_acc": 0.7,
+     "skill_vs_last_week": 0.731
+    }
+   },
+   "n_scored_hours": 8302
+  }
+ ]
+}

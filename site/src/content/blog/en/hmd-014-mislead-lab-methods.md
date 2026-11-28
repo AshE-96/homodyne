@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-014-deep-dive
 hmd: HMD-014
 kind: deep-dive
-date: 2027-04-16
+date: 2027-05-07
 tags: ["Simpson's paradox", "selective reporting", "best-of-N", "holdout", "Wilson interval", "data contamination", "benchmarks"]
 sources:
   - title: "Singh et al. (2025). The Leaderboard Illusion. arXiv 2504.20879 (v1 29 April 2025; v2 12 May 2025)"

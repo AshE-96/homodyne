@@ -1,0 +1,233 @@
+{
+ "day": "2025-04-17",
+ "station": "OIII",
+ "metar": [
+  {
+   "valid": "2025-04-17T06:00Z",
+   "wind": 25.928,
+   "dir": 270.0,
+   "gust": null,
+   "t": 13.0,
+   "td": -4.0,
+   "metar": "OIII 170600Z 27014KT 9999 FEW100 13/M04 Q1017 A3004 TEMPO 27020KT"
+  },
+  {
+   "valid": "2025-04-17T06:30Z",
+   "wind": 22.224,
+   "dir": 260.0,
+   "gust": null,
+   "t": 13.0,
+   "td": -5.0,
+   "metar": "OIII 170630Z 26012KT 9999 FEW100 13/M05 Q1017 A3004"
+  },
+  {
+   "valid": "2025-04-17T07:00Z",
+   "wind": 18.52,
+   "dir": 250.0,
+   "gust": null,
+   "t": 14.0,
+   "td": -9.0,
+   "metar": "OIII 170700Z 25010KT 9999 FEW100 14/M09 Q1017 A3003 NOSIG"
+  },
+  {
+   "valid": "2025-04-17T07:30Z",
+   "wind": 18.52,
+   "dir": 250.0,
+   "gust": null,
+   "t": 15.0,
+   "td": -8.0,
+   "metar": "OIII 170730Z 25010KT 9999 FEW100 15/M08 Q1016 A3003"
+  },
+  {
+   "valid": "2025-04-17T08:00Z",
+   "wind": 14.816,
+   "dir": 220.0,
+   "gust": null,
+   "t": 16.0,
+   "td": -8.0,
+   "metar": "OIII 170800Z 22008KT 9999 FEW100 16/M08 Q1016 A3002 NOSIG"
+  },
+  {
+   "valid": "2025-04-17T08:30Z",
+   "wind": 14.816,
+   "dir": 210.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -8.0,
+   "metar": "OIII 170830Z 21008KT 9999 FEW100 17/M08 Q1016 A3001"
+  },
+  {
+   "valid": "2025-04-17T09:00Z",
+   "wind": 25.928,
+   "dir": 230.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -8.0,
+   "metar": "OIII 170900Z 23014KT 9999 FEW040 17/M08 Q1016 A3000 NOSIG"
+  },
+  {
+   "valid": "2025-04-17T09:30Z",
+   "wind": 22.224,
+   "dir": 240.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -9.0,
+   "metar": "OIII 170930Z 24012KT 9999 FEW040 17/M09 Q1015 A3000"
+  },
+  {
+   "valid": "2025-04-17T10:00Z",
+   "wind": 22.224,
+   "dir": 220.0,
+   "gust": null,
+   "t": 18.0,
+   "td": -8.0,
+   "metar": "OIII 171000Z 22012KT 9999 FEW040 18/M08 Q1015 A2999 NOSIG"
+  },
+  {
+   "valid": "2025-04-17T10:30Z",
+   "wind": 25.928,
+   "dir": 280.0,
+   "gust": null,
+   "t": 18.0,
+   "td": -9.0,
+   "metar": "OIII 171030Z 28014KT 9999 FEW040 18/M09 Q1015 A2999"
+  },
+  {
+   "valid": "2025-04-17T11:00Z",
+   "wind": 37.04,
+   "dir": 260.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -7.0,
+   "metar": "OIII 171100Z 26020KT 9999 FEW040 17/M07 Q1015 A2998 NOSIG"
+  },
+  {
+   "valid": "2025-04-17T11:30Z",
+   "wind": 44.448,
+   "dir": 250.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -6.0,
+   "metar": "OIII 171130Z 25024KT 9999 FEW040 BKN190 17/M06 Q1015 A2999 TEMPO 25032KT 5000 DU"
+  },
+  {
+   "valid": "2025-04-17T12:00Z",
+   "wind": 44.448,
+   "dir": 270.0,
+   "gust": null,
+   "t": 17.0,
+   "td": -5.0,
+   "metar": "OIII 171200Z 27024KT 7000 FEW035 FEW040CB SCT090 BKN180 17/M05 Q1015 A3000 TEMPO 27034KT 3000 SA/DU"
+  },
+  {
+   "valid": "2025-04-17T12:30Z",
+   "wind": 40.744,
+   "dir": 290.0,
+   "gust": null,
+   "t": 15.0,
+   "td": -5.0,
+   "metar": "OIII 171230Z 29022KT 6000 FEW035 FEW040CB SCT090 BKN180 15/M05 Q1016 A3001"
+  },
+  {
+   "valid": "2025-04-17T13:00Z",
+   "wind": 29.632,
+   "dir": 330.0,
+   "gust": null,
+   "t": 14.0,
+   "td": -3.0,
+   "metar": "OIII 171300Z 33016KT 6000 FEW035 FEW040CB SCT090 BKN180 14/M03 Q1016 A3002 TEMPO 33028KT 5000 DU"
+  },
+  {
+   "valid": "2025-04-17T13:30Z",
+   "wind": 25.928,
+   "dir": 320.0,
+   "gust": null,
+   "t": 15.0,
+   "td": -5.0,
+   "metar": "OIII 171330Z 32014KT 6000 FEW035 FEW040CB SCT090 BKN180 15/M05 Q1016 A3003"
+  },
+  {
+   "valid": "2025-04-17T14:00Z",
+   "wind": 14.816,
+   "dir": 330.0,
+   "gust": null,
+   "t": 14.0,
+   "td": -5.0,
+   "metar": "OIII 171400Z 33008KT 9999 FEW035 FEW040CB SCT090 BKN180 14/M05 Q1017 A3004 TEMPO 33020KT"
+  },
+  {
+   "valid": "2025-04-17T14:30Z",
+   "wind": 18.52,
+   "dir": 280.0,
+   "gust": null,
+   "t": 14.0,
+   "td": -5.0,
+   "metar": "OIII 171430Z 28010KT 9999 FEW035 FEW040CB BKN090 14/M05 Q1017 A3003"
+  },
+  {
+   "valid": "2025-04-17T15:00Z",
+   "wind": 18.52,
+   "dir": 190.0,
+   "gust": null,
+   "t": 14.0,
+   "td": -5.0,
+   "metar": "OIII 171500Z 19010KT 9999 SCT030 FEW035CB 14/M05 Q1017 A3006 TEMPO 33018KT"
+  }
+ ],
+ "runs": {
+  "day_before": {
+   "run": "2025-04-16 00Z",
+   "steps": {
+    "06:00Z": {
+     "ifs_wind": 4.3,
+     "ifs_gust": 28.4,
+     "ifs_cape": 0,
+     "aifs_wind": 7.5
+    },
+    "09:00Z": {
+     "ifs_wind": 5.9,
+     "ifs_gust": 30.3,
+     "ifs_cape": 0
+    },
+    "12:00Z": {
+     "ifs_wind": 1.5,
+     "ifs_gust": 28.2,
+     "ifs_cape": 0,
+     "aifs_wind": 10.6
+    },
+    "15:00Z": {
+     "ifs_wind": 15.6,
+     "ifs_gust": 42.5,
+     "ifs_cape": 0
+    }
+   }
+  },
+  "same_morning": {
+   "run": "2025-04-17 00Z",
+   "steps": {
+    "06:00Z": {
+     "ifs_wind": 4.7,
+     "ifs_gust": 28.3,
+     "ifs_cape": 0,
+     "aifs_wind": 9.4
+    },
+    "09:00Z": {
+     "ifs_wind": 1.9,
+     "ifs_gust": 26.8,
+     "ifs_cape": 0
+    },
+    "12:00Z": {
+     "ifs_wind": 7.9,
+     "ifs_gust": 32.1,
+     "ifs_cape": 1,
+     "aifs_wind": 11.9
+    },
+    "15:00Z": {
+     "ifs_wind": 15.6,
+     "ifs_gust": 40.6,
+     "ifs_cape": 0
+    }
+   }
+  }
+ }
+}

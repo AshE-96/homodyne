@@ -1,0 +1,10 @@
+HMD-S07 · derived files.
+
+results-SYNTHETIC.json — scores of the four forecasters on the SYNTHETIC fixture (python3 -I artifact/chalus_live.py).
+  Rehearsal only: it shows that the folds, metrics and page work. It says nothing about the real road.
+
+Real results (from the owner's 141.ir export) are NOT here: chalus_live.py --data artifact/data/chalus_hourly.csv writes
+artifact/data/results-real.json and artifact/data/chalus_live_real.html, both git-ignored (parts/*/*/artifact/data/).
+Move a derived summary (medians per weekday × hour, the score table, the Nowruz 1406 forecast — never the raw hourly
+counts) into this folder only after reading the 141.ir terms of use (prep-fa.md §1). Then record here:
+  date of download · counter codes · months covered · sha256 of each raw file · the terms' wording on reuse · licence.

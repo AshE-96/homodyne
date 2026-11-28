@@ -13,10 +13,15 @@
   {"hmd": "HMD-008", "format": "Benchmark Lab · E04", "path": "parts/02-benchmarking/e04-who-decides-the-right-answer", "title": "اگر جواب‌نامه غلط باشد، کدام AI می‌بازد؟", "next": "HMD-S05"},
   {"hmd": "HMD-S05", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s05-ai-at-the-math-olympiad", "title": "هوش مصنوعی در المپیاد ریاضی طلا گرفت؟", "next": "HMD-009"},
   {"hmd": "HMD-009", "format": "Algorithm X-Ray", "path": "parts/03-standalone/hmd-009-maps-eta", "title": "گوگل‌مپس از کجا می‌فهمد کی می‌رسی؟", "next": "HMD-S06"},
-  {"hmd": "HMD-S06", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s06-damavand-summit-weather", "title": "فردا سر دماوند چه خبر است؟", "next": "HMD-010"},
+  {"hmd": "HMD-S06", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s06-damavand-summit-weather", "title": "فردا سر دماوند چه خبر است؟", "next": "HMD-S07"},
+  {"hmd": "HMD-S07", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s07-chalus-traffic", "title": "چالوس کی خلوت است؟", "next": "HMD-S08"},
+  {"hmd": "HMD-S08", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s08-when-to-leave", "title": "کی راه بیفتم که به‌موقع برسم؟", "next": "HMD-010"},
   {"hmd": "HMD-010", "format": "Benchmark Lab · E05", "path": "parts/02-benchmarking/e05-how-do-you-penalise-a-bluff", "title": "نمرهٔ منفی می‌تواند AI را محتاط‌تر کند؟", "next": "HMD-011"},
+  {"hmd": "HMD-S11", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s11-paragliding-wind", "title": "فردا برای پاراگلایدر باد مناسب است؟", "next": "HMD-012"},
   {"hmd": "HMD-012", "format": "Benchmark Lab · E06", "path": "parts/02-benchmarking/e06-how-many-questions-and-a-fair-run", "title": "هزار بار امتحان کردیم؛ حالا می‌شود اعتماد کرد؟", "next": "HMD-013"},
-  {"hmd": "HMD-014", "format": "Benchmark Lab · E07", "path": "parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you", "title": "این جدول درست است؛ چرا گمراه‌کننده است؟", "next": "HMD-015"},
+  {"hmd": "HMD-014", "format": "Benchmark Lab · E07", "path": "parts/02-benchmarking/e07-where-does-this-benchmark-mislead-you", "title": "این جدول درست است؛ چرا گمراه‌کننده است؟", "next": "HMD-S09"},
+  {"hmd": "HMD-S09", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s09-arc-agi-puzzles", "title": "معمای ARC: آدم حل می‌کند، AI هنوز نه؟", "next": "HMD-015"},
   {"hmd": "HMD-016", "format": "Benchmark Lab · E08", "path": "parts/02-benchmarking/e08-which-model-knows-when-to-abstain", "title": "کدام AI به‌موقع می‌گوید «نمی‌دانم»؟ نتیجهٔ آزمون ما", "next": "HMD-017"},
-  {"hmd": "HMD-018", "format": "Benchmark Lab · E09", "path": "parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result", "title": "این نمرهٔ AI از کجا آمده؟ خودت بررسی کن", "next": "HMD-019"}
+  {"hmd": "HMD-018", "format": "Benchmark Lab · E09", "path": "parts/02-benchmarking/e09-how-do-you-publish-a-refutable-result", "title": "این نمرهٔ AI از کجا آمده؟ خودت بررسی کن", "next": "HMD-S10"},
+  {"hmd": "HMD-S10", "format": "Silent Breakthrough", "path": "parts/03-standalone/hmd-s10-erdos-problems", "title": "مسئله‌های اردوش: AI ریاضی تازه کشف کرد یا پیدا کرد؟", "next": "HMD-019"}
 ]

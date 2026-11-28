@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-018-companion
 hmd: HMD-018
 kind: companion
-date: 2027-05-14
+date: 2027-06-11
 tags: ["بازتولیدپذیری", "SHA-256", "دفتر اصلاحیه", "بنچمارک", "دورهٔ بنچمارک", "نمرهٔ AI"]
 sources:
   - title: "NeurIPS 2026 Paper Checklist Guidelines (خوانده‌شده ۷ نوامبر ۲۰۲۶)"

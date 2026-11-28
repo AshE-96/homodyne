@@ -1,0 +1,214 @@
+<!doctype html>
+<!-- HMD-S10 · live demo page. Template for artifact/erdos_live.py (which fills in __DATA__). Do not open this file directly. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne HMD-S10 · Erdős problems, live</title>
+<style>
+@font-face{font-family:"Vazirmatn";font-weight:400;src:url("../../../../brand/fonts/vazirmatn-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-weight:700;src:url("../../../../brand/fonts/vazirmatn-arabic-700-normal.woff2") format("woff2")}
+:root{--bg:#111214;--ink:#F3F1EC;--muted:#8D8A84;--dim:#3A3B3F;--amber:#E8A33D;--line:#26272B;--red:#B5574B}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:18px/1.4 "Inter","Helvetica Neue",Arial,"Vazirmatn",sans-serif;overflow:hidden}
+header{display:flex;align-items:baseline;gap:24px;padding:18px 32px 0}
+header .brand{font-weight:700;letter-spacing:.02em}
+header .tabs{display:flex;gap:8px;margin-left:auto}
+header .tabs button{background:none;border:1px solid var(--dim);color:var(--muted);font:inherit;font-size:15px;padding:4px 12px;border-radius:4px;cursor:pointer}
+header .tabs button.on{border-color:var(--amber);color:var(--amber)}
+.view{display:none;position:absolute;inset:64px 0 0 0;padding:8px 32px 20px}
+.view.on{display:block}
+h1{font-size:34px;margin:4px 0 0;font-weight:700} h1 em{font-style:normal;color:var(--amber)}
+.fa{direction:rtl;font-family:"Vazirmatn",sans-serif;color:var(--muted);font-size:19px;margin:2px 0 0;text-align:left}
+.note{color:var(--muted);font-size:14px;margin-top:6px}
+.row{display:flex;gap:40px;margin-top:16px}
+canvas{display:block}
+.fam{width:520px}
+.fam .k{display:grid;grid-template-columns:22px 1fr 70px;gap:10px;align-items:center;font-size:17px;margin:6px 0;color:var(--muted)}
+.fam .k i{display:block;width:18px;height:18px;border-radius:3px}
+.fam .k b{font-weight:400;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.fam .sub{font-size:14px;color:var(--muted);margin:-2px 0 6px 32px}
+.chip{display:inline-block;border:1px solid var(--dim);border-radius:12px;padding:1px 10px;margin:3px 4px 0 0;font-size:14px;color:var(--muted)}
+.ev{font-size:14px;color:var(--muted);columns:2;column-gap:28px;margin-top:6px}
+.ev div{break-inside:avoid;margin-bottom:3px} .ev b{color:var(--amber);font-weight:400;margin-right:6px}
+.policy{border-left:3px solid var(--amber);padding:6px 12px;margin-top:10px;font-size:15px;color:var(--ink);max-width:520px}
+.detail{min-height:86px;margin-top:8px;font-size:17px;border-top:1px solid var(--line);padding-top:8px}
+.detail .p{color:var(--amber);font-size:24px;margin-right:10px} .detail .m{color:var(--muted);font-size:15px}
+.legend{display:flex;gap:22px;font-size:15px;color:var(--muted);margin-top:4px;flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:middle;margin-right:6px}
+.controls{display:flex;align-items:center;gap:12px;margin-top:6px;color:var(--muted);font-size:15px}
+.controls button{background:var(--line);border:0;color:var(--ink);font:inherit;font-size:14px;padding:5px 12px;border-radius:4px;cursor:pointer}
+.controls button.on{outline:1px solid var(--amber);color:var(--amber)}
+.big{position:absolute;right:40px;top:12px;text-align:right}
+.big b{display:block;font-size:64px;line-height:1;color:var(--amber);font-variant-numeric:tabular-nums}
+.big span{color:var(--muted);font-size:16px}
+body.clean .controls,body.clean header .tabs,body.clean .keys{visibility:hidden}
+.keys{position:absolute;bottom:6px;right:32px;color:var(--dim);font-size:12px}
+</style></head><body>
+<header><span class="brand">Homodyne · HMD-S10</span><span style="color:var(--muted)">Erdős problems: found or discovered?</span>
+<span class="tabs"><button data-v="a">1 · ledger</button><button data-v="b">2 · AI records</button><button data-v="c">3 · coins (#1026)</button></span></header>
+
+<section class="view" id="a">
+<h1>How a database writes down <em>“solved”</em></h1>
+<p class="fa">دفتر وضعیت: پایگاه دادهٔ مسئله‌های اردوش «حل‌شده» را چطور ثبت می‌کند</p>
+<div class="row">
+<div class="fam"><canvas id="waffle" width="520" height="312"></canvas><div id="fams"></div>
+<div class="policy">Since 6 Oct 2026 erdosproblems.com shows no statuses and no solved count: the problems are meant to be read as open questions, not as a scoreboard. “Open” = no solution known to the maintainers.<div class="fa" style="font-size:15px;color:var(--ink)">از ۶ اکتبر ۲۰۲۶ سایت نه وضعیت نشان می‌دهد نه شمار حل‌شده‌ها. «باز» یعنی «نگه‌دارنده‌ها راه‌حلی سراغ ندارند».</div></div></div>
+<div style="flex:1"><canvas id="hist" width="940" height="430"></canvas>
+<div class="legend"><span><i style="background:var(--dim)"></i>entries in the database</span><span><i style="background:var(--ink)"></i>solved family (proved, disproved, otherwise solved, independent)</span><span><i style="background:var(--amber)"></i>solution checked in Lean</span></div>
+<div class="ev" id="evs"></div><div class="note" id="meta"></div></div>
+</div>
+</section>
+
+<section class="view" id="b">
+<h1>Same headline, <em>different</em> contributions</h1>
+<p class="fa">یک تیتر «AI حلش کرد»، چند جور سهم متفاوت؛ هر ردیف یک نوع، نه یک شرکت</p>
+<canvas id="rec" width="1536" height="520"></canvas>
+<div class="legend"><span><i style="background:var(--amber)"></i>full resolution</span><span><i style="background:var(--muted)"></i>partial</span><span><i style="background:var(--red)"></i>incorrect</span><span><i style="border:2px solid var(--muted);width:12px;height:12px"></i>unverified</span><span>· one dot = one wiki row, not one problem · reporting is incomplete; not a leaderboard (wiki disclaimers 1, 3)</span></div>
+<div class="detail" id="det"></div>
+</section>
+
+<section class="view" id="c">
+<h1>Erdős #1026: Alice splits the coins, <em>Bob</em> keeps a monotone run</h1>
+<p class="fa">آلیس سکه‌ها را k² کپه می‌کند؛ باب یک ردیف یکنوا (رو به بالا یا رو به پایین) برمی‌دارد</p>
+<div class="big"><b id="share">0%</b><span>Bob's share · guaranteed ≥ <span id="kk">1/3</span></span></div>
+<canvas id="piles" width="1536" height="380"></canvas>
+<canvas id="sq" width="1536" height="300" style="display:none"></canvas>
+<div class="controls">k <button id="km">−</button><b id="kv">3</b><button id="kp">+</button>
+<button id="pr">R · random</button><button id="pa">A · Alice's best</button><button id="ps">O · sorted</button><button id="pq">S · squares</button>
+<span id="info"></span></div>
+<div class="note">Click a pile to select it; ↑/↓ resize it, ←/→ move it. Bob's best increasing run is amber, best decreasing run outlined. Total is always 1.</div>
+</section>
+<div class="keys">1 2 3 views · H hide controls · F fullscreen</div>
+
+<script>
+const D = __DATA__;
+const $ = id => document.getElementById(id), P = new URLSearchParams(location.search);
+const C = {bg:'#111214', ink:'#F3F1EC', muted:'#8D8A84', dim:'#3A3B3F', amber:'#E8A33D', line:'#26272B', red:'#B5574B'};
+function ctx(c){ const r = devicePixelRatio || 1, w = c.width, h = c.height;
+  if (!c.dataset.w){ c.dataset.w = w; c.dataset.h = h; c.style.width = w + 'px'; c.style.height = h + 'px'; c.width = w * r; c.height = h * r; }
+  const g = c.getContext('2d'); g.setTransform(r, 0, 0, r, 0, 0); g.clearRect(0, 0, +c.dataset.w, +c.dataset.h); g.font = '14px Inter, Arial, sans-serif'; return [g, +c.dataset.w, +c.dataset.h]; }
+const day = s => Date.parse(s.length === 4 ? s + '-06-30' : s) / 864e5;
+let view = P.get('view') || 'a';
+
+// ---------------------------------------------------------------- view a · ledger
+const FAM = [['solved','proved · disproved · otherwise solved', C.ink], ['open','completely open', C.amber],
+             ['finite','open, but a finite computation could settle one side', C.muted], ['zfc','open-looking, tied to the ZFC axioms', C.dim]];
+function drawA(){
+  const by = D.counts.by_state, fam = D.counts.family;
+  const [g] = ctx($('waffle')); let i = 0; const cols = 44, s = 11;
+  for (const [f, , col] of FAM) for (let j = 0; j < fam[f]; j++, i++){ g.fillStyle = col; g.fillRect((i % cols) * s, Math.floor(i / cols) * s, s - 2, s - 2); }
+  $('fams').innerHTML = FAM.map(([f, lab, col]) => `<div class="k"><i style="background:${col}"></i><span>${lab}</span><b>${fam[f]}</b></div>` +
+    (f === 'solved' ? `<div class="sub">${by.proved} proved · ${by.disproved} disproved · ${by.solved} otherwise solved — ${D.counts.lean_by_state.proved + D.counts.lean_by_state.disproved + D.counts.lean_by_state.solved} with the solution checked in Lean</div>` : '') +
+    (f === 'open' ? `<div class="sub">${D.counts.open_lean.length} of these are “open (Lean)”: a Lean proof is linked, but no human has digested it yet ${D.counts.open_lean.map(n => `<span class="chip">#${n}</span>`).join('')}</div>` : '')).join('') +
+    `<div class="sub" style="margin-left:0">${D.counts.total} problems · ${D.counts.prize} carry a cash prize</div>`;
+  const [h, W, H] = ctx($('hist')), L = 56, R = 18, T = 16, B = 34, hs = D.history;
+  const x0 = day(hs[0].date), x1 = day(hs[hs.length - 1].date), X = d => L + (d - x0) / (x1 - x0) * (W - L - R), Y = v => H - B - v / 1300 * (H - T - B);
+  h.strokeStyle = C.line; h.fillStyle = C.muted;
+  for (let v = 0; v <= 1200; v += 300){ h.beginPath(); h.moveTo(L, Y(v)); h.lineTo(W - R, Y(v)); h.stroke(); h.fillText(v, 8, Y(v) + 5); }
+  for (const m of ['2025-10-01','2026-01-01','2026-04-01','2026-07-01','2026-10-01']){ h.fillText(m.slice(0, 7), X(day(m)) - 24, H - 10); }
+  const line = (key, col, w, dash) => { h.strokeStyle = col; h.lineWidth = w; h.setLineDash(dash || []); h.beginPath();
+    hs.forEach((r, j) => j ? h.lineTo(X(day(r.date)), Y(r[key])) : h.moveTo(X(day(r.date)), Y(r[key]))); h.stroke(); h.setLineDash([]); };
+  line('total', C.dim, 3); line('solved', C.ink, 3); line('lean_solved', C.amber, 3);
+  D.events.forEach((e, j) => { const x = X(day(e.d)); h.strokeStyle = j === D.events.length - 1 ? C.amber : C.dim; h.lineWidth = 1; h.setLineDash([4, 4]);
+    h.beginPath(); h.moveTo(x, T); h.lineTo(x, H - B); h.stroke(); h.setLineDash([]); h.fillStyle = C.amber; h.fillText(j + 1, x + 3, T + 12 + (j % 2) * 16); });
+  $('evs').innerHTML = D.events.map((e, j) => `<div><b>${j + 1}</b>${e.d} · ${e.t}</div>`).join('');
+  $('meta').textContent = `Data: ${D.meta.repo} commit ${D.meta.repo_commit.slice(0, 7)} (${D.meta.repo_last_commit_date}), Apache-2.0 · weekly snapshots of statistics_history.csv · the database itself grew from ${hs[0].total} to ${hs[hs.length - 1].total} entries, so rising lines are partly new entries.`;
+}
+
+// ---------------------------------------------------------------- view b · AI records
+const ROWS = ['2a', '1b', '1a', '1c', '1d'], COL = {full: C.amber, partial: C.muted, incorrect: C.red, unverified: null};
+let sel = P.get('sec') || null, pick = P.get('p') || null, dots = [];
+function drawB(){
+  const [g, W, H] = ctx($('rec')), L = 330, R = 20, T = 30, rowH = 86;
+  const x0 = day('2025-09-15'), x1 = day('2026-07-05'), X = d => L + (Math.max(d, x0) - x0) / (x1 - x0) * (W - L - R);
+  g.fillStyle = C.muted;
+  for (const m of ['2025-10-01','2025-12-01','2026-02-01','2026-04-01','2026-06-01']){ const x = X(day(m)); g.fillText(m.slice(0, 7), x - 24, H - 8); g.strokeStyle = C.line; g.beginPath(); g.moveTo(x, T - 10); g.lineTo(x, H - 26); g.stroke(); }
+  dots = [];
+  ROWS.forEach((s, r) => { const y = T + r * rowH + rowH / 2, [lab, what] = D.sections[s], n = D.wiki_summary[s];
+    g.fillStyle = (sel === s) ? C.amber : C.ink; g.font = '19px Inter, Arial, sans-serif'; g.fillText(`${s.replace(/(\d)(\w)/, '$1($2)')} · ${lab}`, 8, y - 6);
+    g.fillStyle = C.muted; g.font = '14px Inter, Arial, sans-serif'; g.fillText(`${what} · ${n.rows} rows`, 8, y + 16);
+    const es = D.wiki.filter(e => e.sec === s).sort((a, b) => a.date < b.date ? -1 : 1), used = {};
+    for (const e of es){ const bx = Math.round(X(day(e.date)) / 9); used[bx] = (used[bx] || 0) + 1; const k = used[bx] - 1;
+      const x = bx * 9, yy = y - 30 + (k % 7) * 10 + Math.floor(k / 7) * 3, col = COL[e.color];
+      g.globalAlpha = (sel && sel !== s) ? 0.25 : 1; g.beginPath(); g.arc(x, yy, (pick === e.p && (!sel || sel === s)) ? 7 : 4, 0, 7);
+      if (col){ g.fillStyle = col; g.fill(); } else { g.strokeStyle = C.muted; g.lineWidth = 1.5; g.stroke(); }
+      g.globalAlpha = 1; dots.push({x, y: yy, e}); } });
+  const ext = ['2b', '2c', '2d'].map(s => `${D.sections[s][0]} ${D.wiki_summary[s].rows}`).join(' · ');
+  g.fillStyle = C.muted; g.fillText(`not drawn: ${ext} rows (secondary help with a known argument)`, L, T - 14);
+  const hit = D.wiki.filter(e => e.p === pick && (!sel || e.sec === sel));
+  $('det').innerHTML = hit.length ? hit.map(e => `<div><span class="p">#${e.p}</span>${e.sec} · ${e.date_text} · <b>${e.ai}</b> · ${e.outcome}` +
+    (e.lit ? ` <span class="m">· literature: ${e.lit.replace(/[🟢🟡🔴⚪]\s*/g, '')}${e.lit_found ? ', found ' + e.lit_found : ''}${e.similar ? ' · similar: ' + e.similar : ''}</span>` : '') +
+    (e.humans ? ` <span class="m">· with ${e.humans}</span>` : '') + `</div>`).join('') : '<span class="m">Click a dot (or ↑/↓ a row, → step through it) · source: teorth/erdosproblems wiki, frozen 30 Jun 2026</span>';
+}
+$('rec').addEventListener('click', ev => { const r = $('rec').getBoundingClientRect(), x = ev.clientX - r.left, y = ev.clientY - r.top;
+  let best = null, bd = 144; for (const d of dots){ const q = (d.x - x) ** 2 + (d.y - y) ** 2; if (q < bd){ bd = q; best = d; } }
+  if (best){ pick = best.e.p; sel = best.e.sec; draw(); } });
+function stepB(dir){ if (!sel){ sel = ROWS[0]; } const es = D.wiki.filter(e => e.sec === sel).sort((a, b) => a.date < b.date ? -1 : 1);
+  let i = es.findIndex(e => e.p === pick); i = Math.min(es.length - 1, Math.max(0, i + dir)); pick = es[i].p; draw(); }
+
+// ---------------------------------------------------------------- view c · coins (#1026)
+let k = +(P.get('k') || 3), x = [], chosen = -1, showSq = P.get('sq') === '1';
+function norm(){ const s = x.reduce((a, b) => a + b, 0); x = x.map(v => v / s); }
+function preset(kind){ const n = k * k; chosen = -1;
+  if (kind === 'alice'){ x = []; for (let b = 0; b < k; b++) for (let j = 0; j < k; j++) x.push(1 + 0.03 * ((b * k + (k - 1 - j)) + 1) / n); }
+  else if (kind === 'sorted'){ x = Array.from({length: n}, (_, i) => 1 + 0.6 * i / n); }
+  else { x = Array.from({length: n}, () => Math.random() + 0.05); }
+  norm(); draw(); }
+function mono(){ const n = x.length, A = x.slice(), B = x.slice(), pa = Array(n).fill(-1), pb = Array(n).fill(-1);
+  for (let j = 0; j < n; j++) for (let i = 0; i < j; i++){ if (x[i] < x[j] && A[i] + x[j] > A[j]){ A[j] = A[i] + x[j]; pa[j] = i; }
+    if (x[i] > x[j] && B[i] + x[j] > B[j]){ B[j] = B[i] + x[j]; pb[j] = i; } }
+  const walk = (i, p) => { const o = []; while (i >= 0){ o.unshift(i); i = p[i]; } return o; };
+  const ia = A.indexOf(Math.max(...A)), ib = B.indexOf(Math.max(...B));
+  return {A, B, a: A[ia], b: B[ib], inc: walk(ia, pa), dec: walk(ib, pb)}; }
+function drawC(){
+  const m = mono(), best = Math.max(m.a, m.b), n = x.length, run = m.a >= m.b ? m.inc : m.dec;
+  $('share').textContent = (100 * best).toFixed(1) + '%'; $('kk').textContent = `1/${k} = ${(100 / k).toFixed(1)}%`; $('kv').textContent = k;
+  $('info').textContent = `${n} piles · best increasing ${(100 * m.a).toFixed(1)}% · best decreasing ${(100 * m.b).toFixed(1)}% · Σx² = ${x.reduce((s, v) => s + v * v, 0).toFixed(4)} ≤ A·B = ${(m.a * m.b).toFixed(4)}`;
+  $('pq').classList.toggle('on', showSq); $('sq').style.display = showSq ? 'block' : 'none';
+  const [g, W, H] = ctx($('piles')), L = 20, bw = (W - 2 * L) / n, mx = Math.max(...x);
+  for (let i = 0; i < n; i++){ const h = x[i] / mx * (H - 50), X0 = L + i * bw + 3, w = bw - 6;
+    const inRun = run.includes(i), inInc = m.inc.includes(i), inDec = m.dec.includes(i);
+    g.fillStyle = inInc && m.a >= m.b ? C.amber : (inDec && m.b > m.a ? C.amber : C.dim); g.fillRect(X0, H - 30 - h, w, h);
+    if (inDec && m.a >= m.b || inInc && m.b > m.a){ g.strokeStyle = C.ink; g.lineWidth = 2; g.strokeRect(X0 + 1, H - 31 - h, w - 2, h); }
+    if (i === chosen){ g.strokeStyle = C.ink; g.lineWidth = 3; g.strokeRect(X0 - 2, H - 34 - h, w + 4, h + 6); }
+    if (n <= 36){ g.fillStyle = inRun ? C.ink : C.muted; g.fillText((100 * x[i]).toFixed(1), X0 + w / 2 - 14, H - 10); } }
+  if (!showSq) return;
+  const [s, SW, SH] = ctx($('sq')), side = SH - 30, sc = side / Math.max(m.a, m.b), ox = 20, oy = 10;
+  s.strokeStyle = C.muted; s.lineWidth = 1; s.strokeRect(ox, oy, m.a * sc, m.b * sc);
+  for (let i = 0; i < n; i++){ const l = (m.A[i] - x[i]) * sc, b = (m.B[i] - x[i]) * sc, z = x[i] * sc;
+    s.fillStyle = i === chosen ? C.amber : 'rgba(232,163,61,.35)'; s.fillRect(ox + l, oy + m.b * sc - b - z, z, z);
+    s.strokeStyle = C.bg; s.strokeRect(ox + l, oy + m.b * sc - b - z, z, z); }
+  s.fillStyle = C.ink; s.font = '17px Inter, Arial, sans-serif'; const tx = ox + m.a * sc + 30;
+  s.fillText('Pile i  →  a square of side xᵢ at (Aᵢ − xᵢ, Bᵢ − xᵢ).', tx, 40);
+  s.fillText('Aᵢ, Bᵢ = best increasing / decreasing sum ending at pile i.', tx, 66);
+  s.fillText('The squares never overlap and fit in an A × B box, so  Σ xᵢ² ≤ A·B.', tx, 104);
+  s.fillText('Cauchy–Schwarz: 1 = (Σ xᵢ)² ≤ k²·Σ xᵢ² ≤ k²·A·B  ⇒  max(A, B) ≥ 1/k.', tx, 130);
+  s.fillStyle = C.muted; s.fillText(`box ${(100 * m.a).toFixed(1)}% × ${(100 * m.b).toFixed(1)}% · ${n} squares, total area ${(x.reduce((a, v) => a + v * v, 0) / (m.a * m.b) * 100).toFixed(0)}% of the box`, tx, 170);
+  s.fillText('Seidenberg (1959) labelling, weighted; cf. Tao, 8 Dec 2025 · statement: formal-conjectures Erdos1026.lean', tx, 196);
+}
+$('piles').addEventListener('click', ev => { const r = $('piles').getBoundingClientRect(), i = Math.floor((ev.clientX - r.left - 20) / ((+$('piles').dataset.w - 40) / x.length));
+  chosen = (i === chosen || i < 0 || i >= x.length) ? -1 : i; draw(); });
+$('km').onclick = () => { k = Math.max(2, k - 1); preset('alice'); }; $('kp').onclick = () => { k = Math.min(7, k + 1); preset('alice'); };
+$('pr').onclick = () => preset('random'); $('pa').onclick = () => preset('alice'); $('ps').onclick = () => preset('sorted');
+$('pq').onclick = () => { showSq = !showSq; draw(); };
+
+// ---------------------------------------------------------------- shared
+function draw(){ document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === view));
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === view));
+  if (view === 'a') drawA(); else if (view === 'b') drawB(); else drawC(); }
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { view = b.dataset.v; draw(); });
+addEventListener('keydown', e => { const key = e.key;
+  if (key === '1' || key === '2' || key === '3'){ view = 'abc'[+key - 1]; draw(); return; }
+  if (key === 'h' || key === 'H'){ document.body.classList.toggle('clean'); return; }
+  if (key === 'f' || key === 'F'){ document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen().catch(() => {}); return; }
+  if (view === 'b'){ if (key === 'ArrowDown' || key === 'ArrowUp'){ const i = ROWS.indexOf(sel); sel = ROWS[(i + (key === 'ArrowDown' ? 1 : ROWS.length - 1) + (i < 0 ? 1 : 0)) % ROWS.length]; pick = null; draw(); }
+    if (key === 'ArrowRight') stepB(1); if (key === 'ArrowLeft') stepB(-1); if (key === 'Escape'){ sel = pick = null; draw(); } }
+  if (view === 'c'){ const kk = key.toLowerCase();
+    if (kk === 'r' || key === ' '){ e.preventDefault(); preset('random'); } if (kk === 'a') preset('alice'); if (kk === 'o') preset('sorted'); if (kk === 's'){ showSq = !showSq; draw(); }
+    if (chosen >= 0 && (key === 'ArrowUp' || key === 'ArrowDown')){ e.preventDefault(); x[chosen] *= key === 'ArrowUp' ? 1.25 : 0.8; norm(); draw(); }
+    else if (chosen >= 0 && (key === 'ArrowLeft' || key === 'ArrowRight')){ const j = chosen + (key === 'ArrowRight' ? 1 : -1);
+      if (j >= 0 && j < x.length){ [x[chosen], x[j]] = [x[j], x[chosen]]; chosen = j; draw(); } }
+    else if (key === 'ArrowLeft' || key === 'ArrowRight'){ k = Math.min(7, Math.max(2, k + (key === 'ArrowRight' ? 1 : -1))); preset('alice'); }
+    if (key === 'Escape'){ chosen = -1; draw(); } } });
+preset(P.get('preset') || 'alice');
+if (P.get('autotest') === '1'){ const log = []; for (const v of 'abc'){ view = v; try { draw(); log.push(v + ':ok'); } catch (err){ log.push(v + ':' + err); } } document.title = 'autotest ' + log.join(' '); }
+draw();
+</script></body></html>

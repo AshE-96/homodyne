@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-g01-companion
 hmd: HMD-G01
 kind: companion
-date: 2027-03-19
+date: 2027-04-02
 tags: ["model collapse", "synthetic data", "training data", "simulation", "AI-generated content"]
 sources:
   - title: "Shumailov et al. (2024). AI models collapse when trained on recursively generated data. Nature 631, 755–759"

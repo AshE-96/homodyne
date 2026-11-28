@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-016-deep-dive
 hmd: HMD-016
 kind: deep-dive
-date: 2027-04-30
+date: 2027-05-28
 tags: ["خودداری", "ریسک و پوشش", "ثبت از پیش", "بوت‌استرپ", "بازهٔ Wilson", "SHA-256", "بازتولید"]
 sources:
   - title: "Kirichenko، Ibrahim، Chaudhuri، Bell (۲۰۲۵). AbstentionBench. arXiv 2506.09038 v1"

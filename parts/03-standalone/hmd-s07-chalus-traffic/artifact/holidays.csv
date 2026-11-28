@@ -1,0 +1,57 @@
+# HMD-S07 · non-solar official holidays (lunar and one-off days). Solar holidays (Nowruz 1-4, 12, 13 Farvardin,
+# 14-15 Khordad, 22 Bahman, 29 Esfand) are computed in chalus_core.py and must NOT be repeated here.
+# Source: timeanddate.com/holidays/iran/2025, /2026, /2027 (read 28 Nov 2026). Lunar dates in Iran follow moon sighting:
+# [VERIFY] every row against the official calendar (Institute of Geophysics, University of Tehran: calendar.ut.ac.ir, or time.ir).
+# timeanddate's 2025 solar dates were one day early (e.g. Nature Day 1 Apr 2025; 13 Farvardin 1404 is 2 Apr 2025), so solar days are not taken from it.
+# 28 Safar 1447 moved from 23 to 22 Aug 2025 (31 Mordad 1404): 8 days after Arbaeen, as Iranian calendars list it (review 28 Nov 2026).
+# Add one-off closures (e.g. government shut-downs) as type adhoc; add emergencies as type anomaly (excluded from training and scoring).
+date,jalali,name,type,verified
+2025-01-13,1403/10/24,"Birthday of Imam Ali",lunar,no
+2025-01-28,1403/11/09,"Mab'ath (Prophet's Ascension)",lunar,no
+2025-02-14,1403/11/26,"15 Sha'ban (Imam Mahdi's birthday)",lunar,no
+2025-03-21,1404/01/01,"Martyrdom of Imam Ali (21 Ramadan)",lunar,no
+2025-03-31,1404/01/11,"Eid al-Fitr",lunar,no
+2025-04-01,1404/01/12,"Eid al-Fitr, 2nd day",lunar,no
+2025-04-24,1404/02/04,"Martyrdom of Imam Sadeq",lunar,no
+2025-06-06,1404/03/16,"Eid al-Adha (Ghorban)",lunar,no
+2025-06-14,1404/03/24,"Eid al-Ghadir",lunar,no
+2025-07-05,1404/04/14,"Tasua",lunar,no
+2025-07-06,1404/04/15,"Ashura",lunar,no
+2025-08-14,1404/05/23,"Arbaeen",lunar,no
+2025-08-22,1404/05/31,"Demise of the Prophet, martyrdom of Imam Hasan",lunar,no
+2025-08-24,1404/06/02,"Martyrdom of Imam Reza",lunar,no
+2025-09-01,1404/06/10,"Martyrdom of Imam Hasan al-Askari",lunar,no
+2025-09-10,1404/06/19,"Birthday of the Prophet and Imam Sadeq",lunar,no
+2025-11-24,1404/09/03,"Martyrdom of Fatima",lunar,no
+2026-01-02,1404/10/12,"Birthday of Imam Ali",lunar,no
+2026-01-17,1404/10/27,"Mab'ath (Prophet's Ascension)",lunar,no
+2026-02-03,1404/11/14,"15 Sha'ban (Imam Mahdi's birthday)",lunar,no
+2026-03-01,1404/12/10,"Public mourning day (one-off)",adhoc,no
+2026-03-02,1404/12/11,"Public mourning day (one-off)",adhoc,no
+2026-03-03,1404/12/12,"Public mourning day (one-off)",adhoc,no
+2026-03-04,1404/12/13,"Public mourning day (one-off)",adhoc,no
+2026-03-05,1404/12/14,"Public mourning day (one-off)",adhoc,no
+2026-03-06,1404/12/15,"Public mourning day (one-off)",adhoc,no
+2026-03-07,1404/12/16,"Public mourning day (one-off)",adhoc,no
+2026-03-11,1404/12/20,"Martyrdom of Imam Ali (21 Ramadan)",lunar,no
+2026-03-21,1405/01/01,"Eid al-Fitr (same day as Nowruz)",lunar,no
+2026-03-22,1405/01/02,"Eid al-Fitr, 2nd day",lunar,no
+2026-04-14,1405/01/25,"Martyrdom of Imam Sadeq",lunar,no
+2026-05-27,1405/03/06,"Eid al-Adha (Ghorban)",lunar,no
+2026-06-04,1405/03/14,"Eid al-Ghadir",lunar,no
+2026-06-24,1405/04/03,"Tasua",lunar,no
+2026-06-25,1405/04/04,"Ashura",lunar,no
+2026-07-06,1405/04/15,"Public mourning day (one-off)",adhoc,no
+2026-08-04,1405/05/13,"Arbaeen",lunar,no
+2026-08-12,1405/05/21,"Demise of the Prophet, martyrdom of Imam Hasan",lunar,no
+2026-08-13,1405/05/22,"Martyrdom of Imam Reza",lunar,no
+2026-08-21,1405/05/30,"Martyrdom of Imam Hasan al-Askari",lunar,no
+2026-08-30,1405/06/08,"Birthday of the Prophet and Imam Sadeq",lunar,no
+2026-11-13,1405/08/22,"Martyrdom of Fatima",lunar,no
+2026-12-23,1405/10/02,"Birthday of Imam Ali",lunar,no
+2027-01-06,1405/10/16,"Mab'ath (tentative)",lunar,no
+2027-01-24,1405/11/04,"15 Sha'ban (tentative)",lunar,no
+2027-02-28,1405/12/09,"Martyrdom of Imam Ali (tentative)",lunar,no
+2027-03-10,1405/12/19,"Eid al-Fitr (tentative)",lunar,no
+2027-03-11,1405/12/20,"Eid al-Fitr, 2nd day (tentative)",lunar,no
+2027-04-03,1406/01/14,"Martyrdom of Imam Sadeq (tentative)",lunar,no

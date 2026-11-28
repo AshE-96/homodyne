@@ -1,0 +1,34 @@
+HMD-S10 · derived data
+
+erdos-derived.json — made by `python3 -I artifact/erdos_live.py --fetch` (erdos_core.py, Python standard library), 28 Nov 2026.
+  sha256 2094d632c8765622ab41ff53e4cb8470ebbf819959fcc60fb679f19717a03e65
+
+Inputs (downloaded at run time into artifact/data/, which is git-ignored):
+  1. github.com/teorth/erdosproblems, branch main, data commit 706c140ecbb4791e11c19b1e9196078daf2b7862 (24 Nov 2026)
+       data/problems.yaml            sha256 56d5c5a779c4aac2fbc782ffd69284368e8a7b783cb4d74e3d84b0e9afeef9f6
+       data/statistics_history.csv   sha256 e9fecaa0da17cec3ecc28550b93b45b5f37287b37f2465e0fddc44882c75f277
+       STATISTICS.md                 sha256 9f450c3803f8b99e3d7d22e934c5c78952ce00bb5ef6615dbf5f8aa8ba453de2
+     Licence: Apache License 2.0 (copy: LICENSE-teorth-erdosproblems-Apache-2.0.txt in this folder).
+     Attribution requested by the project: "Erdős problems database contributors"; maintained by Thomas Bloom and Terence Tao.
+  2. github.com/teorth/erdosproblems wiki, page "AI contributions to Erdős problems", commit c8ad430 ("freeze", 30 Jun 2026)
+       wiki-ai.md                    sha256 f74bb04c68431d7426f2546d7b8ae05e5c2191df7b2a1eac4d562ac5a686c988
+     No licence is stated for the wiki. We keep only facts per table row (problem number, section, date, AI systems named, humans credited in the row,
+     outcome mark and short outcome label, literature citation), not the wiki's prose. Attribution: the wiki's contributors.
+
+What the JSON holds (and what we changed):
+  counts           per informal state, Lean-formalised solutions per state, 4 display families, prize count, the 7 "open (Lean)"
+  open_lean_notes  the repository's own note for each "open (Lean)" problem
+  updates          problems per month of their LAST informal-status change (only the last change is recorded; the
+                   2025-08 spike is the database's creation, not solutions)
+  history          statistics_history.csv reduced to the last commit of each 7-day block (66 rows); columns renamed
+  wiki             538 rows from the wiki tables; first date of each free-form Date cell parsed to YYYY-MM-DD
+  problems         [number, informal state, last informal update, prize] for all 1,221 problems
+  NOT included: problem statements (they live on erdosproblems.com), forum text, forum user names (only the contributor names a wiki row itself credits).
+
+Source we deliberately did not read: erdosproblems.com pages. Its robots.txt (28 Nov 2026) sets
+"Content-Signal: search=yes,ai-train=no,use=reference" and disallows AI agents (Claude-User, ChatGPT-User, …).
+
+Checks: `python3 -I artifact/erdos_live.py --selftest` (28 Nov 2026, all ok): per-state counts equal STATISTICS.md
+(339 / 144 / 104 / 570 / 29 / 9 / 8 / 5 / 9 / 4), Lean 184 / 97 / 35, 114 prizes, 7 "open (Lean)", CSV last row 1221 / 591 / 630,
+wiki 538 rows, Oct 2025 GPT-5 literature search 10 + 10; maths of #1026 (DP vs brute force, squares never overlap,
+sum x^2 <= A*B, Alice's split gives 1/k).

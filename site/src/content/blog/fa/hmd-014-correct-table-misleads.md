@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-014-companion
 hmd: HMD-014
 kind: companion
-date: 2027-04-16
+date: 2027-05-07
 tags: ["بنچمارک", "پارادوکس سیمپسون", "جدول رتبه‌بندی", "انتشار گزینشی", "holdout", "ارزیابی مدل زبانی"]
 sources:
   - title: "Singh و همکاران (2025). The Leaderboard Illusion. arXiv 2504.20879 (v2، ۱۲ مه ۲۰۲۵)"
