@@ -1,0 +1,1333 @@
+{
+ "source": "https://www.imo-official.org",
+ "derived_on": "2026-11-28",
+ "note": "Aggregates only. No contestant names or photos are stored (minors).",
+ "pages_sha256": {
+  "edition_2024": "5d57fb534a9c766533860ec2927aa92c66cc1d2661d576028c4b59ce2101332a",
+  "edition_2025": "2b9b1aeff55affd1d8b6a73cb1591438d94cf4ab64e52604869936480ac0cc62",
+  "edition_2026": "e15c73cd5109adc241bbe79483e07f763829492371bdf23a45f2091c6febde0f",
+  "team_2024": "4de849550b0b2261d0fb066e9784a896c788ba5a549cbdda98b73bffe30aa1b5",
+  "team_2025": "9489ab2afec8c5a2eaf314a1877a1174d778bd92ccfc6ae0cfd67351eaac3ccc",
+  "team_2026": "b1ff74e8e77b26c6d8e3a0cbf286e23ec33e12f2e354b210d1677edadf7fcd5d",
+  "individual_2024": "d5b2112dda3dfd2c4e7453a1fbd86411d2696eeed7319563a42bc9a3540f26a1",
+  "individual_2025": "a36659a67f4d0921e232bb959b815d9724b6dacaa821e170bd99c43b05f9c072",
+  "individual_2026": "097f404b18ba12804f82368aea835864ffd3659d7e19b57d822b3c45de4bbbae",
+  "iran_history": "da0a282db676b9f583dd6c83160a669cbe8bf65a92c374f59b6ecc608fbfe188",
+  "iran_country": "3b5e341ae997c2dc82feb52cf8e43bc8b9c87fe01f108441cb3e350bfe3bdba2"
+ },
+ "years": {
+  "2024": {
+   "place": "Bath, United Kingdom",
+   "dates": "July 11 - 22",
+   "countries": 108,
+   "contestants": 609,
+   "cutoffs": {
+    "gold": 29,
+    "silver": 22,
+    "bronze": 16
+   },
+   "counts": {
+    "gold": 58,
+    "silver": 123,
+    "bronze": 145,
+    "hm": 170,
+    "perfect": 1
+   },
+   "n_rows": 609,
+   "problems": [
+    {
+     "problem": 1,
+     "hist": [
+      29,
+      54,
+      22,
+      35,
+      13,
+      12,
+      31,
+      413
+     ],
+     "mean": 5.57,
+     "full": 413,
+     "zero": 29
+    },
+    {
+     "problem": 2,
+     "hist": [
+      217,
+      80,
+      129,
+      10,
+      2,
+      9,
+      6,
+      156
+     ],
+     "mean": 2.544,
+     "full": 156,
+     "zero": 217
+    },
+    {
+     "problem": 3,
+     "hist": [
+      501,
+      40,
+      38,
+      10,
+      3,
+      2,
+      7,
+      8
+     ],
+     "mean": 0.437,
+     "full": 8,
+     "zero": 501
+    },
+    {
+     "problem": 4,
+     "hist": [
+      129,
+      39,
+      19,
+      10,
+      4,
+      8,
+      7,
+      393
+     ],
+     "mean": 4.854,
+     "full": 393,
+     "zero": 129
+    },
+    {
+     "problem": 5,
+     "hist": [
+      316,
+      97,
+      3,
+      9,
+      1,
+      18,
+      11,
+      154
+     ],
+     "mean": 2.246,
+     "full": 154,
+     "zero": 316
+    },
+    {
+     "problem": 6,
+     "hist": [
+      482,
+      76,
+      27,
+      9,
+      2,
+      7,
+      1,
+      5
+     ],
+     "mean": 0.396,
+     "full": 5,
+     "zero": 482
+    }
+   ],
+   "total_hist": [
+    21,
+    24,
+    14,
+    18,
+    8,
+    3,
+    11,
+    24,
+    12,
+    18,
+    23,
+    9,
+    12,
+    13,
+    34,
+    39,
+    44,
+    31,
+    14,
+    11,
+    11,
+    34,
+    35,
+    22,
+    25,
+    10,
+    8,
+    6,
+    17,
+    12,
+    18,
+    10,
+    5,
+    1,
+    2,
+    6,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    1
+   ],
+   "iran": {
+    "rank": 19,
+    "points": 137,
+    "problems": [
+     40,
+     30,
+     2,
+     42,
+     16,
+     7
+    ],
+    "gold": 1,
+    "silver": 3,
+    "bronze": 1,
+    "hm": 1
+   }
+  },
+  "2025": {
+   "place": "Sunshine Coast, Australia",
+   "dates": "July 10 - 20",
+   "countries": 110,
+   "contestants": 630,
+   "cutoffs": {
+    "gold": 35,
+    "silver": 28,
+    "bronze": 19
+   },
+   "counts": {
+    "gold": 72,
+    "silver": 104,
+    "bronze": 145,
+    "hm": 132,
+    "perfect": 5
+   },
+   "n_rows": 630,
+   "problems": [
+    {
+     "problem": 1,
+     "hist": [
+      60,
+      26,
+      58,
+      31,
+      14,
+      19,
+      54,
+      368
+     ],
+     "mean": 5.216,
+     "full": 368,
+     "zero": 60
+    },
+    {
+     "problem": 2,
+     "hist": [
+      198,
+      126,
+      19,
+      13,
+      5,
+      7,
+      9,
+      253
+     ],
+     "mean": 3.306,
+     "full": 253,
+     "zero": 198
+    },
+    {
+     "problem": 3,
+     "hist": [
+      418,
+      36,
+      25,
+      16,
+      12,
+      14,
+      7,
+      102
+     ],
+     "mean": 1.6,
+     "full": 102,
+     "zero": 418
+    },
+    {
+     "problem": 4,
+     "hist": [
+      70,
+      28,
+      52,
+      28,
+      25,
+      23,
+      62,
+      342
+     ],
+     "mean": 5.075,
+     "full": 342,
+     "zero": 70
+    },
+    {
+     "problem": 5,
+     "hist": [
+      266,
+      52,
+      19,
+      38,
+      23,
+      12,
+      5,
+      215
+     ],
+     "mean": 3.002,
+     "full": 215,
+     "zero": 266
+    },
+    {
+     "problem": 6,
+     "hist": [
+      569,
+      45,
+      6,
+      1,
+      1,
+      2,
+      0,
+      6
+     ],
+     "mean": 0.184,
+     "full": 6,
+     "zero": 569
+    }
+   ],
+   "total_hist": [
+    33,
+    15,
+    22,
+    12,
+    23,
+    16,
+    11,
+    8,
+    13,
+    17,
+    13,
+    12,
+    13,
+    13,
+    22,
+    22,
+    20,
+    12,
+    12,
+    19,
+    12,
+    19,
+    29,
+    14,
+    15,
+    11,
+    16,
+    10,
+    29,
+    29,
+    19,
+    9,
+    3,
+    7,
+    8,
+    46,
+    15,
+    3,
+    1,
+    1,
+    1,
+    0,
+    5
+   ],
+   "iran": {
+    "rank": 12,
+    "points": 183,
+    "problems": [
+     34,
+     42,
+     33,
+     42,
+     32,
+     0
+    ],
+    "gold": 2,
+    "silver": 3,
+    "bronze": 1,
+    "hm": 0
+   }
+  },
+  "2026": {
+   "place": "Shanghai, People's Republic of China",
+   "dates": "July 10 - 21",
+   "countries": 117,
+   "contestants": 666,
+   "cutoffs": {
+    "gold": 29,
+    "silver": 23,
+    "bronze": 16
+   },
+   "counts": {
+    "gold": 55,
+    "silver": 105,
+    "bronze": 189,
+    "hm": 141,
+    "perfect": 7
+   },
+   "n_rows": 666,
+   "problems": [
+    {
+     "problem": 1,
+     "hist": [
+      65,
+      26,
+      7,
+      46,
+      47,
+      11,
+      21,
+      443
+     ],
+     "mean": 5.477,
+     "full": 443,
+     "zero": 65
+    },
+    {
+     "problem": 2,
+     "hist": [
+      288,
+      183,
+      54,
+      26,
+      13,
+      0,
+      2,
+      100
+     ],
+     "mean": 1.701,
+     "full": 100,
+     "zero": 288
+    },
+    {
+     "problem": 3,
+     "hist": [
+      507,
+      86,
+      7,
+      9,
+      39,
+      2,
+      3,
+      13
+     ],
+     "mean": 0.604,
+     "full": 13,
+     "zero": 507
+    },
+    {
+     "problem": 4,
+     "hist": [
+      39,
+      81,
+      45,
+      10,
+      18,
+      75,
+      59,
+      339
+     ],
+     "mean": 5.068,
+     "full": 339,
+     "zero": 39
+    },
+    {
+     "problem": 5,
+     "hist": [
+      151,
+      132,
+      105,
+      26,
+      14,
+      75,
+      12,
+      151
+     ],
+     "mean": 2.973,
+     "full": 151,
+     "zero": 151
+    },
+    {
+     "problem": 6,
+     "hist": [
+      557,
+      73,
+      8,
+      4,
+      0,
+      0,
+      1,
+      23
+     ],
+     "mean": 0.402,
+     "full": 23,
+     "zero": 557
+    }
+   ],
+   "total_hist": [
+    20,
+    25,
+    12,
+    19,
+    11,
+    8,
+    17,
+    8,
+    17,
+    22,
+    22,
+    15,
+    31,
+    25,
+    27,
+    38,
+    36,
+    31,
+    20,
+    16,
+    20,
+    22,
+    44,
+    26,
+    18,
+    12,
+    15,
+    14,
+    20,
+    16,
+    6,
+    4,
+    2,
+    5,
+    3,
+    3,
+    3,
+    1,
+    1,
+    3,
+    0,
+    1,
+    7
+   ],
+   "iran": {
+    "rank": 14,
+    "points": 147,
+    "problems": [
+     42,
+     22,
+     0,
+     40,
+     38,
+     5
+    ],
+    "gold": 2,
+    "silver": 1,
+    "bronze": 3,
+    "hm": 0
+   }
+  }
+ },
+ "iran_history": [
+  {
+   "year": 1985,
+   "rank": 31,
+   "points": 28,
+   "problems": [
+    7,
+    6,
+    3,
+    0,
+    5,
+    7
+   ],
+   "gold": 0,
+   "silver": 1,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 1987,
+   "rank": 26,
+   "points": 70,
+   "problems": [
+    11,
+    22,
+    1,
+    8,
+    23,
+    5
+   ],
+   "gold": 0,
+   "silver": 0,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 1988,
+   "rank": 20,
+   "points": 86,
+   "problems": [
+    24,
+    16,
+    8,
+    12,
+    22,
+    4
+   ],
+   "gold": 0,
+   "silver": 1,
+   "bronze": 3,
+   "hm": 0
+  },
+  {
+   "year": 1989,
+   "rank": 14,
+   "points": 147,
+   "problems": [
+    26,
+    34,
+    10,
+    28,
+    29,
+    20
+   ],
+   "gold": 0,
+   "silver": 2,
+   "bronze": 3,
+   "hm": 1
+  },
+  {
+   "year": 1990,
+   "rank": 14,
+   "points": 122,
+   "problems": [
+    27,
+    16,
+    17,
+    24,
+    24,
+    14
+   ],
+   "gold": 0,
+   "silver": 4,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 1991,
+   "rank": 8,
+   "points": 191,
+   "problems": [
+    36,
+    39,
+    21,
+    32,
+    39,
+    24
+   ],
+   "gold": 2,
+   "silver": 1,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 1992,
+   "rank": 14,
+   "points": 133,
+   "problems": [
+    30,
+    29,
+    18,
+    41,
+    2,
+    13
+   ],
+   "gold": 0,
+   "silver": 3,
+   "bronze": 2,
+   "hm": 1
+  },
+  {
+   "year": 1993,
+   "rank": 6,
+   "points": 153,
+   "problems": [
+    35,
+    23,
+    5,
+    24,
+    42,
+    24
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 1994,
+   "rank": 8,
+   "points": 203,
+   "problems": [
+    27,
+    40,
+    35,
+    35,
+    36,
+    30
+   ],
+   "gold": 2,
+   "silver": 2,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 1995,
+   "rank": 8,
+   "points": 202,
+   "problems": [
+    42,
+    30,
+    32,
+    38,
+    42,
+    18
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 1996,
+   "rank": 9,
+   "points": 143,
+   "problems": [
+    23,
+    42,
+    29,
+    23,
+    8,
+    18
+   ],
+   "gold": 1,
+   "silver": 4,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 1997,
+   "rank": 3,
+   "points": 217,
+   "problems": [
+    33,
+    42,
+    42,
+    42,
+    42,
+    16
+   ],
+   "gold": 4,
+   "silver": 2,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 1998,
+   "rank": 1,
+   "points": 211,
+   "problems": [
+    42,
+    42,
+    18,
+    36,
+    38,
+    35
+   ],
+   "gold": 5,
+   "silver": 1,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 1999,
+   "rank": 8,
+   "points": 159,
+   "problems": [
+    36,
+    32,
+    6,
+    42,
+    24,
+    19
+   ],
+   "gold": 2,
+   "silver": 4,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2000,
+   "rank": 10,
+   "points": 155,
+   "problems": [
+    42,
+    23,
+    5,
+    30,
+    36,
+    19
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2001,
+   "rank": 18,
+   "points": 111,
+   "problems": [
+    30,
+    19,
+    14,
+    30,
+    18,
+    0
+   ],
+   "gold": 0,
+   "silver": 2,
+   "bronze": 4,
+   "hm": 0
+  },
+  {
+   "year": 2002,
+   "rank": 11,
+   "points": 143,
+   "problems": [
+    38,
+    31,
+    6,
+    39,
+    26,
+    3
+   ],
+   "gold": 0,
+   "silver": 4,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 2003,
+   "rank": 17,
+   "points": 112,
+   "problems": [
+    27,
+    20,
+    0,
+    42,
+    6,
+    17
+   ],
+   "gold": 0,
+   "silver": 3,
+   "bronze": 2,
+   "hm": 1
+  },
+  {
+   "year": 2004,
+   "rank": 9,
+   "points": 178,
+   "problems": [
+    40,
+    31,
+    15,
+    42,
+    36,
+    14
+   ],
+   "gold": 1,
+   "silver": 5,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2005,
+   "rank": 4,
+   "points": 201,
+   "problems": [
+    36,
+    42,
+    22,
+    42,
+    37,
+    22
+   ],
+   "gold": 2,
+   "silver": 4,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2006,
+   "rank": 8,
+   "points": 145,
+   "problems": [
+    42,
+    31,
+    8,
+    39,
+    24,
+    1
+   ],
+   "gold": 3,
+   "silver": 3,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2007,
+   "rank": 12,
+   "points": 143,
+   "problems": [
+    33,
+    29,
+    2,
+    42,
+    32,
+    5
+   ],
+   "gold": 1,
+   "silver": 3,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 2008,
+   "rank": 5,
+   "points": 181,
+   "problems": [
+    42,
+    37,
+    14,
+    42,
+    37,
+    9
+   ],
+   "gold": 1,
+   "silver": 5,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2009,
+   "rank": 15,
+   "points": 161,
+   "problems": [
+    42,
+    42,
+    10,
+    30,
+    34,
+    3
+   ],
+   "gold": 1,
+   "silver": 4,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2010,
+   "rank": 16,
+   "points": 127,
+   "problems": [
+    35,
+    42,
+    4,
+    42,
+    3,
+    1
+   ],
+   "gold": 0,
+   "silver": 4,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 2011,
+   "rank": 10,
+   "points": 151,
+   "problems": [
+    40,
+    3,
+    15,
+    42,
+    41,
+    10
+   ],
+   "gold": 2,
+   "silver": 4,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2012,
+   "rank": 8,
+   "points": 151,
+   "problems": [
+    42,
+    29,
+    6,
+    39,
+    34,
+    1
+   ],
+   "gold": 3,
+   "silver": 2,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2013,
+   "rank": 10,
+   "points": 168,
+   "problems": [
+    36,
+    23,
+    31,
+    42,
+    35,
+    1
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2014,
+   "rank": 21,
+   "points": 131,
+   "problems": [
+    42,
+    27,
+    2,
+    42,
+    18,
+    0
+   ],
+   "gold": 0,
+   "silver": 4,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 2015,
+   "rank": 7,
+   "points": 145,
+   "problems": [
+    40,
+    14,
+    31,
+    42,
+    12,
+    6
+   ],
+   "gold": 3,
+   "silver": 2,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2016,
+   "rank": 24,
+   "points": 125,
+   "problems": [
+    42,
+    16,
+    3,
+    42,
+    18,
+    4
+   ],
+   "gold": 0,
+   "silver": 3,
+   "bronze": 3,
+   "hm": 0
+  },
+  {
+   "year": 2017,
+   "rank": 5,
+   "points": 142,
+   "problems": [
+    42,
+    32,
+    0,
+    42,
+    17,
+    9
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2018,
+   "rank": 19,
+   "points": 150,
+   "problems": [
+    42,
+    37,
+    6,
+    39,
+    18,
+    8
+   ],
+   "gold": 1,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 1
+  },
+  {
+   "year": 2019,
+   "rank": 23,
+   "points": 145,
+   "problems": [
+    35,
+    38,
+    3,
+    40,
+    27,
+    2
+   ],
+   "gold": 1,
+   "silver": 2,
+   "bronze": 3,
+   "hm": 0
+  },
+  {
+   "year": 2020,
+   "rank": 18,
+   "points": 149,
+   "problems": [
+    42,
+    22,
+    4,
+    36,
+    42,
+    3
+   ],
+   "gold": 1,
+   "silver": 3,
+   "bronze": 2,
+   "hm": 0
+  },
+  {
+   "year": 2021,
+   "rank": 29,
+   "points": 104,
+   "problems": [
+    39,
+    1,
+    3,
+    42,
+    19,
+    0
+   ],
+   "gold": 0,
+   "silver": 3,
+   "bronze": 3,
+   "hm": 0
+  },
+  {
+   "year": 2022,
+   "rank": 8,
+   "points": 191,
+   "problems": [
+    42,
+    41,
+    15,
+    42,
+    42,
+    9
+   ],
+   "gold": 3,
+   "silver": 3,
+   "bronze": 0,
+   "hm": 0
+  },
+  {
+   "year": 2023,
+   "rank": 11,
+   "points": 172,
+   "problems": [
+    42,
+    42,
+    26,
+    42,
+    16,
+    4
+   ],
+   "gold": 1,
+   "silver": 4,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2024,
+   "rank": 19,
+   "points": 137,
+   "problems": [
+    40,
+    30,
+    2,
+    42,
+    16,
+    7
+   ],
+   "gold": 1,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 1
+  },
+  {
+   "year": 2025,
+   "rank": 12,
+   "points": 183,
+   "problems": [
+    34,
+    42,
+    33,
+    42,
+    32,
+    0
+   ],
+   "gold": 2,
+   "silver": 3,
+   "bronze": 1,
+   "hm": 0
+  },
+  {
+   "year": 2026,
+   "rank": 14,
+   "points": 147,
+   "problems": [
+    42,
+    22,
+    0,
+    40,
+    38,
+    5
+   ],
+   "gold": 2,
+   "silver": 1,
+   "bronze": 3,
+   "hm": 0
+  }
+ ],
+ "iran_overall": {
+  "first": 1985,
+  "participations": 41,
+  "gold": 55,
+  "silver": 117,
+  "bronze": 54,
+  "hm": 5,
+  "perfect": 4
+ },
+ "ai_results": [
+  {
+   "year": 2024,
+   "system": "AlphaProof + AlphaGeometry 2",
+   "lab": "Google DeepMind",
+   "score": 28,
+   "per_problem": [
+    7,
+    7,
+    0,
+    7,
+    0,
+    7
+   ],
+   "grader": "company",
+   "graders_fa": "گاورز و مایرز، بیرون از داوری رسمی",
+   "conditions_fa": "صورت مسئله را آدم به Lean ترجمه کرد · تا سه روز برای بعضی مسئله‌ها",
+   "conditions_en": "humans translated the problems into Lean · up to three days on some problems",
+   "src": "R10"
+  },
+  {
+   "year": 2025,
+   "system": "Gemini Deep Think (advanced)",
+   "lab": "Google DeepMind",
+   "score": 35,
+   "per_problem": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    0
+   ],
+   "grader": "official",
+   "graders_fa": "هماهنگ‌کنندگان IMO، با معیار دانش‌آموزان",
+   "conditions_fa": "زبان طبیعی · در ۴٫۵ ساعت · با راهنمایی و مجموعهٔ حل‌های گزیده در دستور",
+   "conditions_en": "natural language · within 4.5 h · hints and a curated corpus of solutions in its instructions",
+   "src": "R11"
+  },
+  {
+   "year": 2025,
+   "system": "experimental reasoning model",
+   "lab": "OpenAI",
+   "score": 35,
+   "per_problem": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    0
+   ],
+   "grader": "company",
+   "graders_fa": "سه مدال‌آور سابق IMO در ارزیابی خود شرکت، اجماع",
+   "conditions_fa": "زبان طبیعی · دو جلسهٔ ۴٫۵ ساعته · بی ابزار و اینترنت (خوداظهاری)",
+   "conditions_en": "natural language · two 4.5 h sessions · no tools or internet (self-reported)",
+   "src": "R12"
+  },
+  {
+   "year": 2026,
+   "system": "Celia · dots-note-3.0",
+   "lab": "Huawei · Xiaohongshu",
+   "score": 42,
+   "per_problem": null,
+   "grader": "claim",
+   "graders_fa": "ادعای شرکت؛ بیانیهٔ IMO پیدا نشد",
+   "conditions_fa": "گزارش AFP، ۲۳ ژوئیهٔ ۲۰۲۶",
+   "conditions_en": "AFP report, 23 July 2026",
+   "src": "R16"
+  }
+ ]
+}

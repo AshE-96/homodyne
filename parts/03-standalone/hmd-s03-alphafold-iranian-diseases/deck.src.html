@@ -1,0 +1,182 @@
+<!-- HMD-S03 · deck source. Build: python3 scripts/build-decks.py --only hmd-s03  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     All numbers come from sources.md and artifact/derived/SOURCE.txt. No photos of patients, wounds, ticks on skin or slaughter. -->
+
+<style>
+/* HMD-S03: a protein-sequence strip (beat 3) and the comparison table (beat 11) */
+.tokens.seq i{min-width:52px;text-align:center}
+table.t td.n{text-align:end;font-variant-numeric:tabular-nums}
+</style>
+
+<section class="cover">
+<h1><t-fa>AlphaFold پروتئین سالک و تب کریمه‌کنگو را <em>درست دید</em>؟</t-fa><t-en>Did AlphaFold get the proteins of salak and Crimean–Congo fever <em>right</em>?</t-en></h1>
+<p class="promise"><t-fa>نقشهٔ اطمینان AlphaFold را می‌خوانیم و پیش‌بینی را با کد خودمان کنار ساختار آزمایشگاهی می‌گذاریم.</t-fa><t-en>We read AlphaFold's confidence map and put its predictions next to experimental structures with our own code.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>دو پروتئین، یک نقشهٔ رنگی</t-fa><t-en>Two proteins, one colour map</t-en></p>
+<h1 class="xl"><t-fa>«شکل این تکه را می‌دانم؛ <em>جایش را نه</em>.»</t-fa><t-en>"I know this part's shape; <em>not where it goes</em>."</t-en></h1>
+<p class="tag"><t-fa>برداشت ما از نقشهٔ PAE مدل نوکلئوپروتئین کریمه‌کنگو، نه نقل‌قول · AlphaFold DB، دسترسی ۲۸ نوامبر ۲۰۲۶</t-fa><t-en>Our reading of the PAE map of the Crimean–Congo nucleoprotein model, not a quote · AlphaFold DB, accessed 28 Nov 2026</t-en></p>
+<footer><t-fa>R09 · AlphaFold DB · CC BY 4.0</t-fa><t-en>R09 · AlphaFold DB · CC BY 4.0</t-en></footer>
+<aside class="notes"><t-fa><b>«شکلش رو می‌دونم، جاش رو نه»</b><p>[CAMERA CHANGE] Curiosity-Gap: جواب (بازو، ۱۴۳ درجه) را اینجا لو نده. Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» دو برش یک‌ثانیه‌ای از دمو.</p><p>در یک جمله: یک مدل برندهٔ نوبل دربارهٔ دو بیماری ایرانی جواب داد، و یک جای جوابش گفت «نمی‌دانم».</p></t-fa><t-en><b>"I know its shape, not its place"</b><p>[CAMERA CHANGE] Curiosity gap: do not reveal the answer (the arm, 143°) here. Grab → Promise → Stakes → channel line. Two one-second cuts of the demo.</p><p>In one line: a Nobel-winning model answered about two Iranian diseases, and one part of its answer said "I don't know".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>دو بیماری که می‌شناسیم</t-fa><t-en>Two diseases we know</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>سالک (لیشمانیوز جلدی) · ایران ۲۰۲۵</t-fa><t-en>Cutaneous leishmaniasis · Iran 2025</t-en></span><b><t-fa>۶٬۴۵۳</t-fa><t-en>6,453</t-en></b><p><t-fa>مورد گزارش‌شده به WHO؛ مورد واقعی بیشتر است · نیش پشه‌خاکی · درمان‌پذیر</t-fa><t-en>cases reported to WHO; true cases are more · sandfly bite · treatable</t-en></p></div>
+<div><span><t-fa>تب کریمه‌کنگو</t-fa><t-en>Crimean–Congo haemorrhagic fever</t-en></span><b><t-fa>۱۰ تا ۴۰٪</t-fa><t-en>10–40%</t-en></b><p><t-fa>مرگ‌ومیر به گفتهٔ WHO · کنه یا خون دام آلوده · واکسن در دسترس گسترده ندارد</t-fa><t-en>case fatality per WHO · ticks or blood of infected livestock · no widely available vaccine</t-en></p></div>
+</div>
+<p class="tag"><b><t-fa>توصیهٔ پزشکی نیست</t-fa><t-en>Not medical advice</t-en></b> <t-fa>زخمی که خوب نمی‌شود را به پزشک نشان بده.</t-fa><t-en>Show a sore that won't heal to a doctor.</t-en></p>
+<footer><t-fa>R18 (WHO GHO) · R22 (WHO، ۲۰ فوریهٔ ۲۰۲۵)</t-fa><t-en>R18 (WHO GHO) · R22 (WHO, 20 Feb 2025)</t-en></footer>
+<aside class="notes"><t-fa><b>دو بیماری که می‌شناسیم</b><p>[B-ROLL CUE] هیچ عکس بیمار، زخم یا دام. پل از HMD-006: «عدد خطا ← عدد اطمینان». بگو «سال دو هزار و بیست‌وپنج» (نه «پارسال»؛ پخش ۲۰۲۷ است). «اوج عید قربان» را نگو؛ منبع نداریم.</p><p>در یک جمله: سالک و کریمه‌کنگو برای ایران واقعی‌اند؛ امروز دربارهٔ پروتئین‌هایشان حرف می‌زنیم، نه درمانشان.</p></t-fa><t-en><b>Two diseases we know</b><p>[B-ROLL CUE] No photos of patients, sores or livestock. Bridge from HMD-006: "an error number → a confidence number". Say "in 2025" (not "last year"; the episode airs in 2027). Do not say "peaks at Eid al-Adha"; we have no source.</p><p>In one line: leishmaniasis and CCHF are real for Iran; today we talk about their proteins, not their treatment.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="90">
+<p class="kicker"><t-fa>پروتئین در یک دقیقه</t-fa><t-en>Protein in one minute</t-en></p>
+<h1><t-fa>۲۰ نوع مهره، یک زنجیر، یک شکل، <em>یک کار</em></t-fa><t-en>20 kinds of beads, one chain, one shape, <em>one job</em></t-en></h1>
+<div class="tokens mono seq" dir="ltr"><i class="hi">M</i><i>S</i><i>V</i><i>D</i><i>S</i><i>S</i><i>S</i><i>T</i><i>H</i><i>R</i><i>R</i><i>R</i><i class="off">…</i><i class="off">602</i></div>
+<p class="caption"><t-fa>آغاز توالی GP63 انگل سالک؛ ۶۰۲ اسیدآمینه. انفینسن (نوبل ۱۹۷۲): اطلاعات شکل در خود توالی است.</t-fa><t-en>The start of the GP63 sequence of the leishmaniasis parasite; 602 amino acids. Anfinsen (Nobel 1972): the shape is encoded in the sequence.</t-en></p>
+<footer><t-fa>R10 (UniProt P08148) · R08</t-fa><t-en>R10 (UniProt P08148) · R08</t-en></footer>
+<aside class="notes"><t-fa><b>پروتئین: گردنبندی که خودش تا می‌خورد</b><p>[B-ROLL CUE] زنجیر کلید یا سیم را جلوی دوربین تا کن. «کلید و قفل» را فقط به‌عنوان تصویر بگو.</p><p>در یک جمله: پروتئین زنجیره‌ای است که خودش تا می‌خورد، و کارش را شکلش تعیین می‌کند.</p></t-fa><t-en><b>Protein: a necklace that folds itself</b><p>[B-ROLL CUE] Fold a key chain or wire in front of the camera. Use "lock and key" only as an image.</p><p>In one line: a protein is a chain that folds itself, and its shape decides its job.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="145">
+<p class="kicker"><t-fa>چرا دیدن شکل سخت است</t-fa><t-en>Why seeing the shape is hard</t-en></p>
+<div class="cards">
+<div><b><t-fa>بلور و پرتو ایکس</t-fa><t-en>Crystal and X-rays</t-en></b><t-fa>پروتئین بلور می‌شود و پرتو ایکس از آن پراکنده می‌شود. مثال: GP63، ۱٫۸۶ آنگستروم.</t-fa><t-en>The protein is crystallised and scatters X-rays. Example: GP63, 1.86 Å.</t-en></div>
+<div><b><t-fa>میکروسکوپ الکترونی سرمایی</t-fa><t-en>Cryo-electron microscopy</t-en></b><t-fa>نمونهٔ منجمد زیر پرتو الکترون. مثال: ویروس کریمه‌کنگو، ۳٫۵۵ آنگستروم.</t-fa><t-en>A frozen sample under an electron beam. Example: the Crimean–Congo virus, 3.55 Å.</t-en></div>
+<div class="hi"><b>PDB</b><t-fa>بانک جهانی ساختارها. هر ساختار ماه‌ها تا سال‌ها کار؛ برای ویروس‌ها، پیش‌بینی‌های Viro3D پوشش را حدود ۳۰ برابر کرده است.</t-fa><t-en>The world bank of structures. Months to years per structure; for viruses, Viro3D's predictions expanded coverage about 30-fold.</t-en></div>
+</div>
+<footer><t-fa>R11 · R15 · R07</t-fa><t-en>R11 · R15 · R07</t-en></footer>
+<aside class="notes"><t-fa><b>چرا دیدن شکل سخت است</b><p>[GRAPHIC] پارادوکس لوینتال بدون عدد. ضبط صفحهٔ rcsb.org/structure/1LML (تاریخ ۱۹۹۷ را هنوز نگو؛ برای قاب ۹ است).</p><p>در یک جمله: دیدن شکل پروتئین ممکن ولی کند و گران است؛ برای همین پیش‌بینی ارزش دارد.</p></t-fa><t-en><b>Why seeing the shape is hard</b><p>[GRAPHIC] Levinthal's paradox without numbers. Screen recording of rcsb.org/structure/1LML (do not say 1997 yet; it is for beat 9).</p><p>In one line: seeing a protein's shape is possible but slow and costly; that is why prediction is worth it.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="195">
+<p class="kicker"><t-fa>مسابقهٔ کور CASP</t-fa><t-en>The blind CASP contest</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>CASP14 · ۲۰۲۰</t-fa><t-en>CASP14 · 2020</t-en></span><b><t-fa>۹۲٫۴</t-fa><t-en>92.4</t-en></b><p><t-fa>میانهٔ امتیاز GDT آلفافولد از ۱۰۰</t-fa><t-en>AlphaFold's median GDT score out of 100</t-en></p></div>
+<div><span><t-fa>نوبل شیمی ۲۰۲۴</t-fa><t-en>Nobel Prize in Chemistry 2024</t-en></span><b class="word"><t-fa>هسابیس و جامپر</t-fa><t-en>Hassabis &amp; Jumper</t-en></b><p><t-fa>«برای پیش‌بینی ساختار پروتئین»؛ نیم دیگر: دیوید بیکر</t-fa><t-en>"for protein structure prediction"; the other half: David Baker</t-en></p></div>
+<div><span>AlphaFold DB</span><b><t-fa>۲۶۰ میلیون+</t-fa><t-en>260 million+</t-en></b><p><t-fa>پیش‌بینی در پایگاه داده، نوامبر ۲۰۲۶</t-fa><t-en>predictions in the database, November 2026</t-en></p></div>
+</div>
+<p class="tag"><t-fa>CASP از ۱۹۹۴، هر دو سال؛ ساختارها هنوز منتشر نشده‌اند · مقالهٔ ۲۰۲۱: میانهٔ خطای ستون اصلی ۰٫۹۶ آنگستروم در برابر ۲٫۸ روش بعدی</t-fa><t-en>CASP since 1994, every two years; structures not yet released · 2021 paper: median backbone error 0.96 Å vs 2.8 Å for the next method</t-en></p>
+<footer><t-fa>R03 · R04 · R02 · R05 · R01</t-fa><t-en>R03 · R04 · R02 · R05 · R01</t-en></footer>
+<aside class="notes"><t-fa><b>CASP، ۲۰۲۰ و نوبل + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. [UNEXPECTED STAT] «تقریباً هم‌اندازهٔ خطای آزمایش» برداشت از R01 (۰٫۹۶ آنگستروم) است؛ اگر کسی پرسید، همین را بگو. عکس برندگان نوبل نه.</p><p>در یک جمله: در مسابقهٔ کور ۲۰۲۰، آلفافولد به دقت آزمایش نزدیک شد، و ۲۰۲۴ نوبل گرفت.</p></t-fa><t-en><b>CASP, 2020 and the Nobel + soft CTA</b><p>[MID-CTA] Soft CTA to camera first. [UNEXPECTED STAT] "About as accurate as the experiment" is our reading of R01 (0.96 Å); say so if asked. No photos of the laureates.</p><p>In one line: in the blind 2020 contest AlphaFold came close to experimental accuracy, and in 2024 it won a Nobel.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="245">
+<p class="kicker"><t-fa>آلفافولد چطور حدس می‌زند</t-fa><t-en>How AlphaFold guesses</t-en></p>
+<div class="steps">
+<div><b><t-fa>۱ · فامیل توالی (MSA)</t-fa><t-en>1 · Sequence family (MSA)</t-en></b><t-fa>همان پروتئین در صدها گونه، زیر هم</t-fa><t-en>The same protein in hundreds of species, stacked</t-en></div>
+<div class="hi"><b><t-fa>۲ · هم‌تغییری</t-fa><t-en>2 · Co-variation</t-en></b><t-fa>دو جایی که با هم عوض می‌شوند، احتمالاً کنار هم‌اند</t-fa><t-en>Two positions that change together are probably in contact</t-en></div>
+<div><b><t-fa>۳ · جدول جفت‌ها ← سه‌بعدی</t-fa><t-en>3 · Pair table → 3D</t-en></b><t-fa>Evoformer و ماژول ساختار، چند دور بازچرخش</t-fa><t-en>Evoformer and the structure module, several recycles</t-en></div>
+<div><b><t-fa>۴ · اطمینان</t-fa><t-en>4 · Confidence</t-en></b><t-fa>pLDDT برای هر تکه؛ PAE برای هر جفت تکه</t-fa><t-en>pLDDT per residue; PAE per pair of residues</t-en></div>
+</div>
+<p class="tag"><t-fa>AlphaFold 3 (۲۰۲۴): Pairformer و مدل انتشار؛ هر دو مدل این قسمت AlphaFold2 یا ColabFold‌اند</t-fa><t-en>AlphaFold 3 (2024): Pairformer and a diffusion model; both models in this episode are AlphaFold2 or ColabFold</t-en></p>
+<footer><t-fa>R01 · R06</t-fa><t-en>R01 · R06</t-en></footer>
+<aside class="notes"><t-fa><b>آلفافولد چطور حدس می‌زند</b><p>[GRAPHIC] فقط «هم‌تغییری» و «جدول» را بگو؛ مثال «مهرهٔ چهلم و صدوهشتادم» آموزشی است، از هیچ پروتئین واقعی نیست. AF3 فقط اگر پرسیدند (study §۳).</p><p>در یک جمله: آلفافولد از هم‌تغییری در فامیل یک پروتئین فاصله‌ها را حدس می‌زند، و برای هر تکه اطمینانش را هم می‌گوید.</p></t-fa><t-en><b>How AlphaFold guesses</b><p>[GRAPHIC] Say only "co-variation" and "table"; the "position 40 and position 180" example is a teaching example, not from a real protein. AF3 only if asked (study §3).</p><p>In one line: AlphaFold infers distances from co-variation in a protein's family, and reports its confidence for each part.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="305">
+<p class="kicker"><t-fa>GP63 انگل سالک · pLDDT</t-fa><t-en>GP63 of the leishmaniasis parasite · pLDDT</t-en></p>
+<table class="t">
+<tr><td><t-fa>تکه (UniProt)</t-fa><t-en>Segment (UniProt)</t-en></td><td><t-fa>باقیمانده‌ها</t-fa><t-en>Residues</t-en></td><td><t-fa>سرنوشت در سلول</t-fa><t-en>Fate in the cell</t-en></td><td><t-fa>رنگ مدل</t-fa><t-en>Model colour</t-en></td></tr>
+<tr><td><t-fa>پپتید سیگنال</t-fa><t-en>Signal peptide</t-en></td><td class="n"><t-fa>۱–۳۹</t-fa><t-en>1–39</t-en></td><td><t-fa>بریده می‌شود</t-fa><t-en>cut off</t-en></td><td><t-fa>نارنجی (زیر ۵۰)</t-fa><t-en>orange (below 50)</t-en></td></tr>
+<tr><td><t-fa>پپتید فعال‌ساز</t-fa><t-en>Activation peptide</t-en></td><td class="n"><t-fa>۴۰–۱۰۰</t-fa><t-en>40–100</t-en></td><td><t-fa>جدا می‌شود</t-fa><t-en>removed</t-en></td><td><t-fa>آمیخته</t-fa><t-en>mixed</t-en></td></tr>
+<tr class="hi"><td><t-fa>زنجیرهٔ بالغ</t-fa><t-en>Mature chain</t-en></td><td class="n"><t-fa>۱۰۱–۵۷۷</t-fa><t-en>101–577</t-en></td><td><t-fa>آنزیم کارا، لنگر GPI</t-fa><t-en>working enzyme, GPI anchor</t-en></td><td><t-fa>میانگین ۹۵٫۸</t-fa><t-en>mean 95.8</t-en></td></tr>
+<tr><td><t-fa>پپتید انتهایی</t-fa><t-en>C-terminal peptide</t-en></td><td class="n"><t-fa>۵۷۸–۶۰۲</t-fa><t-en>578–602</t-en></td><td><t-fa>در پروتئین بالغ نیست</t-fa><t-en>not in the mature protein</t-en></td><td><t-fa>نارنجی (زیر ۵۰)</t-fa><t-en>orange (below 50)</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>میانگین کل ۸۷٫۱؛ ۷۶٫۶٪ خیلی مطمئن، ۱۲٫۵٪ خیلی کم‌اطمینان · بالای ۹۰ آبی تیره، زیر ۵۰ نارنجی · دمو: fold_live.html?p=gp63</t-fa><t-en>Whole-chain mean 87.1; 76.6% very high, 12.5% very low · above 90 dark blue, below 50 orange · demo: fold_live.html?p=gp63</t-en></p>
+<footer><t-fa>R09 · R10 · حساب ما</t-fa><t-en>R09 · R10 · our computation</t-en></footer>
+<aside class="notes"><t-fa><b>GP63 سالک: آبی و نارنجی</b><p>[B-ROLL CUE] دمو بدون overlay. «برچسب آدرس» = پپتید سیگنال. «فراوان‌ترین پروتئین قنددار» = «most abundant glycoprotein» (R21). «حدود نود و شش» = ۹۵٫۸.</p><p>در یک جمله: نارنجی‌های GP63 تقریباً همان تکه‌هایی‌اند که سلول جدا می‌کند؛ اطمینان پایین، خودش اطلاعات است.</p></t-fa><t-en><b>GP63: blue and orange</b><p>[B-ROLL CUE] Demo without overlay. "Address label" = signal peptide. "Most abundant sugar-coated protein" = "most abundant glycoprotein" (R21). "About ninety-six" = 95.8.</p><p>In one line: GP63's orange parts are almost exactly the pieces the cell removes; low confidence is itself information.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="360">
+<p class="kicker"><t-fa>پیش‌بینی در برابر آزمایش</t-fa><t-en>Prediction vs experiment</t-en></p>
+<div class="stat"><b><t-fa>۰٫۲۷ آنگستروم</t-fa><t-en>0.27 Å</t-en></b><span><t-fa>RMSD کربن‌های آلفا پس از روی‌هم‌اندازی ما، روی ۴۶۵ باقیمانده · TM-score ۰٫۹۹۹ · هر ۴۶۵ تا زیر ۲ آنگستروم</t-fa><t-en>Cα RMSD after our superposition, over 465 residues · TM-score 0.999 · all 465 within 2 Å</t-en></span></div>
+<p class="caption"><t-fa>مدل AF-P08148-F1 در برابر PDB 1LML (پرتو ایکس، ۱٫۸۶ آنگستروم). فاصلهٔ دو کربن آلفای پشت سر هم حدود ۳٫۸ آنگستروم است.</t-fa><t-en>Model AF-P08148-F1 vs PDB 1LML (X-ray, 1.86 Å). Two consecutive Cα atoms are about 3.8 Å apart.</t-en></p>
+<footer><t-fa>R11 · fold_live.py --selftest</t-fa><t-en>R11 · fold_live.py --selftest</t-en></footer>
+<aside class="notes"><t-fa><b>حدس بزن + ۰٫۲۷</b><p>[UNEXPECTED STAT] پیش از عدد مکث برای حدس. در دمو O. «حدود چهار آنگستروم» = ۳٫۸۴ (میانگین در مدل). روی‌هم‌اندازی = کابش (روش هورن)؛ selftest با numpy یکی است.</p><p>در یک جمله: پیش‌بینی GP63 با ساختار آزمایشگاهی فقط حدود ربع آنگستروم فاصله دارد.</p></t-fa><t-en><b>Guess + 0.27</b><p>[UNEXPECTED STAT] Pause for the guess before the number. Press O in the demo. "About four ångström" = 3.84 (mean in the model). Superposition = Kabsch (Horn's method); the selftest agrees with numpy.</p><p>In one line: the GP63 prediction is only about a quarter of an ångström from the experimental structure.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="415">
+<p class="kicker"><t-fa>ولی صبر کن</t-fa><t-en>But wait</t-en></p>
+<div class="steps">
+<div><b><t-fa>۱۹۹۷</t-fa><t-en>1997</t-en></b><t-fa>ساختار 1LML منتشر می‌شود</t-fa><t-en>Structure 1LML is released</t-en></div>
+<div class="hi"><b><t-fa>۳۰ آوریل ۲۰۱۸</t-fa><t-en>30 April 2018</t-en></b><t-fa>آخرین تاریخ ساختارهای PDB در دادهٔ آموزش AlphaFold</t-fa><t-en>Latest release date of PDB structures in AlphaFold's training data</t-en></div>
+<div><b><t-fa>۲۰۲۰</t-fa><t-en>2020</t-en></b><t-fa>آزمون کور واقعی: CASP14</t-fa><t-en>The real blind test: CASP14</t-en></div>
+<div><b><t-fa>۲۰۲۵</t-fa><t-en>2025</t-en></b><t-fa>مدل GP63 در پایگاه داده (نسخهٔ ۶)</t-fa><t-en>GP63 model in the database (version 6)</t-en></div>
+</div>
+<p class="caption"><t-fa>این مقایسه آزمون کور نیست؛ می‌پرسیم نقشهٔ اطمینان را می‌شود باور کرد یا نه.</t-fa><t-en>This comparison is not a blind test; we ask whether the confidence map can be trusted.</t-en></p>
+<footer><t-fa>R01 · R11 · R09</t-fa><t-en>R01 · R11 · R09</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: جواب را از قبل دیده بود</b><p>[CAMERA CHANGE] [RE-HOOK] نمای نزدیک. «به احتمال زیاد دیده بود» را قطعی نکن: مدل ممکن است از الگو هم استفاده کرده باشد؛ جزئیات خط تولید AFDB را نمی‌دانیم.</p><p>در یک جمله: دقت روی GP63 آزمون کور نیست؛ سؤال واقعی این است که اطمینان مدل قابل اعتماد است یا نه.</p></t-fa><t-en><b>Re-hook: it had seen the answer</b><p>[CAMERA CHANGE] [RE-HOOK] Close-up. Do not make "very likely had seen it" absolute: the pipeline may also use templates; we do not know the AFDB pipeline's details.</p><p>In one line: the GP63 accuracy is not a blind test; the real question is whether the model's confidence can be trusted.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="460">
+<p class="kicker"><t-fa>نوکلئوپروتئین ویروس کریمه‌کنگو</t-fa><t-en>Crimean–Congo virus nucleoprotein</t-en></p>
+<div class="cols">
+<div><span><t-fa>pLDDT بازو (باقیماندهٔ ۱۸۱ تا ۲۹۹)</t-fa><t-en>Arm pLDDT (residues 181–299)</t-en></span><b><t-fa>۸۰٫۹</t-fa><t-en>80.9</t-en></b><p><t-fa>شکل خود بازو: مطمئن</t-fa><t-en>the arm's own shape: confident</t-en></p></div>
+<div><span><t-fa>PAE سر ↔ سر</t-fa><t-en>PAE head ↔ head</t-en></span><b><t-fa>۳٫۹</t-fa><t-en>3.9</t-en></b><small>Å</small><p><t-fa>تکه‌های سر نسبت به هم: مطمئن</t-fa><t-en>head parts relative to each other: confident</t-en></p></div>
+<div class="hi"><span><t-fa>PAE بازو ↔ سر</t-fa><t-en>PAE arm ↔ head</t-en></span><b><t-fa>۱۸٫۶</t-fa><t-en>18.6</t-en></b><small>Å</small><p><t-fa>جای بازو نسبت به سر: نامعلوم</t-fa><t-en>where the arm sits on the head: unknown</t-en></p></div>
+</div>
+<p class="tag"><t-fa>در برابر PDB 4AQG (۲۰۱۲): فقط سر ۱٫۰۷ آنگستروم؛ کل زنجیره ۹٫۷۲؛ بازو ۱۷۸ درجه چرخیده · مدل: Viro3D با ColabFold v1.5.2، در AlphaFold DB</t-fa><t-en>Against PDB 4AQG (2012): head only 1.07 Å; whole chain 9.72 Å; arm turned 178° · model: Viro3D with ColabFold v1.5.2, in AlphaFold DB</t-en></p>
+<footer><t-fa>R09 · R07 · R12 · حساب ما</t-fa><t-en>R09 · R07 · R12 · our computation</t-en></footer>
+<aside class="notes"><t-fa><b>بازوی مطمئن، جای نامطمئن</b><p>[B-ROLL CUE] دمو: PAE (مربع کهربایی) ← O ← M تا «fit: head» ← C. «حدود نوزده» = ۱۸٫۶؛ «حدود چهار» = ۳٫۹. «نیم‌دور» = ۱۷۸ درجه. بازو را «بازو» بگو، نه «ساقه» (هر دو در مقاله‌ها هست).</p><p>در یک جمله: مدل شکل بازو را مطمئن ساخت ولی با PAE گفت جایش را نمی‌داند، و همان‌جا با آزمایش فرق کرد.</p></t-fa><t-en><b>A confident arm, an uncertain place</b><p>[B-ROLL CUE] Demo: PAE (amber square) → O → M to "fit: head" → C. "About nineteen" = 18.6; "about four" = 3.9. "Half a turn" = 178°. Call it the "arm", not the "stalk" (papers use both).</p><p>In one line: the model built the arm confidently but said with PAE that it does not know where it goes, and that is exactly where it differs from experiment.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="525">
+<p class="kicker"><t-fa>آزمایش‌ها هم توافق ندارند</t-fa><t-en>The experiments disagree too</t-en></p>
+<table class="t">
+<tr><td><t-fa>مقایسه</t-fa><t-en>Comparison</t-en></td><td><t-fa>فقط سر (Å)</t-fa><t-en>Head only (Å)</t-en></td><td><t-fa>کل (Å)</t-fa><t-en>Whole (Å)</t-en></td><td><t-fa>چرخش بازو</t-fa><t-en>Arm turned</t-en></td></tr>
+<tr><td><t-fa>AlphaFold ↔ 4AQG (بلور، ۲۰۱۲)</t-fa><t-en>AlphaFold ↔ 4AQG (crystal, 2012)</t-en></td><td class="n"><t-fa>۱٫۰۷</t-fa><t-en>1.07</t-en></td><td class="n"><t-fa>۹٫۷۲</t-fa><t-en>9.72</t-en></td><td class="n"><t-fa>۱۷۸°</t-fa><t-en>178°</t-en></td></tr>
+<tr><td><t-fa>AlphaFold ↔ 4AQF (بلور چندتایی، ۲۰۱۲)</t-fa><t-en>AlphaFold ↔ 4AQF (oligomer crystal, 2012)</t-en></td><td class="n"><t-fa>۱٫۰۱</t-fa><t-en>1.01</t-en></td><td class="n"><t-fa>۲٫۸۹</t-fa><t-en>2.89</t-en></td><td class="n"><t-fa>۲۶°</t-fa><t-en>26°</t-en></td></tr>
+<tr><td><t-fa>AlphaFold ↔ 9WA4 (میکروسکوپ الکترونی، ۱۸ نوامبر ۲۰۲۶)</t-fa><t-en>AlphaFold ↔ 9WA4 (cryo-EM, 18 Nov 2026)</t-en></td><td class="n"><t-fa>۲٫۰۰</t-fa><t-en>2.00</t-en></td><td class="n"><t-fa>۵٫۳۸</t-fa><t-en>5.38</t-en></td><td class="n"><t-fa>۴۶°</t-fa><t-en>46°</t-en></td></tr>
+<tr class="hi"><td><t-fa>4AQG ↔ 4AQF (دو آزمایش، یک آزمایشگاه)</t-fa><t-en>4AQG ↔ 4AQF (two experiments, one lab)</t-en></td><td class="n"><t-fa>۰٫۷۶</t-fa><t-en>0.76</t-en></td><td class="n"><t-fa>۹٫۲۲</t-fa><t-en>9.22</t-en></td><td class="n"><t-fa>۱۴۳°</t-fa><t-en>143°</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>RMSD کربن‌های آلفا با کد ما · «چرخش بازو» = زاویهٔ لازم برای نشاندن بازو پس از روی‌هم‌اندازی سرها · ۲۰۱۲: بازو بین ساختارها حدود ۱۸۰ درجه چرخیده و ۴۰ آنگستروم جابه‌جا (Carter و همکاران)</t-fa><t-en>Cα RMSD from our code · "arm turned" = the rotation needed to place the arm after superposing the heads · 2012: the arm rotated about 180° and moved 40 Å between structures (Carter et al.)</t-en></p>
+<footer><t-fa>R12 · R13 · R15 · حساب ما</t-fa><t-en>R12 · R13 · R15 · our computation</t-en></footer>
+<aside class="notes"><t-fa><b>آزمایش‌ها هم توافق ندارند</b><p>[GRAPHIC] دمو با 4AQF، بعد R برای 9WA4. بگو «نوامبر دو هزار و بیست‌وشش» (۱۸ نوامبر ۲۰۲۶)، نه «ده روز پیش». ۱۴۳° برای زنجیرهٔ B از 4AQF است؛ زنجیره‌های A و C حدود ۱۷۱° با 4AQG و فقط ۹ تا ۱۱° با مدل فرق دارند. 9WA4 بعد از ساخت مدل منتشر شد. «یه گروه دیگه» = Carter و همکاران ۲۰۱۲ (سویهٔ دیگر).</p><p>در یک جمله: جای بازو در آزمایش‌ها هم یکی نیست؛ «نمی‌دانم» مدل درست سر جایش بود.</p></t-fa><t-en><b>The experiments disagree too</b><p>[GRAPHIC] Demo with 4AQF, then R for 9WA4. Say "in November 2026" (18 Nov 2026), not "ten days ago". 143° is for 4AQF chain B; chains A and C differ from 4AQG by about 171° and from the model by only 9–11°. 9WA4 was released after the model was built. "Another group" = Carter et al. 2012 (a different strain).</p><p>In one line: the arm's position differs between experiments too; the model's "I don't know" was in the right place.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="580">
+<p class="kicker"><t-fa>ساختار، دارو نیست</t-fa><t-en>A structure is not a drug</t-en></p>
+<div class="steps">
+<div class="hi"><b><t-fa>ساختار</t-fa><t-en>Structure</t-en></b><t-fa>امروز اینجاییم</t-fa><t-en>We are here today</t-en></div>
+<div class="off"><b><t-fa>مولکول</t-fa><t-en>Molecule</t-en></b><t-fa>چیزی که درست بچسبد</t-fa><t-en>Something that binds</t-en></div>
+<div class="off"><b><t-fa>آزمایشگاه و حیوان</t-fa><t-en>Lab and animals</t-en></b><t-fa>اثر و ایمنی</t-fa><t-en>Effect and safety</t-en></div>
+<div class="off"><b><t-fa>کارآزمایی بالینی</t-fa><t-en>Clinical trials</t-en></b><t-fa>سال‌ها، روی انسان</t-fa><t-en>Years, in people</t-en></div>
+<div class="off"><b><t-fa>تأیید</t-fa><t-en>Approval</t-en></b><t-fa>داروی تأییدشده‌ای از AlphaFold پیدا نکردیم</t-fa><t-en>We found no approved drug traced to AlphaFold</t-en></div>
+</div>
+<p class="tag"><t-fa>مدل‌ها ایستا هستند و دارو، لیگاند یا جهش را نمی‌بینند · تا ۲۸ نوامبر ۲۰۲۶</t-fa><t-en>The models are static and do not see drugs, ligands or mutations · as of 28 Nov 2026</t-en></p>
+<footer><t-fa>R26 · study-fa.md §۸</t-fa><t-en>R26 · study-fa.md §8</t-en></footer>
+<aside class="notes"><t-fa><b>ساختار، دارو نیست</b><p>[SOUND EFFECT] «تیک» روی «نه». پادتن 9D5 و Isomorphic را روی دوربین نیاور. اگر روز ضبط Isomorphic کارآزمایی اعلام کرده بود، جمله هنوز درست است.</p><p>در یک جمله: ساختار پیش‌بینی‌شده پلهٔ اول است؛ تا دارو هنوز پله‌های زیادی مانده.</p></t-fa><t-en><b>A structure is not a drug</b><p>[SOUND EFFECT] A "tick" on "no". Do not bring up the 9D5 antibody or Isomorphic on camera. If Isomorphic has announced a trial by recording day, the line still holds.</p><p>In one line: a predicted structure is the first step; many steps remain before a drug.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="625">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>نقشهٔ اطمینان دو مدل با آزمایش جور است: نارنجی‌های GP63 همان تکه‌های جداشدنی‌اند؛ PAE بالای بازوی نوکلئوپروتئین همان جایی است که آزمایش‌ها با هم فرق دارند · مقایسه با کد خود ما</t-fa><t-en>The two models' confidence maps match experiment: GP63's orange parts are the removable pieces; the nucleoprotein's high arm PAE is where experiments differ · compared with our own code</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>دقت کور AlphaFold (ساختارها پیش از ۲۰۱۸ در PDB بودند) · حرکت، دارو یا جهش · RMSD همهٔ اتم‌ها (فقط کربن آلفا) · که مدل نوکلئوپروتئین را DeepMind ساخته (Viro3D ساخته) · هیچ درمان، دارو یا توصیهٔ پزشکی</t-fa><t-en>AlphaFold's blind accuracy (the structures were in the PDB before 2018) · motion, drugs or mutations · all-atom RMSD (Cα only) · that DeepMind built the nucleoprotein model (Viro3D did) · any treatment, drug or medical advice</t-en></div>
+</div>
+<footer><t-fa>R01 · R07 · R09</t-fa><t-en>R01 · R07 · R09</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. جملهٔ «توصیهٔ پزشکی نیست» در تدوین کوتاه نشود.</p><p>در یک جمله: این قسمت خواندن نقشهٔ اطمینان را نشان می‌دهد، نه آزمون کور، نه دارو، نه توصیهٔ پزشکی.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. Do not trim "not medical advice" in the edit.</p><p>In one line: this episode shows how to read a confidence map; it is not a blind test, not a drug, not medical advice.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="670">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>هسته‌ها را <em>درست</em> دید؛ جای تردیدش را خودش گفت</t-fa><t-en>It got the cores <em>right</em>, and flagged its own doubt</t-en></h1>
+<div class="cards">
+<div><b><t-fa>سؤال ۱</t-fa><t-en>Question 1</t-en></b><t-fa>مدل کجا مطمئن است؟ (رنگ‌ها، pLDDT)</t-fa><t-en>Where is the model sure? (the colours, pLDDT)</t-en></div>
+<div class="hi"><b><t-fa>سؤال ۲</t-fa><t-en>Question 2</t-en></b><t-fa>کجا خودش گفته نه؟ (نقشهٔ مربعی، PAE)</t-fa><t-en>Where did it say it isn't? (the square map, PAE)</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S03</t-fa><t-en>Answer · HMD-S03</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>دمو در پس‌زمینه، Space برای چرخش. تمرین: یک پروتئین آشنا در alphafold.ebi.ac.uk.</p><p>در یک جمله: آلفافولد هسته‌ها را درست دید و جای تردیدش را خودش نشان داد؛ همیشه نقشهٔ اطمینان را هم بخوان.</p></t-fa><t-en><b>The answer</b><p>Demo in the background, Space to spin. Exercise: a familiar protein at alphafold.ebi.ac.uk.</p><p>In one line: AlphaFold got the cores right and showed its own doubt; always read the confidence map too.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="705">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>یک متن می‌تواند دستیار AI را <em>از کارش منحرف</em> کند؟</t-fa><t-en>Can one piece of text <em>pull an AI assistant off its job</em>?</t-en></h1>
+<p class="caption"><t-fa>یک فاکتور، یک ایمیل، یک متن ساده؛ و دستوری که در آن پنهان است.</t-fa><t-en>An invoice, an email, a plain document, and an instruction hidden inside it.</t-en></p>
+<footer><t-fa>HMD-007</t-fa><t-en>HMD-007</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: prompt injection</b><p>[SOUND EFFECT] صدای رسیدن ایمیل. End screen از ثانیهٔ ۱۰. هیچ عددی از HMD-007 نگو.</p><p>در یک جمله: از اعتماد به جواب مدل، می‌رسیم به متنی که خود مدل را گمراه می‌کند.</p></t-fa><t-en><b>Next: prompt injection</b><p>[SOUND EFFECT] An incoming-email sound. End screen from second 10. Give no numbers from HMD-007.</p><p>In one line: from trusting a model's answer, to a text that misleads the model itself.</p></t-en></aside>
+</section>

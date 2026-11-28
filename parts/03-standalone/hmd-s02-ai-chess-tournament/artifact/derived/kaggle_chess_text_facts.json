@@ -1,0 +1,59 @@
+{
+ "source": "https://www.kaggle.com/api/v1/benchmarks/kaggle/chess-text/leaderboard",
+ "fetched": "2026-11-28",
+ "evaluation_date": "2026-11-24",
+ "n_models": 46,
+ "licence": "not stated [VERIFY]; only a few facts kept, with attribution",
+ "note": "Score = Kaggle Game Arena chess-text rating (Bradley-Terry over all-play-all games among the models in the pool; Kaggle blog). Not a FIDE or human Elo. ci = Kaggle bootstrap interval.",
+ "rows": [
+  {
+   "model": "Gemini 4 Neon",
+   "score": 1790.9,
+   "ci_plus": 34.6,
+   "ci_minus": 34.6,
+   "rank": 1
+  },
+  {
+   "model": "Gemini 4 Carbon",
+   "score": 1650.7,
+   "ci_plus": 33.1,
+   "ci_minus": 41.5,
+   "rank": 2
+  },
+  {
+   "model": "GPT-6.2 Astra",
+   "score": 1584.8,
+   "ci_plus": 37.5,
+   "ci_minus": 44.4,
+   "rank": 3
+  },
+  {
+   "model": "Gemini 3.8 Flash",
+   "score": 1467.3,
+   "ci_plus": 35.6,
+   "ci_minus": 36.8,
+   "rank": 4
+  },
+  {
+   "model": "GPT-6 Astra",
+   "score": 1464.1,
+   "ci_plus": 29.1,
+   "ci_minus": 37.2,
+   "rank": 5
+  },
+  {
+   "model": "Claude Fable 5.2",
+   "score": 1324.2,
+   "ci_plus": 38.0,
+   "ci_minus": 42.8,
+   "rank": 12
+  },
+  {
+   "model": "Claude Sonnet 4.5",
+   "score": 0.0,
+   "ci_plus": 72.9,
+   "ci_minus": 90.0,
+   "rank": 46
+  }
+ ]
+}

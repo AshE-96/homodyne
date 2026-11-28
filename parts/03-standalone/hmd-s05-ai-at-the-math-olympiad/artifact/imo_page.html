@@ -1,0 +1,117 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>المپیاد و هوش مصنوعی · هومودین</title><style>
+/*FONTS*/
+:root{--night:#111214;--panel:#181A1D;--line:#2A2C30;--ink:#F3F1EC;--muted:#A9A69D;--amber:#E8A33D;--blue:#7FA7D9;--ok:#6FBF73;--bad:#E06C5B;--dim:#5C5A55}
+*{box-sizing:border-box;margin:0}html,body{height:100%}
+body{background:var(--night);color:var(--ink);font-family:Vazirmatn,system-ui,sans-serif;overflow:hidden;font-variant-numeric:tabular-nums}
+header{display:flex;align-items:center;gap:18px;padding:18px 30px 6px}header h1{font-size:28px}header h1 em{color:var(--amber);font-style:normal}
+.badge{border:1px solid var(--amber);color:var(--amber);border-radius:6px;padding:2px 12px;font-size:16px}
+nav{margin-inline-start:auto;display:flex;gap:8px}nav button{background:var(--panel);color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:4px 12px;font:inherit;font-size:15px;cursor:pointer}
+nav button.on{color:var(--night);background:var(--amber);border-color:var(--amber)}
+.view{display:none;position:absolute;inset:70px 30px 46px}.view.on{display:flex;flex-direction:column;gap:14px}
+h2{font-size:30px}h2 small{color:var(--muted);font-size:18px;font-weight:400;margin-inline-start:10px}
+.note{color:var(--muted);font-size:16px;line-height:1.6}.note b{color:var(--ink)}
+footer{position:absolute;bottom:12px;inset-inline:30px;color:var(--muted);font-size:13px;display:flex;gap:18px}
+body.clean footer,body.clean nav{visibility:hidden}
+svg text{fill:var(--ink);font-family:Vazirmatn,system-ui,sans-serif}svg .m{fill:var(--muted)}
+.legend{display:flex;gap:22px;font-size:16px;color:var(--muted)}.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;margin-inline-end:6px;vertical-align:-2px}
+#lanes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;flex:1;min-height:0}
+.lane{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.lane.done{border-color:var(--amber)}.lane b.n{font-size:24px}.lane small{color:var(--muted);font-size:13px;direction:ltr;text-align:right;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.clock{font-size:34px;font-weight:700;direction:ltr;text-align:right}.stat{font-size:15px;direction:ltr;text-align:right;color:var(--muted)}.stat b{color:var(--ink);font-weight:400}
+.ans{flex:1;min-height:0;overflow:hidden;background:#141518;border-radius:6px;padding:10px;font-size:13px;line-height:1.5;direction:ltr;text-align:left;white-space:pre-wrap;color:#D9D6CF;font-family:ui-monospace,Menlo,monospace}
+.grade{border-radius:6px;padding:6px 10px;font-size:16px;text-align:center;border:1px dashed var(--muted);color:var(--muted)}
+.grade.g{border:1px solid var(--amber);color:var(--amber)}
+#wm{position:fixed;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;font-size:220px;font-weight:700;color:rgba(232,163,61,.09);transform:rotate(-14deg);direction:ltr}#wm.on{display:flex}
+#notrun{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:rgba(17,18,20,.9);border-radius:10px}
+#notrun b{font-size:46px;color:var(--amber);direction:ltr}#notrun span{color:var(--muted);font-size:18px}
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ladder div{background:var(--panel);border-radius:10px;padding:16px;border-top:6px solid var(--c)}
+.ladder b{font-size:22px;display:block;margin-bottom:6px}.ladder p{color:var(--muted);font-size:16px;line-height:1.55}
+table.rub{border-collapse:collapse;width:100%;font-size:18px}table.rub td{border-bottom:1px solid var(--line);padding:8px 6px;vertical-align:top}table.rub td.p{color:var(--amber);font-weight:700;width:60px;text-align:center}
+.grid3{display:flex;gap:26px;align-items:center;justify-content:center;flex:1}
+</style></head><body>
+<header><h1>المپیاد ریاضی و <em>هوش مصنوعی</em> · هومودین</h1><span class="badge" id="mode">داده: imo-official.org</span>
+<nav id="nav"></nav></header>
+
+<section class="view" id="v1"><h2 id="v1t"></h2><svg id="diff" viewBox="0 0 1860 640"></svg>
+<div class="legend"><span><i style="background:var(--dim)"></i>میانگین جهان (هر شرکت‌کننده)</span><span><i style="background:var(--amber)"></i>میانگین تیم ایران (جمع تیم ÷ ۶)</span><span><i style="background:var(--blue)"></i>Gemini Deep Think، داوری رسمی ۲۰۲۵</span></div>
+<p class="note" id="v1n"></p></section>
+
+<section class="view" id="v2"><h2 id="v2t"></h2><svg id="cut" viewBox="0 0 1860 640"></svg><p class="note" id="v2n"></p></section>
+
+<section class="view" id="v3"><h2>تیم ایران در IMO <small>رتبهٔ تیمی هر سال · فقط دادهٔ تیمی، بی نام</small></h2><svg id="hist" viewBox="0 0 1860 600"></svg><p class="note" id="v3n"></p></section>
+
+<section class="view" id="v4"><h2 id="v4t">جلسهٔ زنده: پنج مدل، یک مسئله <small id="v4s"></small></h2>
+<p class="note" id="proto">پروتکل ثابت: صورت رسمی انگلیسی · یک تلاش برای هر مدل · بی ابزار، بی اینترنت، بی راهنمایی · سقف ۳۲٬۰۰۰ توکن خروجی · <b>نمره را آدم بعداً با معیار می‌دهد؛ این صفحه هیچ‌وقت «حل شد» نمی‌گوید.</b></p>
+<div style="position:relative;flex:1;min-height:0;display:flex"><div id="lanes"></div><div id="notrun"><b>NOT RUN YET</b><span>اجرای زنده هنوز انجام نشده · <code>imo_live.py --mock</code> برای تمرین</span></div></div></section>
+
+<section class="view" id="v5"><h2 id="v5t">چه کسی نمره داد؟</h2><div class="ladder" id="ladder"></div>
+<h2 style="font-size:24px;margin-top:6px" id="rubt"></h2><table class="rub" id="rub"></table><p class="note" id="rubn"></p></section>
+
+<footer><span>منبع آمار: imo-official.org (صفحه‌های عمومی نتایج؛ فقط جمع‌ها) · محاسبهٔ هومودین</span><span id="link"></span><span>کلیدها: ۱–۵ نما · Y سال · P مسئله · H پنهان</span></footer>
+<div id="wm">MOCK</div>
+<script>
+const STATS=/*STATS*/null, RUBRICS=/*RUBRICS*/null;
+const F=n=>String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]).replace(/\./g,'٫'),$=s=>document.querySelector(s);
+const Q=new URLSearchParams(location.search);let view=+(Q.get('view')||1),year=Q.get('year')||'2025',pid=Q.get('p')||'P1';
+const NS='http://www.w3.org/2000/svg';
+function el(svg,tag,a,txt){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);if(txt!==undefined)e.textContent=txt;svg.appendChild(e);return e}
+const VIEWS=['دشواری مسئله‌ها','مرز مدال‌ها','تاریخچهٔ ایران','جلسهٔ زنده','داوری و معیار'];
+$('#nav').innerHTML=VIEWS.map((v,i)=>`<button data-v="${i+1}">${F(i+1)} · ${v}</button>`).join('');
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>show(+b.dataset.v));
+function show(v){view=v;document.querySelectorAll('.view').forEach((s,i)=>s.classList.toggle('on',i+1===v));
+document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',+b.dataset.v===v));draw()}
+function draw(){const Y=STATS.years[year];if(view===1)diff(Y);if(view===2)cut(Y);if(view===3)hist();if(view===5)rub()}
+function diff(Y){const s=$('#diff');s.innerHTML='';$('#v1t').innerHTML=`هر مسئله چقدر سخت بود؟ <small>IMO ${F(year)} · ${F(Y.contestants)} شرکت‌کننده · امتیاز از ۷</small>`;
+const x0=120,w=1700,h=470,y0=40,bw=w/6;for(let k=0;k<=7;k++){const y=y0+h-h*k/7;el(s,'line',{x1:x0,x2:x0+w,y1:y,y2:y,stroke:'#2A2C30'});el(s,'text',{x:x0-20,y:y+8,'text-anchor':'end',class:'m','font-size':22},F(k))}
+const ai=STATS.ai_results.find(a=>a.year===+year&&a.grader==='official');
+Y.problems.forEach((p,i)=>{const cx=x0+bw*(5-i)+bw/2,ir=Y.iran.problems[i]/6;
+const bar=(dx,v,c)=>{const hh=h*v/7;el(s,'rect',{x:cx+dx-34,y:y0+h-hh,width:68,height:hh,fill:c,rx:4});el(s,'text',{x:cx+dx,y:y0+h-hh-12,'text-anchor':'middle','font-size':24},F(v.toFixed(1)))};
+bar(80,p.mean,'#5C5A55');bar(0,ir,'#E8A33D');if(ai)bar(-80,ai.per_problem[i],'#7FA7D9');
+el(s,'text',{x:cx,y:y0+h+44,'text-anchor':'middle','font-size':30,'font-weight':700},'مسئلهٔ '+F(i+1));
+el(s,'text',{x:cx,y:y0+h+80,'text-anchor':'middle',class:'m','font-size':20},`نمرهٔ کامل: ${F(p.full)} نفر`)});
+$('#v1n').innerHTML=`میله‌ها میانگین‌اند، نه احتمال حل. داوری رسمی برای همه با یک معیار. هر نمرهٔ هوش مصنوعی شرایط خودش را دارد (نمای ۵). ${ai?'':'برای این سال داوری رسمی AI در دادهٔ ما نیست.'}`}
+function cut(Y){const s=$('#cut');s.innerHTML='';$('#v2t').innerHTML=`مرز مدال‌ها <small>IMO ${F(year)} · تعداد شرکت‌کننده با هر جمع امتیاز (۰ تا ۴۲)</small>`;
+const x0=90,w=1720,h=440,y0=60,bw=w/43,mx=Math.max(...Y.total_hist),c=Y.cutoffs;
+const col=t=>t>=c.gold?'#E8A33D':t>=c.silver?'#C9C6BD':t>=c.bronze?'#9C6B3E':'#3A3C40';
+Y.total_hist.forEach((n,t)=>{const hh=h*n/mx;el(s,'rect',{x:x0+t*bw+2,y:y0+h-hh,width:bw-4,height:hh,fill:col(t)});if(t%6===0)el(s,'text',{x:x0+t*bw+bw/2,y:y0+h+34,'text-anchor':'middle',class:'m','font-size':22},F(t))});
+for(const [k,fa] of [['gold','طلا'],['silver','نقره'],['bronze','برنز']]){const x=x0+c[k]*bw;el(s,'line',{x1:x,x2:x,y1:y0-20,y2:y0+h,stroke:'#F3F1EC','stroke-dasharray':'6 6'});
+el(s,'text',{x:x+8,y:y0-28,'font-size':24},`${fa} ≥ ${F(c[k])} · ${F(Y.counts[k])} نفر`)}
+const ai=STATS.ai_results.filter(a=>a.year===+year&&a.score);for(const a of ai){const x=x0+a.score*bw+bw/2;el(s,'circle',{cx:x,cy:y0+h+70,r:10,fill:a.grader==='official'?'#7FA7D9':'none',stroke:'#7FA7D9','stroke-width':3})}
+if(ai.length)el(s,'text',{x:x0+ai[0].score*bw-24,y:y0+h+78,'text-anchor':'start','font-size':20,class:'m'},'نمرهٔ ادعاشدهٔ AI (توپر = داوری رسمی) ←');
+$('#v2n').innerHTML=`${F(Y.contestants)} نفر از ${F(Y.countries)} کشور · ${F(Y.counts.perfect)} نمرهٔ کامل · ${F(Y.counts.gold+Y.counts.silver+Y.counts.bronze)} مدال، حدود نیمی از شرکت‌کننده‌ها (آیین‌نامهٔ IMO، بند ۵٫۶: حداکثر نیمی مگر با تأیید دوسوم هیئت، نسبت تقریبی ۱:۲:۳). شمار نفرات از جدول عمومی نتایج شمرده شده؛ هیچ نامی ذخیره نشده.`}
+function hist(){const s=$('#hist');s.innerHTML='';const H=STATS.iran_history,x0=110,w=1680,y0=40,h=440,y1=STATS.iran_overall.first,yr=2026;
+const X=y=>x0+(y-y1)/(yr-y1)*w,Yr=r=>y0+(r-1)/39*h;for(const r of [1,10,20,30,40]){el(s,'line',{x1:x0,x2:x0+w,y1:Yr(r),y2:Yr(r),stroke:'#2A2C30'});el(s,'text',{x:x0-16,y:Yr(r)+8,'text-anchor':'end',class:'m','font-size':22},F(r))}
+let d='';H.forEach((r,i)=>{d+=(i&&r.year-H[i-1].year===1?'L':'M')+X(r.year)+' '+Yr(Math.min(r.rank,40))});el(s,'path',{d,fill:'none',stroke:'#E8A33D','stroke-width':4});
+H.forEach(r=>{el(s,'circle',{cx:X(r.year),cy:Yr(Math.min(r.rank,40)),r:r.rank===1||r.year===2025?11:6,fill:r.year===2025?'#7FA7D9':'#E8A33D'});
+if(r.rank===1||r.year===2025||r.year===2026)el(s,'text',{x:X(r.year)-(r.year===2026?10:0),y:Yr(r.rank)+(r.year===2026?40:-20),'text-anchor':r.year===2026?'start':'middle','font-size':22},`${F(r.year)}: رتبهٔ ${F(r.rank)}`)});
+for(const y of [1985,1995,2005,2015,2025])el(s,'text',{x:X(y),y:y0+h+40,'text-anchor':'middle',class:'m','font-size':22},F(y));
+const o=STATS.iran_overall,t=STATS.years['2025'].iran;$('#v3n').innerHTML=`از ${F(o.first)}، ${F(o.participations)} بار شرکت · ${F(o.gold)} طلا، ${F(o.silver)} نقره، ${F(o.bronze)} برنز · <b>۲۰۲۵: رتبهٔ ${F(t.rank)} از ${F(STATS.years['2025'].countries)}، ${F(t.points)} امتیاز، ${F(t.gold)} طلا، ${F(t.silver)} نقره، ${F(t.bronze)} برنز</b> · جمع تیم در مسئلهٔ ۶: ${F(t.problems[5])}`}
+function rub(){const L=[['official','#7FA7D9','داوری رسمی IMO','هماهنگ‌کنندگان خود المپیاد، با همان معیار دانش‌آموزان؛ ولی خود سیستم و روش را وارسی نمی‌کنند.'],['company','#E8A33D','داوری به ترتیب سازنده','مدال‌آوران سابق یا ریاضی‌دانانی بیرون از داوری رسمی المپیاد، در ارزیابی خود شرکت؛ ممکن است دقیق باشند، ولی مستقل نیستند.'],['claim','#5C5A55','فقط ادعا','اعلام شرکت یا گزارش رسانه؛ برگهٔ داوری یا بیانیهٔ IMO پیدا نشد.']];
+$('#ladder').innerHTML=L.map(([k,c,t,p])=>{const r=STATS.ai_results.filter(a=>a.grader===k).map(a=>`${F(a.year)} · ${a.lab} · ${F(a.score)}/۴۲`).join('<br>');return `<div style="--c:${c}"><b>${t}</b><p>${p}</p><p style="color:var(--ink);margin-top:8px">${r}</p></div>`}).join('');
+const R=RUBRICS[pid];$('#rubt').textContent=`معیار هومودین برای مسئلهٔ ${F(pid.slice(1))} (به سبک IMO، نه معیار رسمی) · جواب: ${R.answer_fa}`;
+$('#rub').innerHTML=R.items.map(i=>`<tr><td class="p">${F(i.points)}</td><td>${i.fa}</td></tr>`).join('');$('#rubn').innerHTML='کسرها: '+R.deductions.map(d=>d.fa).join(' · ')}
+// ── live session over SSE (only when served by imo_live.py) ──
+let S={},clockT=0,clockAt=performance.now(),speed=1,ended=false;const mmss=s=>{s=Math.max(0,s);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0')};
+function lane(s){const d=document.createElement('div');d.className='lane';d.innerHTML=`<b class="n">${s.label}</b><small>${s.model}</small><div class="clock">00:00</div>
+<div class="stat">in <b class="ti">0</b> · out <b class="to">0</b> · think <b class="tr">0</b></div><div class="stat usd">$ —</div><div class="ans">…</div><div class="grade">نمره‌نخورده · آدم بعداً نمره می‌دهد</div>`;return d}
+function on(ev){if(ev.t!==undefined){clockT=ev.t;clockAt=performance.now()}
+if(ev.type==='start'){$('#notrun').style.display='none';$('#lanes').innerHTML='';S={};ended=false;speed=ev.speed||1;pid=ev.problems[0];
+$('#mode').textContent=ev.mode==='mock'?'MOCK · ساختگی':ev.mode==='replay'?'بازپخش اجرای '+ev.run:'زنده · '+ev.run;$('#wm').classList.toggle('on',ev.mode==='mock');
+$('#v4s').innerHTML=`IMO ۲۰۲۵ · مسئلهٔ ${ev.problems.map(p=>F(p.slice(1))).join(' و ')} · <bdi dir="ltr">${ev.date}</bdi>`;
+for(const s of ev.slots){const e=lane(s);$('#lanes').appendChild(e);S[s.slot]={e,ask:null,done:false}}return}
+if(ev.type==='end'){ended=true;return}const x=S[ev.slot];if(!x)return;
+if(ev.type==='ask')x.ask=ev.t;
+if(ev.type==='answer'){x.ask=null;x.e.querySelector('.clock').textContent=mmss(ev.latency_s);x.e.querySelector('.ti').textContent=ev.input_tokens.toLocaleString('en');
+x.e.querySelector('.to').textContent=ev.output_tokens.toLocaleString('en');x.e.querySelector('.tr').textContent=(ev.reasoning_tokens||0).toLocaleString('en');
+x.e.querySelector('.usd').textContent=ev.usd!=null?'$'+ev.usd.toFixed(3):ev.usd_bound!=null?'≤ $'+ev.usd_bound.toFixed(2)+' (سقف ساختگی)':'$ — (قیمت ثبت نشده)';x.e.querySelector('.ans').textContent=ev.text;
+const g=x.e.querySelector('.grade');if(ev.grade){g.className='grade g';g.textContent=`نمرهٔ داور انسانی: ${F(ev.grade.score)} از ۷ · ${ev.grade.grader}`}}
+if(ev.type==='error')x.e.querySelector('.ans').textContent='خطای API: '+ev.error;if(ev.type==='done'){x.done=true;x.e.classList.add('done')}}
+function tick(){const t=clockT+(performance.now()-clockAt)/1000*speed;for(const k in S){const x=S[k];if(x.ask!==null&&!x.done&&!ended)x.e.querySelector('.clock').textContent=mmss(t-x.ask)}requestAnimationFrame(tick)}
+if(location.protocol.startsWith('http')){const es=new EventSource('/events');es.onopen=()=>$('#link').textContent='● وصل به imo_live.py';es.onerror=()=>$('#link').textContent='○ قطع';es.onmessage=e=>{try{on(JSON.parse(e.data))}catch(err){console.error(err)}}}
+requestAnimationFrame(tick);
+addEventListener('keydown',e=>{if(e.key>='1'&&e.key<='5')show(+e.key);const ys=Object.keys(STATS.years);
+if(e.key==='y'||e.key==='Y'){year=ys[(ys.indexOf(year)+1)%ys.length];draw()}if(e.key==='p'||e.key==='P'){pid=pid==='P1'?'P6':'P1';draw()}
+if(e.key==='h'||e.key==='H')document.body.classList.toggle('clean')});
+show(view);
+</script></body></html>

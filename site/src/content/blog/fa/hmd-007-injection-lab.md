@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-007-deep-dive
 hmd: HMD-007
 kind: deep-dive
-date: 2027-01-15
+date: 2027-01-29
 tags: ["تزریق دستور", "prompt injection", "spotlighting", "حداقل دسترسی", "ارزیابی امنیت مدل زبانی"]
 sources:
   - title: "Anthropic: Mitigating the risk of prompt injections in browser use (24 Nov 2025)"

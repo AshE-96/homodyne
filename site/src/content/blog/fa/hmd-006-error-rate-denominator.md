@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-006-companion
 hmd: HMD-006
 kind: companion
-date: 2027-01-08
+date: 2027-01-15
 tags: ["نرخ خطا", "توهم", "خودداری", "بنچمارک", "SimpleQA"]
 sources:
   - title: "OpenAI (سپتامبر ۲۰۲۵): Why language models hallucinate"

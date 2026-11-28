@@ -1,0 +1,12 @@
+{
+ "about": "Owner fills `models` before the paid run: USD per million tokens from each provider's official pricing page, read on the date in checked_on. Keys = provider:model exactly as in models.json. OpenRouter calls use the cost OpenRouter itself reports per call and need no entry. Output tokens include reasoning tokens. While a price is missing, plan/run (and the --max-usd cap) use the UPPER BOUND in `fallback`, so the cap stops early rather than late; the live page and report then show $ as unknown (—).",
+ "checked_on": null,
+ "source_url": null,
+ "currency": "USD",
+ "models": {},
+ "fallback": {
+  "about": "CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE. Same convention as HMD-K01.",
+  "set_on": "2026-11-28",
+  "default": {"input_per_mtok": 15.0, "output_per_mtok": 75.0}
+ }
+}

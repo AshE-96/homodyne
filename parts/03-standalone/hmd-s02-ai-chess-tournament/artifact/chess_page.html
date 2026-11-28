@@ -1,0 +1,121 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>شطرنج مدل‌ها · هومودین</title><style>
+%FONTS%
+:root{--night:#111214;--panel:#181A1D;--line:#2A2C30;--ink:#F3F1EC;--muted:#A9A69D;--amber:#E8A33D;--ok:#6FBF73;--bad:#E06C5B;--light:#D9D2C3;--dark:#8C7A62}
+*{box-sizing:border-box;margin:0}
+body{background:var(--night);color:var(--ink);font-family:Vazirmatn,system-ui,sans-serif;height:100vh;width:100vw;overflow:hidden;display:flex;flex-direction:column;padding:16px 22px;gap:12px;font-variant-numeric:tabular-nums}
+header{display:flex;align-items:center;gap:16px}header h1{font-size:28px}header h1 em{color:var(--amber);font-style:normal}
+.badge{border:1px solid var(--amber);color:var(--amber);border-radius:6px;padding:2px 12px;font-size:17px}
+.meta{color:var(--muted);font-size:15px}#clock{margin-inline-start:auto;font-size:30px;font-weight:700;direction:ltr}
+main{flex:1;display:grid;grid-template-columns:592px minmax(0,1fr) 540px;gap:14px;min-height:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-height:0}
+#boardwrap{display:flex;gap:10px;direction:ltr;align-items:flex-start}
+#evalbar{width:24px;height:512px;background:#2b2b2b;border-radius:4px;position:relative;overflow:hidden}
+#evalbar i{position:absolute;bottom:0;left:0;right:0;background:#EDEAE3;transition:height .5s}
+#evalbar b{position:absolute;left:0;right:0;text-align:center;font-size:12px;color:#777;top:50%}
+#evaltxt{font-size:15px;color:var(--muted);direction:ltr;text-align:center;margin-top:4px}
+#board{display:grid;grid-template-columns:repeat(8,64px);grid-template-rows:repeat(8,64px);border:2px solid var(--line);position:relative}
+.sq{display:flex;align-items:center;justify-content:center;font-size:46px;line-height:1;position:relative;font-family:"DejaVu Sans","Segoe UI Symbol","Apple Symbols",serif}
+.sq.l{background:var(--light)}.sq.d{background:var(--dark)}.sq.last{box-shadow:inset 0 0 0 4px var(--amber)}.sq.badsq{box-shadow:inset 0 0 0 5px var(--bad)}
+.sq .w{color:#FBFAF7;text-shadow:0 0 2px #000,0 0 1px #000}.sq .b{color:#141414}
+.sq small{position:absolute;font-size:11px;color:rgba(0,0,0,.5);left:3px;bottom:1px;font-family:Vazirmatn}
+#gameinfo{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}#gameinfo b{font-size:22px}
+#players{font-size:21px}#players .wdot,#players .bdot{display:inline-block;width:13px;height:13px;border-radius:50%;border:1px solid #888;margin-inline:4px}
+.wdot{background:#F3F1EC}.bdot{background:#111}#opening{color:var(--muted);font-size:16px}
+#flash{min-height:42px;border-radius:8px;padding:6px 12px;font-size:20px;display:flex;align-items:center;gap:10px;border:1px solid transparent}
+#flash.bad{border-color:var(--bad);background:rgba(224,108,91,.12)}#flash.ok{border-color:var(--line)}
+#flash code{direction:ltr;font-size:20px;color:var(--bad);font-family:ui-monospace,monospace}
+#center{display:flex;flex-direction:column;gap:10px;overflow:hidden}
+#moves{flex:1;overflow:hidden;direction:ltr;text-align:left;font-size:18px;line-height:1.75;display:flex;flex-wrap:wrap;align-content:flex-end;gap:0 8px}
+#moves span.n{color:var(--muted)}#moves s{color:var(--bad);font-size:15px}#moves span.cur{color:var(--amber);font-weight:700}
+#moves span.blunder::after{content:"??";color:var(--bad)}#moves span.mistake::after{content:"?";color:var(--amber)}
+#saw{font-size:14px;color:var(--muted)}#saw pre{direction:ltr;text-align:left;white-space:pre-wrap;color:var(--ink);font-size:13.5px;max-height:132px;overflow:hidden;font-family:ui-monospace,monospace;margin-top:4px}
+#call{display:flex;gap:14px;font-size:16px;direction:ltr;justify-content:flex-end;color:var(--muted)}#call b{color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:15px}th{color:var(--muted);font-weight:400;font-size:12px;text-align:center;padding:4px 2px}
+td{padding:7px 3px;border-top:1px solid var(--line);text-align:center}td.nm{text-align:right}td.nm b{font-size:18px;display:block}td.nm small{color:var(--muted);font-size:11px;direction:ltr;display:block;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+td.hot{color:var(--bad)}tr.lead td.pts{color:var(--amber);font-weight:700}
+#kinds{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.8}#kinds i{font-style:normal;background:#202226;border-radius:5px;padding:1px 7px;margin-inline-end:4px;color:var(--ink)}
+#tiles{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:7px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px 7px;font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor:pointer;line-height:1.45}
+.tile.on{border-color:var(--amber)}.tile b{font-size:13px}.tile .r{color:var(--amber)}.tile .x{color:var(--bad)}.tile.live .st::before{content:"● ";color:var(--ok)}
+#wm{position:fixed;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none;font-size:230px;font-weight:700;color:rgba(232,163,61,.10);transform:rotate(-14deg);direction:ltr}#wm.on{display:flex}
+footer{color:var(--muted);font-size:13px;display:flex;gap:16px}
+</style></head><body>
+<header><h1>شطرنجِ <em>مدل‌های هوش مصنوعی</em> · هومودین</h1><span class="badge" id="mode">…</span><span class="meta" id="date"></span><span class="meta" id="engine"></span><span class="meta" id="spend"></span><span id="clock">00:00</span></header>
+<main>
+<section class="panel"><div id="boardwrap"><div><div id="evalbar"><i></i><b></b></div><div id="evaltxt">—</div></div><div id="board"></div></div></section>
+<section class="panel" id="center">
+<div id="gameinfo"><b id="gid">—</b><div id="players"></div><div id="opening"></div></div>
+<div id="flash" class="ok"></div>
+<div id="call"></div>
+<div id="moves"></div>
+<div id="saw">چیزی که مدل دید (همهٔ ورودی‌اش):<pre id="prompt"></pre>جوابش:<pre id="reply"></pre></div>
+</section>
+<section class="panel"><table><thead><tr><th></th><th>امتیاز</th><th>قانونی در<br>تلاش اول</th><th>غیرقانونی</th><th>باخت با<br>خطا</th><th>افت میانگین<br>(سانتی‌پیاده)</th><th>ثانیه<br>هر حرکت</th><th>توکن<br>هر حرکت</th><th>$</th></tr></thead><tbody id="stand"></tbody></table>
+<div id="kinds"></div></section>
+</main>
+<div id="tiles"></div>
+<footer><span>بدون موتور، بدون فهرست حرکت‌های مجاز · حرکت غیرقانونی: یک فرصت دوباره، بار دوم باخت · protocol.md</span><span id="link">● …</span></footer>
+<div id="wm">MOCK</div>
+<script>
+const $=s=>document.querySelector(s),F=n=>String(n).replace(/[0-9]/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]).replace(/\./g,'٫');
+const KIND={ghost_piece:'مهرهٔ خیالی (مهره‌ای که روی صفحه نیست)',unreachable:'مهره به آن خانه نمی‌رسد',leaves_king_in_check:'شاه زیر کیش می‌ماند',castling_illegal:'قلعهٔ غیرمجاز',ambiguous:'حرکت دوپهلو',bad_notation:'نماد نادرست',no_answer:'جوابی پیدا نشد'};
+const KSHORT={ghost_piece:'مهرهٔ خیالی',unreachable:'نمی‌رسد',leaves_king_in_check:'کیش',castling_illegal:'قلعه',ambiguous:'دوپهلو',bad_notation:'نماد',no_answer:'بی‌جواب'};
+const GL={k:'♚',q:'♛',r:'♜',b:'♝',n:'♞',p:'♟'},Q=new URLSearchParams(location.search);
+let slots=[],games={},S={},feat=Q.get('game'),follow=!feat,speed=1,mode='',clockT=0,clockAt=performance.now(),ended=false;
+const R=r=>`<bdi dir="ltr">${r}</bdi>`;
+const mmss=s=>{s=Math.max(0,s);const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=Math.floor(s%60);return (h?h+':':'')+String(m).padStart(2,'0')+':'+String(x).padStart(2,'0')};
+const wp=cp=>50+50*(2/(1+Math.exp(-0.00368208*Math.max(-1000,Math.min(1000,cp))))-1);
+function newGame(g){return {...g,fen:'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',moves:[],last:null,bad:null,eval:null,mate:null,opening:null,inBook:true,result:null,reason:null,illegal:0,pend:[],prompt:'',reply:'',call:null,live:false}}
+function drawBoard(G){const b=$('#board');b.innerHTML='';const rows=G.fen.split(' ')[0].split('/');
+for(let r=0;r<8;r++){let f=0;for(const ch of rows[r]){if(/\d/.test(ch)){for(let k=0;k<+ch;k++)sq(r,f++,null);}else sq(r,f++,ch)}}
+function sq(r,f,p){const d=document.createElement('div');const name='abcdefgh'[f]+(8-r);d.className='sq '+((r+f)%2?'d':'l');
+if(G.last&&(G.last.slice(0,2)===name||G.last.slice(2,4)===name))d.classList.add('last');if(G.bad&&G.bad.includes(name))d.classList.add('badsq');
+if(p)d.innerHTML=`<span class="${p===p.toUpperCase()?'w':'b'}">${GL[p.toLowerCase()]}</span>`;if(f===0||r===7)d.innerHTML+=`<small>${r===7?'abcdefgh'[f]:''}${f===0?8-r:''}</small>`;b.appendChild(d)}
+const bar=$('#evalbar i');if(G.eval===null||G.eval===undefined){bar.style.height='50%';$('#evaltxt').textContent=engineOn?'…':'موتور خاموش';$('#evalbar b').textContent=''}
+else{bar.style.height=wp(G.eval)+'%';$('#evaltxt').textContent=G.mate?('M'+Math.abs(G.mate)):((G.eval>0?'+':'')+(G.eval/100).toFixed(1))}}
+let engineOn=false;
+function lab(k){const s=slots.find(s=>s.slot===k);return s?s.label:k}
+function showGame(){const G=games[feat];if(!G)return;drawBoard(G);$('#gid').innerHTML=`بازی ${F(G.gid.slice(1))} از ${F(Object.keys(games).length)}`+(G.result?` · نتیجه ${R(G.result)}`:'');
+$('#players').innerHTML=`<span class="wdot"></span>${lab(G.white)} &nbsp;در برابر&nbsp; <span class="bdot"></span>${lab(G.black)}`;
+$('#opening').textContent=(G.opening?`گشایش: ${G.opening[1]} (${G.opening[0]}) · `:'')+(G.inBook?'هنوز داخل کتاب گشایش':`از کتاب گشایش بیرون آمد: حرکت ${F(Math.ceil((G.leftAt||1)/2))}`)+(G.reason?` · ${G.reason}`:'');
+const fl=$('#flash');if(G.flash){fl.className='bad';fl.innerHTML=`غیرقانونی (تلاش ${F(G.flash.attempt)}): <code>${G.flash.proposed??'∅'}</code> ${KIND[G.flash.kind]||G.flash.kind}`}else{fl.className='ok';fl.textContent=G.result?'بازی تمام شد':(G.live?'در حال فکر…':'')}
+$('#call').innerHTML=G.call?`<span>${lab(G.call.slot)}</span><span><b>${G.call.latency_s.toFixed(1)}</b> s</span><span>in <b>${G.call.input_tokens.toLocaleString('en')}</b></span><span>out <b>${G.call.output_tokens.toLocaleString('en')}</b></span>${G.call.reasoning_tokens?`<span>think <b>${G.call.reasoning_tokens.toLocaleString('en')}</b></span>`:''}<span>${G.call.usd==null?'$ —':'$'+G.call.usd.toFixed(4)}</span>`:'';
+const mv=$('#moves');mv.innerHTML=G.moves.map((m,i)=>(i%2===0?`<span class="n">${i/2+1}.</span>`:'')+m.bad.map(x=>`<s>${x}</s>`).join(' ')+`<span class="${(i===G.moves.length-1?'cur ':'')+(m.j||'')}">${m.san}</span>`).join(' ')+(G.pend.length?' '+G.pend.map(x=>`<s>${x}</s>`).join(' '):'');
+$('#prompt').textContent=G.prompt;$('#reply').textContent=G.reply;
+document.querySelectorAll('.tile').forEach(t=>t.classList.toggle('on',t.dataset.g===feat))}
+function stand(){const rows=slots.map(s=>{const x=S[s.slot];const ft=x.first?100*x.firstOk/x.first:null;const acpl=x.cpl.length?x.cpl.reduce((a,b)=>a+Math.min(b,1000),0)/x.cpl.length:null;
+const med=x.lat.length?[...x.lat].sort((a,b)=>a-b)[Math.floor(x.lat.length/2)]:null;return {s,x,ft,acpl,med}});
+const best=Math.max(...rows.map(r=>r.x.pts));
+$('#stand').innerHTML=rows.map(({s,x,ft,acpl,med})=>`<tr class="${x.pts===best&&x.pts>0?'lead':''}"><td class="nm"><b>${s.label}</b><small>${s.model}</small></td><td class="pts">${F(x.pts)} / ${F(x.games)}</td>
+<td>${ft===null?'—':F(ft.toFixed(1))+'٪'}</td><td class="${x.illegal?'hot':''}">${F(x.illegal)}</td><td class="${x.forf?'hot':''}">${F(x.forf)}</td><td>${acpl===null?'—':F(acpl.toFixed(0))}</td>
+<td>${med===null?'—':F(med.toFixed(1))}</td><td>${x.calls?F(Math.round(x.tout/x.calls)):'—'}</td><td>${x.usdKnown?(x.calls?'$'+x.usd.toFixed(2):'—'):'—'}</td></tr>`).join('');
+$('#kinds').innerHTML='نوع حرکت‌های غیرقانونی: '+slots.map(s=>{const k=S[s.slot].kinds;const e=Object.entries(k);return e.length?`<b>${s.label}</b> `+e.map(([a,n])=>`<i>${KSHORT[a]||a} ${F(n)}</i>`).join(''):''}).filter(Boolean).join(' · ')}
+function tiles(){$('#tiles').innerHTML=Object.values(games).map(G=>`<div class="tile ${G.live&&!G.result?'live':''}" data-g="${G.gid}"><b>${F(G.gid.slice(1))}</b> ${lab(G.white)} – ${lab(G.black)}<br><span class="st">${G.result?`<span class="r">${R(G.result)}</span>`:'حرکت '+F(Math.ceil(G.moves.length/2)||0)}</span>${G.illegal?` <span class="x">✗${F(G.illegal)}</span>`:''}</div>`).join('');
+document.querySelectorAll('.tile').forEach(t=>t.onclick=()=>{feat=t.dataset.g;follow=false;showGame()})}
+function on(ev){if(ev.t!==undefined){clockT=ev.t;clockAt=performance.now()}
+if(ev.type==='start'){slots=ev.slots;mode=ev.mode;speed=ev.speed||1;engineOn=ev.engine_on;games={};S={};ended=false;for(const g of ev.games)games[g.gid]=newGame(g);
+for(const s of slots)S[s.slot]={pts:0,games:0,first:0,firstOk:0,illegal:0,forf:0,cpl:[],lat:[],tout:0,calls:0,usd:0,usdKnown:true,kinds:{}};
+$('#mode').textContent=mode==='mock'?'MOCK · ساختگی':mode==='replay'?(speed===1?'بازپخش · زمان واقعی':'بازپخش · ×'+F(speed)+' سریع‌تر'):'زنده';
+$('#wm').classList.toggle('on',mode==='mock'||slots.some(s=>s.model.startsWith('mock:'))||(ev.orig_mode==='mock'));
+$('#date').textContent='تاریخ اجرا: '+F(ev.date||'');$('#engine').textContent=ev.engine_on?ev.engine:'بدون Stockfish: ارزیابی خاموش';
+if(!feat||!games[feat])feat=ev.games[0].gid;tiles();stand();showGame();return}
+if(ev.type==='end'){ended=true;return}
+if(ev.spent!==undefined)$('#spend').textContent=mode==='mock'?'خرج: ساختگی (MOCK)':`خرج تا حالا: ${ev.spent_is_bound?'≤ ':''}$${ev.spent.toFixed(2)}`;
+const G=games[ev.gid];if(!G)return;
+if(ev.type==='game_start'){G.live=true;G.pend=[]}
+if(ev.type==='ask'){G.prompt=ev.prompt;G.live=true;if(ev.attempt===1){G.flash=null;G.pend=[]}}
+if(ev.type==='reply'){G.reply=ev.text;G.call=ev;const x=S[ev.slot];x.lat.push(ev.latency_s);x.tout+=ev.output_tokens;x.calls++;if(ev.usd==null)x.usdKnown=false;else x.usd+=ev.usd}
+if(ev.type==='illegal'){G.illegal++;G.flash=ev;G.pend.push(ev.proposed??'∅');const x=S[ev.slot];x.illegal++;x.kinds[ev.kind]=(x.kinds[ev.kind]||0)+1;if(ev.attempt===1)x.first++;
+G.bad=ev.proposed&&/^[a-h][1-8][a-h][1-8]/.test(ev.proposed)?[ev.proposed.slice(0,2),ev.proposed.slice(2,4)]:(ev.proposed&&(ev.proposed.match(/[a-h][1-8]/g)||[]))}
+if(ev.type==='move'){const x=S[ev.slot];if(!ev.retried){x.first++;x.firstOk++}if(ev.cpl!==null&&ev.cpl!==undefined)x.cpl.push(ev.cpl);
+G.moves.push({san:ev.san,bad:G.pend,j:ev.judgement});G.pend=[];G.fen=ev.fen;G.last=ev.uci;G.bad=null;G.eval=ev.eval_cp;G.mate=ev.mate;if(ev.opening)G.opening=ev.opening;
+if(G.inBook&&!ev.in_book){G.inBook=false;G.leftAt=ev.ply}if(follow)feat=G.gid;G.flash=ev.retried?G.flash:null}
+if(ev.type==='game_end'){G.result=ev.result;G.reason=ev.reason;G.live=false;if(ev.result!=='aborted'){for(const [k,c] of [[G.white,'1-0'],[G.black,'0-1']]){const x=S[k];x.games++;x.pts+=ev.result==='1/2-1/2'?0.5:ev.result===c?1:0;
+if(ev.reason&&ev.reason.startsWith('forfeit')&&ev.result!==c)x.forf++}}}
+tiles();stand();if(ev.gid===feat)showGame()}
+function tick(){if(!ended)$('#clock').textContent=mmss(clockT+(performance.now()-clockAt)/1000*speed);requestAnimationFrame(tick)}
+function connect(){const es=new EventSource('/events');es.onopen=()=>$('#link').textContent='● وصل';es.onerror=()=>$('#link').textContent='○ قطع';es.onmessage=e=>{try{on(JSON.parse(e.data))}catch(err){console.error(err)}}}
+addEventListener('keydown',e=>{if(e.key==='a'||e.key==='A'){follow=true}const ids=Object.keys(games);const i=ids.indexOf(feat);if(e.key==='ArrowLeft'&&i<ids.length-1){feat=ids[i+1];follow=false;showGame()}if(e.key==='ArrowRight'&&i>0){feat=ids[i-1];follow=false;showGame()}});
+connect();requestAnimationFrame(tick);
+</script></body></html>

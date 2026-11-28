@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HMD-S04 · storm replay</title>
+<style>
+:root{--bg:#111214;--panel:#1A1C1F;--ink:#ECE8DF;--mute:#8F8C84;--dim:#4A4A48;--amber:#E8A33D;--ofcl:#9FB4C7;--land:#2C3035;--sea:#15171A}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif}
+#app{display:grid;grid-template-columns:1fr 430px;gap:18px;padding:18px 22px;height:100vh}
+header{grid-column:1/3;display:flex;align-items:baseline;gap:18px}
+header h1{margin:0;font-size:26px;font-weight:700}header .fa{color:var(--mute);font-size:18px;direction:rtl}
+header .tabs{margin-inline-start:auto;display:flex;gap:8px}
+.tabs button{background:none;border:1px solid var(--dim);color:var(--mute);border-radius:6px;padding:6px 12px;font:inherit;cursor:pointer}
+.tabs button.on{border-color:var(--amber);color:var(--amber)}
+#stage{background:var(--sea);border-radius:10px;position:relative;overflow:hidden;min-height:0}
+#stage svg{width:100%;height:100%;display:block}
+aside{background:var(--panel);border-radius:10px;padding:16px 18px;overflow:auto;min-height:0}
+aside h2{margin:0 0 6px;font-size:20px}aside .k{color:var(--mute);font-size:14px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:15px;margin-top:8px}
+td,th{padding:3px 6px;text-align:right}th{color:var(--mute);font-weight:400}td:first-child,th:first-child{text-align:left}
+.sw{display:inline-block;width:18px;height:4px;vertical-align:middle;margin-inline-end:6px;border-radius:2px}
+.models label{display:inline-flex;align-items:center;margin:3px 10px 3px 0;font-size:15px;cursor:pointer}
+.models input{accent-color:var(--amber)}
+.note{color:var(--mute);font-size:13px;margin-top:10px}.big{font-size:44px;font-weight:700;color:var(--amber)}
+.amber{color:var(--amber)}.win{color:var(--amber);font-weight:700}
+#keys{position:fixed;bottom:6px;left:22px;color:var(--dim);font-size:13px}
+body.clean #keys,body.clean .tabs,body.clean .models{display:none}
+text{fill:var(--ink);font:14px system-ui,sans-serif}text.m{fill:var(--mute);font-size:12px}
+</style></head><body>
+<div id="app">
+<header><h1 id="title">Storm replay</h1><span class="fa" id="fa"></span>
+<div class="tabs"><button data-v="replay">1 · replay</button><button data-v="errors">2 · errors</button><button data-v="arabian">3 · Gonu &amp; Shaheen</button></div></header>
+<div id="stage"><svg id="svg" viewBox="0 0 1100 760" preserveAspectRatio="xMidYMid meet"></svg></div>
+<aside id="side"></aside>
+</div>
+<div id="keys">1 2 3 views · ← → initial time · [ ] storm · C cone · K track/intensity · B NHC printed · H hide · data: NOAA/NHC ATCF (public domain), GDMI © Google DeepMind CC BY 4.0, IBTrACS (NOAA), Natural Earth</div>
+<script>/*DATA*/</script>
+<script id="core">
+// Pure functions; --selftest runs this block in node against the Python results.
+const R_KM = 6371.0, KM_NMI = 1.852, LEADS = [12, 24, 36, 48, 60, 72, 96, 120];
+function gcKm(a, b, c, d) {
+  const r = Math.PI / 180, p1 = a * r, p2 = c * r, dp = (c - a) * r, dl = (d - b) * r;
+  const h = Math.sin(dp / 2) ** 2 + Math.cos(p1) * Math.cos(p2) * Math.sin(dl / 2) ** 2;
+  return 2 * R_KM * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+// rows: [storm, init, tau, err per model…]; returns {n:[…], model:[mean…]} over the cases every chosen model has
+function homogMeans(rows, allModels, chosen) {
+  const ix = chosen.map(m => allModels.indexOf(m)), out = {n: []};
+  chosen.forEach(m => out[m] = []);
+  for (const tau of LEADS) {
+    const sel = rows.filter(r => r[2] === tau && ix.every(i => r[3 + i] !== null));
+    out.n.push(sel.length);
+    chosen.forEach((m, j) => out[m].push(sel.length ? sel.reduce((s, r) => s + r[3 + ix[j]], 0) / sel.length : NaN));
+  }
+  return out;
+}
+</script>
+<script>
+const COL = {BEST: '#FFFFFF', OFCL: 'var(--ofcl)', GDMI: 'var(--amber)', EMXI: '#B9B3A7', AVNI: '#7E8B8F', HFAI: '#9C8FA8', HCCA: '#C9C4BA', OCD5: '#5A5A58'};
+const DASH = {OFCL: '', GDMI: '', EMXI: '8 5', AVNI: '3 4', HFAI: '10 3 2 3', HCCA: '1 3'};
+const NAME = {OFCL: 'NHC official', GDMI: 'Google DeepMind (GDMI)', EMXI: 'ECMWF (EMXI)', AVNI: 'GFS (AVNI)', HFAI: 'HAFS-A (HFAI)', HCCA: 'HCCA consensus', OCD5: 'CLIPER5 (no skill)'};
+// NHC 2025 Atlantic cone: two-thirds circles (n mi) = 2026 radii − change, Cangialosi et al. 2026, Table 9
+const CONE = {0: 0, 12: 26, 24: 39, 36: 52, 48: 67, 60: 82, 72: 100, 96: 142, 120: 213};
+const q = new URLSearchParams(location.search);
+const S = {view: q.get('view') || 'replay', storm: q.get('storm') || 'AL13', init: q.get('init') || '', cone: q.get('cone') !== '0',
+  coneOf: q.get('coneof') || 'OFCL', kind: q.get('kind') || 'track', nhc: q.get('nhc') === '1', ni: q.get('ni') || 'both',
+  models: (q.get('m') || 'OFCL,GDMI,EMXI,AVNI').split(','), sample: q.get('sample') || 'chosen'};
+if (q.get('clean') === '1') document.body.classList.add('clean');
+const $ = id => document.getElementById(id), svg = $('svg');
+const fmt = (x, d = 0) => Number.isFinite(x) ? x.toFixed(d) : '—';
+const tlabel = t => `${t.slice(6, 8)} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+t.slice(4, 6) - 1]} ${t.slice(8, 10)}Z`;
+function addH(t, h) { const d = new Date(Date.UTC(+t.slice(0, 4), +t.slice(4, 6) - 1, +t.slice(6, 8), +t.slice(8, 10) + h));
+  return d.toISOString().slice(0, 13).replace(/[-T]/g, ''); }
+
+function projector(box, W, H, pad = 30) {
+  const [la0, la1, lo0, lo1] = box, k = Math.cos((la0 + la1) / 2 * Math.PI / 180);
+  const sx = (W - 2 * pad) / ((lo1 - lo0) * k), sy = (H - 2 * pad) / (la1 - la0), s = Math.min(sx, sy);
+  const ox = (W - (lo1 - lo0) * k * s) / 2, oy = (H - (la1 - la0) * s) / 2;
+  return (lat, lon) => [ox + (lon - lo0) * k * s, oy + (la1 - lat) * s];
+}
+function el(tag, attrs, parent = svg) { const e = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+function txt(x, y, s, cls, anchor) { const t = el('text', {x, y, class: cls || '', 'text-anchor': anchor || 'start'}); t.textContent = s; return t; }
+function drawLand(key, P) {
+  for (const poly of DATA.land[key].polys) el('path', {d: 'M' + poly.map(([x, y]) => P(y, x).map(v => v.toFixed(1)).join(',')).join('L') + 'Z', fill: 'var(--land)'});
+}
+function graticule(box, P, step) {
+  const [la0, la1, lo0, lo1] = box;
+  for (let la = Math.ceil(la0 / step) * step; la <= la1; la += step) { const [x0, y] = P(la, lo0), [x1] = P(la, lo1);
+    el('line', {x1: x0, y1: y, x2: x1, y2: y, stroke: '#1F2226'}); txt(x0 + 4, y - 4, `${la}°N`, 'm'); }
+  for (let lo = Math.ceil(lo0 / step) * step; lo <= lo1; lo += step) { const [x, y0] = P(la0, lo), [, y1] = P(la1, lo);
+    el('line', {x1: x, y1: y0, x2: x, y2: y1, stroke: '#1F2226'}); txt(x + 4, y0 - 6, `${Math.abs(lo)}°${lo < 0 ? 'W' : 'E'}`, 'm'); }
+}
+function poly(pts, P, attrs) { el('polyline', Object.assign({points: pts.map(p => P(p[0], p[1]).map(v => v.toFixed(1)).join(',')).join(' '), fill: 'none'}, attrs)); }
+// cone: union of circles along the track, drawn as filled circles + hull segments (same look as NHC's cone)
+function cone(fc, P) {
+  const g = el('g', {opacity: 0.22});
+  const pts = fc.filter(p => p[0] in CONE);
+  for (let i = 0; i < pts.length; i++) {
+    const [tau, la, lo] = pts[i], r = CONE[tau] * KM_NMI, [x, y] = P(la, lo), [, y2] = P(la + r / 111.195, lo);
+    el('circle', {cx: x, cy: y, r: Math.max(0.5, y - y2), fill: COL[S.coneOf] || '#fff'}, g);
+    if (i) { const [t0, a0, b0] = pts[i - 1], r0 = CONE[t0] * KM_NMI, [x0, yy0] = P(a0, b0), [, yy0b] = P(a0 + r0 / 111.195, b0);
+      const R0 = yy0 - yy0b, R1 = y - y2, dx = x - x0, dy = y - yy0, L = Math.hypot(dx, dy) || 1, nx = -dy / L, ny = dx / L;
+      el('polygon', {points: [[x0 + nx * R0, yy0 + ny * R0], [x + nx * R1, y + ny * R1], [x - nx * R1, y - ny * R1], [x0 - nx * R0, yy0 - ny * R0]].map(p => p.join(',')).join(' '), fill: COL[S.coneOf] || '#fff'}, g); }
+  }
+}
+
+function viewReplay() {
+  const st = DATA.replay.storms[S.storm], best = st.best;
+  const inits = Object.keys(st.fc.OFCL || {}).sort();
+  if (!inits.includes(S.init)) S.init = inits[Math.floor(inits.length / 2)] || best[0][0];
+  const win = best.filter(b => b[0] >= addH(S.init, -24) && b[0] <= addH(S.init, 120));
+  const lats = win.map(b => b[1]), lons = win.map(b => b[2]);
+  for (const m of S.models) for (const p of (st.fc[m] || {})[S.init] || []) { lats.push(p[1]); lons.push(p[2]); }
+  let box = [Math.min(...lats) - 4, Math.max(...lats) + 4, Math.min(...lons) - 6, Math.max(...lons) + 6];
+  const P = projector(box, 1100, 760);
+  drawLand('atl', P); graticule(box, P, 5);
+  const bmap = Object.fromEntries(best.map(b => [b[0], b]));
+  poly(best.map(b => [b[1], b[2]]), P, {stroke: COL.BEST, 'stroke-width': 3, opacity: 0.9});
+  if (S.cone && (st.fc[S.coneOf] || {})[S.init]) cone(st.fc[S.coneOf][S.init].map(p => [p[0], p[1], p[2]]), P);
+  const rows = {};
+  for (const m of S.models) {
+    const fc = (st.fc[m] || {})[S.init]; if (!fc) continue;
+    poly(fc.map(p => [p[1], p[2]]), P, {stroke: COL[m], 'stroke-width': m === 'GDMI' || m === 'OFCL' ? 3.5 : 2.2, 'stroke-dasharray': DASH[m] || ''});
+    rows[m] = {};
+    for (const p of fc) { const [x, y] = P(p[1], p[2]); el('circle', {cx: x, cy: y, r: 3.5, fill: COL[m]});
+      const b = bmap[addH(S.init, p[0])];
+      if (b && LEADS.includes(p[0])) rows[m][p[0]] = gcKm(p[1], p[2], b[1], b[2]); }
+  }
+  for (const tau of [0, 24, 48, 72, 120]) { const b = bmap[addH(S.init, tau)]; if (!b) continue; const [x, y] = P(b[1], b[2]);
+    el('circle', {cx: x, cy: y, r: tau ? 7 : 9, fill: tau ? '#111214' : '#FFFFFF', stroke: '#FFFFFF', 'stroke-width': 2.5});
+    txt(x + 10, y - 8, tau ? `+${tau} h` : 'start', ''); }
+  $('title').textContent = `${st.name} 2025 · forecasts from ${tlabel(S.init)}`;
+  $('fa').textContent = 'خط سفید: مسیر واقعی (best track) · خط‌های رنگی: پیش‌بینی‌ها';
+  const leads = [24, 48, 72, 120];
+  let h = `<h2>${st.name} · ${tlabel(S.init)}</h2><div class="k">Error = great-circle distance to the best-track position at the same time (km). Live from the decks.</div>`;
+  h += '<table><tr><th></th>' + leads.map(t => `<th>${t} h</th>`).join('') + '</tr>';
+  for (const m of S.models) { if (!rows[m]) continue;
+    h += `<tr><td><span class="sw" style="background:${COL[m]}"></span>${m}</td>` + leads.map(t => {
+      const v = rows[m][t], others = S.models.filter(o => rows[o] && rows[o][t] !== undefined).map(o => rows[o][t]);
+      return `<td class="${v !== undefined && v === Math.min(...others) ? 'win' : ''}">${v === undefined ? '—' : fmt(v)}</td>`; }).join('') + '</tr>'; }
+  h += '</table><div class="note">— = no forecast, or the storm was no longer tropical at that time (not verified, as in the NHC report).</div>';
+  h += `<div class="models">` + DATA.replay.models.map(m => `<label><input type="checkbox" data-m="${m}" ${S.models.includes(m) ? 'checked' : ''}> <span class="sw" style="background:${COL[m]}"></span>${m}</label>`).join('') + '</div>';
+  h += `<div class="note">Cone: ${S.cone ? `NHC 2025 two-thirds circles drawn around <b>${S.coneOf}</b>${S.coneOf !== 'OFCL' ? ' (NHC\'s sizes, not this model\'s own spread)' : ''}` : 'off'} · ${inits.indexOf(S.init) + 1}/${inits.length} official forecasts · one case is one forecast, not a season.</div>`;
+  $('side').innerHTML = h;
+}
+
+function chart(series, n, unit, nhc) {
+  const X0 = 90, X1 = 1000, Y0 = 680, Y1 = 60, maxv = Math.max(...Object.values(series).flat().filter(Number.isFinite), ...(nhc ? Object.values(nhc).flat() : [])) * 1.08;
+  const xs = t => X0 + (t / 120) * (X1 - X0), ys = v => Y0 - (v / maxv) * (Y0 - Y1);
+  const step = maxv > 400 ? 100 : maxv > 150 ? 50 : maxv > 40 ? 10 : 5;
+  for (let v = 0; v <= maxv; v += step) { el('line', {x1: X0, x2: X1, y1: ys(v), y2: ys(v), stroke: '#24272B'}); txt(X0 - 10, ys(v) + 5, String(v), 'm', 'end'); }
+  LEADS.forEach((t, i) => { txt(xs(t), Y0 + 26, `${t} h`, 'm', 'middle'); txt(xs(t), Y0 + 46, `n=${n[i]}`, 'm', 'middle'); });
+  txt(X0, Y1 - 24, unit, 'm');
+  const labels = [];
+  for (const m in series) {
+    const pts = LEADS.map((t, i) => [xs(t), ys(series[m][i])]).filter(p => Number.isFinite(p[1]));
+    el('polyline', {points: pts.map(p => p.join(',')).join(' '), fill: 'none', stroke: COL[m] || '#aaa', 'stroke-width': m === 'GDMI' || m === 'OFCL' ? 4 : 2.5, 'stroke-dasharray': DASH[m] || ''});
+    pts.forEach(p => el('circle', {cx: p[0], cy: p[1], r: 4.5, fill: COL[m] || '#aaa'}));
+    const last = pts[pts.length - 1]; if (last) labels.push([last[0] + 8, last[1] + 5, m]);
+    if (nhc && nhc[m]) LEADS.forEach((t, i) => el('circle', {cx: xs(t), cy: ys(nhc[m][i]), r: 8, fill: 'none', stroke: COL[m], 'stroke-width': 2}));
+  }
+  labels.sort((a, b) => a[1] - b[1]);                 // keep end labels from overlapping
+  for (let i = 1; i < labels.length; i++) labels[i][1] = Math.max(labels[i][1], labels[i - 1][1] + 17);
+  labels.forEach(([x, y, m]) => { const t = txt(x, y, m, ''); t.setAttribute('fill', COL[m] || '#aaa'); t.style.fill = COL[m] || '#aaa'; });
+}
+function viewErrors() {
+  const track = S.kind === 'track', V = DATA.verify, C = DATA.cases;
+  const all = track ? C.track_models : C.intensity_models, rows = track ? C.track : C.intensity;
+  const chosen = S.models.filter(m => all.includes(m));
+  const res = homogMeans(rows, all, S.sample === 'nhc' ? all : chosen);
+  const series = Object.fromEntries(chosen.map(m => [m, res[m]]));
+  const nhcT = track ? V.nhc_t2 : V.nhc_t4;
+  const nhc = S.nhc ? Object.fromEntries(chosen.map(m => [m, nhcT[m].map(v => track ? v * KM_NMI : v)])) : null;
+  chart(series, res.n, track ? 'mean track error, km (great circle)' : 'mean intensity error, kt (|forecast − best track|)', nhc);
+  $('title').textContent = `Atlantic 2025 · mean ${track ? 'track' : 'intensity'} error by lead time`;
+  $('fa').textContent = 'هر نقطه = میانگین خطا روی همهٔ پیش‌بینی‌هایی که همهٔ مدل‌های انتخابی داشتند';
+  let h = `<h2>${S.sample === 'nhc' ? 'NHC Table ' + (track ? 2 : 4) + ' sample' : 'Homogeneous sample of the chosen models'}</h2>`;
+  h += `<div class="k">Only cycles every ${S.sample === 'nhc' ? 'one of the ' + all.length + ' aids' : 'chosen model'} has, tropical at start and end. Computed live from ${rows.length} cases.</div>`;
+  h += '<table><tr><th></th>' + [24, 48, 72, 120].map(t => `<th>${t} h</th>`).join('') + '</tr>';
+  for (const m of chosen) h += `<tr><td><span class="sw" style="background:${COL[m]}"></span>${m}</td>` + [24, 48, 72, 120].map(t => `<td>${fmt(res[m][LEADS.indexOf(t)])}</td>`).join('') + '</tr>';
+  h += `<tr><td class="k">cases</td>` + [24, 48, 72, 120].map(t => `<td class="k">${res.n[LEADS.indexOf(t)]}</td>`).join('') + '</tr></table>';
+  const B = track ? V.track_km.t2_boot_storm : V.inten_boot_storm, BC = track ? V.track_km.t2_boot_case : null;
+  h += `<h2 style="margin-top:16px">GDMI − OFCL, Table ${track ? 2 : 4} sample</h2><div class="k">95% bootstrap interval, resampling whole storms (2000 draws, seed 1). Below zero = AI closer.</div><table><tr><th></th><th>mean</th><th>95% interval</th><th>storms</th></tr>`;
+  for (const t of [24, 48, 72, 120]) { const b = B[t]; h += `<tr><td>${t} h</td><td class="${b.hi < 0 ? 'win' : ''}">${fmt(b.mean, 1)}</td><td>${fmt(b.lo, 0)} … ${fmt(b.hi, 0)}</td><td>${b.storms}</td></tr>`; }
+  h += '</table>';
+  if (BC) h += `<div class="note">If every forecast is treated as independent (wrong: one storm gives many similar forecasts), the 48 h interval shrinks to ${fmt(BC[48].lo)} … ${fmt(BC[48].hi)} km.</div>`;
+  h += `<div class="models">` + all.filter(m => m in COL).concat(all.filter(m => !(m in COL)).slice(0, 0)).map(m => `<label><input type="checkbox" data-m="${m}" ${S.models.includes(m) ? 'checked' : ''}> ${m}</label>`).join('') + '</div>';
+  h += `<div class="note">Our rebuild of NHC's table: same case counts at every lead time; largest gap ${fmt(track ? V.maxdiff_t2 : V.maxdiff_t4, 1)} ${track ? 'n mi' : 'kt'} (B = show NHC's printed values as rings). S = switch sample.</div>`;
+  $('side').innerHTML = h;
+}
+
+function viewArabian() {
+  const N = DATA.ni, box = DATA.land.ni.box, P = projector(box, 1100, 760);
+  drawLand('ni', P); graticule(box, P, 5);
+  const keys = S.ni === 'both' ? ['gonu', 'shaheen'] : [S.ni];
+  for (const k of keys) {
+    const tr = N[k].track, c = k === 'gonu' ? 'var(--amber)' : 'var(--ofcl)';
+    poly(tr.map(p => [p[1], p[2]]), P, {stroke: c, 'stroke-width': 3});
+    tr.forEach(p => { if (p[0].endsWith('00:00')) { const [x, y] = P(p[1], p[2]); el('circle', {cx: x, cy: y, r: 3 + (p[3] || 0) / 18, fill: c, opacity: 0.85});
+      txt(x + 8, y + 18, p[0].slice(5, 10), 'm'); } });
+    const first = tr.find(p => p[2] <= box[3] - 1) || tr[0], [lx, ly] = P(first[1], first[2]); txt(lx - 60, ly - 14, k === 'gonu' ? 'Gonu 2007' : 'Shaheen 2021 (from Gulab)', '');
+  }
+  for (const [name, [la, lo]] of Object.entries(N.places)) { const [x, y] = P(la, lo);
+    el('rect', {x: x - 5, y: y - 5, width: 10, height: 10, fill: '#FFFFFF'}); txt(x + 9, y - 7, name, ''); }
+  $('title').textContent = 'Arabian Sea · Gonu (June 2007) and Shaheen (Oct 2021)';
+  $('fa').textContent = 'گونو و شاهین · مسیر واقعی از IBTrACS (نوآ)';
+  let h = '<h2>From the best tracks (IBTrACS v04r01)</h2><table><tr><th></th><th>Gonu</th><th>Shaheen</th></tr>';
+  h += `<tr><td>peak wind, JTWC 1-min</td><td>${N.gonu.peak_usa[1]} kt</td><td>${N.shaheen.peak_usa[1]} kt</td></tr>`;
+  h += `<tr><td>peak wind, IMD 3-min</td><td>${N.gonu.peak_imd[1]} kt · ${N.gonu.peak_imd[2]}</td><td>${N.shaheen.peak_imd[1]} kt · ${N.shaheen.peak_imd[2]}</td></tr>`;
+  for (const p of Object.keys(N.places)) h += `<tr><td>closest to ${p}</td><td>${N.gonu.nearest[p].km} km</td><td>${N.shaheen.nearest[p].km} km</td></tr>`;
+  h += '</table><div class="note">Closest approach = smallest great-circle distance from the 3-hourly track centre to the town; the wind reaches much farther than the centre.</div>';
+  h += '<h2 style="margin-top:16px">AI forecasts for these storms?</h2><div class="k">None in our data. NHC does not forecast this basin, and we found no public archive of AI track forecasts made in real time for Gonu or Shaheen. Gonu (2007) lies inside the training years of GraphCast-type models, so a "hindcast" of it would not be a fair test.</div>';
+  $('side').innerHTML = h;
+}
+
+function render() {
+  svg.innerHTML = '';
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === S.view));
+  ({replay: viewReplay, errors: viewErrors, arabian: viewArabian})[S.view]();
+  document.querySelectorAll('[data-m]').forEach(cb => cb.onchange = () => {
+    const m = cb.dataset.m; S.models = cb.checked ? S.models.concat(m) : S.models.filter(x => x !== m); render(); });
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { S.view = b.dataset.v; render(); });
+addEventListener('keydown', e => {
+  const k = e.key, storms = Object.keys(DATA.replay.storms);
+  if (k === '1') S.view = 'replay'; else if (k === '2') S.view = 'errors'; else if (k === '3') S.view = 'arabian';
+  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+  else if (S.view === 'replay' && (k === 'ArrowRight' || k === 'ArrowLeft')) {
+    const inits = Object.keys(DATA.replay.storms[S.storm].fc.OFCL || {}).sort(), i = inits.indexOf(S.init) + (k === 'ArrowRight' ? 1 : -1);
+    if (i >= 0 && i < inits.length) S.init = inits[i]; }
+  else if (k === ']' || k === '[') { S.storm = storms[(storms.indexOf(S.storm) + (k === ']' ? 1 : storms.length - 1)) % storms.length]; S.init = ''; }
+  else if (k === 'c' || k === 'C') { if (S.cone && S.coneOf === 'OFCL') S.coneOf = 'GDMI'; else if (S.cone) { S.cone = false; S.coneOf = 'OFCL'; } else S.cone = true; }
+  else if (k === 'k' || k === 'K') S.kind = S.kind === 'track' ? 'intensity' : 'track';
+  else if (k === 'b' || k === 'B') S.nhc = !S.nhc;
+  else if (k === 's' || k === 'S') S.sample = S.sample === 'nhc' ? 'chosen' : 'nhc';
+  else if (S.view === 'arabian' && (k === 'g' || k === 'G')) S.ni = {both: 'gonu', gonu: 'shaheen', shaheen: 'both'}[S.ni];
+  else return;
+  e.preventDefault(); render();
+});
+render();
+</script></body></html>

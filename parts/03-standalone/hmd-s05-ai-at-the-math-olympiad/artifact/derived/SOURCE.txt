@@ -1,0 +1,25 @@
+HMD-S05 · derived data. Aggregate statistics only; no contestant names, photos or individual rows are stored.
+
+imo-stats.json — made by `python3 -I artifact/imo_live.py --rebuild` (imo_core.rebuild, Python 3.11 stdlib), 28 Nov 2026.
+  Source   International Mathematical Olympiad, public results pages at https://www.imo-official.org
+           /editions/{2024,2025,2026}/            venue, dates, countries, contestants, medal cut-offs and counts
+           /results/team/year/{2024,2025,2026}/   Iran's team row (rank, points, P1–P6 team totals, medals)
+           /results/individual/year/{2024,2025,2026}/  per-problem score histograms 0–7 and the total-score
+                                                   histogram 0–42 (the name column is discarded while parsing)
+           /results/team/country/IRN/              Iran's team history 1985–2026 (team rows only)
+           /countries/IRN/                         first participation, participations, medal totals
+           Fetched 28 Nov 2026; sha256 of each page is inside imo-stats.json (pages_sha256).
+  Licence  imo-official.org shows "© International Mathematical Olympiad" and publishes no licence or terms of
+           reuse (checked 28 Nov 2026: footer, /media/, /regulations/). We store only aggregate counts and team
+           totals, which are facts, with attribution. Problem statements, the Shortlist PDF and the IMO logo are
+           NOT stored here: the live session downloads the official English PDF at run time into artifact/data/
+           (git-ignored). Regulation 5.10 says participants consent to publication of names and photos on the
+           IMO website; that consent does not extend to us, so we use no names or photos of contestants.
+  ai_results  hand-entered from the primary sources listed in ../../sources.md (R10–R16); grader type per row.
+Checks (imo_live.py --selftest, 28 Nov 2026, all ok)
+  2025: 630 rows = 630 contestants; every per-problem histogram sums to 630; gold count 72 = contestants with
+  total >= 35; cut-offs 35/28/19; P6 mean 0.184 with 6 full scores; Iran rank 12, 183 points = 34+42+33+42+32+0.
+  2024 gold cut-off 29; 2026 Iran 147 points; Iran rank 1 in 1998.
+  sunny_ks(n) = [0, 1, 3] for n = 3, 4, 5, 6 (exhaustive search; n = 7 also gives [0, 1, 3] in about 15 s).
+What this does NOT show: how any AI system would be graded by the IMO; per-problem means are averages over all
+contestants, not the chance that a given student solves a problem.

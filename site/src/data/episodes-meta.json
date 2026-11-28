@@ -41,11 +41,25 @@
    "summary": "Persian text is usually shorter than its English equivalent (median 0.88 of the characters), yet tokenizers split it into 1.21 to 4.61 times as many tokens."
   }
  },
+ "HMD-S02": {
+  "slug": "hmd-s02",
+  "en": {
+   "title": "Five AIs, one chessboard: which one actually plays?",
+   "summary": "Five language models play each other live, with no chess engine to help. Who breaks the rules first, who blunders, and who really plays once the memorised openings run out."
+  }
+ },
  "HMD-006": {
   "slug": "hmd-006",
   "en": {
    "title": "When they say an AI makes fewer mistakes, what are they not telling you?",
    "summary": "An error rate means nothing without its numerator and denominator: a model can make fewer mistakes simply by staying silent more often."
+  }
+ },
+ "HMD-S03": {
+  "slug": "hmd-s03",
+  "en": {
+   "title": "Did AlphaFold get the proteins of salak and Crimean–Congo fever right?",
+   "summary": "The Nobel-winning AI's predicted shapes for a leishmaniasis protein and the Crimean–Congo fever nucleoprotein, checked against experimental structures with our own code: where it is confident, where it is not, and why that is not a cure."
   }
  },
  "HMD-007": {
@@ -55,6 +69,13 @@
    "summary": "To a language model, your instructions and a document's text arrive in one stream of words, so a document can give orders. Two defences, and what each one cannot do."
   }
  },
+ "HMD-S04": {
+  "slug": "hmd-s04",
+  "en": {
+   "title": "Did AI out-forecast the hurricane experts?",
+   "summary": "We recompute the 2025 hurricane-forecast errors ourselves from public data: an AI model against the official forecast, lead time by lead time, plus a look at cyclones Gonu and Shaheen."
+  }
+ },
  "HMD-008": {
   "slug": "hmd-008",
   "en": {
@@ -62,11 +83,25 @@
    "summary": "A wrong answer key only takes points from whoever answered correctly. Key errors are not neutral noise; they can change the winner unless the key is audited."
   }
  },
+ "HMD-S05": {
+  "slug": "hmd-s05",
+  "en": {
+   "title": "Did AI really win gold at the Maths Olympiad?",
+   "summary": "AI models claimed gold-level scores at the International Mathematical Olympiad. Who graded their proofs and under what rules, set beside the official results of Iran's team."
+  }
+ },
  "HMD-009": {
   "slug": "hmd-009",
   "en": {
    "title": "How does Google Maps know when you will arrive?",
    "summary": "An ETA is not a picture of traffic now; it is a forecast of the traffic you will meet. The key idea: every road segment listens to its neighbours."
+  }
+ },
+ "HMD-S06": {
+  "slug": "hmd-s06",
+  "en": {
+   "title": "What will the weather be on Damavand's summit tomorrow?",
+   "summary": "Why forecast models disagree about a 5,610-metre summit, how to correct them to the real peak, and a design for a summit weather service for climbers."
   }
  },
  "HMD-010": {

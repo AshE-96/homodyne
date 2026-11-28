@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-018-companion
 hmd: HMD-018
 kind: companion
-date: 2027-04-09
+date: 2027-05-14
 tags: ["reproducibility", "SHA-256", "correction log", "benchmarks", "benchmark course", "AI scores"]
 sources:
   - title: "NeurIPS 2026 Paper Checklist Guidelines (read 7 November 2026)"

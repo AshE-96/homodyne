@@ -1,0 +1,52 @@
+HMD-S03 · derived data for the AlphaFold-vs-experiment demo.
+
+fold-data.json — made by `python3 -I artifact/fold_live.py --fetch` (fold_data.py + fold_core.py, Python standard library),
+28 Nov 2026; raw files fetched 2026-11-28T09:15:10Z (key-less, no login) into artifact/data/ (git-ignored, not redistributed).
+sha256(fold-data.json) = aa42ea7ce738a9c695f774e131279cf9fc61eb0be0a9003eb0226b36a1f3a228
+
+What is inside (per protein):
+  afdb      AlphaFold DB API record (entry id, tool, model date, version, mean pLDDT, band fractions)       CC BY 4.0
+  ca, plddt C-alpha coordinates (0.01 Å) and per-residue pLDDT of the predicted model                       CC BY 4.0
+  pae       predicted aligned error, 2x2 block means, rounded to 1 Å, as chr(48 + value)                     CC BY 4.0
+  features  UniProt features (signal, propeptides, chain, motifs, sites)                                     CC BY 4.0
+  refs      experimental C-alpha coordinates of the residues that align to the model (PDB), entry metadata  CC0 1.0
+  result    OUR computation: sequence alignment, Kabsch/Horn superposition, Cα RMSD, TM-score, arm rotation
+Attribution (CC BY 4.0):
+  GP63 model  AF-P08148-F1 v6, AlphaFold Monomer v2.0 pipeline, AlphaFold DB (EMBL-EBI / Google DeepMind);
+              Jumper et al., Nature 596, 583–589 (2021). File header: "AVAILABLE ... UNDER CC-BY 4.0 LICENCE".
+  NP model    AF-0000000365761428 v1, ColabFold v1.5.2, contributed to AlphaFold DB by Viro3D (MRC–University of Glasgow
+              Centre for Virus Research); Litvin et al., Mol Syst Biol 21, 1599 (2025). File header: "UNDER CC-BY 4.0 LICENCE".
+  UniProt     P08148 (GP63_LEIMA), P89522 (NCAP_CCHFI), entry versions 143 and 77 (2026-11-04). uniprot.org/help/license: CC BY 4.0.
+  PDB         1LML, 4AQG, 4AQF, 9WA4 (RCSB PDB). wwpdb.org/about/usage-policies: "available under the CC0 1.0 Universal".
+Both model files say: theoretical modelling only; not a substitute for professional medical advice.
+
+Raw files (artifact/data/, sha256 at fetch time):
+  afdb-P08148.json     05206050d756fdf6dc3155a149d725715778de9c17739d23464eae7a0ae9dcf9
+  model-P08148.pdb     b109542e152d1434d1704ebc4028c6bf91bcd58db0d47095282532ca56e0fdaf
+  pae-P08148.json      c0b8934b30aeafcf6b582ae3d9c4f99d7c82c345535e38b79b828cfd55cd2546
+  plddt-P08148.json    6d06eee2205da2dd53f6bb3a0fe9c3a1effb6fbd5f9ccf4106de8aec262dd6f2
+  uniprot-P08148.json  845e6ea792d88356af8a2583ca7aeff8bda5040cde7b5abeb675951cd81da0b1
+  1LML.cif             8171aaa352ecafa07da98b346ff519320a8e82098c847393dcbc84563b5ff634
+  afdb-P89522.json     c078acf358acd619e42774c714f7b2dcc6dcda868a50f68ac12d702beb05491f
+  model-P89522.pdb     5b6d2994919becbc623c64e0ec2197f4a8e89502c3430985eccca57b1c36ee28
+  pae-P89522.json      3eb09e4fed441e965b51008a84e191e65a5220ea64a9faac57a4ce383fbcdf70
+  plddt-P89522.json    04ef9698958a9fe415305c0cf11577d30f6b942aaca2729211d808359fe6aa7c
+  uniprot-P89522.json  6a3b356991e2d4ba655a9b789b26df02780969ceeb3b9fa7bd7208f4053768ba
+  4AQG.cif             6ff2b7d0b6b769c4a218a54f0ae097906f31b4cff3d82d381585a9899af6870f
+  4AQF.cif             9b7f546fa3741dd9c11f6032b689f09848a4ff3e84f52b6694716d812f9b0d07
+  9WA4.cif             c3d25864247ff236ab40fdc7d40f91294ecd871dfaec335d5454904e256ab62d
+
+Results (selftest reproduces each RMSD from the stored coordinates; numpy SVD Kabsch agrees to 1e-6):
+  GP63 vs 1LML:A   465 Cα (model residues 100–574)   RMSD 0.27 Å   TM 0.999   mean pLDDT 87.15 (AFDB 87.12); mature 101–577: 95.85
+                   pLDDT < 50 runs: 1–44, 91–96, 578–602 = signal peptide, activation peptide, GPI-signal propeptide (UniProt)
+  NP  vs 4AQG:A    462 Cα   RMSD 9.72 Å   TM 0.802   head-only 1.07 Å   arm turned 178° relative to the model
+  NP  vs 4AQF:B    474 Cα   RMSD 2.89 Å   TM 0.913   head-only 1.01 Å   arm turned 26°
+  NP  vs 9WA4:A    466 Cα   RMSD 5.38 Å   TM 0.804   head-only 2.00 Å   arm turned 46°   (cryo-EM RNP, released 18 Nov 2026)
+  4AQG vs 4AQF:B (two experiments, same lab, same strain): head 0.76 Å, whole 9.22 Å, arm turned 143° (chains A, C: ~171°; model vs 4AQF:A/C ~9–11°, independent numpy check)
+  NP arm (residues 181–299, mean pLDDT 80.9) = largest run with mean PAE to the head core > 10 Å; mean PAE head↔head 3.9, arm↔arm 6.5, arm↔head 18.6 Å
+Method notes: TM-score normalised by the experimental chain length, d0 = 1.24·(L−15)^(1/3) − 1.8, fixed sequence-based
+correspondence (not TM-align). RMSD = C-alpha only. "Arm turned" = rotation angle of the arm after superposing the heads.
+
+What this does NOT show: that AlphaFold predicted these blind. 1LML (1997) and the 2012 NP crystals predate AlphaFold's
+training cut-off and the AFDB pipeline may use templates; agreement is partly the model knowing the answer. Nor does any
+of this say anything about a drug, a vaccine, a diagnosis or a treatment.

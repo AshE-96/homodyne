@@ -1,0 +1,218 @@
+<!-- HMD-S05 · deck source. Build: python3 scripts/build-decks.py --only hmd-s05  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Charts are drawn by us from imo-official.org aggregates (artifact/derived/imo-stats.json); no third-party images,
+     no IMO problem text (copyright), no names or photos of contestants. -->
+
+<style>
+/* HMD-S05: grading table (beat 3), per-problem bars (beat 5), point triangle (beats 10–11) */
+.chart.tri{max-width:1100px;margin-inline:auto}
+.chart.tri .p{fill:#6E6A63}.chart.tri .pb{fill:#E8A33D}.chart.tri .b{stroke:#8F8C84;stroke-width:3}
+.chart.tri .s{stroke:#E8A33D;stroke-width:6}.chart.tri .e{stroke:#E8A33D;stroke-width:8;opacity:.55}
+.chart text{font-size:28px}.chart .sm{font-size:24px;fill:#6E6A63}
+.cols.two b{font-size:96px}
+.cards .off{opacity:.55}
+.bars.prob>div{grid-template-columns:300px 1fr 200px}
+.ladder>div{font-size:26px}.ladder>div b{font-size:28px}
+</style>
+
+<section class="cover">
+<h1><t-fa>هوش مصنوعی در المپیاد ریاضی <em>طلا گرفت؟</em></t-fa><t-en>Did AI really win gold at the <em>Maths Olympiad</em>?</t-en></h1>
+<p class="promise"><t-fa>برگهٔ المپیاد را چه کسی نمره می‌دهد؟ یک مسئلهٔ ۲۰۲۵ را باز می‌کنیم و پنج مدل را سر همان مسئله می‌نشانیم.</t-fa><t-en>Who grades an olympiad paper? We open one 2025 problem and sit five models in front of it.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>IMO 2025 · ژوئیه</t-fa><t-en>IMO 2025 · July</t-en></p>
+<div class="cols two">
+<div class="hi"><span><t-fa>سیستم الف</t-fa><t-en>System A</t-en></span><b>35/42</b><p><t-fa>نمره از هماهنگ‌کنندگان خود المپیاد</t-fa><t-en>graded by the olympiad's own coordinators</t-en></p></div>
+<div><span><t-fa>سیستم ب</t-fa><t-en>System B</t-en></span><b>35/42</b><p><t-fa>نمره از سه مدال‌آور سابق، بیرون از داوری رسمی</t-fa><t-en>graded by three former medallists, outside official grading</t-en></p></div>
+</div>
+<p class="caption"><t-fa>یک آزمون، یک هفته، یک عدد. <strong>یک معنا؟</strong></t-fa><t-en>Same exam, same week, same number. <strong>Same meaning?</strong></t-en></p>
+<footer><t-fa>R11 · R12</t-fa><t-en>R11 · R12</t-en></footer>
+<aside class="notes"><t-fa><b>دو تا سی‌وپنج</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» نام شرکت‌ها را اینجا نگو؛ در قاب ۸ می‌آیند. حدس را بخواه و جواب نده.</p><p>در یک جمله: دو نمرهٔ یکسان با دو جور داور؛ سؤال این قسمت این است که این دو عدد یک معنا دارند یا نه.</p></t-fa><t-en><b>Two 35s</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. Do not name the companies here; they come in beat 8. Ask for the guess, do not answer it.</p><p>In one line: two identical scores with two kinds of grader; is it the same number?</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="50">
+<p class="kicker"><t-fa>المپیاد جهانی ریاضی</t-fa><t-en>The International Mathematical Olympiad</t-en></p>
+<h1><t-fa>جواب‌نامه ندارد؛ جواب یک <em>اثبات</em> است</t-fa><t-en>No answer key: the answer is a <em>proof</em></t-en></h1>
+<div class="cols">
+<div><span><t-fa>روز</t-fa><t-en>days</t-en></span><b><t-fa>۲</t-fa><t-en>2</t-en></b><p><t-fa>هر روز ۳ مسئله</t-fa><t-en>3 problems a day</t-en></p></div>
+<div><span><t-fa>وقت هر روز</t-fa><t-en>time per day</t-en></span><b><t-fa>۴٫۵ ساعت</t-fa><t-en>4.5 h</t-en></b><p><t-fa>کاغذ، قلم، خط‌کش، پرگار</t-fa><t-en>paper, pen, ruler, compasses</t-en></p></div>
+<div class="hi"><span><t-fa>هر مسئله</t-fa><t-en>each problem</t-en></span><b><t-fa>۷</t-fa><t-en>7</t-en></b><p><t-fa>کل برگه ۴۲ امتیاز</t-fa><t-en>42 points in all</t-en></p></div>
+</div>
+<p class="tag"><t-fa>هر کشور حداکثر ۶ دانش‌آموز · ماشین‌حساب، کتاب و رایانه ممنوع (آیین‌نامه، بند ۵٫۴)</t-fa><t-en>Up to 6 students per country · calculators, books and computers banned (Regulations 5.4)</t-en></p>
+<footer><t-fa>R05 · آیین‌نامهٔ عمومی IMO، به‌روزرسانی ۱۶ ژوئیهٔ ۲۰۲۵</t-fa><t-en>R05 · IMO General Regulations, updated 16 July 2025</t-en></footer>
+<aside class="notes"><t-fa><b>جواب‌نامه ندارد</b><p>[B-ROLL CUE] پل از HMD-008 (جواب‌نامهٔ غلط). برگه و خودکار؛ چهرهٔ دانش‌آموز نه.</p><p>در یک جمله: در المپیاد جواب‌نامه نیست؛ جواب یک اثبات است و نمره‌اش را آدم‌ها می‌دهند.</p></t-fa><t-en><b>No answer key</b><p>[B-ROLL CUE] Bridge from HMD-008 (wrong answer keys). Paper and pen; no student faces.</p><p>In one line: there is no answer key; the answer is a proof and people grade it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="95">
+<p class="kicker"><t-fa>داوری انسان‌ها</t-fa><t-en>How humans are graded</t-en></p>
+<h1><t-fa>دو طرف یک <em>میز</em></t-fa><t-en>Two sides of a <em>table</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>تیم کشور</t-fa><t-en>The country's team</t-en></b><t-fa>سرپرست و معاون برگهٔ بچه‌های خودشان را می‌خوانند</t-fa><t-en>Leader and deputy read their own students' scripts</t-en></div>
+<div class="hi"><b><t-fa>میزبان</t-fa><t-en>The host</t-en></b><t-fa>دو هماهنگ‌کننده جداگانه همان برگه را می‌خوانند، با معیاری که هیئت داوران تأیید کرده</t-fa><t-en>Two coordinators read the same script separately, with a marking scheme the Jury approved</t-en></div>
+</div>
+<p class="tag"><t-fa>توافق روی هر نمره ← اگر نشد: مسئول مسئله ← سرهماهنگ‌کننده ← رأی هیئت داوران</t-fa><t-en>Agreement on each score → if not: problem captain → chief coordinator → Jury vote</t-en></p>
+<footer><t-fa>R05 · آیین‌نامه، بندهای ۷٫۲ تا ۷٫۵</t-fa><t-en>R05 · Regulations 7.2–7.5</t-en></footer>
+<aside class="notes"><t-fa><b>برگهٔ بچه‌ها را چه کسی نمره می‌دهد</b><p>[GRAPHIC] «معمولاً چهار نفر» = سرپرست و معاون + دو هماهنگ‌کننده (آیین‌نامه ۷٫۴: دو هماهنگ‌کننده و حداکثر دو نمایندهٔ فعال کشور). معیارها را هیئت داوران (Jury) تأیید می‌کند و منتشر نمی‌شود.</p><p>در یک جمله: نمرهٔ هر برگه با توافق تیم کشور و داوران مستقل میزبان، طبق معیاری از پیش تأییدشده، تعیین می‌شود.</p></t-fa><t-en><b>Who grades the students</b><p>[GRAPHIC] "Usually four people" = leader and deputy + two coordinators (Regulation 7.4: two coordinators and up to two active country representatives). Marking schemes are approved by the Jury and not published.</p><p>In one line: every score is agreed between the country's team and the host's independent coordinators, under a pre-approved scheme.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-4" data-start="142">
+<p class="kicker"><t-fa>IMO 2025 · سانشاین کوست، استرالیا</t-fa><t-en>IMO 2025 · Sunshine Coast, Australia</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>طلا</t-fa><t-en>gold</t-en></span><b><t-fa>≥ ۳۵</t-fa><t-en>≥ 35</t-en></b><p><t-fa>۷۲ نفر</t-fa><t-en>72 people</t-en></p></div>
+<div><span><t-fa>نقره</t-fa><t-en>silver</t-en></span><b><t-fa>≥ ۲۸</t-fa><t-en>≥ 28</t-en></b><p><t-fa>۱۰۴ نفر</t-fa><t-en>104 people</t-en></p></div>
+<div><span><t-fa>برنز</t-fa><t-en>bronze</t-en></span><b><t-fa>≥ ۱۹</t-fa><t-en>≥ 19</t-en></b><p><t-fa>۱۴۵ نفر</t-fa><t-en>145 people</t-en></p></div>
+</div>
+<p class="tag"><t-fa>۶۳۰ شرکت‌کننده از ۱۱۰ کشور · ۵ نمرهٔ کامل ۴۲ · ۳۲۱ مدال از ۶۳۰ نفر، حدود نصف · دمو: imo_live.html نمای ۲</t-fa><t-en>630 contestants from 110 countries · 5 perfect 42s · 321 medals for 630 people, about half · demo: imo_live.html view 2</t-en></p>
+<footer><t-fa>R01 · imo-official.org/editions/2025</t-fa><t-en>R01 · imo-official.org/editions/2025</t-en></footer>
+<aside class="notes"><t-fa><b>مرز مدال‌ها</b><p>[B-ROLL CUE] نمای ۲ دمو (<code>?view=2</code>). آیین‌نامه: حداکثر نیمی مگر با تأیید دوسوم هیئت، نسبت تقریبی ۱:۲:۳؛ امسال ۳۲۱ از ۶۳۰ و ۷۲/۱۰۴/۱۴۵. روی دوربین فقط «حدود نصف».</p><p>در یک جمله: در ۲۰۲۵ مرز طلا ۳۵ بود؛ یعنی دقیقاً پنج مسئلهٔ کامل از شش.</p></t-fa><t-en><b>Medal cut-offs</b><p>[B-ROLL CUE] Demo view 2 (?view=2). Rule: at most half unless two thirds of the Jury approve, ratio about 1:2:3; this year 321 of 630 and 72/104/145. On camera say only "about half".</p><p>In one line: in 2025 gold started at 35, exactly five full problems out of six.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="185">
+<p class="kicker"><t-fa>میانگین نمرهٔ هر مسئله · IMO 2025 · از ۷</t-fa><t-en>Mean score per problem · IMO 2025 · out of 7</t-en></p>
+<div class="bars prob">
+<div><span><t-fa>مسئلهٔ ۱</t-fa><t-en>Problem 1</t-en></span><i style="--v:74.5"></i><span><t-fa>۵٫۲۲</t-fa><t-en>5.22</t-en></span></div>
+<div><span><t-fa>مسئلهٔ ۲</t-fa><t-en>Problem 2</t-en></span><i style="--v:47.2"></i><span><t-fa>۳٫۳۱</t-fa><t-en>3.31</t-en></span></div>
+<div><span><t-fa>مسئلهٔ ۳</t-fa><t-en>Problem 3</t-en></span><i style="--v:22.9"></i><span><t-fa>۱٫۶۰</t-fa><t-en>1.60</t-en></span></div>
+<div><span><t-fa>مسئلهٔ ۴</t-fa><t-en>Problem 4</t-en></span><i style="--v:72.5"></i><span><t-fa>۵٫۰۷</t-fa><t-en>5.07</t-en></span></div>
+<div><span><t-fa>مسئلهٔ ۵</t-fa><t-en>Problem 5</t-en></span><i style="--v:42.9"></i><span><t-fa>۳٫۰۰</t-fa><t-en>3.00</t-en></span></div>
+<div class="hi"><span><t-fa>مسئلهٔ ۶</t-fa><t-en>Problem 6</t-en></span><i style="--v:2.6"></i><span><t-fa>۰٫۱۸</t-fa><t-en>0.18</t-en></span></div>
+</div>
+<p class="tag"><t-fa>نمرهٔ کامل مسئلهٔ ۶: <b>۶ نفر از ۶۳۰</b> · حساب ما از جدول عمومی نتایج؛ هیچ نامی ذخیره نشده · دمو: نمای ۱</t-fa><t-en>Full marks on Problem 6: <b>6 of 630</b> · our computation from the public results table; no names stored · demo: view 1</t-en></p>
+<footer><t-fa>R03 · artifact/derived/imo-stats.json</t-fa><t-en>R03 · artifact/derived/imo-stats.json</t-en></footer>
+<aside class="notes"><t-fa><b>کدام مسئله سخت بود + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. بعد [UNEXPECTED STAT] نمای ۱ دمو؛ پیش از میلهٔ ۶ مکث برای حدس.</p><p>در یک جمله: مسئلهٔ ۶ سال ۲۰۲۵ تقریباً برای همه صفر بود؛ میانگینش حدود ۰٫۲ از ۷.</p></t-fa><t-en><b>Which problem was hard + soft CTA</b><p>[MID-CTA] CTA to camera first. Then [UNEXPECTED STAT] demo view 1; pause for the guess before bar 6.</p><p>In one line: Problem 6 of 2025 was a zero for almost everyone; mean about 0.2 of 7.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="240">
+<p class="kicker"><t-fa>تیم ایران · فقط دادهٔ تیمی</t-fa><t-en>Team Iran · team data only</t-en></p>
+<div class="cols">
+<div><span><t-fa>از</t-fa><t-en>since</t-en></span><b><t-fa>۱۹۸۵</t-fa><t-en>1985</t-en></b><p><t-fa>رتبهٔ ۱ جهان در ۱۹۹۸</t-fa><t-en>1st in the world in 1998</t-en></p></div>
+<div><span><t-fa>میرزاخانی</t-fa><t-en>Mirzakhani</t-en></span><b><t-fa>۴۱ · ۴۲</t-fa><t-en>41 · 42</t-en></b><p><t-fa>طلا ۱۹۹۴ و طلا با نمرهٔ کامل ۱۹۹۵</t-fa><t-en>gold 1994, gold with a perfect score 1995</t-en></p></div>
+<div class="hi"><span><t-fa>۲۰۲۵</t-fa><t-en>2025</t-en></span><b><t-fa>۱۲ از ۱۱۰</t-fa><t-en>12th of 110</t-en></b><p><t-fa>۱۸۳ امتیاز · ۲ طلا، ۳ نقره، ۱ برنز</t-fa><t-en>183 points · 2 gold, 3 silver, 1 bronze</t-en></p></div>
+</div>
+<p class="tag"><t-fa>جمع تیم در شش مسئله: ۳۴ · ۴۲ · ۳۳ · ۴۲ · ۳۲ · ۰ · نام و عکس دانش‌آموزان نمی‌آید (نوجوان‌اند؛ اجازه نداریم)</t-fa><t-en>Team totals on the six problems: 34 · 42 · 33 · 42 · 32 · 0 · no student names or photos (minors; no consent)</t-en></p>
+<footer><t-fa>R02 · R04 · R08</t-fa><t-en>R02 · R04 · R08</t-en></footer>
+<aside class="notes"><t-fa><b>تیم ایران</b><p>[GRAPHIC] نمای ۳ دمو، بعد برگشت به نمای ۱ (میلهٔ کهربایی). میرزاخانی: ۱۹۹۴ با ۴۱، ۱۹۹۵ با ۴۲ (نه «دو بار نمرهٔ کامل»).</p><p>در یک جمله: تیم ایران در ۲۰۲۵ دوازدهم شد با دو طلا، سه نقره و یک برنز؛ مسئلهٔ ۶ را مثل تقریباً همه حل نکرد.</p></t-fa><t-en><b>Team Iran</b><p>[GRAPHIC] Demo view 3, then back to view 1 (amber bar). Mirzakhani: 41 in 1994, 42 in 1995 (not "two perfect scores").</p><p>In one line: Iran was 12th in 2025 with two golds, three silvers and a bronze; like almost everyone, no points on Problem 6.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="300">
+<p class="kicker"><t-fa>ژوئیهٔ ۲۰۲۴ · Google DeepMind</t-fa><t-en>July 2024 · Google DeepMind</t-en></p>
+<h1><t-fa>۲۸ از ۴۲: سطح <em>نقره</em></t-fa><t-en>28 of 42: <em>silver</em> level</t-en></h1>
+<div class="steps ladder">
+<div><b><t-fa>صورت مسئله</t-fa><t-en>The statement</t-en></b><t-fa>آدم‌ها به Lean ترجمه کردند</t-fa><t-en>translated into Lean by people</t-en></div>
+<div><b><t-fa>وقت</t-fa><t-en>Time</t-en></b><t-fa>یکی در چند دقیقه؛ بقیه تا سه روز</t-fa><t-en>one in minutes; the others up to three days</t-en></div>
+<div class="hi"><b><t-fa>داور</t-fa><t-en>Grader</t-en></b><t-fa>تیموتی گاورز و جوزف مایرز، با قواعد IMO؛ بیرون از داوری رسمی</t-fa><t-en>Timothy Gowers and Joseph Myers, by IMO rules; outside official grading</t-en></div>
+</div>
+<p class="tag"><t-fa>مرز طلای ۲۰۲۴: ۲۹ · AlphaProof + AlphaGeometry 2 · دو مسئلهٔ ترکیبیات حل نشد</t-fa><t-en>2024 gold cut-off: 29 · AlphaProof + AlphaGeometry 2 · the two combinatorics problems unsolved</t-en></p>
+<footer><t-fa>R10 · R09</t-fa><t-en>R10 · R09</t-en></footer>
+<aside class="notes"><t-fa><b>۲۰۲۴: نقره با Lean</b><p>[B-ROLL CUE] پیوند با HMD-S01: Lean قدم‌ها را چک می‌کند. «سه روز» برای «بعضی» مسئله‌ها؛ یکی در چند دقیقه.</p><p>در یک جمله: در ۲۰۲۴ سیستم‌های دیپ‌مایند ۲۸ گرفتند، ولی با ترجمهٔ انسانی به Lean، تا سه روز وقت و داوری بیرون از المپیاد.</p></t-fa><t-en><b>2024: silver with Lean</b><p>[B-ROLL CUE] Link to HMD-S01: Lean checks every step. "Three days" for some problems; one took minutes.</p><p>In one line: in 2024 DeepMind's systems scored 28, with human translation into Lean, up to three days and grading outside the olympiad.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="355">
+<p class="kicker"><t-fa>ژوئیهٔ ۲۰۲۵ · دو ادعای طلا</t-fa><t-en>July 2025 · two gold-level claims</t-en></p>
+<div class="cards">
+<div class="hi"><b>Gemini Deep Think · 35/42</b><t-fa>زبان معمولی، در ۴٫۵ ساعت · <strong>نمره و تأیید: هماهنگ‌کنندگان IMO</strong>، با معیار دانش‌آموزان · IMO سیستم و روش را وارسی نکرد · در دستورش حل‌های گزیده و راهنمایی بود</t-fa><t-en>Natural language, within 4.5 h · <strong>graded and certified by IMO coordinators</strong>, same criteria as students · the IMO did not validate the system or method · its instructions included curated solutions and hints</t-en></div>
+<div><b>OpenAI · <t-fa>مدل آزمایشی · ۳۵/۴۲</t-fa><t-en>experimental model · 35/42</t-en></b><t-fa>زبان معمولی، دو جلسهٔ ۴٫۵ ساعته، بی ابزار و اینترنت (خوداظهاری) · <strong>نمره: سه مدال‌آور سابق</strong>، اجماع · ارزیابی خود شرکت</t-fa><t-en>Natural language, two 4.5 h sessions, no tools or internet (self-reported) · <strong>graded by three former medallists</strong>, by consensus · the company's own evaluation</t-en></div>
+</div>
+<p class="tag"><t-fa>هر دو: مسئله‌های ۱ تا ۵ کامل، <b>مسئلهٔ ۶ صفر</b> · هر دو اثبات‌ها را منتشر کردند</t-fa><t-en>Both: problems 1–5 full, <b>problem 6 zero</b> · both published their proofs</t-en></p>
+<footer><t-fa>R11 (۲۱ ژوئیهٔ ۲۰۲۵) · R12 (۱۹ ژوئیهٔ ۲۰۲۵)</t-fa><t-en>R11 (21 July 2025) · R12 (19 July 2025)</t-en></footer>
+<aside class="notes"><t-fa><b>۲۰۲۵: دو تا ۳۵، دو جور داور</b><p>[GRAPHIC] نگو «OpenAI رسماً طلا گرفت». نگو «استخدام‌شده» (تأیید نشد). زمان اعلام OpenAI محل اختلاف است؛ وارد نشو. «مسئلهٔ ۶ صفر»: PDF حل‌های DeepMind و مخزن OpenAI فقط ۱ تا ۵ را دارند.</p><p>در یک جمله: هر دو ۳۵ از ۴۲ گرفتند؛ یکی با داوری رسمی المپیاد، دیگری با داوری‌ای که خود شرکت ترتیب داد.</p></t-fa><t-en><b>2025: two 35s, two kinds of grader</b><p>[GRAPHIC] Do not say "OpenAI officially won gold". Do not say "hired" (unverified). The timing of OpenAI's announcement is disputed; stay out of it. "Problem 6 zero": DeepMind's PDF and OpenAI's repo contain only 1–5.</p><p>In one line: both scored 35 of 42; one graded officially by the olympiad, the other in the company's own evaluation.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="420">
+<p class="kicker"><t-fa>هوک دوم</t-fa><t-en>Second hook</t-en></p>
+<h1><t-fa>اگر شرایط را <em>عوض</em> کنیم…</t-fa><t-en>If we <em>change</em> the conditions…</t-en></h1>
+<div class="steps ladder">
+<div><b><t-fa>وقت</t-fa><t-en>Time</t-en></b><t-fa>چند روز به‌جای ۴٫۵ ساعت</t-fa><t-en>days instead of 4.5 hours</t-en></div>
+<div><b><t-fa>ابزار</t-fa><t-en>Tools</t-en></b><t-fa>ماشین‌حساب، اینترنت، نرم‌افزار اثبات</t-fa><t-en>calculators, internet, proof assistants</t-en></div>
+<div><b><t-fa>تیم</t-fa><t-en>Team</t-en></b><t-fa>شش نفر روی یک مسئله، با هم</t-fa><t-en>six students on one problem, together</t-en></div>
+<div><b><t-fa>انتخاب</t-fa><t-en>Selection</t-en></b><t-fa>فقط بهترین جواب از چند تا</t-fa><t-en>only the best of several answers</t-en></div>
+<div class="hi"><b><t-fa>کناره‌گیری</t-fa><t-en>Withdrawal</t-en></b><t-fa>اگر خوب نشد، بی‌صدا کنار کشیدن</t-fa><t-en>if it goes badly, quietly withdraw</t-en></div>
+</div>
+<p class="caption"><t-fa>تاو: بی روشِ کنترل‌شده‌ای که <strong>از قبل اعلام شده</strong>، مقایسهٔ سادهٔ AI با AI یا با دانش‌آموز نکنید.</t-fa><t-en>Tao: without a controlled methodology <strong>disclosed in advance</strong>, avoid simple comparisons between AI models, or with students.</t-en></p>
+<footer><t-fa>R13 · Terence Tao، mathstodon، ۱۹ ژوئیهٔ ۲۰۲۵ · ترجمه و خلاصهٔ هومودین</t-fa><t-en>R13 · Terence Tao, mathstodon, 19 July 2025 · our summary</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: آزمایش فکری تاو</b><p>[RE-HOOK] [CAMERA CHANGE] بعد نمای ۵ دمو (<code>?view=5</code>). تاو گفت «این حرف دربارهٔ هیچ نتیجهٔ خاصی نیست» و دربارهٔ نتیجه‌های خوداعلامِ بی‌روشِ ازپیش‌اعلام‌شده نظر نمی‌دهد؛ حرف او را به حمله به یک شرکت تبدیل نکن.</p><p>در یک جمله: یک عدد بدون شرایط و داورش کامل نیست؛ تاو نشان داد شرایط می‌تواند نمرهٔ یک تیم را از زیر برنز به طلا ببرد.</p></t-fa><t-en><b>Second hook: Tao's thought experiment</b><p>[RE-HOOK] [CAMERA CHANGE] Then demo view 5 (?view=5). Tao said his remarks are not specific to any single result, and he will not comment on self-reported results without methodology disclosed in advance; do not turn this into an attack on one company.</p><p>In one line: a number without its conditions and grader is incomplete; conditions can move the same team from below bronze to gold.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="475">
+<p class="kicker"><t-fa>IMO 2025 · مسئلهٔ ۱ · به زبان خودمان</t-fa><t-en>IMO 2025 · Problem 1 · in our own words</t-en></p>
+<div dir="ltr"><svg class="chart tri" viewBox="0 0 1100 560" role="img"><title><t-fa>مثلث نقطه‌ها با پنج ردیف و یک خط آفتابی</t-fa><t-en>A five-row triangle of points and one sunny line</t-en></title>
+<line class="b" x1="100" y1="500" x2="1000" y2="500"/><line class="b" x1="100" y1="500" x2="100" y2="40"/><line class="b" x1="100" y1="40" x2="1000" y2="500" stroke-dasharray="10 10"/>
+<circle class="p" cx="140" cy="460" r="16"/><circle class="p" cx="320" cy="460" r="16"/><circle class="p" cx="500" cy="460" r="16"/><circle class="p" cx="680" cy="460" r="16"/><circle class="p" cx="860" cy="460" r="16"/>
+<circle class="p" cx="140" cy="370" r="16"/><circle class="p" cx="320" cy="370" r="16"/><circle class="p" cx="500" cy="370" r="16"/><circle class="p" cx="680" cy="370" r="16"/>
+<circle class="p" cx="140" cy="280" r="16"/><circle class="p" cx="320" cy="280" r="16"/><circle class="p" cx="500" cy="280" r="16"/>
+<circle class="p" cx="140" cy="190" r="16"/><circle class="p" cx="320" cy="190" r="16"/>
+<circle class="p" cx="140" cy="100" r="16"/>
+<line class="s" x1="60" y1="520" x2="620" y2="20"/>
+<text x="660" y="40"><t-fa>خط آفتابی</t-fa><t-en>a sunny line</t-en></text>
+<text class="sm" x="560" y="545" text-anchor="middle"><t-fa>افقی · عمودی · موازی وتر = معمولی</t-fa><t-en>horizontal · vertical · parallel to the hypotenuse = not sunny</t-en></text>
+</svg></div>
+<p class="caption"><t-fa>با n خط همهٔ نقطه‌ها را بپوشان. چند تا می‌توانند آفتابی باشند؟ <strong>فقط ۰، ۱ یا ۳</strong>؛ برای هر n ≥ ۳.</t-fa><t-en>Cover every point with n lines. How many can be sunny? <strong>Only 0, 1 or 3</strong>, for every n ≥ 3.</t-en></p>
+<footer><t-fa>R06 · صورت رسمی: <code>imo-official.org/problems/2025</code> · رسم ما</t-fa><t-en>R06 (official statement: imo-official.org/problems/2025) · drawn by us</t-en></footer>
+<aside class="notes"><t-fa><b>مسئلهٔ ۱: خط‌های آفتابی</b><p>[GRAPHIC] متن رسمی مسئله روی صفحه نیست (حق نشر IMO). «مثل توپ‌های بیلیارد» یعنی چیدمان مثلثی. پیش از جواب مکث برای حدس.</p><p>در یک جمله: در مسئلهٔ ۱ تعداد خط‌های آفتابی فقط می‌تواند ۰، ۱ یا ۳ باشد، برای هر مثلث با دست‌کم سه ردیف.</p></t-fa><t-en><b>Problem 1: sunny lines</b><p>[GRAPHIC] The official text is not on screen (IMO copyright). "Like a rack of billiard balls" = a triangular arrangement. Pause for the guess before the answer.</p><p>In one line: in Problem 1 the number of sunny lines can only be 0, 1 or 3, for any triangle with at least three rows.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="530">
+<p class="kicker"><t-fa>ایدهٔ اثبات</t-fa><t-en>The idea of the proof</t-en></p>
+<div dir="ltr"><svg class="chart tri" viewBox="0 0 1100 520" role="img"><title><t-fa>لبه‌های مثلث و خطی که فقط دو نقطهٔ لبه را می‌گیرد</t-fa><t-en>The triangle's edges and a line that meets only two edge points</t-en></title>
+<line class="e" x1="140" y1="460" x2="860" y2="460"/><line class="e" x1="140" y1="460" x2="140" y2="100"/><line class="e" x1="140" y1="100" x2="860" y2="460"/>
+<circle class="pb" cx="140" cy="460" r="16"/><circle class="pb" cx="320" cy="460" r="16"/><circle class="pb" cx="500" cy="460" r="16"/><circle class="pb" cx="680" cy="460" r="16"/><circle class="pb" cx="860" cy="460" r="16"/>
+<circle class="pb" cx="140" cy="370" r="16"/><circle class="p" cx="320" cy="370" r="16"/><circle class="p" cx="500" cy="370" r="16"/><circle class="pb" cx="680" cy="370" r="16"/>
+<circle class="pb" cx="140" cy="280" r="16"/><circle class="p" cx="320" cy="280" r="16"/><circle class="pb" cx="500" cy="280" r="16"/>
+<circle class="pb" cx="140" cy="190" r="16"/><circle class="pb" cx="320" cy="190" r="16"/>
+<circle class="pb" cx="140" cy="100" r="16"/>
+<line class="s" x1="60" y1="253" x2="760" y2="487" stroke-dasharray="14 10"/>
+<text x="770" y="300"><t-fa>۱۲ نقطهٔ لبه</t-fa><t-en>12 edge points (= 3n − 3)</t-en></text>
+</svg></div>
+<p class="tag"><t-fa>خطی که لبه نیست حداکثر ۲ نقطهٔ لبه را می‌گیرد · برای مثلث ۴ردیفه و بزرگ‌تر، خط‌ها برای این‌همه نقطهٔ لبه کم‌اند · پس یک خط خودِ لبه است ← حذفش کن ← تا مثلث سه‌ردیفه</t-fa><t-en>A non-edge line meets at most 2 edge points · n lines × 2 &lt; 3n − 3 when n ≥ 4 · so one line is an edge → peel it off → down to three rows</t-en></p>
+<div class="code sm"><span class="c">$ python3 artifact/imo_core.py sunny 6</span>
+n = 3  (6 points, 3 lines)   possible numbers of sunny lines: [0, 1, 3]
+n = 6  (21 points, 6 lines)  possible numbers of sunny lines: [0, 1, 3]   <span class="o">a check of small cases, not a proof</span></div>
+<footer><t-fa>R07 · <code>IMO 2025 Shortlist, C1</code> · <code>artifact/imo_core.py</code></t-fa><t-en>R07 (2025 Shortlist, C1) · artifact/imo_core.py</t-en></footer>
+<aside class="notes"><t-fa><b>ایدهٔ لبه‌ها</b><p>[B-ROLL CUE] ترمینال: <code>python3 artifact/imo_core.py sunny 6</code> (کمتر از یک ثانیه). «تقریباً سه برابر» = <code>3n − 3</code>. فرمول را روی دوربین نخوان.</p><p>در یک جمله: لبه‌های مثلث آن‌قدر نقطه دارند که یکی از خط‌ها باید خود لبه باشد؛ با کندن لبه‌ها مسئله به مثلث سه‌ردیفه می‌رسد.</p></t-fa><t-en><b>The edge idea</b><p>[B-ROLL CUE] Terminal: python3 artifact/imo_core.py sunny 6 (under a second). "About three times" = 3n − 3. Do not read the formula on camera.</p><p>In one line: the edges hold so many points that one line must be an edge; peeling edges reduces everything to three rows.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="595">
+<p class="kicker"><t-fa>جلسهٔ زنده · پروتکل ثابت</t-fa><t-en>Live session · fixed protocol</t-en></p>
+<h1 class="formula">NOT RUN YET</h1>
+<div class="steps ladder">
+<div><b><t-fa>۵ مدل</t-fa><t-en>5 models</t-en></b><t-fa>مسئلهٔ ۱، یک تلاش، دستور ثابت</t-fa><t-en>Problem 1, one attempt, fixed prompt</t-en></div>
+<div><b><t-fa>بی</t-fa><t-en>No</t-en></b><t-fa>ابزار، اینترنت، راهنمایی</t-fa><t-en>tools, internet, hints</t-en></div>
+<div><b><t-fa>روی صفحه</t-fa><t-en>On screen</t-en></b><t-fa>زمان، توکن، دلار</t-fa><t-en>time, tokens, dollars</t-en></div>
+<div class="hi"><b><t-fa>نمره</t-fa><t-en>Score</t-en></b><t-fa>بعداً، یک آدم، کور، با معیار ۷ امتیازی (نه معیار رسمی)</t-fa><t-en>later, by a person, blind, with a 7-point rubric (not the official one)</t-en></div>
+</div>
+<p class="tag"><t-fa>⚠ مسئله و حل‌هایش از ژوئیهٔ ۲۰۲۵ در اینترنت‌اند: جواب آخر تقریباً هیچ ارزشی ندارد؛ فقط اثبات نمره می‌گیرد</t-fa><t-en>⚠ The problem and its solutions have been online since July 2025: the final answer is worth almost nothing; only the proof is graded</t-en></p>
+<footer><t-fa>artifact/protocol.md · imo_live.py نمای ۴</t-fa><t-en>artifact/protocol.md · imo_live.py view 4</t-en></footer>
+<aside class="notes"><t-fa><b>جلسهٔ زنده [RUN]</b><p>[B-ROLL CUE] تا اجرای واقعی همین کارت و نمای ۴ با «NOT RUN YET». پس از اجرا: عدد زمان و توکن از خروجی همان اجرا، با تاریخ؛ نمره فقط پس از داوری کور.</p><p>در یک جمله: پنج مدل با یک پروتکل ثابت؛ اجرا [RUN] است و نمره را بعداً یک آدم، کور، با معیار هفت‌امتیازی می‌دهد.</p></t-fa><t-en><b>Live session [RUN]</b><p>[B-ROLL CUE] Until the real run, this card and view 4 with NOT RUN YET. After the run: time and tokens from that run, dated; scores only after blind grading.</p><p>In one line: five models, one fixed protocol; the run is pending and a person grades it later, blind, on a 7-point rubric.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="645">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>در ۲۰۲۵ دو سیستم برگه‌ای در حد طلا نوشتند؛ یکی با داوری رسمی IMO · شرایط و داور هر نمره · آمار رسمی دشواری مسئله‌ها و نتیجهٔ تیمی ایران · ایدهٔ اثبات مسئلهٔ ۱</t-fa><t-en>In 2025 two systems wrote gold-level papers; one was graded officially by the IMO · the conditions and grader behind each score · official difficulty statistics and Iran's team result · the idea of the Problem 1 proof</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که AI از دانش‌آموزان المپیادی باهوش‌تر است · که شرایط AI و بچه‌ها یکی بود · که IMO خود سیستم‌ها را وارسی کرد · ادعاهای ۲۰۲۶ (بیانیهٔ IMO پیدا نشد) · نتیجهٔ آزمایش ما (هنوز اجرا نشده؛ کوچک و آلوده‌پذیر)</t-fa><t-en>That AI is smarter than olympiad students · that AI and students had the same conditions · that the IMO validated the systems · the 2026 claims (no IMO statement found) · our experiment's result (not run yet; small and open to contamination)</t-en></div>
+</div>
+<p class="tag"><t-fa>ژوئیهٔ ۲۰۲۶: هواوی و شیائوهونگشو ادعای ۴۲ از ۴۲ کردند؛ به گزارش خبرگزاری فرانسه · همان سال ۷ دانش‌آموز ۴۲ گرفتند؛ جدول رسمی IMO</t-fa><t-en>July 2026: Huawei and Xiaohongshu claimed 42/42 (AFP) · that year 7 students scored 42 (imo-official)</t-en></p>
+<footer><t-fa>R11 · R13 · R16 · R09</t-fa><t-en>R11 · R13 · R16 · R09</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. پیش از انتشار R16 را دوباره بگرد؛ اگر IMO بیانیه داد، این جمله عوض شود.</p><p>در یک جمله: نمرهٔ AI بدون شرایط و داورش با نمرهٔ دانش‌آموز مقایسه‌پذیر نیست؛ آزمایش ما هم کوچک است.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. Re-check R16 before publishing; if the IMO issues a statement, change this line.</p><p>In one line: an AI score without its conditions and grader is not comparable with a student's; our experiment is small too.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="685">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>برگه‌ای در حد طلا، آری؛ ولی <em>بپرس</em></t-fa><t-en>A gold-level paper, yes. But <em>ask</em></t-en></h1>
+<div class="cards">
+<div><b><t-fa>سؤال ۱</t-fa><t-en>Question 1</t-en></b><t-fa>چه کسی نمره داد؟</t-fa><t-en>Who graded it?</t-en></div>
+<div><b><t-fa>سؤال ۲</t-fa><t-en>Question 2</t-en></b><t-fa>با چه وقت و چه ابزاری؟</t-fa><t-en>With how much time and which tools?</t-en></div>
+<div class="hi"><b><t-fa>سؤال ۳</t-fa><t-en>Question 3</t-en></b><t-fa>چند بار امتحان کرد تا همین یکی را نشان بدهد؟</t-fa><t-en>How many tries before the one shown?</t-en></div>
+</div>
+<footer><t-fa>جواب · HMD-S05</t-fa><t-en>Answer · HMD-S05</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت کوتاه به نمای ۵. تمرین: تیتر بعدی «AI فلان آزمون را برد» را با این سه سؤال بخوان.</p><p>در یک جمله: آری، برگه‌ای در حد طلا؛ ولی همیشه بپرس چه کسی، با چه شرایطی، بعد از چند تلاش نمره داد.</p></t-fa><t-en><b>The answer</b><p>Short return to view 5. Exercise: read the next "AI beats exam X" headline with these three questions.</p><p>In one line: yes, a gold-level paper; but always ask who graded it, under what conditions, after how many tries.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="722">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1 class="xl"><t-fa>گوگل‌مپس از کجا می‌فهمد <em>کی می‌رسی</em>؟</t-fa><t-en>Where does Google Maps get <em>your arrival time</em>?</t-en></h1>
+<p class="caption"><t-fa>امروز داور آدم بود. قسمت بعد، داور خود زمان است.</t-fa><t-en>Today the grader was a person. Next time, the grader is time itself.</t-en></p>
+<footer><t-fa>HMD-009</t-fa><t-en>HMD-009</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد: گوگل‌مپس</b><p>[SOUND EFFECT] اعلان مسیریاب. End screen از ثانیهٔ ۱۰. هیچ عددی از HMD-009 نگو.</p><p>در یک جمله: بعد از داوری انسانی، پیش‌بینی‌ای که داورش خود زمان است: زمان رسیدن در مسیریاب.</p></t-fa><t-en><b>Next: Google Maps</b><p>[SOUND EFFECT] A navigation chime. End screen from second 10. No numbers from HMD-009.</p><p>In one line: after human grading, a prediction graded by time itself: the arrival time in a maps app.</p></t-en></aside>
+</section>

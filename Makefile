@@ -51,6 +51,11 @@ selftest:
 	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/konkur_run.py --selftest > /dev/null
 	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/rank_estimate.py --selftest > /dev/null
 	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-k01-ai-takes-konkur/artifact/konkur_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-s02-ai-chess-tournament/artifact/chess_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-s03-alphafold-iranian-diseases/artifact/fold_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-s04-ai-hurricane-forecast/artifact/storm_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-s05-ai-at-the-math-olympiad/artifact/imo_live.py --selftest > /dev/null
+	env -u GEMINI_API_KEY -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u OPENROUTER_API_KEY $(PY) parts/03-standalone/hmd-s06-damavand-summit-weather/artifact/summit_live.py --selftest > /dev/null
 	HOMODYNE_MODEL=mock:echo $(PY) tools/llm.py which > /dev/null
 	$(PY) parts/05-season-02/hmd-011-solar-storm-forecast/artifact/storm_replay.py --selftest > /dev/null
 	$(PY) parts/05-season-02/hmd-013-fake-review-detector/artifact/review_lab.py --selftest > /dev/null

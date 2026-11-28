@@ -1,0 +1,214 @@
+<!-- HMD-S06 · deck source. Build: python3 scripts/build-decks.py --only hmd-s06  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     All numbers: run of 28 Nov 2026 (artifact/derived/replay-2026-11-28.json) and sources.md. No third-party images. -->
+
+<style>
+/* HMD-S06: pressure column (beat 3), model ground vs real cone (beat 4), alert grid (beat 10) */
+.chart.col,.chart.cone{max-width:1500px;margin-inline:auto}
+.chart text{font-size:28px}.chart .sm{font-size:24px;fill:#6E6A63}
+.chart .lv{stroke:#6FA8DC;stroke-width:3;stroke-dasharray:10 8}.chart .lvt{fill:#3C6E9E}
+.chart .cone{fill:none;stroke:#16181B;stroke-width:5}.chart .ground{fill:#CFC9BD}
+.chart .amb{fill:#E8A33D}.chart .ambl{stroke:#E8A33D;stroke-width:6}
+.night .chart .cone{stroke:#F3F1EC}.night .chart .ground{fill:#3A3B3F}.night .chart text{fill:#C9C5BC}
+.wgrid{display:grid;grid-template-columns:200px repeat(12,1fr);gap:6px;max-width:1660px;font-size:22px}
+.wgrid i{font-style:normal;height:52px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:#3A3B3F;color:#C9C5BC}
+.wgrid i.a{background:#E8A33D;color:#16181B}.wgrid i.r{background:#D2543F;color:#fff}
+.wgrid i.u{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.3) 0 6px,transparent 6px 13px)}
+.wgrid b{display:flex;align-items:center;font-size:24px}.wgrid em{font-style:normal;font-size:18px;color:#8F8C84;text-align:center}
+</style>
+
+<section class="cover">
+<h1><t-fa>فردا سر دماوند چه خبر است؟</t-fa><t-en>What will the weather be on Damavand's summit tomorrow?</t-en></h1>
+<p class="promise"><t-fa>سه مدل، یک قله، سه جواب؛ می‌فهمیم چرا، و با دادهٔ باز یک سرویس پیش‌بینی قله طراحی می‌کنیم.</t-fa><t-en>Three models, one summit, three answers. We find out why, and design a summit forecast service from open data.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>بیشینهٔ تندباد سه روز آینده · قلهٔ دماوند</t-fa><t-en>Max gust, next three days · Damavand summit</t-en></p>
+<div class="cols">
+<div><span><t-fa>مدل آمریکایی (GFS)</t-fa><t-en>US model (GFS)</t-en></span><b><t-fa>۱۴</t-fa><t-en>14</t-en><small>km/h</small></b></div>
+<div><span><t-fa>مدل اروپایی (ECMWF IFS)</t-fa><t-en>European model (ECMWF IFS)</t-en></span><b><t-fa>۵۷</t-fa><t-en>57</t-en><small>km/h</small></b></div>
+<div class="hi"><span><t-fa>مدل آلمانی (ICON)</t-fa><t-en>German model (ICON)</t-en></span><b><t-fa>۹۹</t-fa><t-en>99</t-en><small>km/h</small></b></div>
+</div>
+<p class="tag"><b><t-fa>حدود ۷ برابر</t-fa><t-en>about 7×</t-en></b><t-fa>تندباد ۱۰ متری · درخواست با <code>elevation=5610</code> · Open-Meteo · اجرای ۲۸ نوامبر ۲۰۲۶ (کارت ایده، ۲۷ نوامبر: حدود ۵ برابر)</t-fa><t-en>10 m gust · requested with elevation=5610 · Open-Meteo · run of 28 Nov 2026 (idea card, 27 Nov: about 5×)</t-en></p>
+<footer><t-fa>S06 · تمرین؛ مجوز Open-Meteo تصمیم مالک کانال است</t-fa><t-en>S06 · rehearsal; Open-Meteo licence is the channel owner's decision</t-en></footer>
+<aside class="notes"><t-fa><b>سه مدل، یک قله، سه جواب</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» عددها مال روز تمرین‌اند؛ روز ضبط از اجرای زنده. اگر Open-Meteo کنار رفت، هوک ۲ (باد زمین مدل در برابر هوای آزاد، فقط دادهٔ باز).</p><p>در یک جمله: سه مدل معتبر برای باد قلهٔ دماوند تا هفت برابر با هم فرق داشتند؛ این قسمت می‌گوید چرا.</p></t-fa><t-en><b>Three models, one summit, three answers</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. Rehearsal numbers; on the day use the live run. Without Open-Meteo use hook 2 (model-ground wind vs free air, open data only).</p><p>In one line: three respected models disagreed up to sevenfold on the summit wind; this episode explains why.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>از زمان رسیدن تا قله</t-fa><t-en>From arrival time to the summit</t-en></p>
+<div class="steps">
+<div><b><t-fa>پلور</t-fa><t-en>Polour</t-en></b><t-fa>پای کوه؛ پیش‌بینی «شهر»</t-fa><t-en>the foot of the mountain; the "town" forecast</t-en></div>
+<div><b><t-fa>گوسفندسرا · حدود ۳٬۰۴۰ م</t-fa><t-en>Goosfand Sara · about 3,040 m</t-en></b><t-fa>پایگاه دوم</t-fa><t-en>Camp 2</t-en></div>
+<div class="hi"><b><t-fa>بارگاه سوم · حدود ۴٬۲۲۰ م</t-fa><t-en>Bargah-e Sevom · about 4,220 m</t-en></b><t-fa>شب پیش از صعود؛ تصمیم اینجاست</t-fa><t-en>the night before the summit; the decision is made here</t-en></div>
+<div><b><t-fa>قله · ۵٬۶۱۰ م</t-fa><t-en>Summit · 5,610 m</t-en></b><t-fa>همان‌جا که پیش‌بینی لازم است</t-fa><t-en>where the forecast is needed</t-en></div>
+</div>
+<p class="caption"><t-fa>قسمت قبل: زمان رسیدنِ مسیریاب هم پیش‌بینی است. اینجا اشتباه گران‌تر از ده دقیقه دیر رسیدن است.</t-fa><t-en>Last episode: a sat-nav arrival time is a forecast too. Here a wrong number costs more than ten minutes.</t-en></p>
+<footer><t-fa>S10 · S11 (ارتفاع‌ها [VERIFY])</t-fa><t-en>S10 · S11 (heights [VERIFY])</t-en></footer>
+<aside class="notes"><t-fa><b>از زمان رسیدن تا قله</b><p>[B-ROLL CUE] نقشهٔ ساده که خودمان کشیده‌ایم؛ هیچ عکس کوهنورد. ارتفاع قله مورد اختلاف است (۵٬۵۹۸ تا ۵٬۶۲۸ در نقشه‌ها)؛ ۵٬۶۱۰ رقم رایج است.</p><p>در یک جمله: این بار پیش‌بینی‌ای را باز می‌کنیم که اشتباهش گران‌تر از ده دقیقه دیر رسیدن است.</p></t-fa><t-en><b>From arrival time to the summit</b><p>[B-ROLL CUE] A simple map we draw ourselves; no photos of climbers. The summit height is disputed (5,598–5,628 on maps); 5,610 is the common figure.</p><p>In one line: this time we open a forecast whose mistakes cost more than ten minutes.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="90">
+<p class="kicker"><t-fa>نصف جو زیر پای توست</t-fa><t-en>Half the atmosphere is below your feet</t-en></p>
+<div dir="ltr"><svg class="chart col" viewBox="0 0 1500 560" role="img"><title><t-fa>سطح‌های فشار و ارتفاعشان در جو استاندارد، کنار دماوند</t-fa><t-en>Pressure levels and their standard-atmosphere heights, next to Damavand</t-en></title>
+<polygon class="cone" points="700,540 1010,62 1320,540"/>
+<line class="lv" x1="60" y1="70" x2="1440" y2="70"/><text class="lvt" x="70" y="56">500 hPa · ISA 5,574 m · 28 Nov: 5,758 m</text>
+<line class="lv" x1="60" y1="223" x2="1440" y2="223"/><text class="lvt" x="70" y="209">600 hPa · ISA 4,206 m</text>
+<line class="lv" x1="60" y1="375" x2="1440" y2="375"/><text class="lvt" x="70" y="361">700 hPa · ISA 3,012 m</text>
+<circle class="amb" cx="1010" cy="62" r="13"/><text x="1036" y="50">5,610 m</text>
+<text class="sm" x="1010" y="530" text-anchor="middle"><t-fa>دماوند</t-fa><t-en>Damavand</t-en></text>
+</svg></div>
+<p class="caption"><t-fa>در جو استاندارد، سطح ۵۰۰ هکتوپاسکال حدود ۵٬۵۷۰ متر است؛ قلهٔ دماوند تقریباً روی همین سطح است.</t-fa><t-en>In the standard atmosphere the 500 hPa level sits near 5,570 m; Damavand's summit is almost on it.</t-en></p>
+<footer><t-fa>S12، حساب ما · S02، مدل IFS، شنبه ۱۵:۳۰ تهران</t-fa><t-en>S12 (our computation) · S02 (IFS, Sat 15:30 Tehran)</t-en></footer>
+<aside class="notes"><t-fa><b>نصف جو زیر پای توست</b><p>[GRAPHIC] فشار در ۵٬۶۱۰ متر در جو استاندارد ۴۹۷٫۶ هکتوپاسکال است. «داده‌های زیاد» = رادیوسوند، هواپیما، ماهواره؛ عدد مهارت نگو.</p><p>در یک جمله: قلهٔ دماوند تقریباً در سطح ۵۰۰ هکتوپاسکال است؛ جایی که نصف جو زیر پاست.</p></t-fa><t-en><b>Half the atmosphere below</b><p>[GRAPHIC] Standard-atmosphere pressure at 5,610 m is 497.6 hPa. "Lots of data" = radiosondes, aircraft, satellites; quote no skill score.</p><p>In one line: Damavand's summit is near the 500 hPa level, where half the atmosphere is below you.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="145">
+<p class="kicker"><t-fa>دماوندِ مدل</t-fa><t-en>The model's Damavand</t-en></p>
+<div dir="ltr"><svg class="chart cone" viewBox="0 0 1500 520" role="img"><title><t-fa>قلهٔ واقعی ۵٬۶۱۰ متر و زمین مدل زیر قله حدود ۲٬۸۰۰ متر</t-fa><t-en>The real summit at 5,610 m and the model ground beneath it at about 2,800 m</t-en></title>
+<rect class="ground" x="80" y="300" width="1340" height="200"/>
+<polygon class="cone" points="380,500 750,40 1120,500"/>
+<line class="ambl" x1="750" y1="40" x2="750" y2="300"/>
+<text x="790" y="50">5,610 m</text><text x="100" y="345">≈ 2,800 m</text>
+<text x="1140" y="185">2,804 m</text><line x1="760" y1="170" x2="1125" y2="170" stroke="#8F8C84" stroke-width="2" stroke-dasharray="6 6"/>
+</svg></div>
+<p class="tag"><t-fa>زمین مدل زیر قله: IFS ۲٬۸۰۶ · AIFS ۲٬۷۲۷ · GFS ۲٬۷۳۳ متر</t-fa><t-en>Model ground under the summit: IFS 2,806 · AIFS 2,727 · GFS 2,733 m</t-en></p>
+<p class="caption"><t-fa>هر خانهٔ ۰٫۲۵ درجه حدود ۲۵ کیلومتر است و فقط یک ارتفاع دارد؛ <strong>مخروط تیز در میانگین گم می‌شود</strong>.</t-fa><t-en>A 0.25° box is about 25 km wide and has one height; <strong>the sharp cone is averaged away</strong>.</t-en></p>
+<footer><t-fa>S02–S04 · ژئوپتانسیل سطح در گام ۰، درون‌یابی دوخطی</t-fa><t-en>S02–S04 · surface geopotential at step 0, bilinear</t-en></footer>
+<aside class="notes"><t-fa><b>دماوندِ مدل کوتاه‌تر است</b><p>[GRAPHIC] بعد نمای ۲ دمو، مرحلهٔ ۰: <code>?view=2&amp;stage=0&amp;t=2</code>. شبکهٔ درونی IFS ریزتر (حدود ۹ کیلومتر) است؛ از ۲۰ اکتبر ۲۰۲۶ دادهٔ باز IFS در ۰٫۱ درجه هم هست، ولی ما ۰٫۲۵ درجه را گرفتیم (هم‌شبکه با AIFS و GFS). اگر پرسیدند: «در دادهٔ ۰٫۲۵ درجه‌ای که گرفتیم»؛ در ۰٫۱ درجه زمین مدل احتمالاً بلندتر است (نیازمودیم).</p><p>در یک جمله: در دادهٔ ۲۵ کیلومتری، زمینِ مدل زیر قله حدود ۲٬۸۰۰ متر است، نه ۵٬۶۱۰.</p></t-fa><t-en><b>The model's Damavand is lower</b><p>[GRAPHIC] Then demo view 2, stage 0: ?view=2&amp;stage=0&amp;t=2. IFS runs internally on a finer grid (about 9 km); since 20 Oct 2026 IFS open data also come at 0.1°, but we used 0.25° (same grid as AIFS and GFS). If asked: "in the 0.25° open data we used"; at 0.1° the model ground is probably higher (not tested).</p><p>In one line: in the 25 km data the model ground under the summit is about 2,800 m, not 5,610.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="200">
+<p class="kicker"><t-fa>سه دما برای یک قله · شنبه ۱۵:۳۰ تهران · IFS</t-fa><t-en>Three temperatures for one summit · Sat 15:30 Tehran · IFS</t-en></p>
+<div class="cols">
+<div><span><t-fa>۲ متری روی زمین مدل (۲٬۸۰۶ م)</t-fa><t-en>2 m on the model ground (2,806 m)</t-en></span><b><t-fa>+۵٫۶</t-fa><t-en>+5.6</t-en><small>°C</small></b><p><t-fa>مال کوه خیالی</t-fa><t-en>belongs to an imaginary mountain</t-en></p></div>
+<div><span><t-fa>با افت ۶٫۵ درجه در هر کیلومتر</t-fa><t-en>moved up at 6.5 K per km</t-en></span><b><t-fa>−۱۲٫۶</t-fa><t-en>−12.6</t-en><small>°C</small></b><p><t-fa>ساده، ولی هوای دره را با خود می‌برد</t-fa><t-en>simple, but it carries the valley air</t-en></p></div>
+<div class="hi"><span><t-fa>هوای آزاد در ۵٬۶۱۰ م (۶۰۰–۵۰۰ hPa)</t-fa><t-en>free air at 5,610 m (600–500 hPa)</t-en></span><b><t-fa>−۱۵٫۰</t-fa><t-en>−15.0</t-en><small>°C</small></b><p><t-fa>همان که سرویس ما می‌خواند</t-fa><t-en>what our service reads</t-en></p></div>
+</div>
+<p class="tag"><t-fa>دمو: artifact/summit_live.html · نمای ۲ · → سه مرحله</t-fa><t-en>Demo: artifact/summit_live.html · view 2 · → three stages</t-en></p>
+<footer><t-fa>S02 · اجرای ۲۸ نوامبر ۲۰۲۶ · پردازش هومودین</t-fa><t-en>S02 · run of 28 Nov 2026 · processed by Homodyne</t-en></footer>
+<aside class="notes"><t-fa><b>سه دما + CTA نرم</b><p>[MID-CTA] اول CTA رو به دوربین. بعد [B-ROLL CUE] نمای ۲: <code>?view=2&amp;stage=0&amp;t=2</code> و سه بار →. پیش از مرحلهٔ ۳ مکث برای حدس. فاصلهٔ روش اول و سوم: ۲۰٫۶ درجه.</p><p>در یک جمله: دمای قله را از هوای آزاد در ارتفاع واقعی بخوان، نه از زمین صاف‌شدهٔ مدل.</p></t-fa><t-en><b>Three temperatures + soft CTA</b><p>[MID-CTA] Soft CTA to camera first. Then [B-ROLL CUE] view 2: ?view=2&amp;stage=0&amp;t=2 and → three times. Pause for a guess before stage 3. Gap between methods one and three: 20.6 degrees.</p><p>In one line: read the summit temperature from the free air at the real height, not from the model's smoothed ground.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="270">
+<p class="kicker"><t-fa>باد · شنبه ۱۵:۳۰ تهران</t-fa><t-en>Wind · Sat 15:30 Tehran</t-en></p>
+<div class="bars">
+<div><span><t-fa>۱۰ متری روی زمین مدل</t-fa><t-en>10 m on the model ground</t-en></span><i style="--v:6.5"></i><span><t-fa>۳ km/h</t-fa><t-en>3 km/h</t-en></span></div>
+<div class="hi"><span><t-fa>هوای آزاد در ۵٬۶۱۰ م</t-fa><t-en>free air at 5,610 m</t-en></span><i style="--v:100"></i><span><t-fa>۴۶ km/h</t-fa><t-en>46 km/h</t-en></span></div>
+</div>
+<p class="caption"><t-fa>نزدیک زمین اصطکاک باد را کند می‌کند؛ <strong>قلهٔ واقعی از این لایه بیرون زده</strong> و در باد غربی ایستاده.</t-fa><t-en>Near the ground friction slows the wind; <strong>the real summit sticks out of that layer</strong> into the westerlies.</t-en></p>
+<p class="tag"><t-fa>هستهٔ جت جنب‌حاره‌ای زمستان معمولاً حدود ۲۰۰ hPa (حدود ۱۲ کیلومتر)، خیلی بالاتر از قله</t-fa><t-en>The winter subtropical jet core is usually near 200 hPa (about 12 km), far above the summit</t-en></p>
+<footer><t-fa>S02 · S15 [VERIFY]</t-fa><t-en>S02 · S15 [VERIFY]</t-en></footer>
+<aside class="notes"><t-fa><b>باد زمین مدل و باد قله</b><p>[UNEXPECTED STAT] نمای ۲ مرحلهٔ ۳، ردیف آخر پنل. «جت» را فقط با «رودخانهٔ باد» بگو؛ ادعای اثر مستقیم جت روی قله نکن.</p><p>در یک جمله: باد زمینِ مدل تقریباً صفر است، ولی قلهٔ واقعی در باد آزاد حدود ۴۶ کیلومتری ایستاده.</p></t-fa><t-en><b>Model-ground wind vs summit wind</b><p>[UNEXPECTED STAT] View 2 stage 3, last row of the panel. Say "jet" only as "a river of wind"; do not claim a direct jet effect on the summit.</p><p>In one line: the model-ground wind is near zero, but the real summit stands in a free-air wind of about 46 km/h.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-7" data-start="325">
+<p class="kicker"><t-fa>سرمای باد</t-fa><t-en>Wind chill</t-en></p>
+<h1 class="formula">WCT = 13.12 + 0.6215·T − 11.37·V<sup>0.16</sup> + 0.3965·T·V<sup>0.16</sup></h1>
+<table class="t" dir="ltr"><tr><th>T \ V</th><th>20 km/h</th><th>40 km/h</th><th>60 km/h</th></tr>
+<tr><td>−20 °C</td><td>−30</td><td>−34</td><td>−36</td></tr><tr><td>−30 °C</td><td>−43</td><td>−48</td><td>−50</td></tr></table>
+<p class="tag"><b><t-fa>−۲۸ و پایین‌تر</t-fa><t-en>−28 and below</t-en></b><t-fa>خطر بالا: پوست بی‌پوشش ممکن است در ۱۰ تا ۳۰ دقیقه یخ بزند · −۴۰: ۵ تا ۱۰ دقیقه · قلهٔ دماوند، شنبه ۱۵:۳۰: −۲۸٫۱</t-fa><t-en>High risk: exposed skin can freeze in 10 to 30 minutes · −40: 5 to 10 minutes · Damavand summit, Sat 15:30: −28.1</t-en></p>
+<footer><t-fa>S07 (Environment Canada) · S08 (NWS) · فیزیک، نه توصیهٔ پزشکی</t-fa><t-en>S07 (Environment Canada) · S08 (NWS) · physics, not medical advice</t-en></footer>
+<aside class="notes"><t-fa><b>سرمای باد</b><p>[GRAPHIC] T به درجهٔ سانتی‌گراد، V باد ۱۰ متری به km/h؛ ما باد هوای آزاد را جایش گذاشته‌ایم (تقریب). ساخت ۲۰۰۱ کانادا و آمریکا (S09، [VERIFY]).</p><p>در یک جمله: سرمای باد دما و باد را یکی می‌کند؛ روز تمرین ما، سر قله به مرز «خطر بالا»ی کانادا رسید.</p></t-fa><t-en><b>Wind chill</b><p>[GRAPHIC] T in °C, V the 10 m wind in km/h; we substitute the free-air wind (an approximation). Introduced in 2001 by Canada and the US (S09, [VERIFY]).</p><p>In one line: wind chill combines temperature and wind; on our rehearsal day the summit reached Canada's "high risk" line.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-8" data-start="380">
+<p class="kicker"><t-fa>بیشینهٔ باد ۷۲ ساعت آینده</t-fa><t-en>Maximum wind, next 72 hours</t-en></p>
+<div class="bars tight">
+<div><span><t-fa>تندباد زمین مدل · GFS</t-fa><t-en>model-ground gust · GFS</t-en></span><i style="--v:14.5"></i><span>14</span></div>
+<div><span><t-fa>تندباد زمین مدل · IFS</t-fa><t-en>model-ground gust · IFS</t-en></span><i style="--v:57"></i><span>57</span></div>
+<div><span><t-fa>تندباد زمین مدل · ICON</t-fa><t-en>model-ground gust · ICON</t-en></span><i style="--v:100"></i><span>99</span></div>
+<div class="hi"><span><t-fa>هوای آزاد · GFS</t-fa><t-en>free air · GFS</t-en></span><i style="--v:55"></i><span>55</span></div>
+<div class="hi"><span><t-fa>هوای آزاد · AIFS</t-fa><t-en>free air · AIFS</t-en></span><i style="--v:64.7"></i><span>64</span></div>
+<div class="hi"><span><t-fa>هوای آزاد · ICON</t-fa><t-en>free air · ICON</t-en></span><i style="--v:65.8"></i><span>65</span></div>
+<div class="hi"><span><t-fa>هوای آزاد · IFS</t-fa><t-en>free air · IFS</t-en></span><i style="--v:68.1"></i><span>68</span></div>
+</div>
+<p class="tag"><b><t-fa>۷× ← ۱٫۲×</t-fa><t-en>7× → 1.2×</t-en></b><t-fa>km/h · تندبادها از Open-Meteo (تمرین) · هوای آزاد در ۵٬۶۱۰ متر، حساب ما</t-fa><t-en>km/h · gusts from Open-Meteo (rehearsal) · free air at 5,610 m, our computation</t-en></p>
+<footer><t-fa>S02–S04 · S06 · اجرای ۲۸ نوامبر ۲۰۲۶</t-fa><t-en>S02–S04 · S06 · run of 28 Nov 2026</t-en></footer>
+<aside class="notes"><t-fa><b>برگشت به هفت برابر</b><p>[UNEXPECTED STAT] بعد نمای ۱ دمو: <code>?view=1&amp;t=6</code>. نسبت دقیق: ۶٫۹ و ۱٫۲۴. «بیشتر دعوا از سؤال غلط بود»، نه «همه‌اش».</p><p>در یک جمله: با سؤال درست (باد هوای آزاد در ارتفاع قله)، اختلاف مدل‌ها از حدود ۷ برابر به حدود ۱٫۲ برابر رسید.</p></t-fa><t-en><b>Back to sevenfold</b><p>[UNEXPECTED STAT] Then demo view 1: ?view=1&amp;t=6. Exact ratios: 6.9 and 1.24. "Most of the disagreement came from the wrong question", not "all".</p><p>In one line: asked the right question (free-air wind at summit height), the models' spread fell from about 7× to about 1.2×.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="430">
+<p class="kicker"><t-fa>یکشنبه ۰۳:۳۰ تهران · باد هوای آزاد در قله</t-fa><t-en>Sun 03:30 Tehran · free-air wind at the summit</t-en></p>
+<div class="cols">
+<div><span><t-fa>چهار مدل</t-fa><t-en>Four models</t-en></span><b class="word"><t-fa>۳ زیر ۴۰ · ۱ بالای ۴۰</t-fa><t-en>3 below 40 · 1 above</t-en></b><p><t-fa>GFS ۳۴٫۷ · AIFS ۳۹٫۱ · IFS ۳۹٫۶ · ICON ۴۲٫۴</t-fa><t-en>GFS 34.7 · AIFS 39.1 · IFS 39.6 · ICON 42.4</t-en></p></div>
+<div class="hi"><span><t-fa>پیش‌بینی گروهی ECMWF</t-fa><t-en>ECMWF ensemble</t-en></span><b><t-fa>۵۵٪</t-fa><t-en>55%</t-en></b><p><t-fa>۲۸ عضو از ۵۱ باد ≥ ۴۰ km/h</t-fa><t-en>28 of 51 members ≥ 40 km/h</t-en></p></div>
+</div>
+<p class="caption"><t-fa>سر «چقدر» تقریباً توافق؛ سر «کِی» نه. <strong>جواب صادقانه یک احتمال است.</strong></t-fa><t-en>Roughly agreed on "how much", not on "when". <strong>The honest answer is a probability.</strong></t-en></p>
+<footer><t-fa>S02–S04 · S06 (ensemble از Open-Meteo، تمرین)</t-fa><t-en>S02–S04 · S06 (ensemble via Open-Meteo, rehearsal)</t-en></footer>
+<aside class="notes"><t-fa><b>RE-HOOK: سر «کِی» توافق ندارند</b><p>[CAMERA CHANGE] جملهٔ اول رو به دوربین. IFS دقیقاً ۳۹٫۶ است (زیر ۴۰)؛ روی کارت گرد شده. بی‌Open-Meteo: کارت «ECMWF ENS مستقیم: NOT RUN YET».</p><p>در یک جمله: وقتی مدل‌ها سر زمان اختلاف دارند، پیش‌بینی گروهی آن اختلاف را به احتمال تبدیل می‌کند.</p></t-fa><t-en><b>RE-HOOK: they disagree on "when"</b><p>[CAMERA CHANGE] First line to camera. IFS is exactly 39.6 (below 40), rounded on the card. Without Open-Meteo: card "ECMWF ENS direct: NOT RUN YET".</p><p>In one line: when models disagree on timing, an ensemble turns the disagreement into a probability.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-10" data-start="480">
+<p class="kicker"><t-fa>جدول پنجره‌ها · قله · ۷۲ ساعت · هر خانه ۶ ساعت</t-fa><t-en>Window grid · summit · 72 h · 6-hour cells</t-en></p>
+<div class="wgrid" dir="ltr">
+<b>IFS</b><i class="a">W</i><i class="a">W</i><i class="a">WC</i><i>·</i><i>·</i><i class="a">W</i><i>·</i><i class="a">W</i><i class="a">W</i><i class="a">W</i><i class="r">W</i><i class="r">W</i>
+<b>AIFS</b><i class="a">W</i><i class="a">W</i><i class="a">WC</i><i>·</i><i>·</i><i>·</i><i>·</i><i class="a">W</i><i class="a">W</i><i class="a">W</i><i class="r">W</i><i class="r">W</i>
+<b>GFS</b><i class="a">W</i><i>·</i><i>·</i><i>·</i><i>·</i><i>·</i><i>·</i><i>·</i><i class="a">W</i><i class="a">WC</i><i class="a">WC</i><i class="a">WC</i>
+<b>ICON*</b><i class="a">W</i><i>·</i><i class="a">WC</i><i>·</i><i class="a">W</i><i class="a">W</i><i>·</i><i>·</i><i class="a">W</i><i class="a">W</i><i class="r">W</i><i class="r">W</i>
+<b>ENS ≥40</b><i class="a">100</i><i class="a">100</i><i class="a u">88</i><i>0</i><i class="a u">55</i><i class="a u">69</i><i class="a u">73</i><i class="a">100</i><i class="a">100</i><i class="r">100</i><i class="r">100</i><i class="r">98</i>
+<b><t-fa>ترکیب</t-fa><t-en>combined</t-en></b><i class="a">near</i><i class="a">near</i><i class="a u">near?</i><i>under</i><i class="a u">near?</i><i class="a u">near?</i><i class="u">under?</i><i class="a">near</i><i class="a">near</i><i class="a">near</i><i class="r u">over?</i><i class="r u">over?</i>
+<span></span><em>Sat 03:30</em><em>09:30</em><em>15:30</em><em>21:30</em><em>Sun 03:30</em><em>09:30</em><em>15:30</em><em>21:30</em><em>Mon 03:30</em><em>09:30</em><em>15:30</em><em>21:30</em>
+</div>
+<p class="caption"><t-fa>برای قله هیچ بازهٔ ۱۲ ساعته‌ای نیست که آرام باشد و مدل‌ها سرش توافق کنند. <strong>هیچ خانه‌ای «امن» نیست.</strong></t-fa><t-en>For the summit there is no 12-hour stretch that is quiet and agreed by the models. <strong>No cell is "safe".</strong></t-en></p>
+<footer><t-fa>اجرای ۲۸ نوامبر ۲۰۲۶ · W باد · C سرمای باد · هاشور = توافق نیست · * Open-Meteo (تمرین)</t-fa><t-en>Run of 28 Nov 2026 · W wind · C wind chill · hatched = no agreement · * Open-Meteo (rehearsal)</t-en></footer>
+<aside class="notes"><t-fa><b>جدول پنجره‌ها</b><p>[B-ROLL CUE] نمای ۳ دمو: <code>?view=3&amp;t=0</code>، → تا <code>t=10</code>، بعد S برای بارگاه سوم (آرام‌تر از شنبه ۰۳:۳۰ تا یکشنبه ۲۱:۳۰). روز ضبط جدول دمو جای این کارت است.</p><p>در یک جمله: جدول پنجره‌ها نشان می‌دهد مدل‌ها کجا آرام‌ترند و کجا توافق ندارند؛ هیچ خانه‌ای «امن» نیست.</p></t-fa><t-en><b>Window grid</b><p>[B-ROLL CUE] Demo view 3: ?view=3&amp;t=0, → to t=10, then S for Bargah-e Sevom (quieter from Sat 03:30 to Sun 21:30). On the day the live grid replaces this card.</p><p>In one line: the grid shows where the models are quieter and where they disagree; no cell is "safe".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="535">
+<p class="kicker"><t-fa>منطق هشدار · آستانه‌ها انتخاب تحریریه‌اند</t-fa><t-en>Alert logic · thresholds are an editorial choice</t-en></p>
+<table class="t"><tr><th><t-fa>معیار (در ارتفاع واقعی)</t-fa><t-en>criterion (at the real height)</t-en></th><th><t-fa>کهربایی: نزدیک</t-fa><t-en>amber: near</t-en></th><th><t-fa>قرمز: بالای آستانه</t-fa><t-en>red: over</t-en></th></tr>
+<tr><td><t-fa>باد</t-fa><t-en>wind</t-en></td><td>40 km/h</td><td>60 km/h</td></tr>
+<tr><td><t-fa>سرمای باد</t-fa><t-en>wind chill</t-en></td><td>−28 °C</td><td>−40 °C</td></tr>
+<tr><td><t-fa>در ابر (رطوبت نسبی)</t-fa><t-en>in cloud (relative humidity)</t-en></td><td>90%</td><td>—</td></tr>
+<tr><td><t-fa>بارش</t-fa><t-en>precipitation</t-en></td><td>1 mm/6h</td><td>5 mm/6h</td></tr></table>
+<div class="cols">
+<div><span><t-fa>هشدار بی‌جا</t-fa><t-en>false alarm</t-en></span><b class="word"><t-fa>یک روز از دست رفته</t-fa><t-en>a lost day</t-en></b></div>
+<div class="hi"><span><t-fa>هشدار جاافتاده</t-fa><t-en>missed alarm</t-en></span><b class="word"><t-fa>ممکن است سرمازدگی</t-fa><t-en>possibly frostbite</t-en></b></div>
+</div>
+<footer><t-fa>بدترین مدل رنگ را تعیین می‌کند · نوارهای سرمای باد: S07</t-fa><t-en>The worst model sets the colour · wind-chill bands: S07</t-en></footer>
+<aside class="notes"><t-fa><b>منطق هشدار</b><p>[GRAPHIC] نمای ۴ دمو: <code>?view=4&amp;t=10</code>. «نامطمئن» = اختلاف باد مدل‌ها بیش از ۲۵ km/h، یا فقط بعضی قرمز، یا ۱۰ تا ۹۰ درصد اعضای ensemble بالای ۴۰.</p><p>در یک جمله: آستانه‌ها انتخاب تحریریه‌اند و عمداً محتاط؛ هزینهٔ هشدار جاافتاده از هشدار بی‌جا بیشتر است.</p></t-fa><t-en><b>Alert logic</b><p>[GRAPHIC] Demo view 4: ?view=4&amp;t=10. "Uncertain" = model winds differ by more than 25 km/h, or only some are red, or 10–90% of ensemble members exceed 40.</p><p>In one line: thresholds are editorial and deliberately cautious; a missed alarm costs more than a false one.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="585">
+<p class="kicker"><t-fa>با چه بسنجیم؟</t-fa><t-en>What do we check it against?</t-en></p>
+<div class="cards">
+<div class="off"><b><t-fa>ایستگاه عمومی قله</t-fa><t-en>Public summit station</t-en></b><t-fa>پیدا نکردیم</t-fa><t-en>none found</t-en></div>
+<div class="off"><b><t-fa>METAR فرودگاه‌های ایران</t-fa><t-en>Iranian airport METARs</t-en></b><t-fa>آخرین مهرآباد در بایگانی IEM: ۱۴ نوامبر ۲۰۲۶</t-fa><t-en>last Mehrabad report in the IEM archive: 14 Nov 2026</t-en></div>
+<div class="off"><b>irimo.ir</b><t-fa>از بیرون ایران باز نشد</t-fa><t-en>did not open from outside Iran</t-en></div>
+<div class="hi"><b>NOT RUN YET</b><t-fa>گروه کوهنوردی، دماسنج و بادسنج دستی، بارگاه سوم، ساعت دقیق، با اجازه</t-fa><t-en>a climbing group, hand thermometer and anemometer, Bargah-e Sevom, exact time, with permission</t-en></div>
+</div>
+<p class="caption"><t-fa>معیار: اختلاف دما و باد، و اینکه رنگ خانه‌ها چند بار با آنچه دیدند جور بود.</t-fa><t-en>Scores: temperature and wind error, and how often the cell colour matched what they saw.</t-en></p>
+<footer><t-fa>S13 · S14 · [RUN] prep-fa.md §۱</t-fa><t-en>S13 · S14 · [RUN] prep-fa.md §1</t-en></footer>
+<aside class="notes"><t-fa><b>با چه بسنجیم؟</b><p>[B-ROLL CUE] «پیدا نکردیم»، نه «وجود ندارد». هیچ‌کس نباید برای اندازه‌گیری خطر اضافه کند. [RUN] تا سنجش انجام نشده، همین کارت.</p><p>در یک جمله: بدون ایستگاه قله و با METAR خاموش، راستی‌آزمایی به اندازه‌گیری یک گروه کوهنوردی وابسته است که هنوز انجام نشده.</p></t-fa><t-en><b>What do we check it against?</b><p>[B-ROLL CUE] "Not found", not "does not exist". Nobody takes extra risk to measure. [RUN] This card stays until the field check is done.</p><p>In one line: with no summit station and silent METARs, validation depends on a climbing group's measurements, not yet made.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="635">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>کدام عدد مدل مال ارتفاع قله است (هوای آزاد، نه زمین مدل) · اختلاف مدل‌ها با این کار از حدود ۷ برابر به حدود ۱٫۲ برابر رسید · عدم قطعیت را چطور با چند مدل و پیش‌بینی گروهی ببینیم</t-fa><t-en>Which model number belongs to the summit height (free air, not model ground) · this cut the models' spread from about 7× to about 1.2× · how to see uncertainty with several models and an ensemble</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که روزی برای صعود امن است · جای هشدار رسمی، راهنمای محلی و سرپرست برنامه · بهمن، یخ مسیر، حال بدن · آستانه‌های سنجیده‌شده با اندازه‌گیری میدانی (هنوز نه) · عددهای روز ضبط</t-fa><t-en>That any day is safe to climb · a substitute for official warnings, local guides and the trip leader · avalanches, ice on the route, your body · thresholds validated in the field (not yet) · the numbers on recording day</t-en></div>
+</div>
+<footer><t-fa>study-fa.md · «بگو / نگو»</t-fa><t-en>study-fa.md · "say / don't say"</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. واژهٔ «امن» فقط در جملهٔ نفی.</p><p>در یک جمله: این ابزار می‌گوید کدام عدد مال قله است و چقدر نامطمئن است؛ نمی‌گوید کِی صعود امن است.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. The word "safe" only in a negation.</p><p>In one line: the tool says which number belongs to the summit and how uncertain it is; it does not say when a climb is safe.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="675">
+<p class="kicker"><t-fa>جواب</t-fa><t-en>The answer</t-en></p>
+<h1><t-fa>با یک عدد نمی‌شود گفت؛ <em>با سه کار</em> بهتر می‌شود فهمید</t-fa><t-en>One number can't tell you; <em>three habits</em> can tell you more</t-en></h1>
+<div class="steps">
+<div class="hi"><b>1</b><t-fa>هوای آزاد در ارتفاع واقعی</t-fa><t-en>free air at the real height</t-en></div>
+<div><b>2</b><t-fa>چند مدل کنار هم</t-fa><t-en>several models side by side</t-en></div>
+<div><b>3</b><t-fa>احتمال، نه آری یا نه</t-fa><t-en>a probability, not yes or no</t-en></div>
+</div>
+<p class="caption"><t-fa>تمرین: پیش‌بینی بعدی کوه را که دیدی، بپرس این عدد مال چه ارتفاعی است؟</t-fa><t-en>Exercise: next time you see a mountain forecast, ask which height the number is for.</t-en></p>
+<footer><t-fa>تصمیم با سرپرست برنامه است</t-fa><t-en>The decision is the trip leader's</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>برگشت کوتاه به نمای ۳ دمو.</p><p>در یک جمله: پیش‌بینی قله یعنی ارتفاع درست، چند مدل، و احتمال؛ نه یک عدد قطعی.</p></t-fa><t-en><b>The answer</b><p>Brief return to demo view 3.</p><p>In one line: a summit forecast means the right height, several models and a probability; not one certain number.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="710">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next</t-en></p>
+<h1><t-fa>نمرهٔ منفی می‌تواند AI را <em>محتاط‌تر</em> کند؟</t-fa><t-en>Can negative marking make an AI <em>more careful</em>?</t-en></h1>
+<p class="caption"><t-fa>گاهی بهترین تصمیم نرفتن است؛ و گاهی بهترین جواب «نمی‌دانم».</t-fa><t-en>Sometimes the best decision is not to go; sometimes the best answer is "I don't know".</t-en></p>
+<footer>HMD-010</footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] زنگ جلسهٔ امتحان. هیچ عددی از HMD-010 نگو. End screen از ثانیهٔ ۱۰.</p><p>در یک جمله: بعد از «کِی نرویم»، نوبت «کِی جواب ندهیم» است: نمرهٔ منفی و احتیاط هوش مصنوعی.</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] Exam bell. Quote no number from HMD-010. End screen from second 10.</p><p>In one line: after "when not to go" comes "when not to answer": negative marking and AI caution.</p></t-en></aside>
+</section>

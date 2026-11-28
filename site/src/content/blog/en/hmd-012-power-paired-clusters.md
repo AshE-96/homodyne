@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-012-deep-dive
 hmd: HMD-012
 kind: deep-dive
-date: 2027-02-26
+date: 2027-04-02
 tags: ["statistical power", "minimum detectable effect", "design effect", "clustered standard errors", "McNemar test", "preregistration", "benchmarks"]
 sources:
   - title: "Miller (2024). Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. arXiv 2411.00640 v1"

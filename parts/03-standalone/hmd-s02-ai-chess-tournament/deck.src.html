@@ -1,0 +1,211 @@
+<!-- HMD-S02 · deck source. Build: python3 scripts/build-decks.py --only hmd-s02  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Frames 4, 7–12 and 14 carry NOT RUN YET until chess_run.py report has run; replace each «—» with report.md's number.
+     Charts are drawn by us from published numbers (sources.md); no third-party images, no Kaggle screenshots. -->
+
+<style>
+/* HMD-S02: FEN board (beat 3), small boards (beat 8), tables */
+.fenrow{display:flex;gap:56px;align-items:center}
+.mini{display:grid;grid-template-columns:repeat(8,58px);grid-template-rows:repeat(8,58px);border:3px solid #2A2C30;direction:ltr;flex:none}
+.mini i{display:flex;align-items:center;justify-content:center;font-style:normal;font-size:44px;line-height:1;font-family:"DejaVu Sans","Segoe UI Symbol","Apple Symbols",serif}
+.mini i.l{background:#D9D2C3}.mini i.d{background:#8C7A62}.mini i.w{color:#FBFAF7;text-shadow:0 0 2px #000}.mini i.k{color:#141414}
+.mini i.hi{box-shadow:inset 0 0 0 5px #E8A33D}.mini i.x{box-shadow:inset 0 0 0 6px #E06C5B}
+.fen{font:34px/1.5 var(--mono);direction:ltr;unicode-bidi:isolate;word-break:break-all;max-width:820px}
+.fen b{color:#E8A33D}
+.tb{border-collapse:collapse;font-size:30px;min-width:1200px}
+.tb th{font-weight:400;font-size:24px;color:var(--muted);padding:10px 18px;text-align:start;border-bottom:2px solid var(--line)}
+.tb td{padding:12px 18px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.tb tr.hi td{color:var(--amber-ink);font-weight:700}
+.kinds4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;max-width:1700px}
+.kinds4>div{border:2px solid var(--line);border-radius:6px;padding:22px;font-size:28px;line-height:1.4;display:flex;flex-direction:column;gap:14px;align-items:center}
+.kinds4 .mini{grid-template-columns:repeat(8,34px);grid-template-rows:repeat(8,34px)}.kinds4 .mini i{font-size:26px}
+.kinds4 code{font:30px var(--mono);color:#E06C5B;direction:ltr}
+.evalbar{width:56px;height:520px;background:#2b2b2b;border-radius:6px;position:relative;overflow:hidden;flex:none}
+.evalbar i{position:absolute;left:0;right:0;bottom:0;height:51.7%;background:#EDEAE3}
+.chart text{font-size:24px}
+</style>
+
+<section class="cover">
+<h1><t-fa>مسابقهٔ شطرنج مدل‌های AI: کدام <em>واقعاً</em> بازی می‌کند؟</t-fa><t-en>Five AIs, one chessboard: which one <em>actually</em> plays?</t-en></h1>
+<p class="promise"><t-fa>پنج مدل، بیست بازی، هر حرکت با قانون شطرنج چک می‌شود؛ حرکت‌های غیرقانونی را می‌شماریم و می‌بینیم کجای بازی پیدا می‌شوند.</t-fa><t-en>Five models, twenty games, every move checked against the rules of chess; we count the illegal moves and see where in the game they appear.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>دو جدول، دو جواب</t-fa><t-en>Two tables, two answers</t-en></p>
+<div class="cols">
+<div class="hi"><span><t-fa>معمای شطرنج · بهترین مدل</t-fa><t-en>Chess puzzles · best model</t-en></span><b><t-fa>۸۳ از ۱۰۰</t-fa><t-en>83 / 100</t-en></b><p><t-fa>Epoch AI · ۲۸ نوامبر ۲۰۲۶</t-fa><t-en>Epoch AI · 28 Nov 2026</t-en></p></div>
+<div><span><t-fa>بازی کامل در برابر بازیکن تصادفی · بیش از ۵۰ مدل</t-fa><t-en>Full games against a random player · 50+ models</t-en></span><b class="word"><bdi dir="ltr">“many state-of-the-art models struggle to complete games”</bdi></b><p><t-fa>LLM CHESS · arXiv 2512.01992 · دسامبر ۲۰۲۵</t-fa><t-en>LLM CHESS · arXiv 2512.01992 · Dec 2025</t-en></p></div>
+</div>
+<p class="caption"><t-fa>هر دو درست‌اند. <strong>پس فرق کجاست؟</strong></t-fa><t-en>Both are true. <strong>So where is the difference?</strong></t-en></p>
+<aside class="notes"><t-fa><b>هوک (Curiosity-Gap)</b><p>[CAMERA CHANGE] Grab / Promise / Stakes؛ «پارسال» برای مقالهٔ LLM CHESS. کات روی «من محمدم…».</p></t-fa><t-en><b>Hook (Curiosity-Gap)</b><p>[CAMERA CHANGE] Grab / Promise / Stakes; "last year" for the LLM CHESS paper. Cut on "I'm Mohammad…".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>چرا شطرنج؟</t-fa><t-en>Why chess?</t-en></p>
+<div class="cards">
+<div><b><t-fa>قانون ساده</t-fa><t-en>Simple rules</t-en></b><t-fa>فیل مورب، اسب «ال»، شاه زیر کیش نمی‌ماند</t-fa><t-en>bishop diagonal, knight's L, the king may not stay in check</t-en></div>
+<div><b><t-fa>داوری دقیق</t-fa><t-en>Exact checking</t-en></b><t-fa>قانونی بودن هر حرکت را یک برنامهٔ کوچک فوراً می‌گوید</t-fa><t-en>a small program tells at once whether a move is legal</t-en></div>
+<div class="hi"><b><t-fa>داور قوی</t-fa><t-en>A strong referee</t-en></b><t-fa>موتور شطرنج می‌گوید هر حرکت چقدر خوب بود</t-fa><t-en>a chess engine says how good each move was</t-en></div>
+</div>
+<p class="caption"><t-fa>دو سؤال: <strong>قانونی بود؟ چقدر خوب بود؟</strong></t-fa><t-en>Two questions: <strong>was it legal? how good was it?</strong></t-en></p>
+<aside class="notes"><t-fa><b>چرا شطرنج</b><p>[B-ROLL CUE] دست روی صفحهٔ واقعی.</p></t-fa><t-en><b>Why chess</b><p>[B-ROLL CUE] Hand on a real board.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-3" data-start="90">
+<p class="kicker"><t-fa>مدل چه می‌بیند؟</t-fa><t-en>What does the model see?</t-en></p>
+<div class="fenrow">
+<div class="mini">
+<i class="l k">♜</i><i class="d k">♞</i><i class="l k">♝</i><i class="d k">♛</i><i class="l k">♚</i><i class="d k">♝</i><i class="l k">♞</i><i class="d k">♜</i>
+<i class="d k">♟</i><i class="l k">♟</i><i class="d k">♟</i><i class="l k">♟</i><i class="d k">♟</i><i class="l k">♟</i><i class="d k">♟</i><i class="l k">♟</i>
+<i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i>
+<i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i>
+<i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l w hi">♟</i><i class="d"></i><i class="l"></i><i class="d"></i>
+<i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i><i class="d"></i><i class="l"></i>
+<i class="l w">♟</i><i class="d w">♟</i><i class="l w">♟</i><i class="d w">♟</i><i class="l hi"></i><i class="d w">♟</i><i class="l w">♟</i><i class="d w">♟</i>
+<i class="d w">♜</i><i class="l w">♞</i><i class="d w">♝</i><i class="l w">♛</i><i class="d w">♚</i><i class="l w">♝</i><i class="d w">♞</i><i class="l w">♜</i>
+</div>
+<div><p class="fen">rnbqkbnr/pppppppp/8/8/<b>4P3</b>/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1</p>
+<p class="sub"><t-fa>حرف بزرگ = سفید · حرف کوچک = سیاه · عدد = چند خانهٔ خالی · <bdi dir="ltr">4P3</bdi> = چهار خالی، سرباز سفید، سه خالی</t-fa><t-en>capital = White · lower case = Black · digit = that many empty squares · 4P3 = four empty, a white pawn, three empty</t-en></p></div>
+</div>
+<p class="caption"><t-fa>مدل این صفحه را <strong>هرگز نمی‌بیند</strong>؛ فقط آن خط متن و فهرست حرکت‌ها را.</t-fa><t-en>The model <strong>never sees</strong> this board; only that line of text and the move list.</t-en></p>
+<footer><t-fa>نماد FEN · وضعیت بعد از <bdi dir="ltr">1.e4</bdi></t-fa><t-en>FEN notation · the position after 1.e4</t-en></footer>
+<aside class="notes"><t-fa><b>FEN</b><p>[GRAPHIC] «پ» را فارسی بخوان؛ روی صفحه P.</p></t-fa><t-en><b>FEN</b><p>[GRAPHIC] Read the letter as "P".</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-4" data-start="140">
+<p class="kicker"><t-fa>قانون مسابقهٔ ما · پیش از اجرا قفل شد</t-fa><t-en>Our rules · locked before the run</t-en></p>
+<div class="steps">
+<div><b><t-fa>۵ مدل · ۲۰ بازی</t-fa><t-en>5 models · 20 games</t-en></b><t-fa>هر جفت دو بار: یک بار سفید، یک بار سیاه</t-fa><t-en>every pair twice: once White, once Black</t-en></div>
+<div><b><t-fa>ورودی</t-fa><t-en>Input</t-en></b><t-fa>FEN و همهٔ حرکت‌های قبلی؛ بی‌فهرست حرکت مجاز، بی‌موتور</t-fa><t-en>FEN and the full move history; no legal-move list, no engine</t-en></div>
+<div class="hi"><b><t-fa>حرکت غیرقانونی</t-fa><t-en>Illegal move</t-en></b><t-fa>یک فرصت دوباره؛ بار دوم باخت</t-fa><t-en>one retry; the second one loses</t-en></div>
+<div><b><t-fa>سقف</t-fa><t-en>Limits</t-en></b><t-fa>۸۰ نیم‌حرکت؛ سقف خرج پیش از اجرا</t-fa><t-en>80 plies; a spending cap set before the run</t-en></div>
+</div>
+<p class="caption"><t-fa>متن کامل: <bdi dir="ltr">artifact/protocol.md</bdi>. شناسهٔ دقیق مدل‌ها روز اجرا.</t-fa><t-en>Full text: artifact/protocol.md. Exact model IDs on run day.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>مدل‌ها در models.json</t-fa><t-en>models in models.json</t-en></p>
+<footer><t-fa>قانون FIDE هم: حرکت غیرقانونی دوم معمولاً باخت (مادهٔ ۷٫۵٫۵)</t-fa><t-en>FIDE too: a second illegal move usually loses (Article 7.5.5)</t-en></footer>
+<aside class="notes"><t-fa><b>قانون</b><p>[B-ROLL CUE] ترمینال chess_run.py plan.</p></t-fa><t-en><b>Rules</b><p>[B-ROLL CUE] Terminal: chess_run.py plan.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-5" data-start="195">
+<p class="kicker"><t-fa>داور: موتور شطرنج</t-fa><t-en>The referee: a chess engine</t-en></p>
+<div class="fenrow">
+<div class="evalbar"><i></i></div>
+<div class="cols">
+<div class="hi"><span><t-fa>بعد از <bdi dir="ltr">1.e4</bdi></t-fa><t-en>After 1.e4</t-en></span><b><t-fa>+۰٫۱۸</t-fa><t-en>+0.18</t-en></b><p><t-fa>۱۸ سانتی‌پیاده به نفع سفید؛ یعنی تقریباً مساوی</t-fa><t-en>18 centipawns for White; roughly equal</t-en></p></div>
+<div><span><t-fa>افت یک حرکت</t-fa><t-en>Loss of a move</t-en></span><b class="word"><t-fa>بهترین − زده‌شده</t-fa><t-en>best − played</t-en></b><p><t-fa>از برابر، ارزش دو سرباز یک‌جا ⇒ «اشتباه بزرگ»</t-fa><t-en>from level, two pawns' worth at once ⇒ a "blunder"</t-en></p></div>
+</div>
+</div>
+<p class="caption"><t-fa>صد سانتی‌پیاده یعنی تقریباً <strong>یک سرباز</strong>.</t-fa><t-en>A hundred centipawns is about <strong>one pawn</strong>.</t-en></p>
+<footer><t-fa>Lichess cloud eval، عمق ۷۰ (۲۸ نوامبر ۲۰۲۶) · آستانه‌ها از کد Lichess</t-fa><t-en>Lichess cloud eval, depth 70 (28 Nov 2026) · thresholds from Lichess's code</t-en></footer>
+<aside class="notes"><t-fa><b>CTA میانی + سانتی‌پیاده</b><p>اول CTA رو به دوربین. [GRAPHIC] نوار.</p></t-fa><t-en><b>Mid CTA + centipawns</b><p>CTA to camera first. [GRAPHIC] The bar.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="255">
+<p class="kicker"><t-fa>جدول‌های بزرگ چه می‌گویند؟</t-fa><t-en>What do the big tables say?</t-en></p>
+<div class="bars">
+<div class="hi"><span>Gemini 4 Neon</span><i style="--v:100"></i><span>1,791</span></div>
+<div><span>Gemini 4 Carbon</span><i style="--v:92.2"></i><span>1,651</span></div>
+<div><span>GPT-6.2 Astra</span><i style="--v:88.5"></i><span>1,585</span></div>
+<div><span><t-fa>… رتبهٔ ۱۲: Claude Fable 5.2</t-fa><t-en>… #12: Claude Fable 5.2</t-en></span><i style="--v:73.9"></i><span>1,324</span></div>
+</div>
+<p class="caption"><t-fa>Kaggle، ۴۶ مدل، امتیازی از بازی مدل‌ها با هم؛ <strong>درجهٔ شطرنج‌باز آدم نیست</strong>. Epoch، فقط معما: بهترین ۸۳٪.</t-fa><t-en>Kaggle, 46 models, a rating from model-vs-model games; <strong>not a human player's rating</strong>. Epoch, puzzles only: best 83%.</t-en></p>
+<footer><t-fa>R01 Kaggle Chess Text، ارزیابی ۲۴ نوامبر ۲۰۲۶ (بازهٔ هر عدد حدود ±۴۰) · R04 Epoch · نمودار از ما</t-fa><t-en>R01 Kaggle Chess Text, evaluated 24 Nov 2026 (each about ±40) · R04 Epoch · chart ours</t-en></footer>
+<aside class="notes"><t-fa><b>جدول‌ها</b><p>[UNEXPECTED STAT] «رتبهٔ دوازدهم» را بگو؛ امتیاز را نه.</p></t-fa><t-en><b>Tables</b><p>[UNEXPECTED STAT] Say "twelfth"; don't read the ratings.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="305">
+<p class="kicker"><t-fa>حدس بزن · بعد شروع</t-fa><t-en>Guess · then start</t-en></p>
+<div class="cards">
+<div><b><t-fa>بیشترین حرکت غیرقانونی؟</t-fa><t-en>Most illegal moves?</t-en></b><t-fa>کدام مدل</t-fa><t-en>which model</t-en></div>
+<div class="hi"><b><t-fa>کجای بازی؟</t-fa><t-en>Where in the game?</t-en></b><t-fa>اول بازی، یا وسط و آخر</t-fa><t-en>the opening, or later</t-en></div>
+<div><b><t-fa>اولین خطا</t-fa><t-en>First error</t-en></b>—</div>
+</div>
+<p class="caption"><t-fa>جوابت را پیش از دیدن، در کامنت بنویس.</t-fa><t-en>Write your answer in the comments before you see it.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>ضبط واقعی: chess_live.py؛ هر بازپخش تند برچسب «×N» دارد</t-fa><t-en>Real footage: chess_live.py; every sped-up replay is labelled "×N"</t-en></p>
+<aside class="notes"><t-fa><b>حدس + صفحهٔ زنده</b><p>[SOUND EFFECT] ساعت شطرنج. [B-ROLL CUE] نسخهٔ MOCK هرگز در تدوین نهایی نمی‌آید.</p></t-fa><t-en><b>Guess + live page</b><p>[SOUND EFFECT] Chess clock. [B-ROLL CUE] The MOCK version never goes in the final cut.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="360">
+<p class="kicker"><t-fa>چهار جور حرکت غیرقانونی</t-fa><t-en>Four kinds of illegal move</t-en></p>
+<div class="kinds4">
+<div><b><t-fa>مهرهٔ خیالی</t-fa><t-en>Ghost piece</t-en></b><code>Qd4</code><t-fa>وزیری که دیگر نیست</t-fa><t-en>a queen that is gone</t-en></div>
+<div><b><t-fa>نمی‌رسد</t-fa><t-en>Can't get there</t-en></b><code>Ra2</code><t-fa>راه بسته یا حرکت ناممکن</t-fa><t-en>path blocked or impossible</t-en></div>
+<div class="hi"><b><t-fa>شاه زیر کیش</t-fa><t-en>King left in check</t-en></b><code>Rh8+</code><t-fa>حرکت درست، شاه در خطر</t-fa><t-en>a fine move, but the king hangs</t-en></div>
+<div><b><t-fa>قلعهٔ غیرمجاز</t-fa><t-en>Castling not allowed</t-en></b><code>O-O</code><t-fa>حقش از دست رفته یا زیر کیش</t-fa><t-en>right lost, or in check</t-en></div>
+</div>
+<p class="caption"><t-fa>نوع خطا می‌گوید مدل <strong>کجا صفحه را گم کرد</strong>. سهم هر نوع: —</t-fa><t-en>The kind of error says <strong>where the model lost the board</strong>. Share of each kind: —</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>مثال‌ها از selftest، نه از اجرا</t-fa><t-en>examples from the self-test, not from the run</t-en></p>
+<aside class="notes"><t-fa><b>چهار نوع</b><p>[GRAPHIC] بعد از اجرا: میلهٔ سهم هر نوع از report.md.</p></t-fa><t-en><b>Four kinds</b><p>[GRAPHIC] After the run: the share of each kind from report.md.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="425">
+<p class="kicker"><t-fa>بلد است، یا حفظ کرده؟</t-fa><t-en>Knows it, or memorised it?</t-en></p>
+<table class="tb">
+<tr><th></th><th><t-fa>غیرقانونی داخل کتاب گشایش</t-fa><t-en>illegal, inside the opening book</t-en></th><th><t-fa>غیرقانونی بیرون کتاب</t-fa><t-en>illegal, out of book</t-en></th></tr>
+<tr><td>Gemini</td><td>—</td><td>—</td></tr><tr><td>Claude</td><td>—</td><td>—</td></tr><tr><td>GPT</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>مدل باز ۱</t-fa><t-en>Open model 1</t-en></td><td>—</td><td>—</td></tr><tr><td><t-fa>مدل باز ۲</t-fa><t-en>Open model 2</t-en></td><td>—</td><td>—</td></tr>
+</table>
+<p class="caption"><t-fa>کتاب: ۳٬۸۶۵ خط گشایش اسم‌دار (Lichess، CC0). <strong>فرق، نشانه است نه اثبات</strong>؛ وضعیت‌های اول بازی ساده‌ترند.</t-fa><t-en>Book: 3,865 named opening lines (Lichess, CC0). <strong>A difference is a hint, not proof</strong>; early positions are simpler.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>درصد در تلاش اول، از report.md</t-fa><t-en>first-try %, from report.md</t-en></p>
+<aside class="notes"><t-fa><b>بازگشت هوک</b><p>[CAMERA CHANGE] شاخهٔ الف یا ب قاب ۹ متن.</p></t-fa><t-en><b>Re-hook</b><p>[CAMERA CHANGE] Branch A or B of script beat 9.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="485">
+<p class="kicker"><t-fa>حرکت‌های قانونی چقدر خوب بودند؟</t-fa><t-en>How good were the legal moves?</t-en></p>
+<div class="cols">
+<div><span><t-fa>افت میانگین (سانتی‌پیاده)</t-fa><t-en>Average loss (centipawns)</t-en></span><b>—</b><p><t-fa>کمترین تا بیشترین</t-fa><t-en>lowest to highest</t-en></p></div>
+<div><span><t-fa>اشتباه بزرگ در هر ۱۰۰ حرکت</t-fa><t-en>Blunders per 100 moves</t-en></span><b>—</b><p><t-fa>آستانهٔ Lichess</t-fa><t-en>Lichess threshold</t-en></p></div>
+<div class="hi"><span><t-fa>شبکهٔ فقط‌شطرنج، بی‌جست‌وجو</t-fa><t-en>Chess-only network, no search</t-en></span><b>2895</b><p><t-fa>بلیتس Lichess در برابر آدم‌ها · ۲۷۰ میلیون پارامتر · DeepMind ۲۰۲۴</t-fa><t-en>Lichess blitz vs humans · 270M parameters · DeepMind 2024</t-en></p></div>
+</div>
+<p class="caption"><t-fa>افت را <strong>فقط درون همین اجرا</strong> مقایسه کن؛ عمق موتور ۱۲.</t-fa><t-en>Compare the loss <strong>only within this run</strong>; engine depth 12.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b></p>
+<footer><t-fa>R11 Ruoss و دیگران، arXiv 2402.04494</t-fa><t-en>R11 Ruoss et al., arXiv 2402.04494</t-en></footer>
+<aside class="notes"><t-fa><b>کیفیت</b><p>[GRAPHIC] خط «قاب ۱۰» از spoken-fa.txt.</p></t-fa><t-en><b>Quality</b><p>[GRAPHIC] The "beat 10" line from spoken-fa.txt.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-11" data-start="540">
+<p class="kicker"><t-fa>جدول نهایی</t-fa><t-en>Final table</t-en></p>
+<table class="tb">
+<tr><th></th><th><t-fa>امتیاز از ۸</t-fa><t-en>points of 8</t-en></th><th><t-fa>قانونی در تلاش اول</t-fa><t-en>first-try legal</t-en></th><th><t-fa>باخت با خطا</t-fa><t-en>lost by forfeit</t-en></th><th><t-fa>ثانیه هر حرکت</t-fa><t-en>s per move</t-en></th><th>$</th></tr>
+<tr><td>Gemini</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Claude</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>GPT</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+<tr><td><t-fa>مدل باز ۱</t-fa><t-en>Open model 1</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td><t-fa>مدل باز ۲</t-fa><t-en>Open model 2</t-en></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</table>
+<p class="caption"><t-fa>هشت بازی برای هر مدل: حتی فاصلهٔ دو سه امتیاز <strong>برنده ندارد</strong>. هیچ Elo حساب نمی‌شود.</t-fa><t-en>Eight games per model: even a gap of two or three points <strong>has no winner</strong>. No Elo is computed.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>از results/&lt;run&gt;/report.md</t-fa><t-en>from results/&lt;run&gt;/report.md</t-en></p>
+<aside class="notes"><t-fa><b>جدول</b><p>[B-ROLL CUE] جدول صفحهٔ زنده؛ شاخهٔ الف یا ب.</p></t-fa><t-en><b>Table</b><p>[B-ROLL CUE] The live page's table; branch A or B.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-12" data-start="590">
+<p class="kicker"><t-fa>فکرکردن، به چه قیمتی؟</t-fa><t-en>Thinking, at what price?</t-en></p>
+<div class="cols">
+<div><span><t-fa>Kaggle · کمترین میانگین توکن هر نوبت</t-fa><t-en>Kaggle · lowest average tokens per turn</t-en></span><b>1,524</b></div>
+<div class="hi"><span><t-fa>Kaggle · بیشترین</t-fa><t-en>Kaggle · highest</t-en></span><b>29,679</b></div>
+<div><span><t-fa>مسابقهٔ ما · توکن و دلار هر حرکت</t-fa><t-en>Our run · tokens and $ per move</t-en></span><b>—</b></div>
+</div>
+<p class="caption"><t-fa>قالب ورودی هم مهم است: ۲۰۲۳، یک مدل قدیمی با متن سادهٔ بازی، <strong>هزاران حرکت بی‌یک حرکت نامعتبر</strong>.</t-fa><t-en>Input format matters too: in 2023 an older model, given plain game text, made <strong>thousands of moves without one invalid move</strong>.</t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>ستون ما</t-fa><t-en>our column</t-en></p>
+<footer><t-fa>R01 Kaggle (۲۴ نوامبر ۲۰۲۶) · R08 Carlini ۲۰۲۳ · R09 dynomight ۲۰۲۴</t-fa><t-en>R01 Kaggle (24 Nov 2026) · R08 Carlini 2023 · R09 dynomight 2024</t-en></footer>
+<aside class="notes"><t-fa><b>توکن</b><p>[UNEXPECTED STAT] خط «قاب ۱۲».</p></t-fa><t-en><b>Tokens</b><p>[UNEXPECTED STAT] The "beat 12" line.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="640">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary"><div><b><t-fa>نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>چند بار این پنج مدل، با این ورودی متنی، در یک روز، قانون را نگه داشتند؛ کجا خطا کردند؛ حرکت‌های قانونی‌شان چقدر از بهترین دور بود</t-fa><t-en>How often these five models, with this text input, on one day, kept the rules; where they slipped; how far their legal moves were from the best</t-en></div><div class="no"><b><t-fa>نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>درجهٔ شطرنج یا Elo؛ همان نتیجه با تصویر یا فهرست حرکت مجاز؛ اثبات حفظ‌کردن؛ اینکه مدل «می‌فهمد»</t-fa><t-en>A chess rating or Elo; the same result with an image or a legal-move list; proof of memorisation; whether the model "understands"</t-en></div></div>
+<p class="caption"><t-fa>بیست بازی، یک اجرا، یک تاریخ؛ موتور در عمق ثابت.</t-fa><t-en>Twenty games, one run, one date; the engine at a fixed depth.</t-en></p>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] نمای ثابت.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] Locked-off shot.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="685">
+<p class="kicker"><t-fa>جواب کوتاه · تمرین</t-fa><t-en>Short answer · exercise</t-en></p>
+<h1><t-fa>دانستن قانون ≠ <em>نگه‌داشتن صفحه</em> در ذهن</t-fa><t-en>Knowing the rules ≠ <em>keeping the board</em> in your head</t-en></h1>
+<p class="caption"><t-fa>تمرین: با یک چت‌بات بازی کن؛ بعد از ده حرکت بپرس <strong>«الان وزیر من کجاست؟»</strong></t-fa><t-en>Exercise: play a chatbot; after ten moves ask <strong>"where is my queen now?"</strong></t-en></p>
+<p class="tag"><b><t-fa>اجرا نشده</t-fa><t-en>NOT RUN YET</t-en></b> <t-fa>جواب کوتاه با عدد اجرای واقعی</t-fa><t-en>the short answer comes with the real run's numbers</t-en></p>
+<aside class="notes"><t-fa><b>جواب</b><p>[GRAPHIC] خط «قاب ۱۴».</p></t-fa><t-en><b>Answer</b><p>[GRAPHIC] The "beat 14" line.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="715">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next episode</t-en></p>
+<h1><t-fa>وقتی می‌گویند AI کمتر خطا می‌کند، <em>چه چیزی را</em> نمی‌گویند؟</t-fa><t-en>When they say an AI makes fewer errors, <em>what</em> aren't they saying?</t-en></h1>
+<p class="caption"><t-fa>هر نرخی یک مخرج دارد.</t-fa><t-en>Every rate has a denominator.</t-en></p>
+<aside class="notes"><t-fa><b>تیزر HMD-006</b><p>[SOUND EFFECT] قطع تیک ساعت. هیچ عددی از قسمت بعد.</p></t-fa><t-en><b>HMD-006 teaser</b><p>[SOUND EFFECT] The clock's tick stops. No numbers from the next episode.</p></t-en></aside>
+</section>

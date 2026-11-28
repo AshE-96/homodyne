@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-016-companion
 hmd: HMD-016
 kind: companion
-date: 2027-03-26
+date: 2027-04-30
 tags: ["خودداری", "نمی‌دانم", "پوشش و ریسک", "ثبت از پیش", "بنچمارک", "توهم هوش مصنوعی"]
 sources:
   - title: "Kirichenko، Ibrahim، Chaudhuri، Bell (۲۰۲۵). AbstentionBench: Reasoning LLMs Fail on Unanswerable Questions. arXiv 2506.09038 v1"

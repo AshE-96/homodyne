@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-007-companion
 hmd: HMD-007
 kind: companion
-date: 2027-01-15
+date: 2027-01-29
 tags: ["تزریق دستور", "prompt injection", "امنیت دستیار هوش مصنوعی", "spotlighting", "حداقل دسترسی"]
 sources:
   - title: "Anthropic: Mitigating the risk of prompt injections in browser use (24 Nov 2025)"

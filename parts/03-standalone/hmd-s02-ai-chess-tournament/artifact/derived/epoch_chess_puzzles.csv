@@ -1,0 +1,172 @@
+model_version,mean_score,stderr,release_date,organization
+gemini-4-neon_xhigh,0.83,0.0378,2026-11-18,Google DeepMind
+claude-fable-5-2_max,0.79,0.0409,2026-11-09,Anthropic
+gemini-4-carbon_high,0.78,0.0416,2026-11-10,Google DeepMind
+gpt-6.2-astra_max,0.78,0.0416,2026-11-17,OpenAI
+gpt-6-astra_promax,0.76,0.0429,2026-09-03,OpenAI
+gpt-6-astra_max,0.74,0.0441,2026-09-03,OpenAI
+gpt-5.6-sol_promax,0.68,0.0469,2026-07-09,OpenAI
+gpt-6.1-sol_max,0.68,0.0469,2026-09-29,OpenAI
+claude-opus-5-5_max,0.67,0.0473,2026-09-22,Anthropic
+gpt-6.1-terra_max,0.66,0.0476,2026-10-26,OpenAI
+gemini-3.7-flash_high,0.66,0.0476,2026-08-13,Google DeepMind
+gpt-5.5_xhigh,0.63,0.0485,2026-04-23,OpenAI
+gpt-5.5-pro_xhigh,0.62,0.0488,2026-04-23,OpenAI
+gemini-4-hydrogen_xhigh,0.6,0.0492,2026-11-12,Google DeepMind
+gpt-5.2-pro-2025-12-11_xhigh,0.6,0.0492,2025-12-11,OpenAI
+gpt-5.4-pro-2026-03-05_xhigh,0.59,0.0494,2026-03-05,OpenAI
+gemini-4-argon_high,0.59,0.0494,2026-10-13,Google DeepMind
+gpt-5.6-sol_max,0.59,0.0494,2026-07-09,OpenAI
+claude-sonnet-5-5_max,0.59,0.0494,2026-09-28,Anthropic
+gemini-3.8-flash_high,0.58,0.0496,2026-09-02,Google DeepMind
+gpt-6-sol_max,0.56,0.0499,2026-09-22,OpenAI
+claude-haiku-5-5_max,0.55,0.05,2026-10-07,Anthropic
+claude-opus-4-8_max,0.52,0.0502,2026-05-28,Anthropic
+gemini-3.1-pro-preview_high,0.51,0.0502,2026-02-19,Google DeepMind
+gpt-5.2-2025-12-11_xhigh,0.48,0.0502,2025-12-11,OpenAI
+gpt-5-pro-2025-10-06_high,0.48,0.0502,2025-10-07,OpenAI
+gpt-5.4-2026-03-05_xhigh,0.48,0.0502,2026-03-05,OpenAI
+claude-fable-5-1_max,0.48,0.0502,2026-09-01,Anthropic
+deepseek-v4.1-flash_max,0.48,0.0502,2026-09-09,DeepSeek
+gpt-5.6-terra_max,0.47,0.0502,2026-07-09,OpenAI
+claude-fable-5_max,0.47,0.0502,2026-06-09,Anthropic
+deepseek-v4.1-flash-1017_max,0.46,0.0501,2026-10-17,DeepSeek
+qwen3.8-max_xhigh,0.46,0.0501,2026-08-02,Alibaba
+deepseek-v4-pro-0813_max,0.46,0.0501,2026-08-13,DeepSeek
+kimi-k3.1-pro-together_max,0.45,0.05,2026-10-23,Moonshot
+gpt-5.4-nano-2026-03-17_xhigh,0.45,0.05,2026-03-17,OpenAI
+gpt-5.2-2025-12-11_high,0.45,0.05,2025-12-11,OpenAI
+gemini-3.5-flash_high,0.45,0.05,2026-05-19,Google DeepMind
+claude-fable-5_high,0.45,0.05,2026-06-09,Anthropic
+claude-sonnet-5_max,0.45,0.05,2026-06-30,Anthropic
+muse-ember-1.0_max,0.43,0.0498,2026-11-09,Meta AI
+gpt-5.6-luna_max,0.43,0.0498,2026-07-09,OpenAI
+claude-opus-5_max,0.43,0.0498,2026-07-24,Anthropic
+gpt-5.1-2025-11-13_high,0.42,0.0496,2025-11-13,OpenAI
+gpt-5.4-2026-03-05_high,0.42,0.0496,2026-03-05,OpenAI
+gemini-3.5-flash_low,0.42,0.0496,2026-05-19,Google DeepMind
+gemini-3.6-flash_low,0.42,0.0496,2026-07-21,Google DeepMind
+claude-opus-4-7_max,0.41,0.0494,2026-04-16,Anthropic
+grok-4.7_xhigh,0.41,0.0494,2026-09-21,xAI
+doubao-seed-evolving_high,0.4,0.0492,2026-11-02,ByteDance
+gemini-3-flash-preview_high,0.4,0.0492,2025-12-17,Google DeepMind
+gemini-3.6-flash_high,0.4,0.0492,2026-07-21,Google DeepMind
+inkling-2-mini_xhigh,0.39,0.049,2026-11-20,Thinking Machines
+glm-5.3_max,0.37,0.0485,2026-08-14,Z.ai (Zhipu AI)
+kimi-k3_high,0.37,0.0485,2026-07-16,Moonshot
+o3-2025-04-16_medium,0.37,0.0485,2025-04-16,OpenAI
+gpt-5.4-2026-03-05_medium,0.37,0.0485,2026-03-05,OpenAI
+muse-spark-1.3_max,0.37,0.0485,2026-09-02,Meta AI
+qwen3.8-max-0902_xhigh,0.37,0.0485,2026-09-01,Alibaba
+qwen4-max_xhigh,0.36,0.0482,2026-11-16,Alibaba
+kimi-k3_max,0.36,0.0482,2026-07-16,Moonshot
+o3-2025-04-16_low,0.36,0.0482,2025-04-16,OpenAI
+o3-2025-04-16_high,0.36,0.0482,2025-04-16,OpenAI
+gpt-5-2025-08-07_high,0.36,0.0482,2025-08-07,OpenAI
+gpt-5.2-2025-12-11_medium,0.36,0.0482,2025-12-11,OpenAI
+gpt-5.4-nano-2026-03-17_high,0.36,0.0482,2026-03-17,OpenAI
+gpt-6-luna_max,0.36,0.0482,2026-09-22,OpenAI
+claude-opus-4-7_xhigh,0.36,0.0482,2026-04-16,Anthropic
+grok-4.5_high,0.35,0.0479,2026-07-08,xAI
+claude-sonnet-5_xhigh,0.34,0.0476,2026-06-30,Anthropic
+muse-spark-1.1_xhigh,0.34,0.0476,2026-07-09,Meta AI
+muse-spark-1.3_xhigh,0.34,0.0476,2026-09-02,Meta AI
+mistral-large-4-0_high,0.33,0.0473,2026-10-06,Mistral AI
+grok-4.6_xhigh,0.33,0.0473,2026-08-12,xAI
+grok-4.6_high,0.33,0.0473,2026-08-12,xAI
+gpt-5-2025-08-07_medium,0.32,0.0469,2025-08-07,OpenAI
+deepseek-v4-flash-0731_max,0.32,0.0469,2026-07-31,DeepSeek
+gpt-5.6-sol_low,0.31,0.0465,2026-07-09,OpenAI
+claude-fable-5_low,0.31,0.0465,2026-06-09,Anthropic
+gpt-5.5_low,0.3,0.0461,2026-04-23,OpenAI
+mistral-large-4-0-oss_high,0.29,0.0456,2026-10-29,Mistral AI
+claude-opus-4-8_low,0.29,0.0456,2026-05-28,Anthropic
+grok-4.20-0309-reasoning,0.29,0.0456,2026-02-17,xAI
+gemini-3.6-flash_minimal,0.29,0.0456,2026-07-21,Google DeepMind
+gpt-5-2025-08-07_low,0.27,0.0446,2025-08-07,OpenAI
+gpt-5.6-terra_low,0.27,0.0446,2026-07-09,OpenAI
+gemini-3.5-flash_minimal,0.27,0.0446,2026-05-19,Google DeepMind
+qwen3.7-max,0.27,0.0446,2026-05-19,Alibaba
+claude-opus-5_low,0.27,0.0446,2026-07-24,Anthropic
+muse-spark-1.2_xhigh,0.27,0.0446,2026-08-05,Meta AI
+doubao-seed-2.1-turbo-260628_high,0.26,0.0441,2026-06-23,ByteDance
+gpt-5.2-2025-12-11_low,0.26,0.0441,2025-12-11,OpenAI
+claude-opus-4-7_low,0.26,0.0441,2026-04-16,Anthropic
+gpt-5-mini-2025-08-07_high,0.24,0.0429,2025-08-07,OpenAI
+claude-haiku-5-5_low,0.24,0.0429,2026-10-07,Anthropic
+gpt-5.1-2025-11-13_low,0.23,0.0423,2025-11-13,OpenAI
+gpt-5.4-mini-2026-03-17_high,0.23,0.0423,2026-03-17,OpenAI
+claude-sonnet-4-6_max,0.23,0.0423,2026-02-17,Anthropic
+glm-5.2_max,0.22,0.0416,2026-06-16,Z.ai (Zhipu AI)
+o4-mini-2025-04-16_medium,0.22,0.0416,2025-04-16,OpenAI
+gpt-5-nano-2025-08-07_high,0.22,0.0416,2025-08-07,OpenAI
+doubao-seed-2.1-pro-260628_high,0.21,0.0409,2026-06-23,ByteDance
+glm-4.7,0.21,0.0409,2025-12-22,Z.ai (Zhipu AI)
+glm-5.3-flash_max,0.21,0.0409,2026-08-20,Z.ai (Zhipu AI)
+claude-opus-4-6_max,0.21,0.0409,2026-02-05,Anthropic
+gemini-3.5-flash-lite_low,0.21,0.0409,2026-07-21,Google DeepMind
+Inkling_xhigh,0.21,0.0409,2026-07-15,Thinking Machines
+doubao-seed-2.0-lite-260428_high,0.2,0.0402,2026-04-28,ByteDance
+doubao-seed-2.0-pro-260215_high,0.2,0.0402,2026-02-14,ByteDance
+glm-5.1,0.2,0.0402,2026-04-07,Z.ai (Zhipu AI)
+kimi-k2.6,0.2,0.0402,2026-04-20,Moonshot
+gpt-5.4-nano-2026-03-17_low,0.2,0.0402,2026-03-17,OpenAI
+glm-5.2_none,0.19,0.0394,2026-06-16,Z.ai (Zhipu AI)
+gpt-5.4-2026-03-05_low,0.19,0.0394,2026-03-05,OpenAI
+deepseek-v4-pro_max,0.19,0.0394,2026-04-24,DeepSeek
+claude-sonnet-4-6_high,0.19,0.0394,2026-02-17,Anthropic
+claude-opus-4-8_none,0.19,0.0394,2026-05-28,Anthropic
+glm-5.2_low,0.18,0.0386,2026-06-16,Z.ai (Zhipu AI)
+kimi-k3_low,0.18,0.0386,2026-07-16,Moonshot
+grok-4.3_high,0.18,0.0386,2026-04-17,xAI
+gpt-5.4-mini-2026-03-17_xhigh,0.17,0.0378,2026-03-17,OpenAI
+gpt-5.6-luna_low,0.17,0.0378,2026-07-09,OpenAI
+MiniMax-M3,0.17,0.0378,2026-06-01,MiniMax
+gpt-5-mini-2025-08-07_low,0.16,0.0368,2025-08-07,OpenAI
+qwen3.6-plus,0.16,0.0368,2026-03-31,Alibaba
+deepseek-v4-pro_high,0.16,0.0368,2026-04-24,DeepSeek
+claude-sonnet-4-6_medium,0.16,0.0368,2026-02-17,Anthropic
+gemini-3.5-flash-lite_high,0.16,0.0368,2026-07-21,Google DeepMind
+o3-mini-2025-01-31_high,0.15,0.0359,2025-01-31,OpenAI
+o4-mini-2025-04-16_low,0.15,0.0359,2025-04-16,OpenAI
+gpt-5-nano-2025-08-07_low,0.15,0.0359,2025-08-07,OpenAI
+kimi-k2.7-code,0.14,0.0349,2026-06-12,Moonshot
+claude-opus-4-5-20251101_59K,0.14,0.0349,2025-11-24,Anthropic
+qwen3.5-flash,0.14,0.0349,2026-02-25,Alibaba
+o4-mini-2025-04-16_high,0.13,0.0338,2025-04-16,OpenAI
+qwen3.6-flash,0.12,0.0327,2026-04-27,Alibaba
+gpt-4.1-2025-04-14,0.11,0.0314,2025-04-14,OpenAI
+o1-2024-12-17_low,0.11,0.0314,2024-12-17,OpenAI
+o3-mini-2025-01-31_medium,0.11,0.0314,2025-01-31,OpenAI
+gpt-5-2025-08-07_minimal,0.11,0.0314,2025-08-07,OpenAI
+o1-2024-12-17_high,0.1,0.0302,2024-12-17,OpenAI
+claude-sonnet-4-5-20250929_59K,0.1,0.0302,2025-09-29,Anthropic
+claude-sonnet-4-5-20250929_32K,0.1,0.0302,2025-09-29,Anthropic
+gpt-4o-2024-08-06,0.09,0.0288,2024-08-06,OpenAI
+gpt-5.5_none,0.09,0.0288,2026-04-23,OpenAI
+qwen3.5-plus,0.09,0.0288,2026-02-16,Alibaba
+o1-2024-12-17_medium,0.08,0.0273,2024-12-17,OpenAI
+MiniMax-M3_none,0.08,0.0273,2026-06-01,MiniMax
+claude-haiku-4-5-20251001_59K,0.08,0.0273,2025-10-15,Anthropic
+gpt-5.6-sol_none,0.07,0.0256,2026-07-09,OpenAI
+gemini-3.5-flash-lite_minimal,0.07,0.0256,2026-07-21,Google DeepMind
+o3-mini-2025-01-31_low,0.06,0.0239,2025-01-31,OpenAI
+gpt-5.1-2025-11-13_none,0.06,0.0239,2025-11-13,OpenAI
+claude-sonnet-4-5-20250929,0.06,0.0239,2025-09-29,Anthropic
+seed-1.6,0.05,0.0219,2025-06-11,ByteDance
+gpt-5.6-terra_none,0.05,0.0219,2026-07-09,OpenAI
+claude-haiku-4-5-20251001_32K,0.05,0.0219,2025-10-15,Anthropic
+claude-opus-4-5-20251101_32K,0.05,0.0219,2025-11-24,Anthropic
+claude-opus-4-5-20251101,0.05,0.0219,2025-11-24,Anthropic
+claude-3-opus-20240229,0.04,0.0197,2024-02-29,Anthropic
+deepseek-v4-pro_none,0.04,0.0197,2026-04-24,DeepSeek
+gpt-4o-mini-2024-07-18,0.03,0.0171,2024-07-18,OpenAI
+gpt-5.4-2026-03-05_none,0.03,0.0171,2026-03-05,OpenAI
+gpt-5.6-luna_none,0.03,0.0171,2026-07-09,OpenAI
+gpt-5-nano-2025-08-07_minimal,0.02,0.0141,2025-08-07,OpenAI
+gpt-5.2-2025-12-11_none,0.02,0.0141,2025-12-11,OpenAI
+gpt-5.4-nano-2026-03-17_none,0.02,0.0141,2026-03-17,OpenAI
+gpt-5.4-mini-2026-03-17_none,0.02,0.0141,2026-03-17,OpenAI
+gpt-4.1-mini-2025-04-14,0.01,0.01,2025-04-14,OpenAI
+gpt-4.1-nano-2025-04-14,0.0,0.0,2025-04-14,OpenAI
+gpt-5-mini-2025-08-07_minimal,0.0,0.0,2025-08-07,OpenAI

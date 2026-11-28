@@ -1,0 +1,303 @@
+<!doctype html>
+<!-- HMD-S03 · live demo page. Template for artifact/fold_live.py (which fills in __DATA__). Do not open this file directly. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne HMD-S03 · AlphaFold vs experiment</title>
+<style>
+@font-face{font-family:"Vazirmatn";font-weight:400;src:url("../../../../brand/fonts/vazirmatn-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-weight:700;src:url("../../../../brand/fonts/vazirmatn-arabic-700-normal.woff2") format("woff2")}
+:root{--bg:#111214;--ink:#F3F1EC;--muted:#8D8A84;--dim:#3A3B3F;--amber:#E8A33D;--line:#26272B;
+ --vh:#0053D6;--hi:#65CBF3;--lo:#FFDB13;--vl:#FF7D45}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:17px/1.4 "Inter","Helvetica Neue",Arial,"Vazirmatn",sans-serif;overflow:hidden}
+header{display:flex;align-items:baseline;gap:22px;padding:16px 28px 0}
+header .brand{font-weight:700;letter-spacing:.02em}
+.tabs{display:flex;gap:8px;margin-left:auto}
+button{background:none;border:1px solid var(--dim);color:var(--muted);font:inherit;font-size:13px;padding:3px 8px;border-radius:4px;cursor:pointer}
+button.on{border-color:var(--amber);color:var(--amber)}
+main{position:absolute;inset:58px 0 0 0;display:grid;grid-template-columns:1fr 500px;grid-template-rows:auto minmax(0,1fr) auto auto;gap:4px 26px;padding:6px 28px 10px}
+#head{grid-column:1/3;grid-row:1}#v3{grid-column:1;grid-row:2}.side{grid-column:2;grid-row:2}#track{grid-row:3}.credit{grid-row:4}
+h1{font-size:28px;margin:0;font-weight:700}
+h1 em{font-style:normal;color:var(--amber)}
+.fa{direction:rtl;font-family:"Vazirmatn",sans-serif;color:var(--muted);font-size:18px;margin:0;text-align:left}
+.fa bdi{direction:ltr}
+#v3{position:relative;min-height:0}
+#c3{position:absolute;inset:0;width:100%;height:100%;cursor:grab}
+.legend{position:absolute;left:0;bottom:0;flex-wrap:wrap;display:flex;gap:16px;font-size:14px;color:var(--muted)}
+.legend i{display:inline-block;width:16px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.side{display:flex;flex-direction:column;gap:8px;min-height:0;overflow:hidden}
+.nums{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.nums div{border-top:1px solid var(--dim);padding-top:6px}
+.nums span{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap}
+.nums b{display:block;font-size:36px;line-height:1.05;font-variant-numeric:tabular-nums}
+.nums b.a{color:var(--amber)} .nums small{color:var(--muted);font-size:12px;display:block;line-height:1.3}
+.ref{font-size:13px;color:var(--muted);line-height:1.35} .ref b{color:var(--ink);font-weight:600}
+#pae{width:215px;height:215px;flex:none;image-rendering:pixelated;cursor:crosshair}
+.paewrap{display:flex;gap:12px;align-items:flex-start}
+.paeleg{font-size:13px;color:var(--muted);flex:1}
+.paeleg .bar{height:10px;margin:6px 0 2px;background:linear-gradient(90deg,#0b6b2d,#7fbf7b,#f0f0e8)}
+#track{width:100%;height:96px;grid-column:1/3;display:block}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+#live{font-size:14px;color:var(--muted);min-height:20px}
+#live.ok{color:var(--ink)} #live b{color:var(--amber);font-weight:600}
+table.x{border-collapse:collapse;font-size:13px;color:var(--muted);width:100%}
+table.x td{padding:2px 6px;border-bottom:1px solid var(--line)} table.x td:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums}
+.credit{grid-column:1/3;font-size:11.5px;color:#5d5b57;margin-top:4px}
+#tip{position:fixed;pointer-events:none;background:#000c;border:1px solid var(--dim);padding:3px 8px;font-size:13px;border-radius:3px;display:none}
+body.clean .controls,body.clean .tabs,body.clean .keys{visibility:hidden}
+.keys{position:absolute;bottom:4px;right:28px;color:var(--dim);font-size:12px}
+</style></head><body>
+<header><span class="brand">Homodyne · HMD-S03</span><span style="color:var(--muted)">AlphaFold vs experiment</span>
+<span class="tabs"><button data-p="gp63">1 · GP63 · leishmaniasis</button><button data-p="np">2 · CCHFV N · Crimean–Congo</button></span></header>
+<main>
+<div id="head"><h1 id="title"></h1><p class="fa" id="fa"></p></div>
+<div id="v3"><canvas id="c3"></canvas>
+<div class="legend" id="leg"></div></div>
+<div class="side">
+ <div class="nums">
+  <div><span>mean pLDDT (0–100)</span><b id="nPl"></b><small id="nPl2"></small></div>
+  <div><span id="lR">Cα RMSD after our fit</span><b class="a" id="nR"></b><small id="nR2"></small></div>
+  <div><span>TM-score (0–1)</span><b id="nT"></b><small id="nT2"></small></div>
+ </div>
+ <div class="ref" id="ref"></div>
+ <div class="controls"><button id="bRef">R · next structure</button><button id="bOv">O · overlay</button><button id="bFit">M · fit</button><button id="bCol">C · colour</button><button id="bLive">L · live check</button></div>
+ <div id="live"></div>
+ <div class="paewrap"><canvas id="pae" width="330" height="330"></canvas>
+  <div class="paeleg"><b style="color:var(--ink)">Predicted aligned error</b><div class="bar"></div><div style="display:flex;justify-content:space-between"><span>0 Å</span><span>15</span><span>30+ Å</span></div>
+  <p style="margin:6px 0 0">Error at residue x (column) when aligned on residue y (row). Dark: sure how two parts sit relative to each other.</p>
+  <p class="fa" style="font-size:15px;margin-top:4px">خطای جای نسبیِ دو تکه، به آنگستروم؛ تیره یعنی مطمئن</p></div></div>
+ <table class="x" id="xx"></table>
+</div>
+<canvas id="track"></canvas>
+<div class="credit" id="credit"></div>
+</main>
+<div id="tip"></div>
+<div class="keys">1 2 protein · R structure · O overlay · M fit · C colour · Space spin · L live · H hide</div>
+<script>
+const D = __DATA__;
+const Q = new URLSearchParams(location.search);
+const st = {p: Q.get('p') || 'gp63', ref: Q.get('ref'), overlay: Q.get('overlay') !== '0', fit: Q.get('fit') || 'all',
+  color: Q.get('color') || 'plddt', rx: +(Q.get('rx') || 15) * Math.PI / 180, ry: +(Q.get('ry') || 0) * Math.PI / 180,
+  zoom: +(Q.get('zoom') || 1), spin: Q.get('spin') === '1', hl: null};
+if (Q.get('clean') === '1') document.body.classList.add('clean');
+const $ = id => document.getElementById(id);
+const COL = {vh: '#0053D6', hi: '#65CBF3', lo: '#FFDB13', vl: '#FF7D45'};
+const band = p => p > 90 ? 'vh' : p > 70 ? 'hi' : p > 50 ? 'lo' : 'vl';
+let P, R, M, X, fitRes;                          // protein, reference, model xyz, reference xyz (superposed)
+
+// ---------------------------------------------------------------- superposition (Horn quaternion, as fold_core.py)
+function jacobi4(A) {
+  A = A.map(r => r.slice()); const V = [0, 1, 2, 3].map(i => [0, 1, 2, 3].map(j => +(i === j)));
+  for (let it = 0; it < 60; it++) {
+    let off = 0; for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) if (i !== j) off += A[i][j] ** 2;
+    if (off < 1e-22) break;
+    for (let p = 0; p < 3; p++) for (let q = p + 1; q < 4; q++) {
+      if (Math.abs(A[p][q]) < 1e-30) continue;
+      const th = (A[q][q] - A[p][p]) / (2 * A[p][q]), t = (th >= 0 ? 1 : -1) / (Math.abs(th) + Math.sqrt(th * th + 1));
+      const c = 1 / Math.sqrt(t * t + 1), s = t * c;
+      for (let k = 0; k < 4; k++) { const a = A[k][p], b = A[k][q]; A[k][p] = c * a - s * b; A[k][q] = s * a + c * b; }
+      for (let k = 0; k < 4; k++) { const a = A[p][k], b = A[q][k]; A[p][k] = c * a - s * b; A[q][k] = s * a + c * b; }
+      for (let k = 0; k < 4; k++) { const a = V[k][p], b = V[k][q]; V[k][p] = c * a - s * b; V[k][q] = s * a + c * b; }
+    }
+  }
+  return [[0, 1, 2, 3].map(i => A[i][i]), V];
+}
+function kabsch(Pm, Qm) {          // R, t with R p + t ≈ q
+  const cen = S => [0, 1, 2].map(a => S.reduce((s, v) => s + v[a], 0) / S.length);
+  const cp = cen(Pm), cq = cen(Qm), S = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+  Pm.forEach((p, i) => { const q = Qm[i]; for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) S[a][b] += (p[a] - cp[a]) * (q[b] - cq[b]); });
+  const [[xx, xy, xz], [yx, yy, yz], [zx, zy, zz]] = S;
+  const [vals, V] = jacobi4([[xx + yy + zz, yz - zy, zx - xz, xy - yx], [yz - zy, xx - yy - zz, xy + yx, zx + xz],
+    [zx - xz, xy + yx, -xx + yy - zz, yz + zy], [xy - yx, zx + xz, yz + zy, -xx - yy + zz]]);
+  const k = vals.indexOf(Math.max(...vals)), [w, x, y, z] = [0, 1, 2, 3].map(r => V[r][k]);
+  const Rm = [[w*w+x*x-y*y-z*z, 2*(x*y-w*z), 2*(x*z+w*y)], [2*(x*y+w*z), w*w-x*x+y*y-z*z, 2*(y*z-w*x)], [2*(x*z-w*y), 2*(y*z+w*x), w*w-x*x-y*y+z*z]];
+  const rc = mul(Rm, cp); return [Rm, [cq[0] - rc[0], cq[1] - rc[1], cq[2] - rc[2]]];
+}
+const mul = (Rm, v) => [0, 1, 2].map(i => Rm[i][0] * v[0] + Rm[i][1] * v[1] + Rm[i][2] * v[2]);
+const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
+const rms = ds => Math.sqrt(ds.reduce((s, d) => s + d * d, 0) / ds.length);
+
+function inFit(i) {                              // model index i (0-based) belongs to the fit set?
+  if (st.fit === 'conf') return P.plddt[i] > 90;
+  if (st.fit === 'head' && P.arm) return i < P.arm[0] - 1 || i > P.arm[1] - 1;
+  return true;
+}
+function setup() {
+  P = D.proteins.find(p => p.key === st.p) || D.proteins[0];
+  if (st.fit === 'head' && !P.arm) st.fit = 'all';
+  R = P.refs.find(r => r.pdb === st.ref) || P.refs[0]; st.ref = R.pdb;
+  M = []; for (let i = 0; i < P.n; i++) M.push(P.ca.slice(3 * i, 3 * i + 3));
+  const raw = R.idx.map((_, k) => R.ca.slice(3 * k, 3 * k + 3));
+  const sel = R.idx.map((i, k) => k).filter(k => inFit(R.idx[k]));
+  const [Rm, t] = kabsch(sel.map(k => raw[k]), sel.map(k => M[R.idx[k]]));     // experiment moved onto the model
+  X = raw.map(v => { const w = mul(Rm, v); return [w[0] + t[0], w[1] + t[1], w[2] + t[2]]; });
+  const d = R.idx.map((i, k) => dist(M[i], X[k]));
+  fitRes = {d, fit: rms(sel.map(k => d[k])), all: rms(d), nfit: sel.length, dByModel: Object.fromEntries(R.idx.map((i, k) => [i, d[k]]))};
+  const c = [0, 1, 2].map(a => M.reduce((s, v) => s + v[a], 0) / M.length);
+  M = M.map(v => [v[0] - c[0], v[1] - c[1], v[2] - c[2]]); X = X.map(v => [v[0] - c[0], v[1] - c[1], v[2] - c[2]]);
+  const rr = M.map(v => Math.hypot(...v)).sort((x, y) => x - y); st.scale = 0.8 / rr[Math.floor(0.92 * rr.length)];   // long floppy tails may leave the frame
+  panel(); drawPae(); drawTrack(); draw();
+}
+
+// ---------------------------------------------------------------- text panel
+const f1 = x => x.toFixed(1), f2 = x => x.toFixed(2);
+function panel() {
+  const np = P.key === 'np';
+  $('title').innerHTML = np ? 'Crimean–Congo virus nucleoprotein: a confident <em>arm</em> with an uncertain place'
+    : 'GP63 of <i>Leishmania major</i>: the <em>orange</em> parts are the ones the cell cuts off';
+  $('fa').textContent = np ? 'نوکلئوپروتئین ویروس تب کریمه‌کنگو؛ بازو مطمئن، جای بازو نامطمئن'
+    : 'GP63 انگل سالک؛ تکه‌های نارنجی همان‌هایی‌اند که سلول جدا می‌کند';
+  $('nPl').textContent = f1(P.mean_plddt);
+  $('nPl2').innerHTML = `${Math.round(100 * P.bands['very high'])}% very high<br>${Math.round(100 * P.bands['very low'])}% very low`;
+  $('lR').textContent = 'Cα RMSD, fit on ' + ({all: 'all residues', conf: 'pLDDT > 90', head: 'head only'})[st.fit];
+  $('nR').textContent = f2(fitRes.fit) + ' Å';
+  $('nR2').textContent = st.fit === 'all' ? `${fitRes.nfit} Cα pairs` : `${fitRes.nfit} pairs · all ${R.idx.length}: ${f2(fitRes.all)} Å`;
+  $('nT').textContent = R.result.tm.toFixed(3);
+  $('nT2').textContent = `${R.result.within2} of ${R.result.n_ref} Cα within 2 Å`;
+  $('ref').innerHTML = `<b>PDB ${R.pdb}</b> chain ${R.chain} · ${R.method.toLowerCase()} ${R.resolution ? R.resolution + ' Å' : ''} · released ${R.released} · ${R.citation}<br>`
+    + `AlphaFold DB ${P.afdb.entryId} · ${P.afdb.toolUsed} · model ${P.afdb.modelCreatedDate.slice(0, 10)}` + (np ? ' · Viro3D' : '');
+  ['bOv', 'bFit', 'bCol'].forEach(b => $(b).classList.remove('on'));
+  if (st.overlay) $('bOv').classList.add('on');
+  $('bFit').textContent = 'M · fit: ' + st.fit; $('bCol').textContent = 'C · colour: ' + st.color;
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.p === st.p));
+  $('leg').innerHTML = (st.color === 'plddt'
+    ? [['vh', 'very high > 90'], ['hi', 'high 70–90'], ['lo', 'low 50–70'], ['vl', 'very low < 50']].map(([k, l]) => `<span><i style="background:${COL[k]}"></i>${l}</span>`).join('')
+    : `<span><i style="background:#6b6a66"></i>&lt; 2 Å from experiment</span><span><i style="background:var(--amber)"></i>2–8 Å</span><span><i style="background:#ff5a36"></i>&gt; 8 Å</span><span><i style="background:#2a2b2f"></i>not in the experiment</span>`)
+    + (st.overlay ? `<span><i style="background:#d8d4cb;height:3px"></i>experiment (PDB ${R.pdb}), moved onto the model by our Kabsch fit</span>` : '');
+  let rows = '';
+  if (np) {
+    rows = `<tr><td colspan="4" style="color:var(--ink)">Arm mean pLDDT ${P.arm_plddt} · mean PAE (Å): head↔head ${P.pae_blocks.head_head} · arm↔arm ${P.pae_blocks.arm_arm} · arm↔head <b style="color:var(--amber)">${P.pae_blocks.arm_head}</b></td></tr>`
+      + '<tr><td>arm (res. ' + P.arm.join('–') + ') vs</td><td>head RMSD</td><td>whole RMSD</td><td>arm turned</td></tr>'
+      + P.refs.map(r => `<tr><td>AlphaFold · ${r.pdb}</td><td>${f2(r.result.rmsd_head)}</td><td>${f2(r.result.rmsd_all)}</td><td>${r.result.arm_rotation_deg}°</td></tr>`).join('')
+      + P.exp_vs_exp.map(e => `<tr><td>${e.a} · ${e.b} (two experiments)</td><td>${f2(e.rmsd_head)}</td><td>${f2(e.rmsd_all)}</td><td>${e.arm_rotation_deg}°</td></tr>`).join('');
+  } else {
+    const ch = P.features.find(f => f.type === 'Chain');
+    rows = `<tr><td>whole precursor, residues 1–${P.n}</td><td>mean pLDDT ${f1(P.mean_plddt)}</td></tr><tr><td>mature protein ${ch.start}–${ch.end} (UniProt)</td><td>mean pLDDT ${f1(P.mature_plddt)}</td></tr>`
+      + `<tr><td>very-low runs (pLDDT &lt; 50)</td><td>${P.low_runs.map(r => r.join('–')).join(', ')}</td></tr>`
+      + `<tr><td>experiment ${R.pdb} covers</td><td>${R.result.model_range.join('–')}</td></tr>`;
+  }
+  $('xx').innerHTML = rows;
+  $('credit').textContent = `Model: AlphaFold DB (${P.afdb.entryId}), CC BY 4.0` + (np ? '; prediction from Viro3D (Litvin et al., Mol Syst Biol 2025), CC BY 4.0' : '; Jumper et al., Nature 2021')
+    + `. Experiment: PDB ${R.pdb} (${R.citation}), CC0. Annotation: UniProt ${P.acc}, CC BY 4.0. Data fetched ${D.fetched}; superposition, RMSD and TM-score computed by our code (fold_core.py).`;
+}
+
+// ---------------------------------------------------------------- 3D trace
+const c3 = $('c3'), g = c3.getContext('2d');
+function project(v, W, H) {
+  const cy = Math.cos(st.ry), sy = Math.sin(st.ry), cx = Math.cos(st.rx), sx = Math.sin(st.rx);
+  let x = cy * v[0] + sy * v[2], z = -sy * v[0] + cy * v[2], y = cx * v[1] - sx * z; z = sx * v[1] + cx * z;
+  const s = st.scale * st.zoom * Math.min(W, H) * 0.5, k = 1 / (1 - z * st.scale * 0.25);
+  return [W / 2 + x * s * k, H / 2 - y * s * k, z * st.scale];
+}
+function shade(hex, f) { const n = parseInt(hex.slice(1), 16); return `rgb(${[(n >> 16) & 255, (n >> 8) & 255, n & 255].map(c => Math.round(c * f + 17 * (1 - f))).join(',')})`; }
+function resColor(i) {
+  if (st.color === 'plddt') return COL[band(P.plddt[i])];
+  const d = fitRes.dByModel[i]; if (d === undefined) return '#2a2b2f';
+  return d < 2 ? '#6b6a66' : d < 8 ? '#E8A33D' : '#ff5a36';
+}
+function draw() {
+  const dpr = devicePixelRatio || 1, W = c3.clientWidth, H = c3.clientHeight;
+  if (c3.width !== W * dpr) { c3.width = W * dpr; c3.height = H * dpr; }
+  g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H); g.lineCap = 'round'; g.lineJoin = 'round';
+  const segs = [];
+  const add = (pts, colorOf, width, alpha, link) => {
+    const pr = pts.map(v => project(v, W, H));
+    for (let i = 0; i < pts.length; i++) {
+      const a = i > 0 && link(i - 1, i) ? mid(pr[i - 1], pr[i]) : pr[i], b = i < pts.length - 1 && link(i, i + 1) ? mid(pr[i], pr[i + 1]) : pr[i];
+      segs.push({a, c: pr[i], b, z: pr[i][2], col: colorOf(i), w: width, alpha});
+    }
+  };
+  const mid = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2, (p[2] + q[2]) / 2];
+  add(M, resColor, 7, 1, (i, j) => true);
+  if (st.overlay) add(X, () => '#d8d4cb', 2.6, 0.9, (k, l) => R.idx[l] - R.idx[k] === 1 && dist(X[k], X[l]) < 4.3);
+  segs.sort((s, t) => s.z - t.z);
+  for (const s of segs) {
+    const f = 0.35 + 0.65 * Math.min(1, Math.max(0, (s.z + 1) / 2));
+    g.globalAlpha = s.alpha; g.strokeStyle = shade(s.col, f); g.lineWidth = s.w * (0.7 + 0.5 * f);
+    g.beginPath(); g.moveTo(s.a[0], s.a[1]); g.quadraticCurveTo(s.c[0], s.c[1], s.b[0], s.b[1]); g.stroke();
+  }
+  g.globalAlpha = 1;
+  if (st.hl !== null) {
+    const p = project(M[st.hl], W, H); g.strokeStyle = '#E8A33D'; g.lineWidth = 3;
+    g.beginPath(); g.arc(p[0], p[1], 14, 0, 7); g.stroke();
+    g.fillStyle = '#F3F1EC'; g.font = '15px Inter,Arial'; g.fillText(`${P.seq[st.hl]}${st.hl + 1} · pLDDT ${P.plddt[st.hl]}`, p[0] + 18, p[1] - 10);
+  }
+}
+
+// ---------------------------------------------------------------- PAE heatmap and pLDDT track
+function drawPae() {
+  const cv = $('pae'), m = Math.ceil(P.n / P.pae_step), img = new ImageData(m, m);
+  for (let k = 0; k < m * m; k++) {
+    const v = Math.min(30, P.pae.charCodeAt(k) - 48) / 30;               // 0 → dark green, 30+ → near white
+    const c = [[11, 107, 45], [127, 191, 123], [240, 240, 232]], s = v < 0.5 ? 0 : 1, u = v < 0.5 ? v * 2 : (v - 0.5) * 2;
+    for (let a = 0; a < 3; a++) img.data[4 * k + a] = c[s][a] + (c[s + 1][a] - c[s][a]) * u;
+    img.data[4 * k + 3] = 255;
+  }
+  const tmp = document.createElement('canvas'); tmp.width = tmp.height = m; tmp.getContext('2d').putImageData(img, 0, 0);
+  const x = cv.getContext('2d'); x.imageSmoothingEnabled = false; x.clearRect(0, 0, 330, 330); x.drawImage(tmp, 0, 0, 330, 330);
+  if (P.arm) {
+    const a = (P.arm[0] - 1) / P.n * 330, b = P.arm[1] / P.n * 330;
+    x.strokeStyle = '#E8A33D'; x.lineWidth = 2; x.setLineDash([5, 4]); x.strokeRect(a, a, b - a, b - a); x.setLineDash([]);
+  }
+}
+function drawTrack() {
+  const cv = $('track'), dpr = devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight;
+  cv.width = W * dpr; cv.height = H * dpr; const x = cv.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const L = 60, w = (W - L - 10) / P.n, top = 8, h = 44;
+  x.fillStyle = '#8D8A84'; x.font = '12px Inter,Arial'; x.fillText('pLDDT', 0, top + 16); x.fillText('UniProt', 0, top + h + 30);
+  for (let i = 0; i < P.n; i++) {
+    const v = P.plddt[i]; x.fillStyle = COL[band(v)]; x.fillRect(L + i * w, top + h * (1 - v / 100), Math.max(1, w), h * v / 100);
+    if (fitRes.dByModel[i] === undefined) { x.fillStyle = '#ffffff10'; x.fillRect(L + i * w, top, Math.max(1, w), h); }
+  }
+  x.strokeStyle = '#3A3B3F'; x.beginPath(); [50, 70, 90].forEach(t => { x.moveTo(L, top + h * (1 - t / 100)); x.lineTo(W - 10, top + h * (1 - t / 100)); }); x.stroke();
+  const feat = P.features.filter(f => ['Signal', 'Propeptide', 'Chain', 'Motif'].includes(f.type));
+  feat.forEach(f => {
+    const a = L + (f.start - 1) * w, b = L + f.end * w, y = top + h + 18;
+    x.fillStyle = f.type === 'Chain' ? '#3A3B3F' : f.type === 'Motif' ? '#E8A33D' : '#6b4a2f'; x.fillRect(a, y, Math.max(2, b - a), 8);
+    x.fillStyle = '#8D8A84'; const lab = f.type === 'Chain' ? 'mature chain' : f.type === 'Motif' ? f.note : f.type.toLowerCase();
+    x.fillText(lab, Math.min(a + 2, W - 90), y + 22);
+  });
+  if (P.arm) { const a = L + (P.arm[0] - 1) * w, b = L + P.arm[1] * w; x.strokeStyle = '#E8A33D'; x.setLineDash([5, 4]); x.strokeRect(a, top - 3, b - a, h + 6); x.setLineDash([]); x.fillStyle = '#E8A33D'; x.fillText('arm (from PAE)', a + 4, top + 10); }
+  x.fillStyle = '#8D8A84'; x.fillText('1', L, H - 2); x.fillText(String(P.n), W - 34, H - 2);
+  cv.onmousemove = e => { const i = Math.floor((e.offsetX - L) / w); st.hl = i >= 0 && i < P.n ? i : null; draw(); };
+  cv.onmouseleave = () => { st.hl = null; draw(); };
+}
+$('pae').onmousemove = e => {
+  const r = e.target.getBoundingClientRect(), i = Math.floor((e.clientX - r.left) / r.width * P.n), j = Math.floor((e.clientY - r.top) / r.height * P.n);
+  const m = Math.ceil(P.n / P.pae_step), v = P.pae.charCodeAt(Math.floor(j / P.pae_step) * m + Math.floor(i / P.pae_step)) - 48;
+  $('tip').style.display = 'block'; $('tip').style.left = e.clientX + 14 + 'px'; $('tip').style.top = e.clientY + 10 + 'px';
+  $('tip').textContent = `aligned on ${j + 1}, error at ${i + 1}: ≈ ${v} Å`; st.hl = i; draw();
+};
+$('pae').onmouseleave = () => { $('tip').style.display = 'none'; st.hl = null; draw(); };
+
+// ---------------------------------------------------------------- interaction
+let drag = null;
+c3.onmousedown = e => { drag = [e.clientX, e.clientY]; c3.style.cursor = 'grabbing'; };
+onmouseup = () => { drag = null; c3.style.cursor = 'grab'; };
+onmousemove = e => { if (!drag) return; st.ry += (e.clientX - drag[0]) * 0.008; st.rx += (e.clientY - drag[1]) * 0.008; drag = [e.clientX, e.clientY]; draw(); };
+c3.onwheel = e => { e.preventDefault(); st.zoom = Math.max(0.4, Math.min(4, st.zoom * Math.exp(-e.deltaY * 0.001))); draw(); };
+const next = (arr, v) => arr[(arr.indexOf(v) + 1) % arr.length];
+const act = {
+  '1': () => { st.p = 'gp63'; st.ref = null; setup(); }, '2': () => { st.p = 'np'; st.ref = null; setup(); },
+  r: () => { st.ref = next(P.refs.map(r => r.pdb), st.ref); setup(); }, o: () => { st.overlay = !st.overlay; panel(); draw(); },
+  m: () => { st.fit = next(P.arm ? ['all', 'conf', 'head'] : ['all', 'conf'], st.fit); setup(); },
+  c: () => { st.color = next(['plddt', 'dist'], st.color); panel(); drawTrack(); draw(); },
+  ' ': () => { st.spin = !st.spin; }, h: () => document.body.classList.toggle('clean'), l: liveCheck,
+};
+onkeydown = e => { const f = act[e.key.toLowerCase()]; if (f) { e.preventDefault(); f(); } };
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => act[b.dataset.p === 'np' ? '2' : '1']());
+$('bRef').onclick = act.r; $('bOv').onclick = act.o; $('bFit').onclick = act.m; $('bCol').onclick = act.c; $('bLive').onclick = liveCheck;
+async function liveCheck() {
+  const el = $('live'); el.className = ''; el.textContent = 'asking alphafold.ebi.ac.uk …';
+  if (location.protocol === 'file:') { el.textContent = 'live check needs the local server: python3 -I artifact/fold_live.py --serve'; return; }
+  try {
+    const r = await (await fetch('/api/live?acc=' + P.acc)).json();
+    if (!r.ok) { el.textContent = 'AlphaFold DB did not answer: ' + r.error + ' · showing cached data from ' + D.fetched; return; }
+    el.className = 'ok';
+    el.innerHTML = `AlphaFold DB, live ${r.at} (${r.ms} ms): ${r.now.entryId} v${r.now.latestVersion} · mean pLDDT <b>${r.now.globalMetricValue}</b> · `
+      + (r.same ? 'same model as our cached copy ✓' : '<b>changed since our copy</b>: re-run --fetch');
+  } catch (e) { el.textContent = 'live check failed: ' + e; }
+}
+addEventListener('resize', () => { drawTrack(); draw(); });
+(function loop() { if (st.spin) { st.ry += 0.006; draw(); } requestAnimationFrame(loop); })();
+setup();
+</script></body></html>

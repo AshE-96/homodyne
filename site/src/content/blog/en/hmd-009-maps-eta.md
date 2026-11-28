@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-009-companion
 hmd: HMD-009
 kind: companion
-date: 2027-01-29
+date: 2027-02-26
 tags: ["Google Maps", "ETA prediction", "traffic forecasting", "graph neural networks", "DeepMind"]
 sources:
   - title: "DeepMind: Traffic prediction with advanced Graph Neural Networks (3 Sep 2020)"

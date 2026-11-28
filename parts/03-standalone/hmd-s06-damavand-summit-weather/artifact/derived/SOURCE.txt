@@ -1,0 +1,38 @@
+HMD-S06 · derived data. Only point values at two places, decoded by our own code; no raw GRIB is kept.
+
+latest.json / replay-2026-11-28.json  (identical on 28 Nov 2026; latest.json is overwritten by every live run)
+  sha256 ad7a4ed1a620e5315ca5f534b0d575b3488c07591e564b76d3c6cdb9ae02f3ae
+  made by  python3 -I artifact/summit_live.py --openmeteo   on 28 Nov 2026, 08:50 UTC (Python 3.11 standard library)
+  runs     ECMWF IFS 0.25° oper, 2026-11-28 00Z, steps 0–72 h every 6 h
+             https://data.ecmwf.int/forecasts/20261128/00z/ifs/0p25/oper/20261128000000-<step>h-oper-fc.grib2
+           ECMWF AIFS Single 0.25°, 2026-11-28 00Z, same steps
+             https://data.ecmwf.int/forecasts/20261128/00z/aifs-single/0p25/oper/20261128000000-<step>h-oper-fc.grib2
+           NOAA GFS 0.25°, 2026-11-28 00Z, f000–f072 every 6 h, NOMADS grib filter, subregion 35–37 N, 51–53 E
+             https://nomads.ncep.noaa.gov/cgi-bin/filter_gfs_0p25.pl
+  fields   2t, 10u, 10v, tp, tcc (surface); gh, t, u, v and r (IFS) / q (AIFS) / RH (GFS) at 400, 500, 600, 700 hPa;
+           z (surface geopotential, step 0) = model terrain height
+  places   summit 35.9553 N, 52.1100 E, 5,610 m; Bargah-e Sevom 35.9317 N, 52.1083 E, 4,220 m  ([VERIFY], ../../sources.md S10, S11)
+  method   bilinear interpolation from the four 0.25° grid points (ECMWF: CCSDS-packed GRIB2, template 5.42,
+           decoded by grib2_point.py; GFS: simple packing, template 5.0); free air at the real height by linear
+           interpolation in geopotential height between pressure levels; lapse-rate value = 2 m T − 6.5 K/km × (5,610 − model terrain)
+  fix      AIFS tp is in kg m-2 (mm), not m: the 28 Nov run first multiplied it by 1000; values were divided back and
+           the flags recomputed (key "note" in the file). summit_fetch.py now handles the unit.
+  licence  ECMWF open data: CC BY 4.0 (attribution: "Contains modified ECMWF open data" / processed by Homodyne).
+           NOAA/NWS: public domain (weather.gov/disclaimer). These derived numbers may be redistributed with that attribution.
+
+openmeteo-summary-2026-11-28.json
+  sha256 86d5e59fb0a8f10511697f699f5057874a3622267a8fa4fa92126b528322b74a
+  from     api.open-meteo.com/v1/forecast (models ecmwf_ifs025, gfs_seamless, icon_seamless; elevation=nan and elevation=5610)
+           ensemble-api.open-meteo.com/v1/ensemble (ecmwf_ifs025 ensemble, 51 members, 400–700 hPa), fetched 2026-11-28 08:50 UTC
+  content  max 10 m gust over 72 h at elevation 5,610 m per model; ICON free-air summit values; ECMWF ENS member counts ≥ 40 / ≥ 60 km/h
+  licence  Open-Meteo data are CC BY 4.0, but the free API may only be used non-commercially (open-meteo.com/en/terms).
+           REHEARSAL ONLY until the channel owner decides (prep-fa.md §1). The raw responses stay in artifact/data/ (git-ignored).
+  note     GEFS and ICON-EPS returned no pressure-level members (all null) on 28 Nov 2026, so only ECMWF ENS is used.
+
+Checks (python3 -I artifact/summit_live.py --selftest, 28 Nov 2026, all ok)
+  wind chill = Environment Canada chart at 6 points (−20 and −30 °C × 20, 40, 60 km/h); metric and NWS °F/mph forms agree;
+  ISA heights 500/600/700 hPa = 5,574 / 4,206 / 3,012 m; CCSDS round trip (12,805 samples, all four coding options);
+  GRIB2 templates 5.0 and 5.42 on a synthetic field; IFS (CCSDS) and GFS (simple packing) 500 hPa heights agree within 17 m
+  at all 13 common times (two independent decoders, two independent models).
+What this does NOT show: that the free-air value equals what a climber measures on the summit. Nothing here has been
+checked against field observations yet ([RUN], prep-fa.md §1).

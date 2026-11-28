@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-014-companion
 hmd: HMD-014
 kind: companion
-date: 2027-03-12
+date: 2027-04-16
 tags: ["benchmarks", "Simpson's paradox", "leaderboards", "selective reporting", "holdout", "LLM evaluation"]
 sources:
   - title: "Singh et al. (2025). The Leaderboard Illusion. arXiv 2504.20879 (v2, 12 May 2025)"

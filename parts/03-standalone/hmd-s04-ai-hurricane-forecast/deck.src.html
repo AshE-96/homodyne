@@ -1,0 +1,202 @@
+<!-- HMD-S04 · deck source. Build: python3 scripts/build-decks.py --only hmd-s04  →  deck-fa.html + deck-en.html
+     Every visible string is a pair <t-fa>…</t-fa><t-en>…</t-en>; text outside a pair is shown in both decks.
+     Numbers: NHC report R01 (tables in n mi / kt) and our own rebuild (artifact/derived/verify-2025.json, km). No third-party images. -->
+
+<style>
+.t td,.t th{font-variant-numeric:tabular-nums}
+.t .q{color:#E8A33D;font-weight:700}
+.t .blur{filter:blur(7px);color:#E8A33D}
+</style>
+
+<section class="cover">
+<h1><t-fa>AI طوفان را <em>بهتر</em> از متخصص‌ها پیش‌بینی کرد؟</t-fa><t-en>Did AI <em>out-forecast</em> the hurricane experts?</t-en></h1>
+<p class="promise"><t-fa>جدول رسمی مرکز طوفان آمریکا را از دادهٔ خام دوباره می‌سازیم؛ بعد سراغ گونو و شاهین می‌رویم.</t-fa><t-en>We rebuild the US hurricane centre's official table from raw data, then turn to Gonu and Shaheen.</t-en></p>
+</section>
+
+<section class="frame night" id="beat-1" data-start="0">
+<p class="kicker"><t-fa>جدول راستی‌آزمایی ۲۰۲۵ · اطلس</t-fa><t-en>2025 verification table · Atlantic</t-en></p>
+<h1><t-fa>یک سطر، <em>کوچک‌تر</em> از سطر متخصص‌ها</t-fa><t-en>One row <em>smaller</em> than the experts' row</t-en></h1>
+<table class="t">
+<tr><th></th><th><t-fa>۲۴ ساعت</t-fa><t-en>24 h</t-en></th><th><t-fa>۴۸ ساعت</t-fa><t-en>48 h</t-en></th><th><t-fa>۷۲ ساعت</t-fa><t-en>72 h</t-en></th><th><t-fa>۱۲۰ ساعت</t-fa><t-en>120 h</t-en></th></tr>
+<tr><td><t-fa>پیش‌بینی رسمی (OFCL)</t-fa><t-en>Official forecast (OFCL)</t-en></td><td><t-fa>۵۸ کیلومتر</t-fa><t-en>58 km</t-en></td><td><t-fa>۹۱</t-fa><t-en>91</t-en></td><td><t-fa>۱۵۱</t-fa><t-en>151</t-en></td><td><t-fa>۳۱۲</t-fa><t-en>312</t-en></td></tr>
+<tr class="hi"><td>???</td><td class="blur">00</td><td class="blur">00</td><td class="blur">000</td><td class="blur">000</td></tr>
+</table>
+<p class="tag"><t-fa>میانگین خطای مسیر · مرکز ملی طوفان آمریکا (NHC) · فصل ۲۰۲۵</t-fa><t-en>Mean track error · US National Hurricane Center (NHC) · 2025 season</t-en></p>
+<footer><t-fa>R01 جدول ۲ (مایل دریایی) · به کیلومتر: بازسازی ما</t-fa><t-en>R01 Table 2 (n mi) · in km: our rebuild</t-en></footer>
+<aside class="notes"><t-fa><b>یک سطر در جدول</b><p>[CAMERA CHANGE] Grab ← Promise ← Stakes ← «من محمدم، اینجا هومودینه.» سطر دوم را لو نده؛ در قاب ۷ باز می‌شود.</p><p>در یک جمله: یک سطر در جدول رسمی NHC کوچک‌تر از سطر متخصص‌هاست؛ ما خودمان پشتش را باز می‌کنیم.</p></t-fa><t-en><b>One row in the table</b><p>[CAMERA CHANGE] Grab → Promise → Stakes → channel intro. Do not reveal the second row; it opens in beat 7.</p><p>In one line: one row in NHC's official table is smaller than the experts' row; we open up what is behind it.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-2" data-start="45">
+<p class="kicker"><t-fa>دریای عرب و دریای عمان</t-fa><t-en>Arabian Sea and Gulf of Oman</t-en></p>
+<div class="cards">
+<div class="hi"><b><t-fa>گونو · خرداد ۱۳۸۶ (ژوئن ۲۰۰۷)</t-fa><t-en>Gonu · June 2007</t-en></b><t-fa>درجهٔ IMD: طوفان فوق‌شدید · مرکز از ۸ کیلومتری راس‌الحد عمان گذشت · نزدیک جاسک به خشکی ایران رسید</t-fa><t-en>IMD grade: super cyclonic storm · the centre passed 8 km from Ras al Hadd, Oman · reached Iran's coast near Jask</t-en></div>
+<div><b><t-fa>شاهین · مهر ۱۴۰۰ (اکتبر ۲۰۲۱)</t-fa><t-en>Shaheen · October 2021</t-en></b><t-fa>از بقایای «گلاب» در خلیج بنگال، پس از عبور از هند · مرکز تا حدود ۱۰۰ کیلومتری چابهار آمد · در عمان به خشکی رسید</t-fa><t-en>From the remnants of "Gulab" in the Bay of Bengal, after crossing India · the centre came within about 100 km of Chabahar · landfall in Oman</t-en></div>
+</div>
+<p class="tag"><t-fa>مسیرها از IBTrACS نسخهٔ v04r01 (NOAA) · فاصله‌ها حساب ما از مرکز طوفان</t-fa><t-en>Tracks from IBTrACS v04r01 (NOAA) · distances are our computation from the storm centre</t-en></p>
+<footer><t-fa>R08 · artifact/derived/north-indian.json</t-fa><t-en>R08 · artifact/derived/north-indian.json</t-en></footer>
+<aside class="notes"><t-fa><b>گونو و شاهین</b><p>[B-ROLL CUE] نمای ۳ دمو بدون پنل (H)؛ G برای گونو، شاهین، هر دو. پل از HMD-007: «سندی که عمداً گمراه می‌کند؛ حالا پیش‌بینی‌ای که جان آدم‌ها به آن بسته است». عکس خسارت نه.</p><p>در یک جمله: گونو و شاهین از کنار ساحل ایران گذشتند؛ سؤال ما دقت پیش‌بینی مسیر است.</p></t-fa><t-en><b>Gonu and Shaheen</b><p>[B-ROLL CUE] Demo view 3 without the panel (H); G for Gonu, Shaheen, both. Bridge from HMD-007: "a document that misleads on purpose; now a forecast people's lives depend on". No damage photos.</p><p>In one line: Gonu and Shaheen passed close to Iran's coast; our question is how accurate track forecasts are.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-3" data-start="95">
+<p class="kicker"><t-fa>دو سؤال جدا</t-fa><t-en>Two separate questions</t-en></p>
+<h1><t-fa>طوفان یک <em>موتور گرمایی</em> است؛ سوختش آب گرم</t-fa><t-en>A cyclone is a <em>heat engine</em>; its fuel is warm water</t-en></h1>
+<div class="cols">
+<div class="hi"><span><t-fa>مسیر</t-fa><t-en>Track</t-en></span><b class="word"><t-fa>کجا؟</t-fa><t-en>Where?</t-en></b><p><t-fa>بیشتر به جریان‌های بزرگ هوای اطراف بستگی دارد؛ مثل برگ روی رودخانه.</t-fa><t-en>Mostly set by the large-scale winds around it; like a leaf on a river.</t-en></p></div>
+<div><span><t-fa>شدت</t-fa><t-en>Intensity</t-en></span><b class="word"><t-fa>چقدر تند؟</t-fa><t-en>How strong?</t-en></b><p><t-fa>به جزئیات ریز درون طوفان بستگی دارد؛ پیش‌بینی‌اش سخت‌تر است.</t-fa><t-en>Depends on small details inside the storm; much harder to forecast.</t-en></p></div>
+</div>
+<footer><t-fa>study-fa.md فصل ۱ و ۲</t-fa><t-en>study-fa.md chapters 1–2</t-en></footer>
+<aside class="notes"><t-fa><b>موتور گرمایی؛ مسیر و شدت</b><p>[GRAPHIC] فقط دو مفهوم. عدد ۲۶٫۵ درجه را روی دوربین نگو (study §۱، دانستهٔ درسی).</p><p>در یک جمله: پیش‌بینی طوفان دو سؤال جداست: مسیر (کجا) و شدت (چقدر تند)؛ شدت سخت‌تر است.</p></t-fa><t-en><b>Heat engine; track and intensity</b><p>[GRAPHIC] Two ideas only. Do not say 26.5 °C on camera (study §1, textbook knowledge).</p><p>In one line: a cyclone forecast is two separate questions, track (where) and intensity (how strong); intensity is harder.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-4" data-start="142">
+<p class="kicker"><t-fa>ملیسا · پیش‌بینی‌های ۲۵ اکتبر ۲۰۲۵، ساعت ۰۰ گرینویچ</t-fa><t-en>Melissa · forecasts from 25 Oct 2025, 00 UTC</t-en></p>
+<h1><t-fa>خطا = <em>فاصله</em> تا مسیر واقعی، سر همان ساعت</t-fa><t-en>Error = <em>distance</em> to the best track, at the same hour</t-en></h1>
+<table class="t">
+<tr><th><t-fa>کیلومتر</t-fa><t-en>km</t-en></th><th><t-fa>۲۴ ساعت</t-fa><t-en>24 h</t-en></th><th><t-fa>۴۸ ساعت</t-fa><t-en>48 h</t-en></th><th><t-fa>۷۲ ساعت</t-fa><t-en>72 h</t-en></th><th><t-fa>۱۲۰ ساعت</t-fa><t-en>120 h</t-en></th></tr>
+<tr><td><t-fa>رسمی (OFCL)</t-fa><t-en>Official (OFCL)</t-en></td><td><t-fa>۳۳</t-fa><t-en>33</t-en></td><td><t-fa>۷۷</t-fa><t-en>77</t-en></td><td><t-fa>۱۴۶</t-fa><t-en>146</t-en></td><td class="q"><t-fa>۱۱۷</t-fa><t-en>117</t-en></td></tr>
+<tr class="hi"><td><t-fa>گوگل دیپ‌مایند (GDMI)</t-fa><t-en>Google DeepMind (GDMI)</t-en></td><td><t-fa>۲۵</t-fa><t-en>25</t-en></td><td class="q"><t-fa>۴۶</t-fa><t-en>46</t-en></td><td class="q"><t-fa>۱۰۸</t-fa><t-en>108</t-en></td><td><t-fa>۱۳۴</t-fa><t-en>134</t-en></td></tr>
+<tr><td><t-fa>اروپایی (EMXI)</t-fa><t-en>European (EMXI)</t-en></td><td class="q"><t-fa>۲۱</t-fa><t-en>21</t-en></td><td><t-fa>۴۹</t-fa><t-en>49</t-en></td><td><t-fa>۱۱۱</t-fa><t-en>111</t-en></td><td><t-fa>۱۹۶</t-fa><t-en>196</t-en></td></tr>
+<tr><td><t-fa>آمریکایی (AVNI)</t-fa><t-en>American (AVNI)</t-en></td><td><t-fa>۱۱۰</t-fa><t-en>110</t-en></td><td><t-fa>۲۲۸</t-fa><t-en>228</t-en></td><td><t-fa>۴۳۰</t-fa><t-en>430</t-en></td><td><t-fa>۹۹۶</t-fa><t-en>996</t-en></td></tr>
+</table>
+<p class="caption"><t-fa>یک طوفان، یک لحظه؛ هنوز هیچ چیز ثابت نشده.</t-fa><t-en>One storm, one moment; nothing is proven yet.</t-en></p>
+<footer><t-fa>R02 · فاصلهٔ دایرهٔ عظیمه، حساب زندهٔ storm_live.html</t-fa><t-en>R02 · great-circle distance, computed live in storm_live.html</t-en></footer>
+<aside class="notes"><t-fa><b>ملیسا: خطا یعنی فاصله</b><p>[B-ROLL CUE] <code>?view=replay&amp;storm=AL13&amp;init=2025102500&amp;m=OFCL,GDMI,EMXI,AVNI&amp;cone=0</code>. ملیسا طبق مسیر واقعی ۲۸ اکتبر ساعت ۱۷ گرینویچ با ۱۶۰ گره به جامائیکا رسید؛ یعنی نزدیک چهار روز (۸۹ ساعت) بعد از این لحظه.</p><p>در یک جمله: خطای مسیر فاصلهٔ کروی پیش‌بینی تا مسیر واقعی است؛ یک لحظه از ملیسا هنوز هیچ چیز را ثابت نمی‌کند.</p></t-fa><t-en><b>Melissa: error means distance</b><p>[B-ROLL CUE] ?view=replay&amp;storm=AL13&amp;init=2025102500&amp;m=OFCL,GDMI,EMXI,AVNI&amp;cone=0. By the best track Melissa reached Jamaica on 28 Oct at 17 UTC with 160 kt, almost four days (89 h) after this moment.</p><p>In one line: track error is the spherical distance from forecast to best track; one moment of Melissa proves nothing yet.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-5" data-start="205">
+<p class="kicker"><t-fa>مخروط عدم قطعیت · اطلس ۲۰۲۵</t-fa><t-en>The cone of uncertainty · Atlantic 2025</t-en></p>
+<h1><t-fa>دو سوم خطاهای گذشته <em>درون</em> هر دایره</t-fa><t-en>Two thirds of past errors fall <em>inside</em> each circle</t-en></h1>
+<div class="bars">
+<div><span><t-fa>۲۴ ساعت</t-fa><t-en>24 h</t-en></span><i style="--v:18"></i><span><t-fa>۷۲ کیلومتر</t-fa><t-en>72 km</t-en></span></div>
+<div><span><t-fa>۴۸ ساعت</t-fa><t-en>48 h</t-en></span><i style="--v:31"></i><span><t-fa>۱۲۴ کیلومتر</t-fa><t-en>124 km</t-en></span></div>
+<div class="hi"><span><t-fa>۷۲ ساعت</t-fa><t-en>72 h</t-en></span><i style="--v:47"></i><span><t-fa>۱۸۵ کیلومتر</t-fa><t-en>185 km</t-en></span></div>
+<div><span><t-fa>۱۲۰ ساعت</t-fa><t-en>120 h</t-en></span><i style="--v:100"></i><span><t-fa>۳۹۴ کیلومتر</t-fa><t-en>394 km</t-en></span></div>
+</div>
+<p class="tag"><t-fa>شعاع دایره‌ها در ۲۰۲۵: ۳۹، ۶۷، ۱۰۰ و ۲۱۳ مایل دریایی · مخروط اندازهٔ طوفان نیست؛ باد بیرون از آن هم می‌رسد</t-fa><t-en>2025 circle radii: 39, 67, 100 and 213 n mi · the cone is not the storm's size; wind reaches beyond it</t-en></p>
+<footer><t-fa>R01 جدول ۹ (شعاع ۲۰۲۶ و تغییر نسبت به ۲۰۲۵)</t-fa><t-en>R01 Table 9 (2026 radii and change from 2025)</t-en></footer>
+<aside class="notes"><t-fa><b>CTA نرم؛ مخروط</b><p>[MID-CTA] اول CTA رو به دوربین. بعد نمای ۱ دمو با C (مخروط دور OFCL). جدول ۹ شعاع‌های ۲۰۲۶ را می‌دهد؛ ۲۰۲۵ = ۲۰۲۶ منهای تغییر (۷۲ ساعت: ۹۵ + ۵ = ۱۰۰).</p><p>در یک جمله: مخروط از خطاهای گذشته ساخته می‌شود؛ پیش‌بینی دقیق‌تر یعنی مخروط کوچک‌تر.</p></t-fa><t-en><b>Soft CTA; the cone</b><p>[MID-CTA] CTA to camera first. Then demo view 1 with C (cone around OFCL). Table 9 gives 2026 radii; 2025 = 2026 minus the change (72 h: 95 + 5 = 100).</p><p>In one line: the cone is built from past errors; a more accurate forecast means a smaller cone.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-6" data-start="263">
+<p class="kicker"><t-fa>شرکت‌کننده‌ها</t-fa><t-en>The contestants</t-en></p>
+<div class="cards">
+<div><b><t-fa>متخصص‌ها · OFCL</t-fa><t-en>Forecasters · OFCL</t-en></b><t-fa>همهٔ مدل‌ها را می‌بینند و خودشان تصمیم می‌گیرند.</t-fa><t-en>See every model, then decide themselves.</t-en></div>
+<div><b><t-fa>مدل‌های فیزیکی · EMXI، AVNI، HFAI</t-fa><t-en>Physics models · EMXI, AVNI, HFAI</t-en></b><t-fa>معادله‌های حرکت هوا را قدم‌به‌قدم روی ابرکامپیوتر حل می‌کنند.</t-fa><t-en>Solve the equations of air motion step by step on supercomputers.</t-en></div>
+<div class="hi"><b><t-fa>هوش مصنوعی · GDMI</t-fa><t-en>AI · GDMI</t-en></b><t-fa>از ۴۵ سال طوفان یاد گرفته؛ نقطهٔ شروعش از مشاهده‌ها می‌آید.</t-fa><t-en>Learned from 45 years of cyclones; its starting point comes from observations.</t-en></div>
+<div class="off"><b><t-fa>داور بی‌مهارت · OCD5</t-fa><t-en>No-skill baseline · OCD5</t-en></b><t-fa>فقط آمار قدیمی و حرکت فعلی؛ هیچ دانشی از جو امروز.</t-fa><t-en>Only old statistics and current motion; no knowledge of today's atmosphere.</t-en></div>
+</div>
+<footer><t-fa>R01 §۱ · R05 (Google DeepMind، ۱۲ ژوئن ۲۰۲۵)</t-fa><t-en>R01 §1 · R05 (Google DeepMind, 12 Jun 2025)</t-en></footer>
+<aside class="notes"><t-fa><b>شرکت‌کننده‌ها</b><p>[GRAPHIC] GDMI = میانگین گروهی مدل Weather Lab، نسخهٔ «زودهنگام» که NHC از اجرای قبلی ساخته. AVNI همان GFSI گزارش است. OCD5 همان CLIPER5.</p><p>در یک جمله: چهار شرکت‌کننده: متخصص‌ها، مدل‌های فیزیکی، مدل AI گوگل و یک داور بی‌مهارت.</p></t-fa><t-en><b>The contestants</b><p>[GRAPHIC] GDMI = the ensemble mean of the Weather Lab model, in the "early" version NHC builds from the previous run. AVNI is the report's GFSI. OCD5 is CLIPER5.</p><p>In one line: four contestants: forecasters, physics models, Google's AI model and a no-skill baseline.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-7" data-start="312">
+<p class="kicker"><t-fa>گزارش راستی‌آزمایی NHC · ۳۰ مارس ۲۰۲۶</t-fa><t-en>NHC verification report · 30 March 2026</t-en></p>
+<div class="source"><q>"…though the Google DeepMind ensemble mean (GDMI) showed slightly better short-range performance."</q><cite><t-fa>Cangialosi و همکاران، چکیدهٔ گزارش فصل ۲۰۲۵</t-fa><t-en>Cangialosi et al., abstract of the 2025 season report</t-en></cite></div>
+<div class="cols">
+<div><span><t-fa>رسمی · ۷۲ ساعت</t-fa><t-en>Official · 72 h</t-en></span><b><t-fa>۱۵۱</t-fa><t-en>151</t-en></b><small><t-fa>کیلومتر</t-fa><t-en>km</t-en></small><p><t-fa>۸۱٫۴ مایل دریایی</t-fa><t-en>81.4 n mi</t-en></p></div>
+<div class="hi"><span><t-fa>GDMI · ۷۲ ساعت</t-fa><t-en>GDMI · 72 h</t-en></span><b><t-fa>۱۲۳</t-fa><t-en>123</t-en></b><small><t-fa>کیلومتر</t-fa><t-en>km</t-en></small><p><t-fa>۶۶٫۵ مایل دریایی</t-fa><t-en>66.5 n mi</t-en></p></div>
+</div>
+<p class="tag"><t-fa>GDMI اول فصل در دسترس نبود</t-fa><t-en>GDMI was not available early in the season</t-en></p>
+<footer><t-fa>R01 چکیده و جدول ۲</t-fa><t-en>R01 abstract and Table 2</t-en></footer>
+<aside class="notes"><t-fa><b>گزارش ۳۰ مارس</b><p>[UNEXPECTED STAT] حدس: «روی چند پیش‌بینی؟» جوابش در قاب ۸ (۱۰۳). ۱ مایل دریایی = ۱٫۸۵۲ کیلومتر.</p><p>در یک جمله: گزارش رسمی می‌گوید GDMI در کوتاه‌مدت کمی بهتر بود؛ در ۷۲ ساعت حدود ۱۲۳ در برابر ۱۵۱ کیلومتر.</p></t-fa><t-en><b>The 30 March report</b><p>[UNEXPECTED STAT] Guess: "over how many forecasts?" Answer in beat 8 (103). 1 n mi = 1.852 km.</p><p>In one line: the official report says GDMI was slightly better at short range; at 72 h about 123 vs 151 km.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-8" data-start="354">
+<p class="kicker"><t-fa>بازسازی از بایگانی عمومی ATCF</t-fa><t-en>Rebuilt from the public ATCF archive</t-en></p>
+<h1><t-fa>همان <em>۱۰۳</em> پیش‌بینی، همان نتیجه</t-fa><t-en>The same <em>103</em> forecasts, the same result</t-en></h1>
+<table class="t">
+<tr><th><t-fa>۷۲ ساعت</t-fa><t-en>72 h</t-en></th><th><t-fa>NHC (مایل دریایی)</t-fa><t-en>NHC (n mi)</t-en></th><th><t-fa>ما (مایل دریایی)</t-fa><t-en>Ours (n mi)</t-en></th><th><t-fa>ما (کیلومتر)</t-fa><t-en>Ours (km)</t-en></th></tr>
+<tr class="hi"><td>GDMI</td><td><t-fa>۶۶٫۵</t-fa><t-en>66.5</t-en></td><td><t-fa>۶۴٫۹</t-fa><t-en>64.9</t-en></td><td><t-fa>۱۲۰</t-fa><t-en>120</t-en></td></tr>
+<tr><td>OFCL</td><td><t-fa>۸۱٫۴</t-fa><t-en>81.4</t-en></td><td><t-fa>۸۱٫۵</t-fa><t-en>81.5</t-en></td><td><t-fa>۱۵۱</t-fa><t-en>151</t-en></td></tr>
+<tr><td>HCCA</td><td><t-fa>۸۷٫۴</t-fa><t-en>87.4</t-en></td><td><t-fa>۸۷٫۴</t-fa><t-en>87.4</t-en></td><td><t-fa>۱۶۲</t-fa><t-en>162</t-en></td></tr>
+<tr><td>EMXI</td><td><t-fa>۱۰۲٫۷</t-fa><t-en>102.7</t-en></td><td><t-fa>۱۰۲٫۸</t-fa><t-en>102.8</t-en></td><td><t-fa>۱۹۰</t-fa><t-en>190</t-en></td></tr>
+<tr><td>AVNI</td><td><t-fa>۱۲۸٫۶</t-fa><t-en>128.6</t-en></td><td><t-fa>۱۲۸٫۶</t-fa><t-en>128.6</t-en></td><td><t-fa>۲۳۸</t-fa><t-en>238</t-en></td></tr>
+<tr><td><t-fa>تعداد پیش‌بینی</t-fa><t-en>Forecasts</t-en></td><td><t-fa>۱۰۳</t-fa><t-en>103</t-en></td><td><t-fa>۱۰۳</t-fa><t-en>103</t-en></td><td><t-fa>۱۰۳</t-fa><t-en>103</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>نمونهٔ هم‌گن: فقط چرخه‌هایی که هر ۱۴ مدل جدول ۲ داشتند · تعدادها در هر ۸ افق دقیقاً برابر · بیشترین اختلاف میانگین: GDMI، ۲٫۳ مایل دریایی (۱۲۰ ساعت)</t-fa><t-en>Homogeneous sample: only cycles all 14 aids of Table 2 had · counts equal at all 8 lead times · largest gap in means: GDMI, 2.3 n mi (120 h)</t-en></p>
+<footer><t-fa>R01 جدول ۲ · R02 · storm_live.py --selftest</t-fa><t-en>R01 Table 2 · R02 · storm_live.py --selftest</t-en></footer>
+<aside class="notes"><t-fa><b>جدول را خودمان ساختیم</b><p>[B-ROLL CUE] ترمینال selftest، بعد <code>?view=errors&amp;kind=track&amp;sample=nhc&amp;nhc=1&amp;m=OFCL,GDMI,EMXI,AVNI,HFAI,HCCA</code>. «حدود چهار کیلومتر» = ۲٫۳ مایل دریایی. چرا GDMI کمی فرق دارد نمی‌دانیم (NHC داده را ۱۱ فوریه برداشته).</p><p>در یک جمله: جدول NHC را از دادهٔ عمومی دوباره ساختیم؛ تعداد پیش‌بینی‌ها دقیقاً و میانگین‌ها تقریباً همان درآمد.</p></t-fa><t-en><b>We rebuilt the table</b><p>[B-ROLL CUE] Selftest terminal, then ?view=errors&amp;kind=track&amp;sample=nhc&amp;nhc=1&amp;m=OFCL,GDMI,EMXI,AVNI,HFAI,HCCA. "About four kilometres" = 2.3 n mi. We do not know why GDMI differs slightly (NHC took its data on 11 Feb).</p><p>In one line: we rebuilt NHC's table from public data; the forecast counts match exactly and the means almost.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-9" data-start="421">
+<p class="kicker"><t-fa>۱۰۳ پیش‌بینی، فقط ۷ طوفان</t-fa><t-en>103 forecasts, only 7 storms</t-en></p>
+<h1><t-fa>طوفان‌ها را <em>قرعه‌کشی</em> کردیم، نه پیش‌بینی‌ها را</t-fa><t-en>We resampled <em>storms</em>, not forecasts</t-en></h1>
+<table class="t">
+<tr><th><t-fa>GDMI منهای OFCL</t-fa><t-en>GDMI minus OFCL</t-en></th><th><t-fa>میانگین (کیلومتر)</t-fa><t-en>Mean (km)</t-en></th><th><t-fa>بازهٔ ۹۵٪</t-fa><t-en>95% interval</t-en></th><th><t-fa>طوفان</t-fa><t-en>Storms</t-en></th></tr>
+<tr><td><t-fa>۲۴ ساعت</t-fa><t-en>24 h</t-en></td><td><t-fa>منفی ۱۰</t-fa><t-en>−10</t-en></td><td><t-fa>منفی ۱۹ تا مثبت ۲</t-fa><t-en>−19 to +2</t-en></td><td><t-fa>۱۰</t-fa><t-en>10</t-en></td></tr>
+<tr><td><t-fa>۴۸ ساعت</t-fa><t-en>48 h</t-en></td><td><t-fa>منفی ۱۶</t-fa><t-en>−16</t-en></td><td><t-fa>منفی ۴۱ تا مثبت ۵</t-fa><t-en>−41 to +5</t-en></td><td><t-fa>۹</t-fa><t-en>9</t-en></td></tr>
+<tr class="hi"><td><t-fa>۷۲ ساعت</t-fa><t-en>72 h</t-en></td><td><t-fa>منفی ۳۱</t-fa><t-en>−31</t-en></td><td><t-fa>منفی ۷۵ تا منفی ۱</t-fa><t-en>−75 to −1</t-en></td><td><t-fa>۷</t-fa><t-en>7</t-en></td></tr>
+<tr><td><t-fa>۱۲۰ ساعت</t-fa><t-en>120 h</t-en></td><td><t-fa>مثبت ۴</t-fa><t-en>+4</t-en></td><td><t-fa>منفی ۳۳ تا مثبت ۴۴</t-fa><t-en>−33 to +44</t-en></td><td><t-fa>۴</t-fa><t-en>4</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>منفی = AI نزدیک‌تر · ۲۰۰۰ قرعه با جایگذاری از طوفان‌ها · اگر پیش‌بینی‌ها را جدا قرعه بکشیم، بازهٔ ۴۸ ساعت «منفی ۲۷ تا منفی ۵» می‌شود: تنگ‌تر و گول‌زننده</t-fa><t-en>Negative = AI closer · 2000 draws of storms with replacement · resampling single forecasts instead gives "−27 to −5" at 48 h: narrower and misleading</t-en></p>
+<footer><t-fa>حساب ما · artifact/derived/verify-2025.json</t-fa><t-en>Our computation · artifact/derived/verify-2025.json</t-en></footer>
+<aside class="notes"><t-fa><b>هوک دوم: ۱۰۳ آزمایش جدا نیست</b><p>[CAMERA CHANGE] RE-HOOK. نمای ۲ دمو، پنل «GDMI − OFCL». «حدود سی» = منفی ۳۰٫۷. سطر ۷۲ ساعت به‌زحمت از صفر جداست؛ سطر ۲۴ ساعت نه.</p><p>در یک جمله: با قرعه‌کشی طوفان‌ها، برتری سه‌روزهٔ AI به‌زحمت از صفر جداست و برتری یک‌روزه جدا نیست.</p></t-fa><t-en><b>Re-hook: 103 forecasts are not 103 experiments</b><p>[CAMERA CHANGE] RE-HOOK. Demo view 2, the "GDMI − OFCL" panel. "About thirty" = −30.7. The 72 h row barely separates from zero; the 24 h row does not.</p><p>In one line: resampling storms, the AI's three-day edge barely separates from zero and the one-day edge does not.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-10" data-start="474">
+<p class="kicker"><t-fa>جایی که تیترها ندیدند</t-fa><t-en>What the headlines missed</t-en></p>
+<div class="cols">
+<div><span><t-fa>۱۲۰ ساعت · مسیر</t-fa><t-en>120 h · track</t-en></span><b class="word"><t-fa>۳۱۲ در برابر ۳۱۶</t-fa><t-en>312 vs 316</t-en></b><small><t-fa>کیلومتر</t-fa><t-en>km</t-en></small><p><t-fa>رسمی کمی بهتر · فقط ۴ طوفان، ۵۹ پیش‌بینی</t-fa><t-en>Official slightly better · only 4 storms, 59 forecasts</t-en></p></div>
+<div><span><t-fa>۷۲ ساعت · شدت</t-fa><t-en>72 h · intensity</t-en></span><b class="word"><t-fa>۱۴٫۶ در برابر ۱۴٫۲</t-fa><t-en>14.6 vs 14.2</t-en></b><small><t-fa>گره</t-fa><t-en>kt</t-en></small><p><t-fa>رسمی و GDMI تقریباً مساوی؛ بازه‌ها از دو طرف صفر</t-fa><t-en>Official and GDMI about equal; intervals span zero</t-en></p></div>
+<div class="hi"><span><t-fa>۷۲ ساعت · طوفان به طوفان</t-fa><t-en>72 h · storm by storm</t-en></span><b class="word"><t-fa>۵ از ۷</t-fa><t-en>5 of 7</t-en></b><p><t-fa>GDMI جلو؛ در گابریل و جری متخصص‌ها جلو بودند</t-fa><t-en>GDMI ahead; forecasters ahead in Gabrielle and Jerry</t-en></p></div>
+</div>
+<p class="tag"><t-fa>۱ گره = ۱٫۸۵۲ کیلومتر بر ساعت · شدت: نمونهٔ جدول ۴ (۱۰۴ پیش‌بینی در ۷۲ ساعت)</t-fa><t-en>1 kt = 1.852 km/h · intensity: Table 4 sample (104 forecasts at 72 h)</t-en></p>
+<footer><t-fa>حساب ما · R01 جدول ۴ (رسمی ۱۴٫۶، GDMI ۱۴٫۶)</t-fa><t-en>Our computation · R01 Table 4 (official 14.6, GDMI 14.6)</t-en></footer>
+<aside class="notes"><t-fa><b>جایی که AI نبرد</b><p>[GRAPHIC] نمای ۲ دمو روی ۱۲۰ ساعت، بعد K. «یکی دو گره» = بیشترین فرق میانگین‌ها در جدول ۴ ما (۱٫۶ گره در ۱۲۰ ساعت). گابریل = AL07، جری = AL10.</p><p>در یک جمله: در پنج روز رسمی کمی بهتر است، در شدت مساوی‌اند، و طوفان به طوفان نتیجه فرق می‌کند.</p></t-fa><t-en><b>Where the AI did not win</b><p>[GRAPHIC] Demo view 2 at 120 h, then K. "One or two knots" = the largest gap in our Table 4 means (1.6 kt at 120 h). Gabrielle = AL07, Jerry = AL10.</p><p>In one line: at five days the official forecast is slightly better, intensity is a tie, and results differ storm by storm.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-11" data-start="522">
+<p class="kicker"><t-fa>این دوئل نبود</t-fa><t-en>This was not a duel</t-en></p>
+<div class="steps">
+<div><b><t-fa>مشاهده‌ها</t-fa><t-en>Observations</t-en></b><t-fa>ماهواره، هواپیما، بالن؛ نقطهٔ شروع همهٔ مدل‌ها</t-fa><t-en>Satellites, aircraft, balloons; every model's starting point</t-en></div>
+<div><b><t-fa>مدل‌ها</t-fa><t-en>Models</t-en></b><t-fa>فیزیکی و GDMI؛ NHC اجرای قبلی را با موقعیت فعلی طوفان جفت می‌کند</t-fa><t-en>Physics and GDMI; NHC aligns the previous run with the storm's current position</t-en></div>
+<div class="hi"><b><t-fa>متخصص‌ها</t-fa><t-en>Forecasters</t-en></b><t-fa>در ۲۰۲۵ کم‌کم از مدل‌های AI به‌عنوان راهنما استفاده کردند</t-fa><t-en>In 2025 began using AI models as guidance</t-en></div>
+<div><b><t-fa>پیش‌بینی رسمی</t-fa><t-en>Official forecast</t-en></b><t-fa>خطای ۲۴ تا ۷۲ ساعت در حدود دو دهه حدود ۷۵٪ کم شده</t-fa><t-en>24–72 h errors down about 75% over roughly two decades</t-en></div>
+</div>
+<footer><t-fa>R04 (weather.gov) · R01 §۱ و §۲الف</t-fa><t-en>R04 (weather.gov) · R01 §1 and §2a</t-en></footer>
+<aside class="notes"><t-fa><b>این دوئل نبود</b><p>[CAMERA CHANGE] رو به دوربین. R04: «NHC began using these AI systems as guidance in operational forecasts». R01: نسخهٔ «interpolated» = اجرای قبلی، جابه‌جاشده تا با موقعیت مشاهده‌شده جور شود.</p><p>در یک جمله: متخصص‌ها از GDMI استفاده می‌کردند و GDMI هم از مشاهده‌ها شروع می‌شود؛ این همکاری است، نه دوئل.</p></t-fa><t-en><b>This was not a duel</b><p>[CAMERA CHANGE] To camera. R04: "NHC began using these AI systems as guidance in operational forecasts". R01: the interpolated version = the previous run, shifted to match the observed position.</p><p>In one line: forecasters used GDMI and GDMI starts from observations; this is collaboration, not a duel.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-12" data-start="575">
+<p class="kicker"><t-fa>برگشت به دریای عمان</t-fa><t-en>Back to the Gulf of Oman</t-en></p>
+<table class="t">
+<tr><th><t-fa>نزدیک‌ترین فاصلهٔ مرکز</t-fa><t-en>Closest approach of the centre</t-en></th><th><t-fa>گونو ۲۰۰۷</t-fa><t-en>Gonu 2007</t-en></th><th><t-fa>شاهین ۲۰۲۱</t-fa><t-en>Shaheen 2021</t-en></th></tr>
+<tr class="hi"><td><t-fa>چابهار</t-fa><t-en>Chabahar</t-en></td><td><t-fa>۱۸۷ کیلومتر</t-fa><t-en>187 km</t-en></td><td><t-fa>۱۰۰ کیلومتر</t-fa><t-en>100 km</t-en></td></tr>
+<tr class="hi"><td><t-fa>جاسک</t-fa><t-en>Jask</t-en></td><td><t-fa>۲۴ کیلومتر</t-fa><t-en>24 km</t-en></td><td><t-fa>۱۸۲ کیلومتر</t-fa><t-en>182 km</t-en></td></tr>
+<tr><td><t-fa>مسقط</t-fa><t-en>Muscat</t-en></td><td><t-fa>۷۸ کیلومتر</t-fa><t-en>78 km</t-en></td><td><t-fa>۵۵ کیلومتر</t-fa><t-en>55 km</t-en></td></tr>
+<tr><td><t-fa>پیش‌بینی AI در دسترس</t-fa><t-en>AI forecast available</t-en></td><td><t-fa>نه</t-fa><t-en>No</t-en></td><td><t-fa>نه</t-fa><t-en>No</t-en></td></tr>
+</table>
+<p class="tag"><t-fa>NHC این حوضه را پیش‌بینی نمی‌کند (مرکز منطقه‌ای: IMD) · هیچ پیش‌بینی AI نساخته‌ایم · سال ۲۰۰۷ در دادهٔ آموزشی بسیاری از مدل‌هاست (GraphCast: ۱۹۷۹ تا ۲۰۱۷)</t-fa><t-en>NHC does not forecast this basin (regional centre: IMD) · we made no AI forecast · 2007 is in many models' training data (GraphCast: 1979–2017)</t-en></p>
+<footer><t-fa>R08 IBTrACS · حساب ما · R10</t-fa><t-en>R08 IBTrACS · our computation · R10</t-en></footer>
+<aside class="notes"><t-fa><b>برگشت به دریای عمان</b><p>[B-ROLL CUE] نمای ۳ دمو با پنل. «تقلب» نگو؛ «منصفانه نیست». تشبیه کنکور با کلید. ادعا دربارهٔ سازمان هواشناسی ایران نه.</p><p>در یک جمله: برای گونو و شاهین پیش‌بینی AI در دسترس نداریم و نمی‌سازیم؛ گونو حتی در دادهٔ آموزشی بیشتر این مدل‌هاست.</p></t-fa><t-en><b>Back to the Gulf of Oman</b><p>[B-ROLL CUE] Demo view 3 with the panel. Do not say "cheating"; say "not fair". The Konkur-with-the-key comparison. No claim about Iran's meteorological organisation.</p><p>In one line: we have no AI forecasts for Gonu or Shaheen and will not make one; Gonu is even inside most of these models' training data.</p></t-en></aside>
+</section>
+
+<section class="frame paper" id="beat-13" data-start="635">
+<p class="kicker"><t-fa>مرز ادعا</t-fa><t-en>Claim boundary</t-en></p>
+<div class="boundary">
+<div><b><t-fa>این قسمت نشان می‌دهد</t-fa><t-en>This shows</t-en></b><t-fa>در فصل ۲۰۲۵ اطلس، GDMI در مسیر یک تا سه روزه از پیش‌بینی رسمی کمتر خطا داشت · ما جدول NHC را از دادهٔ خام دوباره ساختیم و تکرار شد · با قرعه‌کشی طوفان‌ها، برتری سه‌روزه به‌زحمت از صفر جداست</t-fa><t-en>In the 2025 Atlantic season GDMI had smaller one-to-three-day track errors than the official forecast · we rebuilt NHC's table from raw data and it reproduced · resampling storms, the three-day edge barely separates from zero</t-en></div>
+<div class="no"><b><t-fa>این قسمت نشان نمی‌دهد</t-fa><t-en>This does not show</t-en></b><t-fa>که AI همیشه بهتر است · برتری در شدت یا در پنج روز · که در دریای عمان هم همین است · که هواشناسی ایران از این مدل‌ها استفاده می‌کند یا نه (منبعی نداریم)</t-fa><t-en>That AI is always better · an edge in intensity or at five days · that the same holds in the Gulf of Oman · whether Iran's meteorological service uses these models (we have no source)</t-en></div>
+</div>
+<footer><t-fa>R01 · حساب ما</t-fa><t-en>R01 · our computation</t-en></footer>
+<aside class="notes"><t-fa><b>مرز ادعا</b><p>[CAMERA CHANGE] بدون موسیقی. یک فصل، یک حوضه، ۱۳ طوفان.</p><p>در یک جمله: یک فصل، یک اقیانوس، مسیر کوتاه‌مدت؛ نه شدت، نه پنج روز، نه دریای عمان.</p></t-fa><t-en><b>Claim boundary</b><p>[CAMERA CHANGE] No music. One season, one basin, 13 storms.</p><p>In one line: one season, one ocean, short-range track; not intensity, not five days, not the Gulf of Oman.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-14" data-start="668">
+<p class="kicker"><t-fa>جواب کوتاه</t-fa><t-en>Short answer</t-en></p>
+<h1><t-fa>در مسیر کوتاه‌مدت، <em>کمی</em> بهتر؛ نه «بهتر از متخصص‌ها»</t-fa><t-en><em>Slightly</em> better on short-range track; not "better than the experts"</t-en></h1>
+<div class="steps">
+<div><b><t-fa>۱</t-fa><t-en>1</t-en></b><t-fa>چند مورد واقعاً جدا؟</t-fa><t-en>How many truly independent cases?</t-en></div>
+<div><b><t-fa>۲</t-fa><t-en>2</t-en></b><t-fa>نمونه یکسان بود؟</t-fa><t-en>Was the sample the same?</t-en></div>
+<div class="hi"><b><t-fa>۳</t-fa><t-en>3</t-en></b><t-fa>جواب‌نامه را چه کسی نوشت؟</t-fa><t-en>Who wrote the answer key?</t-en></div>
+</div>
+<footer><t-fa>تمرین این هفته</t-fa><t-en>This week's exercise</t-en></footer>
+<aside class="notes"><t-fa><b>جواب</b><p>سه سؤال را آرام بگو. سؤال سوم پل قاب ۱۵ است.</p><p>در یک جمله: کمی بهتر در مسیر کوتاه‌مدت، نه «بهتر از متخصص‌ها»؛ سه سؤال برای هر ادعای «بهتر از».</p></t-fa><t-en><b>The answer</b><p>Say the three questions slowly. The third one bridges to beat 15.</p><p>In one line: slightly better on short-range track, not "better than the experts"; three questions for every "better than" claim.</p></t-en></aside>
+</section>
+
+<section class="frame night" id="beat-15" data-start="694">
+<p class="kicker"><t-fa>قسمت بعد</t-fa><t-en>Next</t-en></p>
+<h1 class="xl"><t-fa>اگر خود <em>جواب‌نامه</em> غلط باشد؟</t-fa><t-en>What if the <em>answer key</em> itself is wrong?</t-en></h1>
+<p class="caption"><t-fa>آزمون‌های AI، کلیدهای غلط، و اینکه نمرهٔ کدام مدل کم می‌شود.</t-fa><t-en>AI benchmarks, wrong keys, and whose score drops.</t-en></p>
+<footer><t-fa>HMD-008</t-fa><t-en>HMD-008</t-en></footer>
+<aside class="notes"><t-fa><b>قسمت بعد</b><p>[SOUND EFFECT] ورق دفترچه. هیچ عددی از HMD-008 نگو. End screen از ثانیهٔ ۸.</p><p>در یک جمله: از جواب‌نامهٔ طوفان به جواب‌نامهٔ آزمون‌های AI: اگر کلید غلط باشد، چه کسی می‌بازد؟</p></t-fa><t-en><b>Next episode</b><p>[SOUND EFFECT] Page turn. No numbers from HMD-008. End screen from second 8.</p><p>In one line: from the storm's answer key to AI benchmarks' answer keys: if the key is wrong, who loses?</p></t-en></aside>
+</section>

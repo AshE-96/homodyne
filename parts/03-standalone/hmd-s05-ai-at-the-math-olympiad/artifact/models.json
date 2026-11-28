@@ -1,0 +1,36 @@
+{
+ "_how": "Five slots. On run day write the exact model ID for each (provider:model, as tools/llm.py takes it), copied from the provider's model list that day, and the date. Leave null until then: --live refuses an empty slot. The ID each provider reports it actually served is recorded per answer (model_served). Text only: no images, no tools. protocol.md §2.",
+ "chosen_on": null,
+ "slots": [
+  {
+   "slot": "gemini",
+   "label": "Gemini",
+   "model": null,
+   "hint": "gemini:<current Gemini flagship id>"
+  },
+  {
+   "slot": "claude",
+   "label": "Claude",
+   "model": null,
+   "hint": "anthropic:<current Claude flagship id, e.g. claude-opus-5-5 if still the flagship>"
+  },
+  {
+   "slot": "gpt",
+   "label": "GPT",
+   "model": null,
+   "hint": "openai:<current GPT flagship id>"
+  },
+  {
+   "slot": "open1",
+   "label": "Open model 1",
+   "model": null,
+   "hint": "openrouter:<vendor/open-weight reasoning model>"
+  },
+  {
+   "slot": "open2",
+   "label": "Open model 2",
+   "model": null,
+   "hint": "openrouter:<a second open-weight reasoning model from another lab>"
+  }
+ ]
+}

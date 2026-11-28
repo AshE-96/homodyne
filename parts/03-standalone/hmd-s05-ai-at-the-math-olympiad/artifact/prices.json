@@ -1,0 +1,31 @@
+{
+ "about": "Owner fills `models` before `report`: USD per million tokens from each provider's official pricing page, read on the date in checked_on. Keys = provider:model exactly as in models.json. OpenRouter calls use the cost OpenRouter itself reports per call (usd_reported) and need no entry. Output tokens include reasoning tokens. No caching or batch discount is assumed. While a price is null, `plan`/`run` show the UPPER BOUND from `fallback`, and `report` shows tokens without $.",
+ "checked_on": null,
+ "source_url": null,
+ "currency": "USD",
+ "models": {},
+ "fallback": {
+  "about": "CONSERVATIVE UPPER BOUND, NOT AN OFFICIAL PRICE. Deliberately high per-million-token prices, only to show a worst case before the owner fills `models`; the bound also assumes every call uses its full output cap (MAX_TOKENS = 32000). Same convention as HMD-K01.",
+  "set_on": "2026-11-28",
+  "default": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "anthropic": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "gemini": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "openai": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  },
+  "openrouter": {
+   "input_per_mtok": 15.0,
+   "output_per_mtok": 75.0
+  }
+ }
+}

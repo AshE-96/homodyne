@@ -1,0 +1,40 @@
+HMD-S04 · derived data. Made by `python3 -I artifact/storm_build.py` (Python 3, standard library) on 28 Nov 2026
+from raw files downloaded the same day into artifact/data/ (git-ignored, 53 MB; full sha256 in artifact/data/SHA256SUMS).
+
+RAW SOURCES (downloaded 28 Nov 2026, no login, no key)
+  1. NHC ATCF archive, 2025 Atlantic: https://ftp.nhc.noaa.gov/atcf/archive/2025/  aal01–13 (forecasts) + bal01–13 (best track)
+     Licence: NOAA / U.S. Government work, public domain.
+     Exception: GDMI and GDM2 lines are Google DeepMind model output (Weather Lab cyclone model ensemble mean, interpolated by
+     NHC). Google states Weather Lab cyclone data older than one hour is CC BY 4.0 (developers.google.com/weathernext/guides/
+     weatherlab and …/disclaimers, read 28 Nov 2026). Attribution: "GDMI forecast tracks: Google DeepMind, CC BY 4.0, via NOAA
+     NHC ATCF". [VERIFY] that the CC BY 4.0 statement also covers the copies inside NOAA's ATCF archive (very likely; not stated).
+     sha256 (first 16 hex): aal13 316a12b6bd7178d7 · bal13 d2f0d548b909dc1c · aal05 41d2641dd18be0bc (others in SHA256SUMS)
+  2. IBTrACS v04r01, North Indian list: https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-
+     ibtracs/v04r01/access/csv/ibtracs.NI.list.v04r01.csv  (27.9 MB, sha256 34b6a7ead2fb30c2…). NOAA NCEI, public domain;
+     cite Knapp et al. (2010) BAMS 91, 363–376, and Gahtan et al. (2024) IBTrACS v04r01, NOAA NCEI, doi:10.25921/82ty-9e16.
+  3. Natural Earth 1:50m land, v5.1.2: https://github.com/nvkelso/natural-earth-vector (public domain).
+
+FILES
+  cases-2025.json     every verification case (storm, initial time, lead time) where the official forecast exists and the system
+                      is tropical/subtropical at start and end; per model: track error (km, great circle, R = 6371 km) or
+                      intensity error (kt). Models = the early aids of NHC report Tables 2 and 4. AVNI is NHC's "GFSI".
+                      A 12-h-old interpolated run (…2) is used when the 6-h one (…I) is missing, as the report allows.
+  verify-2025.json    our rebuild of NHC Tables 2 and 4 (n mi / kt), NHC's printed values, km tables, storm-block and case
+                      bootstrap intervals for GDMI − OFCL (2000 draws, seed 1), per-storm 72 h means.
+  replay-2025.json    best tracks of AL01–AL13 and the forecast tracks of OFCL, GDMI, EMXI, AVNI, HFAI, HCCA at synoptic
+                      initial times (lead 0–120 h; positions to 0.1°, winds in kt).
+  north-indian.json   Gonu (2007151N14072) and Shaheen (2021267N18094, IBTrACS name "GULAB:SHAHEEN-GU"): 3-hourly centre,
+                      JTWC 1-min wind, IMD 3-min wind and grade; closest approach to Chabahar, Jask, Muscat, Ras al Hadd
+                      (town coordinates rounded to 0.01°, GeoNames).
+  land.json           Natural Earth land clipped (Sutherland–Hodgman) to two boxes and thinned to 0.06–0.15°.
+
+CHECKS (python3 -I artifact/storm_live.py --selftest, 28 Nov 2026: selftest ok)
+  great-circle: quarter equator 10007.543 km, 1° latitude 111.195 km, 1 arc-minute = 1.8532 km ≈ 1 n mi, antipodes,
+  haversine = law of cosines on 2000 random pairs; ATCF rules on a hand-made storm; the page's JavaScript gives the same
+  means as Python (node). Our rebuild matches NHC Tables 2 and 4 case counts exactly at all eight lead times
+  (193 … 59 track, 195 … 59 intensity). Means: every aid within 1.0 n mi of NHC except GDMI (up to 2.3 n mi at 120 h,
+  ours lower); intensity within 0.4 kt. NHC took its data on 11 Feb 2026; we do not know why GDMI differs slightly.
+
+WHAT THIS DOES NOT SHOW: one season, one basin (Atlantic), 13 storms; 120 h rests on 59 forecasts from 4 storms.
+Forecasters had GDMI as guidance during 2025, so OFCL and GDMI are not independent. No AI forecasts of Gonu or Shaheen exist
+in these files.

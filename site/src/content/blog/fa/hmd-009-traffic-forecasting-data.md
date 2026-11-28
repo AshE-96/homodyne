@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-009-deep-dive
 hmd: HMD-009
 kind: deep-dive
-date: 2027-01-29
+date: 2027-02-26
 tags: ["پیش‌بینی ترافیک", "شبکهٔ عصبی گرافی", "message passing", "METR-LA", "PEMS-BAY", "ETA"]
 sources:
   - title: "Derrow-Pinion et al. 2021, ETA Prediction with Graph Neural Networks in Google Maps (arXiv 2108.11482, CIKM 2021)"

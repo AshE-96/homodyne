@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-010-companion
 hmd: HMD-010
 kind: companion
-date: 2027-02-05
+date: 2027-03-12
 tags: ["negative marking", "AI hallucination", "calibration", "benchmarks", "abstention"]
 sources:
   - title: "Kalai, Nachum, Vempala, Zhang (2025). Why Language Models Hallucinate. arXiv 2509.04664 v1"

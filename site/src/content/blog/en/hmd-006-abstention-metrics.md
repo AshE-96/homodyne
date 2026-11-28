@@ -5,7 +5,7 @@ lang: en
 translationKey: hmd-006-deep-dive
 hmd: HMD-006
 kind: deep-dive
-date: 2027-01-08
+date: 2027-01-15
 tags: ["error rate", "abstention", "hallucination", "evaluation method", "reproducibility"]
 sources:
   - title: "OpenAI (September 2025): Why language models hallucinate"

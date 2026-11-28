@@ -1,0 +1,222 @@
+<!doctype html>
+<!-- HMD-S06 · live demo page. Template for artifact/summit_live.py (which fills in __DATA__). Do not open this file directly. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Homodyne HMD-S06 · Damavand summit forecast</title>
+<style>
+@font-face{font-family:"Vazirmatn";font-weight:400;src:url("../../../../brand/fonts/vazirmatn-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"Vazirmatn";font-weight:700;src:url("../../../../brand/fonts/vazirmatn-arabic-700-normal.woff2") format("woff2")}
+:root{--bg:#111214;--ink:#F3F1EC;--muted:#8D8A84;--dim:#3A3B3F;--amber:#E8A33D;--red:#D2543F;--line:#26272B;--blue:#6FA8DC;--green:#9BC48A}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:17px/1.4 "Inter","Helvetica Neue",Arial,"Vazirmatn",sans-serif;overflow:hidden}
+header{display:flex;align-items:baseline;gap:18px;padding:16px 28px 0}
+header .brand{font-weight:700}
+header .run{color:var(--muted);font-size:13px}
+.tabs{display:flex;gap:8px;margin-left:auto}
+.tabs button,.pill{background:none;border:1px solid var(--dim);color:var(--muted);font:inherit;font-size:14px;padding:4px 11px;border-radius:4px;cursor:pointer}
+.tabs button.on,.pill.on{border-color:var(--amber);color:var(--amber)}
+.view{display:none;position:absolute;inset:58px 0 34px 0;padding:6px 28px}
+.view.on{display:block}
+h1{font-size:30px;margin:2px 0 0;font-weight:700} h1 em{font-style:normal;color:var(--amber)}
+.fa{direction:rtl;font-family:"Vazirmatn",sans-serif;color:var(--muted);font-size:17px;margin:0;text-align:left}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px;margin-top:6px}
+.chart h3{margin:0;font-size:15px;color:var(--muted);font-weight:400} .chart h3 b{color:var(--ink);font-weight:700}
+svg text{fill:var(--muted);font-size:12px;font-family:inherit}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:14px;color:var(--muted);margin-top:4px}
+.legend i{display:inline-block;width:22px;height:3px;vertical-align:middle;margin-right:6px}
+table{border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+td,th{padding:3px 10px;border-bottom:1px solid var(--line);text-align:right} th{color:var(--muted);font-weight:400}
+td:first-child,th:first-child{text-align:left}
+.lv0{color:var(--ink)} .lv1{color:var(--amber)} .lv2{color:var(--red);font-weight:700}
+.split{display:flex;gap:34px;margin-top:8px}
+.panel{flex:0 0 520px;font-size:16px}
+.panel .row{margin:0 0 12px;opacity:.25;transition:opacity .3s} .panel .row.on{opacity:1}
+.panel .row b{display:block;font-size:30px;font-variant-numeric:tabular-nums} .panel .row span{color:var(--muted);font-size:14px}
+.grid{display:grid;gap:3px;margin-top:10px;font-size:13px}
+.grid div{height:40px;display:flex;align-items:center;justify-content:center;border-radius:3px;background:var(--line);color:var(--muted)}
+.grid .lab{justify-content:flex-start;background:none;color:var(--ink);padding-left:2px}
+.grid .h{background:none;height:30px;font-size:12px}
+.grid .c0{background:#2B2D31;color:var(--muted)} .grid .c1{background:var(--amber);color:#111} .grid .c2{background:var(--red);color:#fff}
+.grid .unc{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 5px,transparent 5px 11px)}
+.grid .cur{outline:2px solid var(--ink)}
+.disc{position:absolute;left:28px;right:28px;bottom:6px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:20px}
+.disc .fa{font-size:14px}
+.box{border:1px solid var(--dim);border-radius:6px;padding:10px 14px;margin-top:10px;font-size:15px}
+.flag{display:inline-block;min-width:64px;text-align:center;border-radius:3px;padding:1px 6px;margin-right:4px;background:#2B2D31}
+.flag.l1{background:var(--amber);color:#111}.flag.l2{background:var(--red);color:#fff}
+.warn{color:var(--amber)}
+body.clean .tabs,body.clean .keys,body.clean .pill{visibility:hidden}
+.keys{position:absolute;top:50px;right:28px;color:var(--dim);font-size:12px}
+</style></head><body>
+<header><span class="brand">Homodyne · HMD-S06</span><span id="site" style="color:var(--ink)"></span><span class="run" id="run"></span>
+<span class="tabs"><button data-v="1">1 · side by side</button><button data-v="2">2 · height correction</button><button data-v="3">3 · go / no-go windows</button><button data-v="4">4 · alert logic</button></span></header>
+<div class="keys">1–4 views · ← → time (view 2: steps) · , . time · S site · M model · H hide</div>
+
+<section class="view" id="v1">
+<h1>Same summit, <em>several models</em></h1>
+<p class="fa">قله و بارگاه سوم: دمای هوای آزاد در ارتفاع واقعی، باد، سرمای باد، رطوبت</p>
+<div class="charts"><div class="chart" id="c-t"></div><div class="chart" id="c-wind"></div><div class="chart" id="c-chill"></div><div class="chart" id="c-rh"></div></div>
+<div class="legend" id="legend"></div>
+<div id="tbl" style="margin-top:6px"></div>
+</section>
+
+<section class="view" id="v2">
+<h1>The model's Damavand is <em>much lower</em></h1>
+<p class="fa">قلهٔ مدل صاف‌شده و پایین‌تر است؛ سه راه برای رسیدن به دمای ۵٬۶۱۰ متر</p>
+<div class="split"><svg id="prof" width="900" height="620"></svg><div class="panel" id="panel"></div></div>
+</section>
+
+<section class="view" id="v3">
+<h1>Go / no-go <em>windows</em> in the models</h1>
+<p class="fa">هر خانه یک بازهٔ ۶ ساعته؛ خاکستری = زیر همهٔ آستانه‌ها، کهربایی = نزدیک، قرمز = بالای آستانه؛ هاشور = مدل‌ها هم‌نظر نیستند</p>
+<div class="grid" id="grid"></div>
+<div class="box" id="wins"></div>
+</section>
+
+<section class="view" id="v4">
+<h1>The <em>alert logic</em>, in full</h1>
+<p class="fa">آستانه‌ها انتخاب تحریریه‌اند، نه قانون ایمنی</p>
+<div class="split"><div style="flex:1" id="rules"></div><div style="flex:1" id="fired"></div></div>
+</section>
+
+<div class="disc"><span id="src"></span><span class="fa">ابزار آموزشی است، نه هشدار رسمی. «امن» نمی‌گوید. تصمیم با سرپرست برنامه، راهنمای محلی و هشدارهای رسمی است.</span></div>
+
+<script>
+const D = __DATA__;
+const COL = {'ifs':'#F3F1EC','aifs':'#E8A33D','gfs':'#6FA8DC','om-icon':'#9BC48A'};
+const NAME = {'ifs':'IFS','aifs':'AIFS','gfs':'GFS','om-icon':'ICON*'};
+const KEYS = Object.keys(D.models).filter(k => D.models[k].series && D.models[k].series.length);
+const TIMES = D.steps.map(s => s.valid);
+const q = new URLSearchParams(location.search);
+let view = q.get('view') || '1', site = q.get('site') || 'summit', ti = +(q.get('t') || 0), stage = +(q.get('stage') || 0),
+    model = q.get('model') || KEYS[0];
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, '0');
+function teh(v){ const d = new Date(v.replace('Z', ':00Z')); const t = new Date(d.getTime() + 3.5 * 3600e3);
+  return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][t.getUTCDay()] + ' ' + pad(t.getUTCHours()) + ':' + pad(t.getUTCMinutes()); }
+function row(k, v){ return D.models[k].series.find(r => r.valid === v); }
+function fa(k, v, s){ const r = row(k, v); return r && r[s || site] ? r[s || site].fa : null; }
+const fmt = (x, d=0) => x == null ? '—' : (Math.round(x * 10 ** d) / 10 ** d).toFixed(d);
+const TH = D.thresholds;
+
+function lineChart(el, key, title, unit, lines, lo, hi, step){
+  const W = 740, H = 210, L = 44, R = 10, T = 8, B = 24, x = i => L + i * (W - L - R) / Math.max(1, TIMES.length - 1),
+        y = v => T + (hi - v) * (H - T - B) / (hi - lo);
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%">`;
+  for (let v = lo; v <= hi; v += step) s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#26272B"/><text x="${L-6}" y="${y(v)+4}" text-anchor="end">${Math.round(v)}</text>`;
+  TIMES.forEach((t, i) => { if (i % 2 === 0 && i < TIMES.length - 1) s += `<text x="${x(i)}" y="${H-6}" text-anchor="middle">${teh(t)}</text>`; });
+  for (const [v, c] of lines) s += `<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="${c}" stroke-dasharray="6 5"/>`;
+  s += `<line x1="${x(ti)}" x2="${x(ti)}" y1="${T}" y2="${H-B}" stroke="#8D8A84" stroke-width="1"/>`;
+  for (const k of KEYS){
+    const pts = TIMES.map((t, i) => { const f = fa(k, t); return f && f[key] != null ? `${x(i)},${y(Math.max(lo, Math.min(hi, f[key])))}` : null; }).filter(Boolean);
+    s += `<polyline fill="none" stroke="${COL[k]}" stroke-width="${k === 'aifs' ? 3 : 2.4}" ${k.startsWith('om') ? 'stroke-dasharray="4 4"' : ''} points="${pts.join(' ')}"/>`;
+  }
+  const now = KEYS.map(k => { const f = fa(k, TIMES[ti]); return `<span style="color:${COL[k]}">${NAME[k]} ${fmt(f && f[key])}</span>`; }).join(' · ');
+  el.innerHTML = `<h3><b>${title}</b> (${unit}) · ${teh(TIMES[ti])} Tehran: ${now}</h3>` + s + '</svg>';
+}
+
+function v1(){
+  const tw = TH.wind, tc = TH.chill;
+  lineChart($('c-t'), 't', 'Free-air temperature', '°C', [], -40, 10, 10);
+  lineChart($('c-wind'), 'wind', 'Wind', 'km/h', [[tw.amber, '#E8A33D'], [tw.red, '#D2543F']], 0, 120, 20);
+  lineChart($('c-chill'), 'chill', 'Wind chill', '°C', [[tc.amber, '#E8A33D'], [tc.red, '#D2543F']], -60, 10, 10);
+  lineChart($('c-rh'), 'rh', 'Relative humidity (in-cloud proxy)', '%', [[TH.cloud.amber, '#E8A33D']], 0, 100, 25);
+  $('legend').innerHTML = KEYS.map(k => `<span><i style="background:${COL[k]}"></i>${D.models[k].label} · run ${D.models[k].run}</span>`).join('')
+    + (KEYS.includes('om-icon') ? '<span class="warn">* dashed: Open-Meteo, rehearsal only (licence: owner decision)</span>' : '');
+  const s = site;
+  $('tbl').innerHTML = '<table><tr><th>at ' + teh(TIMES[ti]) + ' Tehran</th><th>model terrain</th><th>2 m T at model terrain</th><th>model 10 m wind</th><th>free-air T</th><th>free-air wind</th><th>wind chill</th><th>RH</th></tr>'
+    + KEYS.map(k => { const r = row(k, TIMES[ti]); const x = r && r[s]; if (!x) return ''; const f = x.fa || {};
+      return `<tr><td style="color:${COL[k]}">${NAME[k]}</td><td>${fmt(D.models[k].orography[s])} m${k.startsWith('om') ? ' (cell)' : ''}</td><td>${fmt(x.raw2t,1)} °C</td><td>${fmt(x.wind10)} km/h</td><td>${fmt(f.t,1)} °C</td><td class="lv${x.flags ? x.flags.wind : 0}">${fmt(f.wind)} km/h</td><td class="lv${x.flags ? x.flags.chill : 0}">${fmt(f.chill)} °C</td><td>${fmt(f.rh)}%</td></tr>`; }).join('') + '</table>';
+}
+
+function v2(){
+  const m = D.models[model], r = row(model, TIMES[ti]), x = r && r[site], S = D.sites[site];
+  const W = 900, H = 620, L = 70, B = 40, zlo = 1500, zhi = 6600, tlo = -40, thi = 20;
+  const yz = z => H - B - (z - zlo) * (H - B - 10) / (zhi - zlo), xt = t => L + (t - tlo) * (W - L - 20) / (thi - tlo);
+  let s = '';
+  for (let z = 2000; z <= 6500; z += 500) s += `<line x1="${L}" x2="${W-20}" y1="${yz(z)}" y2="${yz(z)}" stroke="#1C1D20"/><text x="${L-8}" y="${yz(z)+4}" text-anchor="end">${z} m</text>`;
+  for (let t = -40; t <= 20; t += 10) s += `<text x="${xt(t)}" y="${H-14}" text-anchor="middle">${t} °C</text>`;
+  const zm = m.orography[site] || 0, cx = xt(-10);
+  s += `<polygon points="${cx-330},${yz(zlo)} ${cx},${yz(S.z)} ${cx+330},${yz(zlo)}" fill="none" stroke="#F3F1EC" stroke-width="2"/>`;
+  s += `<text x="${cx+16}" y="${yz(S.z)-30}" style="fill:#F3F1EC;font-size:15px">real ${S.name_en}: ${S.z} m</text>`;
+  s += `<rect x="${cx-420}" y="${yz(zm)}" width="840" height="${yz(zlo)-yz(zm)}" fill="#3A3B3F" opacity=".75"/>`;
+  s += `<text x="${cx-410}" y="${yz(zm)+20}" style="fill:#F3F1EC;font-size:15px">${NAME[model]} terrain here: ${zm} m</text>`;
+  if (x && stage >= 1 && x.raw2t != null) s += `<circle cx="${xt(x.raw2t)}" cy="${yz(zm)}" r="9" fill="#8D8A84"/><text x="${xt(x.raw2t)+14}" y="${yz(zm)-10}">2 m T ${fmt(x.raw2t,1)}</text>`;
+  if (x && stage >= 2 && x.lapse != null) s += `<line x1="${xt(x.raw2t)}" y1="${yz(zm)}" x2="${xt(x.lapse)}" y2="${yz(S.z)}" stroke="#8D8A84" stroke-dasharray="7 5" stroke-width="2"/><circle cx="${xt(x.lapse)}" cy="${yz(S.z)}" r="9" fill="none" stroke="#F3F1EC" stroke-width="2"/><text x="${xt(x.lapse)+14}" y="${yz(S.z)+30}">lapse ${D.lapse} K/km → ${fmt(x.lapse,1)}</text>`;
+  if (x && stage >= 3){
+    const lv = x.levels.filter(l => l.gh != null && l.t != null).sort((a, b) => a.gh - b.gh);
+    lv.forEach(l => s += `<line x1="${L}" x2="${W-20}" y1="${yz(l.gh)}" y2="${yz(l.gh)}" stroke="#6FA8DC" stroke-dasharray="2 6"/><text x="${W-24}" y="${yz(l.gh)-5}" text-anchor="end" style="fill:#6FA8DC">${l.p} hPa · ${Math.round(l.gh)} m (ISA ${D.isa[l.p]} m)</text>`);
+    s += `<polyline fill="none" stroke="#E8A33D" stroke-width="3" points="${lv.map(l => xt(l.t) + ',' + yz(l.gh)).join(' ')}"/>`;
+    lv.forEach(l => s += `<circle cx="${xt(l.t)}" cy="${yz(l.gh)}" r="5" fill="#E8A33D"/>`);
+    if (x.fa) s += `<circle cx="${xt(x.fa.t)}" cy="${yz(S.z)}" r="11" fill="#E8A33D"/><text x="${xt(x.fa.t)-18}" y="${yz(S.z)+5}" text-anchor="end" style="fill:#E8A33D;font-size:16px">free air ${fmt(x.fa.t,1)} °C</text>`;
+  }
+  $('prof').innerHTML = s;
+  const st = (i, big, txt) => `<div class="row ${stage >= i ? 'on' : ''}"><b>${big}</b><span>${txt}</span></div>`;
+  $('panel').innerHTML = `<div style="color:var(--muted);margin-bottom:10px">${m.label} · ${teh(TIMES[ti])} Tehran · M: next model</div>`
+    + st(0, `${S.z - zm} m lower`, `The model's ground at this point is ${zm} m; the real ${S.name_en} is ${S.z} m. A 0.25° grid box is about 25 km wide: the cone is averaged away.`)
+    + st(1, x ? fmt(x.raw2t,1) + ' °C' : '—', `2 m temperature the model gives at its own ground (${zm} m). Not the summit.`)
+    + st(2, x ? fmt(x.lapse,1) + ' °C' : '—', `Same value moved up ${S.z - zm} m at ${D.lapse} K/km. Simple, but it inherits the valley's surface air.`)
+    + st(3, x && x.fa ? fmt(x.fa.t,1) + ' °C' : '—', x && x.fa ? `Free air at ${S.z} m, interpolated between pressure levels (${x.fa.layer}). This is what the page uses.` : '')
+    + st(3, x && x.fa ? `${fmt(x.wind10)} → ${fmt(x.fa.wind)} km/h` : '—', 'Wind: the model\'s 10 m wind on its smooth ground vs free-air wind at the real height.');
+}
+
+function cell(lv, unc, txt, cur){ return `<div class="${lv == null ? '' : 'c' + lv} ${unc ? 'unc' : ''} ${cur ? 'cur' : ''}">${txt}</div>`; }
+function v3(){
+  const n = TIMES.length, ens = D.ensemble || {};
+  let g = `<div class="lab h"></div>` + TIMES.map((t, i) => `<div class="h">${teh(t).replace(' ', '<br>')}</div>`).join('');
+  for (const k of KEYS) g += `<div class="lab" style="color:${COL[k]}">${NAME[k]}</div>` + TIMES.map((t, i) => {
+    const r = row(k, t), f = r && r[site] && r[site].flags; const code = f ? ['wind','chill','cloud','precip'].filter(c => f[c] === f.worst && f.worst > 0).map(c => c[0].toUpperCase()).join('') : '';
+    return cell(f ? f.worst : null, false, f ? (code || '·') : '—', i === ti); }).join('');
+  if (site === 'summit') for (const [name, e] of Object.entries(ens)) g += `<div class="lab">${name} <span style="color:var(--muted);font-size:11px">&nbsp;p(wind≥${TH.wind.amber})</span></div>` + TIMES.map((t, i) => {
+    const s = e.steps.find(x => x.valid === t); if (!s || !s.winds.length) return cell(null, false, '—', i === ti);
+    const p = s.winds.filter(w => w >= TH.wind.amber).length / s.winds.length, r = s.winds.filter(w => w >= TH.wind.red).length / s.winds.length;
+    return cell(r >= 0.5 ? 2 : p >= 0.5 ? 1 : 0, p > 0.1 && p < 0.9, Math.round(100 * p) + '%', i === ti); }).join('');
+  g += `<div class="lab"><b>combined</b></div>` + D.steps.map((s, i) => cell(s[site].worst, s[site].uncertain, s[site].label + (s[site].uncertain ? '?' : ''), i === ti)).join('');
+  $('grid').style.gridTemplateColumns = `200px repeat(${n}, 1fr)`;
+  $('grid').innerHTML = g;
+  const w = D.windows[site];
+  $('wins').innerHTML = (w.length ? `<b>Quieter windows in the models</b> (every model under every amber line, models agree, ≥ 12 h): ` + w.map(([a, b]) => `${teh(a)} → ${teh(b)}`).join(' · ')
+      : `<b>No quieter window</b> of 12 h or more where all models agree in the next 72 h.`)
+    + `<br><span class="warn">This is not a "safe" window. Models miss local effects; the summit can be in cloud or wind the models do not resolve.</span> Codes: W wind · C wind chill · R in-cloud (RH) · P precipitation.`;
+}
+
+function v4(){
+  const rows = Object.entries(TH).map(([k, t]) => `<tr><td>${t.en}</td><td class="lv1">${t.amber} ${t.unit}</td><td class="lv2">${t.red == null ? '—' : t.red + ' ' + t.unit}</td></tr>`).join('');
+  $('rules').innerHTML = `<table><tr><th>criterion (at the site's real height)</th><th>amber: near</th><th>red: over</th></tr>${rows}</table>
+  <div class="box">1 · For each model: free-air T, wind, RH at ${D.sites[site].z} m → wind chill (Environment Canada / NWS 2001).<br>
+  2 · Each criterion → under / near / over. A model's step = its worst criterion.<br>
+  3 · Across models: the <b>worst</b> model sets the colour (we prefer a false alarm to a missed one).<br>
+  4 · <b>Uncertain</b> (hatched) if the models' winds differ by more than ${D.spread_wind} km/h, if only some models are red, or if 10–90% of ensemble members pass ${TH.wind.amber} km/h.<br>
+  5 · A "quieter window" = ≥ 2 consecutive 6-h steps that are under and not uncertain. Never called safe.</div>
+  <div class="box" style="color:var(--muted)">Wind-chill bands from Environment Canada: −28 high risk (exposed skin can freeze in 10–30 min), −40 very high (5–10 min). Wind and cloud lines are an editorial choice and must be validated against field reports.</div>`;
+  const t = TIMES[ti];
+  $('fired').innerHTML = `<div style="margin-bottom:8px">${teh(t)} Tehran · ${D.sites[site].name_en}</div>` + KEYS.map(k => { const r = row(k, t), x = r && r[site]; if (!x || !x.flags) return '';
+    const f = x.flags, v = x.fa; const b = (c, val, u) => `<span class="flag l${f[c] || 0}">${c} ${fmt(val)}${u}</span>`;
+    return `<div style="margin:6px 0"><span style="color:${COL[k]};display:inline-block;width:70px">${NAME[k]}</span>${b('wind', v.wind, '')}${b('chill', v.chill, '°')}${b('cloud', v.rh, '%')}${x.precip == null ? '' : b('precip', x.precip, '')}</div>`; }).join('')
+    + `<div class="box">combined: <b class="lv${D.steps[ti][site].worst}">${D.steps[ti][site].label}</b>${D.steps[ti][site].uncertain ? ' · <span class="warn">uncertain</span>' : ''} · wind spread ${fmt(D.steps[ti][site].spread)} km/h`
+    + (D.steps[ti][site].p_wind_amber != null ? ` · ensemble p(wind ≥ ${TH.wind.amber}) = ${Math.round(100 * D.steps[ti][site].p_wind_amber)}%` : '') + '</div>';
+}
+
+function draw(){
+  document.querySelectorAll('.view').forEach(v => v.classList.toggle('on', v.id === 'v' + view));
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === view));
+  $('site').textContent = D.sites[site].name_en + ' · ' + D.sites[site].z + ' m';
+  $('run').textContent = 'built ' + D.made;
+  $('src').textContent = 'Data: ECMWF open data (CC BY 4.0) · NOAA GFS (public domain)' + (D.om ? ' · Open-Meteo (rehearsal, ' + D.om.fetched + ')' : '') + ' · times in Tehran (UTC+3:30)';
+  ({'1': v1, '2': v2, '3': v3, '4': v4})[view]();
+}
+document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { view = b.dataset.v; draw(); });
+addEventListener('keydown', e => {
+  const k = e.key;
+  if ('1234'.includes(k) && k.length === 1) view = k;
+  else if (k === 'ArrowRight') { if (view === '2') stage = Math.min(3, stage + 1); else ti = Math.min(TIMES.length - 1, ti + 1); }
+  else if (k === 'ArrowLeft') { if (view === '2') stage = Math.max(0, stage - 1); else ti = Math.max(0, ti - 1); }
+  else if (k === '.') ti = Math.min(TIMES.length - 1, ti + 1);
+  else if (k === ',') ti = Math.max(0, ti - 1);
+  else if (k === 's' || k === 'S') site = site === 'summit' ? 'camp3' : 'summit';
+  else if (k === 'm' || k === 'M') model = KEYS[(KEYS.indexOf(model) + 1) % KEYS.length];
+  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+  else return;
+  e.preventDefault(); draw();
+});
+draw();
+</script></body></html>

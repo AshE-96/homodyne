@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-008-deep-dive
 hmd: HMD-008
 kind: deep-dive
-date: 2027-01-22
+date: 2027-02-12
 tags: ["جواب‌نامه", "خطای برچسب", "ممیزی", "بازهٔ Wilson", "بازتولید"]
 sources:
   - title: "Gema و همکاران (۲۰۲۴): Are We Done with MMLU?، arXiv 2406.04127"

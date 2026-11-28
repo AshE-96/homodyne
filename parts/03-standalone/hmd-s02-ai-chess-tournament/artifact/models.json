@@ -1,0 +1,11 @@
+{
+ "_how": "Five slots, as in HMD-K01. On run day write the exact model ID for each (provider:model, as tools/llm.py takes it), copied from the provider's model list that day, and the date. Leave null until then: plan/run refuse an empty slot. Or pass --model SLOT=provider:model. The ID each provider reports it actually served is recorded per call (served). If the paid pilot shows that one slot rejects the JSON schema, add \"no_schema\": true to that slot only (protocol.md §3). protocol.md §1.",
+ "chosen_on": null,
+ "slots": [
+  {"slot": "gemini", "label": "Gemini", "model": null, "hint": "gemini:<current Gemini flagship id>"},
+  {"slot": "claude", "label": "Claude", "model": null, "hint": "anthropic:<current Claude flagship id, e.g. claude-opus-5-5 if still the flagship>"},
+  {"slot": "gpt", "label": "GPT", "model": null, "hint": "openai:<current GPT flagship id>"},
+  {"slot": "open1", "label": "Open model 1", "model": null, "hint": "openrouter:<vendor/open-weight model>"},
+  {"slot": "open2", "label": "Open model 2", "model": null, "hint": "openrouter:<a second open-weight model from another lab>"}
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "problem": "IMO 2025 Problem 6 (tiles on a 2025 × 2025 grid)",
+ "status": "HOMODYNE RUBRIC in the style of an IMO marking scheme. NOT the official IMO 2025 marking scheme. Official solution: IMO 2025 Shortlist, problem C8 (published by the IMO after IMO 2026).",
+ "answer": "2112 (= 2025 + 2·45 − 3)",
+ "answer_fa": "۲۱۱۲ (= ۲۰۲۵ + ۲ × ۴۵ − ۳)",
+ "max": 7,
+ "items": [
+  {
+   "id": "A",
+   "points": 0,
+   "fa": "فقط عدد ۲۱۱۲، بی ساخت و اثبات (عدد در اینترنت هست)",
+   "en": "The number 2112 alone, with no construction or proof (it is all over the internet)"
+  },
+  {
+   "id": "B",
+   "points": 2,
+   "fa": "ساخت درست و کاملاً بررسی‌شده با ۲۱۱۲ کاشی",
+   "en": "A correct, fully checked construction with 2112 tiles"
+  },
+  {
+   "id": "C",
+   "points": 2,
+   "fa": "پیشرفت جدی در کران پایین (مثلاً پیوند جای خانه‌های خالی با یک جایگشت و زیردنباله‌های یکنوا)",
+   "en": "Substantial progress on the lower bound (e.g. linking the empty squares to a permutation and its monotone subsequences)"
+  },
+  {
+   "id": "D",
+   "points": 3,
+   "fa": "اثبات کامل کران پایین ۲۱۱۲",
+   "en": "A complete proof of the lower bound 2112"
+  }
+ ],
+ "deductions": [
+  {
+   "fa": "ساخت بدون شمارش درست کاشی‌ها: حداکثر ۱ از B",
+   "en": "Construction without a correct tile count: at most 1 of B"
+  },
+  {
+   "fa": "ادعای «واضح است» در گام اصلی کران پایین: بدون امتیاز D",
+   "en": "\"Clearly\" in the key step of the lower bound: no credit for D"
+  }
+ ],
+ "grader_note": "Grade blind. This problem got a full score from 6 of 630 contestants in 2025 (imo-official.org); expect low scores and keep partial credit strict."
+}

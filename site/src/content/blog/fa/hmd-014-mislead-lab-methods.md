@@ -5,7 +5,7 @@ lang: fa
 translationKey: hmd-014-deep-dive
 hmd: HMD-014
 kind: deep-dive
-date: 2027-03-12
+date: 2027-04-16
 tags: ["پارادوکس سیمپسون", "انتشار گزینشی", "best-of-N", "holdout", "فاصلهٔ Wilson", "آلودگی داده", "بنچمارک"]
 sources:
   - title: "Singh و همکاران (2025). The Leaderboard Illusion. arXiv 2504.20879 (v1، ۲۹ آوریل ۲۰۲۵؛ v2، ۱۲ مه ۲۰۲۵)"
